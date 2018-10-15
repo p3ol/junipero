@@ -1,2 +1,11 @@
 .udf-text-field
-  background: #FFF
+  box-sizing: border-box
+  display: inline-block
+  min-width: 200px
+
+  &.udf-invalid.udf-required
+    border: 1px solid #F00
+
+  input
+    box-sizing: border-box
+    width: 100%

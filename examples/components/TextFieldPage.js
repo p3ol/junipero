@@ -19,7 +19,10 @@ class TextFieldPage extends React.Component {
     return (
       <div>
         <h1>TextField example</h1>
-        <TextField onChange={this.onChange.bind(this)} />
+        <TextField
+          required={true}
+          onChange={this.onChange.bind(this)}
+        />
         <p>Current value :</p>
         <pre>{ JSON.stringify(this.state.field)}</pre>
       </div>
