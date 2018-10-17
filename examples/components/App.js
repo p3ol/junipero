@@ -1,9 +1,22 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { createLogger } from 'redux-logger';
+
+import rootReducer from '../reducers';
 
 import Home from './Home';
-import TextFieldPage from './TextFieldPage';
+import TextFieldPage from '../containers/TextFieldPage';
+import Toolbox from '../containers/Toolbox';
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(
+    createLogger(),
+  )
+);
 
 class App extends React.Component {
 
@@ -18,12 +31,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router history={this.history}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/text-field" component={TextFieldPage} />
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <React.Fragment>
+          <Router history={this.history}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/text-field" component={TextFieldPage} />
+            </Switch>
+          </Router>
+
+          <Toolbox />
+        </React.Fragment>
+      </Provider>
     );
   }
 

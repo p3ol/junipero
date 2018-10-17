@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './TextField.styl';
+import '../theme/components/TextField.styl';
 
 const propTypes = {
+  className: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
@@ -17,6 +18,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  className: null,
   value: '',
   type: 'text',
   label: '',
@@ -46,8 +48,8 @@ class TextField extends React.Component {
 
     if (
       e.defaultPrevented ||
-      e.isImmediatePropagationStopped ||
-      e.isPropagationStopped
+      (e.isImmediatePropagationStopped && e.isImmediatePropagationStopped()) ||
+      (e.isPropagationStopped && e.isPropagationStopped())
     ) {
       return false;
     }
@@ -61,8 +63,8 @@ class TextField extends React.Component {
 
     if (
       e.defaultPrevented ||
-      e.isImmediatePropagationStopped ||
-      e.isPropagationStopped
+      (e.isImmediatePropagationStopped && e.isImmediatePropagationStopped()) ||
+      (e.isPropagationStopped && e.isPropagationStopped())
     ) {
       return false;
     }
@@ -90,20 +92,37 @@ class TextField extends React.Component {
     return (
       <div
         className={[
-          'udf-text-field',
-          !this.state.valid && 'udf-invalid',
-          this.props.required && 'udf-required',
-          this.props.placeholder && 'udf-placeholder',
+          'udf',
+          'text-field',
+          this.state.focused ? 'focused' : null,
+          this.state.value ? 'dirty' : null,
+          !this.state.valid ? 'invalid' : null,
+          this.props.disabled ? 'disabled' : null,
+          this.props.required ? 'required' : null,
+          this.props.placeholder ? 'placeholder' : null,
+          this.props.className,
         ].join(' ')}
       >
-        <input
-          type={this.props.type}
-          disabled={this.props.disabled}
-          required={this.props.required}
-          onFocus={this.onFocus.bind(this)}
-          onBlur={this.onBlur.bind(this)}
-          onChange={this.onChange.bind(this)}
-        />
+
+        <div className="input-wrapper">
+          <input
+            type={this.props.type}
+            disabled={this.props.disabled}
+            required={this.props.required}
+            placeholder={this.props.placeholder}
+            onFocus={this.onFocus.bind(this)}
+            onBlur={this.onBlur.bind(this)}
+            onChange={this.onChange.bind(this)}
+          />
+
+          { this.props.label && (
+            <span className="label">{ this.props.label }</span>
+          ) }
+        </div>
+
+        { this.props.error && (
+          <span className="error">{ this.props.error }</span>
+        ) }
       </div>
     );
   }

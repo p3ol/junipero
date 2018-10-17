@@ -1,0 +1,64 @@
+@import "../utils/vars"
+
+.udf.text-field
+  display: inline-block
+  min-width: 200px
+  position: relative
+
+  &.invalid.required
+    .input-wrapper
+      &:after
+        background: $color-monza
+
+      .label
+        color: $color-monza
+
+  &.disabled
+    .input-wrapper
+      opacity: .3
+
+  &.dirty, &.focused
+    .input-wrapper
+      &:after
+        background: $color-eastern-blue
+
+      .label
+        color: $color-eastern-blue
+
+  &.dirty, &.focused, &.placeholder
+    .input-wrapper
+      .label
+        transform: scale(0.75) translateY(-25px)
+
+  .input-wrapper
+    position: relative
+
+    &:after
+      content: ""
+      width: 100%
+      height: 1px
+      background: $color-dusty-gray
+      display: block
+      transition: background $animation-duration $animation-easing
+
+    input
+      border: none
+      width: 100%
+      padding: 10px 0
+
+    .label
+      position: absolute
+      left: 0
+      bottom: 11px
+      transform-origin: 0 0
+      transition-property: transform, color
+      transition-duration: $animation-duration
+      transition-timing-function: $animation-easing
+      user-select: none
+      pointer-events: none
+
+  .error
+    margin: 5px 0
+    color: $color-monza
+    display: block
+    font-size: 10px
