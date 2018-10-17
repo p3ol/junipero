@@ -14,7 +14,9 @@
         color: $color-monza
 
   &.disabled
-    .input-wrapper
+    .input-wrapper:before,
+    .input-wrapper:after,
+    .input-inner
       opacity: .3
 
   &.dirty, &.focused
@@ -32,6 +34,10 @@
 
   .input-wrapper
     position: relative
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: stretch
 
     &:after
       content: ""
@@ -40,25 +46,88 @@
       background: $color-dusty-gray
       display: block
       transition: background $animation-duration $animation-easing
+      position: relative
+      z-index: 2
 
-    input
-      border: none
-      width: 100%
-      padding: 10px 0
+    .input-inner
+      position: relative
+      z-index: 2
+      max-width: 100%
+      width: auto
+      flex-grow: 1
 
-    .label
-      position: absolute
-      left: 0
-      bottom: 11px
-      transform-origin: 0 0
-      transition-property: transform, color
-      transition-duration: $animation-duration
-      transition-timing-function: $animation-easing
-      user-select: none
-      pointer-events: none
+      input
+        border: none
+        display: block
+        width: 100%
+        padding: 10px 0
+        background: transparent
+
+      .label
+        position: absolute
+        left: 0
+        bottom: 11px
+        transform-origin: 0 0
+        transition-property: transform, color
+        transition-duration: $animation-duration
+        transition-timing-function: $animation-easing
+        user-select: none
+        pointer-events: none
+
+    .input-prefix, .input-suffix
+      max-width: none
+      width: auto
+      flex: 0 0 auto
+      position: relative
+      z-index: 2
+
 
   .error
     margin: 5px 0
     color: $color-monza
     display: block
     font-size: 10px
+
+  &.boxed
+
+    .input-wrapper
+
+      &:before
+        content: ""
+        background: $color-catskill-white
+        border-radius: 4px 4px 0 0
+        width: 100%
+        height: 100%
+        position: absolute
+        left: 0
+        top: 0
+        z-index: 1
+
+      &:after
+        background: $color-shuttle-gray
+
+      .input-inner
+        flex-basis: 0
+
+        input
+          padding: 25px 15px 10px
+
+      .label
+        left: 15px
+        bottom: 19px
+
+    &.invalid.required
+      .input-wrapper
+        &:after
+          background: $color-monza
+
+    &.dirty, &.focused
+      .input-wrapper
+        &:after
+          background: $color-eastern-blue
+
+    &.dirty, &.focused, &.placeholder
+      .input-wrapper
+
+        .label
+          transform: scale(0.75) translateY(-12px)

@@ -2,6 +2,7 @@ import {
   TOGGLE_DISABLED,
   TOGGLE_ERROR,
   TOGGLE_PLACEHOLDER,
+  TOGGLE_BOXED,
 } from '../actions/tools';
 
 const tools = (state = {}, action) => {
@@ -23,6 +24,12 @@ const tools = (state = {}, action) => {
       return {
         ...state,
         placeholder: state.placeholder ? null : 'Placeholder',
+      };
+
+    case TOGGLE_BOXED:
+      return {
+        ...state,
+        boxed: !state.boxed,
       };
 
     default:

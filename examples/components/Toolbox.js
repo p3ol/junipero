@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Toolbox = ({ toggleDisabled, toggleError, togglePlaceholder }) => (
+const Toolbox = ({
+  toggleDisabled,
+  toggleError,
+  togglePlaceholder,
+  toggleBoxed,
+}) => (
   <div
     style={{
       padding: 20,
@@ -23,6 +28,10 @@ const Toolbox = ({ toggleDisabled, toggleError, togglePlaceholder }) => (
       className="btn btn-primary btn-sm btn-block"
       onClick={togglePlaceholder}
     >Toggle placeholder</button>
+    <button
+      className="btn btn-primary btn-sm btn-block"
+      onClick={toggleBoxed}
+    >Toggle boxed</button>
   </div>
 );
 

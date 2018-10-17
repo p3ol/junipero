@@ -7,10 +7,13 @@ const propTypes = {
   className: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
+  boxed: PropTypes.bool,
+  prefix: PropTypes.object,
+  suffix: PropTypes.object,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
@@ -25,6 +28,9 @@ const defaultProps = {
   placeholder: '',
   disabled: false,
   required: false,
+  boxed: false,
+  prefix: null,
+  suffix: null,
   onChange: () => {},
   onFocus: () => {},
   onBlur: () => {},
@@ -88,6 +94,16 @@ class TextField extends React.Component {
     });
   }
 
+  reset() {
+    this.setState({
+      focused: false,
+      value: this.props.value || '',
+      valid: this.props.valid || true,
+    }, () => {
+      this.props.onChange({});
+    });
+  }
+
   render() {
     return (
       <div
@@ -100,23 +116,35 @@ class TextField extends React.Component {
           this.props.disabled ? 'disabled' : null,
           this.props.required ? 'required' : null,
           this.props.placeholder ? 'placeholder' : null,
+          this.props.boxed ? 'boxed' : null,
           this.props.className,
         ].join(' ')}
       >
 
         <div className="input-wrapper">
-          <input
-            type={this.props.type}
-            disabled={this.props.disabled}
-            required={this.props.required}
-            placeholder={this.props.placeholder}
-            onFocus={this.onFocus.bind(this)}
-            onBlur={this.onBlur.bind(this)}
-            onChange={this.onChange.bind(this)}
-          />
+          { this.props.prefix && (
+            <div className="input-prefix">{ this.props.prefix }</div>
+          ) }
 
-          { this.props.label && (
-            <span className="label">{ this.props.label }</span>
+          <div className="input-inner">
+            <input
+              type={this.props.type}
+              disabled={this.props.disabled}
+              required={this.props.required}
+              placeholder={this.props.placeholder}
+              value={this.state.value}
+              onFocus={this.onFocus.bind(this)}
+              onBlur={this.onBlur.bind(this)}
+              onChange={this.onChange.bind(this)}
+            />
+
+            { this.props.label && (
+              <span className="label">{ this.props.label }</span>
+            ) }
+          </div>
+
+          { this.props.suffix && (
+            <div className="input-suffix">{ this.props.suffix }</div>
           ) }
         </div>
 

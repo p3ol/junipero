@@ -4,6 +4,7 @@ import {
   toggleDisabled,
   toggleError,
   togglePlaceholder,
+  toggleBoxed,
 } from '../actions/tools';
 
 import Toolbox from '../components/Toolbox';
@@ -24,6 +25,9 @@ const mapDispatchToProps = dispatch => {
     },
     togglePlaceholder: () => {
       dispatch(togglePlaceholder());
+    },
+    toggleBoxed: () => {
+      dispatch(toggleBoxed());
     },
   };
 };
