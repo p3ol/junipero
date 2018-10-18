@@ -34,7 +34,7 @@ const defaultProps = {
   onChange: () => {},
   onFocus: () => {},
   onBlur: () => {},
-  validate: (value) => /.+/g.test(value),
+  validate: value => /.+/g.test(value),
 };
 
 class TextField extends React.Component {
