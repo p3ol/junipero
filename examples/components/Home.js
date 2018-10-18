@@ -8,6 +8,7 @@ const Home = () => (
     <h2>Components</h2>
     <ul>
       <li><Link to="/text-field">TextField</Link></li>
+      <li><Link to="/check-box">CheckBox</Link></li>
     </ul>
   </div>
 );

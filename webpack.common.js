@@ -43,6 +43,9 @@ module.exports = {
         },
         'stylus-loader',
       ],
+    }, {
+      test: /\.svg$/,
+      loader: 'url-loader',
     }],
   },
   node: false,

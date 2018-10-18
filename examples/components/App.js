@@ -9,6 +9,8 @@ import rootReducer from '../reducers';
 
 import Home from './Home';
 import TextFieldPage from '../containers/TextFieldPage';
+import CheckBoxPage from '../containers/CheckBoxPage';
+
 import Toolbox from '../containers/Toolbox';
 
 const store = createStore(
@@ -37,6 +39,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/text-field" component={TextFieldPage} />
+              <Route exact path="/check-box" component={CheckBoxPage} />
             </Switch>
           </Router>
 
