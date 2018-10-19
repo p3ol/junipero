@@ -10,6 +10,7 @@ const Home = () => (
       <li><Link to="/text-field">TextField</Link></li>
       <li><Link to="/check-box">CheckBox</Link></li>
       <li><Link to="/select-field">SelectField</Link></li>
+      <li><Link to="/slider">SliderPage</Link></li>
     </ul>
   </div>
 );

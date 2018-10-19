@@ -1,0 +1,70 @@
+@import "../utils/vars"
+
+$handle-size = 16px
+$slide-size = 6px
+
+.udf.slider
+  display: block
+  min-width: $default-width
+  cursor: default
+
+  .slider-wrapper
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: stretch
+
+    .label, .slide, .value
+      max-width: 100%
+      width: auto
+      flex-grow: 1
+      min-width: 0
+      flex: 1
+
+    .slide
+      min-width: 100px
+      display: block
+      height: $slide-size
+      width: unquote("calc(100% - ") $handle-size unquote(")")
+      background: $color-botticelli
+      margin-top: ($slide-size / 2)
+      position: relative
+
+      .fill
+        max-width: 100%
+        background: $color-surfie-green
+        height: 100%
+        left: 0
+        top: 0
+        position: absolute
+        z-index: 2
+
+      .handle
+        background: $color-eastern-blue
+        border-radius: 100%
+        box-shadow: 0 0 4px rgba($color-black, .25)
+        cursor: pointer
+        height: $handle-size
+        left: -($handle-size / 2)
+        position: absolute
+        top: -($handle-size / 2) + ($slide-size / 2)
+        width: $handle-size
+        z-index: 3
+
+    .label
+      padding-right: 20px
+      color: $color-eastern-blue
+      font-weight: 600
+      text-align: right
+
+    .value
+      padding-left: 20px
+      color: $color-shuttle-gray
+      font-weight: 600
+
+  &.disabled
+    .slide
+      opacity: .3
+
+      .handle
+        cursor: default

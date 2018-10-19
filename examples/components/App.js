@@ -11,6 +11,7 @@ import Home from './Home';
 import TextFieldPage from '../containers/TextFieldPage';
 import CheckBoxPage from '../containers/CheckBoxPage';
 import SelectFieldPage from '../containers/SelectFieldPage';
+import SliderPage from '../containers/SliderPage';
 
 import Toolbox from '../containers/Toolbox';
 
@@ -42,6 +43,7 @@ class App extends React.Component {
               <Route exact path="/text-field" component={TextFieldPage} />
               <Route exact path="/check-box" component={CheckBoxPage} />
               <Route exact path="/select-field" component={SelectFieldPage} />
+              <Route exact path="/slider" component={SliderPage} />
             </Switch>
           </Router>
 
