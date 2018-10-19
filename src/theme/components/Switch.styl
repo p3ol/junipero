@@ -1,0 +1,64 @@
+@import "../utils/vars"
+
+.junipero.switch
+  display: inline-block
+  cursor: default
+
+  .switch-wrapper
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: stretch
+
+    .switch-inner
+      max-width: 50px
+      flex: 0 0 auto
+
+      input
+        display: none
+
+      .switch
+        background: $color-alto
+        width: 40px
+        margin-right: 10px
+        height: 20px
+        border-radius: 20px
+        position: relative
+        transition: background $animation-duration-fast $animation-easing
+        padding: 2px
+
+        .handle
+          background: $color-white
+          width: 16px
+          height: 16px
+          border-radius: 100%
+          position: relative
+          left: 0
+          transition-property: left, transform
+          transition-duration: $animation-duration-fast
+          transition-timing-function: $animation-easing
+
+    .label
+      max-width: 100%
+      width: auto
+      flex-grow: 1
+      flex-basis: 0
+      color: $color-alto
+      user-select: none
+
+  &.checked
+    .switch-wrapper
+      .switch-inner
+        .switch
+          background: $color-eastern-blue
+
+          .handle
+            left: 100%
+            transform: translateX(-100%)
+
+    .label
+      color: $color-eastern-blue
+
+  &.disabled
+    .switch-wrapper
+      opacity: .3

@@ -98,7 +98,7 @@ class Slider extends React.Component {
   }
 
   onMouseMove(e) {
-    if (!this.state.moving || this.props.disabled) {
+    if (!this.state.moving || !this.slide || this.props.disabled) {
       return;
     }
 
@@ -112,6 +112,10 @@ class Slider extends React.Component {
   }
 
   onMouseUp(e) {
+    if (!this.state.moving || !this.slide || this.props.disabled) {
+      return;
+    }
+
     this.setState({
       moving: false,
     });
