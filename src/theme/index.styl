@@ -80,7 +80,7 @@
           color: $color-shuttle-gray
           position: absolute
           left: 0
-          bottom: 11px
+          top: 9px
           transform-origin: 0 0
           transition-property: transform, color
           transition-duration: $animation-duration
@@ -122,11 +122,12 @@
       .field-inner
 
         .field
-          padding: 25px 15px 10px
+          margin-top: 25px
+          padding: 0 15px 10px
 
         .label
           left: 15px
-          bottom: 19px
+          top: 17px
 
     &.invalid.required
       .field-wrapper
@@ -138,8 +139,8 @@
         &:after
           background: $color-eastern-blue
 
-    &.dirty, &.focused, &.placeholder, &.opened
+    &.dirty, &.focused, &.placeholder
       .field-wrapper
 
         .label
-          transform: scale(0.75) translateY(-12px)
+          transform: scale(0.75) translateY(-13px)

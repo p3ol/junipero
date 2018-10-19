@@ -14,6 +14,7 @@ const propTypes = {
   boxed: PropTypes.bool,
   prefix: PropTypes.object,
   suffix: PropTypes.object,
+  rows: PropTypes.number,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
@@ -31,6 +32,7 @@ const defaultProps = {
   boxed: false,
   prefix: null,
   suffix: null,
+  rows: 5,
   onChange: () => {},
   onFocus: () => {},
   onBlur: () => {},
@@ -104,7 +106,13 @@ class TextField extends React.Component {
     });
   }
 
+  getType() {
+    return this.props.type === 'password' ? this.props.type : 'text';
+  }
+
   render() {
+    const Tag = this.props.type === 'multiline' ? 'textarea' : 'input';
+
     return (
       <div
         className={[
@@ -128,13 +136,14 @@ class TextField extends React.Component {
           ) }
 
           <div className="field-inner">
-            <input
+            <Tag
               className="field"
-              type={this.props.type}
+              type={this.getType()}
               disabled={this.props.disabled}
               required={this.props.required}
               placeholder={this.props.placeholder}
               value={this.state.value}
+              rows={this.props.rows}
               onFocus={this.onFocus.bind(this)}
               onBlur={this.onBlur.bind(this)}
               onChange={this.onChange.bind(this)}

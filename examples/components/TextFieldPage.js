@@ -80,6 +80,26 @@ class TextFieldPage extends React.Component {
             <pre>{ JSON.stringify(this.state.password, null, 2)}</pre>
           </div>
         </div>
+
+        <h2 className="mt-5">Multiline</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <TextField
+              type="multiline"
+              label="Label"
+              required={true}
+              boxed={this.props.boxed}
+              error={this.props.error}
+              placeholder={this.props.placeholder}
+              disabled={this.props.disabled}
+              onChange={this.onChange.bind(this, 'default')}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.default, null, 2)}</pre>
+          </div>
+        </div>
       </div>
     );
   }
