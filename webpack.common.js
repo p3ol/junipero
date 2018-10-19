@@ -3,7 +3,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
-    'undefined': './src/index.js',
+    'junipero': './src/index.js',
     'examples': './examples/index.js',
   },
   target: 'web',

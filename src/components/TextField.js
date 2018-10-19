@@ -116,8 +116,8 @@ class TextField extends React.Component {
     return (
       <div
         className={[
-          'udf',
-          'udf-field',
+          'junipero',
+          'junipero-field',
           'text-field',
           this.state.focused ? 'focused' : null,
           this.state.value ? 'dirty' : null,

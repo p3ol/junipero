@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { CheckBox } from '@poool/undefined';
+import { CheckBox } from '@poool/junipero';
 
 class CheckBoxPage extends React.Component {
 

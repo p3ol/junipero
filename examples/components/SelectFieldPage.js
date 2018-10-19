@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { SelectField } from '@poool/undefined';
+import { SelectField } from '@poool/junipero';
 
 class SelectFieldPage extends React.Component {
 

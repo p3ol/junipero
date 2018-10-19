@@ -27,7 +27,7 @@ module.exports = merge(common, {
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@poool/undefined': path.resolve('./src'),
+      '@poool/junipero': path.resolve('./src'),
     },
   },
 });

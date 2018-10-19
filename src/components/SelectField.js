@@ -146,8 +146,8 @@ class SelectField extends React.Component {
       <div
         ref={(ref) => this.container = ref}
         className={[
-          'udf',
-          'udf-field',
+          'junipero',
+          'junipero-field',
           'select-field',
           this.props.disabled ? 'disabled' : null,
           this.state.opened ? 'opened' : null,

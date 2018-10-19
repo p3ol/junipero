@@ -1,6 +1,6 @@
 @import "utils/vars"
 
-.udf
+.junipero
   font-family: "Open Sans", sans-serif
   font-size: 14px
   color: $color-midnight
@@ -9,7 +9,7 @@
     outline: none
     box-sizing: border-box
 
-  &.udf-field
+  &.junipero-field
     position: relative
     min-width: $default-width
     display: block
@@ -95,52 +95,52 @@
       position: relative
       z-index: 2
 
-  .error
-    margin: 5px 0
-    color: $color-monza
-    display: block
-    font-size: 10px
+    .error
+      margin: 5px 0
+      color: $color-monza
+      display: block
+      font-size: 10px
 
-  &.boxed
+    &.boxed
 
-    .field-wrapper
-
-      &:before
-        content: ""
-        background: $color-catskill-white
-        border-radius: 4px 4px 0 0
-        width: 100%
-        height: 100%
-        position: absolute
-        left: 0
-        top: 0
-        z-index: 1
-
-      &:after
-        background: $color-shuttle-gray
-
-      .field-inner
-
-        .field
-          margin-top: 25px
-          padding: 0 15px 10px
-
-        .label
-          left: 15px
-          top: 17px
-
-    &.invalid.required
       .field-wrapper
+
+        &:before
+          content: ""
+          background: $color-catskill-white
+          border-radius: 4px 4px 0 0
+          width: 100%
+          height: 100%
+          position: absolute
+          left: 0
+          top: 0
+          z-index: 1
+
         &:after
-          background: $color-monza
+          background: $color-shuttle-gray
 
-    &.dirty, &.focused
-      .field-wrapper
-        &:after
-          background: $color-eastern-blue
+        .field-inner
 
-    &.dirty, &.focused, &.placeholder
-      .field-wrapper
+          .field
+            margin-top: 25px
+            padding: 0 15px 10px
 
-        .label
-          transform: scale(0.75) translateY(-13px)
+          .label
+            left: 15px
+            top: 17px
+
+      &.invalid.required
+        .field-wrapper
+          &:after
+            background: $color-monza
+
+      &.dirty, &.focused
+        .field-wrapper
+          &:after
+            background: $color-eastern-blue
+
+      &.dirty, &.focused, &.placeholder
+        .field-wrapper
+
+          .label
+            transform: scale(0.75) translateY(-13px)

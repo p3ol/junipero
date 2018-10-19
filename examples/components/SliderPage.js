@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Slider } from '@poool/undefined';
+import { Slider } from '@poool/junipero';
 
 class SliderPage extends React.Component {
 

@@ -135,7 +135,7 @@ class Slider extends React.Component {
     return (
       <div
         className={[
-          'udf',
+          'junipero',
           'slider',
           this.props.disabled ? 'disabled' : null,
           this.props.className,

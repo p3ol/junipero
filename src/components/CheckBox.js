@@ -71,7 +71,7 @@ class CheckBox extends React.Component {
     return (
       <div
         className={[
-          'udf',
+          'junipero',
           'check-box',
           this.state.active ? 'active' : null,
           this.state.checked ? 'checked' : null,
