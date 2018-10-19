@@ -11,6 +11,8 @@
 
   &.udf-field
     position: relative
+    min-width: $default-width
+    display: block
 
     &.invalid.required
       .field-wrapper
@@ -65,7 +67,6 @@
         width: auto
         flex-grow: 1
         min-width: 0
-        flex: 1
 
         .field
           width: 100%
@@ -119,7 +120,6 @@
         background: $color-shuttle-gray
 
       .field-inner
-        flex-basis: 0
 
         .field
           padding: 25px 15px 10px

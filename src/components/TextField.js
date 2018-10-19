@@ -109,6 +109,7 @@ class TextField extends React.Component {
       <div
         className={[
           'udf',
+          'udf-field',
           'text-field',
           this.state.focused ? 'focused' : null,
           this.state.value ? 'dirty' : null,
@@ -121,13 +122,14 @@ class TextField extends React.Component {
         ].join(' ')}
       >
 
-        <div className="input-wrapper">
+        <div className="field-wrapper">
           { this.props.prefix && (
-            <div className="input-prefix">{ this.props.prefix }</div>
+            <div className="field-prefix">{ this.props.prefix }</div>
           ) }
 
-          <div className="input-inner">
+          <div className="field-inner">
             <input
+              className="field"
               type={this.props.type}
               disabled={this.props.disabled}
               required={this.props.required}
@@ -144,7 +146,7 @@ class TextField extends React.Component {
           </div>
 
           { this.props.suffix && (
-            <div className="input-suffix">{ this.props.suffix }</div>
+            <div className="field-suffix">{ this.props.suffix }</div>
           ) }
         </div>
 

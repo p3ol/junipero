@@ -1,8 +1,8 @@
 @import "../utils/vars"
 
 .udf.udf-field.select-field
-  display: inline-block
-  width: $default-width
+  display: block
+  min-width: $default-width
   position: relative
 
   .field-wrapper
@@ -10,6 +10,7 @@
     cursor: default
 
     .field-inner
+      flex: 1
 
       .field
         color: $color-midnight
