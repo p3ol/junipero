@@ -4,25 +4,17 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   entry: {
     'junipero': './src/index.js',
-    'examples': './examples/index.js',
   },
   target: 'web',
+  optimization: {
+    minimize: false,
+  },
   module: {
     rules: [{
       test: /\.js/,
       exclude: /node_modules/,
       use: [{
         loader: 'babel-loader',
-        query: {
-          presets: [
-            ['@babel/preset-env', { 'modules': false }],
-            '@babel/preset-react',
-          ],
-          plugins: [
-            '@babel/plugin-proposal-optional-chaining',
-            '@babel/plugin-proposal-object-rest-spread',
-          ],
-        },
       }],
     }, {
       test: /\.styl$/,
@@ -49,9 +41,15 @@ module.exports = {
     }],
   },
   node: false,
+  externals: {
+    react: 'React',
+    'prop-types': 'PropTypes',
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
+    library: 'junipero',
+    libraryTarget: 'umd',
     sourceMapFilename: '[name].js.map',
   },
 };

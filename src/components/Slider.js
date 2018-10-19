@@ -57,14 +57,10 @@ class Slider extends React.Component {
   }
 
   getValue(value) {
+    const { min, max, step } = this.props;
+
     return parseFloat((
-      Math.max(
-        this.props.min,
-        Math.min(
-          this.props.max,
-          Math.round(value / this.props.step) * this.props.step
-        )
-      )
+      Math.max(min, Math.min(max, Math.round(value / step) * step))
     ).toFixed(this.state.precision));
   }
 

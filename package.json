@@ -1,9 +1,9 @@
 {
-  "name": "undefined",
+  "name": "junipero",
   "version": "0.0.1",
   "description": "Poool internal components library",
-  "main": "dist/undefined.min.js",
-  "repository": "https://github.com/p3ol/undefined.git",
+  "main": "dist/junipero.js",
+  "repository": "https://github.com/p3ol/junipero.git",
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
   "private": true,
@@ -43,6 +43,7 @@
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.20.2",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
@@ -52,6 +53,6 @@
   },
   "scripts": {
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.js --hot --inline --open",
-    "build": "./node_modules/.bin/webpack --config webpack.prod.js"
+    "build": "./node_modules/.bin/webpack --config webpack.release.js"
   }
 }

@@ -6,6 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
+  entry: {
+    'examples': './examples/index.js',
+  },
   devtool: 'inline-source-map',
   mode: 'development',
   devServer: {
