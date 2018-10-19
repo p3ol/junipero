@@ -10,6 +10,7 @@ const propTypes = {
   required: PropTypes.bool,
   boxed: PropTypes.bool,
   emptyComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  arrowComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   forceValue: PropTypes.bool,
   titleKey: PropTypes.string,
   valueKey: PropTypes.string,
@@ -30,6 +31,7 @@ const defaultProps = {
   boxed: false,
   value: null,
   emptyComponent: null,
+  arrowComponent: (<i className="select-arrow-icon" />),
   forceValue: false,
   titleKey: 'title',
   valueKey: 'value',
@@ -55,6 +57,7 @@ class SelectField extends React.Component {
   }
 
   componentDidMount() {
+    document.addEventListener('click', this.onClickOutside.bind(this), true);
     this.setState({ value: this.getPropValue() });
   }
 
@@ -84,12 +87,35 @@ class SelectField extends React.Component {
   }
 
   onToggle() {
+    if (this.props.disabled) {
+      return;
+    }
+
     this.setState({
       opened: !this.state.opened,
     });
   }
 
+  onClickOutside(e) {
+    if (this.toggle && this.toggle === e.target) {
+      return;
+    }
+
+    if (this.container && !this.container.contains(e.target)) {
+      this.setState({ opened: false });
+    }
+  }
+
+  onOptionClick(option) {
+    this.setState({ opened: false });
+    this.onChange(option);
+  }
+
   onChange(option) {
+    if (this.props.disabled) {
+      return;
+    }
+
     const { forceValue, valueKey, validate } = this.props;
     const value = forceValue ? option[valueKey] : option;
     const valid = validate(value);
@@ -97,6 +123,7 @@ class SelectField extends React.Component {
     this.setState({
       value: option,
       valid,
+      opened: false,
     }, () => {
       this.props.onChange({
         value,
@@ -117,57 +144,80 @@ class SelectField extends React.Component {
   render() {
     return (
       <div
+        ref={(ref) => this.container = ref}
         className={[
           'udf',
+          'udf-field',
           'select-field',
-          this.state.value ? 'dirty' : null,
           this.props.disabled ? 'disabled' : null,
-          this.props.opened ? 'opened' : null,
+          this.state.opened ? 'opened' : null,
+          this.props.required ? 'required' : null,
           !this.props.valid ? 'invalid' : null,
           this.props.boxed ? 'boxed' : null,
+          `placement-${this.props.placement || 'bottom'}`,
           this.props.className,
         ].join(' ')}
       >
-        <div className="select-wrapper">
+        <a
+          ref={(ref) => this.toggle = ref}
+          className="field-wrapper"
+          onClick={this.onToggle.bind(this)}
+          role="button"
+          tabIndex={this.props.tabIndex}
+        >
           { this.props.prefix && (
-            <div className="select-prefix">{ this.props.prefix }</div>
+            <div className="field-prefix">{ this.props.prefix }</div>
           ) }
 
-          <div className="select-inner">
-            <a
-              className="select-toggle"
-              onClick={this.onToggle.bind(this)}
-              role="button"
-              tabIndex={this.props.tabIndex}
-            >
+          <div className="field-inner">
+            <div className="field">
               { this.getCurrentTitle() }
-            </a>
+            </div>
 
-            <ul className="select-menu">
-              { this.props.options.map((item, index) => (
-                <li className="select-menu-item" key={index}>
-                  <a
-                    onClick={this.onChange.bind(this, item)}
-                    role="button"
-                    tabIndex={ this.props.tabIndex + index + 1 }
-                  >
-                    { this.getOptionTitle(item) }
-                  </a>
-                </li>
-              ))}
-            </ul>
+            { this.props.label && (
+              <span className="label">{ this.props.label }</span>
+            ) }
           </div>
 
-          { this.props.suffix && (
-            <div className="select-suffix">{ this.props.suffix }</div>
+          { this.props.arrowComponent && (
+            <div className="select-arrow">
+              { this.props.arrowComponent }
+            </div>
           ) }
-        </div>
+
+          { this.props.suffix && (
+            <div className="field-suffix">{ this.props.suffix }</div>
+          ) }
+        </a>
 
         { this.props.error && (
           <span className="error">{ this.props.error }</span>
         ) }
+
+        <ul
+          className={[
+            'select-menu',
+            `placement-${this.props.placement || 'bottom'}`,
+          ].join(' ')}
+        >
+          { this.props.options.map((item, index) => (
+            <li className="select-menu-item" key={index}>
+              <a
+                onClick={this.onOptionClick.bind(this, item)}
+                role="button"
+                tabIndex={ this.props.tabIndex + index + 1 }
+              >
+                { this.getOptionTitle(item) }
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     );
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClickOutside.bind(this), true);
   }
 
 }

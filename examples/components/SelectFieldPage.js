@@ -31,6 +31,8 @@ class SelectFieldPage extends React.Component {
               required={true}
               label="Label"
               disabled={this.props.disabled}
+              error={this.props.error}
+              valid={!this.props.error}
               boxed={this.props.boxed}
               onChange={this.onChange.bind(this, 'default')}
               emptyComponent="Select one..."
@@ -56,13 +58,15 @@ class SelectFieldPage extends React.Component {
               label="Label"
               disabled={this.props.disabled}
               boxed={this.props.boxed}
+              error={this.props.error}
+              valid={!this.props.error}
               onChange={this.onChange.bind(this, 'objects')}
               emptyComponent="Select one..."
               options={[
                 { title: '5 items', value: 5 },
                 { title: '10 items', value: 10 },
                 { title: '15 items', value: 15 },
-                { title: '20 items', value: 20 },
+                { title: '20 items with a very very long name', value: 20 },
               ]}
             />
           </div>

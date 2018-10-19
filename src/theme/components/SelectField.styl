@@ -1,0 +1,101 @@
+@import "../utils/vars"
+
+.udf.udf-field.select-field
+  display: inline-block
+  width: $default-width
+  position: relative
+
+  .field-wrapper
+    text-decoration: none
+    cursor: default
+
+    .field-inner
+
+      .field
+        color: $color-midnight
+        user-select: none
+
+      .label
+        transform: scale(0.75) translateY(-25px)
+        transition-duration: $animation-duration-fast
+
+    .select-arrow
+      max-width: 30px
+      flex: 0 0 30px
+      position: relative
+      z-index: 2
+      height: 18px
+
+      i.select-arrow-icon
+        width: 14px
+        height: 14px
+        background: url(../images/select-arrow.svg) no-repeat
+        background-size: contain
+        background-position: center
+        display: block
+        margin: auto
+        position: relative
+        top: 1px
+
+  ul.select-menu
+    position: absolute
+    z-index: 1000
+    display: none
+    box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
+    background: $color-white
+    border-radius: 2px
+    min-width: $default-width
+    list-style: none
+    padding: 10px 0
+
+    li.select-menu-item
+      cursor: pointer
+
+      &:hover
+        background: $color-black-squeeze
+
+      a
+        color: $color-eastern-blue
+        text-decoration: none
+        padding: 5px 20px
+        display: block
+
+    &[class*="placement-bottom"]
+      top: calc(100% + 10px)
+
+      &[class*="-left"]
+        left: 0
+
+      &[class*="-right"]
+        right: 0
+
+    &[class*="placement-top"]
+      bottom: calc(100% + 10px)
+
+    &[class*="placement-bottom"],
+    &[class*="placement-top"]
+      &[class*="-left"]
+        left: 0
+
+      &[class*="-right"]
+        right: 0
+
+    &.placement-left
+      right: calc(100% + 10px)
+
+    &.placement-right
+      left: calc(100% + 10px)
+
+  &.opened
+    ul.select-menu
+      display: block
+
+  &.disabled
+    .select-arrow
+      opacity: .3
+
+  &.boxed
+    .field-wrapper
+      .field-inner
+        .label
+          transform: scale(0.75) translateY(-12px)

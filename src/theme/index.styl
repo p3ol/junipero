@@ -8,3 +8,139 @@
   &, & *
     outline: none
     box-sizing: border-box
+
+  &.udf-field
+    position: relative
+
+    &.invalid.required
+      .field-wrapper
+        &:after
+          background: $color-monza
+
+        .field-inner
+          .label
+            color: $color-monza
+
+    &.disabled
+      .field-wrapper:before,
+      .field-wrapper:after,
+      .field-inner
+        opacity: .3
+
+    &.dirty, &.focused, &.opened
+      .field-wrapper
+        &:after
+          background: $color-eastern-blue
+
+        .field-inner
+          .label
+            color: $color-eastern-blue
+
+    &.dirty, &.focused, &.placeholder
+      .field-wrapper
+        .label
+          transform: scale(0.75) translateY(-25px)
+
+    .field-wrapper
+      position: relative
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      justify-content: stretch
+
+      &:after
+        content: ""
+        width: 100%
+        height: 1px
+        background: $color-shuttle-gray
+        display: block
+        transition: background $animation-duration $animation-easing
+        position: relative
+        z-index: 2
+
+      .field-inner
+        position: relative
+        z-index: 2
+        max-width: 100%
+        width: auto
+        flex-grow: 1
+        min-width: 0
+        flex: 1
+
+        .field
+          width: 100%
+          padding: 10px 0
+          background: transparent
+          overflow: hidden
+          user-select: none
+          text-overflow: ellipsis
+          white-space: nowrap
+
+        .label
+          color: $color-shuttle-gray
+          position: absolute
+          left: 0
+          bottom: 11px
+          transform-origin: 0 0
+          transition-property: transform, color
+          transition-duration: $animation-duration
+          transition-timing-function: $animation-easing
+          user-select: none
+          pointer-events: none
+
+    .field-prefix, .field-suffix
+      max-width: none
+      width: auto
+      flex: 0 0 auto
+      position: relative
+      z-index: 2
+
+  .error
+    margin: 5px 0
+    color: $color-monza
+    display: block
+    font-size: 10px
+
+  &.boxed
+
+    .field-wrapper
+
+      &:before
+        content: ""
+        background: $color-catskill-white
+        border-radius: 4px 4px 0 0
+        width: 100%
+        height: 100%
+        position: absolute
+        left: 0
+        top: 0
+        z-index: 1
+
+      &:after
+        background: $color-shuttle-gray
+
+      .field-inner
+        flex-basis: 0
+
+        .field
+          padding: 25px 15px 10px
+
+        .label
+          left: 15px
+          bottom: 19px
+
+    &.invalid.required
+      .field-wrapper
+        &:after
+          background: $color-monza
+
+    &.dirty, &.focused
+      .field-wrapper
+        &:after
+          background: $color-eastern-blue
+
+    &.dirty, &.focused, &.placeholder, &.opened
+      .field-wrapper
+
+        .label
+          transform: scale(0.75) translateY(-12px)
