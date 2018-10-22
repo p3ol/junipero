@@ -14,6 +14,7 @@ import SelectFieldPage from '../containers/SelectFieldPage';
 import SliderPage from '../containers/SliderPage';
 import SwitchPage from '../containers/SwitchPage';
 import DateFieldPage from '../containers/DateFieldPage';
+import ButtonPage from '../containers/ButtonPage';
 
 import Toolbox from '../containers/Toolbox';
 
@@ -48,6 +49,7 @@ class App extends React.Component {
               <Route exact path="/slider" component={SliderPage} />
               <Route exact path="/switch" component={SwitchPage} />
               <Route exact path="/date-field" component={DateFieldPage} />
+              <Route exact path="/button" component={ButtonPage} />
             </Switch>
           </Router>
 

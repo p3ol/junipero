@@ -1,0 +1,104 @@
+@import "../utils/vars"
+
+.junipero.button
+  display: inline
+  padding: 7px 15px
+  font-size: 12px
+  font-weight: bold
+  user-select: none
+  background: $color-white
+  color: $color-black
+  border-radius: 2px
+  border: 1px solid transparent
+
+  &:hover, &:visited, &:focus
+    background: $color-white - 10
+
+  &:active
+    background: $color-white - 20
+
+  &.disabled
+    &, &:hover, &:active, &:focus, &:visited
+      background: $color-mercury
+      color: $color-silver
+
+  &.primary
+    background: $color-eastern-blue
+    border-color: $color-eastern-blue
+    color: $color-white
+
+    &:hover, &:visited, &:focus
+      background: $color-surfie-green
+      border-color: $color-surfie-green
+      color: $color-white
+
+    &:active
+      background: $color-surfie-green - 10
+      border-color: $color-surfie-green - 10
+
+    &.disabled
+      &, &:hover, &:active, &:focus, &:visited
+        background: $color-powder-blue
+        border-color: $color-powder-blue
+        color: $color-white
+
+    &.reversed
+      background: transparent
+      color: $color-eastern-blue
+
+      &:hover, &:visited, &:focus
+        background: $color-surfie-green
+        color: $color-white
+
+      &:active
+        background: $color-surfie-green - 10
+        border-color: $color-surfie-green - 10
+
+      &.disabled
+        &, &:hover, &:active, &:focus, &:visited
+          border-color: $color-powder-blue
+          color: $color-powder-blue
+          background: transparent
+
+  &.danger
+    background: $color-monza
+    border-color: $color-monza
+    color: $color-white
+
+    &:hover, &:visited, &:focus
+      background: $color-monza - 10
+      border-color: $color-monza - 10
+      color: $color-white
+
+    &:active
+      background: $color-monza - 20
+      border-color: $color-monza - 20
+
+    &.disabled
+      &, &:hover, &:active, &:focus, &:visited
+        background: $color-mandys-pink
+        border-color: $color-mandys-pink
+        color: $color-white
+
+    &.reversed
+      background: transparent
+      color: $color-monza
+
+      &:hover, &:visited, &:focus
+        background: $color-monza - 10
+        border-color: $color-monza - 10
+        color: $color-white
+
+      &:active
+        background: $color-monza - 20
+        border-color: $color-monza - 20
+
+      &.disabled
+        &, &:hover, &:active, &:focus, &:visited
+          border-color: $color-mandys-pink
+          color: $color-mandys-pink
+          background: transparent
+
+  &.size-big
+    padding: 10px 30px
+    font-size: 16px

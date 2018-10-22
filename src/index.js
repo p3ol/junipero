@@ -4,6 +4,7 @@ import SelectField from './components/SelectField';
 import Slider from './components/Slider';
 import Switch from './components/Switch';
 import DateField from './components/DateField';
+import Button from './components/Button';
 
 import './theme/index.styl';
 
@@ -14,4 +15,5 @@ export {
   Slider,
   Switch,
   DateField,
+  Button,
 };
