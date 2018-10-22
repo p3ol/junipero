@@ -41,10 +41,6 @@ module.exports = {
     }],
   },
   node: false,
-  externals: {
-    react: 'React',
-    'prop-types': 'PropTypes',
-  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',

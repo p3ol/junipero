@@ -12,6 +12,10 @@ module.exports = merge(common, {
   plugins: [
     //new BundleAnalyzerPlugin(),
   ],
+  externals: {
+    react: 'React',
+    'prop-types': 'PropTypes',
+  },
   parallelism: 4,
   devtool: 'source-map',
 });
