@@ -9,6 +9,7 @@ class TextFieldPage extends React.Component {
     super(props);
     this.state = {
       default: {},
+      number: {},
       password: {},
       suffix: {},
       showPassword: false,
@@ -45,6 +46,26 @@ class TextFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.default, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Number</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <TextField
+              label="Label"
+              required={true}
+              boxed={this.props.boxed}
+              error={this.props.error}
+              placeholder={this.props.placeholder}
+              disabled={this.props.disabled}
+              value={0}
+              onChange={this.onChange.bind(this, 'number')}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.number, null, 2)}</pre>
           </div>
         </div>
 

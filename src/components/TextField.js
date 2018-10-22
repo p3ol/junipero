@@ -5,7 +5,7 @@ import '../theme/components/TextField.styl';
 
 const propTypes = {
   className: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   type: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   placeholder: PropTypes.string,
@@ -82,13 +82,17 @@ class TextField extends React.Component {
   }
 
   onChange(e) {
-    const value = e.target.value;
+    let value = e.target.value;
     const valid = this.props.validate(value);
 
     this.setState({
       value,
       valid,
     }, () => {
+      if (typeof this.props.value === 'number') {
+        value = Number(value) || 0;
+      }
+
       this.props.onChange({
         value,
         valid,
