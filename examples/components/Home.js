@@ -12,6 +12,7 @@ const Home = () => (
       <li><Link to="/select-field">SelectField</Link></li>
       <li><Link to="/slider">Slider</Link></li>
       <li><Link to="/switch">Switch</Link></li>
+      <li><Link to="/button">Button</Link></li>
     </ul>
   </div>
 );
