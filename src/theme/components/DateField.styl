@@ -1,0 +1,44 @@
+@import "../utils/vars"
+
+.junipero.date-field
+  border-radius: 2px
+  box-shadow: 0 2px 4px 0 rgba(24,150,180,0.2)
+  padding: 10px 20px 20px 20px
+  width: fit-content
+
+  .junipero-current-month
+    color: #7d7d7d
+    font-weight: bold
+    font-size: 12px
+    line-height: 2rem
+    text-align: center
+
+  .junipero-week-day
+    color: #0e6176
+    font-size: 12px
+    font-weight: bold
+    height: 28px
+    line-height: 28px
+    text-align: center
+    width: 34px
+
+  .junipero-day
+    font-size: 12px
+    height: 28px
+    text-align: center
+    width: 34px
+
+    &.junipero-current-day
+      background: $color-eastern-blue
+      border-radius: 5px
+      color: $color-white
+
+      &:hover
+        background: $color-eastern-blue
+        color: $color-white
+
+    &:hover
+      background-color: $color-catskill-white
+      border-radius: 5px
+      color: $color-midnight
+      cursor: pointer
