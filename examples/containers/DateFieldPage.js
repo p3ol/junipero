@@ -6,6 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
     disabled: state.tools.disabled,
+    boxed: state.tools.boxed,
+    error: state.tools.error,
   };
 };
 

@@ -9,19 +9,16 @@ class DateFieldPage extends React.Component {
     super(props);
     this.state = {
       default: {},
-      password: {},
-      suffix: {},
-      showPassword: false,
+      object: {
+        valid: true,
+        value: new Date(),
+      },
     };
   }
 
-  // onChange(name, field) {
-  //   this.setState({ [name]: field });
-  // }
-  //
-  // togglePassword() {
-  //   this.setState({ showPassword: !this.state.showPassword });
-  // }
+  onChange(name, field) {
+    this.setState({ [name]: field });
+  }
 
   render() {
     return (
@@ -32,11 +29,33 @@ class DateFieldPage extends React.Component {
         <h2 className="mt-5">Default</h2>
         <div className="row mt-5">
           <div className="col-6">
-            <DateField />
+            <DateField
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              onChange={this.onChange.bind(this, 'default')}
+            />
           </div>
           <div className="col-6">
             <p>Current state :</p>
-            <pre>{ JSON.stringify(this.state.default, null, 2)}</pre>
+            <pre>{JSON.stringify(this.state.default, null, 2)}</pre>
+          </div>
+        </div>
+        <h2 className="mt-5">Current Day</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <DateField
+              label="Label"
+              value={this.state.object.value}
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              onChange={this.onChange.bind(this, 'object')}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{JSON.stringify(this.state.object, null, 2)}</pre>
           </div>
         </div>
       </div>
