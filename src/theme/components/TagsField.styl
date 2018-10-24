@@ -1,0 +1,43 @@
+@import "../utils/vars"
+
+.junipero.junipero-field.tags-field
+  cursor: text
+
+  .field-wrapper
+
+    .field-inner
+      white-space: initial
+      line-height: initial
+      padding-top: 10px
+
+      span.tag
+        display: inline-block
+        padding: 2px 8px 4px
+        background: $color-eastern-blue
+        color: $color-white
+        margin-right: 5px
+        margin-top: 5px
+        cursor: default
+
+        &.active
+          background: $color-monza
+
+      input.field
+        width: 150px
+        padding-top: 5px
+        border: none
+        display: inline-block
+        box-shadow: none
+
+  &.boxed
+
+    .field-inner
+      padding: 21px 15px 10px
+
+      input.field
+        margin-top: 0
+        padding: 0
+        padding-top: 5px
+
+  &.disabled
+    cursor: default
