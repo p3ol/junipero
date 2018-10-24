@@ -14,6 +14,7 @@ const Home = () => (
       <li><Link to="/switch">Switch</Link></li>
       <li><Link to="/date-field">DateField</Link></li>
       <li><Link to="/button">Button</Link></li>
+      <li><Link to="/tags-field">TagsField</Link></li>
     </ul>
   </div>
 );

@@ -5,6 +5,7 @@ import Slider from './components/Slider';
 import Switch from './components/Switch';
 import DateField from './components/DateField';
 import Button from './components/Button';
+import TagsField from './components/TagsField';
 
 import './theme/index.styl';
 
@@ -16,4 +17,5 @@ export {
   Switch,
   DateField,
   Button,
+  TagsField,
 };
