@@ -318,7 +318,8 @@ class DateField extends React.Component {
                   ))
                   .map((date, index) => (
                     <React.Fragment
-                      key={index}>
+                      key={index}
+                    >
                       <a
                         className={[
                           'day',
