@@ -6,6 +6,7 @@ import Switch from './components/Switch';
 import DateField from './components/DateField';
 import Button from './components/Button';
 import TagsField from './components/TagsField';
+import Breadcrumb from './components/Breadcrumb';
 
 import './theme/index.styl';
 
@@ -18,4 +19,5 @@ export {
   DateField,
   Button,
   TagsField,
+  Breadcrumb,
 };
