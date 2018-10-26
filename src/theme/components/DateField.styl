@@ -1,6 +1,7 @@
 @import "../utils/vars"
 
 .junipero.junipero-field.date-field
+  position: relative
 
   .field-wrapper
     cursor: default
@@ -8,9 +9,6 @@
 
     &:after
       height: 2px
-
-    &:hover
-      cursor: pointer
 
     .field-inner
       flex: 1
@@ -51,114 +49,232 @@
           transform: scale(0.75) translateY(-13px)
 
 
-  .junipero-calendar
+  // .junipero-calendar
+  //   border-radius: 2px
+  //   box-shadow: 0 2px 4px 0 rgba(24,150,180,0.2)
+  //   margin-top: 5px
+  //   max-width: 260px
+  //   padding: 5px 0 10px 0
+  //
+  //   .junipero-calendar-head
+  //     align-items: center
+  //     display: flex
+  //
+  //     .junipero-current-date
+  //       color: #7d7d7d
+  //       font-weight: bold
+  //       font-size: 12px
+  //       line-height: 2rem
+  //       position: relative
+  //       text-align: center
+  //
+  //       .junipero-current-year
+  //         padding-left: 5px
+  //
+  //     .arrow-inner
+  //       display: flex
+  //       flex: 1 1 auto
+  //       height: 2rem
+  //       margin: 0
+  //       padding-right: 0
+  //       padding-left: 0
+  //       width: 2rem
+  //
+  //       &.right
+  //         justify-content: flex-end
+  //
+  //       button
+  //         background-color: transparent
+  //         border: none
+  //         color: $color-eastern-blue
+  //         font-size: 12px
+  //         margin: 0 .5rem
+  //         padding: 0 .25rem
+  //         z-index: 1
+  //
+  //         span
+  //           border-style: solid
+  //           display: inline-block
+  //           height: .75em
+  //           margin-left: .25em
+  //           margin-right: .15em
+  //           transform: rotate(-135deg)
+  //           width: .75em
+  //
+  //         &:hover
+  //           cursor: pointer
+  //
+  //         &:focus
+  //           outline: none
+  //
+  //         &.left-arrow
+  //           span
+  //             border-width: .2em .2em 0 0
+  //
+  //         &.right-arrow
+  //           span
+  //             border-width: 0 0 .2em .2em
+  //
+  //   .junipero-week-day
+  //     color: #0e6176
+  //     font-size: 12px
+  //     font-weight: bold
+  //     height: 28px
+  //     line-height: 28px
+  //     text-align: center
+  //     width: 34px
+  //
+  //   .junipero-number-list
+  //     display: flex
+  //     flex-direction: row
+  //     padding: 0 10px
+  //
+  //     .junipero-day
+  //       align-items: center
+  //       display: flex
+  //       font-size: 12px
+  //       height: 28px
+  //       justify-content: center
+  //       text-align: center
+  //       width: 34px
+  //
+  //       a
+  //         color: inherit
+  //         text-decoration: none
+  //         width: 100%
+  //
+  //       &.junipero-current-day
+  //         background: $color-eastern-blue
+  //         border-radius: 5px
+  //         color: $color-white
+  //
+  //         &:hover
+  //           background: $color-eastern-blue
+  //           color: $color-white
+  //
+  //       &.text-muted
+  //         opacity: 0.5
+  //
+  //       &:hover
+  //         background-color: $color-catskill-white
+  //         border-radius: 5px
+  //         color: $color-midnight
+  //         cursor: pointer
+
+  .calendar
+    position: absolute
+    z-index: 1000
+    box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
+    background: $color-white
     border-radius: 2px
-    box-shadow: 0 2px 4px 0 rgba(24,150,180,0.2)
-    margin-top: 5px
-    max-width: 260px
-    padding: 5px 0 10px 0
+    min-width: $default-width
+    max-width: $default-max-width
+    list-style: none
+    padding: 10px 0
 
-    .junipero-calendar-head
-      align-items: center
+    &[class*="placement-bottom"]
+      top: calc(100% + 10px)
+
+      &[class*="-left"]
+        left: 0
+
+      &[class*="-right"]
+        right: 0
+
+    &[class*="placement-top"]
+      bottom: calc(100% + 10px)
+
+    &[class*="placement-bottom"],
+    &[class*="placement-top"]
+      &[class*="-left"]
+        left: 0
+
+      &[class*="-right"]
+        right: 0
+
+    &.placement-left
+      right: calc(100% + 10px)
+
+    &.placement-right
+      left: calc(100% + 10px)
+
+    .calendar-header
       display: flex
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 10px
 
-      .junipero-current-date
-        color: #7d7d7d
-        font-weight: bold
-        font-size: 12px
-        line-height: 2rem
-        position: relative
-        text-align: center
+      .arrow-wrapper
+        max-width: 100%
+        width: auto
+        display: block
+        padding: 0 15px
+        min-width: 0
+        cursor: pointer
 
-        .junipero-current-year
-          padding-left: 5px
+        .arrow
+          border-style: solid
+          color: $color-eastern-blue
+          display: inline-block
+          height: 9px
+          margin-left: 3px
+          margin-right: 3px
+          transform: rotate(-135deg)
+          width: 9px
 
-      .arrow-inner
-        display: flex
-        flex: 1 1 auto
-        height: 2rem
-        margin: 0
-        padding-right: 0
-        padding-left: 0
-        width: 2rem
+        &.left
+          .arrow
+            border-width: 2px 2px 0 0
 
         &.right
-          justify-content: flex-end
+          .arrow
+            border-width: 0 0 2px 2px
 
-        button
-          background-color: transparent
-          border: none
-          color: $color-eastern-blue
-          font-size: 12px
-          margin: 0 .5rem
-          padding: 0 .25rem
-          z-index: 1
+      .current-month
+        padding: 5px
 
-          span
-            border-style: solid
-            display: inline-block
-            height: .75em
-            margin-left: .25em
-            margin-right: .15em
-            transform: rotate(-135deg)
-            width: .75em
-
-          &:hover
-            cursor: pointer
-
-          &:focus
-            outline: none
-
-          &.left-arrow
-            span
-              border-width: .2em .2em 0 0
-
-          &.right-arrow
-            span
-              border-width: 0 0 .2em .2em
-
-    .junipero-week-day
-      color: #0e6176
+    .calendar-body
+      padding: 0 15px
       font-size: 12px
-      font-weight: bold
-      height: 28px
-      line-height: 28px
-      text-align: center
-      width: 34px
 
-    .junipero-number-list
-      display: flex
-      flex-direction: row
-      padding: 0 10px
-
-      .junipero-day
-        align-items: center
+      .week-days
         display: flex
-        font-size: 12px
-        height: 28px
-        justify-content: center
-        text-align: center
-        width: 34px
+        align-items: center
+        justify-content: space-between
+        color: $color-eastern-blue
+        font-weight: bold
 
-        a
-          color: inherit
+        .week-day
+          text-align: center
+          min-width: 30px
+
+      .days
+        display: flex
+        align-items: center
+        justify-content: space-around
+        flex-wrap: wrap
+
+        .day
+          min-width: 30px
+          display: inline-block
+          text-align: center
+          padding: 5px 0
+          border-radius: 4px
+          color: $color-midnight
           text-decoration: none
-          width: 100%
-
-        &.junipero-current-day
-          background: $color-eastern-blue
-          border-radius: 5px
-          color: $color-white
+          cursor: pointer
 
           &:hover
+            background: $color-athens-gray
+
+          &.inactive
+            color: $color-pale-sky
+            opacity: .5
+
+          &.active
             background: $color-eastern-blue
             color: $color-white
 
-        &.text-muted
-          opacity: 0.5
-
-        &:hover
-          background-color: $color-catskill-white
-          border-radius: 5px
-          color: $color-midnight
-          cursor: pointer
+        .separator
+          width: 100%
+          min-width: 100%

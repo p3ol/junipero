@@ -9,10 +9,8 @@ const propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  lang: PropTypes.string,
-  monthNames: PropTypes.array,
   onChange: PropTypes.func,
-  options: PropTypes.object,
+  // options: PropTypes.object,
   placeholder: PropTypes.string,
   prefix: PropTypes.object,
   required: PropTypes.bool,
@@ -20,7 +18,10 @@ const propTypes = {
   tabIndex: PropTypes.number,
   validate: PropTypes.func,
   value: PropTypes.instanceOf(Date),
-  weekDaysShort: PropTypes.array,
+  parseValue: PropTypes.func,
+  monthNames: PropTypes.array,
+  weekDaysNames: PropTypes.array,
+  placement: PropTypes.string,
 };
 
 const defaultProps = {
@@ -29,16 +30,13 @@ const defaultProps = {
   className: '',
   disabled: false,
   label: 'Label',
-  lang: 'en-EN',
-  monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'],
   onChange: () => {},
-  options: {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  },
+  // options: {
+  //   weekday: 'long',
+  //   year: 'numeric',
+  //   month: 'long',
+  //   day: 'numeric',
+  // },
   placeholder: 'Pick a date...',
   prefix: null,
   required: false,
@@ -46,7 +44,16 @@ const defaultProps = {
   tabIndex: 0,
   validate: value => !!value,
   value: null,
-  weekDaysShort: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
+  parseValue: value => value.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }),
+  monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'],
+  weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
+  placement: 'bottom',
 };
 
 class DateField extends React.Component {
@@ -55,26 +62,30 @@ class DateField extends React.Component {
     super(props);
 
     this.state = {
-      currentDay: this.props.value?.getDate() || new Date().getDate(),
-      currentMonth: this.props.value?.getMonth() || new Date().getMonth(),
-      initialMonth: null,
-      currentYear: this.props.value?.getFullYear() || new Date().getFullYear(),
+    // currentDay: this.props.value?.getDate() || new Date().getDate(),
+    // currentMonth: this.props.value?.getMonth() || new Date().getMonth(),
+    // initialMonth: null,
+    // currentYear: this.props.value?.getFullYear() || new Date().getFullYear(),
       opened: this.props.opened || false,
-      value: this.props.value?.toLocaleDateString(
-        this.props.lang, this.props.options) || null,
+      // value: this.props.value?.toLocaleDateString(
+      //   this.props.lang, this.props.options) || null,
+      valid: true,
+      value: this.props.value,
+      selected: this.props.value || new Date(),
+      displayed: this.props.value || new Date(),
     };
 
-    this.febNumberOfDays = '';
-    this.totalDaysPerMonth = ['31', `${this.getFebTotalDay()}`, '31', '30',
-      '31', '30', '31', '31', '30', '31', '30', '31'];
+    // this.febNumberOfDays = '';
+    // this.totalDaysPerMonth = ['31', `${this.getFebTotalDay()}`, '31', '30',
+    //   '31', '30', '31', '31', '30', '31', '30', '31'];
   }
 
   componentDidMount() {
     document.addEventListener('click', this.onClickOutside.bind(this), true);
-    this.setState({ initialMonth: this.state.currentMonth });
+    //this.setState({ initialMonth: this.state.currentMonth });
   }
 
-  getFebTotalDay() {
+  _getFebTotalDay() {
     if ((this.state.currentYear % 100 != 0) &&
       (this.state.currentYear % 4 == 0) ||
       (this.state.currentYear % 400 == 0)) {
@@ -89,7 +100,13 @@ class DateField extends React.Component {
       return;
     }
 
-    this.setState({ opened: !this.state.opened });
+    const opened = !this.state.opened;
+
+    this.setState({
+      opened,
+      selected: this.state.value || new Date(),
+      displayed: this.state.value || new Date(),
+    });
   }
 
   onClickOutside(e) {
@@ -98,11 +115,15 @@ class DateField extends React.Component {
     }
 
     if (this.container && !this.container.contains(e.target)) {
-      this.setState({ opened: false });
+      this.setState({
+        opened: false,
+        selected: this.state.value || new Date(),
+        displayed: this.state.value || new Date(),
+      });
     }
   }
 
-  onDayClick(day, increaseMonth = false, decreaseMonth = false) {
+  _onDayClick(day, increaseMonth = false, decreaseMonth = false) {
     if (increaseMonth == true) { this.getNextMonth(); }
     if (decreaseMonth == true) { this.getPreviousMonth(); }
     this.setState({
@@ -114,7 +135,7 @@ class DateField extends React.Component {
     return false;
   }
 
-  onChange(value) {
+  _onChange(value) {
     if (this.props.disabled) {
       return;
     }
@@ -136,16 +157,16 @@ class DateField extends React.Component {
     });
   }
 
-  formatDate(day) {
+  _formatDate(day) {
     return new Date(this.state.currentYear, this.state.currentMonth, day)
       .toLocaleDateString(this.props.lang, this.props.options);
   }
 
-  getNumOfDays() {
+  _getNumOfDays() {
     return this.totalDaysPerMonth[this.state.currentMonth];
   }
 
-  getFirstDaysOfNextMonth() {
+  _getFirstDaysOfNextMonth() {
     return new Date(
       this.state.currentYear,
       this.state.currentMonth,
@@ -153,11 +174,11 @@ class DateField extends React.Component {
     ).getDay();
   }
 
-  getFirstDayOfMonth() {
+  _getFirstDayOfMonth() {
     return new Date(this.state.currentYear, this.state.currentMonth).getDay();
   }
 
-  getPreviousMonth() {
+  _getPreviousMonth() {
     if (this.state.currentMonth == 0) {
       this.setState({
         currentMonth: 11,
@@ -168,7 +189,7 @@ class DateField extends React.Component {
     }
   }
 
-  getNextMonth() {
+  _getNextMonth() {
     if (this.state.currentMonth == 11) {
       this.setState({
         currentMonth: 0,
@@ -179,7 +200,7 @@ class DateField extends React.Component {
     }
   }
 
-  getFirstRowEmptySlots() {
+  _getFirstRowEmptySlots() {
     let blanks = [];
     let prevMonthDaysCounter = this.getFirstDayOfMonth() - 2;
     let prevMonthDays = this.state.currentMonth == 0 ?
@@ -204,7 +225,7 @@ class DateField extends React.Component {
     return blanks;
   }
 
-  getMonthDays() {
+  _getMonthDays() {
     let daysInMonth = [];
     let totalDays = this.getNumOfDays();
     let nextMonthDayCounter = 1;
@@ -249,7 +270,7 @@ class DateField extends React.Component {
     return daysInMonth;
   }
 
-  buildCalendar() {
+  _buildCalendar() {
     let blanks = this.getFirstRowEmptySlots();
     let daysInMonth = this.getMonthDays();
 
@@ -277,7 +298,122 @@ class DateField extends React.Component {
     });
   }
 
+  isDateSelected(date) {
+    return date.year === this.state.selected.getFullYear() &&
+      date.month === this.state.selected.getMonth() &&
+      date.day === this.state.selected.getDate();
+  }
+
+  getMonthName(month) {
+    return this.props.monthNames[month];
+  }
+
+  getWeekDaysNames() {
+    return this.props.weekDaysNames;
+  }
+
+  getDaysCount(year, month) {
+    return new Date(year, month + 1, 0).getDate();
+  }
+
+  getWeekDayOfMonth(year, month, day = 1) {
+    let weekDay = new Date(year, month, day).getDay();
+    weekDay = weekDay === 0 ? 7 : weekDay;
+    return weekDay;
+  }
+
+  getPreviousMonthDays(year, month) {
+    const selectedMonth = month === 0 ? 11 : month - 1;
+    const selectedYear = month === 0 ? year - 1 : year;
+    const selectedWeekDay = this.getWeekDayOfMonth(year, month);
+    const selectedDaysCount = this.getDaysCount(selectedYear, selectedMonth);
+
+    return this.getMonthDays(selectedYear, selectedMonth, true)
+      .slice(selectedDaysCount - (selectedWeekDay - 1));
+  }
+
+  getMonthDays(year, month, inactive = false) {
+    return Array
+      .from({ length: this.getDaysCount(year, month) }, (v, k) => ({
+        year,
+        month,
+        day: k + 1,
+        inactive,
+      }));
+  }
+
+  getNextMonthDays(year, month) {
+    const daysCount = this.getDaysCount(year, month);
+    const weekDay = this.getWeekDayOfMonth(year, month) - 1;
+    const nextMonth = month === 11 ? 0 : month + 1;
+    const nextYear = month === 11 ? year + 1 : year;
+
+    return Array
+      .from({ length: 42 - daysCount - weekDay }, (v, k) => ({
+        year: nextYear,
+        month: nextMonth,
+        day: k + 1,
+        inactive: true,
+      }));
+  }
+
+  onPreviousMonthClick() {
+    const { displayed } = this.state;
+
+    this.setState({
+      displayed: this.getDateToUTC(
+        displayed.getMonth() === 0 ?
+          displayed.getFullYear() - 1 :
+          displayed.getFullYear(),
+        displayed.getMonth() === 0 ?
+          11 :
+          displayed.getMonth() - 1,
+        displayed.getDate()
+      ),
+    });
+  }
+
+  onNextMonthClick() {
+    const { displayed } = this.state;
+
+    this.setState({
+      displayed: this.getDateToUTC(
+        displayed.getMonth() === 11 ?
+          displayed.getFullYear() + 1 :
+          displayed.getFullYear(),
+        displayed.getMonth() === 11 ?
+          0 :
+          displayed.getMonth() + 1,
+        displayed.getDate()
+      ),
+    });
+  }
+
+  onChange(date) {
+    const newDate = this.getDateToUTC(date.year, date.month, date.day);
+    const valid = this.props.validate(newDate);
+
+    this.setState({
+      opened: false,
+      value: new Date(newDate),
+      selected: new Date(newDate),
+      displayed: new Date(newDate),
+      valid,
+    }, () => {
+      this.props.onChange({
+        value: this.state.selected,
+        valid,
+      });
+    });
+  }
+
+  getDateToUTC(year, month, day) {
+    return new Date(Date.UTC(year, month, day, 0, 0, 0));
+  }
+
   render() {
+    const { displayed } = this.state;
+
     return (
       <div
         ref={(ref) => this.container = ref}
@@ -304,7 +440,10 @@ class DateField extends React.Component {
 
           <div className="field-inner">
             <div className="field">
-              { this.state.value || this.props.placeholder }
+              { this.state.value ?
+                this.props.parseValue(this.state.value)
+                : this.props.placeholder
+              }
             </div>
 
             { this.props.label && (
@@ -330,37 +469,78 @@ class DateField extends React.Component {
         {this.state.opened && (
           <div
             ref={(ref) => this.toggle = ref}
-            className="junipero-calendar"
+            className={[
+              'calendar',
+              `placement-${this.props.placement}`,
+            ].join(' ')}
           >
-            <div className="junipero-calendar-head">
-              <div className="arrow-inner">
-                <button
-                  className="left-arrow"
-                  onClick={this.getPreviousMonth.bind(this)}>
-                  <span className="left-arrow-icon"></span>
-                </button>
+            <div className="calendar-header">
+              <a
+                className="arrow-wrapper left"
+                role="button"
+                tabIndex={this.props.tabIndex}
+                onClick={this.onPreviousMonthClick.bind(this)}
+              >
+                <i className="arrow" />
+              </a>
+              <div className="current-month">
+                {this.getMonthName(displayed.getMonth())}
+                { ' ' }
+                {displayed.getFullYear()}
               </div>
-              <div className="junipero-current-date">
-                {this.props.monthNames[this.state.currentMonth]}
-                <span className="p-1">{this.state.currentYear}</span>
-              </div>
-              <div className="arrow-inner right">
-                <button
-                  className="right-arrow"
-                  onClick={this.getNextMonth.bind(this)}>
-                  <span className="right-arrow-icon"></span>
-                </button>
-              </div>
+              <a
+                className="arrow-wrapper right"
+                role="button"
+                tabIndex={this.props.tabIndex}
+                onClick={this.onNextMonthClick.bind(this)}
+              >
+                <i className="arrow" />
+              </a>
             </div>
-            <div className="junipero-calendar-body">
-              <div className="d-flex justify-content-center">
-                {this.props.weekDaysShort.map((day, index) => {
-                  return (
-                    <div key={index} className="junipero-week-day">{day}</div>
-                  );
-                })}
+            <div className="calendar-body">
+              <div className="week-days">
+                {this.getWeekDaysNames().map((day, index) => (
+                  <span key={index} className="week-day">{day}</span>
+                ))}
               </div>
-              {this.buildCalendar(this)}
+
+              <div className="days">
+                { []
+                  .concat(this.getPreviousMonthDays(
+                    displayed.getFullYear(),
+                    displayed.getMonth()
+                  ))
+                  .concat(this.getMonthDays(
+                    displayed.getFullYear(),
+                    displayed.getMonth()
+                  ))
+                  .concat(this.getNextMonthDays(
+                    displayed.getFullYear(),
+                    displayed.getMonth()
+                  ))
+                  .map((date, index) => (
+                    <React.Fragment
+                      key={index}>
+                      <a
+                        className={[
+                          'day',
+                          date.inactive ? 'inactive' : null,
+                          this.isDateSelected(date) ? 'active' : null,
+                        ].join(' ')}
+                        role="button"
+                        tabIndex={this.props.tabIndex}
+                        onClick={this.onChange.bind(this, date)}
+                      >
+                        { date.day }
+                      </a>
+
+                      { (index + 1) % 7 === 0 && (
+                        <div className="separator" />
+                      )}
+                    </React.Fragment>
+                  ))
+                }
+              </div>
             </div>
           </div>
         )}
@@ -371,6 +551,7 @@ class DateField extends React.Component {
   componentWillUnmount() {
     document.removeEventListener('click', this.onClickOutside.bind(this), true);
   }
+
 }
 
 DateField.propTypes = propTypes;
