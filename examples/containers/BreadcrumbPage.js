@@ -5,7 +5,6 @@ import BreadcrumbPage from '../components/BreadcrumbPage';
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    disabled: state.tools.disabled,
   };
 };
 
