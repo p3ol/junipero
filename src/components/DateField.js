@@ -10,7 +10,6 @@ const propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onChange: PropTypes.func,
-  // options: PropTypes.object,
   placeholder: PropTypes.string,
   prefix: PropTypes.object,
   required: PropTypes.bool,
@@ -31,12 +30,6 @@ const defaultProps = {
   disabled: false,
   label: 'Label',
   onChange: () => {},
-  // options: {
-  //   weekday: 'long',
-  //   year: 'numeric',
-  //   month: 'long',
-  //   day: 'numeric',
-  // },
   placeholder: 'Pick a date...',
   prefix: null,
   required: false,
@@ -62,38 +55,18 @@ class DateField extends React.Component {
     super(props);
 
     this.state = {
-    // currentDay: this.props.value?.getDate() || new Date().getDate(),
-    // currentMonth: this.props.value?.getMonth() || new Date().getMonth(),
-    // initialMonth: null,
-    // currentYear: this.props.value?.getFullYear() || new Date().getFullYear(),
       opened: this.props.opened || false,
-      // value: this.props.value?.toLocaleDateString(
-      //   this.props.lang, this.props.options) || null,
       valid: true,
       value: this.props.value,
       selected: this.props.value || new Date(),
       displayed: this.props.value || new Date(),
     };
-
-    // this.febNumberOfDays = '';
-    // this.totalDaysPerMonth = ['31', `${this.getFebTotalDay()}`, '31', '30',
-    //   '31', '30', '31', '31', '30', '31', '30', '31'];
   }
 
   componentDidMount() {
     document.addEventListener('click', this.onClickOutside.bind(this), true);
-    //this.setState({ initialMonth: this.state.currentMonth });
   }
 
-  _getFebTotalDay() {
-    if ((this.state.currentYear % 100 != 0) &&
-      (this.state.currentYear % 4 == 0) ||
-      (this.state.currentYear % 400 == 0)) {
-      return 29;
-    } else {
-      return 28;
-    }
-  }
 
   onToggle() {
     if (this.props.disabled) {
@@ -121,181 +94,6 @@ class DateField extends React.Component {
         displayed: this.state.value || new Date(),
       });
     }
-  }
-
-  _onDayClick(day, increaseMonth = false, decreaseMonth = false) {
-    if (increaseMonth == true) { this.getNextMonth(); }
-    if (decreaseMonth == true) { this.getPreviousMonth(); }
-    this.setState({
-      currentDay: day,
-      opened: false,
-    }, () => {
-      this.onChange(day);
-    });
-    return false;
-  }
-
-  _onChange(value) {
-    if (this.props.disabled) {
-      return;
-    }
-    this.setState({ initialMonth: this.state.currentMonth }, () => {
-      value = this.formatDate(value);
-      const { validate } = this.props;
-      const valid = validate(value);
-
-      this.setState({ valid, value, opened: false }, () => {
-        this.props.onChange({
-          value: new Date(Date.UTC(
-            this.state.currentYear,
-            this.state.currentMonth,
-            this.state.currentDay,
-          )),
-          valid,
-        });
-      });
-    });
-  }
-
-  _formatDate(day) {
-    return new Date(this.state.currentYear, this.state.currentMonth, day)
-      .toLocaleDateString(this.props.lang, this.props.options);
-  }
-
-  _getNumOfDays() {
-    return this.totalDaysPerMonth[this.state.currentMonth];
-  }
-
-  _getFirstDaysOfNextMonth() {
-    return new Date(
-      this.state.currentYear,
-      this.state.currentMonth,
-      this.getNumOfDays()
-    ).getDay();
-  }
-
-  _getFirstDayOfMonth() {
-    return new Date(this.state.currentYear, this.state.currentMonth).getDay();
-  }
-
-  _getPreviousMonth() {
-    if (this.state.currentMonth == 0) {
-      this.setState({
-        currentMonth: 11,
-        currentYear: this.state.currentYear - 1,
-      });
-    } else {
-      this.setState({ currentMonth: this.state.currentMonth - 1 });
-    }
-  }
-
-  _getNextMonth() {
-    if (this.state.currentMonth == 11) {
-      this.setState({
-        currentMonth: 0,
-        currentYear: this.state.currentYear + 1,
-      });
-    } else {
-      this.setState({ currentMonth: this.state.currentMonth + 1 });
-    }
-  }
-
-  _getFirstRowEmptySlots() {
-    let blanks = [];
-    let prevMonthDaysCounter = this.getFirstDayOfMonth() - 2;
-    let prevMonthDays = this.state.currentMonth == 0 ?
-      31 : this.totalDaysPerMonth[this.state.currentMonth - 1];
-
-    // Get last days of previous month for first empty cols
-    for (let i = this.getFirstDayOfMonth(); i > 1; i-- ) {
-      let day = prevMonthDays - prevMonthDaysCounter;
-      blanks.push(
-        <div
-          key={`prev-${i}`}
-          className="junipero-day text-muted"
-          onClick={this.onDayClick.bind(this, day, false, true )}
-          role="button"
-          tabIndex={this.props.tabIndex}
-        >
-          <span>{day}</span>
-        </div>
-      );
-      prevMonthDaysCounter--;
-    }
-    return blanks;
-  }
-
-  _getMonthDays() {
-    let daysInMonth = [];
-    let totalDays = this.getNumOfDays();
-    let nextMonthDayCounter = 1;
-
-    // Get all days of current month
-    for (let dayNumber = 1; dayNumber <= totalDays; dayNumber++) {
-      daysInMonth.push(
-        <div
-          key={dayNumber}
-          className={dayNumber == this.state.currentDay &&
-            this.state.currentMonth == this.state.initialMonth ?
-            'junipero-day junipero-current-day' :
-            'junipero-day'}
-        >
-          <a
-            href="#"
-            onClick={this.onDayClick.bind(this, dayNumber)}
-          >
-            {dayNumber}
-          </a>
-        </div>
-      );
-    }
-
-    // Get first days of next month for last empty cols
-    for (let i = this.getFirstDaysOfNextMonth(); i < 7; i++) {
-      daysInMonth.push(
-        <div
-          key={totalDays + nextMonthDayCounter}
-          className="junipero-day text-muted"
-        >
-          <a
-            href="#"
-            onClick={this.onDayClick.bind(this, nextMonthDayCounter, true)}
-          >
-            {nextMonthDayCounter}
-          </a>
-        </div>
-      );
-      nextMonthDayCounter++;
-    }
-    return daysInMonth;
-  }
-
-  _buildCalendar() {
-    let blanks = this.getFirstRowEmptySlots();
-    let daysInMonth = this.getMonthDays();
-
-    let totalSlots = [...blanks, ...daysInMonth];
-    let rows = [];
-    let cells = [];
-
-    totalSlots.forEach((row, i) => {
-      if (i % 7 != 0) {
-        cells.push(row);
-      } else {
-        let insertRow = cells.slice();
-        rows.push(insertRow);
-        cells = [];
-        cells.push(row);
-      }
-      if (i == totalSlots.length - 1) {
-        let insertRow = cells.slice();
-        rows.push(insertRow);
-      }
-    });
-
-    return rows.map((row, index) => {
-      return <div className="junipero-number-list" key={index}>{row}</div>;
-    });
   }
 
   isDateSelected(date) {
