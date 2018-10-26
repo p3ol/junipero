@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TextField } from '@poool/junipero';
+
 import '../theme/components/SelectField.styl';
 
 const propTypes = {
@@ -21,6 +23,7 @@ const propTypes = {
   validate: PropTypes.func,
   prefix: PropTypes.object,
   suffix: PropTypes.object,
+  autoComplete : PropTypes.bool,
 };
 
 const defaultProps = {
@@ -42,6 +45,7 @@ const defaultProps = {
   validate: value => !!value,
   prefix: null,
   suffix: null,
+  autoComplete: false,
 };
 
 class SelectField extends React.Component {
@@ -111,25 +115,27 @@ class SelectField extends React.Component {
     this.onChange(option);
   }
 
-  onChange(option) {
+  onChange(option, name, field) {
     if (this.props.disabled) {
       return;
     }
+    if (!this.props.autoComplete) {
 
-    const { forceValue, valueKey, validate } = this.props;
-    const value = forceValue ? option[valueKey] : option;
-    const valid = validate(value);
+      const { forceValue, valueKey, validate } = this.props;
+      const value = forceValue ? option[valueKey] : option;
+      const valid = validate(value);
 
-    this.setState({
-      value: option,
-      valid,
-      opened: false,
-    }, () => {
-      this.props.onChange({
-        value,
+      this.setState({
+        value: option,
         valid,
+        opened: false,
+      }, () => {
+        this.props.onChange({
+          value,
+          valid,
+        });
       });
-    });
+    }
   }
 
   reset() {
@@ -200,6 +206,15 @@ class SelectField extends React.Component {
             `placement-${this.props.placement || 'bottom'}`,
           ].join(' ')}
         >
+          {this.props.autoComplete && ( 
+            <TextField
+              label="Label"
+              rows={5}
+              error={this.props.error}
+              onChange={this.onChange.bind(this, 'default')}
+            />
+
+          )}
           { this.props.options.map((item, index) => (
             <li className="select-menu-item" key={index}>
               <a

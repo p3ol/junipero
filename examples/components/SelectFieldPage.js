@@ -75,6 +75,29 @@ class SelectFieldPage extends React.Component {
             <pre>{ JSON.stringify(this.state.objects, null, 2)}</pre>
           </div>
         </div>
+
+        <h2 className="mt-5">Auto-Complete</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <SelectField
+              required={true}
+              label="Label"
+              disabled={this.props.disabled}
+              boxed={this.props.boxed}
+              error={this.props.error}
+              valid={!this.props.error}
+              onChange={this.onChange.bind(this, 'default')}
+              emptyComponent="Select one..."
+              options={[
+                { title: '5 items', value: 5 },
+                { title: '10 items', value: 10 },
+                { title: '15 items', value: 15 },
+                { title: '20 items with a very very long name', value: 20 },
+              ]}
+              autoComplete={true}
+            />
+          </div>
+        </div>
       </div>
     );
   }
