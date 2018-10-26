@@ -1,5 +1,5 @@
 {
-  "name": "junipero",
+  "name": "@poool/junipero",
   "version": "0.0.1",
   "description": "Poool internal components library",
   "main": "dist/junipero.js",
