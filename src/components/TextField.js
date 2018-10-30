@@ -51,6 +51,14 @@ class TextField extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.value !== prevProps.value) {
+      this.setState({
+        value: this.props.value,
+      });
+    }
+  }
+
   onFocus(e) {
     this.props.onFocus(e);
 
