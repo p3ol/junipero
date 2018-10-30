@@ -1,11 +1,21 @@
 @import "../utils/vars"
 
 .junipero.bread-crumb
-  font-size: 0.6rem
+  font-size: 12px
+  display: inline
+  cursor: default
 
-  .element:after
-    content: ">"
+  span
 
-  .last
-    color: $color-eastern-blue
-    font-weight: bold
+    &:after
+      content: ">"
+      margin: 0 5px
+      display: inline
+      position: relative
+      top: 1px
+
+    &:last-child
+      font-weight: bold
+
+      &:after
+        display: none

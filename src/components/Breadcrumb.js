@@ -1,35 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../theme/components/Breadcrumb.styl';
+import '../theme/components/BreadCrumb.styl';
 
 const propTypes = {
   items: PropTypes.array,
 };
-  
+
 const defaultProps = {
   items: [],
 };
 
-class Breadcrumb extends React.Component {
+const BreadCrumb = ({ items }) => (
+  <div className="junipero bread-crumb">
+    {items.map((item, index) =>
+      <span key={index}>{item}</span>
+    )}
+  </div>
+);
 
-  render() {
-    return (
-      <div className="junipero bread-crumb">
-        {this.props.items.map((item, index) => 
-          <a className={(this.props.items.length - 1) === index ?
-            'last' : 'element' } 
-          key={index}>
-            {item}
-          </a>
-        )}
-      </div>
-    );
-  }
+BreadCrumb.propTypes = propTypes;
+BreadCrumb.defaultProps = defaultProps;
 
-}
-
-Breadcrumb.propTypes = propTypes;
-Breadcrumb.defaultProps = defaultProps;
-
-export default Breadcrumb;
+export default BreadCrumb;
