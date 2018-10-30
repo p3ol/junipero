@@ -1,3 +1,5 @@
+import { injectStyles } from './utils';
+
 import TextField from './components/TextField';
 import CheckBox from './components/CheckBox';
 import SelectField from './components/SelectField';
@@ -8,7 +10,8 @@ import Button from './components/Button';
 import TagsField from './components/TagsField';
 import BreadCrumb from './components/BreadCrumb';
 
-import './theme/index.styl';
+import styles from './theme/index.styl';
+injectStyles(styles, { id: 'junipero-main-styles' });
 
 export {
   TextField,
