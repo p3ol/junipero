@@ -61,6 +61,7 @@
   "scripts": {
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.js --hot --inline --open",
     "build-webpack": "./node_modules/.bin/webpack --config webpack.release.js",
-    "build-rollup": "./node_modules/.bin/rollup -c && ./node_modules/.bin/uglifyjs dist/junipero.umd.js --output dist/junipero.min.js -c"
+    "build-rollup": "./node_modules/.bin/rollup -c && ./node_modules/.bin/uglifyjs dist/junipero.umd.js --output dist/junipero.min.js -c",
+    "prepack": "yarn build-webpack"
   }
 }
