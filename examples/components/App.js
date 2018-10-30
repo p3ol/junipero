@@ -16,6 +16,7 @@ import SwitchPage from '../containers/SwitchPage';
 import DateFieldPage from '../containers/DateFieldPage';
 import ButtonPage from '../containers/ButtonPage';
 import TagsFieldPage from '../containers/TagsFieldPage';
+import BreadCrumbPage from '../containers/BreadCrumbPage';
 
 import Toolbox from '../containers/Toolbox';
 
@@ -52,6 +53,7 @@ class App extends React.Component {
               <Route exact path="/date-field" component={DateFieldPage} />
               <Route exact path="/button" component={ButtonPage} />
               <Route exact path="/tags-field" component={TagsFieldPage} />
+              <Route exact path="/bread-crumb" component={BreadCrumbPage} />
             </Switch>
           </Router>
 
