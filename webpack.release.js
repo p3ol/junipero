@@ -29,7 +29,6 @@ module.exports = merge(common, {
   ],
   externals: {
     react: 'React',
-    'prop-types': 'PropTypes',
   },
   parallelism: 4,
   devtool: 'source-map',

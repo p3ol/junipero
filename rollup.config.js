@@ -16,6 +16,7 @@ const defaultConfig = {
     postcss({
       extensions: ['.styl'],
       minimize: true,
+      inject: false,
       plugins: [
         autoprefixer,
       ],

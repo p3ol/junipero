@@ -2,7 +2,9 @@
   "name": "@poool/junipero",
   "version": "0.0.1-alpha",
   "description": "Poool internal components library",
-  "main": "dist/junipero.min.js",
+  "main": "dist/junipero.cjs.js",
+  "module": "dist/junipero.esm.js",
+  "browser": "dist/junipero.umd.js",
   "repository": "https://github.com/p3ol/junipero.git",
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
@@ -56,6 +58,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "@babel/runtime-corejs2": "^7.1.2",
     "prop-types": "^15.6.2"
   },
   "scripts": {
