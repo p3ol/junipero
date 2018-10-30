@@ -2,7 +2,7 @@
   "name": "@poool/junipero",
   "version": "0.0.1",
   "description": "Poool internal components library",
-  "main": "dist/junipero.js",
+  "main": "dist/junipero.min.js",
   "repository": "https://github.com/p3ol/junipero.git",
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
@@ -37,9 +37,16 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-delete": "^0.1.2",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-postcss": "^1.6.2",
     "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "uglify-js": "^3.4.9",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.20.2",
@@ -53,6 +60,7 @@
   },
   "scripts": {
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.js --hot --inline --open",
-    "build": "./node_modules/.bin/webpack --config webpack.release.js"
+    "build-webpack": "./node_modules/.bin/webpack --config webpack.release.js",
+    "build-rollup": "./node_modules/.bin/rollup -c && ./node_modules/.bin/uglifyjs dist/junipero.umd.js --output dist/junipero.min.js -c"
   }
 }
