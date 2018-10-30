@@ -51,6 +51,14 @@ class TextField extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.value !== prevProps.value) {
+      this.setState({
+        value: this.props.value,
+      });
+    }
+  }
+
   onFocus(e) {
     this.props.onFocus(e);
 
@@ -110,6 +118,14 @@ class TextField extends React.Component {
     });
   }
 
+  focus() {
+    this.input?.focus();
+  }
+
+  blur() {
+    this.input?.blur();
+  }
+
   getType() {
     return this.props.type === 'password' ? this.props.type : 'text';
   }
@@ -141,6 +157,7 @@ class TextField extends React.Component {
 
           <div className="field-inner">
             <Tag
+              ref={(ref) => this.input = ref}
               className="field"
               type={this.getType()}
               disabled={this.props.disabled}

@@ -5,11 +5,11 @@
   min-width: $default-width
   position: relative
 
-  .field-wrapper
+  > .field-wrapper
     text-decoration: none
     cursor: default
 
-    .field-inner
+    > .field-inner
       flex: 1
 
       .field
@@ -49,6 +49,14 @@
     list-style: none
     padding: 10px 0
 
+    li.select-auto-complete
+      padding: 10px 20px 20px
+
+      .junipero.junipero-field.text-field
+        .field-wrapper
+          .field-inner
+            flex: auto
+
     li.select-menu-item
       cursor: pointer
 
@@ -87,6 +95,11 @@
     &.placement-right
       left: calc(100% + 10px)
 
+    &.auto-completing
+      li.select-menu-item
+        pointer-events: none
+        opacity: .5
+
   &.opened
     ul.select-menu
       display: block
@@ -96,7 +109,7 @@
       opacity: .3
 
   &.boxed
-    .field-wrapper
-      .field-inner
+    > .field-wrapper
+      > .field-inner
         .label
           transform: scale(0.75) translateY(-13px)

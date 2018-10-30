@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TextField from './TextField';
+
 import '../theme/components/SelectField.styl';
 
 const propTypes = {
@@ -21,6 +23,9 @@ const propTypes = {
   validate: PropTypes.func,
   prefix: PropTypes.object,
   suffix: PropTypes.object,
+  autoComplete: PropTypes.func,
+  autoCompleteLabel: PropTypes.string,
+  autoCompleteThreshold: PropTypes.number,
 };
 
 const defaultProps = {
@@ -42,6 +47,9 @@ const defaultProps = {
   validate: value => !!value,
   prefix: null,
   suffix: null,
+  autoComplete: null,
+  autoCompleteLabel: 'Search...',
+  autoCompleteThreshold: 400,
 };
 
 class SelectField extends React.Component {
@@ -53,6 +61,9 @@ class SelectField extends React.Component {
       value: null,
       valid: true,
       opened: this.props.opened || false,
+      autoCompleteValue: '',
+      autoCompleteOptions: null,
+      autoCompleting: false,
     };
   }
 
@@ -63,7 +74,15 @@ class SelectField extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.value !== this.props.value) {
-      this.onChange(this.getPropValue());
+      this.onChange(this.props.value);
+    }
+
+    if (prevProps.disabled !== this.props.disabled && !this.props.disabled) {
+      this.setState({
+        opened: false,
+      }, () => {
+        this.resetAutoComplete();
+      });
     }
   }
 
@@ -72,7 +91,7 @@ class SelectField extends React.Component {
 
     return forceValue ?
       value :
-      options.filter((item) => item[valueKey] === value)[0];
+      options.filter((item) => item === value || item[valueKey] === value)[0];
   }
 
   getCurrentTitle() {
@@ -91,8 +110,13 @@ class SelectField extends React.Component {
       return;
     }
 
+    const opened = !this.state.opened;
+
     this.setState({
-      opened: !this.state.opened,
+      opened,
+    }, () => {
+      this.resetAutoComplete();
+      this.autoCompleteInput?.focus();
     });
   }
 
@@ -103,16 +127,22 @@ class SelectField extends React.Component {
 
     if (this.container && !this.container.contains(e.target)) {
       this.setState({ opened: false });
+      this.resetAutoComplete();
     }
   }
 
   onOptionClick(option) {
+    if (this.state.autoCompleting) {
+      return;
+    }
+
     this.setState({ opened: false });
+    this.resetAutoComplete();
     this.onChange(option);
   }
 
-  onChange(option) {
-    if (this.props.disabled) {
+  onChange(option, name, field) {
+    if (this.props.disabled || !option) {
       return;
     }
 
@@ -125,6 +155,7 @@ class SelectField extends React.Component {
       valid,
       opened: false,
     }, () => {
+      this.resetAutoComplete();
       this.props.onChange({
         value,
         valid,
@@ -133,6 +164,8 @@ class SelectField extends React.Component {
   }
 
   reset() {
+    this.resetAutoComplete();
+
     this.setState({
       value: this.props.value || '',
       valid: this.props.valid || true,
@@ -141,7 +174,47 @@ class SelectField extends React.Component {
     });
   }
 
+  resetAutoComplete() {
+    this.setState({
+      autoCompleteValue: '',
+      autoCompleteOptions: null,
+    });
+  }
+
+  onAutoCompleteChange(input) {
+    clearTimeout(this._autoCompleteTimeout);
+
+    if (!this.props.autoComplete) {
+      return;
+    }
+
+    this.setState({
+      autoCompleting: true,
+    }, () => {
+      this._autoCompleteTimeout = setTimeout(() => {
+        if (!input.value || input.value === '') {
+          this.setState({
+            autoCompleteValue: input.value,
+            autoCompleteOptions: null,
+            autoCompleting: false,
+          });
+        } else {
+          this.props.autoComplete(input.value, (items) => {
+            this.setState({
+              autoCompleteValue: input.value,
+              autoCompleteOptions: items || [],
+              autoCompleting: false,
+            });
+          });
+        }
+      }, this.props.autoCompleteThreshold);
+    });
+  }
+
   render() {
+    const listOptions = this.state.autoCompleteOptions ||
+      this.props.options;
+
     return (
       <div
         ref={(ref) => this.container = ref}
@@ -198,9 +271,22 @@ class SelectField extends React.Component {
           className={[
             'select-menu',
             `placement-${this.props.placement || 'bottom'}`,
+            this.state.autoCompleting ? 'auto-completing' : null,
           ].join(' ')}
         >
-          { this.props.options.map((item, index) => (
+          {this.props.autoComplete && (
+            <li className="select-auto-complete">
+              <TextField
+                ref={(ref) => this.autoCompleteInput = ref}
+                label={this.props.autoCompleteLabel}
+                value={this.state.autoCompleteValue}
+                dirty={false}
+                onChange={this.onAutoCompleteChange.bind(this)}
+              />
+            </li>
+          )}
+
+          { listOptions.map((item, index) => (
             <li className="select-menu-item" key={index}>
               <a
                 onClick={this.onOptionClick.bind(this, item)}
