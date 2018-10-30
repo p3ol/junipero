@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import BreadcrumbPage from '../components/BreadcrumbPage';
+import BreadCrumbPage from '../components/BreadCrumbPage';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -8,4 +8,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(BreadcrumbPage);
+export default connect(mapStateToProps)(BreadCrumbPage);

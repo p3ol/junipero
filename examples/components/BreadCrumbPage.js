@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Breadcrumb } from '@poool/junipero';
+import { BreadCrumb } from '@poool/junipero';
 
-class BreadcrumbPage extends React.Component {
+class BreadCrumbPage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -18,11 +18,11 @@ class BreadcrumbPage extends React.Component {
                 <p><Link to="/">Back</Link></p>
                 <h1>Breadcrumb Example</h1>
                 <div className="row mt-5">
-                    <Breadcrumb items={this.state.items}/>
+                    <BreadCrumb items={this.state.items}/>
                 </div>
             </div>
         );
     }
 }
 
-export default BreadcrumbPage;
+export default BreadCrumbPage;

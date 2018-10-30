@@ -15,7 +15,7 @@ const Home = () => (
       <li><Link to="/date-field">DateField</Link></li>
       <li><Link to="/button">Button</Link></li>
       <li><Link to="/tags-field">TagsField</Link></li>
-      <li><Link to="/breadcrumb">Breadcrumb</Link></li>
+      <li><Link to="/bread-crumb">BreadCrumb</Link></li>
     </ul>
   </div>
 );
