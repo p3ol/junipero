@@ -45,7 +45,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     library: 'junipero',
-    libraryTarget: 'umd',
+    libraryTarget: 'umd2',
     sourceMapFilename: '[name].js.map',
   },
 };
