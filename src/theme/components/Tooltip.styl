@@ -1,0 +1,121 @@
+@import "../utils/vars"
+
+.junipero.junipero-tooltip
+  position: relative
+
+  .junipero-tooltip-inner
+    background-color: $color-surfie-green
+    color: $color-white
+    border-radius: 3px
+    display: inline-block
+    font-size: 13px
+    opacity: 0
+    padding: 8px 21px
+    position: absolute
+    pointer-events: none
+    text-align: center
+    transition: opacity 0.3s ease-out
+    visibility: hidden
+    z-index: 999
+
+    &.opened
+      opacity: 0.9
+      margin-top: 0px
+      margin-left: 0px
+      visibility: visible
+
+    &:before, &:after
+      content: ''
+      height: 0
+      position: absolute
+      width: 0
+
+    &.hide-arrow
+      &:after
+        display: none
+
+    &.place-top
+      margin-top: -10px
+      transform: translateX(-50%)
+
+      &:before
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        bottom: -8px
+        left: 50%
+        margin-left: -10px
+
+      &:after
+        border-top-color: $color-surfie-green
+        border-top-style: solid
+        border-top-width: 6px
+        border-left: 8px solid transparent
+        border-right: 8px solid transparent
+        bottom: -6px
+        left: 50%
+        margin-left: -8px
+
+
+    &.place-bottom
+      transform: translateX(-50%)
+
+      &:before
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        left: 50%
+        margin-left: -10px
+        top: -8px
+
+      &:after
+        border-bottom-color: $color-surfie-green
+        border-bottom-style: solid
+        border-bottom-width: 6px
+        border-left: 8px solid transparent
+        border-right: 8px solid transparent
+        left: 50%
+        margin-left: -8px
+        top: -6px
+
+
+    &.place-left
+      margin-left: -10px
+      transform: translateY(-50%)
+
+      &:before
+        border-top: 6px solid transparent
+        border-bottom: 6px solid transparent
+        margin-top: -5px
+        right: -8px
+        top: 50%
+
+      &:after
+        border-left-color: $color-surfie-green
+        border-left-style: solid
+        border-left-width: 6px
+        border-top: 5px solid transparent
+        border-bottom: 5px solid transparent
+        margin-top: -4px
+        right: -6px
+        top: 50%
+
+
+    &.place-right
+      margin-left: 5px
+      transform: translateY(-50%)
+
+      &:before
+        border-top: 6px solid transparent
+        border-bottom: 6px solid transparent
+        left: -8px
+        margin-top: -5px
+        top: 50%
+
+      &:after
+        border-right-color: $color-surfie-green
+        border-right-style: solid
+        border-right-width: 6px
+        border-top: 5px solid transparent
+        border-bottom: 5px solid transparent
+        left: -6px
+        top: 50%
+        margin-top: -4px
