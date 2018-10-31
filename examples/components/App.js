@@ -18,6 +18,7 @@ import ButtonPage from '../containers/ButtonPage';
 import TagsFieldPage from '../containers/TagsFieldPage';
 import BreadCrumbPage from '../containers/BreadCrumbPage';
 import TooltipPage from '../containers/TooltipPage';
+import TabsPage from '../containers/TabsPage';
 
 import Toolbox from '../containers/Toolbox';
 
@@ -56,6 +57,7 @@ class App extends React.Component {
               <Route exact path="/tags-field" component={TagsFieldPage} />
               <Route exact path="/bread-crumb" component={BreadCrumbPage} />
               <Route exact path="/tooltip" component={TooltipPage} />
+              <Route exact path="/tabs" component={TabsPage} />
             </Switch>
           </Router>
 
