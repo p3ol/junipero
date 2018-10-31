@@ -9,6 +9,7 @@ import DateField from './components/DateField';
 import Button from './components/Button';
 import TagsField from './components/TagsField';
 import BreadCrumb from './components/BreadCrumb';
+import Tooltip from './components/Tooltip';
 import Tabs from './components/Tabs';
 import Tab from './components/Tab';
 
@@ -25,6 +26,7 @@ export {
   Button,
   TagsField,
   BreadCrumb,
+  Tooltip,
   Tabs,
   Tab,
 };
