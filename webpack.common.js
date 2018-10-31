@@ -19,12 +19,6 @@ module.exports = {
     }, {
       test: /\.styl$/,
       use: [
-        {
-          loader: 'style-loader',
-          options: {
-            singleton: true,
-          },
-        },
         'css-loader',
         {
           loader: 'postcss-loader',
