@@ -1,52 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../theme/components/TagsField.styl';
-
-const propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.array,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  deleteComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  placeholder: PropTypes.string,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  boxed: PropTypes.bool,
-  prefix: PropTypes.object,
-  suffix: PropTypes.object,
-  forceValue: PropTypes.bool,
-  titleKey: PropTypes.string,
-  valueKey: PropTypes.string,
-  tabIndex: PropTypes.number,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-};
-
-const defaultProps = {
-  className: null,
-  value: [],
-  label: '',
-  deleteComponent: (<i className="close-icon" />),
-  placeholder: '',
-  disabled: false,
-  required: false,
-  boxed: false,
-  prefix: null,
-  suffix: null,
-  forceValue: false,
-  titleKey: 'title',
-  valueKey: 'value',
-  tabIndex: 0,
-  onChange: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
-};
+import { injectStyles } from '../utils';
+import styles from '../theme/components/TagsField.styl';
 
 class TagsField extends React.Component {
 
+  static propTypes = {
+    className: PropTypes.string,
+    value: PropTypes.array,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    deleteComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    boxed: PropTypes.bool,
+    prefix: PropTypes.object,
+    suffix: PropTypes.object,
+    forceValue: PropTypes.bool,
+    titleKey: PropTypes.string,
+    valueKey: PropTypes.string,
+    tabIndex: PropTypes.number,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+  }
+
+  static defaultProps = {
+    className: null,
+    value: [],
+    label: '',
+    deleteComponent: (<i className="close-icon" />),
+    placeholder: '',
+    disabled: false,
+    required: false,
+    boxed: false,
+    prefix: null,
+    suffix: null,
+    forceValue: false,
+    titleKey: 'title',
+    valueKey: 'value',
+    tabIndex: 0,
+    onChange: () => {},
+    onFocus: () => {},
+    onBlur: () => {},
+  }
+
   constructor(props) {
     super(props);
+
+    injectStyles(styles,
+      { id: 'junipero-tags-field-styles', after: '#junipero-main-styles' });
 
     this.state = {
       value: this.props.value,
@@ -269,8 +273,5 @@ class TagsField extends React.Component {
     );
   }
 }
-
-TagsField.propTypes = propTypes;
-TagsField.defaultProps = defaultProps;
 
 export default TagsField;

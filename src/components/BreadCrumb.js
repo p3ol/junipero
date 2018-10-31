@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import { injectStyles } from '../utils';
 import styles from '../theme/components/BreadCrumb.styl';
 
-const propTypes = {
-  items: PropTypes.array,
-};
-
-const defaultProps = {
-  items: [],
-};
-
 class BreadCrumb extends React.Component {
+
+  static propTypes = {
+    items: PropTypes.array,
+  }
+
+  static defaultProps = {
+    items: [],
+  }
 
   constructor(props) {
     super(props);
@@ -33,8 +33,5 @@ class BreadCrumb extends React.Component {
     );
   }
 }
-
-BreadCrumb.propTypes = propTypes;
-BreadCrumb.defaultProps = defaultProps;
 
 export default BreadCrumb;

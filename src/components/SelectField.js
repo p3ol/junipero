@@ -2,60 +2,63 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TextField from './TextField';
-
-import '../theme/components/SelectField.styl';
-
-const propTypes = {
-  className: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  boxed: PropTypes.bool,
-  emptyComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  arrowComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  forceValue: PropTypes.bool,
-  titleKey: PropTypes.string,
-  valueKey: PropTypes.string,
-  options: PropTypes.array,
-  placement: PropTypes.string,
-  tabIndex: PropTypes.number,
-  onChange: PropTypes.func,
-  validate: PropTypes.func,
-  prefix: PropTypes.object,
-  suffix: PropTypes.object,
-  autoComplete: PropTypes.func,
-  autoCompleteLabel: PropTypes.string,
-  autoCompleteThreshold: PropTypes.number,
-};
-
-const defaultProps = {
-  className: '',
-  label: '',
-  disabled: false,
-  required: false,
-  boxed: false,
-  value: null,
-  emptyComponent: null,
-  arrowComponent: (<i className="select-arrow-icon" />),
-  forceValue: false,
-  titleKey: 'title',
-  valueKey: 'value',
-  options: [],
-  placement: 'bottom',
-  tabIndex: 0,
-  onChange: () => {},
-  validate: value => !!value,
-  prefix: null,
-  suffix: null,
-  autoComplete: null,
-  autoCompleteLabel: 'Search...',
-  autoCompleteThreshold: 400,
-};
+import { injectStyles } from '../utils';
+import styles from '../theme/components/SelectField.styl';
 
 class SelectField extends React.Component {
 
+  static propTypes = {
+    className: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    boxed: PropTypes.bool,
+    emptyComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    arrowComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    forceValue: PropTypes.bool,
+    titleKey: PropTypes.string,
+    valueKey: PropTypes.string,
+    options: PropTypes.array,
+    placement: PropTypes.string,
+    tabIndex: PropTypes.number,
+    onChange: PropTypes.func,
+    validate: PropTypes.func,
+    prefix: PropTypes.object,
+    suffix: PropTypes.object,
+    autoComplete: PropTypes.func,
+    autoCompleteLabel: PropTypes.string,
+    autoCompleteThreshold: PropTypes.number,
+  }
+
+  static defaultProps = {
+    className: '',
+    label: '',
+    disabled: false,
+    required: false,
+    boxed: false,
+    value: null,
+    emptyComponent: null,
+    arrowComponent: (<i className="select-arrow-icon" />),
+    forceValue: false,
+    titleKey: 'title',
+    valueKey: 'value',
+    options: [],
+    placement: 'bottom',
+    tabIndex: 0,
+    onChange: () => {},
+    validate: value => !!value,
+    prefix: null,
+    suffix: null,
+    autoComplete: null,
+    autoCompleteLabel: 'Search...',
+    autoCompleteThreshold: 400,
+  }
+
   constructor(props) {
     super(props);
+
+    injectStyles(styles,
+      { id: 'junipero-select-field-styles', after: '#junipero-main-styles' });
 
     this.state = {
       value: null,
@@ -307,8 +310,5 @@ class SelectField extends React.Component {
   }
 
 }
-
-SelectField.propTypes = propTypes;
-SelectField.defaultProps = defaultProps;
 
 export default SelectField;

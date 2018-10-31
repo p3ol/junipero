@@ -1,32 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../theme/components/Switch.styl';
-
-const propTypes = {
-  className: PropTypes.string,
-  checked: PropTypes.bool,
-  value: PropTypes.string,
-  onLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  offLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  onChange: PropTypes.func,
-};
-
-const defaultProps = {
-  className: null,
-  checked: false,
-  value: null,
-  disabled: false,
-  required: false,
-  onChange: () => {},
-};
+import { injectStyles } from '../utils';
+import styles from '../theme/components/Switch.styl';
 
 class Switch extends React.Component {
 
+  static propTypes = {
+    className: PropTypes.string,
+    checked: PropTypes.bool,
+    value: PropTypes.string,
+    onLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    offLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    onChange: PropTypes.func,
+  }
+
+  static defaultProps = {
+    className: null,
+    checked: false,
+    value: null,
+    disabled: false,
+    required: false,
+    onChange: () => {},
+  }
+
   constructor(props) {
     super(props);
+
+    injectStyles(styles,
+      { id: 'junipero-switch-styles', after: '#junipero-main-styles' });
 
     this.state = {
       checked: this.props.checked,
@@ -88,8 +92,5 @@ class Switch extends React.Component {
   }
 
 }
-
-Switch.propTypes = propTypes;
-Switch.defaultProps = defaultProps;
 
 export default Switch;

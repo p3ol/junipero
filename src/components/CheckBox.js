@@ -1,32 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../theme/components/CheckBox.styl';
-
-const propTypes = {
-  className: PropTypes.string,
-  checked: PropTypes.bool,
-  value: PropTypes.string,
-  checkIconComponent: PropTypes.object,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  onChange: PropTypes.func,
-};
-
-const defaultProps = {
-  className: null,
-  checked: false,
-  value: null,
-  disabled: false,
-  required: false,
-  checkIconComponent: null,
-  onChange: () => {},
-};
+import { injectStyles } from '../utils';
+import styles from '../theme/components/CheckBox.styl';
 
 class CheckBox extends React.Component {
 
+  static propTypes = {
+    className: PropTypes.string,
+    checked: PropTypes.bool,
+    value: PropTypes.string,
+    checkIconComponent: PropTypes.object,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    onChange: PropTypes.func,
+  }
+
+  static defaultProps = {
+    className: null,
+    checked: false,
+    value: null,
+    disabled: false,
+    required: false,
+    checkIconComponent: null,
+    onChange: () => {},
+  }
+
   constructor(props) {
     super(props);
+
+    injectStyles(styles,
+      { id: 'junipero-check-box-styles', after: '#junipero-main-styles' });
 
     this.state = {
       checked: this.props.checked,
@@ -107,8 +111,5 @@ class CheckBox extends React.Component {
   }
 
 }
-
-CheckBox.propTypes = propTypes;
-CheckBox.defaultProps = defaultProps;
 
 export default CheckBox;

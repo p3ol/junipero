@@ -1,58 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../theme/components/DateField.styl';
-
-const propTypes = {
-  arrowComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  boxed: PropTypes.bool,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  prefix: PropTypes.object,
-  required: PropTypes.bool,
-  suffix: PropTypes.object,
-  tabIndex: PropTypes.number,
-  validate: PropTypes.func,
-  value: PropTypes.instanceOf(Date),
-  parseValue: PropTypes.func,
-  monthNames: PropTypes.array,
-  weekDaysNames: PropTypes.array,
-  placement: PropTypes.string,
-};
-
-const defaultProps = {
-  arrowComponent: (<i className="select-arrow-icon" />),
-  boxed: false,
-  className: '',
-  disabled: false,
-  label: 'Label',
-  onChange: () => {},
-  placeholder: 'Pick a date...',
-  prefix: null,
-  required: false,
-  suffix: null,
-  tabIndex: 0,
-  validate: value => !!value,
-  value: null,
-  parseValue: value => value.toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }),
-  monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'],
-  weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
-  placement: 'bottom',
-};
+import { injectStyles } from '../utils';
+import styles from '../theme/components/DateField.styl';
 
 class DateField extends React.Component {
 
+  static propTypes = {
+    arrowComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    boxed: PropTypes.bool,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string,
+    prefix: PropTypes.object,
+    required: PropTypes.bool,
+    suffix: PropTypes.object,
+    tabIndex: PropTypes.number,
+    validate: PropTypes.func,
+    value: PropTypes.instanceOf(Date),
+    parseValue: PropTypes.func,
+    monthNames: PropTypes.array,
+    weekDaysNames: PropTypes.array,
+    placement: PropTypes.string,
+  }
+
+  static defaultProps = {
+    arrowComponent: (<i className="select-arrow-icon" />),
+    boxed: false,
+    className: '',
+    disabled: false,
+    label: 'Label',
+    onChange: () => {},
+    placeholder: 'Pick a date...',
+    prefix: null,
+    required: false,
+    suffix: null,
+    tabIndex: 0,
+    validate: value => !!value,
+    value: null,
+    parseValue: value => value.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
+    monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'],
+    weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
+    placement: 'bottom',
+  }
+
   constructor(props) {
     super(props);
+
+    injectStyles(styles,
+      { id: 'junipero-date-field-styles', after: '#junipero-main-styles' });
 
     this.state = {
       opened: this.props.opened || false,
@@ -352,8 +356,5 @@ class DateField extends React.Component {
   }
 
 }
-
-DateField.propTypes = propTypes;
-DateField.defaultProps = defaultProps;
 
 export default DateField;

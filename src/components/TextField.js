@@ -1,48 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../theme/components/TextField.styl';
-
-const propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  type: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  placeholder: PropTypes.string,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  boxed: PropTypes.bool,
-  prefix: PropTypes.object,
-  suffix: PropTypes.object,
-  rows: PropTypes.number,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  validate: PropTypes.func,
-};
-
-const defaultProps = {
-  className: null,
-  value: '',
-  type: 'text',
-  label: '',
-  placeholder: '',
-  disabled: false,
-  required: false,
-  boxed: false,
-  prefix: null,
-  suffix: null,
-  rows: 5,
-  onChange: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
-  validate: value => /.+/g.test(value),
-};
+import { injectStyles } from '../utils';
+import styles from '../theme/components/TextField.styl';
 
 class TextField extends React.Component {
 
+  static propTypes = {
+    className: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    type: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    boxed: PropTypes.bool,
+    prefix: PropTypes.object,
+    suffix: PropTypes.object,
+    rows: PropTypes.number,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    validate: PropTypes.func,
+  }
+
+  static defaultProps = {
+    className: null,
+    value: '',
+    type: 'text',
+    label: '',
+    placeholder: '',
+    disabled: false,
+    required: false,
+    boxed: false,
+    prefix: null,
+    suffix: null,
+    rows: 5,
+    onChange: () => {},
+    onFocus: () => {},
+    onBlur: () => {},
+    validate: value => /.+/g.test(value),
+  }
+
   constructor(props) {
     super(props);
+
+    injectStyles(styles,
+      { id: 'junipero-text-field-styles', after: '#junipero-main-styles' });
 
     this.state = {
       focused: false,
@@ -187,8 +191,5 @@ class TextField extends React.Component {
     );
   }
 }
-
-TextField.propTypes = propTypes;
-TextField.defaultProps = defaultProps;
 
 export default TextField;

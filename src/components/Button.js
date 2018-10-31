@@ -1,29 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../theme/components/Button.styl';
-
-const propTypes = {
-  disabled: PropTypes.bool,
-  tag: PropTypes.string,
-  type: PropTypes.string,
-  submit: PropTypes.bool,
-  reversed: PropTypes.bool,
-  size: PropTypes.string,
-  onClick: PropTypes.func,
-};
-
-const defaultProps = {
-  disabled: false,
-  tag: 'a',
-  type: 'default',
-  submit: false,
-  reversed: false,
-  size: 'default',
-  onClick: () => {},
-};
+import { injectStyles } from '../utils';
+import styles from '../theme/components/Button.styl';
 
 class Button extends React.Component {
+
+  static propTypes = {
+    disabled: PropTypes.bool,
+    tag: PropTypes.string,
+    type: PropTypes.string,
+    submit: PropTypes.bool,
+    reversed: PropTypes.bool,
+    size: PropTypes.string,
+    onClick: PropTypes.func,
+  }
+
+  static defaultProps = {
+    disabled: false,
+    tag: 'a',
+    type: 'default',
+    submit: false,
+    reversed: false,
+    size: 'default',
+    onClick: () => {},
+  }
+
+  constructor(props) {
+    super(props);
+
+    injectStyles(styles,
+      { id: 'junipero-button-styles', after: '#junipero-main-styles' });
+  }
 
   onClick(e) {
     if (this.props.disabled) {
@@ -66,8 +74,5 @@ class Button extends React.Component {
   }
 
 }
-
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
 
 export default Button;
