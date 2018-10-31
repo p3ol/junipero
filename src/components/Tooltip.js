@@ -2,34 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { injectStyles } from '../utils';
-
 import styles from '../theme/components/Tooltip.styl';
 
-const propTypes = {
-  classname: PropTypes.string,
-  text: PropTypes.string,
-  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
-  elementId: PropTypes.string,
-  maxWidth: PropTypes.number,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-  hideArrow: PropTypes.bool,
-  eventType: PropTypes.string,
-};
-
-const defaultProps = {
-  classname: null,
-  text: 'This is a tooltip',
-  placement: 'top',
-  elementId: null,
-  onChange: () => {},
-  maxWidth: 150,
-  disabled: false,
-  hideArrow: false,
-  eventType: 'hover',
-};
-
 class Tooltip extends React.Component {
+
+  static propTypes = {
+    classname: PropTypes.string,
+    text: PropTypes.string,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    elementId: PropTypes.string,
+    maxWidth: PropTypes.number,
+    disabled: PropTypes.bool,
+    hideArrow: PropTypes.bool,
+    eventType: PropTypes.string,
+    onToggle: PropTypes.func,
+  }
+
+  static defaultProps = {
+    classname: null,
+    text: 'This is a tooltip',
+    placement: 'top',
+    elementId: null,
+    maxWidth: 150,
+    disabled: false,
+    hideArrow: false,
+    eventType: 'hover',
+    onToggle: () => {},
+  }
 
   constructor(props) {
     super(props);
@@ -68,7 +67,7 @@ class Tooltip extends React.Component {
   toggleTooltip() {
     if (this.props.disabled) { return; }
     this.setState({ opened: !this.state.opened }, () => {
-      this.props.onChange({ opened: this.state.opened });
+      this.props.onToggle({ opened: this.state.opened });
     });
   }
 
@@ -163,8 +162,5 @@ class Tooltip extends React.Component {
     this.unBindListeners();
   }
 }
-
-Tooltip.propTypes = propTypes;
-Tooltip.defaultProps = defaultProps;
 
 export default Tooltip;

@@ -34,7 +34,7 @@ class TooltipPage extends React.Component {
             <Tooltip
               elementId="text-hover-tooltip"
               placement="top"
-              onChange={this.onChange.bind(this, 'default')}
+              onToggle={this.onChange.bind(this, 'default')}
               disabled={this.props.disabled}
             />
           </div>
@@ -55,7 +55,8 @@ class TooltipPage extends React.Component {
             <Tooltip
               elementId="icon-hover-tooltip"
               placement="right"
-              onChange={this.onChange.bind(this, 'iconHover')}
+              hideArrow={true}
+              onToggle={this.onChange.bind(this, 'iconHover')}
               disabled={this.props.disabled}
             />
           </div>
@@ -76,7 +77,7 @@ class TooltipPage extends React.Component {
               elementId="on-click-tooltip"
               placement="right"
               eventType="click"
-              onChange={this.onChange.bind(this, 'clickOnly')}
+              onToggle={this.onChange.bind(this, 'clickOnly')}
               disabled={this.props.disabled}
             />
           </div>
