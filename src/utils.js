@@ -13,11 +13,11 @@ export const injectStyles = (styles, options) => {
 
     const target = head?.querySelector(options.after) || head?.lastChild;
     head.insertBefore(tag, target?.nextSibling);
-  }
 
-  if (tag.styleSheet) {
-    tag.styleSheet.cssText = styles;
-  } else {
-    tag.appendChild(document.createTextNode(styles));
+    if (tag.styleSheet) {
+      tag.styleSheet.cssText = styles;
+    } else {
+      tag.innerHTML = styles;
+    }
   }
 };
