@@ -9,6 +9,8 @@ import DateField from './components/DateField';
 import Button from './components/Button';
 import TagsField from './components/TagsField';
 import BreadCrumb from './components/BreadCrumb';
+import Tabs from './components/Tabs';
+import Tab from './components/Tab';
 
 import styles from './theme/index.styl';
 injectStyles(styles, { id: 'junipero-main-styles' });
@@ -23,4 +25,6 @@ export {
   Button,
   TagsField,
   BreadCrumb,
+  Tabs,
+  Tab,
 };

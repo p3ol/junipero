@@ -1,0 +1,55 @@
+@import "../utils/vars"
+
+.junipero.tabs
+
+  ul.tabs-titles
+    display: inline-block
+    padding: 0
+    list-style: none
+    border-bottom: 1px solid $color-alto
+
+    li
+      display: inline-block
+      padding: 0
+      margin-right: 40px
+      position: relative
+
+      &:last-child
+        margin-right: 0
+
+      &.active
+        &:after
+          content: ""
+          width: 100%
+          position: absolute
+          height: 2px
+          bottom: -1px
+          left: 0
+          background: $color-eastern-blue
+
+        a
+          color: $color-eastern-blue
+
+      &.disabled
+        opacity: .5
+
+        a
+          cursor: default
+
+      a
+        color: $color-midnight
+        text-decoration: none
+        cursor: pointer
+        padding: 15px 0
+        display: inline-block
+
+  &.disabled
+    opacity: .5
+
+    ul.tabs-titles
+      li.disabled
+        opacity: 1
+
+      li
+        a
+          cursor: default
