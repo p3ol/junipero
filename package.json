@@ -1,10 +1,13 @@
 {
   "name": "@poool/junipero",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-alpha.1",
   "description": "Poool internal components library",
   "main": "dist/junipero.cjs.js",
-  "module": "dist/junipero.esm.js",
-  "browser": "dist/junipero.umd.js",
+  "jsnext:main": "dist/junipero.es.js",
+  "module": "dist/junipero.es.js",
+  "unpkg": "dist/junipero.min.js",
+  "cdn": "dist/junipero.min.js",
+  "esnext": "src",
   "repository": "https://github.com/p3ol/junipero.git",
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
@@ -15,8 +18,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.3.1",
@@ -43,8 +48,11 @@
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-delete": "^0.1.2",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-plugin-minify": "^1.0.3",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-postcss": "^1.6.2",
+    "rollup-plugin-uglify": "^6.0.0",
     "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
@@ -64,8 +72,9 @@
   },
   "scripts": {
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.js --hot --inline --open",
+    "clean": "rm -r ./dist || true",
     "build-webpack": "./node_modules/.bin/webpack --config webpack.release.js",
-    "build-rollup": "./node_modules/.bin/rollup -c && ./node_modules/.bin/uglifyjs dist/junipero.umd.js --output dist/junipero.min.js -c",
-    "prepack": "yarn build-webpack"
+    "build-rollup": "yarn clean && ./node_modules/.bin/rollup -c",
+    "prepack": "yarn build-rollup"
   }
 }

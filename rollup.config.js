@@ -3,15 +3,24 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
-import del from 'rollup-plugin-delete';
+import { eslint } from 'rollup-plugin-eslint';
+import { uglify } from 'rollup-plugin-uglify';
 
-import pkg from './package.json';
-
-const defaultConfig = {
+const defaultConfig = () => ({
   input: 'src/index.js',
+  output: {
+    name: 'junipero',
+    sourcemap: true,
+  },
   plugins: [
+    eslint({
+      exclude: [
+        'src/theme/**',
+      ],
+    }),
     babel({
       exclude: 'node_modules/**',
+      externalHelpers: true,
     }),
     postcss({
       extensions: ['.styl'],
@@ -26,34 +35,58 @@ const defaultConfig = {
     'react',
     'prop-types',
   ],
-};
+});
+
+const defaultUMDConfig = (minified = false, config = defaultConfig()) => ({
+  ...config,
+  output: {
+    ...config.output,
+    format: 'umd',
+    globals: {
+      react: 'React',
+      'prop-types': 'PropTypes',
+    },
+  },
+  plugins: [
+    ...config.plugins,
+    resolve(),
+    commonjs(),
+    minified ? uglify() : null,
+  ],
+});
+
+/*
+  COMMONJS / MODULE CONFIG
+*/
+const libConfig = (config = defaultConfig()) => ({
+  ...config,
+  output: [
+    { file: 'dist/junipero.cjs.js', format: 'cjs' },
+    { file: 'dist/junipero.es.js', format: 'es' },
+  ],
+});
+
+/*
+  UMD CONFIG
+*/
+const umdConfig = (config = defaultUMDConfig()) => ({
+  ...config,
+  output: {
+    ...config.output,
+    file: 'dist/junipero.js',
+  },
+});
+
+const umdMinConfig = (config = defaultUMDConfig(true)) => ({
+  ...config,
+  output: {
+    ...config.output,
+    file: 'dist/junipero.min.js',
+  },
+});
 
 export default [
-  {
-    ...defaultConfig,
-    output: {
-      name: 'junipero',
-      file: pkg.browser,
-      format: 'umd',
-      globals: {
-        react: 'React',
-        'prop-types': 'PropTypes',
-      },
-    },
-    plugins: [
-      del({ targets: 'dist/*' }),
-      ...defaultConfig.plugins,
-      resolve(),
-      commonjs(),
-    ],
-  }, {
-    ...defaultConfig,
-    output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
-    ],
-    plugins: [
-      ...defaultConfig.plugins,
-    ],
-  },
+  libConfig(),
+  umdConfig(),
+  umdMinConfig(),
 ];
