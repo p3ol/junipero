@@ -8,6 +8,7 @@ class TextField extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
+    name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     type: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
@@ -26,6 +27,7 @@ class TextField extends React.Component {
 
   static defaultProps = {
     className: null,
+    name: '',
     value: '',
     type: 'text',
     label: '',
@@ -163,6 +165,7 @@ class TextField extends React.Component {
             <Tag
               ref={(ref) => this.input = ref}
               className="field"
+              name={this.props.name}
               type={this.getType()}
               disabled={this.props.disabled}
               required={this.props.required}
