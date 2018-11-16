@@ -12,7 +12,7 @@ class TextFieldPage extends React.Component {
       number: {},
       password: {},
       suffix: {},
-      showPassword: false,
+      multiline: {},
     };
   }
 
@@ -34,11 +34,10 @@ class TextFieldPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <TextField
-              label="Label"
               required={true}
               boxed={this.props.boxed}
               error={this.props.error}
-              placeholder={this.props.placeholder}
+              placeholder="Label"
               disabled={this.props.disabled}
               onChange={this.onChange.bind(this, 'default')}
             />
@@ -49,15 +48,33 @@ class TextFieldPage extends React.Component {
           </div>
         </div>
 
+        <h2 className="mt-5">With theming</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <TextField
+              className="theme-default"
+              required={true}
+              boxed={this.props.boxed}
+              error={this.props.error}
+              placeholder="Label"
+              disabled={this.props.disabled}
+              onChange={this.onChange.bind(this, 'themed')}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.themed, null, 2)}</pre>
+          </div>
+        </div>
+
         <h2 className="mt-5">Number</h2>
         <div className="row mt-5">
           <div className="col-6">
             <TextField
-              label="Label"
               required={true}
               boxed={this.props.boxed}
               error={this.props.error}
-              placeholder={this.props.placeholder}
+              placeholder="Label"
               disabled={this.props.disabled}
               value={0}
               onChange={this.onChange.bind(this, 'number')}
@@ -73,27 +90,13 @@ class TextFieldPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <TextField
-              label="Label"
-              type={ this.state.showPassword ? 'text' : 'password'}
+              type="password"
               required={true}
               boxed={this.props.boxed}
               error={this.props.error}
-              placeholder={this.props.placeholder}
+              placeholder="Label"
               disabled={this.props.disabled}
               onChange={this.onChange.bind(this, 'password')}
-              suffix={(
-                <a
-                  className="mr-2 ml-1"
-                  tabIndex="0"
-                  role="button"
-                  onClick={this.togglePassword.bind(this)}
-                >
-                  <i className="material-icons">
-                    { this.state.showPassword && 'visibility_off' ||
-                      'visibility' }
-                  </i>
-                </a>
-              )}
             />
           </div>
           <div className="col-6">
@@ -106,19 +109,18 @@ class TextFieldPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <TextField
-              type="multiline"
-              label="Label"
+              rows={5}
               required={true}
               boxed={this.props.boxed}
               error={this.props.error}
-              placeholder={this.props.placeholder}
+              placeholder="Label"
               disabled={this.props.disabled}
-              onChange={this.onChange.bind(this, 'default')}
+              onChange={this.onChange.bind(this, 'multiline')}
             />
           </div>
           <div className="col-6">
             <p>Current state :</p>
-            <pre>{ JSON.stringify(this.state.default, null, 2)}</pre>
+            <pre>{ JSON.stringify(this.state.multiline, null, 2)}</pre>
           </div>
         </div>
       </div>

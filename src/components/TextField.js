@@ -8,7 +8,6 @@ class TextField extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     type: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
@@ -16,8 +15,6 @@ class TextField extends React.Component {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     boxed: PropTypes.bool,
-    prefix: PropTypes.object,
-    suffix: PropTypes.object,
     rows: PropTypes.number,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -27,7 +24,6 @@ class TextField extends React.Component {
 
   static defaultProps = {
     className: null,
-    name: '',
     value: '',
     type: 'text',
     label: '',
@@ -35,9 +31,7 @@ class TextField extends React.Component {
     disabled: false,
     required: false,
     boxed: false,
-    prefix: null,
-    suffix: null,
-    rows: 5,
+    rows: null,
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
@@ -52,6 +46,7 @@ class TextField extends React.Component {
 
     this.state = {
       focused: false,
+      dirty: !!this.props.value,
       value: this.props.value || '',
       valid: this.props.valid || true,
     };
@@ -61,12 +56,14 @@ class TextField extends React.Component {
     if (this.props.value !== prevProps.value) {
       this.setState({
         value: this.props.value,
+        dirty: !!this.props.value,
       });
     }
   }
 
   onFocus(e) {
     this.props.onFocus(e);
+    const { value } = this.state;
 
     if (
       e.defaultPrevented ||
@@ -76,12 +73,16 @@ class TextField extends React.Component {
       return false;
     }
 
-    this.setState({ focused: true });
+    this.setState({
+      focused: true,
+      dirty: !!value,
+    });
     return true;
   }
 
   onBlur(e) {
     this.props.onBlur(e);
+    const { value } = this.state;
 
     if (
       e.defaultPrevented ||
@@ -91,17 +92,23 @@ class TextField extends React.Component {
       return false;
     }
 
-    this.setState({ focused: false });
+    this.setState({
+      focused: false,
+      dirty: !!value,
+    });
+
     return true;
   }
 
   onChange(e) {
+    e.persist();
     let value = e.target.value;
     const valid = this.props.validate(value);
 
     this.setState({
       value,
       valid,
+      dirty: true,
     }, () => {
       if (typeof this.props.value === 'number') {
         value = Number(value) || 0;
@@ -137,7 +144,19 @@ class TextField extends React.Component {
   }
 
   render() {
-    const Tag = this.props.type === 'multiline' ? 'textarea' : 'input';
+    const { focused, value, valid, dirty } = this.state;
+
+    const {
+      disabled,
+      required,
+      boxed,
+      className,
+      placeholder,
+      label,
+      ...rest
+    } = this.props;
+
+    const Tag = rest.rows > 1 ? 'textarea' : 'input';
 
     return (
       <div
@@ -145,46 +164,37 @@ class TextField extends React.Component {
           'junipero',
           'junipero-field',
           'text-field',
-          this.state.focused ? 'focused' : null,
-          this.state.value ? 'dirty' : null,
-          !this.state.valid ? 'invalid' : null,
-          this.props.disabled ? 'disabled' : null,
-          this.props.required ? 'required' : null,
-          this.props.placeholder ? 'placeholder' : null,
-          this.props.boxed ? 'boxed' : null,
-          this.props.className,
+          focused ? 'focused' : null,
+          dirty ? 'dirty' : null,
+          !valid ? 'invalid' : null,
+          disabled ? 'disabled' : null,
+          required ? 'required' : null,
+          boxed ? 'boxed' : null,
+          className,
         ].join(' ')}
       >
 
         <div className="field-wrapper">
-          { this.props.prefix && (
-            <div className="field-prefix">{ this.props.prefix }</div>
-          ) }
+          <label
+            htmlFor={rest.id}
+          >
+            { label || placeholder }
+          </label>
 
-          <div className="field-inner">
-            <Tag
-              ref={(ref) => this.input = ref}
-              className="field"
-              name={this.props.name}
-              type={this.getType()}
-              disabled={this.props.disabled}
-              required={this.props.required}
-              placeholder={this.props.placeholder}
-              value={this.state.value}
-              rows={this.props.rows}
-              onFocus={this.onFocus.bind(this)}
-              onBlur={this.onBlur.bind(this)}
-              onChange={this.onChange.bind(this)}
-            />
-
-            { this.props.label && (
-              <span className="label">{ this.props.label }</span>
-            ) }
-          </div>
-
-          { this.props.suffix && (
-            <div className="field-suffix">{ this.props.suffix }</div>
-          ) }
+          <Tag
+            { ...rest }
+            ref={(ref) => this.input = ref}
+            className="field"
+            type={this.getType()}
+            disabled={disabled}
+            required={required}
+            value={value}
+            onFocus={this.onFocus.bind(this)}
+            onBlur={this.onBlur.bind(this)}
+            onChange={this.onChange.bind(this)}
+            validate={null}
+            placeholder={!dirty ? placeholder : null}
+          />
         </div>
 
         { this.props.error && (

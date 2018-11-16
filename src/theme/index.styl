@@ -1,4 +1,5 @@
 @import "utils/vars"
+@import "utils/colors"
 
 .junipero
   font-family: "Open Sans", sans-serif
@@ -11,136 +12,83 @@
 
   &.junipero-field
     position: relative
-    min-width: $default-width
     display: block
 
-    &.invalid.required
-      .field-wrapper
-        &:after
-          background: $color-monza
+    &.dirty, &.dirty.focused
+      &, &.boxed
+        .field-wrapper
+          label
+            opacity: 1
+            transform: translate3d(0, 0, 0)
 
-        .field-inner
-          .label
-            color: $color-monza
+          .field
+            padding-top: 21px
+            padding-bottom: 5px
 
     &.disabled
-      .field-wrapper:before,
-      .field-wrapper:after,
-      .field-inner
-        opacity: .3
-
-    &.dirty, &.focused, &.opened
-      .field-wrapper
-        &:after
-          background: $color-eastern-blue
-
-        .field-inner
-          .label
-            color: $color-eastern-blue
-
-    &.dirty, &.focused, &.placeholder
-      .field-wrapper
-        .label
-          transform: scale(0.75) translateY(-25px)
+      opacity: .3
 
     .field-wrapper
       position: relative
-      display: flex
-      flex-wrap: wrap
-      align-items: center
-      justify-content: stretch
 
-      &:after
-        content: ""
+      label
+        color: $color-shuttle-gray
+        position: absolute
+        left: 0
+        top: 0
         width: 100%
-        height: 1px
-        background: $color-shuttle-gray
-        display: block
-        transition: background $animation-duration $animation-easing
-        position: relative
+        font-size: 12px
+        margin: 5px 0
+        user-select: none
+        pointer-events: none
         z-index: 2
+        opacity: 0
+        transform: translate3d(0, 10px, 0)
+        transition: all .2s ease-out
 
-      .field-inner
-        position: relative
-        z-index: 2
-        max-width: 100%
-        width: auto
-        flex-grow: 1
-        min-width: 0
-
-        .field
-          width: 100%
-          padding: 10px 0
-          background: transparent
-          overflow: hidden
-          text-overflow: ellipsis
-          white-space: nowrap
-
-        .label
-          color: $color-shuttle-gray
-          position: absolute
-          left: 0
-          top: 9px
-          transform-origin: 0 0
-          transition-property: transform, color
-          transition-duration: $animation-duration
-          transition-timing-function: $animation-easing
-          user-select: none
-          pointer-events: none
-
-    .field-prefix, .field-suffix
-      max-width: none
-      width: auto
-      flex: 0 0 auto
-      position: relative
-      z-index: 2
+      .field
+        width: 100%
+        padding: 13px 0
+        background: transparent
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        border: none
+        border-bottom: 1px solid $color-shuttle-gray
+        transition: all .2s ease-out
+        appearance: none
+        font-size: 14px
 
     .error
-      margin: 5px 0
+      margin: 8px 0 4px
       color: $color-monza
       display: block
-      font-size: 10px
+      font-size: 14px
+      line-height: 18px
 
     &.boxed
 
       .field-wrapper
 
-        &:before
-          content: ""
-          background: $color-catskill-white
+        label
+          padding-left: 10px
+
+        .field
+          padding: 13px 10px
+          background: $color-alabaster
           border-radius: 4px 4px 0 0
-          width: 100%
-          height: 100%
-          position: absolute
-          left: 0
-          top: 0
-          z-index: 1
 
-        &:after
-          background: $color-shuttle-gray
+    &.theme-default
 
-        .field-inner
+      &.focused, &.dirty
+        .field-wrapper
+          label
+            color: $color-eastern-blue
 
           .field
-            margin-top: 25px
-            padding: 0 15px 10px
+            border-bottom-color: $color-eastern-blue
 
-          .label
-            left: 15px
-            top: 17px
-
-      &.invalid.required
+      &.boxed
         .field-wrapper
-          &:after
-            background: $color-monza
-
-      &.dirty, &.focused
-        .field-wrapper
-          &:after
-            background: $color-eastern-blue
-
-      &.dirty, &.focused, &.placeholder
-        .field-wrapper
-
-          .label
-            transform: scale(0.75) translateY(-13px)
+          .field
+            background: $color-catskill-white
