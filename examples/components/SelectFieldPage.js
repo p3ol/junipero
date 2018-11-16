@@ -56,7 +56,6 @@ class SelectFieldPage extends React.Component {
               required={true}
               disabled={this.props.disabled}
               error={this.props.error}
-              valid={!this.props.error}
               boxed={this.props.boxed}
               onChange={this.onChange.bind(this, 'default')}
               placeholder="Select one..."
@@ -76,7 +75,6 @@ class SelectFieldPage extends React.Component {
               required={true}
               disabled={this.props.disabled}
               error={this.props.error}
-              valid={!this.props.error}
               boxed={this.props.boxed}
               native={false}
               onChange={this.onChange.bind(this, 'enhanced')}
@@ -98,7 +96,6 @@ class SelectFieldPage extends React.Component {
               required={true}
               disabled={this.props.disabled}
               error={this.props.error}
-              valid={!this.props.error}
               boxed={this.props.boxed}
               native={false}
               onChange={this.onChange.bind(this, 'themed')}
@@ -122,7 +119,6 @@ class SelectFieldPage extends React.Component {
               disabled={this.props.disabled}
               boxed={this.props.boxed}
               error={this.props.error}
-              valid={!this.props.error}
               onChange={this.onChange.bind(this, 'objects')}
               placeholder="Select one..."
               parseTitle={(item) => item.title}
@@ -144,7 +140,6 @@ class SelectFieldPage extends React.Component {
               disabled={this.props.disabled}
               boxed={this.props.boxed}
               error={this.props.error}
-              valid={!this.props.error}
               parseValue={(item) => item.value}
               parseTitle={(item) => item.title}
               onChange={this.onChange.bind(this, 'objectsForceValue')}
@@ -167,7 +162,6 @@ class SelectFieldPage extends React.Component {
               disabled={this.props.disabled}
               boxed={this.props.boxed}
               error={this.props.error}
-              valid={!this.props.error}
               onChange={this.onChange.bind(this, 'autocomplete')}
               placeholder="Select one..."
               options={this.autoCompleteOptions}
