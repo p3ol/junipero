@@ -5,38 +5,18 @@
   min-width: $default-width
   position: relative
 
-  > .field-wrapper
-    text-decoration: none
-    cursor: default
+  a.field
+    display: block
 
-    > .field-inner
-      flex: 1
+  &, &.boxed
+    > .field-wrapper
+      label
+        opacity: 1
+        transform: translate3d(0, 0, 0)
 
       .field
-        color: $color-midnight
-        user-select: none
-
-      .label
-        transform: scale(0.75) translateY(-25px)
-        transition-duration: $animation-duration-fast
-
-    .select-arrow
-      max-width: 30px
-      flex: 0 0 30px
-      position: relative
-      z-index: 2
-      height: 18px
-
-      i.select-arrow-icon
-        width: 14px
-        height: 14px
-        background: url(../images/select-arrow.svg) no-repeat
-        background-size: contain
-        background-position: center
-        display: block
-        margin: auto
-        position: relative
-        top: 1px
+        padding-top: 21px
+        padding-bottom: 5px
 
   ul.select-menu
     position: absolute
@@ -50,7 +30,7 @@
     padding: 10px 0
 
     li.select-auto-complete
-      padding: 10px 20px 20px
+      padding: 0 20px 20px
 
       .junipero.junipero-field.text-field
         .field-wrapper
@@ -103,13 +83,3 @@
   &.opened
     ul.select-menu
       display: block
-
-  &.disabled
-    .select-arrow
-      opacity: .3
-
-  &.boxed
-    > .field-wrapper
-      > .field-inner
-        .label
-          transform: scale(0.75) translateY(-13px)

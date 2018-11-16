@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TextField from './TextField';
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/SelectField.styl';
 
 class SelectField extends React.Component {
@@ -13,18 +13,14 @@ class SelectField extends React.Component {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     boxed: PropTypes.bool,
-    emptyComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    arrowComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    forceValue: PropTypes.bool,
-    titleKey: PropTypes.string,
-    valueKey: PropTypes.string,
+    native: PropTypes.bool,
+    placeholder: PropTypes.string,
+    parseValue: PropTypes.func,
+    parseTitle: PropTypes.func,
     options: PropTypes.array,
     placement: PropTypes.string,
-    tabIndex: PropTypes.number,
     onChange: PropTypes.func,
     validate: PropTypes.func,
-    prefix: PropTypes.object,
-    suffix: PropTypes.object,
     autoComplete: PropTypes.func,
     autoCompleteLabel: PropTypes.string,
     autoCompleteThreshold: PropTypes.number,
@@ -32,25 +28,20 @@ class SelectField extends React.Component {
 
   static defaultProps = {
     className: '',
-    label: '',
+    label: null,
     disabled: false,
     required: false,
     boxed: false,
-    value: null,
-    emptyComponent: null,
-    arrowComponent: (<i className="select-arrow-icon" />),
-    forceValue: false,
-    titleKey: 'title',
-    valueKey: 'value',
+    native: true,
+    placeholder: '',
+    parseValue: (val) => val,
+    parseTitle: (val) => val,
     options: [],
     placement: 'bottom',
-    tabIndex: 0,
     onChange: () => {},
     validate: value => !!value,
-    prefix: null,
-    suffix: null,
     autoComplete: null,
-    autoCompleteLabel: 'Search...',
+    autoCompletePlaceholder: 'Search...',
     autoCompleteThreshold: 400,
   }
 
@@ -72,12 +63,12 @@ class SelectField extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.onClickOutside.bind(this), true);
-    this.setState({ value: this.getPropValue() });
+    this.onPropValueChange();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.value !== this.props.value) {
-      this.onChange(this.props.value);
+      this.onPropValueChange();
     }
 
     if (prevProps.disabled !== this.props.disabled && !this.props.disabled) {
@@ -89,26 +80,9 @@ class SelectField extends React.Component {
     }
   }
 
-  getPropValue() {
-    const { value, forceValue, valueKey, options } = this.props;
+  onToggle(e) {
+    e.preventDefault();
 
-    return forceValue ?
-      value :
-      options.filter((item) => item === value || item[valueKey] === value)[0];
-  }
-
-  getCurrentTitle() {
-    const { value } = this.state;
-    const { emptyComponent, titleKey } = this.props;
-
-    return (value && value[titleKey] || value) || emptyComponent;
-  }
-
-  getOptionTitle(option) {
-    return option[this.props.titleKey] || option;
-  }
-
-  onToggle() {
     if (this.props.disabled) {
       return;
     }
@@ -134,31 +108,61 @@ class SelectField extends React.Component {
     }
   }
 
-  onOptionClick(option) {
-    if (this.state.autoCompleting) {
-      return;
-    }
+  onPropValueChange() {
+    const { native, options, value, parseValue, autoComplete } = this.props;
 
-    this.setState({ opened: false });
-    this.resetAutoComplete();
-    this.onChange(option);
+    const index = value === undefined || value === null ?
+      -1 :
+      options.findIndex((item) =>
+        parseValue(item) === parseValue(value)
+      );
+
+    if (native && !autoComplete) {
+      this.onNativeChange(index);
+    } else {
+      this.onChange(options[index]);
+    }
   }
 
-  onChange(option, name, field) {
-    if (this.props.disabled || !option) {
+  onChange(item, e) {
+    e?.preventDefault();
+
+    const { parseValue, validate, disabled } = this.props;
+
+    if (disabled) {
       return;
     }
 
-    const { forceValue, valueKey, validate } = this.props;
-    const value = forceValue ? option[valueKey] : option;
+    const value = item ? parseValue(item) : null;
     const valid = validate(value);
 
     this.setState({
-      value: option,
+      value,
       valid,
       opened: false,
     }, () => {
-      this.resetAutoComplete();
+      this.props.onChange({
+        value,
+        valid,
+      });
+    });
+  }
+
+  onNativeChange(e) {
+    const { validate, parseValue, options, disabled } = this.props;
+
+    if (disabled) {
+      return;
+    }
+
+    const option = options[e?.target?.value || e];
+    const value = option ? parseValue(option) : null;
+    const valid = validate(value);
+
+    this.setState({
+      value: e?.target?.value || e,
+      valid,
+    }, () => {
       this.props.onChange({
         value,
         valid,
@@ -168,13 +172,7 @@ class SelectField extends React.Component {
 
   reset() {
     this.resetAutoComplete();
-
-    this.setState({
-      value: this.props.value || '',
-      valid: this.props.valid || true,
-    }, () => {
-      this.props.onChange({});
-    });
+    this.onPropValueChange();
   }
 
   resetAutoComplete() {
@@ -214,9 +212,58 @@ class SelectField extends React.Component {
     });
   }
 
+  getValue() {
+    const { parseValue } = this.props;
+    const { value } = this.state;
+
+    return parseValue && value !== undefined && value !== null ?
+      parseValue(value) :
+      value;
+  }
+
+  getTitle() {
+    const { parseTitle, parseValue, placeholder } = this.props;
+    const { value } = this.state;
+
+    const result = (
+      parseTitle && value !== undefined && value !== null ?
+        parseTitle(value) :
+        parseValue && value !== undefined && value !== null ?
+          parseValue(value) :
+          placeholder
+    )?.toString();
+
+    return result;
+  }
+
   render() {
-    const listOptions = this.state.autoCompleteOptions ||
-      this.props.options;
+    const {
+      disabled,
+      required,
+      valid,
+      boxed,
+      placement,
+      className,
+      native,
+      autoComplete,
+      placeholder,
+      label,
+      options,
+      autoCompletePlaceholder,
+      parseTitle,
+      id,
+      ...rest
+    } = this.props;
+
+    const {
+      opened,
+      value,
+      autoCompleting,
+      autoCompleteOptions,
+      autoCompleteValue,
+    } = this.state;
+
+    const listOptions = autoCompleteOptions || options;
 
     return (
       <div
@@ -225,82 +272,91 @@ class SelectField extends React.Component {
           'junipero',
           'junipero-field',
           'select-field',
-          this.props.disabled ? 'disabled' : null,
-          this.state.opened ? 'opened' : null,
-          this.props.required ? 'required' : null,
-          !this.props.valid ? 'invalid' : null,
-          this.props.boxed ? 'boxed' : null,
-          `placement-${this.props.placement || 'bottom'}`,
-          this.props.className,
+          disabled ? 'disabled' : null,
+          opened ? 'opened' : null,
+          required ? 'required' : null,
+          label ? 'with-label' : null,
+          !valid ? 'invalid' : null,
+          boxed ? 'boxed' : null,
+          `placement-${placement || 'bottom'}`,
+          className,
         ].join(' ')}
       >
-        <a
-          ref={(ref) => this.toggle = ref}
-          className="field-wrapper"
-          onClick={this.onToggle.bind(this)}
-          role="button"
-          tabIndex={this.props.tabIndex}
-        >
-          { this.props.prefix && (
-            <div className="field-prefix">{ this.props.prefix }</div>
-          ) }
+        <div className="field-wrapper">
 
-          <div className="field-inner">
-            <div className="field">
-              { this.getCurrentTitle() }
-            </div>
-
-            { this.props.label && (
-              <span className="label">{ this.props.label }</span>
-            ) }
-          </div>
-
-          { this.props.arrowComponent && (
-            <div className="select-arrow">
-              { this.props.arrowComponent }
-            </div>
-          ) }
-
-          { this.props.suffix && (
-            <div className="field-suffix">{ this.props.suffix }</div>
-          ) }
-        </a>
-
-        { this.props.error && (
-          <span className="error">{ this.props.error }</span>
-        ) }
-
-        <ul
-          className={[
-            'select-menu',
-            `placement-${this.props.placement || 'bottom'}`,
-            this.state.autoCompleting ? 'auto-completing' : null,
-          ].join(' ')}
-        >
-          {this.props.autoComplete && (
-            <li className="select-auto-complete">
-              <TextField
-                ref={(ref) => this.autoCompleteInput = ref}
-                label={this.props.autoCompleteLabel}
-                value={this.state.autoCompleteValue}
-                dirty={false}
-                onChange={this.onAutoCompleteChange.bind(this)}
-              />
-            </li>
+          { label && (
+            <label htmlFor={id}>{ label }</label>
           )}
 
-          { listOptions.map((item, index) => (
-            <li className="select-menu-item" key={index}>
-              <a
-                onClick={this.onOptionClick.bind(this, item)}
-                role="button"
-                tabIndex={ this.props.tabIndex + index + 1 }
+          { native && !autoComplete ? (
+            <select
+              { ...omit(rest, [
+                'validate', 'parseValue', 'autoCompleteThreshold',
+              ]) }
+              id={id}
+              ref={(ref) => this.nativeField = ref}
+              className="field"
+              value={`${value}`}
+              onChange={this.onNativeChange.bind(this)}
+            >
+              <option value="-1">{ placeholder }</option>
+              { options.map((item, index) => (
+                <option
+                  key={index}
+                  value={index}
+                >
+                  { parseTitle(item)?.toString() }
+                </option>
+              ))}
+            </select>
+          ) : (
+            <a
+              href="#"
+              className="field"
+              ref={(ref) => this.toggle = ref}
+              onClick={this.onToggle.bind(this)}
+            >
+              { this.getTitle() }
+            </a>
+          )}
+
+        </div>
+
+        { (!native || autoComplete) && (
+          <ul
+            className={[
+              'select-menu',
+              `placement-${placement || 'bottom'}`,
+              autoCompleting ? 'auto-completing' : null,
+            ].join(' ')}
+          >
+            { autoComplete && (
+              <li className="select-auto-complete">
+                <TextField
+                  ref={(ref) => this.autoCompleteInput = ref}
+                  label={null}
+                  placeholder={autoCompletePlaceholder}
+                  value={autoCompleteValue}
+                  onChange={this.onAutoCompleteChange.bind(this)}
+                />
+              </li>
+            )}
+
+            { listOptions.map((item, index) => (
+              <li
+                className="select-menu-item"
+                key={index}
               >
-                { this.getOptionTitle(item) }
-              </a>
-            </li>
-          ))}
-        </ul>
+                <a
+                  href="#"
+                  onClick={this.onChange.bind(this, item)}
+                >
+                  { parseTitle(item)?.toString() }
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     );
   }

@@ -10,6 +10,7 @@ class SelectFieldPage extends React.Component {
 
     this.state = {
       default: {},
+      enhanced: {},
       objects: {},
       objectsForceValue: {},
       autocomplete: {},
@@ -41,18 +42,18 @@ class SelectFieldPage extends React.Component {
         <p><Link to="/">Back</Link></p>
         <h1>SelectField example</h1>
 
-        <h2 className="mt-5">Default</h2>
+        <h2 className="mt-5">Default (native)</h2>
         <div className="row mt-5">
           <div className="col-6">
             <SelectField
               required={true}
-              label="Label"
               disabled={this.props.disabled}
               error={this.props.error}
               valid={!this.props.error}
               boxed={this.props.boxed}
               onChange={this.onChange.bind(this, 'default')}
-              emptyComponent="Select one..."
+              placeholder="Select one..."
+              label="Label"
               options={[
                 5,
                 10,
@@ -67,6 +68,61 @@ class SelectFieldPage extends React.Component {
           </div>
         </div>
 
+        <h2 className="mt-5">Default (enhanced)</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <SelectField
+              required={true}
+              disabled={this.props.disabled}
+              error={this.props.error}
+              valid={!this.props.error}
+              boxed={this.props.boxed}
+              native={false}
+              onChange={this.onChange.bind(this, 'enhanced')}
+              placeholder="Select one..."
+              label="Label"
+              options={[
+                5,
+                10,
+                15,
+                20,
+              ]}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.enhanced, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">With theming</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <SelectField
+              className="theme-default"
+              required={true}
+              disabled={this.props.disabled}
+              error={this.props.error}
+              valid={!this.props.error}
+              boxed={this.props.boxed}
+              native={false}
+              onChange={this.onChange.bind(this, 'themed')}
+              placeholder="Select one..."
+              label="Label"
+              options={[
+                5,
+                10,
+                15,
+                20,
+              ]}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.themed, null, 2)}</pre>
+          </div>
+        </div>
+
         <h2 className="mt-5">Object options</h2>
         <div className="row mt-5">
           <div className="col-6">
@@ -78,7 +134,8 @@ class SelectFieldPage extends React.Component {
               error={this.props.error}
               valid={!this.props.error}
               onChange={this.onChange.bind(this, 'objects')}
-              emptyComponent="Select one..."
+              placeholder="Select one..."
+              parseTitle={(item) => item.title}
               options={this.objectOptions}
             />
           </div>
@@ -92,15 +149,16 @@ class SelectFieldPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <SelectField
-              required={true}
+              required={false}
               label="Label"
               disabled={this.props.disabled}
               boxed={this.props.boxed}
               error={this.props.error}
               valid={!this.props.error}
-              forceValue={true}
+              parseValue={(item) => item.value}
+              parseTitle={(item) => item.title}
               onChange={this.onChange.bind(this, 'objectsForceValue')}
-              emptyComponent="Select one..."
+              placeholder="Select one..."
               options={this.objectOptions}
             />
           </div>
@@ -120,9 +178,8 @@ class SelectFieldPage extends React.Component {
               boxed={this.props.boxed}
               error={this.props.error}
               valid={!this.props.error}
-              value={this.autoCompleteOptions[0]}
               onChange={this.onChange.bind(this, 'autocomplete')}
-              emptyComponent="Select one..."
+              placeholder="Select one..."
               options={this.autoCompleteOptions}
               autoComplete={(val, cb) => {
                 const search = new RegExp(val, 'ig');

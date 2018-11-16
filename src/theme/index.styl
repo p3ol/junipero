@@ -58,6 +58,9 @@
         transition: all .2s ease-out
         appearance: none
         font-size: 14px
+        border-radius: 0
+        color: $color-shuttle-gray
+        text-decoration: none
 
     .error
       margin: 8px 0 4px
@@ -68,7 +71,7 @@
 
     &.boxed
 
-      .field-wrapper
+      & > .field-wrapper
 
         label
           padding-left: 10px
@@ -80,8 +83,8 @@
 
     &.theme-default
 
-      &.focused, &.dirty
-        .field-wrapper
+      &.focused, &.dirty, &.opened
+        & > .field-wrapper
           label
             color: $color-eastern-blue
 
@@ -89,6 +92,6 @@
             border-bottom-color: $color-eastern-blue
 
       &.boxed
-        .field-wrapper
+        & > .field-wrapper
           .field
             background: $color-catskill-white
