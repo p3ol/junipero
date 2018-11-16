@@ -16,6 +16,13 @@ class SelectFieldPage extends React.Component {
       autocomplete: {},
     };
 
+    this.options = [
+      5,
+      10,
+      15,
+      20,
+    ];
+
     this.objectOptions = [
       { title: '5 items', value: 5 },
       { title: '10 items', value: 10 },
@@ -53,13 +60,7 @@ class SelectFieldPage extends React.Component {
               boxed={this.props.boxed}
               onChange={this.onChange.bind(this, 'default')}
               placeholder="Select one..."
-              label="Label"
-              options={[
-                5,
-                10,
-                15,
-                20,
-              ]}
+              options={this.options}
             />
           </div>
           <div className="col-6">
@@ -80,13 +81,7 @@ class SelectFieldPage extends React.Component {
               native={false}
               onChange={this.onChange.bind(this, 'enhanced')}
               placeholder="Select one..."
-              label="Label"
-              options={[
-                5,
-                10,
-                15,
-                20,
-              ]}
+              options={this.options}
             />
           </div>
           <div className="col-6">
@@ -109,12 +104,7 @@ class SelectFieldPage extends React.Component {
               onChange={this.onChange.bind(this, 'themed')}
               placeholder="Select one..."
               label="Label"
-              options={[
-                5,
-                10,
-                15,
-                20,
-              ]}
+              options={this.options}
             />
           </div>
           <div className="col-6">

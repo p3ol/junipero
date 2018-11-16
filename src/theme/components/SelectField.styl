@@ -8,15 +8,37 @@
   a.field
     display: block
 
-  &, &.boxed
-    > .field-wrapper
-      label
-        opacity: 1
-        transform: translate3d(0, 0, 0)
+  &.with-label
+    &, &.boxed
+      & > .field-wrapper
+        & > label
+          opacity: 1
+          transform: translate3d(0, 0, 0)
 
-      .field
-        padding-top: 21px
-        padding-bottom: 5px
+        & > .field
+          padding-top: 21px
+          padding-bottom: 5px
+
+        &:after
+          top: 28px
+
+
+  & > .field-wrapper
+    position: relative
+
+    & > .field
+      padding-right: 30px
+
+    &:after
+      content: ''
+      width: 0
+      height: 0
+      border-left: 5px solid transparent
+      border-right: 5px solid transparent
+      border-top: 5px solid $color-shuttle-gray
+      position: absolute
+      right: 10px
+      top: 21px
 
   ul.select-menu
     position: absolute

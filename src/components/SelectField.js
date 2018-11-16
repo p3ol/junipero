@@ -252,6 +252,7 @@ class SelectField extends React.Component {
       autoCompletePlaceholder,
       parseTitle,
       id,
+      error,
       ...rest
     } = this.props;
 
@@ -297,6 +298,7 @@ class SelectField extends React.Component {
               ref={(ref) => this.nativeField = ref}
               className="field"
               value={`${value}`}
+              disabled={disabled}
               onChange={this.onNativeChange.bind(this)}
             >
               <option value="-1">{ placeholder }</option>
@@ -320,43 +322,47 @@ class SelectField extends React.Component {
             </a>
           )}
 
+          { (!native || autoComplete) && (
+            <ul
+              className={[
+                'select-menu',
+                `placement-${placement || 'bottom'}`,
+                autoCompleting ? 'auto-completing' : null,
+              ].join(' ')}
+            >
+              { autoComplete && (
+                <li className="select-auto-complete">
+                  <TextField
+                    ref={(ref) => this.autoCompleteInput = ref}
+                    label={null}
+                    placeholder={autoCompletePlaceholder}
+                    value={autoCompleteValue}
+                    onChange={this.onAutoCompleteChange.bind(this)}
+                  />
+                </li>
+              )}
+
+              { listOptions.map((item, index) => (
+                <li
+                  className="select-menu-item"
+                  key={index}
+                >
+                  <a
+                    href="#"
+                    onClick={this.onChange.bind(this, item)}
+                  >
+                    { parseTitle(item)?.toString() }
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+
         </div>
 
-        { (!native || autoComplete) && (
-          <ul
-            className={[
-              'select-menu',
-              `placement-${placement || 'bottom'}`,
-              autoCompleting ? 'auto-completing' : null,
-            ].join(' ')}
-          >
-            { autoComplete && (
-              <li className="select-auto-complete">
-                <TextField
-                  ref={(ref) => this.autoCompleteInput = ref}
-                  label={null}
-                  placeholder={autoCompletePlaceholder}
-                  value={autoCompleteValue}
-                  onChange={this.onAutoCompleteChange.bind(this)}
-                />
-              </li>
-            )}
-
-            { listOptions.map((item, index) => (
-              <li
-                className="select-menu-item"
-                key={index}
-              >
-                <a
-                  href="#"
-                  onClick={this.onChange.bind(this, item)}
-                >
-                  { parseTitle(item)?.toString() }
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
+        { error && (
+          <span className="error">{ this.props.error }</span>
+        ) }
       </div>
     );
   }
