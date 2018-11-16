@@ -3,50 +3,39 @@
 .junipero.junipero-field.date-field
   position: relative
 
-  .field-wrapper
-    cursor: default
-    text-decoration: none
+  a.field
+    display: block
+
+  &.with-label
+    &, &.boxed
+      & > .field-wrapper
+        & > label
+          opacity: 1
+          transform: translate3d(0, 0, 0)
+
+        & > .field
+          padding-top: 21px
+          padding-bottom: 5px
+
+        &:after
+          top: 28px
+
+  & > .field-wrapper
+    position: relative
+
+    & > .field
+      padding-right: 30px
 
     &:after
-      height: 2px
-
-    .field-inner
-      flex: 1
-
-      .field
-        color: $color-midnight
-
-      .label
-        transform: scale(.8) translateY(-25px)
-        transition-duration: $animation-duration-fast
-
-    .select-arrow
-      flex: 0 0 30px
-      height: 18px
-      max-width: 30px
-      position: relative
-      z-index: 2
-
-      i.select-arrow-icon
-        background: url(../images/select-arrow.svg) no-repeat
-        background-size: contain
-        background-position: center
-        display: block
-        height: 14px
-        margin: auto
-        position: relative
-        top: 1px
-        width: 14px
-
-  &.disabled
-    .select-arrow
-      opacity: .3
-
-  &.boxed
-    .field-wrapper
-      .field-inner
-        .label
-          transform: scale(0.75) translateY(-13px)
+      content: ''
+      width: 0
+      height: 0
+      border-left: 5px solid transparent
+      border-right: 5px solid transparent
+      border-top: 5px solid $color-shuttle-gray
+      position: absolute
+      right: 10px
+      top: 21px
 
   .calendar
     position: absolute

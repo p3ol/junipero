@@ -9,10 +9,11 @@ class DateFieldPage extends React.Component {
     super(props);
     this.state = {
       default: {},
-      object: {
-        valid: true,
+      currentDay: {
         value: new Date(),
+        valid: true,
       },
+      customTitle: {},
     };
   }
 
@@ -30,6 +31,7 @@ class DateFieldPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <DateField
+              placeholder="Pick a date"
               disabled={this.props.disabled}
               error={this.props.error}
               boxed={this.props.boxed}
@@ -41,21 +43,46 @@ class DateFieldPage extends React.Component {
             <pre>{JSON.stringify(this.state.default, null, 2)}</pre>
           </div>
         </div>
+
         <h2 className="mt-5">Current Day</h2>
         <div className="row mt-5">
           <div className="col-6">
             <DateField
               label="Label"
-              value={this.state.object.value}
+              value={this.state.currentDay.value}
               disabled={this.props.disabled}
               error={this.props.error}
               boxed={this.props.boxed}
-              onChange={this.onChange.bind(this, 'object')}
+              onChange={this.onChange.bind(this, 'currentDay')}
             />
           </div>
           <div className="col-6">
             <p>Current state :</p>
-            <pre>{JSON.stringify(this.state.object, null, 2)}</pre>
+            <pre>{JSON.stringify(this.state.currentDay, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Custom title</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <DateField
+              label="Label"
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              placeholder="Pick a date"
+              onChange={this.onChange.bind(this, 'customTitle')}
+              parseTitle={value => value.toLocaleDateString('fr-FR', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{JSON.stringify(this.state.customTitle, null, 2)}</pre>
           </div>
         </div>
       </div>

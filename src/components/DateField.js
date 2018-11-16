@@ -1,46 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/DateField.styl';
 
 class DateField extends React.Component {
 
   static propTypes = {
-    arrowComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     boxed: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    prefix: PropTypes.object,
     required: PropTypes.bool,
-    suffix: PropTypes.object,
-    tabIndex: PropTypes.number,
     validate: PropTypes.func,
     value: PropTypes.instanceOf(Date),
     parseValue: PropTypes.func,
+    parseTitle: PropTypes.func,
     monthNames: PropTypes.array,
     weekDaysNames: PropTypes.array,
     placement: PropTypes.string,
   }
 
   static defaultProps = {
-    arrowComponent: (<i className="select-arrow-icon" />),
     boxed: false,
     className: '',
     disabled: false,
-    label: 'Label',
+    label: null,
     onChange: () => {},
-    placeholder: 'Pick a date...',
-    prefix: null,
+    placeholder: '',
     required: false,
-    suffix: null,
-    tabIndex: 0,
     validate: value => !!value,
     value: null,
-    parseValue: value => value.toLocaleDateString('en-US', {
+    parseValue: value => value,
+    parseTitle: value => value.toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
@@ -159,7 +153,9 @@ class DateField extends React.Component {
       }));
   }
 
-  onPreviousMonthClick() {
+  onPreviousMonthClick(e) {
+    e?.preventDefault();
+
     const { displayed } = this.state;
 
     this.setState({
@@ -175,7 +171,9 @@ class DateField extends React.Component {
     });
   }
 
-  onNextMonthClick() {
+  onNextMonthClick(e) {
+    e?.preventDefault();
+
     const { displayed } = this.state;
 
     this.setState({
@@ -191,7 +189,9 @@ class DateField extends React.Component {
     });
   }
 
-  onChange(date) {
+  onChange(date, e) {
+    e?.preventDefault();
+
     const newDate = this.getDateToUTC(date.year, date.month, date.day);
     const valid = this.props.validate(newDate);
 
@@ -214,7 +214,21 @@ class DateField extends React.Component {
   }
 
   render() {
-    const { displayed } = this.state;
+    const {
+      disabled,
+      required,
+      boxed,
+      className,
+      id,
+      label,
+      placeholder,
+      parseTitle,
+      error,
+      placement,
+      ...rest
+    } = this.props;
+
+    const { value, opened, displayed } = this.state;
 
     return (
       <div
@@ -223,130 +237,115 @@ class DateField extends React.Component {
           'junipero',
           'junipero-field',
           'date-field',
-          this.props.disabled ? 'disabled' : null,
-          this.state.opened ? 'opened' : null,
-          this.props.required ? 'required' : null,
-          this.props.boxed ? 'boxed' : null,
-          this.props.className,
+          disabled ? 'disabled' : null,
+          opened ? 'opened' : null,
+          label ? 'with-label' : null,
+          required ? 'required' : null,
+          boxed ? 'boxed' : null,
+          className,
         ].join(' ')}
       >
-        <a
-          className="field-wrapper"
-          onClick={this.onToggle.bind(this)}
-          role="button"
-          tabIndex={this.props.tabIndex}
-        >
-          { this.props.prefix && (
-            <div className="field-prefix">{ this.props.prefix }</div>
+        <div className="field-wrapper">
+          { label && (
+            <label htmlFor={id}>{ label }</label>
           ) }
 
-          <div className="field-inner">
-            <div className="field">
-              { this.state.value ?
-                this.props.parseValue(this.state.value)
-                : this.props.placeholder
-              }
-            </div>
-
-            { this.props.label && (
-              <span className="label">{ this.props.label }</span>
-            ) }
-          </div>
-
-          { this.props.arrowComponent && (
-            <div className="select-arrow">
-              { this.props.arrowComponent }
-            </div>
-          ) }
-
-          { this.props.suffix && (
-            <div className="field-suffix">{ this.props.suffix }</div>
-          ) }
-        </a>
-
-        { this.props.error && (
-          <span className="error">{ this.props.error }</span>
-        ) }
-
-        {this.state.opened && (
-          <div
-            ref={(ref) => this.toggle = ref}
-            className={[
-              'calendar',
-              `placement-${this.props.placement}`,
-            ].join(' ')}
+          <a
+            {...omit(rest, [
+              'monthNames', 'weekDaysNames', 'validate', 'parseValue',
+            ])}
+            href="#"
+            className="field"
+            onClick={this.onToggle.bind(this)}
           >
-            <div className="calendar-header">
-              <a
-                className="arrow-wrapper left"
-                role="button"
-                tabIndex={this.props.tabIndex}
-                onClick={this.onPreviousMonthClick.bind(this)}
-              >
-                <i className="arrow" />
-              </a>
-              <div className="current-month">
-                {this.getMonthName(displayed.getMonth())}
-                { ' ' }
-                {displayed.getFullYear()}
-              </div>
-              <a
-                className="arrow-wrapper right"
-                role="button"
-                tabIndex={this.props.tabIndex}
-                onClick={this.onNextMonthClick.bind(this)}
-              >
-                <i className="arrow" />
-              </a>
-            </div>
-            <div className="calendar-body">
-              <div className="week-days">
-                {this.getWeekDaysNames().map((day, index) => (
-                  <span key={index} className="week-day">{day}</span>
-                ))}
-              </div>
+            { value ?
+              parseTitle(value)
+              : placeholder
+            }
+          </a>
 
-              <div className="days">
-                { []
-                  .concat(this.getPreviousMonthDays(
-                    displayed.getFullYear(),
-                    displayed.getMonth()
-                  ))
-                  .concat(this.getMonthDays(
-                    displayed.getFullYear(),
-                    displayed.getMonth()
-                  ))
-                  .concat(this.getNextMonthDays(
-                    displayed.getFullYear(),
-                    displayed.getMonth()
-                  ))
-                  .map((date, index) => (
-                    <React.Fragment
-                      key={index}
-                    >
-                      <a
-                        className={[
-                          'day',
-                          date.inactive ? 'inactive' : null,
-                          this.isDateSelected(date) ? 'active' : null,
-                        ].join(' ')}
-                        role="button"
-                        tabIndex={this.props.tabIndex}
-                        onClick={this.onChange.bind(this, date)}
+          { opened && (
+            <div
+              ref={(ref) => this.toggle = ref}
+              className={[
+                'calendar',
+                `placement-${placement}`,
+              ].join(' ')}
+            >
+              <div className="calendar-header">
+                <a
+                  href="#"
+                  className="arrow-wrapper left"
+                  onClick={this.onPreviousMonthClick.bind(this)}
+                >
+                  <i className="arrow" />
+                </a>
+                <div className="current-month">
+                  {this.getMonthName(displayed.getMonth())}
+                  { ' ' }
+                  {displayed.getFullYear()}
+                </div>
+                <a
+                  href="#"
+                  className="arrow-wrapper right"
+                  onClick={this.onNextMonthClick.bind(this)}
+                >
+                  <i className="arrow" />
+                </a>
+              </div>
+              <div className="calendar-body">
+                <div className="week-days">
+                  {this.getWeekDaysNames().map((day, index) => (
+                    <span key={index} className="week-day">{day}</span>
+                  ))}
+                </div>
+
+                <div className="days">
+                  { []
+                    .concat(this.getPreviousMonthDays(
+                      displayed.getFullYear(),
+                      displayed.getMonth()
+                    ))
+                    .concat(this.getMonthDays(
+                      displayed.getFullYear(),
+                      displayed.getMonth()
+                    ))
+                    .concat(this.getNextMonthDays(
+                      displayed.getFullYear(),
+                      displayed.getMonth()
+                    ))
+                    .map((date, index) => (
+                      <React.Fragment
+                        key={index}
                       >
-                        { date.day }
-                      </a>
+                        <a
+                          className={[
+                            'day',
+                            date.inactive ? 'inactive' : null,
+                            this.isDateSelected(date) ? 'active' : null,
+                          ].join(' ')}
+                          href="#"
+                          onClick={this.onChange.bind(this, date)}
+                        >
+                          { date.day }
+                        </a>
 
-                      { (index + 1) % 7 === 0 && (
-                        <div className="separator" />
-                      )}
-                    </React.Fragment>
-                  ))
-                }
+                        { (index + 1) % 7 === 0 && (
+                          <div className="separator" />
+                        )}
+                      </React.Fragment>
+                    ))
+                  }
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+
+        </div>
+
+        { error && (
+          <span className="error">{ error }</span>
+        ) }
       </div>
     );
   }
