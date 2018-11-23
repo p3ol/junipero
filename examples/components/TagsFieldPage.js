@@ -26,11 +26,11 @@ class TagsFieldPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <TagsField
-              label="Label"
+              label="Keywords"
               disabled={this.props.disabled}
               boxed={this.props.boxed}
               error={this.props.error}
-              placeholder={this.props.placeholder}
+              placeholder="Type a keyword..."
               onChange={this.onChange.bind(this, 'default')}
             />
           </div>
