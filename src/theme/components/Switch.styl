@@ -1,4 +1,5 @@
-@import "../utils/vars"
+@import "../utils/colors"
+@import "../utils/animations"
 
 .junipero.switch
   display: inline-block
@@ -8,7 +9,6 @@
     display: flex
     flex-wrap: wrap
     align-items: center
-    justify-content: stretch
 
     .switch-inner
       max-width: 50px
@@ -18,7 +18,6 @@
         display: none
 
       .switch
-        background: $color-alto
         width: 40px
         margin-right: 10px
         height: 20px
@@ -43,22 +42,44 @@
       width: auto
       flex-grow: 1
       flex-basis: 0
-      color: $color-alto
       user-select: none
 
   &.checked
     .switch-wrapper
       .switch-inner
         .switch
-          background: $color-eastern-blue
-
           .handle
             left: 100%
             transform: translateX(-100%)
 
-    .label
-      color: $color-eastern-blue
-
   &.disabled
     .switch-wrapper
       opacity: .3
+
+  &.theme-none
+    .switch
+      background: $color-alto
+
+    .label
+      color: $color-alto
+
+    &.checked
+      .switch
+        background: $color-shuttle-gray
+
+      .label
+        color: $color-shuttle-gray
+
+  &.theme-default
+    .switch
+      background: $color-catskill-white
+
+    .label
+      color: $color-catskill-white
+
+    &.checked
+      .switch
+        background: $color-eastern-blue
+
+      .label
+        color: $color-eastern-blue

@@ -15,6 +15,7 @@ class Switch extends React.Component {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     onChange: PropTypes.func,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
@@ -24,6 +25,7 @@ class Switch extends React.Component {
     disabled: false,
     required: false,
     onChange: () => {},
+    theme: 'default',
   }
 
   constructor(props) {
@@ -61,6 +63,7 @@ class Switch extends React.Component {
         className={[
           'junipero',
           'switch',
+          'theme-' + this.props.theme,
           this.state.active ? 'active' : null,
           this.state.checked ? 'checked' : null,
           this.props.disabled ? 'disabled' : null,
