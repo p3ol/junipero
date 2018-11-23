@@ -1,12 +1,14 @@
 @import "../utils/vars"
+@import "../utils/colors"
 
 .junipero.junipero-field.select-field
   display: block
   min-width: $default-width
   position: relative
 
-  a.field
+  a.field, select.field
     display: block
+    color: $color-shuttle-gray
 
   &.with-label
     &, &.boxed
@@ -44,7 +46,6 @@
     position: absolute
     z-index: 1000
     display: none
-    box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
     background: $color-white
     border-radius: 2px
     min-width: $default-width
@@ -62,11 +63,7 @@
     li.select-menu-item
       cursor: pointer
 
-      &:hover
-        background: $color-black-squeeze
-
       a
-        color: $color-eastern-blue
         text-decoration: none
         padding: 5px 20px
         display: block
@@ -103,5 +100,30 @@
         opacity: .5
 
   &.opened
+
     ul.select-menu
       display: block
+
+  &.theme-none
+    ul.select-menu
+      box-shadow: 0 2px 8px 0 rgba($color-shuttle-gray, 0.2)
+
+      li.select-menu-item
+
+        &:hover
+          background: $color-alabaster
+
+        a
+          color: $color-shuttle-gray
+
+  &.theme-default
+    ul.select-menu
+      box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
+
+      li.select-menu-item
+
+        &:hover
+          background: $color-black-squeeze
+
+        a
+          color: $color-eastern-blue

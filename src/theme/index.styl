@@ -15,13 +15,14 @@
     display: block
 
     &.dirty, &.dirty.focused
-      &, &.boxed
-        .field-wrapper
-          label
+      &.with-label, &.boxed.with-label
+        & > .field-wrapper
+
+          & > label
             opacity: 1
             transform: translate3d(0, 0, 0)
 
-          .field
+          & > .field
             padding-top: 21px
             padding-bottom: 5px
 
@@ -32,7 +33,6 @@
       position: relative
 
       label
-        color: $color-shuttle-gray
         position: absolute
         left: 0
         top: 0
@@ -54,12 +54,12 @@
         text-overflow: ellipsis
         white-space: nowrap
         border: none
-        border-bottom: 1px solid $color-shuttle-gray
+        border-bottom-width: 1px
+        border-bottom-style: solid
         transition: all .2s ease-out
         appearance: none
         font-size: 14px
         border-radius: 0
-        color: $color-shuttle-gray
         text-decoration: none
         cursor: default
         line-height: 21px
@@ -67,7 +67,6 @@
 
     .error
       margin: 8px 0 4px
-      color: $color-monza
       display: block
       font-size: 14px
       line-height: 18px
@@ -76,25 +75,42 @@
 
       & > .field-wrapper
 
-        label
+        & > label
           padding-left: 10px
 
-        .field
+        & > .field
           padding: 13px 10px
-          background: $color-alabaster
           border-radius: 4px 4px 0 0
+
+    &.theme-none
+      & > .field-wrapper
+        & > label
+          color: $color-shuttle-gray
+
+        & > .field
+          border-bottom-color: $color-shuttle-gray
+          color: $color-shuttle-gray
+
+      .error
+        color: $color-monza
+
+      &.boxed
+        & > .field-wrapper
+          & > .field
+            background: $color-alabaster
 
     &.theme-default
 
-      &.focused, &.dirty, &.opened
+      &.focused, &.dirty, &.opened, &:focus
         & > .field-wrapper
-          label
+          & > label
             color: $color-eastern-blue
 
-          .field
+          & > .field
+            color: $color-shuttle-gray
             border-bottom-color: $color-eastern-blue
 
       &.boxed
         & > .field-wrapper
-          .field
+          & > .field
             background: $color-catskill-white

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/TagsField.styl';
 
 class TagsField extends React.Component {
@@ -10,17 +10,12 @@ class TagsField extends React.Component {
     className: PropTypes.string,
     value: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    deleteComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     boxed: PropTypes.bool,
-    prefix: PropTypes.object,
-    suffix: PropTypes.object,
-    forceValue: PropTypes.bool,
-    titleKey: PropTypes.string,
-    valueKey: PropTypes.string,
-    tabIndex: PropTypes.number,
+    parseTitle: PropTypes.func,
+    parseValue: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -30,17 +25,12 @@ class TagsField extends React.Component {
     className: null,
     value: [],
     label: '',
-    deleteComponent: (<i className="close-icon" />),
     placeholder: '',
     disabled: false,
     required: false,
     boxed: false,
-    prefix: null,
-    suffix: null,
-    forceValue: false,
-    titleKey: 'title',
-    valueKey: 'value',
-    tabIndex: 0,
+    parseValue: (val) => val,
+    parseTitle: (val) => val,
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
@@ -53,11 +43,33 @@ class TagsField extends React.Component {
       { id: 'junipero-tags-field-styles', after: '#junipero-main-styles' });
 
     this.state = {
-      value: this.props.value,
+      value: null,
       input: '',
       focused: false,
       selected: -1,
     };
+  }
+
+  componentDidMount() {
+    this.onPropValueChanged();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.value &&
+      prevProps.value &&
+      this.props.value.length !== prevProps.value.length
+    ) {
+      this.onPropValueChanged();
+    }
+  }
+
+  onPropValueChanged() {
+    const { value, parseValue } = this.props;
+
+    this.setState({
+      value: value?.map((item) => parseValue(item)) || this.state.value,
+    });
   }
 
   onClick(e) {
@@ -66,7 +78,7 @@ class TagsField extends React.Component {
     }
 
     e.preventDefault();
-    this.input?.focus();
+    this.textInput?.focus();
     return false;
   }
 
@@ -206,33 +218,47 @@ class TagsField extends React.Component {
   }
 
   render() {
+    const {
+      disabled,
+      required,
+      boxed,
+      className,
+      tabIndex,
+      label,
+      placeholder,
+      ...rest
+    } = this.props;
+
+    const { focused, input, value } = this.state;
+
     return (
       <div
         className={[
           'junipero',
           'junipero-field',
           'tags-field',
-          this.state.focused ? 'focused' : null,
-          this.state.input || this.state.value.length ? 'dirty' : null,
-          this.props.disabled ? 'disabled' : null,
-          this.state.opened ? 'opened' : null,
-          this.props.required ? 'required' : null,
-          this.props.boxed ? 'boxed' : null,
-          this.props.className,
+          focused ? 'focused' : null,
+          input || value?.length ? 'dirty' : null,
+          disabled ? 'disabled' : null,
+          required ? 'required' : null,
+          boxed ? 'boxed' : null,
+          className,
         ].join(' ')}
         role="textbox"
-        tabIndex={this.props.tabIndex}
+        tabIndex={tabIndex}
         onClick={this.onClick.bind(this)}
       >
 
         <div className="field-wrapper">
-          { this.props.prefix && (
-            <div className="field-prefix">{ this.props.prefix }</div>
-          ) }
+          <label
+            htmlFor={rest.id}
+          >
+            { label || placeholder }
+          </label>
 
-          <div className="field-inner">
+          <div className="field">
 
-            { this.state.value.map((item, index) => (
+            { this.state.value?.map((item, index) => (
               <span
                 key={index}
                 className={[
@@ -244,29 +270,20 @@ class TagsField extends React.Component {
               </span>
             )) }
             <input
-              ref={(ref) => this.input = ref}
-              className="field"
+              { ...omit(rest, ['parseValue', 'parseTitle']) }
+              ref={(ref) => this.textInput = ref}
               type="text"
-              disabled={this.props.disabled}
-              required={this.props.required}
-              placeholder={this.props.placeholder}
-              value={this.state.input}
-              rows={this.props.rows}
+              disabled={disabled}
+              required={required}
+              placeholder={placeholder}
+              value={input}
               onFocus={this.onFocus.bind(this)}
               onBlur={this.onBlur.bind(this)}
               onChange={this.onInputChange.bind(this)}
               onKeyPress={this.onKeyPress.bind(this)}
               onKeyDown={this.onKeyDown.bind(this)}
             />
-
-            { this.props.label && (
-              <span className="label">{ this.props.label }</span>
-            ) }
           </div>
-
-          { this.props.suffix && (
-            <div className="field-suffix">{ this.props.suffix }</div>
-          ) }
         </div>
 
       </div>

@@ -24,6 +24,7 @@ class SelectField extends React.Component {
     autoComplete: PropTypes.func,
     autoCompleteLabel: PropTypes.string,
     autoCompleteThreshold: PropTypes.number,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
@@ -43,6 +44,7 @@ class SelectField extends React.Component {
     autoComplete: null,
     autoCompletePlaceholder: 'Search...',
     autoCompleteThreshold: 400,
+    theme: 'default',
   }
 
   constructor(props) {
@@ -253,6 +255,7 @@ class SelectField extends React.Component {
       parseTitle,
       id,
       error,
+      theme,
       ...rest
     } = this.props;
 
@@ -273,6 +276,7 @@ class SelectField extends React.Component {
           'junipero',
           'junipero-field',
           'select-field',
+          'theme-' + theme,
           disabled ? 'disabled' : null,
           opened ? 'opened' : null,
           required ? 'required' : null,
@@ -333,8 +337,9 @@ class SelectField extends React.Component {
               { autoComplete && (
                 <li className="select-auto-complete">
                   <TextField
+                    theme={theme}
                     ref={(ref) => this.autoCompleteInput = ref}
-                    label={null}
+                    label={false}
                     placeholder={autoCompletePlaceholder}
                     value={autoCompleteValue}
                     onChange={this.onAutoCompleteChange.bind(this)}

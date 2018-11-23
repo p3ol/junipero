@@ -5,10 +5,10 @@
 
   .field-wrapper
 
-    .field-inner
+    .field
       white-space: initial
       line-height: initial
-      padding-top: 10px
+      margin-top: -5px
 
       span.tag
         display: inline-block
@@ -22,22 +22,13 @@
         &.active
           background: $color-monza
 
-      input.field
+      input
         width: 150px
-        padding-top: 5px
+        padding-top: 2px
+        padding-bottom: 4px
+        margin-top: 5px
         border: none
         display: inline-block
         box-shadow: none
-
-  &.boxed
-
-    .field-inner
-      padding: 21px 15px 10px
-
-      input.field
-        margin-top: 0
-        padding: 0
-        padding-top: 5px
-
-  &.disabled
-    cursor: default
+        appearance: none
+        background: transparent

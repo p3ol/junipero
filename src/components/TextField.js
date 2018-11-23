@@ -10,7 +10,11 @@ class TextField extends React.Component {
     className: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     type: PropTypes.string,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.bool,
+    ]),
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
@@ -20,6 +24,7 @@ class TextField extends React.Component {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     validate: PropTypes.func,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
@@ -36,6 +41,7 @@ class TextField extends React.Component {
     onFocus: () => {},
     onBlur: () => {},
     validate: value => /.+/g.test(value),
+    theme: 'default',
   }
 
   constructor(props) {
@@ -153,6 +159,7 @@ class TextField extends React.Component {
       className,
       placeholder,
       label,
+      theme,
       ...rest
     } = this.props;
 
@@ -164,6 +171,8 @@ class TextField extends React.Component {
           'junipero',
           'junipero-field',
           'text-field',
+          'theme-' + theme,
+          label !== false && (label || placeholder) ? 'with-label' : null,
           focused ? 'focused' : null,
           dirty ? 'dirty' : null,
           !valid ? 'invalid' : null,
@@ -175,11 +184,13 @@ class TextField extends React.Component {
       >
 
         <div className="field-wrapper">
-          <label
-            htmlFor={rest.id}
-          >
-            { label || placeholder }
-          </label>
+          { label !== false && (
+            <label
+              htmlFor={rest.id}
+            >
+              { label || placeholder }
+            </label>
+          )}
 
           <Tag
             { ...rest }
