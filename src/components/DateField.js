@@ -21,6 +21,7 @@ class DateField extends React.Component {
     monthNames: PropTypes.array,
     weekDaysNames: PropTypes.array,
     placement: PropTypes.string,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
@@ -44,6 +45,7 @@ class DateField extends React.Component {
       'July', 'August', 'September', 'October', 'November', 'December'],
     weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
     placement: 'bottom',
+    theme: 'default',
   }
 
   constructor(props) {
@@ -225,6 +227,7 @@ class DateField extends React.Component {
       parseTitle,
       error,
       placement,
+      theme,
       ...rest
     } = this.props;
 
@@ -237,6 +240,7 @@ class DateField extends React.Component {
           'junipero',
           'junipero-field',
           'date-field',
+          'theme-' + theme,
           disabled ? 'disabled' : null,
           opened ? 'opened' : null,
           label ? 'with-label' : null,

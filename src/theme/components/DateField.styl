@@ -1,3 +1,4 @@
+@import "../utils/vars"
 @import "../utils/colors"
 
 .junipero.junipero-field.date-field
@@ -5,6 +6,7 @@
 
   a.field
     display: block
+    color: $color-shuttle-gray
 
   &.with-label
     &, &.boxed
@@ -40,7 +42,6 @@
   .calendar
     position: absolute
     z-index: 1000
-    box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
     background: $color-white
     border-radius: 2px
     min-width: $default-width
@@ -90,7 +91,6 @@
 
         .arrow
           border-style: solid
-          color: $color-eastern-blue
           display: inline-block
           height: 9px
           margin-left: 3px
@@ -117,7 +117,6 @@
         display: flex
         align-items: center
         justify-content: space-between
-        color: $color-eastern-blue
         font-weight: bold
 
         .week-day
@@ -136,21 +135,54 @@
           text-align: center
           padding: 5px 0
           border-radius: 4px
-          color: $color-midnight
           text-decoration: none
           cursor: pointer
-
-          &:hover
-            background: $color-athens-gray
 
           &.inactive
             color: $color-pale-sky
             opacity: .5
 
           &.active
-            background: $color-eastern-blue
             color: $color-white
 
         .separator
           width: 100%
           min-width: 100%
+
+  &.theme-none
+    .calendar
+      box-shadow: 0 2px 8px 0 rgba($color-shuttle-gray, 0.2)
+
+    .current-month
+      color: $color-shuttle-gray
+
+    .arrow, .week-days
+      color: $color-shuttle-gray
+
+    .day
+      color: $color-shuttle-gray
+
+      &:hover
+        background: $color-alabaster
+
+      &.active
+        background: $color-shuttle-gray
+
+  &.theme-default
+    .calendar
+      box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
+
+    .current-month
+      color: $color-midnight
+
+    .arrow, .week-days
+      color: $color-eastern-blue
+
+    .day
+      color: $color-midnight
+
+      &:hover
+        background: $color-catskill-white
+
+      &.active
+        background: $color-eastern-blue
