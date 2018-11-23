@@ -1,4 +1,4 @@
-@import "../utils/vars"
+@import "../utils/colors"
 
 .junipero.junipero-field.tags-field
   cursor: text
@@ -13,7 +13,6 @@
       span.tag
         display: inline-block
         padding: 2px 8px 4px
-        background: $color-eastern-blue
         color: $color-white
         margin-right: 5px
         margin-top: 5px
@@ -21,6 +20,30 @@
 
         &.active
           background: $color-monza
+
+        i.delete
+          display: inline-block
+          vertical-align: middle
+          width: 10px
+          height: 10px
+          position: relative
+          margin-left: 5px
+          cursor: pointer
+
+          &:before, &:after
+            content: ''
+            height: 100%
+            position: absolute
+            width: 2px
+            background: $color-white
+            left: calc(50% - 1px)
+            top: 0
+
+          &:before
+            transform: rotate(45deg)
+
+          &:after
+            transform: rotate(-45deg)
 
       input
         width: 150px
@@ -32,3 +55,11 @@
         box-shadow: none
         appearance: none
         background: transparent
+
+  &.theme-none
+    span.tag
+      background: $color-shuttle-gray
+
+  &.theme-default
+    span.tag
+      background: $color-eastern-blue

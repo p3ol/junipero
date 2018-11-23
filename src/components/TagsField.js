@@ -19,6 +19,7 @@ class TagsField extends React.Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
@@ -34,6 +35,7 @@ class TagsField extends React.Component {
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
+    theme: 'default',
   }
 
   constructor(props) {
@@ -226,6 +228,7 @@ class TagsField extends React.Component {
       tabIndex,
       label,
       placeholder,
+      theme,
       ...rest
     } = this.props;
 
@@ -237,6 +240,8 @@ class TagsField extends React.Component {
           'junipero',
           'junipero-field',
           'tags-field',
+          'theme-' + theme,
+          label ? 'with-label' : null,
           focused ? 'focused' : null,
           input || value?.length ? 'dirty' : null,
           disabled ? 'disabled' : null,
@@ -267,6 +272,12 @@ class TagsField extends React.Component {
                 ].join(' ')}
               >
                 { item }
+                <i
+                  role="button"
+                  tabIndex={-1}
+                  className="delete"
+                  onClick={this.remove.bind(this, index)}
+                />
               </span>
             )) }
             <input
