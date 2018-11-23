@@ -13,7 +13,6 @@ $slide-size = 6px
     display: flex
     flex-wrap: wrap
     align-items: center
-    justify-content: stretch
 
     .label, .slide, .value
       max-width: 100%
@@ -27,13 +26,11 @@ $slide-size = 6px
       display: block
       height: $slide-size
       width: unquote("calc(100% - ") $handle-size unquote(")")
-      background: $color-botticelli
       margin-top: ($slide-size / 2)
       position: relative
 
       .fill
         max-width: 100%
-        background: $color-surfie-green
         height: 100%
         left: 0
         top: 0
@@ -41,9 +38,7 @@ $slide-size = 6px
         z-index: 2
 
       .handle
-        background: $color-eastern-blue
         border-radius: 100%
-        box-shadow: 0 0 4px rgba($color-midnight, .25)
         cursor: pointer
         height: $handle-size
         left: -($handle-size / 2)
@@ -54,7 +49,6 @@ $slide-size = 6px
 
     .label
       padding-right: 20px
-      color: $color-eastern-blue
       font-weight: 600
       text-align: right
 
@@ -69,3 +63,31 @@ $slide-size = 6px
 
       .handle
         cursor: default
+
+  &.theme-none
+    .slide
+      background: $color-alabaster
+
+      .fill
+        background: $color-shuttle-gray + 50
+
+      .handle
+        background: $color-shuttle-gray
+        box-shadow: 0 0 4px rgba($color-black, .25)
+
+    .label
+      color: $color-shuttle-gray
+
+  &.theme-default
+    .slide
+      background: $color-catskill-white
+
+      .fill
+        background: $color-atoll
+
+      .handle
+        background: $color-eastern-blue
+        box-shadow: 0 0 4px rgba($color-midnight, .25)
+
+    .label
+      color: $color-eastern-blue

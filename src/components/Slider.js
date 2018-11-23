@@ -16,6 +16,7 @@ class Slider extends React.Component {
     disabled: PropTypes.bool,
     step: PropTypes.number,
     onChange: PropTypes.func,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
@@ -28,6 +29,7 @@ class Slider extends React.Component {
     disabled: false,
     renderValue: value => value,
     onChange: () => {},
+    theme: 'default',
   }
 
   constructor(props) {
@@ -141,6 +143,7 @@ class Slider extends React.Component {
         className={[
           'junipero',
           'slider',
+          'theme-' + this.props.theme,
           this.props.disabled ? 'disabled' : null,
           this.props.className,
         ].join(' ')}
