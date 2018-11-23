@@ -10,10 +10,10 @@ class CheckBox extends React.Component {
     className: PropTypes.string,
     checked: PropTypes.bool,
     value: PropTypes.string,
-    checkIconComponent: PropTypes.object,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     onChange: PropTypes.func,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
@@ -22,8 +22,8 @@ class CheckBox extends React.Component {
     value: null,
     disabled: false,
     required: false,
-    checkIconComponent: null,
     onChange: () => {},
+    theme: 'default',
   }
 
   constructor(props) {
@@ -77,6 +77,7 @@ class CheckBox extends React.Component {
         className={[
           'junipero',
           'check-box',
+          'theme-' + this.props.theme,
           this.state.active ? 'active' : null,
           this.state.checked ? 'checked' : null,
           this.props.disabled ? 'disabled' : null,
@@ -95,11 +96,7 @@ class CheckBox extends React.Component {
               value={this.props.value}
               disabled={this.props.disabled}
             />
-            <div className="check">
-              { this.props.checkIconComponent || (
-                <i className="check-icon" />
-              ) }
-            </div>
+            <div className="check" />
           </div>
 
           <div className="label">
