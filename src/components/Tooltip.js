@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { injectStyles } from '../utils';
@@ -10,116 +11,129 @@ class Tooltip extends React.Component {
     classname: PropTypes.string,
     text: PropTypes.string,
     placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
-    elementId: PropTypes.string,
-    maxWidth: PropTypes.number,
+    container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
-    hideArrow: PropTypes.bool,
-    eventType: PropTypes.string,
+    trigger: PropTypes.string,
     onToggle: PropTypes.func,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
     classname: null,
-    text: 'This is a tooltip',
+    text: '',
     placement: 'top',
-    elementId: null,
-    maxWidth: 150,
-    disabled: false,
-    hideArrow: false,
-    eventType: 'hover',
+    container: 'body',
+    trigger: 'hover',
     onToggle: () => {},
+    theme: 'default',
   }
+
+  state = {
+    opened: false,
+    x: 0,
+    y: 0,
+  }
+
+  xCenteredPositions = ['top', 'bottom']
+
+  yCenteredPositions = ['left', 'right']
 
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-tooltip-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      opened: false,
-      tipWidth: this.props.maxWidth || null,
-      tipHeight: null,
-      targetWidth: null,
-      targetHeight: null,
-    };
   }
 
   componentDidMount() {
-    if (!this.props.elementId || this.props.disabled) {
+    const { trigger } = this.props;
+
+    switch (trigger) {
+      case 'click':
+        this.target?.addEventListener('click',
+          this.toggleTooltip.bind(this), false);
+        document.addEventListener('click',
+          this.onClickOutside.bind(this), false);
+        break;
+      default:
+        this.target?.addEventListener('mouseenter',
+          this.toggleTooltip.bind(this, true), false);
+        this.target?.addEventListener('mouseleave',
+          this.toggleTooltip.bind(this, false), false);
+        break;
+    }
+
+    this.updatePosition();
+  }
+
+  onClickOutside(e) {
+    if (this.target && !this.target.contains(e.target)) {
+      this.toggleTooltip(false);
+    }
+  }
+
+  toggleTooltip(forceOpen) {
+    const { disabled, onToggle } = this.props;
+
+    if (disabled) {
       return;
     }
-    this.getTipDimensions(this.tooltipRef);
-    this.bindListeners();
-  }
 
-  bindListeners() {
-    let target = document.getElementById(this.props.elementId);
-    this.getTargetDimensions(target);
-    if (this.props.eventType == 'click') {
-      target.addEventListener('click', this.toggleTooltip.bind(this));
-    } else {
-      target.addEventListener('mouseenter', this.toggleTooltip.bind(this));
-      target.addEventListener('mouseleave', this.toggleTooltip.bind(this));
+    const opened = typeof forceOpen === 'boolean'
+      ? forceOpen
+      : !this.state.opened;
+
+    if (opened) {
+      this.updatePosition();
     }
+
+    this.setState({ opened }, () => onToggle(opened));
   }
 
-  toggleTooltip() {
-    if (this.props.disabled) { return; }
-    this.setState({ opened: !this.state.opened }, () => {
-      this.props.onToggle({ opened: this.state.opened });
+  getContainer() {
+    const { container } = this.props;
+
+    return typeof container === 'string'
+      ? document.querySelector(container) || document.createElement('div')
+      : container;
+  }
+
+  updatePosition() {
+    const { placement } = this.props;
+
+    const {
+      top: childTop,
+      left: childLeft,
+      width: childWidth,
+      height: childHeight,
+    } = this.target.getBoundingClientRect();
+
+    const {
+      top: parentTop,
+      left: parentLeft,
+    } = this.getContainer().getBoundingClientRect();
+
+    const {
+      width: tooltipWidth,
+      height: tooltipHeight,
+    } = this.tooltip.getBoundingClientRect();
+
+    this.setState({
+      x: (
+        this.xCenteredPositions.includes(placement)
+          ? childLeft + (childWidth / 2)
+          : placement === 'left'
+            ? childLeft - tooltipWidth
+            : childLeft + childWidth
+      ) - parentLeft,
+      y: (
+        this.yCenteredPositions.includes(placement)
+          ? childTop + (childHeight / 2)
+          : placement === 'top'
+            ? childTop - tooltipHeight
+            : childTop + childHeight
+      ) - parentTop,
     });
-  }
-
-  getTargetDimensions(target) {
-    const { height, width } = target.getBoundingClientRect();
-    return this.setState({
-      targetWidth: parseInt(width, 10),
-      targetHeight: parseInt(height, 10),
-    });
-  }
-
-  getTipDimensions(tip) {
-    return this.setState({
-      tipWidth: parseInt(tip.offsetWidth, 10),
-      tipHeight: parseInt(tip.offsetHeight, 10),
-    });
-  }
-
-  getPosition() {
-    const disToMouse = 3;
-    const triangleHeight = 2;
-    switch (this.props.placement) {
-      case 'right':
-        return {
-          left: this.state.targetWidth + disToMouse + triangleHeight,
-          top: -this.state.targetHeight + disToMouse + triangleHeight,
-          width: this.state.tipWidth,
-        };
-      case 'left':
-        return {
-          left: -(this.state.tipWidth + disToMouse + triangleHeight),
-          top: -this.state.targetHeight + disToMouse + triangleHeight,
-          width: this.state.tipWidth,
-        };
-      case 'top':
-        return {
-          left: this.state.targetWidth / 2,
-          top: -(this.state.targetHeight + this.state.tipHeight +
-            triangleHeight + disToMouse),
-          width: this.state.tipWidth,
-        };
-      case 'bottom':
-        return {
-          left: this.state.targetWidth / 2,
-          top: disToMouse + triangleHeight,
-          width: this.state.tipWidth,
-        };
-      default:
-        return {
-          width: this.state.tipWidth,
-        };
-    }
   }
 
   componentDidUpdate(prevProps) {
@@ -129,37 +143,57 @@ class Tooltip extends React.Component {
   }
 
   render() {
-    const tooltipPosition = this.getPosition();
+    const { text, className, children, placement, theme } = this.props;
+    const { opened, x, y } = this.state;
+
     return (
-      <div className="junipero junipero-tooltip">
-        <div
-          ref={(ref) => this.tooltipRef = ref}
-          className={[
-            'junipero-tooltip-inner',
-            'place-' + this.props.placement,
-            this.state.opened ? 'opened' : null,
-            this.props.hideArrow ? 'hide-arrow' : null,
-            this.props.className,
-          ].join(' ')}
-          style={tooltipPosition}
-        >
-          {this.props.text}
-        </div>
-      </div>
+      <React.Fragment>
+        { React.cloneElement(
+          React.Children.only(children),
+          { ref: (ref) => this.target = ref }
+        ) }
+
+        { ReactDOM.createPortal(
+          (
+            <div
+              className={[
+                'junipero',
+                'junipero-tooltip',
+                'theme-' + theme,
+                'placement-' + placement,
+                opened ? 'opened' : null,
+                className,
+              ].join(' ')}
+              ref={(ref) => this.tooltip = ref}
+              style={{
+                top: y + 'px',
+                left: x + 'px',
+              }}
+            >
+              { text }
+            </div>
+          ),
+          this.getContainer()
+        )}
+      </React.Fragment>
     );
   }
 
-  unBindListeners() {
-    if (!this.props.elementId) {
-      return;
-    }
-    let elem = document.getElementById(this.props.elementId);
-    elem.removeEventListener('mouseenter', this.toggleTooltip.bind(this));
-    elem.removeEventListener('mouseleave', this.toggleTooltip.bind(this));
-  }
-
   componentWillUnMount() {
-    this.unBindListeners();
+    const { trigger } = this.props;
+
+    switch (trigger) {
+      case 'click':
+        this.target?.removeEventListener('click',
+          this.toggleTooltip.bind(this));
+        break;
+      default:
+        this.target?.removeEventListener('mouseenter',
+          this.toggleTooltip.bind(this));
+        this.target?.removeEventListener('mouseleave',
+          this.toggleTooltip.bind(this));
+        break;
+    }
   }
 }
 

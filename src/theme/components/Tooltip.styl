@@ -1,121 +1,107 @@
-@import "../utils/vars"
+@import "../utils/colors"
 
 .junipero.junipero-tooltip
-  position: relative
+  color: $color-white
+  border-radius: 3px
+  opacity: 0
+  padding: 8px 21px
+  position: absolute
+  pointer-events: none
+  user-select: none
+  text-align: center
+  z-index: 999
 
-  .junipero-tooltip-inner
-    background-color: $color-surfie-green
-    color: $color-white
-    border-radius: 3px
-    display: inline-block
-    font-size: 13px
-    opacity: 0
-    padding: 8px 21px
+  &.opened
+    opacity: 1
+    margin-top: 0px
+    margin-left: 0px
+    visibility: visible
+
+  &:before
+    content: ''
+    height: 0
     position: absolute
-    pointer-events: none
-    text-align: center
-    transition: opacity 0.3s ease-out
-    visibility: hidden
-    z-index: 999
+    width: 0
+    display: block
 
-    &.opened
-      opacity: 0.9
-      margin-top: 0px
-      margin-left: 0px
-      visibility: visible
+  &.placement-top, &.placement-bottom
+    transform: translateX(-50%)
 
-    &:before, &:after
-      content: ''
-      height: 0
-      position: absolute
-      width: 0
-
-    &.hide-arrow
-      &:after
-        display: none
-
-    &.place-top
-      margin-top: -10px
+    &:before
+      left: 50%
       transform: translateX(-50%)
+      border-left: 8px solid transparent
+      border-right: 8px solid transparent
 
-      &:before
-        border-left: 10px solid transparent
-        border-right: 10px solid transparent
-        bottom: -8px
-        left: 50%
-        margin-left: -10px
+  &.placement-left, &.placement-right
+    transform: translateY(-50%)
 
-      &:after
-        border-top-color: $color-surfie-green
-        border-top-style: solid
-        border-top-width: 6px
-        border-left: 8px solid transparent
-        border-right: 8px solid transparent
-        bottom: -6px
-        left: 50%
-        margin-left: -8px
-
-
-    &.place-bottom
-      transform: translateX(-50%)
-
-      &:before
-        border-left: 10px solid transparent
-        border-right: 10px solid transparent
-        left: 50%
-        margin-left: -10px
-        top: -8px
-
-      &:after
-        border-bottom-color: $color-surfie-green
-        border-bottom-style: solid
-        border-bottom-width: 6px
-        border-left: 8px solid transparent
-        border-right: 8px solid transparent
-        left: 50%
-        margin-left: -8px
-        top: -6px
-
-
-    &.place-left
-      margin-left: -10px
+    &:before
+      top: 50%
       transform: translateY(-50%)
+      border-top: 8px solid transparent
+      border-bottom: 8px solid transparent
 
-      &:before
-        border-top: 6px solid transparent
-        border-bottom: 6px solid transparent
-        margin-top: -5px
-        right: -8px
-        top: 50%
+  &.placement-top
+    margin-top: -16px
 
-      &:after
-        border-left-color: $color-surfie-green
-        border-left-style: solid
-        border-left-width: 6px
-        border-top: 5px solid transparent
-        border-bottom: 5px solid transparent
-        margin-top: -4px
-        right: -6px
-        top: 50%
+    &:before
+      border-top-width: 8px
+      border-top-style: solid
+      bottom: -8px
+
+  &.placement-bottom
+    margin-top: 16px
+
+    &:before
+      border-bottom-width: 8px
+      border-bottom-style: solid
+      top: -8px
 
 
-    &.place-right
-      margin-left: 5px
-      transform: translateY(-50%)
+  &.placement-left
+    margin-left: -16px
 
-      &:before
-        border-top: 6px solid transparent
-        border-bottom: 6px solid transparent
-        left: -8px
-        margin-top: -5px
-        top: 50%
+    &:before
+      right: -8px
+      border-left-width: 8px
+      border-left-style: solid
 
-      &:after
-        border-right-color: $color-surfie-green
-        border-right-style: solid
-        border-right-width: 6px
-        border-top: 5px solid transparent
-        border-bottom: 5px solid transparent
-        left: -6px
-        top: 50%
-        margin-top: -4px
+
+  &.placement-right
+    margin-left: 16px
+
+    &:before
+      border-right-width: 8px
+      border-right-style: solid
+      left: -8px
+
+  &.theme-none
+    background: $color-shuttle-gray
+
+    &.placement-top:before
+      border-top-color: $color-shuttle-gray
+
+    &.placement-right:before
+      border-right-color: $color-shuttle-gray
+
+    &.placement-bottom:before
+      border-bottom-color: $color-shuttle-gray
+
+    &.placement-left:before
+      border-left-color: $color-shuttle-gray
+
+  &.theme-default
+    background: $color-atoll
+
+    &.placement-top:before
+      border-top-color: $color-atoll
+
+    &.placement-right:before
+      border-right-color: $color-atoll
+
+    &.placement-bottom:before
+      border-bottom-color: $color-atoll
+
+    &.placement-left:before
+      border-left-color: $color-atoll
