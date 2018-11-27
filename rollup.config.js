@@ -33,6 +33,7 @@ const defaultConfig = () => ({
   ],
   external: [
     'react',
+    'react-dom',
     'prop-types',
   ],
 });
@@ -45,6 +46,7 @@ const defaultUMDConfig = (minified = false, config = defaultConfig()) => ({
     globals: {
       react: 'React',
       'prop-types': 'PropTypes',
+      'react-dom': 'ReactDOM',
     },
   },
   plugins: [
