@@ -68,7 +68,9 @@ class DateField extends React.Component {
   }
 
 
-  onToggle() {
+  onToggle(e) {
+    e.preventDefault();
+
     if (this.props.disabled) {
       return;
     }
