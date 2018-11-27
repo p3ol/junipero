@@ -12,12 +12,18 @@ class Tabs extends React.Component {
     activeTab: PropTypes.number,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
+    theme: PropTypes.string,
   }
 
   static defaultProps = {
     activeTab: 0,
     disabled: false,
     onChange: () => {},
+    theme: 'default',
+  }
+
+  state = {
+    activeTab: this.props.activeTab,
   }
 
   constructor(props) {
@@ -25,10 +31,6 @@ class Tabs extends React.Component {
 
     injectStyles(styles,
       { id: 'junipero-tabs-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      activeTab: this.props.activeTab,
-    };
   }
 
   componentDidUpdate(prevProps) {
@@ -65,6 +67,7 @@ class Tabs extends React.Component {
 
   render() {
     const tabs = this.getTabs();
+    const { theme, disabled } = this.props;
     const { activeTab } = this.state;
 
     return (
@@ -72,7 +75,8 @@ class Tabs extends React.Component {
         className={[
           'junipero',
           'tabs',
-          this.props.disabled ? 'disabled' : null,
+          'theme-' + theme,
+          disabled ? 'disabled' : null,
         ].join(' ')}
       >
         <ul className="tabs-titles">

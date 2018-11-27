@@ -1,4 +1,4 @@
-@import "../utils/vars"
+@import "../utils/colors"
 
 .junipero.tabs
 
@@ -25,10 +25,6 @@
           height: 2px
           bottom: -1px
           left: 0
-          background: $color-eastern-blue
-
-        a
-          color: $color-eastern-blue
 
       &.disabled
         opacity: .5
@@ -37,7 +33,6 @@
           cursor: default
 
       a
-        color: $color-midnight
         text-decoration: none
         cursor: pointer
         padding: 15px 0
@@ -53,3 +48,25 @@
       li
         a
           cursor: default
+
+  &.theme-none
+    a
+      color: $color-shuttle-gray
+
+    li.active
+      &:after
+        background: $color-black
+
+      a
+        color: $color-black
+
+  &.theme-default
+    a
+      color: $color-midnight
+
+    li.active
+      &:after
+        background: $color-eastern-blue
+
+      a
+        color: $color-eastern-blue
