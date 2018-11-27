@@ -18,6 +18,7 @@ const Home = () => (
       <li><Link to="/bread-crumb">BreadCrumb</Link></li>
       <li><Link to="/tooltip">Tooltip</Link></li>
       <li><Link to="/tabs">Tabs</Link></li>
+      <li><Link to="/modal">Modal</Link></li>
     </ul>
   </div>
 );
