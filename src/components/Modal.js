@@ -33,7 +33,7 @@ class Modal extends React.Component {
     super(props);
 
     injectStyles(styles,
-      { id: 'junipero-tooltip-styles', after: '#junipero-main-styles' });
+      { id: 'junipero-modal-styles', after: '#junipero-main-styles' });
   }
 
   getContainer() {
