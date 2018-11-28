@@ -20,6 +20,7 @@ import TagsFieldPage from '../containers/TagsFieldPage';
 import BreadCrumbPage from '../containers/BreadCrumbPage';
 import TooltipPage from '../containers/TooltipPage';
 import TabsPage from '../containers/TabsPage';
+import ModalPage from '../containers/ModalPage';
 
 import Toolbox from '../containers/Toolbox';
 
@@ -60,6 +61,7 @@ class App extends React.Component {
               <Route exact path="/bread-crumb" component={BreadCrumbPage} />
               <Route exact path="/tooltip" component={TooltipPage} />
               <Route exact path="/tabs" component={TabsPage} />
+              <Route exact path="/modal" component={ModalPage} />
             </Switch>
           </Router>
 

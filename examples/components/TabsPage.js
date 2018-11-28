@@ -46,6 +46,32 @@ class TabsPage extends React.Component {
             <pre>{ JSON.stringify(this.state.default, null, 2)}</pre>
           </div>
         </div>
+
+        <h2 className="mt-5">Without theming</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Tabs
+              theme="none"
+              disabled={this.props.disabled}
+              activeTab={this.state.withoutTheming}
+              onChange={this.onChange.bind(this, 'withoutTheming')}
+            >
+              <Tab title="Tab 1">
+                Content 1
+              </Tab>
+              <Tab title="Disabled tab" disabled={true}>
+                Content 2
+              </Tab>
+              <Tab title={(<strong>Bold title tab</strong>)}>
+                Content 3
+              </Tab>
+            </Tabs>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.withoutTheming, null, 2)}</pre>
+          </div>
+        </div>
       </div>
     );
   }

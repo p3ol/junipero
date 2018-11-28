@@ -1,0 +1,62 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { Modal } from '@poool/junipero';
+
+class ModalPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      default: {},
+      unthemed: {},
+    };
+
+    this.modals = {};
+  }
+
+  onChange(name, field) {
+    this.setState({ [name]: field });
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <p><Link to="/">Back</Link></p>
+        <h1>Modal example</h1>
+
+        <h2 className="mt-5">Default</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Modal ref={(ref) => this.modals.default = ref}>
+              test
+            </Modal>
+            <button onClick={() => this.modals.default.open()}>Open me</button>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.default, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Without theming</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+
+            <Modal theme="none" ref={(ref) => this.modals.unthemed = ref}>
+              test without theming
+            </Modal>
+            <button onClick={() => this.modals.unthemed.open()}>Open me</button>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.unthemed, null, 2)}</pre>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+}
+
+export default ModalPage;
