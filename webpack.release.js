@@ -29,6 +29,9 @@ module.exports = merge(common, {
   ],
   externals: {
     react: 'React',
+    'react-dom': 'ReactDOM',
+    'prop-types': 'PropTypes',
+    'react-intl-tel-input': 'IntlTelInput',
   },
   parallelism: 4,
   devtool: 'source-map',

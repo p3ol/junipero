@@ -13,7 +13,8 @@
   "license": "MIT",
   "sideEffects": false,
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -42,6 +43,7 @@
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
+    "react-intl-tel-input": "^5.0.7",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "rollup": "^0.66.6",
@@ -65,8 +67,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react-intl-tel-input": "^5.0.7"
+    "prop-types": "^15.6.2"
   },
   "scripts": {
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.js --hot --inline --open",

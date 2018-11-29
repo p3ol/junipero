@@ -35,6 +35,7 @@ const defaultConfig = () => ({
     'react',
     'react-dom',
     'prop-types',
+    'react-intl-tel-input',
   ],
 });
 
@@ -47,6 +48,7 @@ const defaultUMDConfig = (minified = false, config = defaultConfig()) => ({
       react: 'React',
       'prop-types': 'PropTypes',
       'react-dom': 'ReactDOM',
+      'react-intl-tel-input': 'IntlTelInput',
     },
   },
   plugins: [
