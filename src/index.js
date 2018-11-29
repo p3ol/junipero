@@ -13,6 +13,7 @@ import Tooltip from './components/Tooltip';
 import Tabs from './components/Tabs';
 import Tab from './components/Tab';
 import Modal from './components/Modal';
+import ColorPicker from './components/ColorPicker';
 
 import styles from './theme/index.styl';
 injectStyles(styles, { id: 'junipero-main-styles' });
@@ -31,4 +32,5 @@ export {
   Tabs,
   Tab,
   Modal,
+  ColorPicker,
 };
