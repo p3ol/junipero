@@ -1,6 +1,6 @@
 export const COLOR_PARSERS = [{
   regex: /(rgb)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*%?,\s*(\d{1,3})\s*%?(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
-  parse: (r, g, b, a) => ({
+  parse: ([useless, alsoUseless, r, g, b, a]) => ({
     r: parseInt(r, 10) / 255,
     g: parseInt(g, 10) / 255,
     b: parseInt(b, 10) / 255,
@@ -8,7 +8,7 @@ export const COLOR_PARSERS = [{
   }),
 }, {
   regex: /(hsl)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
-  parse: (h, s, l, a) => ({
+  parse: ([useless, alsoUseless, h, s, l, a]) => ({
     h: parseInt(h, 10) / 360,
     s: parseInt(s, 10) / 100,
     l: parseInt(l, 10) / 100,
@@ -16,17 +16,19 @@ export const COLOR_PARSERS = [{
   }),
 }, {
   regex: /#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})$/,
-  parse: (r, g, b) => ({
+  parse: ([useless, r, g, b]) => ({
     r: parseInt(r, 16) / 255,
     g: parseInt(g, 16) / 255,
     b: parseInt(b, 16) / 255,
+    a: 1,
   }),
 }, {
   regex: /#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])$/,
-  parse: (r, g, b) => ({
+  parse: ([useless, r, g, b]) => ({
     r: parseInt(r + r, 16) / 255,
     g: parseInt(g + g, 16) / 255,
     b: parseInt(b + b, 16) / 255,
+    a: 1,
   }),
 }];
 
@@ -138,6 +140,7 @@ export const rgba2hsva = ({ r, g, b, a }) => {
   r = Math.min(r, 1);
   g = Math.min(g, 1);
   b = Math.min(b, 1);
+  a = Math.min(a, 1);
 
   let h, s;
   const max = Math.max(r, g, b);
@@ -196,13 +199,13 @@ export const parseColor = (color = '') => {
 
   for (const parser of COLOR_PARSERS) {
     const match = parser.regex.exec(color);
-    color = match && parser.parse(...match.slice(2));
+    const parsed = match && parser.parse(match);
 
-    if (color) {
-      if (color.r) {
-        hsva = rgba2hsva(color);
-      } else if (color.l) {
-        hsva = hsla2hsva(color);
+    if (parsed) {
+      if (typeof parsed.r !== 'undefined') {
+        hsva = rgba2hsva(parsed);
+      } else if (parsed.l) {
+        hsva = hsla2hsva(parsed);
       }
 
       return hsva;

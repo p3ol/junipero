@@ -11,6 +11,8 @@ class ColorPicker extends React.Component {
     theme: PropTypes.string,
     format: PropTypes.string,
     disabled: PropTypes.bool,
+    native: PropTypes.bool,
+    value: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -20,6 +22,8 @@ class ColorPicker extends React.Component {
     theme: 'default',
     format: 'auto',
     disabled: false,
+    native: false,
+    value: null,
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
@@ -30,6 +34,7 @@ class ColorPicker extends React.Component {
     handleMoving: false,
     handleType: null,
     value: null,
+    valid: true,
     h: 0,
     s: 0,
     v: 0,
@@ -56,13 +61,56 @@ class ColorPicker extends React.Component {
     doc.addEventListener('mousedown', this.onClickOutside.bind(this), true);
     doc.addEventListener('mousemove', this.onMouseMove.bind(this), true);
     doc.addEventListener('mouseup', this.onMouseUp.bind(this), true);
+
+    this.onInputChange({ value: this.props.value }, false);
   }
 
-  onChange(e) {
-
+  componentDidUpdate(prevProps) {
+    if (this.props.value !== prevProps.value) {
+      this.onInputChange({ value: this.props.value });
+    }
   }
 
-  onFocus(e) {
+  onChange() {
+    const { value, valid } = this.state;
+
+    this.props.onChange({
+      value,
+      valid,
+    });
+  }
+
+  onInputChange(e, propagateChange = true) {
+    if (!e || !e.value) {
+      return;
+    }
+
+    const parsed = parseColor(e.value);
+
+    let newState = {
+      value: e.value,
+      valid: false,
+    };
+
+    if (parsed) {
+      newState = {
+        h: parsed.h * 360,
+        s: parsed.s * 100,
+        v: 100 - (parsed.v * 100),
+        a: parsed.a * 100,
+        value: e.value,
+        valid: true,
+      };
+    }
+
+    this.setState(newState, () => {
+      if (propagateChange) {
+        this.onChange();
+      }
+    });
+  }
+
+  onInputFocus(e) {
     this.setState({ opened: true });
     this.props.onFocus(e);
   }
@@ -73,7 +121,9 @@ class ColorPicker extends React.Component {
     }
 
     if (this.colorWheel && !this.colorWheel.contains(e.target)) {
-      this.setState({ opened: false });
+      this.setState({ opened: false }, () => {
+        this.props.onBlur();
+      });
     }
   }
 
@@ -159,6 +209,9 @@ class ColorPicker extends React.Component {
         v: (100 - this.state.v) / 100,
         a: this.state.a / 100,
       }, format),
+      valid: true,
+    }, () => {
+      this.onChange();
     });
   }
 
@@ -186,7 +239,7 @@ class ColorPicker extends React.Component {
   }
 
   render() {
-    const { theme, ...rest } = this.props;
+    const { theme, native, ...rest } = this.props;
     const { opened, value, h, s, v, a } = this.state;
 
     return (
@@ -201,92 +254,95 @@ class ColorPicker extends React.Component {
         <TextField
           ref={(ref) => this.input = ref?.input}
           { ...omit(rest, [
-            'onChange',
+            'onChange', 'onFocus', 'onBlur', 'native',
           ])}
-          type="text"
+          type={ native ? 'color' : 'text' }
           value={value}
-          onChange={this.onChange.bind(this)}
-          onFocus={this.onFocus.bind(this)}
+          theme={theme}
+          onChange={this.onInputChange.bind(this)}
+          onFocus={this.onInputFocus.bind(this)}
         />
 
-        <div className="color-wheel" ref={(ref) => this.colorWheel = ref}>
-          <div
-            className="lightness"
-            ref={(ref) => this.colorLightness = ref}
-            onMouseDown={this.onMouseDown.bind(this, 'lightness')}
-            style={{
-              backgroundColor: stringifyColor({
-                h: h / 360,
-                s: 1,
-                v: 1,
-                a: 1,
-              }),
-            }}
-          >
-            <a
-              className="handle"
+        { !native && (
+          <div className="color-wheel" ref={(ref) => this.colorWheel = ref}>
+            <div
+              className="lightness"
+              ref={(ref) => this.colorLightness = ref}
+              onMouseDown={this.onMouseDown.bind(this, 'lightness')}
               style={{
-                transform: 'translate3d(' +
-                  `${this.getCursorPosition('lightness').x}px, ` +
-                  `${this.getCursorPosition('lightness').y}px, ` +
-                  '0)',
+                backgroundColor: stringifyColor({
+                  h: h / 360,
+                  s: 1,
+                  v: 1,
+                  a: 1,
+                }),
               }}
-            />
-          </div>
-          <div className="controls">
-            <div className="color-preview">
-              <div
-                className="preview-inner"
+            >
+              <a
+                className="handle"
                 style={{
-                  backgroundColor: stringifyColor({
-                    h: h / 360,
-                    s: s / 100,
-                    v: (100 - v) / 100,
-                    a: a / 100,
-                  }),
+                  transform: 'translate3d(' +
+                    `${this.getCursorPosition('lightness').x}px, ` +
+                    `${this.getCursorPosition('lightness').y}px, ` +
+                    '0)',
                 }}
               />
             </div>
-            <div className="sliders">
-              <div
-                className="hue"
-                ref={(ref) => this.colorHue = ref}
-                onMouseDown={this.onMouseDown.bind(this, 'hue')}
-              >
-                <a
-                  className="handle"
+            <div className="controls">
+              <div className="color-preview">
+                <div
+                  className="preview-inner"
                   style={{
-                    transform: 'translate3d(' +
-                      `${this.getCursorPosition('hue').x}px, ` +
-                      '0, 0)',
+                    backgroundColor: stringifyColor({
+                      h: h / 360,
+                      s: s / 100,
+                      v: (100 - v) / 100,
+                      a: a / 100,
+                    }),
                   }}
                 />
               </div>
-              <div
-                className="alpha"
-                ref={(ref) => this.colorAlpha = ref}
-                onMouseDown={this.onMouseDown.bind(this, 'alpha')}
-                style={{
-                  backgroundColor: stringifyColor({
-                    h: h / 360,
-                    s: 1,
-                    v: 1,
-                    a: 1,
-                  }),
-                }}
-              >
-                <a
-                  className="handle"
+              <div className="sliders">
+                <div
+                  className="hue"
+                  ref={(ref) => this.colorHue = ref}
+                  onMouseDown={this.onMouseDown.bind(this, 'hue')}
+                >
+                  <a
+                    className="handle"
+                    style={{
+                      transform: 'translate3d(' +
+                        `${this.getCursorPosition('hue').x}px, ` +
+                        '0, 0)',
+                    }}
+                  />
+                </div>
+                <div
+                  className="alpha"
+                  ref={(ref) => this.colorAlpha = ref}
+                  onMouseDown={this.onMouseDown.bind(this, 'alpha')}
                   style={{
-                    transform: 'translate3d(' +
-                      `${this.getCursorPosition('alpha').x}px, ` +
-                      '0, 0)',
+                    backgroundColor: stringifyColor({
+                      h: h / 360,
+                      s: 1,
+                      v: 1,
+                      a: 1,
+                    }),
                   }}
-                />
+                >
+                  <a
+                    className="handle"
+                    style={{
+                      transform: 'translate3d(' +
+                        `${this.getCursorPosition('alpha').x}px, ` +
+                        '0, 0)',
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) }
       </div>
     );
   }
