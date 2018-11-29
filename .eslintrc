@@ -4,6 +4,11 @@
     "react"
   ],
   "rules": {
-    "max-len": ["warn", { "code": 80, "tabWidth": 2, "ignorePattern": "^import [^,]+ from" }]
+    "max-len": ["warn", {
+      "code": 80,
+      "tabWidth": 2,
+      "ignorePattern": "^import [^,]+ from",
+      "ignoreRegExpLiterals": true
+    }],
   }
 }
