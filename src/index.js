@@ -16,6 +16,7 @@ import Tabs from './components/Tabs';
 import Tab from './components/Tab';
 import Modal from './components/Modal';
 import ColorPicker from './components/ColorPicker';
+import Switch from './components/Switch';
 
 import styles from './theme/index.styl';
 injectStyles(styles, { id: 'junipero-main-styles' });
@@ -37,4 +38,5 @@ export {
   Tab,
   Modal,
   ColorPicker,
+  Switch,
 };

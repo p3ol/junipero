@@ -13,6 +13,7 @@ class Button extends React.Component {
     submit: PropTypes.bool,
     reversed: PropTypes.bool,
     size: PropTypes.string,
+    theme: PropTypes.string,
     onClick: PropTypes.func,
   }
 
@@ -23,6 +24,7 @@ class Button extends React.Component {
     submit: false,
     reversed: false,
     size: 'default',
+    theme: 'default',
     onClick: () => {},
   }
 
@@ -51,13 +53,17 @@ class Button extends React.Component {
       disabled,
       className,
       children,
+      theme,
+      ...rest
     } = this.props;
 
     return (
       <Tag
+        { ...rest }
         className={[
           'junipero',
           'button',
+          'theme-' + theme,
           type,
           reversed ? 'reversed' : null,
           disabled ? 'disabled' : null,

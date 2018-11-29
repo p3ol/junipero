@@ -23,31 +23,53 @@
       color: $color-silver
 
   &.primary
-    background: $color-eastern-blue
-    border-color: $color-eastern-blue
-    color: $color-white
 
-    &:hover, &:visited, &:focus
-      background: $color-atoll
-      border-color: $color-atoll
+    &.theme-none
+      background: $color-shuttle-gray
+      border-color: $color-shuttle-gray
       color: $color-white
 
-    &:active
-      background: $color-atoll - 10
-      border-color: $color-atoll - 10
-
-    &.disabled
-      &, &:hover, &:active, &:focus, &:visited
-        background: $color-powder-blue
-        border-color: $color-powder-blue
+      &:hover, &:visited, &:focus
+        background: $color-shuttle-gray - 20
+        border-color: $color-shuttle-gray - 20
         color: $color-white
 
-    &.reversed
-      background: transparent
-      color: $color-eastern-blue
+      &:active
+        background: $color-shuttle-gray - 30
+        border-color: $color-shuttle-gray - 30
+
+      &.disabled
+        &, &:hover, &:active, &:focus, &:visited
+          background: $color-shuttle-gray + 50
+          border-color: $color-shuttle-gray + 50
+          color: $color-white
+
+      &.reversed
+        background: transparent
+        color: $color-shuttle-gray
+
+        &:hover, &:visited, &:focus
+          background: $color-shuttle-gray
+          color: $color-white
+
+        &:active
+          background: $color-shuttle-gray - 20
+          border-color: $color-shuttle-gray - 20
+
+        &.disabled
+          &, &:hover, &:active, &:focus, &:visited
+            border-color: $color-shuttle-gray + 50
+            color: $color-shuttle-gray + 50
+            background: transparent
+
+    &.theme-default
+      background: $color-eastern-blue
+      border-color: $color-eastern-blue
+      color: $color-white
 
       &:hover, &:visited, &:focus
         background: $color-atoll
+        border-color: $color-atoll
         color: $color-white
 
       &:active
@@ -56,9 +78,27 @@
 
       &.disabled
         &, &:hover, &:active, &:focus, &:visited
+          background: $color-powder-blue
           border-color: $color-powder-blue
-          color: $color-powder-blue
-          background: transparent
+          color: $color-white
+
+      &.reversed
+        background: transparent
+        color: $color-eastern-blue
+
+        &:hover, &:visited, &:focus
+          background: $color-atoll
+          color: $color-white
+
+        &:active
+          background: $color-atoll - 10
+          border-color: $color-atoll - 10
+
+        &.disabled
+          &, &:hover, &:active, &:focus, &:visited
+            border-color: $color-powder-blue
+            color: $color-powder-blue
+            background: transparent
 
   &.danger
     background: $color-monza

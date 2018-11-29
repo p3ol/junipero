@@ -40,7 +40,7 @@ class SelectField extends React.Component {
     options: [],
     placement: 'bottom',
     onChange: () => {},
-    validate: value => !!value,
+    validate: value => typeof value !== undefined && value !== null,
     autoComplete: null,
     autoCompletePlaceholder: 'Search...',
     autoCompleteThreshold: 400,
