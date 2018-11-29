@@ -44,6 +44,8 @@ class TextField extends React.Component {
     theme: 'default',
   }
 
+  input = null
+
   constructor(props) {
     super(props);
 

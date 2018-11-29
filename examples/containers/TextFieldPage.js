@@ -7,7 +7,6 @@ const mapStateToProps = (state, ownProps) => {
     ...ownProps,
     disabled: state.tools.disabled,
     error: state.tools.error,
-    placeholder: state.tools.placeholder,
     boxed: state.tools.boxed,
   };
 };
