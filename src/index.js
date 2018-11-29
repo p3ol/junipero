@@ -1,6 +1,8 @@
 import { injectStyles } from './utils';
 
 import TextField from './components/TextField';
+import PhoneField from './components/PhoneField';
+import CodeField from './components/CodeField';
 import CheckBox from './components/CheckBox';
 import SelectField from './components/SelectField';
 import Slider from './components/Slider';
@@ -20,6 +22,8 @@ injectStyles(styles, { id: 'junipero-main-styles' });
 
 export {
   TextField,
+  PhoneField,
+  CodeField,
   CheckBox,
   SelectField,
   Slider,
