@@ -9,6 +9,7 @@ class ColorPickerPage extends React.Component {
     super(props);
     this.state = {
       default: {},
+      enhanced: {},
       unthemed: {},
     };
   }
