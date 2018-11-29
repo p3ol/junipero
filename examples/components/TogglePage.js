@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Switch } from '@poool/junipero';
+import { Toggle } from '@poool/junipero';
 
-class SwitchPage extends React.Component {
+class TogglePage extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,12 +21,12 @@ class SwitchPage extends React.Component {
     return (
       <div className="container">
         <p><Link to="/">Back</Link></p>
-        <h1>Switch example</h1>
+        <h1>Toggle example</h1>
 
         <h2 className="mt-5">Default</h2>
         <div className="row mt-5">
           <div className="col-6">
-            <Switch
+            <Toggle
               value="test"
               disabled={this.props.disabled}
               onLabel="Enabled"
@@ -43,7 +43,7 @@ class SwitchPage extends React.Component {
         <h2 className="mt-5">Without theming</h2>
         <div className="row mt-5">
           <div className="col-6">
-            <Switch
+            <Toggle
               theme="none"
               value="test"
               disabled={this.props.disabled}
@@ -63,4 +63,4 @@ class SwitchPage extends React.Component {
 
 }
 
-export default SwitchPage;
+export default TogglePage;

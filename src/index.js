@@ -6,7 +6,7 @@ import CodeField from './components/CodeField';
 import CheckBox from './components/CheckBox';
 import SelectField from './components/SelectField';
 import Slider from './components/Slider';
-import Switch from './components/Switch';
+import Toggle from './components/Toggle';
 import DateField from './components/DateField';
 import Button from './components/Button';
 import TagsField from './components/TagsField';
@@ -27,7 +27,7 @@ export {
   CheckBox,
   SelectField,
   Slider,
-  Switch,
+  Toggle,
   DateField,
   Button,
   TagsField,

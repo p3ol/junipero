@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { injectStyles } from '../utils';
-import styles from '../theme/components/Switch.styl';
+import styles from '../theme/components/Toggle.styl';
 
-class Switch extends React.Component {
+class Toggle extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
@@ -32,7 +32,7 @@ class Switch extends React.Component {
     super(props);
 
     injectStyles(styles,
-      { id: 'junipero-switch-styles', after: '#junipero-main-styles' });
+      { id: 'junipero-toggle-styles', after: '#junipero-main-styles' });
 
     this.state = {
       checked: this.props.checked,
@@ -62,7 +62,7 @@ class Switch extends React.Component {
       <div
         className={[
           'junipero',
-          'switch',
+          'toggle',
           'theme-' + this.props.theme,
           this.state.active ? 'active' : null,
           this.state.checked ? 'checked' : null,
@@ -71,16 +71,16 @@ class Switch extends React.Component {
         ].join(' ')}
       >
         <label
-          className="switch-wrapper"
+          className="toggle-wrapper"
         >
-          <div className="switch-inner">
+          <div className="toggle-inner">
             <input
               type="checkbox"
               onChange={this.onChange.bind(this)}
               value={this.props.value}
               disabled={this.props.disabled}
             />
-            <div className="switch">
+            <div className="toggle">
               <div className="handle" />
             </div>
           </div>
@@ -96,4 +96,4 @@ class Switch extends React.Component {
 
 }
 
-export default Switch;
+export default Toggle;

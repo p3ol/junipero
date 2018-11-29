@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import SwitchPage from '../components/SwitchPage';
+import TogglePage from '../components/TogglePage';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -9,4 +9,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(SwitchPage);
+export default connect(mapStateToProps)(TogglePage);

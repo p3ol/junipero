@@ -1,23 +1,23 @@
 @import "../utils/colors"
 @import "../utils/animations"
 
-.junipero.switch
+.junipero.toggle
   display: inline-block
   cursor: default
 
-  .switch-wrapper
+  .toggle-wrapper
     display: flex
     flex-wrap: wrap
     align-items: center
 
-    .switch-inner
+    .toggle-inner
       max-width: 50px
       flex: 0 0 auto
 
       input
         display: none
 
-      .switch
+      .toggle
         width: 40px
         margin-right: 10px
         height: 20px
@@ -45,40 +45,40 @@
       user-select: none
 
   &.checked
-    .switch-wrapper
-      .switch-inner
-        .switch
+    .toggle-wrapper
+      .toggle-inner
+        .toggle
           .handle
             left: 100%
             transform: translateX(-100%)
 
   &.disabled
-    .switch-wrapper
+    .toggle-wrapper
       opacity: .3
 
   &.theme-none
-    .switch
+    .toggle
       background: $color-alto
 
     .label
       color: $color-alto
 
     &.checked
-      .switch
+      .toggle
         background: $color-shuttle-gray
 
       .label
         color: $color-shuttle-gray
 
   &.theme-default
-    .switch
+    .toggle
       background: $color-catskill-white
 
     .label
       color: $color-catskill-white
 
     &.checked
-      .switch
+      .toggle
         background: $color-eastern-blue
 
       .label

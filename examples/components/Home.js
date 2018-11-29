@@ -13,7 +13,7 @@ const Home = () => (
       <li><Link to="/check-box">CheckBox</Link></li>
       <li><Link to="/select-field">SelectField</Link></li>
       <li><Link to="/slider">Slider</Link></li>
-      <li><Link to="/switch">Switch</Link></li>
+      <li><Link to="/toggle">Toggle</Link></li>
       <li><Link to="/date-field">DateField</Link></li>
       <li><Link to="/button">Button</Link></li>
       <li><Link to="/tags-field">TagsField</Link></li>

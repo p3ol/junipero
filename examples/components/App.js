@@ -14,7 +14,7 @@ import CodeFieldPage from '../containers/CodeFieldPage';
 import CheckBoxPage from '../containers/CheckBoxPage';
 import SelectFieldPage from '../containers/SelectFieldPage';
 import SliderPage from '../containers/SliderPage';
-import SwitchPage from '../containers/SwitchPage';
+import TogglePage from '../containers/TogglePage';
 import DateFieldPage from '../containers/DateFieldPage';
 import ButtonPage from '../containers/ButtonPage';
 import TagsFieldPage from '../containers/TagsFieldPage';
@@ -57,7 +57,7 @@ class App extends React.Component {
               <Route exact path="/check-box" component={CheckBoxPage} />
               <Route exact path="/select-field" component={SelectFieldPage} />
               <Route exact path="/slider" component={SliderPage} />
-              <Route exact path="/switch" component={SwitchPage} />
+              <Route exact path="/toggle" component={TogglePage} />
               <Route exact path="/date-field" component={DateFieldPage} />
               <Route exact path="/button" component={ButtonPage} />
               <Route exact path="/tags-field" component={TagsFieldPage} />
