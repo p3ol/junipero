@@ -23,6 +23,7 @@ const Home = () => (
       <li><Link to="/modal">Modal</Link></li>
       <li><Link to="/color-picker">ColorPicker</Link></li>
       <li><Link to="/switch">Switch</Link></li>
+      <li><Link to="/dropdown">Dropdown</Link></li>
     </ul>
   </div>
 );

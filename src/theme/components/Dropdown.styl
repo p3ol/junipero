@@ -1,0 +1,51 @@
+@import "../utils/vars"
+@import "../utils/colors"
+
+.junipero.junipero-dropdown
+
+  .junipero-dropdown-menu
+    display: none
+    background: $color-white
+    border-radius: 2px
+    min-width: $default-width
+    list-style: none
+    padding: 10px 0
+    margin-top: 10px
+    max-height: 200px
+    overflow: auto
+
+    li.junipero-dropdown-item
+      cursor: pointer
+
+      a
+        text-decoration: none
+        padding: 5px 20px
+        display: block
+
+  &.opened
+    .junipero-dropdown-menu
+      display: block
+
+  &.theme-none
+    .junipero-dropdown-menu
+      box-shadow: 0 2px 8px 0 rgba($color-shuttle-gray, 0.2)
+
+      li.junipero-dropdown-item
+
+        &:hover
+          background: $color-alabaster
+
+        a
+          color: $color-shuttle-gray
+
+  &.theme-default
+    .junipero-dropdown-menu
+      box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
+
+      li.junipero-dropdown-item
+
+        &:hover
+          background: $color-black-squeeze
+
+        a
+          color: $color-eastern-blue

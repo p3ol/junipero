@@ -17,6 +17,10 @@ import Tab from './components/Tab';
 import Modal from './components/Modal';
 import ColorPicker from './components/ColorPicker';
 import Switch from './components/Switch';
+import Dropdown from './components/Dropdown';
+import DropdownToggle from './components/DropdownToggle';
+import DropdownMenu from './components/DropdownMenu';
+import DropdownItem from './components/DropdownItem';
 
 import styles from './theme/index.styl';
 injectStyles(styles, { id: 'junipero-main-styles' });
@@ -39,4 +43,8 @@ export {
   Modal,
   ColorPicker,
   Switch,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 };

@@ -24,6 +24,7 @@ import TabsPage from '../containers/TabsPage';
 import ModalPage from '../containers/ModalPage';
 import ColorPickerPage from '../containers/ColorPickerPage';
 import SwitchPage from '../containers/SwitchPage';
+import DropdownPage from '../containers/DropdownPage';
 
 import Toolbox from '../containers/Toolbox';
 
@@ -68,6 +69,7 @@ class App extends React.Component {
               <Route exact path="/modal" component={ModalPage} />
               <Route exact path="/color-picker" component={ColorPickerPage} />
               <Route exact path="/switch" component={SwitchPage} />
+              <Route exact path="/dropdown" component={DropdownPage} />
             </Switch>
           </Router>
 
