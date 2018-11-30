@@ -14,11 +14,11 @@
   &:hover, &:visited, &:focus
     background: $color-white - 10
 
-  &:active
+  &:active, &.active
     background: $color-white - 20
 
   &.disabled
-    &, &:hover, &:active, &:focus, &:visited
+    &, &:hover, &:active, &.active, &:focus, &:visited
       background: $color-mercury
       color: $color-silver
 
@@ -29,17 +29,18 @@
       border-color: $color-shuttle-gray
       color: $color-white
 
-      &:hover, &:visited, &:focus
+      &:hover, &:visited, &:focus, &.active
         background: $color-shuttle-gray - 20
         border-color: $color-shuttle-gray - 20
         color: $color-white
 
       &:active
-        background: $color-shuttle-gray - 30
-        border-color: $color-shuttle-gray - 30
+        background: $color-shuttle-gray
+        border-color: $color-shuttle-gray
+        color: $color-white
 
       &.disabled
-        &, &:hover, &:active, &:focus, &:visited
+        &, &:hover, &:active, &.active, &:focus, &:visited
           background: $color-shuttle-gray + 50
           border-color: $color-shuttle-gray + 50
           color: $color-white
@@ -48,16 +49,18 @@
         background: transparent
         color: $color-shuttle-gray
 
-        &:hover, &:visited, &:focus
+        &:hover, &:visited, &:focus, &.active
           background: $color-shuttle-gray
+          border-color: $color-shuttle-gray
           color: $color-white
 
         &:active
           background: $color-shuttle-gray - 20
           border-color: $color-shuttle-gray - 20
+          color: $color-white
 
         &.disabled
-          &, &:hover, &:active, &:focus, &:visited
+          &, &:hover, &:active, &.active, &:focus, &:visited
             border-color: $color-shuttle-gray + 50
             color: $color-shuttle-gray + 50
             background: transparent
@@ -72,12 +75,18 @@
         border-color: $color-atoll
         color: $color-white
 
+      &.active
+        background: $color-eastern-blue
+        border-color: $color-eastern-blue
+        color: $color-white
+
       &:active
         background: $color-atoll - 10
         border-color: $color-atoll - 10
+        color: $color-white
 
       &.disabled
-        &, &:hover, &:active, &:focus, &:visited
+        &, &:hover, &:active, &.active, &:focus, &:visited
           background: $color-powder-blue
           border-color: $color-powder-blue
           color: $color-white
@@ -88,14 +97,21 @@
 
         &:hover, &:visited, &:focus
           background: $color-atoll
+          border-color: $color-atoll
+          color: $color-white
+
+        &.active
+          background: $color-eastern-blue
+          border-color: $color-eastern-blue
           color: $color-white
 
         &:active
           background: $color-atoll - 10
           border-color: $color-atoll - 10
+          color: $color-white
 
         &.disabled
-          &, &:hover, &:active, &:focus, &:visited
+          &, &:hover, &:active, &.active, &:focus, &:visited
             border-color: $color-powder-blue
             color: $color-powder-blue
             background: transparent
@@ -105,7 +121,7 @@
     border-color: $color-monza
     color: $color-white
 
-    &:hover, &:visited, &:focus
+    &:hover, &:visited, &:focus, &.active
       background: $color-monza - 10
       border-color: $color-monza - 10
       color: $color-white
@@ -113,9 +129,10 @@
     &:active
       background: $color-monza - 20
       border-color: $color-monza - 20
+      color: $color-white
 
     &.disabled
-      &, &:hover, &:active, &:focus, &:visited
+      &, &:hover, &:active, &.active, &:focus, &:visited
         background: $color-mandys-pink
         border-color: $color-mandys-pink
         color: $color-white
@@ -124,7 +141,7 @@
       background: transparent
       color: $color-monza
 
-      &:hover, &:visited, &:focus
+      &:hover, &:visited, &:focus, &.active
         background: $color-monza - 10
         border-color: $color-monza - 10
         color: $color-white
@@ -132,9 +149,10 @@
       &:active
         background: $color-monza - 20
         border-color: $color-monza - 20
+        color: $color-white
 
       &.disabled
-        &, &:hover, &:active, &:focus, &:visited
+        &, &:hover, &:active, &.active, &:focus, &:visited
           border-color: $color-mandys-pink
           color: $color-mandys-pink
           background: transparent

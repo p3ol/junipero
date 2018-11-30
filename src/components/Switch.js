@@ -41,7 +41,17 @@ class Switch extends React.Component {
       { id: 'junipero-switch-styles', after: '#junipero-main-styles' });
   }
 
-  onOptionClick(option, index) {
+  componentDidMount() {
+    this.onChange(this.props.value, false);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.value !== prevProps.value) {
+      this.onChange(this.props.value);
+    }
+  }
+
+  onChange(option, propagateChange = true) {
     const { validate, onChange, parseValue } = this.props;
     const value = parseValue(option);
     const valid = validate(value);
@@ -50,21 +60,28 @@ class Switch extends React.Component {
       value,
       valid,
     }, () => {
-      onChange({
-        value,
-        valid,
-      });
+      if (propagateChange) {
+        onChange({
+          value,
+          valid,
+        });
+      }
     });
   }
 
   isActive(option) {
-    const { parseValue } = this.props;
-
-    return this.state.value === option;
+    return this.state.value === this.props.parseValue(option);
   }
 
   render() {
-    const { disabled, theme, options, parseTitle, ...rest } = this.props;
+    const {
+      disabled,
+      theme,
+      options,
+      parseTitle,
+      className,
+      ...rest
+    } = this.props;
 
     return (
       <div
@@ -73,18 +90,22 @@ class Switch extends React.Component {
           'switch',
           'theme-' + theme,
           disabled ? 'disabled' : null,
+          className,
         ].join(' ')}
       >
         { options.map((option, index) => (
           <Button
             { ...omit(rest, [
-              'validate', 'parseValue',
+              'validate', 'parseValue', 'onChange',
             ]) }
+            className={[
+              this.isActive(option) ? 'active' : null,
+            ].join(' ')}
             key={index}
             theme={theme}
             disabled={disabled}
-            reversed={!this.isActive(option)}
-            onClick={this.onOptionClick.bind(this, option, index)}
+            reversed={true}
+            onClick={this.onChange.bind(this, option)}
           >
             { parseTitle(option) }
           </Button>

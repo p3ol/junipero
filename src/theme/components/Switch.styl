@@ -1,12 +1,19 @@
+@import "../utils/colors"
+
 .junipero.switch
 
   .junipero.button
     border-radius: 0
+    position: relative
+    margin-left: -1px
+    z-index: 0
+
+    &:hover
+      z-index: 1
 
     &:first-child
       border-radius: 2px 0 0 2px
-      border-right: 0
+      margin-left: 0
 
     &:last-child
       border-radius: 0 2px 2px 0
-      border-left: 0

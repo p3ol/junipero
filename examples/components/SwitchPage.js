@@ -10,8 +10,21 @@ class SwitchPage extends React.Component {
     this.state = {
       default: {},
       unthemed: {},
-      objects: {},
+      objectOptions: {},
+      withValue: {},
     };
+
+    this.options = [
+      'Left',
+      'Middle',
+      'Right',
+    ];
+
+    this.objectOptions = [
+      { title: 'Left', value: 0 },
+      { title: 'Middle', value: 1 },
+      { title: 'Right', value: false },
+    ];
   }
 
   onChange(name, field) {
@@ -30,7 +43,7 @@ class SwitchPage extends React.Component {
             <Switch
               required={true}
               disabled={this.props.disabled}
-              options={['Left', 'Middle', 'Right']}
+              options={this.options}
               onChange={this.onChange.bind(this, 'default')}
             />
           </div>
@@ -47,7 +60,7 @@ class SwitchPage extends React.Component {
               theme="none"
               required={true}
               disabled={this.props.disabled}
-              options={['Left', 'Middle', 'Right']}
+              options={this.options}
               onChange={this.onChange.bind(this, 'unthemed')}
             />
           </div>
@@ -62,19 +75,31 @@ class SwitchPage extends React.Component {
           <div className="col-6">
             <Switch
               required={true}
-              disabled={this.props.disabled}
-              options={[
-                { title: 'Left', value: 0 },
-                { title: 'Middle', value: 1 },
-                { title: 'Right', value: false },
-              ]}
+              options={this.objectOptions}
               parseTitle={(option) => option.title}
-              onChange={this.onChange.bind(this, 'objects')}
+              onChange={this.onChange.bind(this, 'objectOptions')}
             />
           </div>
           <div className="col-6">
             <p>Current state :</p>
-            <pre>{ JSON.stringify(this.state.objects, null, 2)}</pre>
+            <pre>{ JSON.stringify(this.state.objectOptions, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">With value set</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Switch
+              required={true}
+              options={this.objectOptions}
+              parseTitle={(option) => option.title}
+              value={this.objectOptions[2]}
+              onChange={this.onChange.bind(this, 'withValue')}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.withValue, null, 2)}</pre>
           </div>
         </div>
       </div>
