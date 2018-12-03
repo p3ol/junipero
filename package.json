@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero",
-  "version": "0.0.1-alpha.10",
+  "version": "0.0.1-alpha.11",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero.cjs.js",
   "jsnext:main": "dist/junipero.es.js",
@@ -14,7 +14,9 @@
   "sideEffects": false,
   "peerDependencies": {
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-popper": "^1.3.0",
+    "react-intl-tel-input": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
