@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/Tabs.styl';
 
 import Tab from './Tab';
@@ -13,6 +13,7 @@ class Tabs extends React.Component {
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
     theme: PropTypes.string,
+    className: PropTypes.string,
   }
 
   static defaultProps = {
@@ -42,11 +43,9 @@ class Tabs extends React.Component {
   }
 
   getTabs() {
-    const children = Array.isArray(this.props.children) ?
-      this.props.children :
-      [this.props.children];
-
-    return children.filter((item) => item.type === Tab);
+    return React.Children
+      .toArray(this.props.children)
+      .filter((child) => child.type === Tab);
   }
 
   onTabClick(item, index, e) {
@@ -67,16 +66,20 @@ class Tabs extends React.Component {
 
   render() {
     const tabs = this.getTabs();
-    const { theme, disabled } = this.props;
+    const { theme, disabled, className, ...rest } = this.props;
     const { activeTab } = this.state;
 
     return (
       <div
+        { ...omit(rest, [
+          'activeTab', 'onChange',
+        ]) }
         className={[
           'junipero',
           'tabs',
           'theme-' + theme,
           disabled ? 'disabled' : null,
+          className,
         ].join(' ')}
       >
         <ul className="tabs-titles">
