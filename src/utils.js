@@ -32,7 +32,7 @@ export const COLOR_PARSERS = [{
   }),
 }];
 
-export const injectStyles = (styles, options) => {
+export const injectStyles = (styles, options = {}) => {
   if (!styles || typeof document === 'undefined') {
     return;
   }
