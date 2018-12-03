@@ -21,7 +21,8 @@
             opacity: 1
             transform: translate3d(0, 0, 0)
 
-          & > .field
+          & > .field,
+          .junipero-dropdown > .field
             padding-top: 21px
             padding-bottom: 5px
 
@@ -77,7 +78,8 @@
         & > label
           padding-left: 10px
 
-        & > .field
+        & > .field,
+        .junipero-dropdown > .field
           padding: 13px 10px
           border-radius: 4px 4px 0 0
 
@@ -86,7 +88,8 @@
         & > label
           color: $color-shuttle-gray
 
-        & > .field
+        & > .field,
+        .junipero-dropdown > .field
           border-bottom-color: $color-shuttle-gray
           color: $color-shuttle-gray
 
@@ -95,7 +98,8 @@
 
       &.boxed
         & > .field-wrapper
-          & > .field
+          & > .field,
+          .junipero-dropdown > .field
             background: $color-alabaster
 
     &.theme-default
@@ -105,11 +109,13 @@
           & > label
             color: $color-eastern-blue
 
-          & > .field
+          & > .field,
+          .junipero-dropdown > .field
             color: $color-shuttle-gray
             border-bottom-color: $color-eastern-blue
 
       &.boxed
         & > .field-wrapper
-          & > .field
+          & > .field,
+          .junipero-dropdown > .field
             background: $color-catskill-white

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const DropdownItem = ({ className, children, ...rest }) => (
-  <li
+const DropdownItem = ({ className, children, tag: Tag = 'li', ...rest }) => (
+  <Tag
     { ...rest }
     className={[
       'junipero',
@@ -10,7 +10,7 @@ const DropdownItem = ({ className, children, ...rest }) => (
     ].join(' ')}
   >
     { children }
-  </li>
+  </Tag>
 );
 
 export default DropdownItem;

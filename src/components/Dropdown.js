@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Manager } from 'react-popper';
 
 import { omit, injectStyles } from '../utils';
+import DropdownMenu from './DropdownMenu';
 import styles from '../theme/components/Dropdown.styl';
 
 class Dropdown extends React.Component {
@@ -34,6 +34,10 @@ class Dropdown extends React.Component {
     onToggle: PropTypes.func.isRequired,
   }
 
+  dropdownRef = null;
+
+  menuRef = null;
+
   constructor(props) {
     super(props);
 
@@ -62,9 +66,19 @@ class Dropdown extends React.Component {
   }
 
   onClickOutside(e) {
-    const container = ReactDOM.findDOMNode(this);
+    const container = this.dropdownRef;
+    const menu = this.menuRef?.innerRef;
 
-    if (!container.contains(e.target) && container !== e.target) {
+    if (!container || !menu) {
+      return;
+    }
+
+    if (
+      !container.contains(e.target) &&
+      container !== e.target &&
+      !menu.contains(e.target) &&
+      menu !== e.target
+    ) {
       this.close(e);
     }
   }
@@ -93,6 +107,7 @@ class Dropdown extends React.Component {
       isOpen,
       theme,
       disabled,
+      children,
       tag: Tag,
       ...rest
     } = omit(this.props);
@@ -103,6 +118,7 @@ class Dropdown extends React.Component {
           { ...omit(rest, [
             'onToggle', 'placement',
           ])}
+          ref={(ref) => this.dropdownRef = ref}
           className={[
             'junipero',
             'junipero-dropdown',
@@ -111,7 +127,13 @@ class Dropdown extends React.Component {
             disabled ? 'disabled' : null,
             className,
           ].join(' ')}
-        />
+        >
+          { React.Children.map(children, (child, index) => (
+            child.type === DropdownMenu
+              ? React.cloneElement(child, { ref: (ref) => this.menuRef = ref})
+              : child
+          )) }
+        </Tag>
       </Manager>
     );
   }

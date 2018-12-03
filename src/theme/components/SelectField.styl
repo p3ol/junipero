@@ -17,7 +17,8 @@
           opacity: 1
           transform: translate3d(0, 0, 0)
 
-        & > .field
+        & > .field,
+        .junipero-dropdown > .field
           padding-top: 21px
           padding-bottom: 5px
 
@@ -28,7 +29,8 @@
   & > .field-wrapper
     position: relative
 
-    & > .field
+    & > .field,
+    .junipero-dropdown > .field
       padding-right: 30px
 
     &:after
@@ -42,17 +44,9 @@
       right: 10px
       top: 21px
 
-  ul.select-menu
-    position: absolute
-    z-index: 1000
-    display: none
-    background: $color-white
-    border-radius: 2px
-    min-width: $default-width
-    list-style: none
-    padding: 10px 0
+  ul.junipero-dropdown-menu
 
-    li.select-auto-complete
+    li.auto-complete
       padding: 0 20px 20px
 
       .junipero.junipero-field.text-field
@@ -60,70 +54,7 @@
           .field-inner
             flex: auto
 
-    li.select-menu-item
-      cursor: pointer
-
-      a
-        text-decoration: none
-        padding: 5px 20px
-        display: block
-
-    &[class*="placement-bottom"]
-      top: calc(100% + 10px)
-
-      &[class*="-left"]
-        left: 0
-
-      &[class*="-right"]
-        right: 0
-
-    &[class*="placement-top"]
-      bottom: calc(100% + 10px)
-
-    &[class*="placement-bottom"],
-    &[class*="placement-top"]
-      &[class*="-left"]
-        left: 0
-
-      &[class*="-right"]
-        right: 0
-
-    &.placement-left
-      right: calc(100% + 10px)
-
-    &.placement-right
-      left: calc(100% + 10px)
-
     &.auto-completing
-      li.select-menu-item
+      li.junipero-dropdown-item
         pointer-events: none
         opacity: .5
-
-  &.opened
-
-    ul.select-menu
-      display: block
-
-  &.theme-none
-    ul.select-menu
-      box-shadow: 0 2px 8px 0 rgba($color-shuttle-gray, 0.2)
-
-      li.select-menu-item
-
-        &:hover
-          background: $color-alabaster
-
-        a
-          color: $color-shuttle-gray
-
-  &.theme-default
-    ul.select-menu
-      box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
-
-      li.select-menu-item
-
-        &:hover
-          background: $color-black-squeeze
-
-        a
-          color: $color-eastern-blue
