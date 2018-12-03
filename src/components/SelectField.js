@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Dropdown from './Dropdown';
+import DropdownMenu from './DropdownMenu';
+import DropdownToggle from './DropdownToggle';
+import DropdownItem from './DropdownItem';
 import TextField from './TextField';
 import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/SelectField.styl';
@@ -64,7 +68,6 @@ class SelectField extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.onClickOutside.bind(this), true);
     this.onPropValueChange();
   }
 
@@ -82,14 +85,10 @@ class SelectField extends React.Component {
     }
   }
 
-  onToggle(e) {
-    e.preventDefault();
-
+  onToggle(opened) {
     if (this.props.disabled) {
       return;
     }
-
-    const opened = !this.state.opened;
 
     this.setState({
       opened,
@@ -97,17 +96,6 @@ class SelectField extends React.Component {
       this.resetAutoComplete();
       this.autoCompleteInput?.focus();
     });
-  }
-
-  onClickOutside(e) {
-    if (this.toggle && this.toggle === e.target) {
-      return;
-    }
-
-    if (this.container && !this.container.contains(e.target)) {
-      this.setState({ opened: false });
-      this.resetAutoComplete();
-    }
   }
 
   onPropValueChange() {
@@ -200,14 +188,14 @@ class SelectField extends React.Component {
             autoCompleteValue: input.value,
             autoCompleteOptions: null,
             autoCompleting: false,
-          });
+          }, () => this.menuRef?.updatePopper());
         } else {
           this.props.autoComplete(input.value, (items) => {
             this.setState({
               autoCompleteValue: input.value,
               autoCompleteOptions: items || [],
               autoCompleting: false,
-            });
+            }, () => this.menuRef?.updatePopper());
           });
         }
       }, this.props.autoCompleteThreshold);
@@ -316,51 +304,50 @@ class SelectField extends React.Component {
               ))}
             </select>
           ) : (
-            <a
-              href="#"
-              className="field"
-              ref={(ref) => this.toggle = ref}
-              onClick={this.onToggle.bind(this)}
+            <Dropdown
+              isOpen={opened}
+              theme={theme}
+              onToggle={this.onToggle.bind(this)}
             >
-              { this.getTitle() }
-            </a>
-          )}
+              <DropdownToggle
+                tag="a"
+                className="field"
+              >
+                { this.getTitle() }
+              </DropdownToggle>
+              <DropdownMenu
+                innerRef={(ref) => this.menuRef = ref}
+                className={[
+                  autoCompleting ? 'auto-completing' : null,
+                ].join(' ')}
+              >
+                { autoComplete && (
+                  <li className="auto-complete">
+                    <TextField
+                      theme={theme}
+                      ref={(ref) => this.autoCompleteInput = ref}
+                      label={false}
+                      placeholder={autoCompletePlaceholder}
+                      value={autoCompleteValue}
+                      onChange={this.onAutoCompleteChange.bind(this)}
+                    />
+                  </li>
+                )}
 
-          { (!native || autoComplete) && (
-            <ul
-              className={[
-                'select-menu',
-                `placement-${placement || 'bottom'}`,
-                autoCompleting ? 'auto-completing' : null,
-              ].join(' ')}
-            >
-              { autoComplete && (
-                <li className="select-auto-complete">
-                  <TextField
-                    theme={theme}
-                    ref={(ref) => this.autoCompleteInput = ref}
-                    label={false}
-                    placeholder={autoCompletePlaceholder}
-                    value={autoCompleteValue}
-                    onChange={this.onAutoCompleteChange.bind(this)}
-                  />
-                </li>
-              )}
-
-              { listOptions.map((item, index) => (
-                <li
-                  className="select-menu-item"
-                  key={index}
-                >
-                  <a
-                    href="#"
-                    onClick={this.onChange.bind(this, item)}
+                { listOptions.map((item, index) => (
+                  <DropdownItem
+                    key={index}
                   >
-                    { parseTitle(item)?.toString() }
-                  </a>
-                </li>
-              ))}
-            </ul>
+                    <a
+                      href="#"
+                      onClick={this.onChange.bind(this, item)}
+                    >
+                      { parseTitle(item)?.toString() }
+                    </a>
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
           )}
 
         </div>
@@ -370,10 +357,6 @@ class SelectField extends React.Component {
         ) }
       </div>
     );
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.onClickOutside.bind(this), true);
   }
 
 }

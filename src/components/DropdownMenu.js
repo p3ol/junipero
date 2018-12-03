@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Popper } from 'react-popper';
 
-import { getContainerNode } from '../utils';
+import { getContainerNode, omit } from '../utils';
 
 class DropdownMenu extends React.Component {
 
@@ -13,11 +13,13 @@ class DropdownMenu extends React.Component {
     children: PropTypes.node.isRequired,
     apparition: PropTypes.oneOf(['insert', 'css']),
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    innerRef: PropTypes.func,
   }
 
   static defaultProps = {
     tag: 'ul',
     apparition: 'insert',
+    ref: () => {},
   }
 
   static contextTypes = {
@@ -27,6 +29,14 @@ class DropdownMenu extends React.Component {
   };
 
   innerRef = null;
+
+  componentDidMount() {
+    this.props.innerRef(this);
+  }
+
+  updatePopper() {
+    this.scheduleUpdate?.();
+  }
 
   render() {
     const {
@@ -54,21 +64,27 @@ class DropdownMenu extends React.Component {
         modifiers={modifiers}
         innerRef={(ref) => this.innerRef = ref}
       >
-        { ({ ref, style, placement_ }) => (
-          <Tag
-            { ...rest }
-            ref={ref}
-            style={style}
-            className={[
-              'junipero',
-              'junipero-dropdown-menu',
-              'theme-' + theme,
-              isOpen ? 'opened' : null,
-              className,
-            ].join(' ')}
-            data-placement={placement_}
-          />
-        )}
+        { ({ ref, style, placement_, scheduleUpdate }) => {
+          this.scheduleUpdate = scheduleUpdate;
+
+          return (
+            <Tag
+              { ...omit(rest, [
+                'innerRef',
+              ]) }
+              ref={ref}
+              style={style}
+              className={[
+                'junipero',
+                'junipero-dropdown-menu',
+                'theme-' + theme,
+                isOpen ? 'opened' : null,
+                className,
+              ].join(' ')}
+              data-placement={placement_}
+            />
+          );
+        }}
       </Popper>
     );
 
