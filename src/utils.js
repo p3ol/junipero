@@ -241,3 +241,9 @@ export const stringifyColor = (color, format = 'auto') => {
       return rgba2hex(denormalizeRGBA(hsva2rgba(color)));
   }
 };
+
+export const getContainerNode = (container) => (
+  typeof container === 'string'
+    ? document.querySelector(container) || document.createElement('div')
+    : container
+);

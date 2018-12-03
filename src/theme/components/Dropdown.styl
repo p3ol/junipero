@@ -1,9 +1,9 @@
 @import "../utils/vars"
 @import "../utils/colors"
 
-.junipero.junipero-dropdown
+.junipero
 
-  .junipero-dropdown-menu
+  &.junipero-dropdown-menu
     display: none
     background: $color-white
     border-radius: 2px
@@ -23,11 +23,11 @@
         display: block
 
   &.opened
-    .junipero-dropdown-menu
+    &.junipero-dropdown-menu
       display: block
 
   &.theme-none
-    .junipero-dropdown-menu
+    &.junipero-dropdown-menu
       box-shadow: 0 2px 8px 0 rgba($color-shuttle-gray, 0.2)
 
       li.junipero-dropdown-item
@@ -39,7 +39,7 @@
           color: $color-shuttle-gray
 
   &.theme-default
-    .junipero-dropdown-menu
+    &.junipero-dropdown-menu
       box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
 
       li.junipero-dropdown-item

@@ -17,6 +17,7 @@ class DropdownPage extends React.Component {
       unthemed: false,
       cssOnly: false,
       customTag: false,
+      bodyContainer: false,
     };
   }
 
@@ -114,6 +115,27 @@ class DropdownPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.customTag, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Container: body</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Dropdown
+              isOpen={this.state.bodyContainer}
+              disabled={this.props.disabled}
+              onToggle={this.onChange.bind(this, 'bodyContainer')}
+            >
+              <DropdownToggle>Click me</DropdownToggle>
+              <DropdownMenu container="body">
+                <DropdownItem><a>Test 1</a></DropdownItem>
+                <DropdownItem><a>Test 2</a></DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.bodyContainer, null, 2)}</pre>
           </div>
         </div>
       </div>
