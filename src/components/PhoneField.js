@@ -27,6 +27,7 @@ class PhoneField extends React.Component {
     validate: PropTypes.func,
     theme: PropTypes.string,
     defaultCountry: PropTypes.string,
+    forceDefaultCountry: PropTypes.bool,
     preferredCountries: PropTypes.array,
     onlyCountries: PropTypes.array,
     excludeCountries: PropTypes.array,
@@ -49,6 +50,7 @@ class PhoneField extends React.Component {
     validate: null,
     theme: 'default',
     defaultCountry: 'fr',
+    forceDefaultCountry: false,
     preferredCountries: ['FR', 'GB', 'BE', 'US', 'ES', 'DE'],
     onlyCountries: [],
     excludeCountries: [],
@@ -146,6 +148,8 @@ class PhoneField extends React.Component {
       placeholder,
       label,
       theme,
+      onlyCountries,
+      forceDefaultCountry,
     } = this.props;
 
     return (
@@ -156,6 +160,7 @@ class PhoneField extends React.Component {
           'phone-field',
           'theme-' + theme,
           label !== false && (label || placeholder) ? 'with-label' : null,
+          forceDefaultCountry || onlyCountries.length === 1 ? 'forced' : null,
           focused ? 'focused' : null,
           dirty ? 'dirty' : null,
           !valid ? 'invalid' : null,

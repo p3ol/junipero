@@ -70,7 +70,7 @@ class PhoneFieldPage extends React.Component {
               error={this.props.error}
               placeholder="Label"
               defaultCountry="fr"
-              onlyCountries={['FR']}
+              forceDefaultCountry={true}
               preferredCountries={[]}
               disabled={this.props.disabled}
               onChange={this.onChange.bind(this, 'forcedCountry')}
