@@ -42,7 +42,6 @@ class SelectField extends React.Component {
     parseValue: (val) => val,
     parseTitle: (val) => val,
     options: [],
-    placement: 'bottom',
     onChange: () => {},
     validate: value => typeof value !== undefined && value !== null,
     autoComplete: null,
@@ -305,6 +304,9 @@ class SelectField extends React.Component {
             </select>
           ) : (
             <Dropdown
+              { ...omit(rest, [
+                'validate', 'parseValue', 'autoCompleteThreshold',
+              ]) }
               isOpen={opened}
               theme={theme}
               onToggle={this.onToggle.bind(this)}
