@@ -32,7 +32,6 @@ module.exports = merge(common, {
     'react-dom': 'ReactDOM',
     'prop-types': 'PropTypes',
     'react-popper': 'ReactPopper',
-    'react-intl-tel-input': 'IntlTelInput',
   },
   parallelism: 4,
   devtool: 'source-map',

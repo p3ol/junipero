@@ -9,7 +9,6 @@ import rootReducer from '../reducers';
 
 import Home from './Home';
 import TextFieldPage from '../containers/TextFieldPage';
-import PhoneFieldPage from '../containers/PhoneFieldPage';
 import CodeFieldPage from '../containers/CodeFieldPage';
 import CheckBoxPage from '../containers/CheckBoxPage';
 import SelectFieldPage from '../containers/SelectFieldPage';
@@ -54,7 +53,6 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/text-field" component={TextFieldPage} />
-              <Route exact path="/phone-field" component={PhoneFieldPage} />
               <Route exact path="/code-field" component={CodeFieldPage} />
               <Route exact path="/check-box" component={CheckBoxPage} />
               <Route exact path="/select-field" component={SelectFieldPage} />
