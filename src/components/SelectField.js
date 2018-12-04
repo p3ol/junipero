@@ -262,7 +262,7 @@ class SelectField extends React.Component {
         className={[
           'junipero',
           'junipero-field',
-          'select-field',
+          'junipero-select-field',
           'theme-' + theme,
           disabled ? 'disabled' : null,
           opened ? 'opened' : null,

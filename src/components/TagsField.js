@@ -239,7 +239,7 @@ class TagsField extends React.Component {
         className={[
           'junipero',
           'junipero-field',
-          'tags-field',
+          'junipero-tags-field',
           'theme-' + theme,
           label ? 'with-label' : null,
           focused ? 'focused' : null,

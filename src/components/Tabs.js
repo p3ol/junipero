@@ -76,7 +76,7 @@ class Tabs extends React.Component {
         ]) }
         className={[
           'junipero',
-          'tabs',
+          'junipero-tabs',
           'theme-' + theme,
           disabled ? 'disabled' : null,
           className,

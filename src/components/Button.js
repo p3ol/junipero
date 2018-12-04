@@ -68,7 +68,7 @@ class Button extends React.Component {
         { ...rest }
         className={[
           'junipero',
-          'button',
+          'junipero-button',
           'theme-' + theme,
           type,
           reversed ? 'reversed' : null,

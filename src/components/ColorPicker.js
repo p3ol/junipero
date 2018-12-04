@@ -246,7 +246,7 @@ class ColorPicker extends React.Component {
       <div
         className={[
           'junipero',
-          'color-picker',
+          'junipero-color-picker',
           'theme-' + theme,
           opened ? 'opened' : null,
         ].join(' ')}

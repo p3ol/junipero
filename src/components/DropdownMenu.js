@@ -31,7 +31,7 @@ class DropdownMenu extends React.Component {
   innerRef = null;
 
   componentDidMount() {
-    this.props.innerRef(this);
+    this.props.innerRef?.(this);
   }
 
   updatePopper() {

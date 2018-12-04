@@ -62,7 +62,7 @@ class Toggle extends React.Component {
       <div
         className={[
           'junipero',
-          'toggle',
+          'junipero-toggle',
           'theme-' + this.props.theme,
           this.state.active ? 'active' : null,
           this.state.checked ? 'checked' : null,

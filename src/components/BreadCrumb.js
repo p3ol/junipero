@@ -25,7 +25,7 @@ class BreadCrumb extends React.Component {
     const { items } = this.props;
 
     return (
-      <div className="junipero bread-crumb">
+      <div className="junipero junipero-bread-crumb">
         {items.map((item, index) =>
           <span key={index}>{item}</span>
         )}

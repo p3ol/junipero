@@ -87,7 +87,7 @@ class Switch extends React.Component {
       <div
         className={[
           'junipero',
-          'switch',
+          'junipero-switch',
           'theme-' + theme,
           disabled ? 'disabled' : null,
           className,

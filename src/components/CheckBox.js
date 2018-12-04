@@ -26,16 +26,16 @@ class CheckBox extends React.Component {
     theme: 'default',
   }
 
+  state = {
+    checked: this.props.checked,
+    active: false,
+  };
+
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-check-box-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      checked: this.props.checked,
-      active: false,
-    };
   }
 
   onChange(e) {
@@ -76,7 +76,7 @@ class CheckBox extends React.Component {
       <div
         className={[
           'junipero',
-          'check-box',
+          'junipero-check-box',
           'theme-' + this.props.theme,
           this.state.active ? 'active' : null,
           this.state.checked ? 'checked' : null,

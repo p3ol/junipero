@@ -91,7 +91,7 @@ class Modal extends React.Component {
         <div
           className={[
             'junipero',
-            'modal',
+            'junipero-modal',
             'theme-' + theme,
           ].join(' ')}
         >

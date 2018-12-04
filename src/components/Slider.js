@@ -142,7 +142,7 @@ class Slider extends React.Component {
       <div
         className={[
           'junipero',
-          'slider',
+          'junipero-slider',
           'theme-' + this.props.theme,
           this.props.disabled ? 'disabled' : null,
           this.props.className,

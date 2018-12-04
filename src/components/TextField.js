@@ -174,7 +174,7 @@ class TextField extends React.Component {
         className={[
           'junipero',
           'junipero-field',
-          'text-field',
+          'junipero-text-field',
           'theme-' + theme,
           label !== false && (label || placeholder) ? 'with-label' : null,
           focused ? 'focused' : null,

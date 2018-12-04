@@ -241,7 +241,7 @@ class DateField extends React.Component {
         className={[
           'junipero',
           'junipero-field',
-          'date-field',
+          'junipero-date-field',
           'theme-' + theme,
           disabled ? 'disabled' : null,
           opened ? 'opened' : null,
