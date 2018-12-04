@@ -231,7 +231,6 @@ class SelectField extends React.Component {
       required,
       valid,
       boxed,
-      placement,
       className,
       native,
       autoComplete,
@@ -284,7 +283,7 @@ class SelectField extends React.Component {
           { native && !autoComplete ? (
             <select
               { ...omit(rest, [
-                'validate', 'parseValue', 'autoCompleteThreshold',
+                'validate', 'parseValue', 'autoCompleteThreshold', 'placement',
               ]) }
               id={id}
               ref={(ref) => this.nativeField = ref}
