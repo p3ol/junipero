@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/CodeField.styl';
 
 class CodeField extends React.Component {
@@ -15,6 +15,7 @@ class CodeField extends React.Component {
     onChange: PropTypes.func,
     validate: PropTypes.func,
     theme: PropTypes.string,
+    boxed: PropTypes.bool,
     size: PropTypes.number,
   }
 
@@ -25,79 +26,86 @@ class CodeField extends React.Component {
     autofocus: false,
     required: false,
     onChange: () => {},
-    validate: null,
+    validate: val => true,
     theme: 'default',
+    boxed: false,
     size: 6,
   }
+
+  state = {
+    focused: false,
+    dirty: !!this.props.value,
+    values: Array.from({ length: this.props.size }, (item, index) => (
+      this.props.value?.[index] || ''
+    )),
+    valid: this.props.valid || true,
+  };
+
+  inputs = [];
 
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-code-field-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      focused: false,
-      dirty: !!this.props.value,
-      values: [],
-      valid: this.props.valid || true,
-    };
-
-    this.inputs = [];
   }
 
   componentDidMount() {
-    for (let i = 0; i < this.props.size; i++) {
-      this.state.values.push(this.props.value[i] || '');
-      this.inputs.push(null);
+    if (this.props.autofocus) {
+      this.focus();
     }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.value !== prevProps.value) {
+      this.state.values = this.state.values.map((item, index) => (
+        this.props.value?.[index] || ''
+      ));
+
+      this.setState({
+        values: this.state.values,
+      });
+    }
+  }
+
+  focus(index = 0) {
+    clearTimeout(this._focusTimeout);
+    this._focusTimeout = setTimeout(() => {
+      this.inputs[index]?.focus();
+    }, 1);
+  }
+
+  onItemChange(index, e) {
+    const { onChange } = this.props;
+    const { values } = this.state;
+
+    values[index] = typeof e === 'string' ? e : e.target?.value || '';
+
     this.setState({
-      inputs: this.state.inputs,
-      values: this.state.values,
+      values,
+      valid: this.isValid(values.join('')),
     }, () => {
-      this.autofocus();
-    });
-  }
-
-  autofocus() {
-    if (this.props.autofocus === true) {
-      this._focusTimeout = setTimeout(() => {
-        this.inputs[0]?.focus();
-      }, 1);
-    }
-  }
-
-  componentWillReceiveProps(next) {
-    for (let i = 0; i < next.size; i++) {
-      this.state.values.push(next.value[i] || '');
-    }
-    this.setState({ values: this.state.values });
-  }
-
-  onItemChange(key, e) {
-    this.state.values[key] = e.target ? e.target.value : e;
-    this.setState({
-      values: this.state.values,
-      valid: this.isValid(this.state.values.join('')),
-    }, () => {
-      this.props.onChange({
-        value: this.state.values.join(''),
+      onChange({
+        value: values.join(''),
         valid: this.state.valid,
       });
     });
-    if (this.state.values[key]) {
-      this.inputs[key + 1]?.focus();
+
+    if (values[index]) {
+      this.focus(index + 1);
     }
   }
 
   onKeyDown(key, e) {
-    if (this.props.disabled === true) {
+    e.persist();
+
+    if (this.props.disabled) {
       return;
     }
 
-    let current = this.inputs[key];
-    let prev = this.inputs[key - 1];
-    let next = this.inputs[key + 1];
+    const current = this.inputs[key];
+    const prev = this.inputs[key - 1];
+    const next = this.inputs[key + 1];
 
     if (e.keyCode === 8 || e.key === 'Backspace') {
       if (current.selectionStart !== current.selectionEnd ||
@@ -135,49 +143,50 @@ class CodeField extends React.Component {
   }
 
   isValid(value) {
-    return value.length === this.props.size &&
-      (this.props.validate ? this.props.validate(value) : true);
-
+    const { size, validate } = this.props;
+    return value.length === size && validate(value);
   }
 
-  isItemDirty(key) {
-    return this.state.values[key] && this.state.values[key] !== '';
+  isDirty(index) {
+    return this.state.values[index];
   }
 
   render() {
-    const { theme, className, disabled } = this.props;
+    const { theme, className, disabled, size, boxed, ...rest } = this.props;
     const { values, valid } = this.state;
 
     return (
       <div
+        { ...omit(rest, [
+          'autofocus', 'validate', 'onChange',
+        ]) }
         className={[
           'junipero',
           'junipero-field',
-          'code-field',
+          'junipero-code-field',
           'theme-' + theme,
-          (!valid ? 'invalid' : null),
+          boxed ? 'boxed' : null,
+          !valid ? 'invalid' : null,
           className,
         ].join(' ')}
       >
-        {this.inputs.map((value, key) => {
-          return (
-            <input
-              className={[
-                disabled ? 'disabled' : null,
-                (this.isItemDirty(key) ? 'dirty' : null),
-              ].join(' ')}
-              key={key}
-              type="tel"
-              value={values[key]}
-              size={1}
-              maxLength={1}
-              disabled={disabled}
-              ref={ (ref) => { this.inputs[key] = ref; } }
-              onChange={this.onItemChange.bind(this, key)}
-              onKeyDown={this.onKeyDown.bind(this, key)}
-            />
-          );
-        })}
+        { Array.from({ length: size }).map((item, index) => (
+          <input
+            className={[
+              disabled ? 'disabled' : null,
+              this.isDirty(index) ? 'dirty' : null,
+            ].join(' ')}
+            key={index}
+            type="tel"
+            value={values[index]}
+            size={1}
+            maxLength={1}
+            disabled={disabled}
+            ref={(ref) => this.inputs[index] = ref}
+            onChange={this.onItemChange.bind(this, index)}
+            onKeyDown={this.onKeyDown.bind(this, index)}
+          />
+        ))}
       </div>
     );
   }

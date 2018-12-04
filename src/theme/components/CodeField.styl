@@ -1,59 +1,47 @@
 @import "../utils/colors"
 
-.code-field
+.junipero.junipero-code-field
   padding: 20px 0
   display: inline-block
-
-  @media $xs
-    padding: 20px
-    white-space: nowrap
 
   input
     border: none
     outline: none
     padding: 9px 0
-    border-bottom: 2px solid rgba($color-shuttle-gray, .5)
+    border-bottom: 2px solid transparent
     background: transparent
-    color: $color-shuttle-gray
     font-size: 20px
     line-height: 27px
     margin-right: 10px
     text-align: center
     width: 45px
 
-    @media $xs
-      width: 30px
-      margin-right: 8px
-
-      &:last-child
-        margin-right: 0
-
     &:last-child
       margin-right: 0
-
-    &:nth-child(3)
-      margin-right: 30px
-
-      @media $xs
-        margin-right: 20px
-
-    &:focus, &.dirty
-      border-bottom-color: $color-shuttle-gray
 
     &.disabled
       opacity: .5
       pointer-events: none
 
+  &.theme-none
+    input
+      border-bottom-color: $color-shuttle-gray + 80
+      color: $color-shuttle-gray
+
+      &:focus, &.dirty
+        border-bottom-color: $color-shuttle-gray
+
   &.theme-default
 
     input
       color: $color-eastern-blue
+      border-bottom-color: $color-shuttle-gray + 80
 
       &:focus, &.dirty
-        color: $color-eastern-blue
         border-bottom-color: $color-eastern-blue
 
   &.error
+
     input
       color: $color-monza
       border-color: $color-monza
