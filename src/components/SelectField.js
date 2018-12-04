@@ -50,20 +50,20 @@ class SelectField extends React.Component {
     theme: 'default',
   }
 
+  state = {
+    value: null,
+    valid: true,
+    opened: this.props.opened || false,
+    autoCompleteValue: '',
+    autoCompleteOptions: null,
+    autoCompleting: false,
+  };
+
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-select-field-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      value: null,
-      valid: true,
-      opened: this.props.opened || false,
-      autoCompleteValue: '',
-      autoCompleteOptions: null,
-      autoCompleting: false,
-    };
   }
 
   componentDidMount() {
@@ -144,12 +144,12 @@ class SelectField extends React.Component {
       return;
     }
 
-    const option = options[e?.target?.value || e];
+    const option = options[e?.target?.value || -1];
     const value = option ? parseValue(option) : null;
     const valid = validate(value);
 
     this.setState({
-      value: e?.target?.value || e,
+      value: e?.target?.value || null,
       valid,
     }, () => {
       this.props.onChange({
@@ -305,7 +305,7 @@ class SelectField extends React.Component {
           ) : (
             <Dropdown
               { ...omit(rest, [
-                'validate', 'parseValue', 'autoCompleteThreshold',
+                'validate', 'parseValue', 'autoCompleteThreshold', 'onChange',
               ]) }
               isOpen={opened}
               theme={theme}
