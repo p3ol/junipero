@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 import DropdownMenu from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
-import DropdownItem from './DropdownItem';
 import TextField from './TextField';
 import { injectStyles, omit, parseColor, stringifyColor } from '../utils';
 import styles from '../theme/components/ColorPicker.styl';
