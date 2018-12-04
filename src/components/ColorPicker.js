@@ -172,7 +172,7 @@ class ColorPicker extends React.Component {
         offsetWidth = this.colorHue?.offsetWidth;
         this.state.h = Math.max(0,
           Math.min(360,
-            360 * (e.pageX - offsetX) / offsetWidth)
+            360 * (e.pageX - offsetX - window.pageXOffset) / offsetWidth)
         );
         break;
       case 'alpha':
@@ -180,7 +180,7 @@ class ColorPicker extends React.Component {
         offsetWidth = this.colorAlpha?.offsetWidth;
         this.state.a = Math.max(0,
           Math.min(100,
-            100 * (e.pageX - offsetX) / offsetWidth)
+            100 * (e.pageX - offsetX - window.pageXOffset) / offsetWidth)
         );
         break;
       default:
@@ -188,14 +188,14 @@ class ColorPicker extends React.Component {
         offsetX = this.getElementOffset(this.colorLightness).left;
         this.state.s = Math.max(0,
           Math.min(100,
-            100 * (e.pageX - offsetX) / offsetWidth)
+            100 * (e.pageX - offsetX - window.pageXOffset) / offsetWidth)
         );
 
         offsetHeight = this.colorLightness?.offsetHeight;
         offsetY = this.getElementOffset(this.colorLightness).top;
         this.state.v = Math.max(0,
           Math.min(100,
-            100 * (e.pageY - offsetY) / offsetHeight)
+            100 * (e.pageY - offsetY - window.pageYOffset) / offsetHeight)
         );
     }
 
