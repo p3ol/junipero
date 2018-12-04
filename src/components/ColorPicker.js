@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Dropdown from './Dropdown';
+import DropdownMenu from './DropdownMenu';
+import DropdownToggle from './DropdownToggle';
+import DropdownItem from './DropdownItem';
 import TextField from './TextField';
 import { injectStyles, omit, parseColor, stringifyColor } from '../utils';
 import styles from '../theme/components/ColorPicker.styl';
@@ -108,11 +112,6 @@ class ColorPicker extends React.Component {
         this.onChange();
       }
     });
-  }
-
-  onInputFocus(e) {
-    this.setState({ opened: true });
-    this.props.onFocus(e);
   }
 
   onClickOutside(e) {
@@ -229,6 +228,10 @@ class ColorPicker extends React.Component {
     });
   }
 
+  onToggle(opened) {
+    this.setState({ opened });
+  }
+
   getElementOffset(el) {
     const rect = el.getBoundingClientRect();
 
@@ -239,8 +242,22 @@ class ColorPicker extends React.Component {
   }
 
   render() {
-    const { theme, native, ...rest } = this.props;
+    const { theme, native, disabled, ...rest } = this.props;
     const { opened, value, h, s, v, a } = this.state;
+
+    const field = (
+      <TextField
+        ref={(ref) => this.input = ref?.input}
+        { ...omit(rest, [
+          'onChange', 'native',
+        ])}
+        type={ native ? 'color' : 'text' }
+        value={value}
+        theme={theme}
+        disabled={disabled}
+        onChange={this.onInputChange.bind(this)}
+      />
+    );
 
     return (
       <div
@@ -251,76 +268,22 @@ class ColorPicker extends React.Component {
           opened ? 'opened' : null,
         ].join(' ')}
       >
-        <TextField
-          ref={(ref) => this.input = ref?.input}
-          { ...omit(rest, [
-            'onChange', 'onFocus', 'onBlur', 'native',
-          ])}
-          type={ native ? 'color' : 'text' }
-          value={value}
-          theme={theme}
-          onChange={this.onInputChange.bind(this)}
-          onFocus={this.onInputFocus.bind(this)}
-        />
-
-        { !native && (
-          <div className="color-wheel" ref={(ref) => this.colorWheel = ref}>
-            <div
-              className="lightness"
-              ref={(ref) => this.colorLightness = ref}
-              onMouseDown={this.onMouseDown.bind(this, 'lightness')}
-              style={{
-                backgroundColor: stringifyColor({
-                  h: h / 360,
-                  s: 1,
-                  v: 1,
-                  a: 1,
-                }),
-              }}
+        { native ? field : (
+          <Dropdown
+            disabled={disabled}
+            theme={theme}
+            isOpen={opened}
+            onToggle={this.onToggle.bind(this)}
+          >
+            <DropdownToggle tag="div">{ field }</DropdownToggle>
+            <DropdownMenu
+              apparition="css"
             >
-              <a
-                className="handle"
-                style={{
-                  transform: 'translate3d(' +
-                    `${this.getCursorPosition('lightness').x}px, ` +
-                    `${this.getCursorPosition('lightness').y}px, ` +
-                    '0)',
-                }}
-              />
-            </div>
-            <div className="controls">
-              <div className="color-preview">
+              <div className="color-wheel" ref={(ref) => this.colorWheel = ref}>
                 <div
-                  className="preview-inner"
-                  style={{
-                    backgroundColor: stringifyColor({
-                      h: h / 360,
-                      s: s / 100,
-                      v: (100 - v) / 100,
-                      a: a / 100,
-                    }),
-                  }}
-                />
-              </div>
-              <div className="sliders">
-                <div
-                  className="hue"
-                  ref={(ref) => this.colorHue = ref}
-                  onMouseDown={this.onMouseDown.bind(this, 'hue')}
-                >
-                  <a
-                    className="handle"
-                    style={{
-                      transform: 'translate3d(' +
-                        `${this.getCursorPosition('hue').x}px, ` +
-                        '0, 0)',
-                    }}
-                  />
-                </div>
-                <div
-                  className="alpha"
-                  ref={(ref) => this.colorAlpha = ref}
-                  onMouseDown={this.onMouseDown.bind(this, 'alpha')}
+                  className="lightness"
+                  ref={(ref) => this.colorLightness = ref}
+                  onMouseDown={this.onMouseDown.bind(this, 'lightness')}
                   style={{
                     backgroundColor: stringifyColor({
                       h: h / 360,
@@ -334,15 +297,69 @@ class ColorPicker extends React.Component {
                     className="handle"
                     style={{
                       transform: 'translate3d(' +
-                        `${this.getCursorPosition('alpha').x}px, ` +
-                        '0, 0)',
+                        `${this.getCursorPosition('lightness').x}px, ` +
+                        `${this.getCursorPosition('lightness').y}px, ` +
+                        '0)',
                     }}
                   />
                 </div>
+                <div className="controls">
+                  <div className="color-preview">
+                    <div
+                      className="preview-inner"
+                      style={{
+                        backgroundColor: stringifyColor({
+                          h: h / 360,
+                          s: s / 100,
+                          v: (100 - v) / 100,
+                          a: a / 100,
+                        }),
+                      }}
+                    />
+                  </div>
+                  <div className="sliders">
+                    <div
+                      className="hue"
+                      ref={(ref) => this.colorHue = ref}
+                      onMouseDown={this.onMouseDown.bind(this, 'hue')}
+                    >
+                      <a
+                        className="handle"
+                        style={{
+                          transform: 'translate3d(' +
+                            `${this.getCursorPosition('hue').x}px, ` +
+                            '0, 0)',
+                        }}
+                      />
+                    </div>
+                    <div
+                      className="alpha"
+                      ref={(ref) => this.colorAlpha = ref}
+                      onMouseDown={this.onMouseDown.bind(this, 'alpha')}
+                      style={{
+                        backgroundColor: stringifyColor({
+                          h: h / 360,
+                          s: 1,
+                          v: 1,
+                          a: 1,
+                        }),
+                      }}
+                    >
+                      <a
+                        className="handle"
+                        style={{
+                          transform: 'translate3d(' +
+                            `${this.getCursorPosition('alpha').x}px, ` +
+                            '0, 0)',
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ) }
+            </DropdownMenu>
+          </Dropdown>
+        )}
       </div>
     );
   }
