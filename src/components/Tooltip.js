@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { Manager, Reference, Popper } from 'react-popper';
 
-import { injectStyles } from '../utils';
+import { injectStyles, getContainerNode, omit } from '../utils';
 import styles from '../theme/components/Tooltip.styl';
 
 class Tooltip extends React.Component {
@@ -10,33 +12,27 @@ class Tooltip extends React.Component {
   static propTypes = {
     classname: PropTypes.string,
     text: PropTypes.string,
-    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    placement: PropTypes.string,
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
     trigger: PropTypes.string,
     onToggle: PropTypes.func,
     theme: PropTypes.string,
+    apparition: PropTypes.oneOf(['insert', 'css']),
   }
 
   static defaultProps = {
-    classname: null,
     text: '',
     placement: 'top',
-    container: 'body',
     trigger: 'hover',
     onToggle: () => {},
     theme: 'default',
+    apparition: 'insert',
   }
 
   state = {
     opened: false,
-    x: 0,
-    y: 0,
-  }
-
-  xCenteredPositions = ['top', 'bottom']
-
-  yCenteredPositions = ['left', 'right']
+  };
 
   constructor(props) {
     super(props);
@@ -62,8 +58,6 @@ class Tooltip extends React.Component {
           this.toggleTooltip.bind(this, false), false);
         break;
     }
-
-    this.updatePosition();
   }
 
   onClickOutside(e) {
@@ -83,10 +77,6 @@ class Tooltip extends React.Component {
       ? forceOpen
       : !this.state.opened;
 
-    if (opened) {
-      this.updatePosition();
-    }
-
     this.setState({ opened }, () => onToggle(opened));
   }
 
@@ -98,44 +88,6 @@ class Tooltip extends React.Component {
       : container;
   }
 
-  updatePosition() {
-    const { placement } = this.props;
-
-    const {
-      top: childTop,
-      left: childLeft,
-      width: childWidth,
-      height: childHeight,
-    } = this.target.getBoundingClientRect();
-
-    const {
-      top: parentTop,
-      left: parentLeft,
-    } = this.getContainer().getBoundingClientRect();
-
-    const {
-      width: tooltipWidth,
-      height: tooltipHeight,
-    } = this.tooltip.getBoundingClientRect();
-
-    this.setState({
-      x: (
-        this.xCenteredPositions.includes(placement)
-          ? childLeft + (childWidth / 2)
-          : placement === 'left'
-            ? childLeft - tooltipWidth
-            : childLeft + childWidth
-      ) - parentLeft,
-      y: (
-        this.yCenteredPositions.includes(placement)
-          ? childTop + (childHeight / 2)
-          : placement === 'top'
-            ? childTop - tooltipHeight
-            : childTop + childHeight
-      ) - parentTop,
-    });
-  }
-
   componentDidUpdate(prevProps) {
     if (prevProps.disabled != this.props.disabled && this.props.disabled) {
       this.setState({ opened: false });
@@ -143,40 +95,70 @@ class Tooltip extends React.Component {
   }
 
   render() {
-    const { text, className, children, placement, theme } = this.props;
-    const { opened, x, y } = this.state;
+    const {
+      text,
+      className,
+      children,
+      placement,
+      theme,
+      container,
+      apparition,
+      ...rest
+    } = this.props;
+    const { opened } = this.state;
+
+    const tooltip = (
+      <Popper
+        placement={placement}
+      >
+        { ({ ref, style, placement, arrowProps }) => (
+          <div
+            { ...omit(rest, [
+              'trigger',
+            ]) }
+            className={classNames(
+              'junipero',
+              'junipero-tooltip',
+              'theme-' + theme,
+              { opened },
+              className,
+            )}
+            ref={ref}
+            style={style}
+            data-placement={placement}
+          >
+            { text }
+
+            <i
+              className="arrow"
+              ref={arrowProps.ref}
+              style={arrowProps.style}
+            />
+          </div>
+        ) }
+      </Popper>
+    );
 
     return (
-      <React.Fragment>
-        { React.cloneElement(
-          React.Children.only(children),
-          { ref: (ref) => this.target = ref }
-        ) }
-
-        { ReactDOM.createPortal(
-          (
-            <div
-              className={[
-                'junipero',
-                'junipero-tooltip',
-                'theme-' + theme,
-                'placement-' + placement,
-                opened ? 'opened' : null,
-                className,
-              ].join(' ')}
-              ref={(ref) => this.tooltip = ref}
-              style={{
-                top: y + 'px',
-                left: x + 'px',
-              }}
-            >
-              { text }
-            </div>
-          ),
-          this.getContainer()
-        )}
-      </React.Fragment>
+      <Manager>
+        <Reference
+          innerRef={(ref) => this.target = ref}
+        >
+          { ({ ref }) => (
+            React.cloneElement(
+              React.Children.only(children),
+              { ref: ref }
+            )
+          )}
+        </Reference>
+        { opened || apparition === 'css' ? (
+          container
+            ? ReactDOM.createPortal(tooltip, getContainerNode(container))
+            : tooltip
+        ) : null}
+      </Manager>
     );
+
   }
 
   componentWillUnMount() {

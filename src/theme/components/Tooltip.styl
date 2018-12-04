@@ -3,105 +3,86 @@
 .junipero.junipero-tooltip
   color: $color-white
   border-radius: 3px
-  opacity: 0
   padding: 8px 21px
-  position: absolute
-  pointer-events: none
-  user-select: none
   text-align: center
   z-index: 999
+  opacity: 0
+  pointer-events: none
 
   &.opened
     opacity: 1
-    margin-top: 0px
-    margin-left: 0px
-    visibility: visible
 
-  &:before
-    content: ''
-    height: 0
+  .arrow
     position: absolute
-    width: 0
-    display: block
 
-  &.placement-top, &.placement-bottom
-    transform: translateX(-50%)
+  &[data-placement*="top"] .arrow,
+  &[data-placement*="bottom"] .arrow
+    border-left: 8px solid transparent
+    border-right: 8px solid transparent
 
-    &:before
-      left: 50%
-      transform: translateX(-50%)
-      border-left: 8px solid transparent
-      border-right: 8px solid transparent
+  &[data-placement*="left"] .arrow,
+  &[data-placement*="right"] .arrow
+    border-top: 8px solid transparent
+    border-bottom: 8px solid transparent
 
-  &.placement-left, &.placement-right
-    transform: translateY(-50%)
+  &[data-placement*="top"]
+    margin-bottom: 16px
 
-    &:before
-      top: 50%
-      transform: translateY(-50%)
-      border-top: 8px solid transparent
-      border-bottom: 8px solid transparent
-
-  &.placement-top
-    margin-top: -16px
-
-    &:before
+    .arrow
       border-top-width: 8px
       border-top-style: solid
       bottom: -8px
 
-  &.placement-bottom
+  &[data-placement*="bottom"]
     margin-top: 16px
 
-    &:before
+    .arrow
       border-bottom-width: 8px
       border-bottom-style: solid
       top: -8px
 
-
-  &.placement-left
-    margin-left: -16px
-
-    &:before
-      right: -8px
-      border-left-width: 8px
-      border-left-style: solid
-
-
-  &.placement-right
+  &[data-placement*="right"]
     margin-left: 16px
 
-    &:before
+    .arrow
       border-right-width: 8px
       border-right-style: solid
       left: -8px
 
+  &[data-placement*="left"]
+    margin-right: 16px
+
+    .arrow
+      border-left-width: 8px
+      border-left-style: solid
+      right: -8px
+
   &.theme-none
     background: $color-shuttle-gray
 
-    &.placement-top:before
+    &[data-placement*="top"] .arrow
       border-top-color: $color-shuttle-gray
 
-    &.placement-right:before
+    &[data-placement*="right"] .arrow
       border-right-color: $color-shuttle-gray
 
-    &.placement-bottom:before
+    &[data-placement*="bottom"] .arrow
       border-bottom-color: $color-shuttle-gray
 
-    &.placement-left:before
+    &[data-placement*="left"] .arrow
       border-left-color: $color-shuttle-gray
 
   &.theme-default
     background: $color-atoll
 
-    &.placement-top:before
+    &[data-placement*="top"] .arrow
       border-top-color: $color-atoll
 
-    &.placement-right:before
+    &[data-placement*="right"] .arrow
       border-right-color: $color-atoll
 
-    &.placement-bottom:before
+    &[data-placement*="bottom"] .arrow
       border-bottom-color: $color-atoll
 
-    &.placement-left:before
+    &[data-placement*="left"] .arrow
       border-left-color: $color-atoll
