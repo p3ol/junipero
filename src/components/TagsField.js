@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/TagsField.styl';
@@ -38,18 +39,18 @@ class TagsField extends React.Component {
     theme: 'default',
   }
 
+  state = {
+    value: null,
+    input: '',
+    focused: false,
+    selected: -1,
+  };
+
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-tags-field-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      value: null,
-      input: '',
-      focused: false,
-      selected: -1,
-    };
   }
 
   componentDidMount() {
@@ -236,19 +237,21 @@ class TagsField extends React.Component {
 
     return (
       <div
-        className={[
+        className={classNames(
           'junipero',
           'junipero-field',
           'junipero-tags-field',
           'theme-' + theme,
-          label ? 'with-label' : null,
-          focused ? 'focused' : null,
-          input || value?.length ? 'dirty' : null,
-          disabled ? 'disabled' : null,
-          required ? 'required' : null,
-          boxed ? 'boxed' : null,
+          {
+            focused,
+            disabled,
+            required,
+            boxed,
+            dirty: input || value?.length,
+            'with-label': label,
+          },
           className,
-        ].join(' ')}
+        )}
         role="textbox"
         tabIndex={tabIndex}
         onClick={this.onClick.bind(this)}
@@ -266,10 +269,12 @@ class TagsField extends React.Component {
             { this.state.value?.map((item, index) => (
               <span
                 key={index}
-                className={[
+                className={classNames(
                   'tag',
-                  this.state.selected === index ? 'active' : null,
-                ].join(' ')}
+                  {
+                    active: this.state.selected === index,
+                  },
+                )}
               >
                 { item }
                 <i

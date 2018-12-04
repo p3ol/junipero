@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/CheckBox.styl';
 
 class CheckBox extends React.Component {
@@ -39,6 +40,8 @@ class CheckBox extends React.Component {
   }
 
   onChange(e) {
+    e.persist();
+
     if (this.props.disabled) {
       return;
     }
@@ -72,17 +75,22 @@ class CheckBox extends React.Component {
   }
 
   render() {
+    const { theme, className, disabled, children, value, ...rest } = this.props;
+    const { active, checked } = this.state;
+
     return (
       <div
-        className={[
+        className={classNames(
           'junipero',
           'junipero-check-box',
-          'theme-' + this.props.theme,
-          this.state.active ? 'active' : null,
-          this.state.checked ? 'checked' : null,
-          this.props.disabled ? 'disabled' : null,
-          this.props.className,
-        ].join(' ')}
+          'theme-' + theme,
+          {
+            active,
+            checked,
+            disabled,
+          },
+          className,
+        )}
       >
         <label
           className="check-wrapper"
@@ -91,16 +99,19 @@ class CheckBox extends React.Component {
         >
           <div className="check-inner">
             <input
+              { ...omit(rest, [
+                'onChange', 'checked',
+              ]) }
               type="checkbox"
               onChange={this.onChange.bind(this)}
-              value={this.props.value}
-              disabled={this.props.disabled}
+              value={value}
+              disabled={disabled}
             />
             <div className="check" />
           </div>
 
           <div className="label">
-            { this.props.children }
+            { children }
           </div>
         </label>
       </div>

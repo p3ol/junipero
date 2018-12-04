@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { injectStyles } from '../utils';
 import styles from '../theme/components/Button.styl';
@@ -66,16 +67,18 @@ class Button extends React.Component {
     return (
       <Tag
         { ...rest }
-        className={[
+        className={classNames(
           'junipero',
           'junipero-button',
           'theme-' + theme,
+          'size-' + size,
           type,
-          reversed ? 'reversed' : null,
-          disabled ? 'disabled' : null,
-          `size-${size}`,
+          {
+            reversed,
+            disabled,
+          },
           className,
-        ].join(' ')}
+        )}
         ref={innerRef}
         onClick={this.onClick.bind(this)}
         type={submit ? 'submit' : Tag === 'button' ? 'button' : null}

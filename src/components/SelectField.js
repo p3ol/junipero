@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Dropdown from './Dropdown';
 import DropdownMenu from './DropdownMenu';
@@ -22,7 +23,6 @@ class SelectField extends React.Component {
     parseValue: PropTypes.func,
     parseTitle: PropTypes.func,
     options: PropTypes.array,
-    placement: PropTypes.string,
     onChange: PropTypes.func,
     validate: PropTypes.func,
     autoComplete: PropTypes.func,
@@ -259,20 +259,21 @@ class SelectField extends React.Component {
     return (
       <div
         ref={(ref) => this.container = ref}
-        className={[
+        className={classNames(
           'junipero',
           'junipero-field',
           'junipero-select-field',
           'theme-' + theme,
-          disabled ? 'disabled' : null,
-          opened ? 'opened' : null,
-          required ? 'required' : null,
-          label ? 'with-label' : null,
-          !valid ? 'invalid' : null,
-          boxed ? 'boxed' : null,
-          `placement-${placement || 'bottom'}`,
+          {
+            disabled,
+            opened,
+            required,
+            boxed,
+            'with-label': label,
+            invalid: !valid,
+          },
           className,
-        ].join(' ')}
+        )}
       >
         <div className="field-wrapper">
 
@@ -319,9 +320,9 @@ class SelectField extends React.Component {
               </DropdownToggle>
               <DropdownMenu
                 innerRef={(ref) => this.menuRef = ref}
-                className={[
-                  autoCompleting ? 'auto-completing' : null,
-                ].join(' ')}
+                className={classNames({
+                  'auto-completing': autoCompleting,
+                })}
               >
                 { autoComplete && (
                   <li className="auto-complete">

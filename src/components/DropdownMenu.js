@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Popper } from 'react-popper';
+import classNames from 'classnames';
 
 import { getContainerNode, omit } from '../utils';
 
@@ -74,13 +75,15 @@ class DropdownMenu extends React.Component {
               ]) }
               ref={ref}
               style={style}
-              className={[
+              className={classNames(
                 'junipero',
                 'junipero-dropdown-menu',
                 'theme-' + theme,
-                isOpen ? 'opened' : null,
+                {
+                  opened: isOpen,
+                },
                 className,
-              ].join(' ')}
+              )}
               data-placement={placement_}
             />
           );

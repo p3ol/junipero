@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Button from './Button';
 import { injectStyles, omit } from '../utils';
@@ -85,22 +86,22 @@ class Switch extends React.Component {
 
     return (
       <div
-        className={[
+        className={classNames(
           'junipero',
           'junipero-switch',
           'theme-' + theme,
-          disabled ? 'disabled' : null,
+          { disabled },
           className,
-        ].join(' ')}
+        )}
       >
         { options.map((option, index) => (
           <Button
             { ...omit(rest, [
               'validate', 'parseValue', 'onChange',
             ]) }
-            className={[
-              this.isActive(option) ? 'active' : null,
-            ].join(' ')}
+            className={classNames({
+              active: this.isActive(option),
+            })}
             key={index}
             theme={theme}
             disabled={disabled}

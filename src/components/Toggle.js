@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/Toggle.styl';
 
 class Toggle extends React.Component {
@@ -28,16 +29,16 @@ class Toggle extends React.Component {
     theme: 'default',
   }
 
+  state = {
+    checked: this.props.checked,
+    active: false,
+  };
+
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-toggle-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      checked: this.props.checked,
-      active: false,
-    };
   }
 
   onChange(e) {
@@ -58,27 +59,42 @@ class Toggle extends React.Component {
   }
 
   render() {
+    const {
+      disabled,
+      theme,
+      value,
+      className,
+      onLabel,
+      offLabel,
+      ...rest
+    } = this.props;
+    const { active, checked } = this.state;
     return (
       <div
-        className={[
+        className={classNames(
           'junipero',
           'junipero-toggle',
-          'theme-' + this.props.theme,
-          this.state.active ? 'active' : null,
-          this.state.checked ? 'checked' : null,
-          this.props.disabled ? 'disabled' : null,
-          this.props.className,
-        ].join(' ')}
+          'theme-' + theme,
+          {
+            active,
+            checked,
+            disabled,
+          },
+          className,
+        )}
       >
         <label
           className="toggle-wrapper"
         >
           <div className="toggle-inner">
             <input
+              { ...omit(rest, [
+                'onChange', 'checked',
+              ])}
               type="checkbox"
               onChange={this.onChange.bind(this)}
-              value={this.props.value}
-              disabled={this.props.disabled}
+              value={value}
+              disabled={disabled}
             />
             <div className="toggle">
               <div className="handle" />
@@ -86,7 +102,7 @@ class Toggle extends React.Component {
           </div>
 
           <div className="label">
-            { this.state.checked ? this.props.onLabel : this.props.offLabel }
+            { checked ? onLabel : offLabel }
           </div>
 
         </label>

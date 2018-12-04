@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Manager } from 'react-popper';
+import classNames from 'classnames';
 
 import { omit, injectStyles } from '../utils';
 import DropdownMenu from './DropdownMenu';
@@ -119,14 +120,16 @@ class Dropdown extends React.Component {
             'onToggle', 'placement',
           ])}
           ref={(ref) => this.dropdownRef = ref}
-          className={[
+          className={classNames(
             'junipero',
             'junipero-dropdown',
             'theme-' + theme,
-            isOpen ? 'opened' : null,
-            disabled ? 'disabled' : null,
+            {
+              opened: isOpen,
+              disabled,
+            },
             className,
-          ].join(' ')}
+          )}
         >
           { React.Children.map(children, (child, index) => (
             child.type === DropdownMenu

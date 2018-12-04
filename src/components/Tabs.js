@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/Tabs.styl';
@@ -74,22 +75,24 @@ class Tabs extends React.Component {
         { ...omit(rest, [
           'activeTab', 'onChange',
         ]) }
-        className={[
+        className={classNames(
           'junipero',
           'junipero-tabs',
           'theme-' + theme,
-          disabled ? 'disabled' : null,
+          { disabled },
           className,
-        ].join(' ')}
+        )}
       >
         <ul className="tabs-titles">
           { tabs.map((item, index) => (
             <li
-              className={[
+              className={classNames(
                 'tab-title',
-                index === activeTab ? 'active' : null,
-                item.props.disabled ? 'disabled' : null,
-              ].join(' ')}
+                {
+                  active: index === activeTab,
+                  disabled: item.props.disabled,
+                },
+              )}
               key={index}
             >
               <a

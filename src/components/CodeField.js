@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/CodeField.styl';
@@ -160,22 +161,24 @@ class CodeField extends React.Component {
         { ...omit(rest, [
           'autofocus', 'validate', 'onChange',
         ]) }
-        className={[
+        className={classNames(
           'junipero',
           'junipero-field',
           'junipero-code-field',
           'theme-' + theme,
-          boxed ? 'boxed' : null,
-          !valid ? 'invalid' : null,
+          {
+            boxed,
+            invalid: !valid,
+          },
           className,
-        ].join(' ')}
+        )}
       >
         { Array.from({ length: size }).map((item, index) => (
           <input
-            className={[
-              disabled ? 'disabled' : null,
-              this.isDirty(index) ? 'dirty' : null,
-            ].join(' ')}
+            className={classNames({
+              disabled,
+              dirty: this.isDirty(index),
+            })}
             key={index}
             type="tel"
             value={values[index]}

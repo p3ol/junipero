@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Dropdown from './Dropdown';
 import DropdownMenu from './DropdownMenu';
@@ -241,7 +242,7 @@ class ColorPicker extends React.Component {
   }
 
   render() {
-    const { theme, native, disabled, ...rest } = this.props;
+    const { className, theme, native, disabled, ...rest } = this.props;
     const { opened, value, h, s, v, a } = this.state;
 
     const field = (
@@ -260,12 +261,13 @@ class ColorPicker extends React.Component {
 
     return (
       <div
-        className={[
+        className={classNames(
           'junipero',
           'junipero-color-picker',
           'theme-' + theme,
-          opened ? 'opened' : null,
-        ].join(' ')}
+          { opened },
+          className,
+        )}
       >
         { native ? field : (
           <Dropdown

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
+import classNames from 'classnames';
 
 import { omit } from '../utils';
 import Button from './Button';
@@ -65,10 +66,10 @@ class DropdownToggle extends React.Component {
               'onClick', 'tagRefName',
             ]) }
             { ...{ [rest.tagRefName]: ref } }
-            className={[
+            className={classNames(
               'junipero-dropdown-toggle',
               className,
-            ].join(' ')}
+            )}
             onClick={this.onClick.bind(this)}
           />
         ) }

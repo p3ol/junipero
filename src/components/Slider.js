@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/Slider.styl';
 
 class Slider extends React.Component {
@@ -138,20 +139,35 @@ class Slider extends React.Component {
   }
 
   render() {
+    const {
+      theme,
+      disabled,
+      className,
+      label,
+      renderValue,
+      ...rest
+    } = this.props;
+    const { value } = this.state;
+
     return (
       <div
-        className={[
+        { ...omit(rest, [
+          'onChange', 'step', 'min', 'max', 'value',
+        ]) }
+        className={classNames(
           'junipero',
           'junipero-slider',
-          'theme-' + this.props.theme,
-          this.props.disabled ? 'disabled' : null,
-          this.props.className,
-        ].join(' ')}
+          'theme-' + theme,
+          {
+            disabled,
+          },
+          className,
+        )}
         onMouseDown={this.onMouseDown.bind(this)}
       >
         <div className="slider-wrapper">
-          { this.props.label && (
-            <span className="label">{ this.props.label }</span>
+          { label && (
+            <span className="label">{ label }</span>
           ) }
 
           <div className="slide" ref={(ref) => this.slide = ref}>
@@ -168,7 +184,7 @@ class Slider extends React.Component {
           </div>
 
           <div className="value">
-            { this.props.renderValue(this.state.value) }
+            { renderValue(value) }
           </div>
         </div>
       </div>

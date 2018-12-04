@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import { injectStyles } from '../utils';
+import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/Modal.styl';
 
 class Modal extends React.Component {
 
   static propTypes = {
-    classname: PropTypes.string,
+    className: PropTypes.string,
     theme: PropTypes.string,
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
@@ -17,7 +18,6 @@ class Modal extends React.Component {
   }
 
   static defaultProps = {
-    classname: null,
     theme: 'default',
     container: 'body',
     disabled: false,
@@ -79,7 +79,7 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { theme, children } = this.props;
+    const { className, theme, children, ...rest } = this.props;
     const { opened } = this.state;
 
     if (!opened) {
@@ -89,11 +89,15 @@ class Modal extends React.Component {
     return ReactDOM.createPortal(
       (
         <div
-          className={[
+          { ...omit(rest, [
+            'onOpen', 'onClose',
+          ]) }
+          className={classNames(
             'junipero',
             'junipero-modal',
             'theme-' + theme,
-          ].join(' ')}
+            className,
+          )}
         >
           <div
             ref={(ref) => this.backdrop = ref}

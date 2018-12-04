@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { omit } from '../utils';
 
@@ -23,11 +24,11 @@ class Tab extends React.Component {
         { ...omit(rest, [
           'title', 'key',
         ])}
-        className={[
+        className={classNames(
           'junipero',
           'junipero-tab',
           className,
-        ].join(' ')}
+        )}
       ></div>
     );
   }

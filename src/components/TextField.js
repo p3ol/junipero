@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/TextField.styl';
@@ -46,18 +47,18 @@ class TextField extends React.Component {
 
   input = null
 
+  state = {
+    focused: false,
+    dirty: !!this.props.value,
+    value: this.props.value || '',
+    valid: this.props.valid || true,
+  };
+
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-text-field-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      focused: false,
-      dirty: !!this.props.value,
-      value: this.props.value || '',
-      valid: this.props.valid || true,
-    };
   }
 
   componentDidUpdate(prevProps) {
@@ -164,6 +165,7 @@ class TextField extends React.Component {
       placeholder,
       label,
       theme,
+      error,
       ...rest
     } = this.props;
 
@@ -171,20 +173,22 @@ class TextField extends React.Component {
 
     return (
       <div
-        className={[
+        className={classNames(
           'junipero',
           'junipero-field',
           'junipero-text-field',
           'theme-' + theme,
-          label !== false && (label || placeholder) ? 'with-label' : null,
-          focused ? 'focused' : null,
-          dirty ? 'dirty' : null,
-          !valid ? 'invalid' : null,
-          disabled ? 'disabled' : null,
-          required ? 'required' : null,
-          boxed ? 'boxed' : null,
+          {
+            focused,
+            dirty,
+            disabled,
+            required,
+            boxed,
+            invalid: !valid,
+            'with-label': label !== false && (label || placeholder),
+          },
           className,
-        ].join(' ')}
+        )}
       >
 
         <div className="field-wrapper">
@@ -214,8 +218,8 @@ class TextField extends React.Component {
           />
         </div>
 
-        { this.props.error && (
-          <span className="error">{ this.props.error }</span>
+        { error && (
+          <span className="error">{ error }</span>
         ) }
       </div>
     );
