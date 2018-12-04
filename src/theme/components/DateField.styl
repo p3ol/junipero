@@ -15,7 +15,8 @@
           opacity: 1
           transform: translate3d(0, 0, 0)
 
-        & > .field
+        & > .field,
+        .junipero-dropdown > .field
           padding-top: 21px
           padding-bottom: 5px
 
@@ -25,7 +26,8 @@
   & > .field-wrapper
     position: relative
 
-    & > .field
+    & > .field,
+    .junipero-dropdown > .field
       padding-right: 30px
 
     &:after
@@ -39,41 +41,20 @@
       right: 10px
       top: 21px
 
+  &.native
+    & > .field-wrapper
+
+      & > .field,
+      .junipero-dropdown > .field
+        padding-right: 0
+
+      &:after
+        display: none
+
   .calendar
-    position: absolute
-    z-index: 1000
-    background: $color-white
-    border-radius: 2px
     min-width: $default-width
     max-width: $default-max-width
-    list-style: none
-    padding: 10px 0
-
-    &[class*="placement-bottom"]
-      top: calc(100% + 10px)
-
-      &[class*="-left"]
-        left: 0
-
-      &[class*="-right"]
-        right: 0
-
-    &[class*="placement-top"]
-      bottom: calc(100% + 10px)
-
-    &[class*="placement-bottom"],
-    &[class*="placement-top"]
-      &[class*="-left"]
-        left: 0
-
-      &[class*="-right"]
-        right: 0
-
-    &.placement-left
-      right: calc(100% + 10px)
-
-    &.placement-right
-      left: calc(100% + 10px)
+    max-height: 300px
 
     .calendar-header
       display: flex
@@ -150,9 +131,6 @@
           min-width: 100%
 
   &.theme-none
-    .calendar
-      box-shadow: 0 2px 8px 0 rgba($color-shuttle-gray, 0.2)
-
     .current-month
       color: $color-shuttle-gray
 
@@ -169,9 +147,6 @@
         background: $color-shuttle-gray
 
   &.theme-default
-    .calendar
-      box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
-
     .current-month
       color: $color-midnight
 

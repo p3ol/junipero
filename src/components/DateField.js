@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
+import Dropdown from './Dropdown';
+import DropdownMenu from './DropdownMenu';
+import DropdownToggle from './DropdownToggle';
 import { injectStyles, omit } from '../utils';
 import styles from '../theme/components/DateField.styl';
 
@@ -20,8 +24,8 @@ class DateField extends React.Component {
     parseTitle: PropTypes.func,
     monthNames: PropTypes.array,
     weekDaysNames: PropTypes.array,
-    placement: PropTypes.string,
     theme: PropTypes.string,
+    native: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -44,58 +48,47 @@ class DateField extends React.Component {
     monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'],
     weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
-    placement: 'bottom',
     theme: 'default',
+    native: false,
   }
+
+  state = {
+    opened: false,
+    valid: true,
+    value: this.props.value,
+    nativeValue: this.props.value,
+    selected: this.props.value || new Date(),
+    displayed: this.props.value || new Date(),
+  };
 
   constructor(props) {
     super(props);
 
     injectStyles(styles,
       { id: 'junipero-date-field-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      opened: this.props.opened || false,
-      valid: true,
-      value: this.props.value,
-      selected: this.props.value || new Date(),
-      displayed: this.props.value || new Date(),
-    };
   }
 
-  componentDidMount() {
-    document.addEventListener('click', this.onClickOutside.bind(this), true);
+  componentDidUpdate(prevProps) {
+    if (this.props.value !== prevProps.value && this.props.value) {
+      const value = new Date(this.props.value);
+      this.onChange({
+        year: value.getFullYear(),
+        month: value.getMonth(),
+        day: value.getDate(),
+      }, null, false);
+    }
   }
 
-
-  onToggle(e) {
-    e.preventDefault();
-
+  onToggle(opened) {
     if (this.props.disabled) {
       return;
     }
-
-    const opened = !this.state.opened;
 
     this.setState({
       opened,
       selected: this.state.value || new Date(),
       displayed: this.state.value || new Date(),
     });
-  }
-
-  onClickOutside(e) {
-    if (this.toggle && this.toggle === e.target) {
-      return;
-    }
-
-    if (this.container && !this.container.contains(e.target)) {
-      this.setState({
-        opened: false,
-        selected: this.state.value || new Date(),
-        displayed: this.state.value || new Date(),
-      });
-    }
   }
 
   isDateSelected(date) {
@@ -193,7 +186,16 @@ class DateField extends React.Component {
     });
   }
 
-  onChange(date, e) {
+  onNativeChange(e) {
+    const [year, month, day] = e.target.value?.split(/\D/);
+    this.onChange({
+      year,
+      month: month - 1,
+      day,
+    }, e);
+  }
+
+  onChange(date, e, propagateChange = true) {
     e?.preventDefault();
 
     const newDate = this.getDateToUTC(date.year, date.month, date.day);
@@ -202,14 +204,17 @@ class DateField extends React.Component {
     this.setState({
       opened: false,
       value: new Date(newDate),
+      nativeValue: e?.target?.value,
       selected: new Date(newDate),
       displayed: new Date(newDate),
       valid,
     }, () => {
-      this.props.onChange({
-        value: this.state.selected,
-        valid,
-      });
+      if (propagateChange) {
+        this.props.onChange({
+          value: this.state.selected,
+          valid,
+        });
+      }
     });
   }
 
@@ -228,125 +233,144 @@ class DateField extends React.Component {
       placeholder,
       parseTitle,
       error,
-      placement,
       theme,
+      native,
       ...rest
     } = this.props;
 
-    const { value, opened, displayed } = this.state;
+    const { value, opened, displayed, dirty, nativeValue } = this.state;
 
     return (
       <div
         ref={(ref) => this.container = ref}
-        className={[
+        className={classNames(
           'junipero',
           'junipero-field',
           'junipero-date-field',
           'theme-' + theme,
-          disabled ? 'disabled' : null,
-          opened ? 'opened' : null,
-          label ? 'with-label' : null,
-          required ? 'required' : null,
-          boxed ? 'boxed' : null,
+          {
+            native,
+            disabled,
+            opened,
+            required,
+            boxed,
+            'with-label': label,
+          },
           className,
-        ].join(' ')}
+        )}
       >
         <div className="field-wrapper">
           { label && (
             <label htmlFor={id}>{ label }</label>
           ) }
 
-          <a
-            {...omit(rest, [
-              'monthNames', 'weekDaysNames', 'validate', 'parseValue',
-            ])}
-            href="#"
-            className="field"
-            onClick={this.onToggle.bind(this)}
-          >
-            { value ?
-              parseTitle(value)
-              : placeholder
-            }
-          </a>
-
-          { opened && (
-            <div
-              ref={(ref) => this.toggle = ref}
-              className={[
-                'calendar',
-                `placement-${placement}`,
-              ].join(' ')}
+          { native ? (
+            <input
+              { ...omit(rest, [
+                'onChange', 'monthNames', 'weekDaysNames', 'validate',
+                'parseValue',
+              ]) }
+              ref={(ref) => this.input = ref}
+              className="field"
+              type="date"
+              disabled={disabled}
+              required={required}
+              value={nativeValue || ''}
+              onChange={this.onNativeChange.bind(this)}
+              validate={null}
+              placeholder={!dirty ? placeholder : null}
+            />
+          ) : (
+            <Dropdown
+              { ...omit(rest, [
+                'onChange', 'monthNames', 'weekDaysNames', 'validate',
+                'parseValue',
+              ]) }
+              isOpen={opened}
+              theme={theme}
+              onToggle={this.onToggle.bind(this)}
             >
-              <div className="calendar-header">
-                <a
-                  href="#"
-                  className="arrow-wrapper left"
-                  onClick={this.onPreviousMonthClick.bind(this)}
-                >
-                  <i className="arrow" />
-                </a>
-                <div className="current-month">
-                  {this.getMonthName(displayed.getMonth())}
-                  { ' ' }
-                  {displayed.getFullYear()}
+              <DropdownToggle
+                tag="a"
+                className="field"
+              >
+                { value ?
+                  parseTitle(value)
+                  : placeholder
+                }
+              </DropdownToggle>
+              <DropdownMenu
+                className="calendar"
+              >
+                <div className="calendar-header">
+                  <a
+                    href="#"
+                    className="arrow-wrapper left"
+                    onClick={this.onPreviousMonthClick.bind(this)}
+                  >
+                    <i className="arrow" />
+                  </a>
+                  <div className="current-month">
+                    {this.getMonthName(displayed.getMonth())}
+                    { ' ' }
+                    {displayed.getFullYear()}
+                  </div>
+                  <a
+                    href="#"
+                    className="arrow-wrapper right"
+                    onClick={this.onNextMonthClick.bind(this)}
+                  >
+                    <i className="arrow" />
+                  </a>
                 </div>
-                <a
-                  href="#"
-                  className="arrow-wrapper right"
-                  onClick={this.onNextMonthClick.bind(this)}
-                >
-                  <i className="arrow" />
-                </a>
-              </div>
-              <div className="calendar-body">
-                <div className="week-days">
-                  {this.getWeekDaysNames().map((day, index) => (
-                    <span key={index} className="week-day">{day}</span>
-                  ))}
-                </div>
+                <div className="calendar-body">
+                  <div className="week-days">
+                    {this.getWeekDaysNames().map((day, index) => (
+                      <span key={index} className="week-day">{day}</span>
+                    ))}
+                  </div>
 
-                <div className="days">
-                  { []
-                    .concat(this.getPreviousMonthDays(
-                      displayed.getFullYear(),
-                      displayed.getMonth()
-                    ))
-                    .concat(this.getMonthDays(
-                      displayed.getFullYear(),
-                      displayed.getMonth()
-                    ))
-                    .concat(this.getNextMonthDays(
-                      displayed.getFullYear(),
-                      displayed.getMonth()
-                    ))
-                    .map((date, index) => (
-                      <React.Fragment
-                        key={index}
-                      >
-                        <a
-                          className={[
-                            'day',
-                            date.inactive ? 'inactive' : null,
-                            this.isDateSelected(date) ? 'active' : null,
-                          ].join(' ')}
-                          href="#"
-                          onClick={this.onChange.bind(this, date)}
+                  <div className="days">
+                    { []
+                      .concat(this.getPreviousMonthDays(
+                        displayed.getFullYear(),
+                        displayed.getMonth()
+                      ))
+                      .concat(this.getMonthDays(
+                        displayed.getFullYear(),
+                        displayed.getMonth()
+                      ))
+                      .concat(this.getNextMonthDays(
+                        displayed.getFullYear(),
+                        displayed.getMonth()
+                      ))
+                      .map((date, index) => (
+                        <React.Fragment
+                          key={index}
                         >
-                          { date.day }
-                        </a>
+                          <a
+                            className={[
+                              'day',
+                              date.inactive ? 'inactive' : null,
+                              this.isDateSelected(date) ? 'active' : null,
+                            ].join(' ')}
+                            href="#"
+                            onClick={this.onChange.bind(this, date)}
+                          >
+                            { date.day }
+                          </a>
 
-                        { (index + 1) % 7 === 0 && (
-                          <div className="separator" />
-                        )}
-                      </React.Fragment>
-                    ))
-                  }
+                          { (index + 1) % 7 === 0 && (
+                            <div className="separator" />
+                          )}
+                        </React.Fragment>
+                      ))
+                    }
+                  </div>
                 </div>
-              </div>
-            </div>
-          )}
-
+              </DropdownMenu>
+            </Dropdown>
+          ) }
         </div>
 
         { error && (
@@ -354,10 +378,6 @@ class DateField extends React.Component {
         ) }
       </div>
     );
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.onClickOutside.bind(this), true);
   }
 
 }

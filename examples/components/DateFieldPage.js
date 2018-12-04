@@ -9,6 +9,7 @@ class DateFieldPage extends React.Component {
     super(props);
     this.state = {
       default: {},
+      enhanced: {},
       unthemed: {},
       currentDay: {
         value: new Date(),
@@ -28,10 +29,11 @@ class DateFieldPage extends React.Component {
         <p><Link to="/">Back</Link></p>
         <h1>DateField example</h1>
 
-        <h2 className="mt-5">Default</h2>
+        <h2 className="mt-5">Default (native)</h2>
         <div className="row mt-5">
           <div className="col-6">
             <DateField
+              native={true}
               placeholder="Pick a date"
               disabled={this.props.disabled}
               error={this.props.error}
@@ -42,6 +44,23 @@ class DateFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{JSON.stringify(this.state.default, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Default (enhanced)</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <DateField
+              placeholder="Pick a date"
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              onChange={this.onChange.bind(this, 'enhanced')}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{JSON.stringify(this.state.enhanced, null, 2)}</pre>
           </div>
         </div>
 
