@@ -54,6 +54,7 @@ class SelectFieldPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <SelectField
+              native={true}
               required={true}
               disabled={this.props.disabled}
               error={this.props.error}
@@ -77,7 +78,6 @@ class SelectFieldPage extends React.Component {
               disabled={this.props.disabled}
               error={this.props.error}
               boxed={this.props.boxed}
-              native={false}
               onChange={this.onChange.bind(this, 'enhanced')}
               placeholder="Select one..."
               options={this.options}
@@ -97,7 +97,6 @@ class SelectFieldPage extends React.Component {
               disabled={this.props.disabled}
               error={this.props.error}
               boxed={this.props.boxed}
-              native={false}
               onChange={this.onChange.bind(this, 'unthemed')}
               placeholder="Select one..."
               label="Label"

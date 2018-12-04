@@ -37,7 +37,7 @@ class SelectField extends React.Component {
     disabled: false,
     required: false,
     boxed: false,
-    native: true,
+    native: false,
     placeholder: '',
     parseValue: (val) => val,
     parseTitle: (val) => val,
