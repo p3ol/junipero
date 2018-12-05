@@ -8,28 +8,26 @@ class Button extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
-    tag: PropTypes.string,
-    type: PropTypes.string,
-    submit: PropTypes.bool,
-    reversed: PropTypes.bool,
-    size: PropTypes.string,
-    theme: PropTypes.string,
     innerRef: PropTypes.oneOfType([
       PropTypes.object,
       PropTypes.func,
       PropTypes.string,
     ]),
+    reversed: PropTypes.bool,
+    size: PropTypes.string,
+    submit: PropTypes.bool,
+    tag: PropTypes.string,
+    type: PropTypes.string,
     onClick: PropTypes.func,
   }
 
   static defaultProps = {
     disabled: false,
-    tag: 'a',
-    type: 'default',
-    submit: false,
     reversed: false,
     size: 'default',
-    theme: 'default',
+    submit: false,
+    tag: 'a',
+    type: 'default',
     onClick: () => {},
   }
 
@@ -58,7 +56,6 @@ class Button extends React.Component {
       disabled,
       className,
       children,
-      theme,
       innerRef,
       ...rest
     } = this.props;
@@ -69,7 +66,6 @@ class Button extends React.Component {
         className={classNames(
           'junipero',
           'junipero-button',
-          'theme-' + theme,
           'size-' + size,
           type,
           {
