@@ -49,23 +49,25 @@
           cursor: default
 
   &.theme-none
-    a
-      color: $color-shuttle-gray
-
-    li.active
-      &:after
-        background: $color-black
-
+    .tabs-titles
       a
-        color: $color-black
+        color: $color-shuttle-gray
+
+      li.active
+        &:after
+          background: $color-black
+
+        a
+          color: $color-black
 
   &.theme-default
-    a
-      color: $color-midnight
-
-    li.active
-      &:after
-        background: $color-eastern-blue
-
+    .tabs-titles
       a
-        color: $color-eastern-blue
+        color: $color-midnight
+
+      li.active
+        &:after
+          background: $color-eastern-blue
+
+        a
+          color: $color-eastern-blue
