@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 
 import { omit, classNames } from '../utils';
-import Button from './Button';
 
 class DropdownToggle extends React.Component {
 
@@ -18,8 +17,8 @@ class DropdownToggle extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    tagRefName: 'ref',
     className: '',
+    tagRefName: 'ref',
     onClick: () => {},
   }
 
@@ -44,16 +43,11 @@ class DropdownToggle extends React.Component {
     const {
       className,
       tag,
+      tagRefName,
       ...rest
     } = this.props;
 
-    const Tag = tag || Button;
-
-    if (!tag) {
-      rest.tagRefName = 'innerRef';
-      rest.theme = this.context.theme;
-      rest.type = 'primary';
-    }
+    const Tag = tag || 'span';
 
     rest.disabled = rest.disabled || this.context.disabled;
 
@@ -62,9 +56,9 @@ class DropdownToggle extends React.Component {
         { ({ ref }) => (
           <Tag
             { ...omit(rest, [
-              'onClick', 'tagRefName',
+              'onClick',
             ]) }
-            { ...{ [rest.tagRefName]: ref } }
+            { ...{ [tagRefName]: ref} }
             className={classNames(
               'junipero-dropdown-toggle',
               className,

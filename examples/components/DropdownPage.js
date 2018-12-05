@@ -6,6 +6,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Button,
 } from '@poool/junipero';
 
 class DropdownPage extends React.Component {
@@ -17,6 +18,7 @@ class DropdownPage extends React.Component {
       unthemed: false,
       cssOnly: false,
       customTag: false,
+      button: false,
       bodyContainer: false,
     };
   }
@@ -71,6 +73,29 @@ class DropdownPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.unthemed, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">With custom toggle</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Dropdown
+              isOpen={this.state.button}
+              disabled={this.props.disabled}
+              onToggle={this.onChange.bind(this, 'button')}
+            >
+              <DropdownToggle>
+                <Button type="primary">Click me</Button>
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem><a>Test 1</a></DropdownItem>
+                <DropdownItem><a>Test 2</a></DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.button, null, 2)}</pre>
           </div>
         </div>
 
