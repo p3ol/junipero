@@ -1,7 +1,6 @@
 @import "../utils/colors"
 
 .junipero.junipero-modal
-  display: block
   position: fixed
   top: 0
   right: 0
@@ -9,6 +8,10 @@
   left: 0
   z-index: 1050
   overflow: hidden
+  display: none
+
+  &.opened
+    display: block
 
   .modal-wrapper
     width: 100%

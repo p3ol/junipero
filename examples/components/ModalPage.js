@@ -10,6 +10,7 @@ class ModalPage extends React.Component {
     this.state = {
       default: {},
       unthemed: {},
+      cssOnly: {},
     };
 
     this.modals = {};
@@ -51,6 +52,21 @@ class ModalPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.unthemed, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">CSS only apparition</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+
+            <Modal apparition="css" ref={(ref) => this.modals.cssOnly = ref}>
+              test with css apparition
+            </Modal>
+            <button onClick={() => this.modals.cssOnly.open()}>Open me</button>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.cssOnly, null, 2)}</pre>
           </div>
         </div>
       </div>

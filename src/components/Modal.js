@@ -14,6 +14,7 @@ class Modal extends React.Component {
     disabled: PropTypes.bool,
     onOpen: PropTypes.func,
     onClose: PropTypes.func,
+    apparition: PropTypes.string,
   }
 
   static defaultProps = {
@@ -22,6 +23,7 @@ class Modal extends React.Component {
     disabled: false,
     onOpen: () => {},
     onClose: () => {},
+    apparition: 'insert',
   }
 
   state = {
@@ -78,10 +80,16 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { className, theme, children, ...rest } = this.props;
+    const {
+      className,
+      theme,
+      children,
+      apparition,
+      ...rest
+    } = this.props;
     const { opened } = this.state;
 
-    if (!opened) {
+    if (!opened && apparition === 'insert') {
       return null;
     }
 
@@ -95,6 +103,7 @@ class Modal extends React.Component {
             'junipero',
             'junipero-modal',
             'theme-' + theme,
+            { opened },
             className,
           )}
         >
