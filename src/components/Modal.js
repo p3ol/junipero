@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-import { injectStyles, omit } from '../utils';
+import { injectStyles, omit, classNames } from '../utils';
 import styles from '../theme/components/Modal.styl';
 
 class Modal extends React.Component {

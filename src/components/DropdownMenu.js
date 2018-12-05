@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Popper } from 'react-popper';
-import classNames from 'classnames';
 
-import { getContainerNode, omit } from '../utils';
+import { getContainerNode, omit, classNames } from '../utils';
 
 class DropdownMenu extends React.Component {
 

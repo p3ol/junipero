@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Manager } from 'react-popper';
-import classNames from 'classnames';
 
-import { omit, injectStyles } from '../utils';
+import { omit, injectStyles, classNames } from '../utils';
 import DropdownMenu from './DropdownMenu';
 import styles from '../theme/components/Dropdown.styl';
 

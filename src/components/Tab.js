@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-import { omit } from '../utils';
+import { omit, classNames } from '../utils';
 
 class Tab extends React.Component {
 

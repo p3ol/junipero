@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 import Dropdown from './Dropdown';
 import DropdownMenu from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
 import TextField from './TextField';
-import { injectStyles, omit, parseColor, stringifyColor } from '../utils';
+import {
+  injectStyles,
+  omit,
+  parseColor,
+  stringifyColor,
+  classNames,
+} from '../utils';
 import styles from '../theme/components/ColorPicker.styl';
 
 class ColorPicker extends React.Component {

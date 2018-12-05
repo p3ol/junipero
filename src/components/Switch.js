@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 import Button from './Button';
-import { injectStyles, omit } from '../utils';
+import { injectStyles, omit, classNames } from '../utils';
 import styles from '../theme/components/Switch.styl';
 
 class Switch extends React.Component {

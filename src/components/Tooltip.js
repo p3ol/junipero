@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { Manager, Reference, Popper } from 'react-popper';
 
-import { injectStyles, getContainerNode, omit } from '../utils';
+import { injectStyles, getContainerNode, omit, classNames } from '../utils';
 import styles from '../theme/components/Tooltip.styl';
 
 class Tooltip extends React.Component {
