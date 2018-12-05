@@ -11,151 +11,47 @@
   border-radius: 2px
   border: 1px solid transparent
 
-  &:hover, &:visited, &:focus
-    background: $color-white - 10
+  for type, colors in $stylings
+    &.{type}
 
-  &:active, &.active
-    background: $color-white - 20
+      &, &:visited
+        color: colors.textDefault or $color-white
+        background: colors.default
+        border-color: colors.default
 
-  &.disabled
-    &, &:hover, &:active, &.active, &:focus, &:visited
-      background: $color-mercury
-      color: $color-silver
+      &:hover,
+      &.reversed:hover
+        color: colors.textHover or $color-white
+        background: colors.hover or (colors.default - 25)
+        border-color: colors.hover or (colors.default - 25)
 
-  &.primary
+      &:active, &.active
+      &.reversed:active, &.reversed.active
+        color: colors.textActive or $color-white
+        background: colors.active or (colors.default - 50)
+        border-color: colors.active or (colors.default - 50)
 
-    &.theme-none
-      background: $color-shuttle-gray
-      border-color: $color-shuttle-gray
-      color: $color-white
+      &:focus
+      &.reversed:focus
+        color: colors.textFocus or $color-white
+        background: colors.focus or colors.default
+        border-color: colors.focus or colors.default
 
-      &:hover, &:visited, &:focus, &.active
-        background: $color-shuttle-gray - 20
-        border-color: $color-shuttle-gray - 20
-        color: $color-white
-
-      &:active
-        background: $color-shuttle-gray
-        border-color: $color-shuttle-gray
-        color: $color-white
-
-      &.disabled
-        &, &:hover, &:active, &.active, &:focus, &:visited
-          background: $color-shuttle-gray + 50
-          border-color: $color-shuttle-gray + 50
-          color: $color-white
+      &:disabled, &.disabled
+        color: colors.textDisabled or colors.textDefault or $color-white
+        background: colors.disabled or rgba(colors.default, .5)
+        border-color: colors.disabled or rgba(colors.default, .5)
 
       &.reversed
-        background: transparent
-        color: $color-shuttle-gray
-
-        &:hover, &:visited, &:focus, &.active
-          background: $color-shuttle-gray
-          border-color: $color-shuttle-gray
-          color: $color-white
-
-        &:active
-          background: $color-shuttle-gray - 20
-          border-color: $color-shuttle-gray - 20
-          color: $color-white
-
-        &.disabled
-          &, &:hover, &:active, &.active, &:focus, &:visited
-            border-color: $color-shuttle-gray + 150
-            color: $color-shuttle-gray + 150
-            background: transparent
-
-    &.theme-default
-      background: $color-eastern-blue
-      border-color: $color-eastern-blue
-      color: $color-white
-
-      &:hover, &:visited, &:focus
-        background: $color-atoll
-        border-color: $color-atoll
-        color: $color-white
-
-      &.active
-        background: $color-eastern-blue
-        border-color: $color-eastern-blue
-        color: $color-white
-
-      &:active
-        background: $color-atoll - 10
-        border-color: $color-atoll - 10
-        color: $color-white
-
-      &.disabled
-        &, &:hover, &:active, &.active, &:focus, &:visited
-          background: $color-powder-blue
-          border-color: $color-powder-blue
-          color: $color-white
-
-      &.reversed
-        background: transparent
-        color: $color-eastern-blue
-
-        &:hover, &:visited, &:focus
-          background: $color-atoll
-          border-color: $color-atoll
-          color: $color-white
-
-        &.active
-          background: $color-eastern-blue
-          border-color: $color-eastern-blue
-          color: $color-white
-
-        &:active
-          background: $color-atoll - 10
-          border-color: $color-atoll - 10
-          color: $color-white
-
-        &.disabled
-          &, &:hover, &:active, &.active, &:focus, &:visited
-            border-color: $color-powder-blue
-            color: $color-powder-blue
-            background: transparent
-
-  &.danger
-    background: $color-monza
-    border-color: $color-monza
-    color: $color-white
-
-    &:hover, &:visited, &:focus, &.active
-      background: $color-monza - 10
-      border-color: $color-monza - 10
-      color: $color-white
-
-    &:active
-      background: $color-monza - 20
-      border-color: $color-monza - 20
-      color: $color-white
-
-    &.disabled
-      &, &:hover, &:active, &.active, &:focus, &:visited
-        background: $color-mandys-pink
-        border-color: $color-mandys-pink
-        color: $color-white
-
-    &.reversed
-      background: transparent
-      color: $color-monza
-
-      &:hover, &:visited, &:focus, &.active
-        background: $color-monza - 10
-        border-color: $color-monza - 10
-        color: $color-white
-
-      &:active
-        background: $color-monza - 20
-        border-color: $color-monza - 20
-        color: $color-white
-
-      &.disabled
-        &, &:hover, &:active, &.active, &:focus, &:visited
-          border-color: $color-mandys-pink
-          color: $color-mandys-pink
+        &, &.visited
+          border-color: colors.default
+          color: colors.default
           background: transparent
+
+        &:disabled, &.disabled
+          color: colors.disabled or rgba(colors.default, .5)
+          background: transparent
+          border-color: colors.disabled or rgba(colors.default, .5)
 
   &.size-big
     padding: 10px 30px
@@ -163,4 +59,6 @@
 
   .icon
     vertical-align: middle
-    font-size: 14px
+    font-size: 16px
+    position: relative
+    top: -2px
