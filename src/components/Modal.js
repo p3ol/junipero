@@ -15,6 +15,8 @@ class Modal extends React.Component {
     onOpen: PropTypes.func,
     onClose: PropTypes.func,
     apparition: PropTypes.string,
+    animate: PropTypes.func,
+    animateContent: PropTypes.func,
   }
 
   static defaultProps = {
@@ -24,6 +26,8 @@ class Modal extends React.Component {
     onOpen: () => {},
     onClose: () => {},
     apparition: 'insert',
+    animate: modal => modal,
+    animateContent: content => content,
   }
 
   state = {
@@ -85,6 +89,8 @@ class Modal extends React.Component {
       theme,
       children,
       apparition,
+      animate,
+      animateContent,
       ...rest
     } = this.props;
     const { opened } = this.state;
@@ -94,7 +100,7 @@ class Modal extends React.Component {
     }
 
     return ReactDOM.createPortal(
-      (
+      animate(
         <div
           { ...omit(rest, [
             'onOpen', 'onClose',
@@ -113,16 +119,18 @@ class Modal extends React.Component {
             className="modal-wrapper"
             onClick={this.onBackdropClick.bind(this)}
           >
-            <div className="modal-content">
-              <a
-                className="modal-close"
-                role="button"
-                tabIndex={-1}
-                onClick={this.close.bind(this)}
-              />
+            { animateContent(
+              <div className="modal-content">
+                <a
+                  className="modal-close"
+                  role="button"
+                  tabIndex={-1}
+                  onClick={this.close.bind(this)}
+                />
 
-              { children }
-            </div>
+                { children }
+              </div>
+            ) }
           </div>
         </div>
       ),

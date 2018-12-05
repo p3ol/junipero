@@ -25,6 +25,7 @@ class DateField extends React.Component {
     weekDaysNames: PropTypes.array,
     theme: PropTypes.string,
     native: PropTypes.bool,
+    animateMenu: PropTypes.func,
   }
 
   static defaultProps = {
@@ -49,6 +50,7 @@ class DateField extends React.Component {
     weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
     theme: 'default',
     native: false,
+    animateMenu: menu => menu,
   }
 
   state = {
@@ -234,6 +236,7 @@ class DateField extends React.Component {
       error,
       theme,
       native,
+      animateMenu,
       ...rest
     } = this.props;
 
@@ -300,6 +303,7 @@ class DateField extends React.Component {
               </DropdownToggle>
               <DropdownMenu
                 className="calendar"
+                animate={animateMenu}
               >
                 <div className="calendar-header">
                   <a

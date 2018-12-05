@@ -14,12 +14,14 @@ class DropdownMenu extends React.Component {
     apparition: PropTypes.oneOf(['insert', 'css']),
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     innerRef: PropTypes.func,
+    animate: PropTypes.func,
   }
 
   static defaultProps = {
     tag: 'ul',
     apparition: 'insert',
     ref: () => {},
+    animate: menu => menu,
   }
 
   static contextTypes = {
@@ -45,6 +47,7 @@ class DropdownMenu extends React.Component {
       modifiers,
       apparition,
       container,
+      animate,
       ...rest
     } = this.props;
 
@@ -67,7 +70,7 @@ class DropdownMenu extends React.Component {
         { ({ ref, style, placement_, scheduleUpdate }) => {
           this.scheduleUpdate = scheduleUpdate;
 
-          return (
+          return animate(
             <Tag
               { ...omit(rest, [
                 'innerRef',

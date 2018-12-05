@@ -25,6 +25,7 @@ class ColorPicker extends React.Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
+    animateMenu: PropTypes.func,
   }
 
   static defaultProps = {
@@ -36,6 +37,7 @@ class ColorPicker extends React.Component {
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
+    animateMenu: PropTypes.func,
   }
 
   state = {
@@ -247,7 +249,14 @@ class ColorPicker extends React.Component {
   }
 
   render() {
-    const { className, theme, native, disabled, ...rest } = this.props;
+    const {
+      className,
+      theme,
+      native,
+      disabled,
+      animateMenu,
+      ...rest
+    } = this.props;
     const { opened, value, h, s, v, a } = this.state;
 
     const field = (
@@ -284,6 +293,7 @@ class ColorPicker extends React.Component {
             <DropdownToggle tag="div">{ field }</DropdownToggle>
             <DropdownMenu
               apparition="css"
+              animate={animateMenu}
             >
               <div className="color-wheel" ref={(ref) => this.colorWheel = ref}>
                 <div

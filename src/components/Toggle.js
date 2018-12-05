@@ -16,6 +16,7 @@ class Toggle extends React.Component {
     required: PropTypes.bool,
     onChange: PropTypes.func,
     theme: PropTypes.string,
+    animateLabel: PropTypes.func,
   }
 
   static defaultProps = {
@@ -26,6 +27,7 @@ class Toggle extends React.Component {
     required: false,
     onChange: () => {},
     theme: 'default',
+    animateLabel: label => label,
   }
 
   state = {
@@ -65,6 +67,7 @@ class Toggle extends React.Component {
       className,
       onLabel,
       offLabel,
+      animateLabel,
       ...rest
     } = this.props;
     const { active, checked } = this.state;
@@ -101,7 +104,7 @@ class Toggle extends React.Component {
           </div>
 
           <div className="label">
-            { checked ? onLabel : offLabel }
+            { animateLabel(checked ? onLabel : offLabel) }
           </div>
 
         </label>

@@ -28,6 +28,7 @@ class SelectField extends React.Component {
     autoCompleteLabel: PropTypes.string,
     autoCompleteThreshold: PropTypes.number,
     theme: PropTypes.string,
+    animateMenu: PropTypes.func,
   }
 
   static defaultProps = {
@@ -47,6 +48,7 @@ class SelectField extends React.Component {
     autoCompletePlaceholder: 'Search...',
     autoCompleteThreshold: 400,
     theme: 'default',
+    animateMenu: menu => menu,
   }
 
   state = {
@@ -240,6 +242,7 @@ class SelectField extends React.Component {
       id,
       error,
       theme,
+      animateMenu,
       ...rest
     } = this.props;
 
@@ -320,6 +323,7 @@ class SelectField extends React.Component {
                 className={classNames({
                   'auto-completing': autoCompleting,
                 })}
+                animate={animateMenu}
               >
                 { autoComplete && (
                   <li className="auto-complete">

@@ -9,16 +9,18 @@ class Tab extends React.Component {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     key: PropTypes.number,
     className: PropTypes.string,
+    animate: PropTypes.func,
   }
   static defaultProps = {
     title: 'Tab',
     key: 0,
+    animate: tab => tab,
   }
 
   render() {
-    const { className, ...rest } = this.props;
+    const { className, animate, ...rest } = this.props;
 
-    return (
+    return animate(
       <div
         { ...omit(rest, [
           'title', 'key',

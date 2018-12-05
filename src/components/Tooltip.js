@@ -18,6 +18,7 @@ class Tooltip extends React.Component {
     onToggle: PropTypes.func,
     theme: PropTypes.string,
     apparition: PropTypes.oneOf(['insert', 'css']),
+    animate: PropTypes.func,
   }
 
   static defaultProps = {
@@ -27,6 +28,7 @@ class Tooltip extends React.Component {
     onToggle: () => {},
     theme: 'default',
     apparition: 'insert',
+    animate: tooltip => tooltip,
   }
 
   state = {
@@ -102,6 +104,7 @@ class Tooltip extends React.Component {
       theme,
       container,
       apparition,
+      animate,
       ...rest
     } = this.props;
     const { opened } = this.state;
@@ -150,7 +153,7 @@ class Tooltip extends React.Component {
             )
           )}
         </Reference>
-        { opened || apparition === 'css' ? (
+        { opened || apparition === 'css' ? animate(
           container
             ? ReactDOM.createPortal(tooltip, getContainerNode(container))
             : tooltip

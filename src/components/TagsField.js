@@ -20,6 +20,7 @@ class TagsField extends React.Component {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     theme: PropTypes.string,
+    animateTag: PropTypes.func,
   }
 
   static defaultProps = {
@@ -36,6 +37,7 @@ class TagsField extends React.Component {
     onFocus: () => {},
     onBlur: () => {},
     theme: 'default',
+    animateTag: tag => tag,
   }
 
   state = {
@@ -229,6 +231,7 @@ class TagsField extends React.Component {
       label,
       placeholder,
       theme,
+      animateTag,
       ...rest
     } = this.props;
 
@@ -265,7 +268,7 @@ class TagsField extends React.Component {
 
           <div className="field">
 
-            { this.state.value?.map((item, index) => (
+            { this.state.value?.map((item, index) => animateTag(
               <span
                 key={index}
                 className={classNames(
