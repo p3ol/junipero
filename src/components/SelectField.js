@@ -122,16 +122,15 @@ class SelectField extends React.Component {
       return;
     }
 
-    const value = item ? parseValue(item) : null;
-    const valid = validate(value);
+    const valid = validate(item ? parseValue(item) : item);
 
     this.setState({
-      value,
+      value: item,
       valid,
       opened: false,
     }, () => {
       this.props.onChange({
-        value,
+        value: item ? parseValue(item) : item,
         valid,
       });
     });
@@ -215,11 +214,11 @@ class SelectField extends React.Component {
     const { value } = this.state;
 
     const result = (
-      parseTitle && value !== undefined && value !== null ?
-        parseTitle(value) :
-        parseValue && value !== undefined && value !== null ?
-          parseValue(value) :
-          placeholder
+      parseTitle && typeof value !== 'undefined' && value !== null
+        ? parseTitle(value)
+        : parseValue && typeof value !== 'undefined' && value !== null
+          ? parseValue(value)
+          : placeholder
     )?.toString();
 
     return result;
