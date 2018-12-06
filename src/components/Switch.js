@@ -9,30 +9,32 @@ class Switch extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
-    theme: PropTypes.string,
     options: PropTypes.array,
+    theme: PropTypes.string,
     type: PropTypes.string,
-    validate: PropTypes.func,
-    parseValue: PropTypes.func,
-    parseTitle: PropTypes.func,
     onChange: PropTypes.func,
+    parseTitle: PropTypes.func,
+    parseValue: PropTypes.func,
+    validate: PropTypes.func,
   }
 
   static defaultProps = {
     disabled: false,
-    theme: 'default',
     options: [],
+    theme: 'default',
     type: 'primary',
-    validate: value => typeof value !== undefined && value !== null,
-    parseValue: (val) => val,
-    parseTitle: (val) => val,
     onChange: () => {},
+    parseTitle: (val) => val,
+    parseValue: (val) => val,
+    validate: value => typeof value !== undefined && value !== null,
   }
 
   state = {
     value: null,
     valid: true,
   }
+
+  buttons = []
 
   constructor(props) {
     super(props);
@@ -52,7 +54,7 @@ class Switch extends React.Component {
   }
 
   onChange(option, propagateChange = true) {
-    if (option.disabled || this.props.disabled) {
+    if (option?.disabled || this.props.disabled) {
       return;
     }
 
@@ -102,6 +104,7 @@ class Switch extends React.Component {
             { ...omit(rest, [
               'validate', 'parseValue', 'onChange',
             ]) }
+            ref={(ref) => this.buttons[index] = ref}
             className={classNames({
               selected: this.isActive(option),
             })}
