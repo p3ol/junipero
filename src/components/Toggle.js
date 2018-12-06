@@ -7,11 +7,10 @@ import styles from '../theme/components/Toggle.styl';
 class Toggle extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
     checked: PropTypes.bool,
     value: PropTypes.string,
-    onLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    offLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    checkedLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    uncheckedLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     onChange: PropTypes.func,
@@ -20,13 +19,14 @@ class Toggle extends React.Component {
   }
 
   static defaultProps = {
-    className: null,
     checked: false,
-    value: null,
+    value: true,
     disabled: false,
     required: false,
-    onChange: () => {},
+    checkedLabel: 'Enabled',
+    uncheckedLabel: 'Disabled',
     theme: 'default',
+    onChange: () => {},
     animateLabel: label => label,
   }
 
@@ -65,8 +65,8 @@ class Toggle extends React.Component {
       theme,
       value,
       className,
-      onLabel,
-      offLabel,
+      checkedLabel,
+      uncheckedLabel,
       animateLabel,
       ...rest
     } = this.props;
@@ -104,7 +104,7 @@ class Toggle extends React.Component {
           </div>
 
           <div className="label">
-            { animateLabel(checked ? onLabel : offLabel) }
+            { animateLabel(checked ? checkedLabel : uncheckedLabel) }
           </div>
 
         </label>

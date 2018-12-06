@@ -29,8 +29,6 @@ class TogglePage extends React.Component {
             <Toggle
               value="test"
               disabled={this.props.disabled}
-              onLabel="Enabled"
-              offLabel="Disabled"
               onChange={this.onChange.bind(this, 'default')}
             />
           </div>
@@ -47,8 +45,6 @@ class TogglePage extends React.Component {
               theme="none"
               value="test"
               disabled={this.props.disabled}
-              onLabel="Enabled"
-              offLabel="Disabled"
               onChange={this.onChange.bind(this, 'unthemed')}
             />
           </div>
