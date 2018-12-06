@@ -20,7 +20,7 @@ class Toggle extends React.Component {
 
   static defaultProps = {
     checked: false,
-    value: true,
+    value: '',
     disabled: false,
     required: false,
     checkedLabel: 'Enabled',
