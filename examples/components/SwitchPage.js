@@ -23,7 +23,7 @@ class SwitchPage extends React.Component {
     this.objectOptions = [
       { title: 'Left', value: 0 },
       { title: 'Middle', value: 1 },
-      { title: 'Right', value: false },
+      { title: 'Right', value: false, disabled: true },
     ];
   }
 
@@ -93,7 +93,7 @@ class SwitchPage extends React.Component {
               required={true}
               options={this.objectOptions}
               parseTitle={(option) => option.title}
-              value={this.objectOptions[2]}
+              value={this.objectOptions[1]}
               onChange={this.onChange.bind(this, 'withValue')}
             />
           </div>

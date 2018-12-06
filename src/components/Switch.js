@@ -52,6 +52,10 @@ class Switch extends React.Component {
   }
 
   onChange(option, propagateChange = true) {
+    if (option.disabled || this.props.disabled) {
+      return;
+    }
+
     const { validate, onChange, parseValue } = this.props;
     const value = parseValue(option);
     const valid = validate(value);
@@ -103,7 +107,7 @@ class Switch extends React.Component {
             })}
             key={index}
             theme={theme}
-            disabled={disabled}
+            disabled={option.disabled || disabled}
             reversed={true}
             onClick={this.onChange.bind(this, option)}
           >
