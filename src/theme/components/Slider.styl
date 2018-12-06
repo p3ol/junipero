@@ -11,19 +11,16 @@ $slide-size = 6px
 
   .slider-wrapper
     display: flex
-    flex-wrap: wrap
     align-items: center
+    justify-content: center
 
     .label, .slide, .value
       max-width: 100%
       width: auto
-      flex-grow: 1
-      min-width: 0
-      flex: 1
+      display: block
+      min-width: 100px
 
     .slide
-      min-width: 100px
-      display: block
       height: $slide-size
       width: unquote("calc(100% - ") $handle-size unquote(")")
       margin-top: ($slide-size / 2)
@@ -56,6 +53,7 @@ $slide-size = 6px
       padding-left: 20px
       color: $color-shuttle-gray
       font-weight: 600
+      text-align: left
 
   &.disabled
     .slide

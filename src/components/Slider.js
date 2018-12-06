@@ -7,29 +7,27 @@ import styles from '../theme/components/Slider.styl';
 class Slider extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
-    value: PropTypes.number,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    min: PropTypes.number,
-    max: PropTypes.number,
-    renderValue: PropTypes.func,
     disabled: PropTypes.bool,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    max: PropTypes.number,
+    min: PropTypes.number,
     step: PropTypes.number,
-    onChange: PropTypes.func,
     theme: PropTypes.string,
+    value: PropTypes.number,
+    onChange: PropTypes.func,
+    renderValue: PropTypes.func,
   }
 
   static defaultProps = {
-    className: '',
-    label: '',
-    value: 0,
-    min: 0,
-    max: 100,
-    step: 1,
     disabled: false,
-    renderValue: value => value,
-    onChange: () => {},
+    label: '',
+    max: 100,
+    min: 0,
+    step: 1,
     theme: 'default',
+    value: 0,
+    onChange: () => {},
+    renderValue: value => value,
   }
 
   constructor(props) {
