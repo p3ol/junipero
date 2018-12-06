@@ -60,6 +60,7 @@ class DropdownToggle extends React.Component {
             ]) }
             { ...{ [tagRefName]: ref} }
             className={classNames(
+              'junipero',
               'junipero-dropdown-toggle',
               className,
             )}

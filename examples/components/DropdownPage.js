@@ -37,7 +37,6 @@ class DropdownPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <Dropdown
-              isOpen={this.state.default}
               disabled={this.props.disabled}
               onToggle={this.onChange.bind(this, 'default')}
             >
@@ -59,7 +58,6 @@ class DropdownPage extends React.Component {
           <div className="col-6">
             <Dropdown
               theme="none"
-              isOpen={this.state.unthemed}
               disabled={this.props.disabled}
               onToggle={this.onChange.bind(this, 'unthemed')}
             >
@@ -80,7 +78,6 @@ class DropdownPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <Dropdown
-              isOpen={this.state.button}
               disabled={this.props.disabled}
               onToggle={this.onChange.bind(this, 'button')}
             >
@@ -103,7 +100,6 @@ class DropdownPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <Dropdown
-              isOpen={this.state.cssOnly}
               disabled={this.props.disabled}
               onToggle={this.onChange.bind(this, 'cssOnly')}
             >
@@ -126,7 +122,6 @@ class DropdownPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <Dropdown
-              isOpen={this.state.customTag}
               disabled={this.props.disabled}
               onToggle={this.onChange.bind(this, 'customTag')}
             >
@@ -147,7 +142,6 @@ class DropdownPage extends React.Component {
         <div className="row mt-5">
           <div className="col-6">
             <Dropdown
-              isOpen={this.state.bodyContainer}
               disabled={this.props.disabled}
               onToggle={this.onChange.bind(this, 'bodyContainer')}
             >

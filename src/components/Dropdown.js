@@ -34,6 +34,10 @@ class Dropdown extends React.Component {
     onToggle: PropTypes.func.isRequired,
   }
 
+  state = {
+    opened: this.props.isOpen || false,
+  }
+
   dropdownRef = null;
 
   menuRef = null;
@@ -53,6 +57,10 @@ class Dropdown extends React.Component {
     if (this.props.disabled !== prevProps.disabled) {
       this.close();
     }
+
+    if (this.props.isOpen !== prevProps.isOpen) {
+      this.onChange(this.props.isOpen);
+    }
   }
 
   getChildContext() {
@@ -60,7 +68,7 @@ class Dropdown extends React.Component {
       disabled: this.props.disabled,
       theme: this.props.theme,
       placement: this.props.placement,
-      isOpen: this.props.isOpen,
+      isOpen: this.state.opened,
       onToggle: this.toggle.bind(this),
     };
   }
@@ -85,38 +93,47 @@ class Dropdown extends React.Component {
 
   open(e) {
     if (this.props.disabled) {
-      return e && e.preventDefault();
+      e?.preventDefault();
+      return;
     }
 
-    return this.props.onToggle(true);
+    this.onChange(true);
   }
 
-  close(e) {
-    return this.props.onToggle(false);
+  close() {
+    this.onChange(false);
   }
 
   toggle(e) {
-    this.props.isOpen
-      ? this.close(e)
+    this.state.opened
+      ? this.close()
       : this.open(e);
+  }
+
+  onChange(opened) {
+    this.setState({
+      opened,
+    }, () => {
+      this.props.onToggle(opened);
+    });
   }
 
   render() {
     const {
       className,
-      isOpen,
       theme,
       disabled,
       children,
       tag: Tag,
       ...rest
     } = omit(this.props);
+    const { opened } = this.state;
 
     return (
       <Manager>
         <Tag
           { ...omit(rest, [
-            'onToggle', 'placement',
+            'onToggle', 'placement', 'isOpen',
           ])}
           ref={(ref) => this.dropdownRef = ref}
           className={classNames(
@@ -124,7 +141,7 @@ class Dropdown extends React.Component {
             'junipero-dropdown',
             'theme-' + theme,
             {
-              opened: isOpen,
+              opened,
               disabled,
             },
             className,
