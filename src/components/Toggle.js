@@ -8,26 +8,26 @@ class Toggle extends React.Component {
 
   static propTypes = {
     checked: PropTypes.bool,
-    value: PropTypes.string,
     checkedLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    uncheckedLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    onChange: PropTypes.func,
     theme: PropTypes.string,
+    uncheckedLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    value: PropTypes.string,
     animateLabel: PropTypes.func,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
     checked: false,
-    value: '',
+    checkedLabel: 'Enabled',
     disabled: false,
     required: false,
-    checkedLabel: 'Enabled',
-    uncheckedLabel: 'Disabled',
     theme: 'default',
-    onChange: () => {},
+    uncheckedLabel: 'Disabled',
+    value: '',
     animateLabel: label => label,
+    onChange: () => {},
   }
 
   state = {
