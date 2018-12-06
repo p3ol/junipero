@@ -8,8 +8,6 @@ class DropdownToggle extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
-    className: PropTypes.string,
-    children: PropTypes.node,
     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     tagRefName: PropTypes.string,
     onClick: PropTypes.func,
@@ -17,7 +15,7 @@ class DropdownToggle extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    className: '',
+    tag: 'span',
     tagRefName: 'ref',
     onClick: () => {},
   }
@@ -42,12 +40,10 @@ class DropdownToggle extends React.Component {
   render() {
     const {
       className,
-      tag,
+      tag: Tag,
       tagRefName,
       ...rest
     } = this.props;
-
-    const Tag = tag || 'span';
 
     rest.disabled = rest.disabled || this.context.disabled;
 

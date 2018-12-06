@@ -37,7 +37,7 @@ class ColorPicker extends React.Component {
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
-    animateMenu: PropTypes.func,
+    animateMenu: menu => menu,
   }
 
   state = {
@@ -51,6 +51,8 @@ class ColorPicker extends React.Component {
     v: 0,
     a: 100,
   }
+
+  menuRef = null
 
   input = null
 
@@ -285,6 +287,7 @@ class ColorPicker extends React.Component {
       >
         { native ? field : (
           <Dropdown
+            ref={(ref) => this.menuRef = ref}
             disabled={disabled}
             theme={theme}
             isOpen={opened}

@@ -30,6 +30,10 @@ class Slider extends React.Component {
     renderValue: value => value,
   }
 
+  innerRef = null
+
+  slideRef = null
+
   constructor(props) {
     super(props);
 
@@ -78,7 +82,7 @@ class Slider extends React.Component {
   }
 
   getPosition() {
-    return this.slide?.offsetWidth * (this.state.value / this.props.max);
+    return this.slideRef?.offsetWidth * (this.state.value / this.props.max);
   }
 
   onMouseDown(e) {
@@ -98,12 +102,12 @@ class Slider extends React.Component {
   }
 
   onMouseMove(e) {
-    if (!this.state.moving || !this.slide || this.props.disabled) {
+    if (!this.state.moving || !this.slideRef || this.props.disabled) {
       return;
     }
 
-    const slideOffset = this.getElementOffset(this.slide);
-    const slideWidth = this.slide?.offsetWidth;
+    const slideOffset = this.getElementOffset(this.slideRef);
+    const slideWidth = this.slideRef?.offsetWidth;
     const value = this.getValue(this.props.max * (
       (e.pageX - slideOffset.left) / slideWidth
     ));
@@ -112,7 +116,7 @@ class Slider extends React.Component {
   }
 
   onMouseUp(e) {
-    if (!this.state.moving || !this.slide || this.props.disabled) {
+    if (!this.state.moving || !this.slideRef || this.props.disabled) {
       return;
     }
 
@@ -160,6 +164,7 @@ class Slider extends React.Component {
           },
           className,
         )}
+        ref={(ref) => this.innerRef = ref}
         onMouseDown={this.onMouseDown.bind(this)}
       >
         <div className="slider-wrapper">
@@ -167,7 +172,7 @@ class Slider extends React.Component {
             <span className="label">{ label }</span>
           ) }
 
-          <div className="slide" ref={(ref) => this.slide = ref}>
+          <div className="slide" ref={(ref) => this.slideRef = ref}>
             <div
               className="fill"
               style={{ width: `${this.getPosition()}px` }}

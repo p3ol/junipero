@@ -8,19 +8,17 @@ import { getContainerNode, omit, classNames } from '../utils';
 class DropdownMenu extends React.Component {
 
   static propTypes = {
-    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-    modifiers: PropTypes.object,
-    children: PropTypes.node.isRequired,
     apparition: PropTypes.oneOf(['insert', 'css']),
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    innerRef: PropTypes.func,
+    modifiers: PropTypes.object,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     animate: PropTypes.func,
   }
 
   static defaultProps = {
-    tag: 'ul',
     apparition: 'insert',
-    ref: () => {},
+    modifiers: {},
+    tag: 'ul',
     animate: menu => menu,
   }
 
@@ -31,10 +29,6 @@ class DropdownMenu extends React.Component {
   };
 
   innerRef = null;
-
-  componentDidMount() {
-    this.props.innerRef?.(this);
-  }
 
   updatePopper() {
     this.scheduleUpdate?.();

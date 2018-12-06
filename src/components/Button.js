@@ -8,11 +8,6 @@ class Button extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
-    innerRef: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.func,
-      PropTypes.string,
-    ]),
     reversed: PropTypes.bool,
     size: PropTypes.string,
     submit: PropTypes.bool,
@@ -32,6 +27,8 @@ class Button extends React.Component {
     type: 'default',
     onClick: () => {},
   }
+
+  innerRef = null
 
   constructor(props) {
     super(props);
@@ -58,7 +55,6 @@ class Button extends React.Component {
       disabled,
       className,
       children,
-      innerRef,
       theme,
       ...rest
     } = this.props;
@@ -78,7 +74,7 @@ class Button extends React.Component {
           },
           className,
         )}
-        ref={innerRef}
+        ref={(ref) => this.innerRef = ref}
         onClick={this.onClick.bind(this)}
         type={submit ? 'submit' : Tag === 'button' ? 'button' : null}
         disabled={disabled}

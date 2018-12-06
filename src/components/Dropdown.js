@@ -9,20 +9,20 @@ import styles from '../theme/components/Dropdown.styl';
 class Dropdown extends React.Component {
 
   static propTypes = {
-    theme: PropTypes.string,
     disabled: PropTypes.bool,
     isOpen: PropTypes.bool,
     placement: PropTypes.string,
     tag: PropTypes.string,
+    theme: PropTypes.string,
     onToggle: PropTypes.func,
   }
 
   static defaultProps = {
-    theme: 'default',
     disabled: false,
     isOpen: false,
-    tag: 'div',
     placement: 'bottom-start',
+    tag: 'div',
+    theme: 'default',
     onToggle: () => {},
   }
 
