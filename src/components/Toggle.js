@@ -42,12 +42,20 @@ class Toggle extends React.Component {
       { id: 'junipero-toggle-styles', after: '#junipero-main-styles' });
   }
 
-  onChange(e) {
+  componentDidUpdate(prevProps) {
+    if (this.props.checked !== prevProps.checked) {
+      this.onChange(null, this.props.checked);
+    }
+  }
+
+  onChange(e, forceValue) {
     if (this.props.disabled) {
       return;
     }
 
-    const checked = e.target.checked;
+    const checked = typeof forceValue !== 'undefined' && forceValue !== null
+      ? forceValue
+      : e.target.checked;
 
     this.setState({
       checked,
@@ -96,6 +104,7 @@ class Toggle extends React.Component {
               type="checkbox"
               onChange={this.onChange.bind(this)}
               value={value}
+              checked={checked}
               disabled={disabled}
             />
             <div className="toggle">
