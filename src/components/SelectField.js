@@ -68,7 +68,7 @@ class SelectField extends React.Component {
   }
 
   componentDidMount() {
-    this.onPropValueChange();
+    this.onPropValueChange(false);
   }
 
   componentDidUpdate(prevProps) {
@@ -98,23 +98,23 @@ class SelectField extends React.Component {
     });
   }
 
-  onPropValueChange() {
+  onPropValueChange(propagateChange = true) {
     const { native, options, value, parseValue, autoComplete } = this.props;
 
-    const index = value === undefined || value === null ?
-      -1 :
-      options.findIndex((item) =>
-        parseValue(item) === parseValue(value)
+    const index = value === undefined || value === null
+      ? -1
+      : options.findIndex((item) =>
+        parseValue(item) === value
       );
 
     if (native && !autoComplete) {
       this.onNativeChange(null, index);
     } else {
-      this.onChange(options[index]);
+      this.onChange(options[index], null, propagateChange);
     }
   }
 
-  onChange(item, e) {
+  onChange(item, e, propagateChange = true) {
     e?.preventDefault();
 
     const { parseValue, validate, disabled } = this.props;
@@ -130,14 +130,16 @@ class SelectField extends React.Component {
       valid,
       opened: false,
     }, () => {
-      this.props.onChange({
-        value: item ? parseValue(item) : item,
-        valid,
-      });
+      if (propagateChange) {
+        this.props.onChange({
+          value: item ? parseValue(item) : item,
+          valid,
+        });
+      }
     });
   }
 
-  onNativeChange(e, forceIndex) {
+  onNativeChange(e, forceIndex, propagateChange = true) {
     const { validate, parseValue, options, disabled } = this.props;
 
     if (disabled) {
@@ -156,10 +158,12 @@ class SelectField extends React.Component {
       value: e?.target?.value || null,
       valid,
     }, () => {
-      this.props.onChange({
-        value,
-        valid,
-      });
+      if (propagateChange) {
+        this.props.onChange({
+          value,
+          valid,
+        });
+      }
     });
   }
 

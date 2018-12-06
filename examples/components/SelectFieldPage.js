@@ -140,6 +140,7 @@ class SelectFieldPage extends React.Component {
               disabled={this.props.disabled}
               boxed={this.props.boxed}
               error={this.props.error}
+              value={15}
               parseValue={(item) => item.value}
               parseTitle={(item) => item.title}
               onChange={this.onChange.bind(this, 'objectsForceValue')}
