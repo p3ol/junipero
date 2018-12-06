@@ -1,7 +1,7 @@
 [![npm](https://img.shields.io/npm/v/@poool/junipero.svg?style=flat-square)](https://www.npmjs.com/package/@poool/junipero)
 [![GitHub](https://img.shields.io/github/license/p3ol/junipero.svg?style=flat-square)](https://github.com/p3ol/junipero)
 
-# Junipero
+![junipero](https://storage.googleapis.com/junipero-cdn/images/logo-github.png)
 
 > A collection of lightweight and beautifully designed React components
 
