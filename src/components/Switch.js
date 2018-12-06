@@ -103,7 +103,7 @@ class Switch extends React.Component {
               'validate', 'parseValue', 'onChange',
             ]) }
             className={classNames({
-              active: this.isActive(option),
+              selected: this.isActive(option),
             })}
             key={index}
             theme={theme}
