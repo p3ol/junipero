@@ -108,7 +108,7 @@ class SelectField extends React.Component {
       );
 
     if (native && !autoComplete) {
-      this.onNativeChange(index);
+      this.onNativeChange(null, index);
     } else {
       this.onChange(options[index]);
     }
@@ -137,14 +137,18 @@ class SelectField extends React.Component {
     });
   }
 
-  onNativeChange(e) {
+  onNativeChange(e, forceIndex) {
     const { validate, parseValue, options, disabled } = this.props;
 
     if (disabled) {
       return;
     }
 
-    const option = options[e?.target?.value || -1];
+    const index = typeof forceIndex !== 'undefined' && forceIndex !== null
+      ? forceIndex
+      : e?.target?.value;
+
+    const option = options[index];
     const value = option ? parseValue(option) : null;
     const valid = validate(value);
 
