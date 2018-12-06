@@ -52,11 +52,19 @@ $stylings = {
     disabled: $color-alabaster
   },
   primary: {
-    default: $color-eastern-blue,
-    hover: $color-atoll,
-    active: $color-persian-green,
-    focus: $color-persian-green,
-    disabled: $color-powder-blue
+    'theme-none': {
+      default: $color-shuttle-gray,
+      hover: $color-shuttle-gray - 10,
+      active: $color-shuttle-gray - 20,
+      disabled: $color-alabaster
+    },
+    'theme-default': {
+      default: $color-eastern-blue,
+      hover: $color-atoll,
+      active: $color-persian-green,
+      focus: $color-persian-green,
+      disabled: $color-powder-blue
+    },
   },
   success: {
     default: $color-java
