@@ -155,7 +155,7 @@ class SelectField extends React.Component {
     const valid = validate(value);
 
     this.setState({
-      value: e?.target?.value || null,
+      value: index,
       valid,
     }, () => {
       if (propagateChange) {
