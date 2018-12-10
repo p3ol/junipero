@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import { eslint } from 'rollup-plugin-eslint';
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 
 const defaultConfig = () => ({
   input: 'src/index.js',
@@ -55,7 +55,7 @@ const defaultUMDConfig = (minified = false, config = defaultConfig()) => ({
     ...config.plugins,
     resolve(),
     commonjs(),
-    minified ? uglify() : null,
+    minified ? terser() : null,
   ],
 });
 
