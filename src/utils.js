@@ -43,7 +43,10 @@ export const injectStyles = (styles, options = {}) => {
   if (!tag) {
     tag = document.createElement('style');
     tag.type = 'text/css';
-    tag.id = options.id;
+
+    if (options.id) {
+      tag.id = options.id;
+    }
 
     const target = head?.querySelector(options.after) || head?.lastChild;
     head.insertBefore(tag, target?.nextSibling);
