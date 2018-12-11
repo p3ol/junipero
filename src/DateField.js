@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 import DropdownMenu from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
-import { injectStyles, omit, classNames } from '../utils';
-import styles from '../theme/components/DateField.styl';
+import { injectStyles, omit, classNames } from './utils';
+import styles from './theme/components/DateField.styl';
 
 class DateField extends React.Component {
 

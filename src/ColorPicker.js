@@ -11,8 +11,8 @@ import {
   parseColor,
   stringifyColor,
   classNames,
-} from '../utils';
-import styles from '../theme/components/ColorPicker.styl';
+} from './utils';
+import styles from './theme/components/ColorPicker.styl';
 
 class ColorPicker extends React.Component {
 

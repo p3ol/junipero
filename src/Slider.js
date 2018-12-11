@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles, omit, classNames } from '../utils';
-import styles from '../theme/components/Slider.styl';
+import { injectStyles, omit, classNames } from './utils';
+import styles from './theme/components/Slider.styl';
 
 class Slider extends React.Component {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles, omit, classNames } from '../utils';
-import styles from '../theme/components/TextField.styl';
+import { injectStyles, omit, classNames } from './utils';
+import styles from './theme/components/TextField.styl';
 
 class TextField extends React.Component {
 

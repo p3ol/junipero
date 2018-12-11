@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 
-import { omit, classNames } from '../utils';
+import { omit, classNames } from './utils';
 
 class DropdownToggle extends React.Component {
 

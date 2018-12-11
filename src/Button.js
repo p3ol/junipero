@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles, classNames } from '../utils';
-import styles from '../theme/components/Button.styl';
+import { injectStyles, classNames } from './utils';
+import styles from './theme/components/Button.styl';
 
 class Button extends React.Component {
 

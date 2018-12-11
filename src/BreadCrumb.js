@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles } from '../utils';
-import styles from '../theme/components/BreadCrumb.styl';
+import { injectStyles } from './utils';
+import styles from './theme/components/BreadCrumb.styl';
 
 class BreadCrumb extends React.Component {
 

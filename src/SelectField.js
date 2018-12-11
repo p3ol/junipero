@@ -6,8 +6,8 @@ import DropdownMenu from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
 import DropdownItem from './DropdownItem';
 import TextField from './TextField';
-import { injectStyles, omit, classNames } from '../utils';
-import styles from '../theme/components/SelectField.styl';
+import { injectStyles, omit, classNames } from './utils';
+import styles from './theme/components/SelectField.styl';
 
 class SelectField extends React.Component {
 

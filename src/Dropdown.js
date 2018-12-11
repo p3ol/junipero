@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Manager } from 'react-popper';
 
-import { omit, injectStyles, classNames } from '../utils';
+import { omit, injectStyles, classNames } from './utils';
 import DropdownMenu from './DropdownMenu';
-import styles from '../theme/components/Dropdown.styl';
+import styles from './theme/components/Dropdown.styl';
 
 class Dropdown extends React.Component {
 
