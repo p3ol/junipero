@@ -3,8 +3,8 @@
   "version": "0.0.1-beta.6",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero.cjs.js",
-  "jsnext:main": "dist/junipero.es.js",
-  "module": "dist/junipero.es.js",
+  "jsnext:main": "dist/lib/index.js",
+  "module": "dist/lib/index.js",
   "unpkg": "dist/junipero.min.js",
   "cdn": "dist/junipero.min.js",
   "esnext": "src",
@@ -18,8 +18,10 @@
     "react-popper": "^1.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-proposal-optional-chaining": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
@@ -28,6 +30,7 @@
     "autoprefixer": "^9.3.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "clean-css": "^4.2.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.1",
     "eslint": "^5.8.0",
@@ -73,10 +76,11 @@
     "prop-types": "^15.6.2"
   },
   "scripts": {
-    "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.js --hot --inline --open",
+    "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --hot --inline --open",
     "clean": "rm -r ./dist || true",
-    "build-webpack": "./node_modules/.bin/webpack --config webpack.release.js",
-    "build-rollup": "yarn clean && ./node_modules/.bin/rollup -c",
-    "prepack": "yarn build-rollup"
+    "build:module": "BABEL_ENV=module ./node_modules/.bin/babel ./src --out-dir ./dist/lib",
+    "build:browser": "BABEL_ENV=browser ./node_modules/.bin/rollup -c",
+    "build": "yarn clean && yarn build:browser && yarn build:module",
+    "prepack": "yarn build"
   }
 }

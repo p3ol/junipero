@@ -1,13 +1,35 @@
+const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    'junipero': './src/index.js',
+    'examples': './examples/index.js',
   },
-  target: 'web',
-  optimization: {
-    minimize: false,
+  devtool: 'inline-source-map',
+  mode: 'development',
+  devServer: {
+    contentBase: './dist',
+    port: 65000,
+    host: 'localhost',
+    historyApiFallback: true,
+  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      debug: true,
+    }),
+    new HtmlWebpackPlugin({
+      template: './examples/index.html',
+      chunks: ['examples'],
+      inject: true,
+    }),
+  ],
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      '@poool/junipero': path.resolve('./src'),
+    },
   },
   module: {
     rules: [{
@@ -36,13 +58,5 @@ module.exports = {
       test: /\.(gif|svg|jpg|png)$/,
       loader: 'file-loader',
     }],
-  },
-  node: false,
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-    library: 'junipero',
-    libraryTarget: 'umd',
-    sourceMapFilename: '[name].js.map',
   },
 };

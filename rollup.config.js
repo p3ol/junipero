@@ -66,7 +66,6 @@ const libConfig = (config = defaultConfig()) => ({
   ...config,
   output: [
     { file: 'dist/junipero.cjs.js', format: 'cjs' },
-    { file: 'dist/junipero.es.js', format: 'es' },
   ],
 });
 
