@@ -10,7 +10,11 @@ class Tooltip extends React.Component {
 
   static propTypes = {
     classname: PropTypes.string,
-    text: PropTypes.string,
+    text: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.bool,
+    ]),
     placement: PropTypes.string,
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
