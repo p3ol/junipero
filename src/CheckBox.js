@@ -38,6 +38,10 @@ class CheckBox extends React.Component {
       { id: 'junipero-check-box-styles', after: '#junipero-main-styles' });
   }
 
+  componentDidMount() {
+    document.addEventListener('mouseup', this.onMouseUp.bind(this), false);
+  }
+
   onChange(e) {
     e.persist();
 
@@ -66,10 +70,6 @@ class CheckBox extends React.Component {
   }
 
   onMouseUp() {
-    if (this.props.disabled) {
-      return;
-    }
-
     this.setState({ active: false });
   }
 
@@ -94,7 +94,6 @@ class CheckBox extends React.Component {
         <label
           className="check-wrapper"
           onMouseDown={this.onMouseDown.bind(this)}
-          onMouseUp={this.onMouseUp.bind(this)}
         >
           <div className="check-inner">
             <input
@@ -115,6 +114,10 @@ class CheckBox extends React.Component {
         </label>
       </div>
     );
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mouseup', this.onMouseUp.bind(this));
   }
 
 }
