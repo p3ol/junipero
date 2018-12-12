@@ -19,7 +19,7 @@ class CheckBox extends React.Component {
   static defaultProps = {
     className: null,
     checked: false,
-    value: null,
+    value: '',
     disabled: false,
     required: false,
     onChange: () => {},
