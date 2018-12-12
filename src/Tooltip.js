@@ -51,27 +51,31 @@ class Tooltip extends React.Component {
 
     switch (trigger) {
       case 'click':
-        this.target?.addEventListener('click',
-          this.toggleTooltip.bind(this), false);
-        document.addEventListener('click',
-          this.onClickOutside.bind(this), false);
+        this.target?.addEventListener('click', this.toggleTooltip, false);
+        document.addEventListener('click', this.onClickOutside, false);
         break;
       default:
-        this.target?.addEventListener('mouseenter',
-          this.toggleTooltip.bind(this, true), false);
-        this.target?.addEventListener('mouseleave',
-          this.toggleTooltip.bind(this, false), false);
+        this.target?.addEventListener('mouseenter', this.openTooltip, false);
+        this.target?.addEventListener('mouseleave', this.closeTooltip, false);
         break;
     }
   }
 
-  onClickOutside(e) {
+  onClickOutside = (e) => {
     if (this.target && !this.target.contains(e.target)) {
       this.toggleTooltip(false);
     }
   }
 
-  toggleTooltip(forceOpen) {
+  openTooltip = () => {
+    this.toggleTooltip(true);
+  }
+
+  closeTooltip = () => {
+    this.toggleTooltip(false);
+  }
+
+  toggleTooltip = (forceOpen) => {
     const { disabled, onToggle } = this.props;
 
     if (disabled) {
@@ -172,14 +176,12 @@ class Tooltip extends React.Component {
 
     switch (trigger) {
       case 'click':
-        this.target?.removeEventListener('click',
-          this.toggleTooltip.bind(this));
+        this.target?.removeEventListener('click', this.toggleTooltip);
+        document.removeEventListener('click', this.onClickOutside);
         break;
       default:
-        this.target?.removeEventListener('mouseenter',
-          this.toggleTooltip.bind(this));
-        this.target?.removeEventListener('mouseleave',
-          this.toggleTooltip.bind(this));
+        this.target?.removeEventListener('mouseenter', this.openTooltip);
+        this.target?.removeEventListener('mouseleave', this.closeTooltip);
         break;
     }
   }

@@ -50,7 +50,7 @@ class Dropdown extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.onClickOutside.bind(this), false);
+    document.addEventListener('click', this.onClickOutside, false);
   }
 
   componentDidUpdate(prevProps) {
@@ -73,7 +73,7 @@ class Dropdown extends React.Component {
     };
   }
 
-  onClickOutside(e) {
+  onClickOutside = (e) => {
     const container = this.dropdownRef;
     const menu = this.menuRef?.innerRef;
 
@@ -158,7 +158,7 @@ class Dropdown extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.onClickOutside.bind(this));
+    document.removeEventListener('click', this.onClickOutside);
   }
 
 }

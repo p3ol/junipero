@@ -70,10 +70,9 @@ class ColorPicker extends React.Component {
   }
 
   componentDidMount() {
-    const doc = document;
-    doc.addEventListener('mousedown', this.onClickOutside.bind(this), true);
-    doc.addEventListener('mousemove', this.onMouseMove.bind(this), true);
-    doc.addEventListener('mouseup', this.onMouseUp.bind(this), true);
+    document.addEventListener('mousedown', this.onClickOutside, true);
+    document.addEventListener('mousemove', this.onMouseMove, true);
+    document.addEventListener('mouseup', this.onMouseUp, true);
 
     this.onInputChange({ value: this.props.value }, false);
   }
@@ -123,7 +122,7 @@ class ColorPicker extends React.Component {
     });
   }
 
-  onClickOutside(e) {
+  onClickOutside = (e) => {
     if (this.input && this.input === e.target) {
       return;
     }
@@ -166,7 +165,7 @@ class ColorPicker extends React.Component {
     e.preventDefault();
   }
 
-  onMouseMove(e) {
+  onMouseMove = (e) => {
     const { disabled, format } = this.props;
     const { handleMoving, handleType } = this.state;
 
@@ -223,7 +222,7 @@ class ColorPicker extends React.Component {
     });
   }
 
-  onMouseUp(e) {
+  onMouseUp = (e) => {
     const { disabled } = this.props;
     const { handleMoving, handleType } = this.state;
 
@@ -384,10 +383,9 @@ class ColorPicker extends React.Component {
   }
 
   componentWillUnmount() {
-    const doc = document;
-    doc.removeEventListener('mousedown', this.onClickOutside.bind(this));
-    doc.removeEventListener('mousemove', this.onMouseMove.bind(this), true);
-    doc.removeEventListener('mouseup', this.onMouseUp.bind(this), true);
+    document.removeEventListener('mousedown', this.onClickOutside);
+    document.removeEventListener('mousemove', this.onMouseMove);
+    document.removeEventListener('mouseup', this.onMouseUp);
   }
 
 }

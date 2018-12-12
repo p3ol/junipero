@@ -30,6 +30,12 @@ class Slider extends React.Component {
     renderValue: value => value,
   }
 
+  state = {
+    value: this.props.value,
+    precision: this.getPrecision(),
+    moving: false,
+  }
+
   innerRef = null
 
   slideRef = null
@@ -39,18 +45,11 @@ class Slider extends React.Component {
 
     injectStyles(styles,
       { id: 'junipero-slider-styles', after: '#junipero-main-styles' });
-
-    this.state = {
-      value: this.props.value,
-      precision: this.getPrecision(),
-      moving: false,
-    };
   }
 
   componentDidMount() {
-    const doc = document;
-    doc.addEventListener('mousemove', this.onMouseMove.bind(this), true);
-    doc.addEventListener('mouseup', this.onMouseUp.bind(this), true);
+    document.addEventListener('mousemove', this.onMouseMove, true);
+    document.addEventListener('mouseup', this.onMouseUp, true);
   }
 
   componentDidUpdate(prevProps) {
@@ -101,7 +100,7 @@ class Slider extends React.Component {
     e.preventDefault();
   }
 
-  onMouseMove(e) {
+  onMouseMove = (e) => {
     if (!this.state.moving || !this.slideRef || this.props.disabled) {
       return;
     }
@@ -115,7 +114,7 @@ class Slider extends React.Component {
     this.onChange(value);
   }
 
-  onMouseUp(e) {
+  onMouseUp = (e) => {
     if (!this.state.moving || !this.slideRef || this.props.disabled) {
       return;
     }
@@ -194,9 +193,8 @@ class Slider extends React.Component {
   }
 
   componentWillUnmount() {
-    const doc = document;
-    doc.removeEventListener('mousemove', this.onMouseMove.bind(this), true);
-    doc.removeEventListener('mouseup', this.onMouseUp.bind(this), true);
+    document.removeEventListener('mousemove', this.onMouseMove, true);
+    document.removeEventListener('mouseup', this.onMouseUp, true);
   }
 
 }

@@ -39,7 +39,7 @@ class CheckBox extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.onMouseUp.bind(this), false);
+    document.addEventListener('mouseup', this.onMouseUp, false);
   }
 
   onChange(e) {
@@ -69,7 +69,7 @@ class CheckBox extends React.Component {
     this.setState({ active: true });
   }
 
-  onMouseUp() {
+  onMouseUp = () => {
     this.setState({ active: false });
   }
 
@@ -117,7 +117,7 @@ class CheckBox extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.onMouseUp.bind(this));
+    document.removeEventListener('mouseup', this.onMouseUp);
   }
 
 }
