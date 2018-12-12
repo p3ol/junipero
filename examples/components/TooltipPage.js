@@ -50,7 +50,7 @@ class TooltipPage extends React.Component {
             <Tooltip
               theme="none"
               placement="top"
-              text="This is a tooltip"
+              text="This is a tooltip with kind of a long text but not too long"
               onToggle={this.onChange.bind(this, 'withoutTheming')}
               disabled={this.props.disabled}
             >
