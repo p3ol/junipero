@@ -7,50 +7,48 @@ import styles from './theme/components/TextField.styl';
 class TextField extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    type: PropTypes.string,
+    boxed: PropTypes.bool,
+    disabled: PropTypes.bool,
     label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
       PropTypes.bool,
     ]),
     placeholder: PropTypes.string,
-    disabled: PropTypes.bool,
     required: PropTypes.bool,
-    boxed: PropTypes.bool,
     rows: PropTypes.number,
+    theme: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
     validate: PropTypes.func,
-    theme: PropTypes.string,
   }
 
   static defaultProps = {
-    className: null,
-    value: '',
-    type: 'text',
+    boxed: false,
+    disabled: false,
     label: '',
     placeholder: '',
-    disabled: false,
     required: false,
-    boxed: false,
     rows: null,
+    theme: 'default',
+    type: 'text',
+    value: '',
+    onBlur: () => {},
     onChange: () => {},
     onFocus: () => {},
-    onBlur: () => {},
     validate: value => /.+/g.test(value),
-    theme: 'default',
   }
 
   input = null
 
   state = {
-    focused: false,
     dirty: !!this.props.value,
-    value: this.props.value || '',
+    focused: false,
     valid: this.props.valid || true,
+    value: this.props.value || '',
   };
 
   constructor(props) {
