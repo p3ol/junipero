@@ -17,39 +17,39 @@ import styles from './theme/components/ColorPicker.styl';
 class ColorPicker extends React.Component {
 
   static propTypes = {
-    theme: PropTypes.string,
-    format: PropTypes.string,
     disabled: PropTypes.bool,
+    format: PropTypes.oneOf(['auto', 'hex', 'rgb', 'rgba', 'hsla']),
     native: PropTypes.bool,
+    theme: PropTypes.string,
     value: PropTypes.string,
+    animateMenu: PropTypes.func,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    animateMenu: PropTypes.func,
   }
 
   static defaultProps = {
-    theme: 'default',
-    format: 'auto',
     disabled: false,
+    format: 'auto',
     native: false,
+    theme: 'default',
     value: null,
+    animateMenu: menu => menu,
+    onBlur: () => {},
     onChange: () => {},
     onFocus: () => {},
-    onBlur: () => {},
-    animateMenu: menu => menu,
   }
 
   state = {
-    opened: false,
+    a: 100,
+    h: 0,
     handleMoving: false,
     handleType: null,
-    value: null,
-    valid: true,
-    h: 0,
+    opened: false,
     s: 0,
+    valid: true,
+    value: null,
     v: 0,
-    a: 100,
   }
 
   menuRef = null

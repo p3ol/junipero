@@ -224,6 +224,7 @@ export const stringifyColor = (color, format = 'auto') => {
   }
 
   switch (format) {
+    case 'hsl':
     case 'hsla':
       const hsla = denormalizeHSLA(hsva2hsla(color));
       return `hsl${color.a < 1 ? 'a' : ''}(` +
@@ -232,6 +233,7 @@ export const stringifyColor = (color, format = 'auto') => {
         `${hsla.l}%` +
         (color.a < 1 ? `, ${hsla.a}` : '') +
         ')';
+    case 'rgb':
     case 'rgba':
       const rgba = denormalizeRGBA(hsva2rgba(color));
       return `rgb${color.a < 1 ? 'a' : ''}(` +
