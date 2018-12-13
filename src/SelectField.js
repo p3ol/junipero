@@ -12,52 +12,50 @@ import styles from './theme/components/SelectField.styl';
 class SelectField extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    boxed: PropTypes.bool,
-    native: PropTypes.bool,
-    placeholder: PropTypes.string,
-    parseValue: PropTypes.func,
-    parseTitle: PropTypes.func,
-    options: PropTypes.array,
-    onChange: PropTypes.func,
-    validate: PropTypes.func,
-    autoComplete: PropTypes.func,
-    autoCompleteLabel: PropTypes.string,
+    autoCompletePlaceholder: PropTypes.string,
     autoCompleteThreshold: PropTypes.number,
+    boxed: PropTypes.bool,
+    disabled: PropTypes.bool,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    native: PropTypes.bool,
+    options: PropTypes.array,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
     theme: PropTypes.string,
     animateMenu: PropTypes.func,
+    autoComplete: PropTypes.func,
+    onChange: PropTypes.func,
+    parseTitle: PropTypes.func,
+    parseValue: PropTypes.func,
+    validate: PropTypes.func,
   }
 
   static defaultProps = {
-    className: '',
-    label: null,
-    disabled: false,
-    required: false,
-    boxed: false,
-    native: false,
-    placeholder: '',
-    parseValue: (val) => val,
-    parseTitle: (val) => val,
-    options: [],
-    onChange: () => {},
-    validate: value => typeof value !== undefined && value !== null,
-    autoComplete: null,
     autoCompletePlaceholder: 'Search...',
     autoCompleteThreshold: 400,
+    boxed: false,
+    disabled: false,
+    label: null,
+    native: false,
+    options: [],
+    placeholder: '',
+    required: false,
     theme: 'default',
     animateMenu: menu => menu,
+    autoComplete: null,
+    onChange: () => {},
+    parseTitle: (val) => val,
+    parseValue: (val) => val,
+    validate: value => typeof value !== undefined && value !== null,
   }
 
   state = {
-    value: null,
-    valid: true,
-    opened: this.props.opened || false,
-    autoCompleteValue: '',
     autoCompleteOptions: null,
+    autoCompleteValue: '',
     autoCompleting: false,
+    opened: this.props.opened || false,
+    valid: true,
+    value: null,
   };
 
   constructor(props) {
@@ -301,7 +299,10 @@ class SelectField extends React.Component {
               disabled={disabled}
               onChange={this.onNativeChange.bind(this)}
             >
-              <option value="-1">{ placeholder }</option>
+              { placeholder && (
+                <option value="-1">{ placeholder }</option>
+              ) }
+
               { options.map((item, index) => (
                 <option
                   key={index}
