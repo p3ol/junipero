@@ -7,28 +7,26 @@ import styles from './theme/components/CheckBox.styl';
 class CheckBox extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
     checked: PropTypes.bool,
-    value: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    onChange: PropTypes.func,
     theme: PropTypes.string,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
-    className: null,
     checked: false,
-    value: '',
     disabled: false,
+    value: '',
     required: false,
     onChange: () => {},
     theme: 'default',
   }
 
   state = {
-    checked: this.props.checked,
     active: false,
+    checked: this.props.checked,
   };
 
   constructor(props) {
