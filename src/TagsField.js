@@ -272,7 +272,7 @@ class TagsField extends React.Component {
 
           <div className="field">
 
-            { value?.map((item, index) => animateTag(
+            { value?.map((item, index) => animateTag((
               <span
                 key={index}
                 className={classNames(
@@ -290,7 +290,7 @@ class TagsField extends React.Component {
                   onClick={this.remove.bind(this, index)}
                 />
               </span>
-            )) }
+            ), index)) }
             <input
               { ...omit(rest, ['parseValue', 'parseTitle']) }
               ref={(ref) => this.textInput = ref}
