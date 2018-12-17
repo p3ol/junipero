@@ -1,12 +1,9 @@
 @import "../utils/colors"
 
 .junipero.junipero-bread-crumb
-  display: inline
   cursor: default
 
   span
-    color: $color-shuttle-gray
-
     &:after
       content: ">"
       margin: 0 5px
@@ -16,7 +13,20 @@
 
     &:last-child
       font-weight: bold
-      color: $color-midnight
 
       &:after
         display: none
+
+  &.theme-none
+    span
+      color: $color-shuttle-gray
+
+      &:last-child
+        color: $color-midnight
+
+  &.theme-default
+    span
+      color: $color-midnight
+
+      &:last-child
+        color: $color-eastern-blue

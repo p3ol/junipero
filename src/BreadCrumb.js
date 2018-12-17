@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles } from './utils';
+import { injectStyles, classNames } from './utils';
 import styles from './theme/components/BreadCrumb.styl';
 
 class BreadCrumb extends React.Component {
 
   static propTypes = {
     items: PropTypes.array,
+    theme: PropTypes.string,
+    animateItem: PropTypes.func,
   }
 
   static defaultProps = {
     items: [],
+    theme: 'default',
+    animateItem: item => item,
   }
 
   constructor(props) {
@@ -22,12 +26,20 @@ class BreadCrumb extends React.Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, className, theme, animateItem, ...rest } = this.props;
 
     return (
-      <div className="junipero junipero-bread-crumb">
+      <div
+        { ...rest }
+        className={classNames(
+          'junipero',
+          'junipero-bread-crumb',
+          'theme-' + theme,
+          className,
+        )}
+      >
         {items.map((item, index) =>
-          <span key={index}>{item}</span>
+          animateItem(<span key={index}>{item}</span>, index)
         )}
       </div>
     );
