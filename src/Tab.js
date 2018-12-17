@@ -6,14 +6,13 @@ import { omit, classNames } from './utils';
 class Tab extends React.Component {
 
   static propTypes = {
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     key: PropTypes.number,
-    className: PropTypes.string,
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     animate: PropTypes.func,
   }
   static defaultProps = {
-    title: 'Tab',
     key: 0,
+    title: 'Tab',
     animate: tab => tab,
   }
 
@@ -30,10 +29,9 @@ class Tab extends React.Component {
           'junipero-tab',
           className,
         )}
-      ></div>
+      />
     );
   }
 }
-
 
 export default Tab;

@@ -11,16 +11,15 @@ class Tabs extends React.Component {
   static propTypes = {
     activeTab: PropTypes.number,
     disabled: PropTypes.bool,
-    onChange: PropTypes.func,
     theme: PropTypes.string,
-    className: PropTypes.string,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
     activeTab: 0,
     disabled: false,
-    onChange: () => {},
     theme: 'default',
+    onChange: () => {},
   }
 
   state = {
@@ -72,7 +71,7 @@ class Tabs extends React.Component {
     return (
       <div
         { ...omit(rest, [
-          'activeTab', 'onChange',
+          'activeTab', 'onChange', 'children',
         ]) }
         className={classNames(
           'junipero',

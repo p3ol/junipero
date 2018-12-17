@@ -2,7 +2,7 @@
 
 .junipero.junipero-tabs
 
-  ul.tabs-titles
+  > ul.tabs-titles
     display: inline-block
     padding: 0
     list-style: none
@@ -40,7 +40,7 @@
   &.disabled
     opacity: .5
 
-    ul.tabs-titles
+    > ul.tabs-titles
       li.disabled
         opacity: 1
 
@@ -49,7 +49,7 @@
           cursor: default
 
   &.theme-none
-    .tabs-titles
+    > ul.tabs-titles
       a
         color: $color-shuttle-gray
 
@@ -61,7 +61,7 @@
           color: $color-black
 
   &.theme-default
-    .tabs-titles
+    > ul.tabs-titles
       a
         color: $color-midnight
 
