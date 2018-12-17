@@ -7,44 +7,46 @@ import styles from './theme/components/TagsField.styl';
 class TagsField extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
-    value: PropTypes.array,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    placeholder: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
     boxed: PropTypes.bool,
-    parseTitle: PropTypes.func,
-    parseValue: PropTypes.func,
+    disabled: PropTypes.bool,
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.bool,
+    ]),
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    theme: PropTypes.string,
+    value: PropTypes.array,
+    animateTag: PropTypes.func,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    theme: PropTypes.string,
-    animateTag: PropTypes.func,
+    parseTitle: PropTypes.func,
+    parseValue: PropTypes.func,
   }
 
   static defaultProps = {
-    className: null,
-    value: [],
+    boxed: false,
+    disabled: false,
     label: '',
     placeholder: '',
-    disabled: false,
     required: false,
-    boxed: false,
-    parseValue: (val) => val,
-    parseTitle: (val) => val,
+    theme: 'default',
+    value: [],
+    animateTag: tag => tag,
+    onBlur: () => {},
     onChange: () => {},
     onFocus: () => {},
-    onBlur: () => {},
-    theme: 'default',
-    animateTag: tag => tag,
+    parseTitle: tag => tag,
+    parseValue: tag => tag,
   }
 
   state = {
-    value: null,
-    input: '',
     focused: false,
+    input: '',
     selected: -1,
+    value: null,
   };
 
   constructor(props) {
@@ -235,7 +237,7 @@ class TagsField extends React.Component {
       ...rest
     } = this.props;
 
-    const { focused, input, value } = this.state;
+    const { focused, selected, input, value } = this.state;
 
     return (
       <div
@@ -250,7 +252,7 @@ class TagsField extends React.Component {
             required,
             boxed,
             dirty: input || value?.length,
-            'with-label': label,
+            'with-label': label !== false && (label || placeholder),
           },
           className,
         )}
@@ -260,21 +262,23 @@ class TagsField extends React.Component {
       >
 
         <div className="field-wrapper">
-          <label
-            htmlFor={rest.id}
-          >
-            { label || placeholder }
-          </label>
+          { label !== false && (
+            <label
+              htmlFor={rest.id}
+            >
+              { label || placeholder }
+            </label>
+          )}
 
           <div className="field">
 
-            { this.state.value?.map((item, index) => animateTag(
+            { value?.map((item, index) => animateTag(
               <span
                 key={index}
                 className={classNames(
                   'tag',
                   {
-                    active: this.state.selected === index,
+                    active: selected === index,
                   },
                 )}
               >
