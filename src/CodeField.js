@@ -7,38 +7,35 @@ import styles from './theme/components/CodeField.styl';
 class CodeField extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
-    value: PropTypes.string,
-    disabled: PropTypes.bool,
     autofocus: PropTypes.bool,
+    boxed: PropTypes.bool,
+    disabled: PropTypes.bool,
     required: PropTypes.bool,
+    size: PropTypes.number,
+    theme: PropTypes.string,
+    value: PropTypes.string,
     onChange: PropTypes.func,
     validate: PropTypes.func,
-    theme: PropTypes.string,
-    boxed: PropTypes.bool,
-    size: PropTypes.number,
   }
 
   static defaultProps = {
-    className: null,
-    value: '',
-    disabled: false,
     autofocus: false,
-    required: false,
-    onChange: () => {},
-    validate: val => true,
-    theme: 'default',
     boxed: false,
+    disabled: false,
+    required: false,
     size: 6,
+    theme: 'default',
+    value: null,
+    onChange: () => {},
+    validate: value => typeof value !== undefined && value !== null,
   }
 
   state = {
     focused: false,
-    dirty: !!this.props.value,
+    valid: this.props.valid || true,
     values: Array.from({ length: this.props.size }, (item, index) => (
       this.props.value?.[index] || ''
     )),
-    valid: this.props.valid || true,
   };
 
   inputs = [];
@@ -152,7 +149,14 @@ class CodeField extends React.Component {
   }
 
   render() {
-    const { theme, className, disabled, size, boxed, ...rest } = this.props;
+    const {
+      theme,
+      className,
+      disabled,
+      size,
+      boxed,
+      ...rest
+    } = this.props;
     const { values, valid } = this.state;
 
     return (
@@ -172,23 +176,27 @@ class CodeField extends React.Component {
           className,
         )}
       >
-        { Array.from({ length: size }).map((item, index) => (
-          <input
-            className={classNames({
-              disabled,
-              dirty: this.isDirty(index),
-            })}
-            key={index}
-            type="tel"
-            value={values[index]}
-            size={1}
-            maxLength={1}
-            disabled={disabled}
-            ref={(ref) => this.inputs[index] = ref}
-            onChange={this.onItemChange.bind(this, index)}
-            onKeyDown={this.onKeyDown.bind(this, index)}
-          />
-        ))}
+        <div className="field-wrapper">
+          { Array.from({ length: size }).map((item, index) => (
+            <input
+              className={classNames(
+                {
+                  disabled,
+                  dirty: this.isDirty(index),
+                },
+              )}
+              key={index}
+              type="tel"
+              value={values[index]}
+              size={1}
+              maxLength={1}
+              disabled={disabled}
+              ref={(ref) => this.inputs[index] = ref}
+              onChange={this.onItemChange.bind(this, index)}
+              onKeyDown={this.onKeyDown.bind(this, index)}
+            />
+          ))}
+        </div>
       </div>
     );
   }
