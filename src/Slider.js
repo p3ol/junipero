@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles, omit, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import styles from './theme/components/Slider.styl';
 
 class Slider extends React.Component {
@@ -42,9 +43,7 @@ class Slider extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-slider-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-slider-styles');
   }
 
   componentDidMount() {

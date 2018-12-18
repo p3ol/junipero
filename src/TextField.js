@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles, omit, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import styles from './theme/components/TextField.styl';
 
 class TextField extends React.Component {
@@ -53,9 +54,7 @@ class TextField extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-text-field-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-text-field-styles');
   }
 
   componentDidUpdate(prevProps) {

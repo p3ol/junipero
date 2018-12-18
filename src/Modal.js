@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { injectStyles, omit, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import styles from './theme/components/Modal.styl';
 
 class Modal extends React.Component {
@@ -36,9 +37,7 @@ class Modal extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-modal-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-modal-styles');
   }
 
   getContainer() {

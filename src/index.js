@@ -1,5 +1,3 @@
-import { injectStyles } from './utils';
-
 export BreadCrumb from './BreadCrumb';
 export Button from './Button';
 export CheckBox from './CheckBox';
@@ -21,6 +19,3 @@ export TextField from './TextField';
 export Toggle from './Toggle';
 export Tooltip from './Tooltip';
 export { getContainerNode, omit, classNames } from './utils';
-
-import styles from './theme/index.styl';
-injectStyles(styles, { id: 'junipero-main-styles' });

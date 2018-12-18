@@ -5,8 +5,8 @@ import Dropdown from './Dropdown';
 import DropdownMenu from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
 import TextField from './TextField';
+import { inject } from './style';
 import {
-  injectStyles,
   omit,
   parseColor,
   stringifyColor,
@@ -64,9 +64,7 @@ class ColorPicker extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-color-picker-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-color-picker-styles');
   }
 
   componentDidMount() {

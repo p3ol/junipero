@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from './Button';
-import { injectStyles, omit, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import styles from './theme/components/Switch.styl';
 
 class Switch extends React.Component {
@@ -38,9 +39,7 @@ class Switch extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-switch-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-switch-styles');
   }
 
   componentDidMount() {

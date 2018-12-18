@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Manager } from 'react-popper';
 
-import { omit, injectStyles, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import DropdownMenu from './DropdownMenu';
 import styles from './theme/components/Dropdown.styl';
 
@@ -44,9 +45,7 @@ class Dropdown extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-dropdown-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-dropdown-styles');
   }
 
   componentDidMount() {

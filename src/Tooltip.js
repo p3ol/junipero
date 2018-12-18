@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 
-import { injectStyles, getContainerNode, omit, classNames } from './utils';
+import { inject } from './style';
+import { getContainerNode, omit, classNames } from './utils';
 import styles from './theme/components/Tooltip.styl';
 
 class Tooltip extends React.Component {
@@ -41,9 +42,7 @@ class Tooltip extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-tooltip-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-tooltip-styles');
   }
 
   componentDidMount() {

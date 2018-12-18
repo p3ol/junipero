@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles, omit, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import styles from './theme/components/Toggle.styl';
 
 class Toggle extends React.Component {
@@ -37,9 +38,7 @@ class Toggle extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-toggle-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-toggle-styles');
   }
 
   componentDidUpdate(prevProps) {

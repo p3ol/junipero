@@ -6,7 +6,8 @@ import DropdownMenu from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
 import DropdownItem from './DropdownItem';
 import TextField from './TextField';
-import { injectStyles, omit, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import styles from './theme/components/SelectField.styl';
 
 class SelectField extends React.Component {
@@ -60,9 +61,7 @@ class SelectField extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-select-field-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-select-field-styles');
   }
 
   componentDidMount() {

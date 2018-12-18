@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { injectStyles, omit, classNames } from './utils';
+import { inject } from './style';
+import { omit, classNames } from './utils';
 import styles from './theme/components/TagsField.styl';
 
 class TagsField extends React.Component {
@@ -51,9 +52,7 @@ class TagsField extends React.Component {
 
   constructor(props) {
     super(props);
-
-    injectStyles(styles,
-      { id: 'junipero-tags-field-styles', after: '#junipero-main-styles' });
+    inject(styles, 'junipero-tags-field-styles');
   }
 
   componentDidMount() {
