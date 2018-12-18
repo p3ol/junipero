@@ -15,8 +15,7 @@ class Modal extends React.Component {
     theme: PropTypes.string,
     animate: PropTypes.func,
     animateContent: PropTypes.func,
-    onClose: PropTypes.func,
-    onOpen: PropTypes.func,
+    onToggle: PropTypes.func,
   }
 
   static defaultProps = {
@@ -26,8 +25,7 @@ class Modal extends React.Component {
     theme: 'default',
     animate: modal => modal,
     animateContent: content => content,
-    onClose: () => {},
-    onOpen: () => {},
+    onToggle: () => {},
   }
 
   state = {
@@ -48,30 +46,24 @@ class Modal extends React.Component {
   }
 
   open() {
-    const { disabled, onOpen } = this.props;
-
-    if (disabled) {
-      return;
-    }
-
-    this.setState({
-      opened: true,
-    }, () => {
-      onOpen();
-    });
+    this.toggle(true);
   }
 
   close() {
-    const { disabled, onClose } = this.props;
+    this.toggle(false);
+  }
+
+  toggle(opened) {
+    const { disabled, onToggle } = this.props;
 
     if (disabled) {
       return;
     }
 
     this.setState({
-      opened: false,
+      opened,
     }, () => {
-      onClose();
+      onToggle(opened);
     });
   }
 
@@ -101,7 +93,7 @@ class Modal extends React.Component {
       animate(
         <div
           { ...omit(rest, [
-            'onOpen', 'onClose',
+            'onToggle', 'container',
           ]) }
           className={classNames(
             'junipero',
