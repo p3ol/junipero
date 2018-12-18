@@ -10,30 +10,27 @@ import styles from './theme/components/Tooltip.styl';
 class Tooltip extends React.Component {
 
   static propTypes = {
-    classname: PropTypes.string,
-    text: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
-      PropTypes.bool,
-    ]),
-    placement: PropTypes.string,
+    apparition: PropTypes.oneOf(['insert', 'css']),
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
-    trigger: PropTypes.string,
-    onToggle: PropTypes.func,
+    placement: PropTypes.string,
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     theme: PropTypes.string,
-    apparition: PropTypes.oneOf(['insert', 'css']),
+    trigger: PropTypes.string,
     animate: PropTypes.func,
+    onToggle: PropTypes.func,
   }
 
   static defaultProps = {
-    text: '',
-    placement: 'top',
-    trigger: 'hover',
-    onToggle: () => {},
-    theme: 'default',
     apparition: 'insert',
+    container: null,
+    disabled: false,
+    placement: 'top',
+    text: '',
+    trigger: 'hover',
+    theme: 'default',
     animate: tooltip => tooltip,
+    onToggle: () => {},
   }
 
   state = {
