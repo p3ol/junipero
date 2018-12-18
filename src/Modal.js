@@ -9,26 +9,25 @@ import styles from './theme/components/Modal.styl';
 class Modal extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string,
-    theme: PropTypes.string,
+    apparition: PropTypes.string,
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
-    onOpen: PropTypes.func,
-    onClose: PropTypes.func,
-    apparition: PropTypes.string,
+    theme: PropTypes.string,
     animate: PropTypes.func,
     animateContent: PropTypes.func,
+    onClose: PropTypes.func,
+    onOpen: PropTypes.func,
   }
 
   static defaultProps = {
-    theme: 'default',
+    apparition: 'insert',
     container: 'body',
     disabled: false,
-    onOpen: () => {},
-    onClose: () => {},
-    apparition: 'insert',
+    theme: 'default',
     animate: modal => modal,
     animateContent: content => content,
+    onClose: () => {},
+    onOpen: () => {},
   }
 
   state = {
