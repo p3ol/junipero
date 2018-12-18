@@ -154,7 +154,9 @@ class Tooltip extends React.Component {
           innerRef={(ref) => this.target = ref}
         >
           { ({ ref }) => (
-            React.cloneElement(
+            typeof children === 'string' ? (
+              <span ref={ref}>{ children }</span>
+            ) : React.cloneElement(
               React.Children.only(children),
               { ref: ref }
             )

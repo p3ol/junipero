@@ -35,7 +35,7 @@ class TooltipPage extends React.Component {
               onToggle={this.onChange.bind(this, 'default')}
               disabled={this.props.disabled}
             >
-              <span>Hover to display a tooltip !</span>
+              Hover to display a tooltip !
             </Tooltip>
           </div>
           <div className="col-6">
