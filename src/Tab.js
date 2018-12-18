@@ -12,17 +12,17 @@ class Tab extends React.Component {
   }
   static defaultProps = {
     key: 0,
-    title: 'Tab',
+    title: null,
     animate: tab => tab,
   }
 
   render() {
-    const { className, animate, ...rest } = this.props;
+    const { className, key, animate, ...rest } = this.props;
 
-    return animate(
+    return animate((
       <div
         { ...omit(rest, [
-          'title', 'key',
+          'title',
         ])}
         className={classNames(
           'junipero',
@@ -30,7 +30,7 @@ class Tab extends React.Component {
           className,
         )}
       />
-    );
+    ), key);
   }
 }
 
