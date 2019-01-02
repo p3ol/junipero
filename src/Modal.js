@@ -106,13 +106,13 @@ class Modal extends React.Component {
           <div
             ref={(ref) => this.backdrop = ref}
             role="presentation"
-            className="modal-wrapper"
+            className="junipero-modal-wrapper"
             onClick={this.onBackdropClick.bind(this)}
           >
             { animateContent(
-              <div className="modal-content">
+              <div className="junipero-modal-content">
                 <a
-                  className="modal-close"
+                  className="junipero-modal-close"
                   role="button"
                   tabIndex={-1}
                   onClick={this.close.bind(this)}
