@@ -45,6 +45,7 @@
         opacity: 0
         transform: translate3d(0, 10px, 0)
         transition: all .2s ease-out
+        line-height: initial
 
       .field
         width: 100%
@@ -68,8 +69,8 @@
     .error
       margin: 8px 0 4px
       display: block
-      font-size: 14px
-      line-height: 18px
+      font-size: 11px
+      line-height: initial
 
     &.boxed
 
@@ -93,9 +94,6 @@
           border-bottom-color: $color-shuttle-gray
           color: $color-shuttle-gray
 
-      .error
-        color: $color-monza
-
       &.boxed
         & > .field-wrapper
           & > .field,
@@ -113,6 +111,9 @@
           .junipero-dropdown > .field
             color: $color-shuttle-gray
             border-bottom-color: $color-eastern-blue
+
+      .error
+        color: $color-monza
 
       &.boxed
         & > .field-wrapper
