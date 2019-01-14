@@ -44,7 +44,9 @@
         z-index: 2
         opacity: 0
         transform: translate3d(0, 10px, 0)
-        transition: all .2s ease-out
+        transition-property: opacity, transform, color
+        transition-duration: .2s
+        transition-timing-function: ease-out
         line-height: initial
 
       .field
@@ -57,7 +59,9 @@
         border: none
         border-bottom-width: 1px
         border-bottom-style: solid
-        transition: all .2s ease-out
+        transition-property: border, color, padding
+        transition-duration: .2s
+        transition-timing-function: ease-out
         appearance: none
         font-size: 14px
         border-radius: 0
