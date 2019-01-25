@@ -27,6 +27,7 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "auto-changelog": "^1.11.0",
     "autoprefixer": "^9.3.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
@@ -81,6 +82,13 @@
     "build:module": "BABEL_ENV=module ./node_modules/.bin/babel ./src --out-dir ./dist/lib",
     "build:browser": "BABEL_ENV=browser ./node_modules/.bin/rollup -c",
     "build": "yarn clean && yarn build:browser && yarn build:module",
-    "prepack": "yarn build"
+    "prepack": "yarn build",
+    "changelog": "./node_modules/.bin/auto-changelog"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "compact",
+    "unreleased": true,
+    "commitLimit": 10
   }
 }
