@@ -12,7 +12,7 @@ class Button extends React.Component {
     reversed: PropTypes.bool,
     size: PropTypes.string,
     submit: PropTypes.bool,
-    tag: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     theme: PropTypes.string,
     type: PropTypes.string,
     onClick: PropTypes.func,
