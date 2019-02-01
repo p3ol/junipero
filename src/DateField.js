@@ -40,7 +40,6 @@ class DateField extends React.Component {
     theme: 'default',
     value: null,
     weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
-    animateMenu: menu => menu,
     onChange: () => {},
     parseTitle: value => value.toLocaleDateString('en-US', {
       weekday: 'long',

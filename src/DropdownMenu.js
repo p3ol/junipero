@@ -19,7 +19,6 @@ class DropdownMenu extends React.Component {
     apparition: 'insert',
     modifiers: {},
     tag: 'ul',
-    animate: menu => menu,
   }
 
   static contextTypes = {
@@ -51,7 +50,7 @@ class DropdownMenu extends React.Component {
       placement,
     } = this.context;
 
-    if (!isOpen && apparition === 'insert') {
+    if (!isOpen && !animate && apparition === 'insert') {
       return false;
     }
 
@@ -64,7 +63,7 @@ class DropdownMenu extends React.Component {
         { ({ ref, style, placement_, scheduleUpdate }) => {
           this.scheduleUpdate = scheduleUpdate;
 
-          return animate(
+          return (
             <Tag
               { ...omit(rest, [
                 'innerRef',
@@ -76,7 +75,8 @@ class DropdownMenu extends React.Component {
                 'junipero-dropdown-menu',
                 'theme-' + theme,
                 {
-                  opened: isOpen,
+                  opened: !animate && isOpen,
+                  closed: !animate && !isOpen,
                 },
                 className,
               )}
@@ -88,9 +88,12 @@ class DropdownMenu extends React.Component {
     );
 
     if (container) {
-      return ReactDOM.createPortal(menu, getContainerNode(container));
+      return ReactDOM.createPortal(
+        animate ? animate(menu) : menu,
+        getContainerNode(container)
+      );
     } else {
-      return menu;
+      return animate ? animate(menu) : menu;
     }
   }
 

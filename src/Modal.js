@@ -23,8 +23,6 @@ class Modal extends React.Component {
     container: 'body',
     disabled: false,
     theme: 'default',
-    animate: modal => modal,
-    animateContent: content => content,
     onToggle: () => {},
   }
 
@@ -85,45 +83,52 @@ class Modal extends React.Component {
     } = this.props;
     const { opened } = this.state;
 
-    if (!opened && apparition === 'insert') {
+    if (!opened && !animate && apparition === 'insert') {
       return null;
     }
 
-    return ReactDOM.createPortal(
-      animate(
-        <div
-          { ...omit(rest, [
-            'onToggle', 'container',
-          ]) }
-          className={classNames(
-            'junipero',
-            'junipero-modal',
-            'theme-' + theme,
-            { opened },
-            className,
-          )}
-        >
-          <div
-            ref={(ref) => this.backdrop = ref}
-            role="presentation"
-            className="junipero-modal-wrapper"
-            onClick={this.onBackdropClick.bind(this)}
-          >
-            { animateContent(
-              <div className="junipero-modal-content">
-                <a
-                  className="junipero-modal-close"
-                  role="button"
-                  tabIndex={-1}
-                  onClick={this.close.bind(this)}
-                />
+    const modalContent = (
+      <div className="junipero-modal-content">
+        <a
+          className="junipero-modal-close"
+          role="button"
+          tabIndex={-1}
+          onClick={this.close.bind(this)}
+        />
 
-                { children }
-              </div>
-            ) }
-          </div>
+        { children }
+      </div>
+    );
+
+    const modalWrapper = (
+      <div
+        { ...omit(rest, [
+          'onToggle', 'container',
+        ]) }
+        className={classNames(
+          'junipero',
+          'junipero-modal',
+          'theme-' + theme,
+          {
+            opened: !animate && opened,
+            closed: !animate && !opened,
+          },
+          className,
+        )}
+      >
+        <div
+          ref={(ref) => this.backdrop = ref}
+          role="presentation"
+          className="junipero-modal-wrapper"
+          onClick={this.onBackdropClick.bind(this)}
+        >
+          { animateContent ? animateContent(modalContent) : modalContent }
         </div>
-      ),
+      </div>
+    );
+
+    return ReactDOM.createPortal(
+      animate ? animate(modalWrapper) : modalWrapper,
       this.getContainer()
     );
   }

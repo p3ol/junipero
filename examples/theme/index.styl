@@ -1,0 +1,51 @@
+.fade-in
+
+  &-enter, &-appear
+    opacity: 0
+    transition: opacity .3s ease-out
+
+    &-active
+      opacity: 1
+
+  &-exit
+    opacity: 1
+    transition: opacity .3s ease-out
+
+    &-active
+      opacity: 0
+
+.fade-in-modal
+
+  &-enter, &-appear
+    opacity: 0
+    transition: opacity .3s ease-out
+
+    &-active
+      opacity: 1
+
+  &-exit
+    opacity: 1
+    transition: opacity .3s ease-out .3s
+
+    &-active
+      opacity: 0
+
+.slide-in-up
+
+  &-enter, &-appear
+    opacity: 0
+    transform: translate3d(0, 10px, 0) scale(.99)
+    transition: opacity .3s ease-out .3s, transform .3s ease-out .3s
+
+    &-active
+      opacity: 1
+      transform: translate3d(0, 0, 0) scale(1)
+
+  &-exit
+    opacity: 1
+    transform: translate3d(0, 0, 0) scale(1)
+    transition: opacity .3s ease-out, transform .3s ease-out
+
+    &-active
+      opacity: 0
+      transform: translate3d(0, 10px, 0) scale(.99)

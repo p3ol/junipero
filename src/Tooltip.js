@@ -29,7 +29,6 @@ class Tooltip extends React.Component {
     text: '',
     trigger: 'hover',
     theme: 'default',
-    animate: tooltip => tooltip,
     onToggle: () => {},
   }
 
@@ -126,7 +125,10 @@ class Tooltip extends React.Component {
               'junipero',
               'junipero-tooltip',
               'theme-' + theme,
-              { opened },
+              {
+                opened: !animate && opened,
+                closed: !animate && !opened,
+              },
               className,
             )}
             ref={ref}
@@ -159,11 +161,15 @@ class Tooltip extends React.Component {
             )
           )}
         </Reference>
-        { opened || apparition === 'css' ? animate(
-          container
-            ? ReactDOM.createPortal(tooltip, getContainerNode(container))
-            : tooltip
-        ) : null}
+        { opened || animate || apparition === 'css'
+          ? container
+            ? ReactDOM.createPortal(
+              animate ? animate(tooltip) : tooltip,
+              getContainerNode(container)
+            )
+            : animate ? animate(tooltip) : tooltip
+          : null
+        }
       </Manager>
     );
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CSSTransition }  from 'react-transition-group';
 
 import { Tooltip } from '@poool/junipero';
 
@@ -118,6 +119,33 @@ class TooltipPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.differentContainer, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Animated</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Tooltip
+              text="This is a tooltip"
+              onToggle={this.onChange.bind(this, 'animated')}
+              disabled={this.props.disabled}
+              animate={(tooltip) => (
+                <CSSTransition
+                  in={this.state.animated}
+                  appear
+                  unmountOnExit={true}
+                  timeout={300}
+                  classNames="fade-in"
+                  children={tooltip}
+                />
+              )}
+            >
+              <span>Click to display a tooltip !</span>
+            </Tooltip>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.animated, null, 2)}</pre>
           </div>
         </div>
       </div>

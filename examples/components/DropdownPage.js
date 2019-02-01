@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CSSTransition }  from 'react-transition-group';
 
 import {
   Dropdown,
@@ -20,6 +21,7 @@ class DropdownPage extends React.Component {
       customTag: false,
       button: false,
       bodyContainer: false,
+      animated: false,
     };
   }
 
@@ -155,6 +157,37 @@ class DropdownPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.bodyContainer, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Animated</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Dropdown
+              disabled={this.props.disabled}
+              onToggle={this.onChange.bind(this, 'animated')}
+            >
+              <DropdownToggle>Click me</DropdownToggle>
+              <DropdownMenu
+                animate={(menu) => (
+                  <CSSTransition
+                    in={this.state.animated}
+                    appear
+                    unmountOnExit={true}
+                    timeout={300}
+                    classNames="fade-in"
+                    children={menu}
+                  />
+                )}
+              >
+                <DropdownItem><a>Test 1</a></DropdownItem>
+                <DropdownItem><a>Test 2</a></DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.animated, null, 2)}</pre>
           </div>
         </div>
       </div>

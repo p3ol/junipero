@@ -34,7 +34,6 @@ class ColorPicker extends React.Component {
     native: false,
     theme: 'default',
     value: null,
-    animateMenu: menu => menu,
     onBlur: () => {},
     onChange: () => {},
     onFocus: () => {},

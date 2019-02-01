@@ -42,7 +42,6 @@ class SelectField extends React.Component {
     placeholder: '',
     required: false,
     theme: 'default',
-    animateMenu: menu => menu,
     autoComplete: null,
     onChange: () => {},
     parseTitle: (val) => val,
