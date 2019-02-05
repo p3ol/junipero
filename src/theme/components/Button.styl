@@ -1,13 +1,16 @@
 @import "../utils/colors"
 
 applyColors(colors = {})
-  &, &:visited
+  &,
+  &:visited,
+  &.selected,
+  &.reversed.selected
     color: colors.textDefault or $color-white
     background: colors.default
     border-color: colors.default
 
-  &:hover, &.selected
-  &.reversed:hover, &.reversed.selected
+  &:hover,
+  &.reversed:hover
     color: colors.textHover or $color-white
     background: colors.hover or (colors.default - 25)
     border-color: colors.hover or (colors.default - 25)
@@ -18,7 +21,7 @@ applyColors(colors = {})
     background: colors.active or (colors.default - 50)
     border-color: colors.active or (colors.default - 50)
 
-  &:focus
+  &:focus,
   &.reversed:focus
     color: colors.textFocus or $color-white
     background: colors.focus or colors.default
