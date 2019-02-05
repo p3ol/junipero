@@ -49,9 +49,11 @@ class Tooltip extends React.Component {
         this.target?.addEventListener('click', this.toggleTooltip, false);
         document.addEventListener('click', this.onClickOutside, false);
         break;
+      case 'custom':
+        break;
       default:
-        this.target?.addEventListener('mouseenter', this.openTooltip, false);
-        this.target?.addEventListener('mouseleave', this.closeTooltip, false);
+        this.target?.addEventListener('mouseenter', this.open, false);
+        this.target?.addEventListener('mouseleave', this.close, false);
         break;
     }
   }
@@ -62,11 +64,11 @@ class Tooltip extends React.Component {
     }
   }
 
-  openTooltip = () => {
+  open = () => {
     this.toggleTooltip(true);
   }
 
-  closeTooltip = () => {
+  close = () => {
     this.toggleTooltip(false);
   }
 
@@ -183,9 +185,11 @@ class Tooltip extends React.Component {
         this.target?.removeEventListener('click', this.toggleTooltip);
         document.removeEventListener('click', this.onClickOutside);
         break;
+      case 'custom':
+        break;
       default:
-        this.target?.removeEventListener('mouseenter', this.openTooltip);
-        this.target?.removeEventListener('mouseleave', this.closeTooltip);
+        this.target?.removeEventListener('mouseenter', this.open);
+        this.target?.removeEventListener('mouseleave', this.close);
         break;
     }
   }
