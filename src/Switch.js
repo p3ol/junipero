@@ -24,6 +24,7 @@ class Switch extends React.Component {
     options: [],
     theme: 'default',
     type: 'primary',
+    value: null,
     onChange: () => {},
     parseTitle: (val) => val,
     parseValue: (val) => val,
@@ -101,7 +102,7 @@ class Switch extends React.Component {
         { options.map((option, index) => (
           <Button
             { ...omit(rest, [
-              'validate', 'parseValue', 'onChange',
+              'validate', 'parseValue', 'onChange', 'value',
             ]) }
             ref={(ref) => this.buttons[index] = ref}
             className={classNames({
