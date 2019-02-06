@@ -90,26 +90,24 @@ class ColorPicker extends React.Component {
   }
 
   onInputChange(e, propagateChange = true) {
-    if (!e || !e.value) {
-      return;
-    }
-
-    const parsed = parseColor(e.value);
-
     let newState = {
-      value: e.value,
+      value: e?.value,
       valid: false,
     };
 
-    if (parsed) {
-      newState = {
-        h: parsed.h * 360,
-        s: parsed.s * 100,
-        v: 100 - (parsed.v * 100),
-        a: parsed.a * 100,
-        value: e.value,
-        valid: true,
-      };
+    if (e?.value) {
+      const parsed = parseColor(e.value);
+
+      if (parsed) {
+        newState = {
+          h: parsed.h * 360,
+          s: parsed.s * 100,
+          v: 100 - (parsed.v * 100),
+          a: parsed.a * 100,
+          value: e.value,
+          valid: true,
+        };
+      }
     }
 
     this.setState(newState, () => {
