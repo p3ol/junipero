@@ -89,7 +89,8 @@
   "auto-changelog": {
     "output": "CHANGELOG.md",
     "template": "compact",
-    "unreleased": true,
-    "commitLimit": 10
+    "unreleased": false,
+    "commitLimit": 10,
+    "backfillLimit": 10
   }
 }
