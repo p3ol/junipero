@@ -47,6 +47,14 @@ class Toggle extends React.Component {
     }
   }
 
+  reset() {
+    this.setState({
+      checked: this.props.checked,
+    }, () => {
+      this.props.onChange({});
+    });
+  }
+
   onChange(e, forceValue) {
     if (this.props.disabled) {
       return;
