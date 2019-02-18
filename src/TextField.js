@@ -180,7 +180,7 @@ class TextField extends React.Component {
           {
             focused,
             dirty,
-            disabled: disabled || readOnly,
+            disabled,
             required,
             boxed,
             invalid: !valid,

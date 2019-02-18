@@ -250,7 +250,7 @@ class TagsField extends React.Component {
           'theme-' + theme,
           {
             focused,
-            disabled: disabled || readOnly,
+            disabled,
             required,
             boxed,
             dirty: input || value?.length,

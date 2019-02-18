@@ -253,7 +253,7 @@ class DateField extends React.Component {
           'theme-' + theme,
           {
             native,
-            disabled: disabled || readOnly,
+            disabled,
             opened,
             required,
             boxed,
