@@ -16,6 +16,7 @@ class TagsField extends React.Component {
       PropTypes.bool,
     ]),
     placeholder: PropTypes.string,
+    readOnly: PropTypes.bool,
     required: PropTypes.bool,
     theme: PropTypes.string,
     value: PropTypes.array,
@@ -32,6 +33,7 @@ class TagsField extends React.Component {
     disabled: false,
     label: '',
     placeholder: '',
+    readOnly: false,
     required: false,
     theme: 'default',
     value: [],
@@ -225,6 +227,7 @@ class TagsField extends React.Component {
   render() {
     const {
       disabled,
+      readOnly,
       required,
       boxed,
       className,
@@ -247,7 +250,7 @@ class TagsField extends React.Component {
           'theme-' + theme,
           {
             focused,
-            disabled,
+            disabled: disabled || readOnly,
             required,
             boxed,
             dirty: input || value?.length,
@@ -294,6 +297,7 @@ class TagsField extends React.Component {
               { ...omit(rest, ['parseValue', 'parseTitle']) }
               ref={(ref) => this.textInput = ref}
               type="text"
+              readOnly={readOnly}
               disabled={disabled}
               required={required}
               placeholder={placeholder}

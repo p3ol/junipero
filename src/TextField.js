@@ -16,6 +16,7 @@ class TextField extends React.Component {
       PropTypes.bool,
     ]),
     placeholder: PropTypes.string,
+    readOnly: PropTypes.bool,
     required: PropTypes.bool,
     rows: PropTypes.number,
     theme: PropTypes.string,
@@ -32,6 +33,7 @@ class TextField extends React.Component {
     disabled: false,
     label: '',
     placeholder: '',
+    readOnly: false,
     required: false,
     rows: null,
     theme: 'default',
@@ -155,6 +157,7 @@ class TextField extends React.Component {
 
     const {
       disabled,
+      readOnly,
       required,
       boxed,
       className,
@@ -177,7 +180,7 @@ class TextField extends React.Component {
           {
             focused,
             dirty,
-            disabled,
+            disabled: disabled || readOnly,
             required,
             boxed,
             invalid: !valid,
@@ -204,6 +207,7 @@ class TextField extends React.Component {
             className="field"
             type={this.getType()}
             disabled={disabled}
+            readOnly={readOnly}
             required={required}
             value={value}
             onFocus={this.onFocus.bind(this)}

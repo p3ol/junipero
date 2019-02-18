@@ -17,6 +17,7 @@ class DateField extends React.Component {
     monthNames: PropTypes.array,
     native: PropTypes.bool,
     placeholder: PropTypes.string,
+    readOnly: PropTypes.bool,
     required: PropTypes.bool,
     theme: PropTypes.string,
     value: PropTypes.instanceOf(Date),
@@ -36,6 +37,7 @@ class DateField extends React.Component {
       'July', 'August', 'September', 'October', 'November', 'December'],
     native: false,
     placeholder: '',
+    readOnly: false,
     required: false,
     theme: 'default',
     value: null,
@@ -77,7 +79,9 @@ class DateField extends React.Component {
   }
 
   onToggle(opened) {
-    if (this.props.disabled) {
+    const { disabled, readOnly } = this.props;
+
+    if (disabled || readOnly) {
       return;
     }
 
@@ -222,6 +226,7 @@ class DateField extends React.Component {
   render() {
     const {
       disabled,
+      readOnly,
       required,
       boxed,
       className,
@@ -248,7 +253,7 @@ class DateField extends React.Component {
           'theme-' + theme,
           {
             native,
-            disabled,
+            disabled: disabled || readOnly,
             opened,
             required,
             boxed,
@@ -271,6 +276,7 @@ class DateField extends React.Component {
               ref={(ref) => this.input = ref}
               className="field"
               type="date"
+              readOnly={readOnly}
               disabled={disabled}
               required={required}
               value={nativeValue || ''}

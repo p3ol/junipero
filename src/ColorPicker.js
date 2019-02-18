@@ -20,6 +20,7 @@ class ColorPicker extends React.Component {
     disabled: PropTypes.bool,
     format: PropTypes.oneOf(['auto', 'hex', 'rgb', 'rgba', 'hsla']),
     native: PropTypes.bool,
+    readOnly: PropTypes.readOnly,
     theme: PropTypes.string,
     value: PropTypes.string,
     animateMenu: PropTypes.func,
@@ -32,6 +33,7 @@ class ColorPicker extends React.Component {
     disabled: false,
     format: 'auto',
     native: false,
+    readOnly: false,
     theme: 'default',
     value: '',
     onBlur: () => {},
@@ -161,10 +163,10 @@ class ColorPicker extends React.Component {
   }
 
   onMouseMove = (e) => {
-    const { disabled, format } = this.props;
+    const { disabled, format, readOnly } = this.props;
     const { handleMoving, handleType } = this.state;
 
-    if (!handleMoving || !handleType || disabled) {
+    if (!handleMoving || !handleType || disabled || readOnly) {
       return;
     }
 
@@ -218,10 +220,10 @@ class ColorPicker extends React.Component {
   }
 
   onMouseUp = (e) => {
-    const { disabled } = this.props;
+    const { disabled, readOnly } = this.props;
     const { handleMoving, handleType } = this.state;
 
-    if (!handleMoving || !handleType || disabled) {
+    if (!handleMoving || !handleType || disabled || readOnly) {
       return;
     }
 
@@ -250,6 +252,7 @@ class ColorPicker extends React.Component {
       theme,
       native,
       disabled,
+      readOnly,
       animateMenu,
       ...rest
     } = this.props;
@@ -264,6 +267,7 @@ class ColorPicker extends React.Component {
         type={ native ? 'color' : 'text' }
         value={value}
         theme={theme}
+        readOnly={readOnly}
         disabled={disabled}
         onChange={this.onInputChange.bind(this)}
       />
