@@ -70,6 +70,23 @@
         line-height: 21px
         min-height: 48px
 
+      ::placeholder
+        transition: color .2s ease-out
+        color: $color-shuttle-gray
+        opacity: 1
+
+      ::-webkit-placeholder
+        transition: color .2s ease-out
+        color: $color-shuttle-gray
+
+      :-ms-input-placeholder
+        transition: color .2s ease-out
+        color: $color-shuttle-gray
+
+      ::-ms-input-placeholder
+        transition: color .2s ease-out
+        color: $color-shuttle-gray
+
     .error
       margin: 8px 0 4px
       display: block
@@ -115,6 +132,21 @@
           .junipero-dropdown > .field
             color: $color-shuttle-gray
             border-bottom-color: $color-eastern-blue
+
+        &:not(.force-label)
+          & > .field-wrapper
+            & > ::placeholder
+              color: $color-eastern-blue
+              opacity: 1
+
+            & > ::-webkit-placeholder
+              color: $color-eastern-blue
+
+            & > :-ms-input-placeholder
+              color: $color-eastern-blue
+
+            & > ::-ms-input-placeholder
+              color: $color-eastern-blue
 
       .error
         color: $color-monza
