@@ -108,6 +108,7 @@ class DateFieldPage extends React.Component {
               disabled={this.props.disabled}
               error={this.props.error}
               boxed={this.props.boxed}
+              forceLabel={true}
               placeholder="Pick a date"
               onChange={this.onChange.bind(this, 'customTitle')}
               parseTitle={value => value.toLocaleDateString('fr-FR', {

@@ -13,6 +13,7 @@ class DateField extends React.Component {
   static propTypes = {
     boxed: PropTypes.bool,
     disabled: PropTypes.bool,
+    forceLabel: PropTypes.bool,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     monthNames: PropTypes.array,
     native: PropTypes.bool,
@@ -32,6 +33,7 @@ class DateField extends React.Component {
   static defaultProps = {
     boxed: false,
     disabled: false,
+    forceLabel: false,
     label: null,
     monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'],
@@ -60,6 +62,7 @@ class DateField extends React.Component {
     selected: this.props.value || new Date(),
     valid: true,
     value: this.props.value,
+    dirty: false,
   };
 
   constructor(props) {
@@ -67,15 +70,25 @@ class DateField extends React.Component {
     inject(styles, 'junipero-date-field-styles');
   }
 
+  componentDidMount() {
+    if (this.props.value) {
+      this.init();
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.value !== prevProps.value && this.props.value) {
-      const value = new Date(this.props.value);
-      this.onChange({
-        year: value.getFullYear(),
-        month: value.getMonth(),
-        day: value.getDate(),
-      }, null, false);
+      this.init();
     }
+  }
+
+  init() {
+    const value = new Date(this.props.value);
+    this.onChange({
+      year: value.getFullYear(),
+      month: value.getMonth(),
+      day: value.getDate(),
+    }, null, false);
   }
 
   onToggle(opened) {
@@ -205,6 +218,7 @@ class DateField extends React.Component {
     this.setState({
       opened: false,
       value: new Date(newDate),
+      dirty: true,
       nativeValue: e?.target?.value,
       selected: new Date(newDate),
       displayed: new Date(newDate),
@@ -226,6 +240,7 @@ class DateField extends React.Component {
   render() {
     const {
       disabled,
+      forceLabel,
       readOnly,
       required,
       boxed,
@@ -255,8 +270,10 @@ class DateField extends React.Component {
             native,
             disabled,
             opened,
+            dirty,
             required,
             boxed,
+            'force-label': forceLabel,
             'with-label': label,
           },
           className,
@@ -282,7 +299,7 @@ class DateField extends React.Component {
               value={nativeValue || ''}
               onChange={this.onNativeChange.bind(this)}
               validate={null}
-              placeholder={!dirty ? placeholder : null}
+              placeholder={placeholder}
             />
           ) : (
             <Dropdown

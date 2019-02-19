@@ -17,7 +17,12 @@ class SelectField extends React.Component {
     autoCompleteThreshold: PropTypes.number,
     boxed: PropTypes.bool,
     disabled: PropTypes.bool,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    forceLabel: PropTypes.bool,
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.bool,
+    ]),
     native: PropTypes.bool,
     options: PropTypes.array,
     placeholder: PropTypes.string,
@@ -36,6 +41,7 @@ class SelectField extends React.Component {
     autoCompleteThreshold: 400,
     boxed: false,
     disabled: false,
+    forceLabel: false,
     label: null,
     native: false,
     options: [],
@@ -154,7 +160,7 @@ class SelectField extends React.Component {
 
     this.setState({
       value: index,
-      dirty: !!index,
+      dirty: !!value,
       valid,
     }, () => {
       if (propagateChange) {
@@ -250,6 +256,7 @@ class SelectField extends React.Component {
       error,
       theme,
       animateMenu,
+      forceLabel,
       ...rest
     } = this.props;
 
@@ -278,16 +285,18 @@ class SelectField extends React.Component {
             required,
             dirty,
             boxed,
-            'with-label': label,
+            'force-label': forceLabel,
+            'with-label': label !== false && (label || placeholder),
             invalid: !valid,
           },
           className,
         )}
       >
         <div className="field-wrapper">
-
-          { label && (
-            <label htmlFor={id}>{ label }</label>
+          { label !== false && (
+            <label htmlFor={id}>
+              { label || placeholder }
+            </label>
           )}
 
           { native && !autoComplete ? (

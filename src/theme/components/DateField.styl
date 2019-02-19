@@ -12,20 +12,21 @@
     display: block
     color: $color-shuttle-gray
 
-  &.with-label
-    &, &.boxed
-      & > .field-wrapper
-        & > label
-          opacity: 1
-          transform: translate3d(0, 0, 0)
+  &.dirty, &.dirty.focused, &.force-label
+    &.with-label
+      &, &.boxed
+        & > .field-wrapper
+          & > label
+            opacity: 1
+            transform: translate3d(0, 0, 0)
 
-        & > .field,
-        .junipero-dropdown > .field
-          padding-top: 21px
-          padding-bottom: 5px
+          & > .field,
+          .junipero-dropdown > .field
+            padding-top: 21px
+            padding-bottom: 5px
 
-        &:after
-          top: 28px
+          &:after
+            top: 28px
 
   & > .field-wrapper
     position: relative

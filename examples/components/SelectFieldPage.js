@@ -15,6 +15,7 @@ class SelectFieldPage extends React.Component {
       objects: {},
       objectsForceValue: {},
       autocomplete: {},
+      forceLabel: {},
     };
 
     this.options = [
@@ -60,6 +61,7 @@ class SelectFieldPage extends React.Component {
               error={this.props.error}
               boxed={this.props.boxed}
               onChange={this.onChange.bind(this, 'default')}
+              label="Label"
               placeholder="Select one..."
               options={this.options}
             />
@@ -177,6 +179,27 @@ class SelectFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.autocomplete, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Force label</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <SelectField
+              required={true}
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              onChange={this.onChange.bind(this, 'forceLabel')}
+              label="Label"
+              forceLabel={true}
+              placeholder="Select one..."
+              options={this.options}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.forceLabel, null, 2)}</pre>
           </div>
         </div>
       </div>

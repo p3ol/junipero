@@ -14,8 +14,8 @@
     display: block
     color: $color-shuttle-gray
 
-  &.with-label
-    &, &.boxed
+  &.dirty, &.dirty.focused, &.force-label
+    &.with-label, &.boxed.with-label
       & > .field-wrapper
         & > label
           opacity: 1
