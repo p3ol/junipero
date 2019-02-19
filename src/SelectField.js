@@ -50,7 +50,7 @@ class SelectField extends React.Component {
     theme: 'default',
     autoComplete: null,
     onChange: () => {},
-    parseTitle: (val) => val,
+    parseTitle: (val) => val?.toString(),
     parseValue: (val) => val,
     validate: value => typeof value !== undefined && value !== null,
   }
@@ -227,15 +227,11 @@ class SelectField extends React.Component {
     const { parseTitle, parseValue, placeholder } = this.props;
     const { value } = this.state;
 
-    const result = (
-      parseTitle && typeof value !== 'undefined' && value !== null
-        ? parseTitle(value)
-        : parseValue && typeof value !== 'undefined' && value !== null
-          ? parseValue(value)
-          : placeholder
-    )?.toString();
-
-    return result;
+    return parseTitle && typeof value !== 'undefined' && value !== null
+      ? parseTitle(value)
+      : parseValue && typeof value !== 'undefined' && value !== null
+        ? parseValue(value)
+        : placeholder;
   }
 
   render() {
@@ -320,7 +316,7 @@ class SelectField extends React.Component {
                   key={index}
                   value={index}
                 >
-                  { parseTitle(item)?.toString() }
+                  { parseTitle(item) }
                 </option>
               ))}
             </select>
@@ -367,7 +363,7 @@ class SelectField extends React.Component {
                       href="#"
                       onClick={this.onChange.bind(this, item)}
                     >
-                      { parseTitle(item)?.toString() }
+                      { parseTitle(item) }
                     </a>
                   </DropdownItem>
                 ))}
