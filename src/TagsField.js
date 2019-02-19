@@ -145,8 +145,6 @@ class TagsField extends React.Component {
   }
 
   onKeyDown(event) {
-    event.preventDefault();
-
     if (this.props.disabled) {
       return false;
     }
@@ -168,22 +166,21 @@ class TagsField extends React.Component {
       this.unselectItem();
     }
 
-    return false;
+    return true;
   }
 
   onKeyPress(event) {
-    event.preventDefault();
-
     if (this.props.disabled) {
       return false;
     }
 
-    if (event.which === 13 || event.keyCode === 13) {
+    if (event.which === 13 || event.keyCode === 13) { // ENTER
       this.add(this.state.input);
+      event.preventDefault();
       return false;
     }
 
-    return false;
+    return true;
   }
 
   add(item) {
