@@ -10,6 +10,7 @@ class TagsField extends React.Component {
   static propTypes = {
     boxed: PropTypes.bool,
     disabled: PropTypes.bool,
+    forceLabel: PropTypes.bool,
     label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
@@ -31,6 +32,7 @@ class TagsField extends React.Component {
   static defaultProps = {
     boxed: false,
     disabled: false,
+    forceLabel: false,
     label: '',
     placeholder: '',
     readOnly: false,
@@ -236,6 +238,7 @@ class TagsField extends React.Component {
       placeholder,
       theme,
       animateTag,
+      forceLabel,
       ...rest
     } = this.props;
 
@@ -254,6 +257,7 @@ class TagsField extends React.Component {
             required,
             boxed,
             dirty: input || value?.length,
+            'force-label': forceLabel,
             'with-label': label !== false && (label || placeholder),
           },
           className,
