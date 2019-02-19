@@ -45,7 +45,7 @@ class DateField extends React.Component {
     value: null,
     weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
     onChange: () => {},
-    parseTitle: value => value.toLocaleDateString('en-US', {
+    parseTitle: value => value?.toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
