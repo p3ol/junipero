@@ -144,7 +144,9 @@ class TagsField extends React.Component {
     return true;
   }
 
-  onKeyDown(e) {
+  onKeyDown(event) {
+    event.preventDefault();
+
     if (this.props.disabled) {
       return false;
     }
@@ -152,7 +154,7 @@ class TagsField extends React.Component {
     const {selected, input, value} = this.state;
 
     if (
-      (e.which === 8 || e.keyCode === 8) && // BACKSPACE
+      (event.which === 8 || event.keyCode === 8) && // BACKSPACE
       input.trim() === '' &&
       value.length > 0
     ) {
@@ -162,24 +164,26 @@ class TagsField extends React.Component {
         this.remove(selected);
       }
       return false;
-    } else if (e.which === 27 || e.keyCode === 27) { // ESC
+    } else if (event.which === 27 || event.keyCode === 27) { // ESC
       this.unselectItem();
     }
 
-    return true;
+    return false;
   }
 
-  onKeyPress(e) {
+  onKeyPress(event) {
+    event.preventDefault();
+
     if (this.props.disabled) {
       return false;
     }
 
-    if (e.which === 13 || e.keyCode === 13) {
+    if (event.which === 13 || event.keyCode === 13) {
       this.add(this.state.input);
       return false;
     }
 
-    return true;
+    return false;
   }
 
   add(item) {
