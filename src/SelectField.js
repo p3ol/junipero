@@ -56,6 +56,7 @@ class SelectField extends React.Component {
     opened: this.props.opened || false,
     valid: true,
     value: null,
+    dirty: false,
   };
 
   constructor(props) {
@@ -123,6 +124,7 @@ class SelectField extends React.Component {
 
     this.setState({
       value: item,
+      dirty: !!item,
       valid,
       opened: false,
     }, () => {
@@ -152,6 +154,7 @@ class SelectField extends React.Component {
 
     this.setState({
       value: index,
+      dirty: !!index,
       valid,
     }, () => {
       if (propagateChange) {
@@ -253,6 +256,7 @@ class SelectField extends React.Component {
     const {
       opened,
       value,
+      dirty,
       autoCompleting,
       autoCompleteOptions,
       autoCompleteValue,
@@ -272,6 +276,7 @@ class SelectField extends React.Component {
             disabled,
             opened,
             required,
+            dirty,
             boxed,
             'with-label': label,
             invalid: !valid,
