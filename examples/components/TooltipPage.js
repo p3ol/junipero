@@ -14,11 +14,16 @@ class TooltipPage extends React.Component {
       iconHover: false,
       clickOnly: false,
       differentContainer: false,
+      showLongText: false,
     };
   }
 
   onChange(name, field) {
     this.setState({ [name]: field });
+  }
+
+  toggleLongText() {
+    this.setState({ showLongText: !this.state.showLongText });
   }
 
   render() {
@@ -146,6 +151,33 @@ class TooltipPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.animated, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">forceUpdate</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <Tooltip
+              placement="top"
+              text={this.state.showLongText
+                ? 'This is a long tooltip text'
+                : 'This is a tooltip'
+              }
+              forceUpdate={true}
+              onToggle={this.onChange.bind(this, 'forceUpdate')}
+              disabled={this.props.disabled}
+            >
+              <span
+                role="presentation"
+                onClick={this.toggleLongText.bind(this)}
+              >
+                Hover me then click me
+              </span>
+            </Tooltip>
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.forceUpdate, null, 2)}</pre>
           </div>
         </div>
       </div>
