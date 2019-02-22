@@ -20,7 +20,7 @@ class ColorPicker extends React.Component {
     disabled: PropTypes.bool,
     format: PropTypes.oneOf(['auto', 'hex', 'rgb', 'rgba', 'hsla']),
     native: PropTypes.bool,
-    readOnly: PropTypes.readOnly,
+    readOnly: PropTypes.bool,
     theme: PropTypes.string,
     value: PropTypes.string,
     animateMenu: PropTypes.func,
