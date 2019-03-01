@@ -149,7 +149,9 @@ class TextField extends React.Component {
   }
 
   getType() {
-    return ['date', 'number', 'password', 'color'].includes(this.props.type)
+    return [
+      'date', 'number', 'password', 'color', 'email',
+    ].includes(this.props.type)
       ? this.props.type
       : 'text';
   }
