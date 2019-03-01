@@ -172,10 +172,10 @@ class DropdownPage extends React.Component {
                 animate={(menu) => (
                   <CSSTransition
                     in={this.state.animated}
-                    appear
+                    mountOnEnter={true}
                     unmountOnExit={true}
                     timeout={300}
-                    classNames="fade-in"
+                    classNames="slide-in-up-dropdown"
                     children={menu}
                   />
                 )}

@@ -8,24 +8,28 @@
     display: inline-block
 
   &.junipero-dropdown-menu
-    background: $color-white
-    border-radius: 2px
-    min-width: $default-width
-    list-style: none
-    padding: 10px 0
-    margin-top: 10px
-    max-height: 200px
-    overflow: auto
     z-index: 1000
-    text-align: left
+    margin-top: 10px
+    margin-bottom: 10px
 
-    li.junipero-dropdown-item
-      cursor: pointer
+    .junipero-dropdown-menu-inner
+      background: $color-white
+      border-radius: 2px
+      min-width: $default-width
+      list-style: none
+      padding: 10px 0
+      margin: 0
+      max-height: 200px
+      overflow: auto
+      text-align: left
 
-      a
-        text-decoration: none
-        padding: 5px 20px
-        display: block
+      .junipero-dropdown-item
+        cursor: pointer
+
+        a
+          text-decoration: none
+          padding: 5px 20px
+          display: block
 
   &.opened
     &.junipero-dropdown-menu
@@ -40,10 +44,10 @@
       opacity: 0
 
   &.theme-none
-    &.junipero-dropdown-menu
+    .junipero-dropdown-menu-inner
       box-shadow: 0 2px 8px 0 rgba($color-shuttle-gray, 0.2)
 
-      li.junipero-dropdown-item
+      .junipero-dropdown-item
 
         &:hover
           background: $color-alabaster
@@ -52,10 +56,10 @@
           color: $color-shuttle-gray
 
   &.theme-default
-    &.junipero-dropdown-menu
+    .junipero-dropdown-menu-inner
       box-shadow: 0 2px 8px 0 rgba($color-eastern-blue, 0.2)
 
-      li.junipero-dropdown-item
+      .junipero-dropdown-item
 
         &:hover
           background: $color-black-squeeze

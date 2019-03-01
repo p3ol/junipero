@@ -18,7 +18,7 @@ class DropdownMenu extends React.Component {
   static defaultProps = {
     apparition: 'insert',
     modifiers: {},
-    tag: 'ul',
+    tag: 'div',
   }
 
   static contextTypes = {
@@ -41,6 +41,7 @@ class DropdownMenu extends React.Component {
       apparition,
       container,
       animate,
+      children,
       ...rest
     } = this.props;
 
@@ -81,7 +82,11 @@ class DropdownMenu extends React.Component {
                 className,
               )}
               data-placement={placement_}
-            />
+            >
+              <ul className="junipero junipero-dropdown-menu-inner">
+                { children }
+              </ul>
+            </Tag>
           );
         }}
       </Popper>

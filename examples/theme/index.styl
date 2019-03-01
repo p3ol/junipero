@@ -49,3 +49,27 @@
     &-active
       opacity: 0
       transform: translate3d(0, 10px, 0) scale(.99)
+
+.slide-in-up-dropdown
+
+  &-enter
+    .junipero-dropdown-menu-inner
+      opacity: 0
+      transform: translate3d(0, 10px, 0)
+      transition: opacity .1s ease-out, transform .1s ease-out
+
+    &-active
+      .junipero-dropdown-menu-inner
+        opacity: 1
+        transform: translate3d(0, 0, 0)
+
+  &-exit
+    .junipero-dropdown-menu-inner
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+      transition: opacity .1s ease-out, transform .1s ease-out
+
+    &-active
+      .junipero-dropdown-menu-inner
+        opacity: 0
+        transform: translate3d(0, 10px, 0)
