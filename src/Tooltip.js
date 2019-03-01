@@ -13,7 +13,6 @@ class Tooltip extends React.Component {
     apparition: PropTypes.oneOf(['insert', 'css']),
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
-    forceUpdate: PropTypes.bool,
     placement: PropTypes.string,
     text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     theme: PropTypes.string,
@@ -26,7 +25,6 @@ class Tooltip extends React.Component {
     apparition: 'insert',
     container: null,
     disabled: false,
-    forceUpdate: false,
     placement: 'top',
     text: '',
     trigger: 'hover',
@@ -37,6 +35,8 @@ class Tooltip extends React.Component {
   state = {
     opened: false,
   };
+
+  scheduleUpdate = null
 
   constructor(props) {
     super(props);
@@ -57,6 +57,12 @@ class Tooltip extends React.Component {
         this.target?.addEventListener('mouseenter', this.open, false);
         this.target?.addEventListener('mouseleave', this.close, false);
         break;
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.disabled != this.props.disabled && this.props.disabled) {
+      this.setState({ opened: false });
     }
   }
 
@@ -96,10 +102,8 @@ class Tooltip extends React.Component {
       : container;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.disabled != this.props.disabled && this.props.disabled) {
-      this.setState({ opened: false });
-    }
+  updatePopper() {
+    this.scheduleUpdate?.();
   }
 
   render() {
@@ -112,7 +116,6 @@ class Tooltip extends React.Component {
       container,
       apparition,
       animate,
-      forceUpdate,
       ...rest
     } = this.props;
     const { opened } = this.state;
@@ -122,9 +125,7 @@ class Tooltip extends React.Component {
         placement={placement}
       >
         { ({ ref, style, placement, arrowProps, scheduleUpdate }) => {
-          if (forceUpdate) {
-            scheduleUpdate?.();
-          }
+          this.scheduleUpdate = scheduleUpdate;
 
           return (
             <div
