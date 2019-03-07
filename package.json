@@ -35,6 +35,8 @@
     "clean-css": "^4.2.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
     "eslint": "^5.8.0",
     "eslint-config-fbjs": "^2.1.0",
     "eslint-plugin-babel": "^5.2.1",

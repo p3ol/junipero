@@ -202,4 +202,7 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+
+  // Enable enzyme
+  'setupFilesAfterEnv': ['<rootDir>/tests/config/enzyme.js'],
 };
