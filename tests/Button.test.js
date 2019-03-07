@@ -16,14 +16,14 @@ describe('<Button />', () => {
     const onClick = sinon.spy();
     const component = shallow(<Button onClick={onClick} />);
     component.find('a').simulate('click');
-    expect(onClick).toHaveProperty('callCount', 1);
+    expect(onClick.called).toBe(true);
   });
 
   it('shouln\'t fire onClick handler when button is disabled', () => {
     const onClick = sinon.spy();
     const component = shallow(<Button disabled={true} onClick={onClick} />);
     component.find('a').simulate('click');
-    expect(onClick).toHaveProperty('callCount', 0);
+    expect(onClick.called).toBe(false);
   });
 
   it('should replace <a /> tag with a <button /> tag', () => {
