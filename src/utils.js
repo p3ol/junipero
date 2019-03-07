@@ -71,8 +71,15 @@ export const omit = (obj = {}, keys = []) => {
 
 export const hsva2hsla = ({ h, s, v, a }) => {
   if (v === 0) {
+    // HSVA brightness goes from black (0) to transparent (1)
+    // So if HSVA brightness is 0, HSLA should be full black, making saturation
+    // useless
     return { h, s: 0, l: 0, a };
   } else if (s === 0 && v === 1) {
+    // HSVA saturation goes from white (0) to transparent (1)
+    // HSLA saturation goes from grey (0) to transparent (1)
+    // So if HSVA saturation is 0 and brightness (b or v) is 1, HSLA saturation
+    // should be transparent and lightness to 1 to render white anyway
     return { h, s: 1, l: 1, a };
   } else {
     const l = v * (2 - s) / 2;
@@ -92,6 +99,9 @@ export const hsla2hsva = ({ h, s, l, a }) => {
   a = Math.min(a, 1);
 
   if (l === 0) {
+    // Opposite of hsva2hsla:
+    // If HSLA lightness is 0, current color is black so HSVA saturation
+    // and brightness should be 0
     return { h, s: 0, v: 0, a };
   } else {
     const v = l + s * (1 - Math.abs(2 * l - 1)) / 2;
@@ -104,6 +114,7 @@ export const hsla2hsva = ({ h, s, l, a }) => {
   }
 };
 
+// This one was taken from the interwebs but can't remember where
 export const hsva2rgba = ({ h, s, v, a }) => {
   let r, g, b;
 
