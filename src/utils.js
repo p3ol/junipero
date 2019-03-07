@@ -93,7 +93,6 @@ export const hsva2hsla = ({ h, s, v, a }) => {
 };
 
 export const hsla2hsva = ({ h, s, l, a }) => {
-  h = Math.min(h, 1);
   s = Math.min(s, 1);
   l = Math.min(l, 1);
   a = Math.min(a, 1);
