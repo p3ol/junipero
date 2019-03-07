@@ -59,7 +59,7 @@ export const injectStyles = (styles, options = {}) => {
   }
 };
 
-export const omit = (obj, keys = []) => {
+export const omit = (obj = {}, keys = []) => {
   const res = {};
   Object.entries(obj).forEach((item) => {
     if (!keys.includes(item[0])) {
