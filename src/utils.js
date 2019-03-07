@@ -205,7 +205,7 @@ export const denormalizeRGBA = ({ r, g, b, a }) => ({
 
 export const parseColor = (color = '') => {
   color = color.toLowerCase();
-  let hsva;
+  let hsva = null;
 
   for (const parser of COLOR_PARSERS) {
     const match = parser.regex.exec(color);
