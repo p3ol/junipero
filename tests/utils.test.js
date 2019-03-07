@@ -31,6 +31,11 @@ describe('injectStyles(styles, options = {})', () => {
     expect(document.getElementById('custom-styles').textContent).toBe(styles);
   });
 
+  it('should not inject anything if styles are empty', () => {
+    injectStyles('', { id: 'custom-empty-styles' });
+    expect(document.getElementById('custom-empty-styles')).toBe(null);
+  });
+
   it('should not override a <style /> element content if provided `id` ' +
     'already exists', () => {
     const styles = 'body{ background: #00F; }';

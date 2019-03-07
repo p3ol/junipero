@@ -38,6 +38,7 @@ export const injectStyles = (styles, options = {}) => {
   }
 
   let tag = document.getElementById(options.id);
+  /* istanbul ignore next */
   const head = document.head || document.querySelector('head');
 
   if (!tag) {
