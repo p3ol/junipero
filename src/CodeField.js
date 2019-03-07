@@ -28,7 +28,7 @@ class CodeField extends React.Component {
     theme: 'default',
     value: null,
     onChange: () => {},
-    validate: value => typeof value !== undefined && value !== null,
+    validate: value => typeof value !== 'undefined' && value !== null,
   }
 
   state = {
