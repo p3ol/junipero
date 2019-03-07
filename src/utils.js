@@ -189,6 +189,13 @@ export const denormalizeHSLA = ({ h, s, l, a }) => ({
   a,
 });
 
+export const denormalizeHSVA = ({ h, s, v, a }) => ({
+  h: Math.round(h * 360),
+  s: Math.round(s * 100),
+  v: Math.round(v * 100),
+  a,
+});
+
 export const denormalizeRGBA = ({ r, g, b, a }) => ({
   r: Math.round(r * 255),
   g: Math.round(g * 255),
