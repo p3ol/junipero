@@ -28,7 +28,7 @@ class CheckBox extends React.Component {
   state = {
     active: false,
     checked: this.props.checked,
-  };
+  }
 
   constructor(props) {
     super(props);
@@ -49,7 +49,7 @@ class CheckBox extends React.Component {
   }
 
   onChange(e) {
-    e.persist();
+    e.persist?.();
 
     if (this.props.disabled) {
       return;
