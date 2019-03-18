@@ -246,6 +246,14 @@ class ColorPicker extends React.Component {
     };
   }
 
+  open() {
+    this.onToggle(true);
+  }
+
+  close() {
+    this.onToggle(false);
+  }
+
   render() {
     const {
       className,
