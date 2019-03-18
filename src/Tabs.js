@@ -47,7 +47,7 @@ class Tabs extends React.Component {
   }
 
   onTabClick(item, index, e) {
-    e.preventDefault();
+    e?.preventDefault();
 
     if (this.props.disabled || item.props.disabled) {
       return false;
@@ -93,8 +93,7 @@ class Tabs extends React.Component {
               key={index}
             >
               <a
-                role="button"
-                tabIndex={-1}
+                href="#"
                 onClick={this.onTabClick.bind(this, item, index)}
               >
                 { item.props.title }
