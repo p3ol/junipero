@@ -52,7 +52,7 @@ class DateField extends React.Component {
       day: 'numeric',
     }),
     parseValue: value => value,
-    validate: value => typeof value !== undefined && value !== null,
+    validate: value => typeof value !== 'undefined' && value !== null,
   }
 
   state = {
