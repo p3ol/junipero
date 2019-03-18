@@ -148,7 +148,12 @@ class Dropdown extends React.Component {
         >
           { React.Children.map(children, (child, index) => (
             child.type === DropdownMenu
-              ? React.cloneElement(child, { ref: (ref) => this.menuRef = ref})
+              ? React.cloneElement(child, {
+                ref: (ref) => {
+                  this.menuRef = ref;
+                  child.ref?.(ref);
+                },
+              })
               : child
           )) }
         </Tag>
