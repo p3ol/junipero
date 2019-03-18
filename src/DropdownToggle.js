@@ -28,8 +28,8 @@ class DropdownToggle extends React.Component {
   }
 
   onClick(e) {
-    if (this.props.disabled) {
-      e.preventDefault();
+    if (this.props.disabled || this.context.disabled) {
+      e?.preventDefault();
       return;
     }
 
