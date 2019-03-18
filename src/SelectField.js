@@ -122,7 +122,7 @@ class SelectField extends React.Component {
 
     const { parseValue, validate, disabled } = this.props;
 
-    if (disabled) {
+    if (disabled && propagateChange) {
       return;
     }
 
@@ -146,7 +146,7 @@ class SelectField extends React.Component {
   onNativeChange(e, forceIndex, propagateChange = true) {
     const { validate, parseValue, options, disabled } = this.props;
 
-    if (disabled) {
+    if (disabled && propagateChange) {
       return;
     }
 
