@@ -104,7 +104,7 @@ class SelectField extends React.Component {
   onPropValueChange(propagateChange = true) {
     const { native, options, value, parseValue, autoComplete } = this.props;
 
-    const index = value === undefined || value === null
+    const index = typeof value === 'undefined' || value === null
       ? -1
       : options.findIndex((item) =>
         parseValue(item) === value
