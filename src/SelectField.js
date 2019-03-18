@@ -79,7 +79,7 @@ class SelectField extends React.Component {
       this.onPropValueChange();
     }
 
-    if (prevProps.disabled !== this.props.disabled && !this.props.disabled) {
+    if (prevProps.disabled !== this.props.disabled && this.props.disabled) {
       this.setState({
         opened: false,
       }, () => {
