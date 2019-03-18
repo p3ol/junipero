@@ -106,9 +106,7 @@ class SelectField extends React.Component {
 
     const index = typeof value === 'undefined' || value === null
       ? -1
-      : options.findIndex((item) =>
-        parseValue(item) === value
-      );
+      : options.findIndex((item) => parseValue(item) === value);
 
     if (native && !autoComplete) {
       this.onNativeChange(null, index, propagateChange);
@@ -185,11 +183,8 @@ class SelectField extends React.Component {
   }
 
   onAutoCompleteChange(input) {
+    const { autoComplete, autoCompleteThreshold } = this.props;
     clearTimeout(this._autoCompleteTimeout);
-
-    if (!this.props.autoComplete) {
-      return;
-    }
 
     this.setState({
       autoCompleting: true,
@@ -202,7 +197,7 @@ class SelectField extends React.Component {
             autoCompleting: false,
           }, () => this.menuRef?.updatePopper());
         } else {
-          this.props.autoComplete(input.value, (items) => {
+          autoComplete?.(input.value, (items) => {
             this.setState({
               autoCompleteValue: input.value,
               autoCompleteOptions: [].concat(items),
@@ -210,7 +205,7 @@ class SelectField extends React.Component {
             }, () => this.menuRef?.updatePopper());
           });
         }
-      }, this.props.autoCompleteThreshold);
+      }, autoCompleteThreshold);
     });
   }
 
@@ -224,14 +219,12 @@ class SelectField extends React.Component {
   }
 
   getTitle() {
-    const { parseTitle, parseValue, placeholder } = this.props;
+    const { parseTitle, placeholder } = this.props;
     const { value } = this.state;
 
-    return parseTitle && typeof value !== 'undefined' && value !== null
+    return typeof value !== 'undefined' && value !== null
       ? parseTitle(value)
-      : parseValue && typeof value !== 'undefined' && value !== null
-        ? parseValue(value)
-        : placeholder;
+      : placeholder;
   }
 
   getIndex() {
@@ -275,7 +268,7 @@ class SelectField extends React.Component {
 
     return (
       <div
-        ref={(ref) => this.container = ref}
+        ref={ref => this.container = ref}
         className={classNames(
           'junipero',
           'junipero-field',
@@ -307,7 +300,7 @@ class SelectField extends React.Component {
                 'validate', 'parseValue', 'autoCompleteThreshold', 'placement',
               ]) }
               id={id}
-              ref={(ref) => this.nativeField = ref}
+              ref={ref => this.nativeField = ref}
               className="field"
               value={this.getIndex()}
               disabled={disabled}
