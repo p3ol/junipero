@@ -342,7 +342,7 @@ class SelectField extends React.Component {
                 { this.getTitle() }
               </DropdownToggle>
               <DropdownMenu
-                innerRef={(ref) => this.menuRef = ref}
+                ref={ref => this.menuRef = ref}
                 className={classNames({
                   'auto-completing': autoCompleting,
                 })}
