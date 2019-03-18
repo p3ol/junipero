@@ -65,15 +65,16 @@ class CodeField extends React.Component {
   }
 
   focus(index = 0) {
-    clearTimeout(this._focusTimeout);
-    this._focusTimeout = setTimeout(() => {
-      this.inputs[index]?.focus();
-    }, 1);
+    this.inputs[index]?.focus();
   }
 
   onItemChange(index, e) {
     const { onChange } = this.props;
     const { values } = this.state;
+
+    if (this.props.disabled) {
+      return;
+    }
 
     values[index] = typeof e === 'string' ? e : e.target?.value || '';
 
@@ -200,9 +201,6 @@ class CodeField extends React.Component {
     );
   }
 
-  componentWillUnmount() {
-    clearTimeout(this._focusTimeout);
-  }
 }
 
 export default CodeField;
