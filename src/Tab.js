@@ -10,6 +10,7 @@ class Tab extends React.Component {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     animate: PropTypes.func,
   }
+
   static defaultProps = {
     key: 0,
     title: null,
