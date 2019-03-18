@@ -12,6 +12,11 @@ describe('<Button />', () => {
     expect(component.instance().innerRef).toBeTruthy();
   });
 
+  it('should have a default onClick handler', () => {
+    expect(Button.defaultProps.onClick).toBeDefined();
+    expect(Button.defaultProps.onClick()).not.toBeDefined();
+  });
+
   it('should fire provided onClick handler', () => {
     const onClick = sinon.spy();
     const component = shallow(<Button onClick={onClick} />);
