@@ -11,6 +11,11 @@ describe('<CheckBox />', () => {
     expect(component.find('.junipero-check-box').length).toBe(1);
   });
 
+  it('should have a default onChange handler', () => {
+    expect(CheckBox.defaultProps.onChange).toBeDefined();
+    expect(CheckBox.defaultProps.onChange()).not.toBeDefined();
+  });
+
   it('should be active when mouse down event is fired', () => {
     const component = shallow(<CheckBox />);
     component.find('label').simulate('mousedown');
