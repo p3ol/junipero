@@ -205,7 +205,7 @@ class SelectField extends React.Component {
           this.props.autoComplete(input.value, (items) => {
             this.setState({
               autoCompleteValue: input.value,
-              autoCompleteOptions: items || [],
+              autoCompleteOptions: [].concat(items),
               autoCompleting: false,
             }, () => this.menuRef?.updatePopper());
           });
