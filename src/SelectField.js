@@ -234,6 +234,13 @@ class SelectField extends React.Component {
         : placeholder;
   }
 
+  getIndex() {
+    const { options, parseValue } = this.props;
+    const value = this.getValue();
+
+    return options?.findIndex((item) => parseValue(item) === value);
+  }
+
   render() {
     const {
       disabled,
@@ -258,7 +265,6 @@ class SelectField extends React.Component {
 
     const {
       opened,
-      value,
       dirty,
       autoCompleting,
       autoCompleteOptions,
@@ -303,7 +309,7 @@ class SelectField extends React.Component {
               id={id}
               ref={(ref) => this.nativeField = ref}
               className="field"
-              value={`${value}`}
+              value={this.getIndex()}
               disabled={disabled}
               onChange={this.onNativeChange.bind(this)}
             >
