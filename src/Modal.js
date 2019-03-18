@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { inject } from './style';
-import { omit, classNames } from './utils';
+import { getContainerNode, omit, classNames } from './utils';
 import styles from './theme/components/Modal.styl';
 
 class Modal extends React.Component {
@@ -33,14 +33,6 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     inject(styles, 'junipero-modal-styles');
-  }
-
-  getContainer() {
-    const { container } = this.props;
-
-    return typeof container === 'string'
-      ? document.querySelector(container) || document.createElement('div')
-      : container;
   }
 
   open() {
@@ -74,6 +66,7 @@ class Modal extends React.Component {
   render() {
     const {
       className,
+      container,
       theme,
       children,
       apparition,
@@ -103,7 +96,7 @@ class Modal extends React.Component {
     const modalWrapper = (
       <div
         { ...omit(rest, [
-          'onToggle', 'container',
+          'onToggle',
         ]) }
         className={classNames(
           'junipero',
@@ -129,7 +122,7 @@ class Modal extends React.Component {
 
     return ReactDOM.createPortal(
       animate ? animate(modalWrapper) : modalWrapper,
-      this.getContainer()
+      getContainerNode(container)
     );
   }
 }
