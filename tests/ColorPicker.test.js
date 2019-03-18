@@ -35,6 +35,22 @@ describe('<ColorPicker />', () => {
     expect(map.mouseup).toBeDefined();
   });
 
+  it('should remove document events on unmount', () => {
+    const map = {};
+    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.removeEventListener = (event, cb) => delete map[event];
+
+    const component = mount(<ColorPicker />);
+    expect(map.mousedown).toBeDefined();
+    expect(map.mousemove).toBeDefined();
+    expect(map.mouseup).toBeDefined();
+
+    component.unmount();
+    expect(map.mousedown).not.toBeDefined();
+    expect(map.mousemove).not.toBeDefined();
+    expect(map.mouseup).not.toBeDefined();
+  });
+
   it('should close color menu and trigger onBlur event if clicked ' +
     'outside', () => {
     const onBlur = sinon.spy();
@@ -66,6 +82,26 @@ describe('<ColorPicker />', () => {
     component.find('.lightness').simulate('mousedown', { button: 1 });
     expect(component.state('handleMoving')).toBe(false);
     expect(component.state('handleType')).toBe(null);
+  });
+
+  it('should set color cursors as not moving on mouse up event', () => {
+    const map = {};
+    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+
+    const component = mount(<ColorPicker />);
+    component.find('.lightness').simulate('mousedown', { button: 0 });
+    expect(component.state('handleMoving')).toBe(true);
+    expect(component.state('handleType')).toBe('lightness');
+    map.mouseup();
+    expect(component.state('handleMoving')).toBe(false);
+  });
+
+  it('should close color menu when using component close method', () => {
+    const component = mount(<ColorPicker />);
+    component.instance().open();
+    expect(component.state('opened')).toBe(true);
+    component.instance().close();
+    expect(component.state('opened')).toBe(false);
   });
 
   // Cannot test these with Jest as it uses JSDOM and elements are mocked
