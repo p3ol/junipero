@@ -111,7 +111,7 @@ class SelectField extends React.Component {
       );
 
     if (native && !autoComplete) {
-      this.onNativeChange(null, index);
+      this.onNativeChange(null, index, propagateChange);
     } else {
       this.onChange(options[index], null, propagateChange);
     }
