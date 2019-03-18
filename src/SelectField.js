@@ -159,7 +159,7 @@ class SelectField extends React.Component {
     const valid = validate(value);
 
     this.setState({
-      value: index,
+      value: option,
       dirty: !!value,
       valid,
     }, () => {
