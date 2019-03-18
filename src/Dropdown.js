@@ -39,9 +39,9 @@ class Dropdown extends React.Component {
     opened: this.props.isOpen || false,
   }
 
-  dropdownRef = null;
+  dropdownRef = null
 
-  menuRef = null;
+  menuRef = null
 
   constructor(props) {
     super(props);
