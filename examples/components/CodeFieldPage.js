@@ -29,6 +29,7 @@ class CodeFieldPage extends React.Component {
           <div className="col-6">
             <CodeField
               required={true}
+              autofocus={true}
               disabled={this.props.disabled}
               onChange={this.onChange.bind(this, 'default')}
             />
