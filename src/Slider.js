@@ -88,7 +88,7 @@ class Slider extends React.Component {
       return;
     }
 
-    e.persist();
+    e.persist?.();
 
     this.setState({
       moving: true,
@@ -96,7 +96,7 @@ class Slider extends React.Component {
       this.onMouseMove(e);
     });
 
-    e.preventDefault();
+    e.preventDefault?.();
   }
 
   onMouseMove = (e) => {
@@ -110,14 +110,10 @@ class Slider extends React.Component {
       (e.pageX - slideOffset.left) / slideWidth
     ));
 
-    this.onChange(value);
+    this.onChange(value || 0);
   }
 
   onMouseUp = (e) => {
-    if (!this.state.moving || !this.slideRef || this.props.disabled) {
-      return;
-    }
-
     this.setState({
       moving: false,
     });
