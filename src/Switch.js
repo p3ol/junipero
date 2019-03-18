@@ -104,7 +104,7 @@ class Switch extends React.Component {
             { ...omit(rest, [
               'validate', 'parseValue', 'onChange', 'value',
             ]) }
-            ref={(ref) => this.buttons[index] = ref}
+            ref={ref => this.buttons[index] = ref}
             className={classNames({
               selected: this.isActive(option),
             })}
