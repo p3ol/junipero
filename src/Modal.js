@@ -81,7 +81,10 @@ class Modal extends React.Component {
     }
 
     const modalContent = (
-      <div className="junipero-modal-content">
+      <div
+        ref={ref => this.content = ref}
+        className="junipero-modal-content"
+      >
         <a
           className="junipero-modal-close"
           role="button"
@@ -95,6 +98,7 @@ class Modal extends React.Component {
 
     const modalWrapper = (
       <div
+        ref={ref => this.container = ref}
         { ...omit(rest, [
           'onToggle',
         ]) }
