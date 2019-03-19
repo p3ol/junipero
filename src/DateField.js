@@ -14,7 +14,11 @@ class DateField extends React.Component {
     boxed: PropTypes.bool,
     disabled: PropTypes.bool,
     forceLabel: PropTypes.bool,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.bool,
+    ]),
     monthNames: PropTypes.array,
     native: PropTypes.bool,
     placeholder: PropTypes.string,
@@ -280,8 +284,8 @@ class DateField extends React.Component {
         )}
       >
         <div className="field-wrapper">
-          { label && (
-            <label htmlFor={id}>{ label }</label>
+          { label !== false && (
+            <label htmlFor={id}>{ label || placeholder }</label>
           ) }
 
           { native ? (

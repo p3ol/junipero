@@ -33,7 +33,7 @@ class TextField extends React.Component {
     boxed: false,
     disabled: false,
     forceLabel: false,
-    label: '',
+    label: null,
     placeholder: '',
     readOnly: false,
     required: false,
