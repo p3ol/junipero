@@ -78,6 +78,7 @@ class TagsField extends React.Component {
 
     this.setState({
       value: value?.map((item) => parseValue(item)) || this.state.value,
+      selected: -1,
     });
   }
 
