@@ -115,7 +115,7 @@ class TagsField extends React.Component {
       return false;
     }
 
-    this.props.onFocus(e);
+    this.props.onBlur(e);
 
     if (
       e.defaultPrevented ||
