@@ -14,6 +14,7 @@ class Tooltip extends React.Component {
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     disabled: PropTypes.bool,
     placement: PropTypes.string,
+    popperOptions: PropTypes.object,
     text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     theme: PropTypes.string,
     trigger: PropTypes.string,
@@ -26,6 +27,7 @@ class Tooltip extends React.Component {
     container: null,
     disabled: false,
     placement: 'top',
+    popperOptions: {},
     text: '',
     trigger: 'hover',
     theme: 'default',
@@ -116,12 +118,14 @@ class Tooltip extends React.Component {
       container,
       apparition,
       animate,
+      popperOptions,
       ...rest
     } = this.props;
     const { opened } = this.state;
 
     const tooltip = (
       <Popper
+        {...popperOptions}
         placement={placement}
       >
         { ({ ref, style, placement, arrowProps, scheduleUpdate }) => {
