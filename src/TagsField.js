@@ -86,7 +86,7 @@ class TagsField extends React.Component {
       return false;
     }
 
-    e.preventDefault();
+    e?.preventDefault();
     this.textInput?.focus();
     return false;
   }
@@ -99,9 +99,9 @@ class TagsField extends React.Component {
     this.props.onFocus(e);
 
     if (
-      e.defaultPrevented ||
-      (e.isImmediatePropagationStopped && e.isImmediatePropagationStopped()) ||
-      (e.isPropagationStopped && e.isPropagationStopped())
+      e?.defaultPrevented ||
+      e?.isImmediatePropagationStopped?.() ||
+      e?.isPropagationStopped?.()
     ) {
       return false;
     }
@@ -118,9 +118,9 @@ class TagsField extends React.Component {
     this.props.onBlur(e);
 
     if (
-      e.defaultPrevented ||
-      (e.isImmediatePropagationStopped && e.isImmediatePropagationStopped()) ||
-      (e.isPropagationStopped && e.isPropagationStopped())
+      e?.defaultPrevented ||
+      e?.isImmediatePropagationStopped?.() ||
+      e?.isPropagationStopped?.()
     ) {
       return false;
     }
@@ -305,7 +305,7 @@ class TagsField extends React.Component {
             ), index)) }
             <input
               { ...omit(rest, ['parseValue', 'parseTitle']) }
-              ref={(ref) => this.textInput = ref}
+              ref={ref => this.textInput = ref}
               type="text"
               readOnly={readOnly}
               disabled={disabled}
