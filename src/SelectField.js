@@ -52,7 +52,7 @@ class SelectField extends React.Component {
     onChange: () => {},
     parseTitle: (val) => val?.toString(),
     parseValue: (val) => val,
-    validate: value => typeof value !== undefined && value !== null,
+    validate: value => typeof value !== 'undefined' && value !== null,
   }
 
   state = {
