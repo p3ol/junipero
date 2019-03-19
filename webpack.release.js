@@ -15,7 +15,7 @@ module.exports = merge(common, {
     minimize: false,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new UglifyJSPlugin({
       include: /\.min\.js$/,
       parallel: 4,
