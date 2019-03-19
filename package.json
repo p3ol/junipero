@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero",
-  "version": "0.4.4",
+  "version": "1.0.0",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero.cjs.js",
   "jsnext:main": "dist/lib/index.js",
@@ -34,6 +34,7 @@
     "babel-loader": "^8.0.4",
     "clean-css": "^4.2.1",
     "clean-webpack-plugin": "^0.1.19",
+    "codecov": "^3.2.0",
     "css-loader": "^1.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
@@ -88,7 +89,7 @@
     "build:module": "BABEL_ENV=module ./node_modules/.bin/babel ./src --out-dir ./dist/lib",
     "build:browser": "BABEL_ENV=browser ./node_modules/.bin/rollup -c",
     "build": "yarn clean && yarn build:browser && yarn build:module",
-    "prepack": "yarn build",
+    "prepack": "yarn build && yarn test",
     "test": "jest",
     "changelog": "./node_modules/.bin/auto-changelog"
   },

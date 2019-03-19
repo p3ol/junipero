@@ -9,3 +9,6 @@ cache: yarn
 
 script:
     - yarn test
+
+after_success:
+  - ./node_modules/.bin/codecov
