@@ -65,9 +65,8 @@ class TagsField extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.value &&
-      prevProps.value &&
-      this.props.value.length !== prevProps.value.length
+      this.props.value !== prevProps.value ||
+      this.props.value?.length !== prevProps.value?.length
     ) {
       this.onPropValueChanged();
     }
@@ -77,7 +76,7 @@ class TagsField extends React.Component {
     const { value, parseValue } = this.props;
 
     this.setState({
-      value: value?.map((item) => parseValue(item)) || this.state.value,
+      value: value?.map((item) => parseValue(item)) || [],
       selected: -1,
     });
   }
