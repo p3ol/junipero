@@ -227,6 +227,11 @@ class TagsField extends React.Component {
     });
   }
 
+  reset() {
+    this.onPropValueChanged();
+    this.setState({ input: '' });
+  }
+
   render() {
     const {
       disabled,
