@@ -71,13 +71,17 @@ class TextField extends React.Component {
   }
 
   onFocus(e) {
-    this.props.onFocus(e);
     const { value } = this.state;
 
+    if (this.props.disabled) {
+      return false;
+    }
+
+    this.props.onFocus(e);
     if (
-      e.defaultPrevented ||
-      (e.isImmediatePropagationStopped && e.isImmediatePropagationStopped()) ||
-      (e.isPropagationStopped && e.isPropagationStopped())
+      e?.defaultPrevented ||
+      e?.isImmediatePropagationStopped?.() ||
+      e?.isPropagationStopped?.()
     ) {
       return false;
     }
@@ -90,13 +94,18 @@ class TextField extends React.Component {
   }
 
   onBlur(e) {
-    this.props.onBlur(e);
     const { value } = this.state;
 
+    if (this.props.disabled) {
+      return false;
+    }
+
+    this.props.onBlur(e);
+
     if (
-      e.defaultPrevented ||
-      (e.isImmediatePropagationStopped && e.isImmediatePropagationStopped()) ||
-      (e.isPropagationStopped && e.isPropagationStopped())
+      e?.defaultPrevented ||
+      e?.isImmediatePropagationStopped?.() ||
+      e?.isPropagationStopped?.()
     ) {
       return false;
     }
@@ -110,7 +119,6 @@ class TextField extends React.Component {
   }
 
   onChange(e) {
-    e.persist();
     let value = e.target.value;
     const valid = this.props.validate(value);
 
