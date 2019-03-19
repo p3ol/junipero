@@ -46,19 +46,8 @@ class Tooltip extends React.Component {
   }
 
   componentDidMount() {
-    const { trigger } = this.props;
-
-    switch (trigger) {
-      case 'click':
-        this.target?.addEventListener('click', this.toggleTooltip, false);
-        document.addEventListener('click', this.onClickOutside, false);
-        break;
-      case 'custom':
-        break;
-      default:
-        this.target?.addEventListener('mouseenter', this.open, false);
-        this.target?.addEventListener('mouseleave', this.close, false);
-        break;
+    if (this.props.trigger === 'click') {
+      document.addEventListener('click', this.onClickOutside, false);
     }
   }
 
@@ -69,7 +58,7 @@ class Tooltip extends React.Component {
   }
 
   onClickOutside = (e) => {
-    if (this.target && !this.target.contains(e.target)) {
+    if (this.target && !this.target.contains(e?.target)) {
       this.toggleTooltip(false);
     }
   }
@@ -96,16 +85,24 @@ class Tooltip extends React.Component {
     this.setState({ opened }, () => onToggle(opened));
   }
 
-  getContainer() {
-    const { container } = this.props;
-
-    return typeof container === 'string'
-      ? document.querySelector(container) || document.createElement('div')
-      : container;
-  }
-
   updatePopper() {
     this.scheduleUpdate?.();
+  }
+
+  getHandlers() {
+    const { trigger } = this.props;
+    const handlers = {};
+
+    switch (trigger) {
+      case 'click':
+        handlers.onClick = this.toggleTooltip;
+        break;
+      case 'hover':
+        handlers.onMouseEnter = this.open;
+        handlers.onMouseLeave = this.close;
+    }
+
+    return handlers;
   }
 
   render() {
@@ -169,11 +166,16 @@ class Tooltip extends React.Component {
           innerRef={(ref) => this.target = ref}
         >
           { ({ ref }) => (
-            typeof children === 'string' ? (
-              <span ref={ref}>{ children }</span>
+            !children || typeof children === 'string' ? (
+              <span
+                className="tooltip-toggle"
+                ref={ref}
+                {...this.getHandlers()}
+                children={children}
+              />
             ) : React.cloneElement(
               React.Children.only(children),
-              { ref: ref }
+              { ref, ...this.getHandlers() }
             )
           )}
         </Reference>
@@ -191,21 +193,10 @@ class Tooltip extends React.Component {
 
   }
 
-  componentWillUnMount() {
-    const { trigger } = this.props;
-
-    switch (trigger) {
-      case 'click':
-        this.target?.removeEventListener('click', this.toggleTooltip);
-        document.removeEventListener('click', this.onClickOutside);
-        break;
-      case 'custom':
-        break;
-      default:
-        this.target?.removeEventListener('mouseenter', this.open);
-        this.target?.removeEventListener('mouseleave', this.close);
-        break;
-    }
+  componentWillUnmount() {
+    try {
+      document.removeEventListener('click', this.onClickOutside);
+    } catch (e) {}
   }
 }
 
