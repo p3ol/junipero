@@ -108,6 +108,11 @@ describe('<TextField />', () => {
     expect(component.find('input[type="email"]').length).toBe(1);
   });
 
+  it('should render a tel input if type is tel', () => {
+    const component = shallow(<TextField type="tel" />);
+    expect(component.find('input[type="tel"]').length).toBe(1);
+  });
+
   it('should render a textarea if field is multiline', () => {
     const component = shallow(<TextField rows={10} />);
     expect(component.find('textarea').length).toBe(1);
