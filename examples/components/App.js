@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
@@ -39,7 +39,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.history = createHistory();
+    this.history = createBrowserHistory();
     this.unlisten = this.history.listen(() => {
       window.scrollTo(0, 0);
     });
