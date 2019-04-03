@@ -60,7 +60,7 @@ class TagsField extends React.Component {
   }
 
   state = {
-    autoCompleteOptions: null,
+    autoCompleteOptions: [],
     autoCompleteValue: '',
     autoCompleting: false,
     focused: false,
