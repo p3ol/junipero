@@ -157,6 +157,7 @@ class TagsField extends React.Component {
       return false;
     }
 
+    const { autoComplete, autoCompleteThreshold } = this.props;
     const input = e.target.value;
 
     this.setState({
@@ -169,29 +170,29 @@ class TagsField extends React.Component {
       return false;
     }
 
-    const { autoComplete, autoCompleteThreshold } = this.props;
+    if (autoComplete) {
+      clearTimeout(this._autoCompleteTimeout);
 
-    clearTimeout(this._autoCompleteTimeout);
+      this.setState({
+        autoCompleting: true,
+      }, () => {
+        this._autoCompleteTimeout = setTimeout(() => {
+          autoComplete?.(input, (items) => {
+            let autoCompleteOptions = this.props.autoCompleteUniqueValues
+              ? items.filter(item => !this.state.value.includes(item))
+              : items;
 
-    this.setState({
-      autoCompleting: true,
-    }, () => {
-      this._autoCompleteTimeout = setTimeout(() => {
-        autoComplete?.(input, (items) => {
-          let autoCompleteOptions = this.props.autoCompleteUniqueValues
-            ? items.filter(item => !this.state.value.includes(item))
-            : items;
-
-          this.setState({
-            autoCompleteOptions,
-            autoCompleting: false,
-            opened: true,
-          }, () => {
-            this.menuRef?.updatePopper();
+            this.setState({
+              autoCompleteOptions,
+              autoCompleting: false,
+              opened: true,
+            }, () => {
+              this.menuRef?.updatePopper();
+            });
           });
-        });
-      }, autoCompleteThreshold);
-    });
+        }, autoCompleteThreshold);
+      });
+    }
 
     return true;
   }
