@@ -288,14 +288,7 @@ class TagsField extends React.Component {
   }
 
   onSelectTag(item) {
-    if (this.props.autoCompleteUniqueValues) {
-      if (!this.state.value.includes(item)) {
-        this.add(item);
-      }
-    } else {
-      this.add(item);
-    }
-
+    this.add(item);
     this.setState({ opened: false });
   }
 
@@ -328,8 +321,7 @@ class TagsField extends React.Component {
       autoCompleteOptions,
     } = this.state;
 
-    const listOptions = autoCompleteOptions || [];
-    const hasOptions = listOptions.length > 0;
+    const hasOptions = autoCompleteOptions.length > 0;
 
     return (
       <div
@@ -425,7 +417,7 @@ class TagsField extends React.Component {
               animate={animateMenu}
             >
 
-              { listOptions.map((item, index) => (
+              { autoCompleteOptions.map((item, index) => (
                 <DropdownItem
                   key={index}
                 >
