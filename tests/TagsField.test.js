@@ -308,4 +308,29 @@ describe('<TagsField />', () => {
     expect(component.find('.junipero-dropdown-menu').length).toBe(0);
   });
 
+  it('should add a new tag when selecting an option in autocomplete ' +
+    'dropdown', () => {
+    jest.useFakeTimers();
+    const component = mount(
+      <TagsField
+        value={[]}
+        autoComplete={autoComplete}
+        autoCompleteUniqueValues={true}
+      />
+    );
+    component.find('input').simulate('focus');
+    expect(component.state('focused')).toBe(true);
+    component.find('input').simulate('change', { target: { value: 'M' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item')
+      .find('.junipero-option').text()).toBe('Freeman');
+    component.find('.junipero-dropdown-item').find('.junipero-option')
+      .simulate('click');
+    expect(component.state('value').length).toBe(1);
+    expect(component.state('value').pop()).toBe('Freeman');
+  });
+
 });
