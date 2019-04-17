@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Dropdown from './Dropdown';
+import DropdownMenu from './DropdownMenu';
+import DropdownToggle from './DropdownToggle';
+import DropdownItem from './DropdownItem';
+
 import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/TagsField.styl';
@@ -8,6 +13,8 @@ import styles from './theme/components/TagsField.styl';
 class TagsField extends React.Component {
 
   static propTypes = {
+    autoCompleteUniqueValues: PropTypes.bool,
+    autoCompleteThreshold: PropTypes.number,
     boxed: PropTypes.bool,
     disabled: PropTypes.bool,
     forceLabel: PropTypes.bool,
@@ -23,6 +30,8 @@ class TagsField extends React.Component {
     value: PropTypes.array,
     animateTag: PropTypes.func,
     onBlur: PropTypes.func,
+    autoComplete: PropTypes.func,
+    animateMenu: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     parseTitle: PropTypes.func,
@@ -30,6 +39,8 @@ class TagsField extends React.Component {
   }
 
   static defaultProps = {
+    autoCompleteUniqueValues: false,
+    autoCompleteThreshold: 400,
     boxed: false,
     disabled: false,
     forceLabel: false,
@@ -39,6 +50,7 @@ class TagsField extends React.Component {
     required: false,
     theme: 'default',
     value: [],
+    autoComplete: null,
     animateTag: tag => tag,
     onBlur: () => {},
     onChange: () => {},
@@ -48,11 +60,17 @@ class TagsField extends React.Component {
   }
 
   state = {
+    autoCompleteOptions: [],
+    autoCompleteValue: '',
+    autoCompleting: false,
     focused: false,
     input: '',
     selected: -1,
     value: null,
+    opened: false,
   };
+
+  menuRef = null;
 
   constructor(props) {
     super(props);
@@ -125,7 +143,12 @@ class TagsField extends React.Component {
       return false;
     }
 
+    if (!e.relatedTarget || e.relatedTarget.className !== 'junipero-option') {
+      this.setState({ opened: false });
+    }
+
     this.setState({ focused: false });
+
     return true;
   }
 
@@ -134,12 +157,42 @@ class TagsField extends React.Component {
       return false;
     }
 
+    const { autoComplete, autoCompleteThreshold } = this.props;
     const input = e.target.value;
 
     this.setState({
       input,
       selected: -1,
     });
+
+    if (!input || input === '') {
+      this.setState({ opened: false });
+      return false;
+    }
+
+    if (autoComplete) {
+      clearTimeout(this._autoCompleteTimeout);
+
+      this.setState({
+        autoCompleting: true,
+      }, () => {
+        this._autoCompleteTimeout = setTimeout(() => {
+          autoComplete?.(input, (items) => {
+            let autoCompleteOptions = this.props.autoCompleteUniqueValues
+              ? items.filter(item => !this.state.value.includes(item))
+              : items;
+
+            this.setState({
+              autoCompleteOptions,
+              autoCompleting: false,
+              opened: true,
+            }, () => {
+              this.menuRef?.updatePopper();
+            });
+          });
+        }, autoCompleteThreshold);
+      });
+    }
 
     return true;
   }
@@ -164,6 +217,7 @@ class TagsField extends React.Component {
       return false;
     } else if (event.which === 27 || event.keyCode === 27) { // ESC
       this.unselectItem();
+      this.setState({ opened: false });
     }
 
     return true;
@@ -177,6 +231,7 @@ class TagsField extends React.Component {
     if (event.which === 13 || event.keyCode === 13) { // ENTER
       this.add(this.state.input);
       event.preventDefault();
+      this.setState({ opened: false });
       return false;
     }
 
@@ -232,6 +287,11 @@ class TagsField extends React.Component {
     this.setState({ input: '' });
   }
 
+  onSelectTag(item) {
+    this.add(item);
+    this.setState({ opened: false });
+  }
+
   render() {
     const {
       disabled,
@@ -245,10 +305,23 @@ class TagsField extends React.Component {
       theme,
       animateTag,
       forceLabel,
+      animateMenu,
+      autoComplete,
+      parseTitle,
       ...rest
     } = this.props;
 
-    const { focused, selected, input, value } = this.state;
+    const {
+      focused,
+      selected,
+      input,
+      value,
+      opened,
+      autoCompleting,
+      autoCompleteOptions,
+    } = this.state;
+
+    const hasOptions = autoCompleteOptions.length > 0;
 
     return (
       <div
@@ -304,7 +377,13 @@ class TagsField extends React.Component {
               </span>
             ), index)) }
             <input
-              { ...omit(rest, ['parseValue', 'parseTitle']) }
+              { ...omit(rest, [
+                'parseValue',
+                'parseTitle',
+                'autoComplete',
+                'autoCompleteThreshold',
+                'autoCompleteUniqueValues',
+              ]) }
               ref={ref => this.textInput = ref}
               type="text"
               readOnly={readOnly}
@@ -320,7 +399,40 @@ class TagsField extends React.Component {
             />
           </div>
         </div>
+        { autoComplete && hasOptions && (
+          <Dropdown
+            theme={theme}
+            isOpen={opened}
+          >
+            <DropdownToggle
+              tag="div"
+              className="toggle"
+            >
+            </DropdownToggle>
+            <DropdownMenu
+              ref={ref => this.menuRef = ref}
+              className={classNames({
+                'auto-completing': autoCompleting,
+              })}
+              animate={animateMenu}
+            >
 
+              { autoCompleteOptions.map((item, index) => (
+                <DropdownItem
+                  key={index}
+                >
+                  <a
+                    href="#"
+                    className="junipero-option"
+                    onClick={this.onSelectTag.bind(this, item)}
+                  >
+                    { parseTitle(item) }
+                  </a>
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
+        )}
       </div>
     );
   }

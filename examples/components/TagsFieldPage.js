@@ -10,7 +10,16 @@ class TagsFieldPage extends React.Component {
     this.state = {
       default: {},
       unthemed: {},
+      autocomplete: {},
     };
+
+    this.autoCompleteOptions = [
+      'Dave',
+      'Astrid',
+      'Freeman',
+      'Lizbeth',
+      'Annette',
+    ];
   }
 
   onChange(name, field) {
@@ -57,6 +66,31 @@ class TagsFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.unthemed, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">With autocomplete</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <TagsField
+              label="Keywords"
+              disabled={this.props.disabled}
+              boxed={this.props.boxed}
+              error={this.props.error}
+              placeholder="Type a keyword..."
+              onChange={this.onChange.bind(this, 'autocomplete')}
+              autoCompleteUniqueValues={true}
+              autoComplete={(val, cb) => {
+                const search = new RegExp(val, 'i');
+                cb(this.autoCompleteOptions.filter((item) => (
+                  search.test(item)
+                )));
+              }}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.autocomplete, null, 2)}</pre>
           </div>
         </div>
       </div>
