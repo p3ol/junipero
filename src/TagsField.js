@@ -292,6 +292,10 @@ class TagsField extends React.Component {
     this.setState({ opened: false });
   }
 
+  onToggle(opened) {
+    this.setState({ opened });
+  }
+
   render() {
     const {
       disabled,
@@ -403,6 +407,7 @@ class TagsField extends React.Component {
           <Dropdown
             theme={theme}
             isOpen={opened}
+            onToggle={this.onToggle.bind(this)}
           >
             <DropdownToggle
               tag="div"

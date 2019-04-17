@@ -216,8 +216,8 @@ describe('<TagsField />', () => {
   it('should not open autocomplete dropdown when changing input without ' +
     'matching anything', () => {
     jest.useFakeTimers();
-    /* eslint-disable-next-line max-len */
-    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    const component = mount(
+      <TagsField value={[]} autoComplete={autoComplete} />);
     component.find('input').simulate('change', { target: { value: 'Q' } });
     jest.runAllTimers();
     component.update();
@@ -227,8 +227,8 @@ describe('<TagsField />', () => {
   it('should open autocomplete dropdown and show an item when changing ' +
     'input and matching an available option', () => {
     jest.useFakeTimers();
-    /* eslint-disable-next-line max-len */
-    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    const component = mount(
+      <TagsField value={[]} autoComplete={autoComplete} />);
     component.find('input').simulate('change', { target: { value: 'Z' } });
     expect(component.state('autoCompleting')).toBe(true);
     expect(component.state('autoCompleteOptions').length).toBe(0);
@@ -245,8 +245,8 @@ describe('<TagsField />', () => {
 
   it('should close autocomplete dropdown when bluring input', () => {
     jest.useFakeTimers();
-    /* eslint-disable-next-line max-len */
-    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    const component = mount(
+      <TagsField value={[]} autoComplete={autoComplete} />);
     component.find('input').simulate('focus');
     expect(component.state('focused')).toBe(true);
     component.find('input').simulate('change', { target: { value: 'Z' } });
@@ -261,8 +261,8 @@ describe('<TagsField />', () => {
 
   it('should close autocomplete dropdown when hitting escape', () => {
     jest.useFakeTimers();
-    /* eslint-disable-next-line max-len */
-    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    const component = mount(
+      <TagsField value={[]} autoComplete={autoComplete} />);
     component.find('input').simulate('focus');
     expect(component.state('focused')).toBe(true);
     component.find('input').simulate('change', { target: { value: 'Z' } });
@@ -277,8 +277,8 @@ describe('<TagsField />', () => {
   it('should close autocomplete dropdown when hitting backspace and input ' +
     'going empty', () => {
     jest.useFakeTimers();
-    /* eslint-disable-next-line max-len */
-    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    const component = mount(
+      <TagsField value={[]} autoComplete={autoComplete} />);
     component.find('input').simulate('focus');
     expect(component.state('focused')).toBe(true);
     component.find('input').simulate('change', { target: { value: 'Z' } });
