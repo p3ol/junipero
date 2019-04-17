@@ -6,6 +6,19 @@ import TagsField from '../src/TagsField';
 
 describe('<TagsField />', () => {
 
+  const autoCompleteOptions = [
+    'Dave',
+    'Astrid',
+    'Freeman',
+    'Lizbeth',
+    'Annette',
+  ];
+
+  const autoComplete = (val, cb) => {
+    const search = new RegExp(val, 'i');
+    cb(autoCompleteOptions.filter((item) => (search.test(item))));
+  };
+
   it('should render', () => {
     const component = mount(<TagsField />);
     expect(component.find('.junipero-tags-field').length).toBe(1);
@@ -196,6 +209,128 @@ describe('<TagsField />', () => {
     expect(component.state('value').pop()).toBe('One');
     expect(component.state('selected')).toBe(-1);
     expect(component.state('input')).toBe('');
+  });
+
+
+  // AUTOCOMPLETE
+  it('should not open autocomplete dropdown when changing input without ' +
+    'matching anything', () => {
+    jest.useFakeTimers();
+    /* eslint-disable-next-line max-len */
+    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    component.find('input').simulate('change', { target: { value: 'Q' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(0);
+  });
+
+  it('should open autocomplete dropdown and show an item when changing ' +
+    'input and matching an available option', () => {
+    jest.useFakeTimers();
+    /* eslint-disable-next-line max-len */
+    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    component.find('input').simulate('change', { target: { value: 'Z' } });
+    expect(component.state('autoCompleting')).toBe(true);
+    expect(component.state('autoCompleteOptions').length).toBe(0);
+    jest.runAllTimers();
+    expect(component.state('autoCompleteOptions').length).toBe(1);
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item')
+      .find('.junipero-option').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item')
+      .find('.junipero-option').text()).toBe('Lizbeth');
+  });
+
+  it('should close autocomplete dropdown when bluring input', () => {
+    jest.useFakeTimers();
+    /* eslint-disable-next-line max-len */
+    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    component.find('input').simulate('focus');
+    expect(component.state('focused')).toBe(true);
+    component.find('input').simulate('change', { target: { value: 'Z' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item').length).toBe(1);
+    component.find('input').simulate('blur');
+    expect(component.state('focused')).toBe(false);
+    expect(component.find('.junipero-dropdown-menu').length).toBe(0);
+  });
+
+  it('should close autocomplete dropdown when hitting escape', () => {
+    jest.useFakeTimers();
+    /* eslint-disable-next-line max-len */
+    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    component.find('input').simulate('focus');
+    expect(component.state('focused')).toBe(true);
+    component.find('input').simulate('change', { target: { value: 'Z' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item').length).toBe(1);
+    component.find('input').simulate('keydown', { keyCode: 27 });
+    expect(component.find('.junipero-dropdown-menu').length).toBe(0);
+  });
+
+  it('should close autocomplete dropdown when hitting backspace and input ' +
+    'going empty', () => {
+    jest.useFakeTimers();
+    /* eslint-disable-next-line max-len */
+    const component = mount(<TagsField value={[]} autoComplete={autoComplete} />);
+    component.find('input').simulate('focus');
+    expect(component.state('focused')).toBe(true);
+    component.find('input').simulate('change', { target: { value: 'Z' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item').length).toBe(1);
+    component.find('input').simulate('change', { target: { value: '' } });
+    expect(component.find('.junipero-dropdown-menu').length).toBe(0);
+  });
+
+  it('should not show options already tagged in the field if component prop ' +
+    'autoCompleteUniqueValues is set to true', () => {
+    jest.useFakeTimers();
+    const component = mount(
+      <TagsField
+        value={['Lizbeth']}
+        autoComplete={autoComplete}
+        autoCompleteUniqueValues={true}
+      />
+    );
+    component.find('input').simulate('focus');
+    expect(component.state('focused')).toBe(true);
+    component.find('input').simulate('change', { target: { value: 'Z' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(0);
+  });
+
+  it('should add a new tag when selecting an option in autocomplete ' +
+    'dropdown', () => {
+    jest.useFakeTimers();
+    const component = mount(
+      <TagsField
+        value={[]}
+        autoComplete={autoComplete}
+        autoCompleteUniqueValues={true}
+      />
+    );
+    component.find('input').simulate('focus');
+    expect(component.state('focused')).toBe(true);
+    component.find('input').simulate('change', { target: { value: 'M' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.find('.junipero-dropdown-menu').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item').length).toBe(1);
+    expect(component.find('.junipero-dropdown-item')
+      .find('.junipero-option').text()).toBe('Freeman');
+    component.find('.junipero-dropdown-item').find('.junipero-option')
+      .simulate('click');
+    expect(component.state('value').length).toBe(1);
+    expect(component.state('value').pop()).toBe('Freeman');
   });
 
 });
