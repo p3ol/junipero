@@ -31,6 +31,7 @@ class SelectField extends React.Component {
     animateMenu: PropTypes.func,
     autoComplete: PropTypes.func,
     onChange: PropTypes.func,
+    onToggle: PropTypes.func,
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
     validate: PropTypes.func,
@@ -50,6 +51,7 @@ class SelectField extends React.Component {
     theme: 'default',
     autoComplete: null,
     onChange: () => {},
+    onToggle: () => {},
     parseTitle: (val) => val?.toString(),
     parseValue: (val) => val,
     validate: value => typeof value !== 'undefined' && value !== null,
@@ -98,6 +100,7 @@ class SelectField extends React.Component {
     }, () => {
       this.resetAutoComplete();
       this.autoCompleteInput?.focus();
+      this.props.onToggle(opened);
     });
   }
 
@@ -232,6 +235,14 @@ class SelectField extends React.Component {
     const value = this.getValue();
 
     return options?.findIndex((item) => parseValue(item) === value);
+  }
+
+  open() {
+    this.onToggle(true);
+  }
+
+  close() {
+    this.onToggle(false);
   }
 
   render() {
