@@ -34,6 +34,7 @@ class TagsField extends React.Component {
     animateMenu: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onToggle: PropTypes.func,
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
   }
@@ -55,6 +56,7 @@ class TagsField extends React.Component {
     onBlur: () => {},
     onChange: () => {},
     onFocus: () => {},
+    onToggle: () => {},
     parseTitle: tag => tag,
     parseValue: tag => tag,
   }
@@ -154,7 +156,7 @@ class TagsField extends React.Component {
 
   onInputChange(e) {
     if (this.props.disabled) {
-      return false;
+      return;
     }
 
     const { autoComplete, autoCompleteThreshold } = this.props;
@@ -163,38 +165,36 @@ class TagsField extends React.Component {
     this.setState({
       input,
       selected: -1,
-    });
+    }, () => {
+      if (!input || input === '') {
+        clearTimeout(this._autoCompleteTimeout);
+        this.setState({ opened: false, autoCompleting: false });
+        return;
+      }
 
-    if (!input || input === '') {
-      this.setState({ opened: false });
-      return false;
-    }
+      if (autoComplete) {
+        this.setState({
+          autoCompleting: true,
+        }, () => {
+          clearTimeout(this._autoCompleteTimeout);
+          this._autoCompleteTimeout = setTimeout(() => {
+            autoComplete?.(this.state.input, (items) => {
+              let autoCompleteOptions = this.props.autoCompleteUniqueValues
+                ? items.filter(item => !this.state.value.includes(item))
+                : items;
 
-    if (autoComplete) {
-      clearTimeout(this._autoCompleteTimeout);
-
-      this.setState({
-        autoCompleting: true,
-      }, () => {
-        this._autoCompleteTimeout = setTimeout(() => {
-          autoComplete?.(input, (items) => {
-            let autoCompleteOptions = this.props.autoCompleteUniqueValues
-              ? items.filter(item => !this.state.value.includes(item))
-              : items;
-
-            this.setState({
-              autoCompleteOptions,
-              autoCompleting: false,
-              opened: true,
-            }, () => {
-              this.menuRef?.updatePopper();
+              this.setState({
+                autoCompleteOptions,
+                autoCompleting: false,
+                opened: !!this.state.input,
+              }, () => {
+                this.menuRef?.updatePopper();
+              });
             });
-          });
-        }, autoCompleteThreshold);
-      });
-    }
-
-    return true;
+          }, autoCompleteThreshold);
+        });
+      }
+    });
   }
 
   onKeyDown(event) {
@@ -293,7 +293,9 @@ class TagsField extends React.Component {
   }
 
   onToggle(opened) {
-    this.setState({ opened });
+    this.setState({ opened }, () => {
+      this.props.onToggle(opened);
+    });
   }
 
   render() {
