@@ -403,10 +403,10 @@ class TagsField extends React.Component {
             />
           </div>
         </div>
-        { autoComplete && hasOptions && (
+        { autoComplete && (
           <Dropdown
             theme={theme}
-            isOpen={opened}
+            isOpen={opened && hasOptions}
             onToggle={this.onToggle.bind(this)}
           >
             <DropdownToggle
