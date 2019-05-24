@@ -104,6 +104,18 @@ describe('<ColorPicker />', () => {
     expect(component.state('opened')).toBe(false);
   });
 
+  it('should fire onToggle event when opened/closed', () => {
+    const onToggle = sinon.spy();
+    const component = mount(<ColorPicker onToggle={onToggle} />);
+
+    component.instance().open();
+    expect(component.state('opened')).toBe(true);
+    expect(onToggle.calledWith(true)).toBe(true);
+    component.instance().close();
+    expect(component.state('opened')).toBe(false);
+    expect(onToggle.calledWith(false)).toBe(true);
+  });
+
   // Cannot test these with Jest as it uses JSDOM and elements are mocked
   // and don't have size nor positions
   //

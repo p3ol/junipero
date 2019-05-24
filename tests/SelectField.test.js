@@ -171,4 +171,18 @@ describe('<SelectField />', () => {
     expect(component.find('.error').html())
       .toBe('<span class="error">error</span>');
   });
+
+  it('should fire onToggle event when opened/closed', () => {
+    const onToggle = sinon.spy();
+    const component = mount(
+      <SelectField options={options} onToggle={onToggle} />
+    );
+
+    component.instance().open();
+    expect(component.state('opened')).toBe(true);
+    expect(onToggle.calledWith(true)).toBe(true);
+    component.instance().close();
+    expect(component.state('opened')).toBe(false);
+    expect(onToggle.calledWith(false)).toBe(true);
+  });
 });
