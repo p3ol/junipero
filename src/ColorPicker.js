@@ -27,6 +27,7 @@ class ColorPicker extends React.Component {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    onToggle: PropTypes.func,
   }
 
   static defaultProps = {
@@ -39,6 +40,7 @@ class ColorPicker extends React.Component {
     onBlur: () => {},
     onChange: () => {},
     onFocus: () => {},
+    onToggle: () => {},
   }
 
   state = {
@@ -234,7 +236,9 @@ class ColorPicker extends React.Component {
   }
 
   onToggle(opened) {
-    this.setState({ opened });
+    this.setState({ opened }, () => {
+      this.props.onToggle(opened);
+    });
   }
 
   getElementOffset(el) {
