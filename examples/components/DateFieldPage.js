@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CSSTransition }  from 'react-transition-group';
 
 import { DateField } from '@poool/junipero';
 
@@ -16,6 +17,8 @@ class DateFieldPage extends React.Component {
         valid: true,
       },
       customTitle: {},
+      animated: {},
+      animating: false,
     };
   }
 
@@ -122,6 +125,34 @@ class DateFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{JSON.stringify(this.state.customTitle, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Animated</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <DateField
+              placeholder="Pick a date"
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              onChange={this.onChange.bind(this, 'animated')}
+              animateMenu={(menu) => (
+                <CSSTransition
+                  in={this.state.animating}
+                  mountOnEnter={true}
+                  unmountOnExit={true}
+                  timeout={100}
+                  classNames="slide-in-up-dropdown"
+                  children={menu}
+                />
+              )}
+              onToggle={opened => this.setState({ animating: opened })}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{JSON.stringify(this.state.animated, null, 2)}</pre>
           </div>
         </div>
       </div>

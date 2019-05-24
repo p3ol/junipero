@@ -333,4 +333,28 @@ describe('<TagsField />', () => {
     expect(component.state('value').pop()).toBe('Freeman');
   });
 
+  it('should fire onToggle event when opened/closed', () => {
+    jest.useFakeTimers();
+    const onToggle = sinon.spy();
+    const component = mount(
+      <TagsField
+        value={[]}
+        autoComplete={autoComplete}
+        autoCompleteUniqueValues={true}
+        onToggle={onToggle}
+      />
+    );
+
+    component.find('input').simulate('change', { target: { value: 'Da' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.state('opened')).toBe(true);
+    expect(onToggle.calledWith(true)).toBe(true);
+    component.find('input').simulate('change', { target: { value: '' } });
+    jest.runAllTimers();
+    component.update();
+    expect(component.state('opened')).toBe(false);
+    expect(onToggle.calledWith(false)).toBe(true);
+  });
+
 });
