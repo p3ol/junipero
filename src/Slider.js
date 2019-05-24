@@ -55,6 +55,10 @@ class Slider extends React.Component {
     if (this.props.step !== prevProps.step) {
       this.setState({ precision: this.getPrecision() });
     }
+
+    if (this.props.value !== prevProps.value) {
+      this.setState({ value: this.props.value });
+    }
   }
 
   getPrecision() {

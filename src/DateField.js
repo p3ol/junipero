@@ -29,6 +29,7 @@ class DateField extends React.Component {
     weekDaysNames: PropTypes.array,
     animateMenu: PropTypes.func,
     onChange: PropTypes.func,
+    onToggle: PropTypes.func,
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
     validate: PropTypes.func,
@@ -49,6 +50,7 @@ class DateField extends React.Component {
     value: null,
     weekDaysNames: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
     onChange: () => {},
+    onToggle: () => {},
     parseTitle: value => value?.toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
@@ -106,6 +108,8 @@ class DateField extends React.Component {
       opened,
       selected: this.state.value || new Date(),
       displayed: this.state.value || new Date(),
+    }, () => {
+      this.props.onToggle(opened);
     });
   }
 
@@ -235,6 +239,14 @@ class DateField extends React.Component {
         });
       }
     });
+  }
+
+  open() {
+    this.onToggle(true);
+  }
+
+  close() {
+    this.onToggle(false);
   }
 
   getDateToUTC(year, month, day) {
