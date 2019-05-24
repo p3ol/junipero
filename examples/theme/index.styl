@@ -35,19 +35,19 @@
   &-enter, &-appear
     opacity: 0
     transform: translate3d(0, 10px, 0) scale(.99)
-    transition: opacity .3s ease-out .3s, transform .3s ease-out .3s
 
     &-active
       opacity: 1
       transform: translate3d(0, 0, 0) scale(1)
+      transition: opacity .3s ease-out .3s, transform .3s ease-out .3s
 
   &-exit
     opacity: 1
     transform: translate3d(0, 0, 0) scale(1)
-    transition: opacity .3s ease-out, transform .3s ease-out
 
     &-active
       opacity: 0
+      transition: opacity .3s ease-out, transform .3s ease-out
       transform: translate3d(0, 10px, 0) scale(.99)
 
 .slide-in-up-dropdown
@@ -56,20 +56,20 @@
     .junipero-dropdown-menu-inner
       opacity: 0
       transform: translate3d(0, 10px, 0)
-      transition: opacity .1s ease-out, transform .1s ease-out
 
     &-active
       .junipero-dropdown-menu-inner
         opacity: 1
         transform: translate3d(0, 0, 0)
+        transition: opacity .1s ease-out, transform .1s ease-out
 
   &-exit
     .junipero-dropdown-menu-inner
       opacity: 1
       transform: translate3d(0, 0, 0)
-      transition: opacity .1s ease-out, transform .1s ease-out
 
     &-active
       .junipero-dropdown-menu-inner
         opacity: 0
         transform: translate3d(0, 10px, 0)
+        transition: opacity .1s ease-out, transform .1s ease-out
