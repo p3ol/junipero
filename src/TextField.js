@@ -50,7 +50,7 @@ class TextField extends React.Component {
   input = null
 
   state = {
-    dirty: false,
+    dirty: exists(this.props.value),
     focused: false,
     valid: exists(this.props.valid) ? this.props.valid : true,
     value: exists(this.props.value) ? this.props.value : '',
