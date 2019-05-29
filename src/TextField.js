@@ -88,7 +88,7 @@ class TextField extends React.Component {
 
     this.setState({
       focused: true,
-      dirty: exists(value),
+      dirty: exists(value) && value !== '',
     });
     return true;
   }
@@ -112,7 +112,7 @@ class TextField extends React.Component {
 
     this.setState({
       focused: false,
-      dirty: exists(value),
+      dirty: exists(value) && value !== '',
     });
 
     return true;
