@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { inject } from './style';
-import { omit, classNames } from './utils';
+import { omit, exists, classNames } from './utils';
 import styles from './theme/components/TextField.styl';
 
 class TextField extends React.Component {
@@ -50,10 +50,10 @@ class TextField extends React.Component {
   input = null
 
   state = {
-    dirty: !!this.props.value,
+    dirty: false,
     focused: false,
-    valid: this.props.valid || true,
-    value: this.props.value || '',
+    valid: exists(this.props.valid) ? this.props.valid : true,
+    value: exists(this.props.value) ? this.props.value : '',
   };
 
   constructor(props) {
@@ -65,7 +65,7 @@ class TextField extends React.Component {
     if (this.props.value !== prevProps.value) {
       this.setState({
         value: this.props.value,
-        dirty: !!this.props.value,
+        dirty: exists(this.props.value),
       });
     }
   }
@@ -88,7 +88,7 @@ class TextField extends React.Component {
 
     this.setState({
       focused: true,
-      dirty: !!value,
+      dirty: exists(value),
     });
     return true;
   }
@@ -112,7 +112,7 @@ class TextField extends React.Component {
 
     this.setState({
       focused: false,
-      dirty: !!value,
+      dirty: exists(value),
     });
 
     return true;
@@ -141,8 +141,8 @@ class TextField extends React.Component {
   reset() {
     this.setState({
       focused: false,
-      value: this.props.value || '',
-      valid: this.props.valid || true,
+      value: exists(this.props.value) ? this.props.value : '',
+      valid: exists(this.props.valid) ? this.props.valid : true,
     }, () => {
       this.props.onChange({});
     });

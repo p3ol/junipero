@@ -13,6 +13,9 @@ import {
   stringifyColor,
   getContainerNode,
   classNames,
+  isNull,
+  isUndefined,
+  exists,
 } from '../src/utils';
 
 describe('injectStyles(styles, options = {})', () => {
@@ -353,6 +356,54 @@ describe('classNames(...classes)', () => {
     const thirdTest = false;
     expect(classNames('test', ['secondTest'], [{ thirdTest }, 'fourthTest']))
       .toBe('test secondTest fourthTest');
+  });
+
+});
+
+describe('isNull(value)', () => {
+
+  it('should return true when value is null', () => {
+    expect(isNull(null)).toBe(true);
+  });
+
+  it('should return false when value is undefined', () => {
+    expect(isNull()).toBe(false);
+  });
+
+  it('should return false when value is defined and not null', () => {
+    expect(isNull(true)).toBe(false);
+  });
+
+});
+
+describe('isUndefined(value)', () => {
+
+  it('should return true when value is undefined', () => {
+    expect(isUndefined()).toBe(true);
+  });
+
+  it('should return false when value is null', () => {
+    expect(isUndefined(null)).toBe(false);
+  });
+
+  it('should return false when value is defined and not null', () => {
+    expect(isUndefined(true)).toBe(false);
+  });
+
+});
+
+describe('exists(value)', () => {
+
+  it('should return true when value is defined and not null', () => {
+    expect(exists(0)).toBe(true);
+  });
+
+  it('should return false when value is null', () => {
+    expect(exists(null)).toBe(false);
+  });
+
+  it('should return false when value is not defined', () => {
+    expect(exists()).toBe(false);
   });
 
 });

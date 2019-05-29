@@ -297,3 +297,9 @@ export const classNames = (...args) => {
 
   return classes.join(' ');
 };
+
+export const exists = v => !isNull(v) && !isUndefined(v);
+
+export const isUndefined = v => typeof v === 'undefined';
+
+export const isNull = v => v === null;
