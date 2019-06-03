@@ -134,7 +134,7 @@ class Slider extends React.Component {
     });
   }
 
-  onResize = (e) => {
+  onResize = /* istanbul ignore next */ () => {
     this.setState({
       parentWidth: this.slideRef?.offsetWidth,
     });

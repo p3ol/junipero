@@ -23,6 +23,13 @@ describe('<Slider />', () => {
     expect(component.state('precision')).toBe(1);
   });
 
+  it('should update internal value when value prop changes', () => {
+    const component = shallow(<Slider />);
+    expect(component.state('value')).toBe(0);
+    component.setProps({ value: 10 });
+    expect(component.state('value')).toBe(10);
+  });
+
   it('should return a value rounded to the correct step & precision', () => {
     const component = shallow(<Slider min={0} max={100} step={1} />);
     expect(component.instance().getValue(15.6)).toBe(16);
@@ -117,6 +124,13 @@ describe('<Slider />', () => {
     expect(component.find('span.label').length).toBe(1);
     expect(component.find('span.label').html())
       .toBe('<span class="label">label</span>');
+  });
+
+  it('should listen for page resize event when autoResize is true', () => {
+    const map = {};
+    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    mount(<Slider autoResize={true} />);
+    expect(map.resize).toBeDefined();
   });
 
 });
