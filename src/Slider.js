@@ -8,6 +8,7 @@ import styles from './theme/components/Slider.styl';
 class Slider extends React.Component {
 
   static propTypes = {
+    autoResize: PropTypes.bool,
     disabled: PropTypes.bool,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     max: PropTypes.number,
@@ -20,6 +21,7 @@ class Slider extends React.Component {
   }
 
   static defaultProps = {
+    autoResize: false,
     disabled: false,
     label: '',
     max: 100,
@@ -32,6 +34,7 @@ class Slider extends React.Component {
   }
 
   state = {
+    parentWidth: 0,
     value: this.props.value,
     precision: this.getPrecision(),
     moving: false,
@@ -49,6 +52,14 @@ class Slider extends React.Component {
   componentDidMount() {
     document.addEventListener('mousemove', this.onMouseMove, true);
     document.addEventListener('mouseup', this.onMouseUp, true);
+
+    if (this.props.autoResize) {
+      document.addEventListener('resize', this.onResize, true);
+    }
+
+    this.setState({
+      parentWidth: this.slideRef?.offsetWidth,
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -84,7 +95,7 @@ class Slider extends React.Component {
   }
 
   getPosition() {
-    return this.slideRef?.offsetWidth * (this.state.value / this.props.max);
+    return this.state.parentWidth * (this.state.value / this.props.max);
   }
 
   onMouseDown(e) {
@@ -120,6 +131,12 @@ class Slider extends React.Component {
   onMouseUp = (e) => {
     this.setState({
       moving: false,
+    });
+  }
+
+  onResize = (e) => {
+    this.setState({
+      parentWidth: this.slideRef?.offsetWidth,
     });
   }
 
@@ -194,6 +211,7 @@ class Slider extends React.Component {
   componentWillUnmount() {
     document.removeEventListener('mousemove', this.onMouseMove, true);
     document.removeEventListener('mouseup', this.onMouseUp, true);
+    document.removeEventListener('resize', this.onResize, true);
   }
 
 }
