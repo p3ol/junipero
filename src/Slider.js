@@ -168,7 +168,7 @@ class Slider extends React.Component {
     return (
       <div
         { ...omit(rest, [
-          'onChange', 'step', 'min', 'max', 'value',
+          'onChange', 'step', 'min', 'max', 'value', 'autoResize',
         ]) }
         className={classNames(
           'junipero',
