@@ -289,6 +289,7 @@ class DateField extends React.Component {
             dirty,
             required,
             boxed,
+            error,
             'force-label': forceLabel,
             'with-label': label,
           },
