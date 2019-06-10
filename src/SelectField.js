@@ -291,7 +291,7 @@ class SelectField extends React.Component {
             required,
             dirty,
             boxed,
-            error,
+            'has-error': error,
             'force-label': forceLabel,
             'with-label': label !== false && (label || placeholder),
             invalid: !valid,

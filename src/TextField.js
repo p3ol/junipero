@@ -197,7 +197,7 @@ class TextField extends React.Component {
             required,
             boxed,
             invalid: !valid,
-            error,
+            'has-error': error,
             'force-label': forceLabel,
             'with-label': label !== false && (label || placeholder),
           },
