@@ -58,7 +58,7 @@ class TagsField extends React.Component {
     onFocus: () => {},
     onToggle: () => {},
     parseTitle: tag => tag,
-    parseValue: tag => tag,
+    parseValue: tag => tag.trim ? tag.trim() : tag,
   }
 
   state = {
@@ -179,12 +179,8 @@ class TagsField extends React.Component {
           clearTimeout(this._autoCompleteTimeout);
           this._autoCompleteTimeout = setTimeout(() => {
             autoComplete?.(this.state.input, (items) => {
-              let autoCompleteOptions = this.props.autoCompleteUniqueValues
-                ? items.filter(item => !this.state.value.includes(item))
-                : items;
-
               this.setState({
-                autoCompleteOptions,
+                autoCompleteOptions: items,
                 autoCompleting: false,
                 opened: !!this.state.input,
               }, () => {
@@ -239,11 +235,14 @@ class TagsField extends React.Component {
   }
 
   add(item) {
-    if (!item || item.trim() === '') {
+    const { parseValue } = this.props;
+
+    if (!item || (item.trim && item.trim() === '')) {
       return;
     }
 
-    this.state.value.push(item.trim());
+    item = parseValue(item);
+    this.state.value.push(item);
 
     this.setState({
       value: this.state.value,
@@ -423,8 +422,7 @@ class TagsField extends React.Component {
               })}
               animate={animateMenu}
             >
-
-              { autoCompleteOptions.map((item, index) => (
+              { autoCompleteOptions?.map((item, index) => (
                 <DropdownItem
                   key={index}
                 >
