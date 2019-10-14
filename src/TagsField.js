@@ -381,7 +381,7 @@ class TagsField extends React.Component {
                   },
                 )}
               >
-                { item }
+                { parseTitle(item) }
                 <i
                   role="button"
                   tabIndex={-1}
