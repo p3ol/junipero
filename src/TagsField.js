@@ -58,7 +58,7 @@ class TagsField extends React.Component {
     onFocus: () => {},
     onToggle: () => {},
     parseTitle: tag => tag,
-    parseValue: tag => tag.trim ? tag.trim() : tag,
+    parseValue: tag => tag?.trim ? tag.trim() : tag,
   }
 
   state = {
@@ -155,11 +155,16 @@ class TagsField extends React.Component {
   }
 
   onInputChange(e) {
-    if (this.props.disabled) {
+    const {
+      disabled,
+      autoComplete,
+      autoCompleteThreshold,
+      autoCompleteUniqueValues,
+    } = this.props;
+
+    if (disabled) {
       return;
     }
-
-    const { autoComplete, autoCompleteThreshold } = this.props;
     const input = e.target.value;
 
     this.setState({
@@ -179,6 +184,10 @@ class TagsField extends React.Component {
           clearTimeout(this._autoCompleteTimeout);
           this._autoCompleteTimeout = setTimeout(() => {
             autoComplete?.(this.state.input, (items) => {
+              items = autoCompleteUniqueValues
+                ? items.filter(it => this.state.value.indexOf(it) === -1)
+                : items;
+
               this.setState({
                 autoCompleteOptions: items,
                 autoCompleting: false,
