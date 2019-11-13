@@ -40,8 +40,11 @@ describe('<CheckBox />', () => {
   it('should reset checkbox when reset() is called', () => {
     const onChange = sinon.spy();
     const component = mount(<CheckBox onChange={onChange} />);
+    component.find('input').simulate('change', { target: { checked: true } });
+    expect(onChange.calledWith(sinon.match.has('checked', true))).toBe(true);
     component.instance().reset();
-    expect(onChange.calledWith(sinon.match({}))).toBe(true);
+    expect(onChange.calledWith(sinon.match.has('checked', false))).toBe(true);
+    expect(onChange.calledWith(sinon.match.has('value', ''))).toBe(true);
   });
 
   it('shouldn\'t fire onChange event if disabled', () => {
@@ -49,6 +52,20 @@ describe('<CheckBox />', () => {
     const component = shallow(<CheckBox onChange={onChange} disabled={true} />);
     component.find('input').simulate('change', { target: { checked: true } });
     expect(onChange.called).toBe(false);
+  });
+
+  it('shouldn\'t fire onChange event on checked prop change', () => {
+    const onChange = sinon.spy();
+    const component = shallow(<CheckBox onChange={onChange} />);
+    component.setProps({ checked: true });
+    expect(onChange.called).toBe(false);
+  });
+
+  it('should update internal checked state when checked prop changes', () => {
+    const component = shallow(<CheckBox />);
+    expect(component.state('checked')).toBe(false);
+    component.setProps({ checked: true });
+    expect(component.state('checked')).toBe(true);
   });
 
   it('should set active state to false on document mouse up event', () => {

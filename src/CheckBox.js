@@ -39,12 +39,24 @@ class CheckBox extends React.Component {
     document.addEventListener('mouseup', this.onMouseUp, false);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.checked !== prevProps.checked) {
+      this.setState({
+        active: false,
+        checked: this.props.checked,
+      });
+    }
+  }
+
   reset() {
     this.setState({
       active: false,
       checked: this.props.checked,
     }, () => {
-      this.props.onChange({});
+      this.props.onChange({
+        value: this.props.checked ? this.props.value : null,
+        checked: this.props.checked,
+      });
     });
   }
 
