@@ -8,7 +8,11 @@ class DropdownToggle extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
-    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    tag: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.string,
+      PropTypes.object,
+    ]),
     tagRefName: PropTypes.string,
     onClick: PropTypes.func,
   }

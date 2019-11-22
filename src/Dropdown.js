@@ -13,7 +13,11 @@ class Dropdown extends React.Component {
     disabled: PropTypes.bool,
     isOpen: PropTypes.bool,
     placement: PropTypes.string,
-    tag: PropTypes.string,
+    tag: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.string,
+      PropTypes.object,
+    ]),
     theme: PropTypes.string,
     onToggle: PropTypes.func,
   }

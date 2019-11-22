@@ -11,7 +11,11 @@ class DropdownMenu extends React.Component {
     apparition: PropTypes.oneOf(['insert', 'css']),
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     modifiers: PropTypes.object,
-    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    tag: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.string,
+      PropTypes.object,
+    ]),
     animate: PropTypes.func,
   }
 
