@@ -35,6 +35,7 @@ class SelectField extends React.Component {
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
     validate: PropTypes.func,
+    emptyText: PropTypes.string,
     acceptAnyOption: PropTypes.bool,
   }
 
@@ -282,6 +283,7 @@ class SelectField extends React.Component {
       theme,
       animateMenu,
       forceLabel,
+      emptyText,
       ...rest
     } = this.props;
 
@@ -341,6 +343,10 @@ class SelectField extends React.Component {
                 <option value="-1">{ placeholder }</option>
               ) }
 
+              { (!options || options.length === 0) && emptyText && (
+                <option disabled>{ emptyText }</option>
+              )}
+
               { options.map((item, index) => (
                 <option
                   key={index}
@@ -384,6 +390,10 @@ class SelectField extends React.Component {
                       onChange={this.onAutoCompleteChange.bind(this)}
                     />
                   </li>
+                )}
+
+                { (!listOptions || listOptions.length === 0) && emptyText && (
+                  <p className="empty">{ emptyText }</p>
                 )}
 
                 { listOptions.map((item, index) => (

@@ -17,6 +17,7 @@ class SelectFieldPage extends React.Component {
       objectsForceValue: {},
       autocomplete: {},
       forceLabel: {},
+      emptyResults: {},
       animated: {},
       acceptAnyOption: {},
       animating: false,
@@ -234,6 +235,27 @@ class SelectFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.animated, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Empty results</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <SelectField
+              required={true}
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              onChange={this.onChange.bind(this, 'emptyResults')}
+              label="Label"
+              placeholder="Select one..."
+              options={[]}
+              emptyText="There is no data."
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.emptyResults, null, 2)}</pre>
           </div>
         </div>
 

@@ -186,6 +186,22 @@ describe('<SelectField />', () => {
     expect(onToggle.calledWith(false)).toBe(true);
   });
 
+  it('should set a custom text if options aren\'t provided or empty', () => {
+    const component = mount(<SelectField emptyText="There is no data here."/>);
+    component.find(DropdownToggle).simulate('click');
+    expect(component.find('.junipero-dropdown-menu').find('p.empty').html())
+      .toBe('<p class="empty">There is no data here.</p>');
+  });
+
+  it('should set a custom text if options aren\'t provided or empty' +
+    ' as a disabled choice for native select fields', () => {
+    const component = shallow(
+      <SelectField native={true} emptyText="There is no data here."/>
+    );
+    expect(component.find('select.field').find('option').at(0).html())
+      .toBe('<option disabled="">There is no data here.</option>');
+  });
+
   it('should accept a value not included in provided options and' +
     ' set it as first index', () => {
     const component = mount(
