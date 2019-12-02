@@ -201,4 +201,18 @@ describe('<SelectField />', () => {
     expect(component.find('select.field').find('option').at(0).html())
       .toBe('<option disabled="">There is no data here.</option>');
   });
+
+  it('should accept a value not included in provided options and' +
+    ' set it as first index', () => {
+    const component = mount(
+      <SelectField
+        options={options}
+        value="Five"
+        acceptAnyOption={true}
+      />
+    );
+    component.find(DropdownToggle).simulate('click');
+    component.find(DropdownItem).at(0).find('a').simulate('click');
+    expect(component.instance().getValue()).toBe('Five');
+  });
 });

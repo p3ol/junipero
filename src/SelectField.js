@@ -36,6 +36,7 @@ class SelectField extends React.Component {
     parseValue: PropTypes.func,
     validate: PropTypes.func,
     emptyText: PropTypes.string,
+    acceptAnyOption: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -78,7 +79,9 @@ class SelectField extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
+    const { parseValue } = this.props;
+
+    if (parseValue(prevProps.value) !== parseValue(this.props.value)) {
       this.onPropValueChange();
     }
 
@@ -105,12 +108,27 @@ class SelectField extends React.Component {
     });
   }
 
+  getIndex(value) {
+    const { options, parseValue } = this.props;
+    return options.findIndex((item) => parseValue(item) === parseValue(value));
+  }
+
   onPropValueChange(propagateChange = true) {
-    const { native, options, value, parseValue, autoComplete } = this.props;
+    const {
+      native,
+      options,
+      value,
+      autoComplete,
+      acceptAnyOption,
+    } = this.props;
+
+    if (value && acceptAnyOption && this.getIndex(value) === -1) {
+      options.unshift(value);
+    }
 
     const index = typeof value === 'undefined' || value === null
       ? -1
-      : options.findIndex((item) => parseValue(item) === value);
+      : this.getIndex(value);
 
     if (native && !autoComplete) {
       this.onNativeChange(null, index, propagateChange);
@@ -231,7 +249,7 @@ class SelectField extends React.Component {
       : placeholder;
   }
 
-  getIndex() {
+  getNativeIndex() {
     const { options, parseValue } = this.props;
     const value = this.getValue();
 
@@ -312,11 +330,12 @@ class SelectField extends React.Component {
             <select
               { ...omit(rest, [
                 'validate', 'parseValue', 'autoCompleteThreshold', 'placement',
+                'acceptAnyOption',
               ]) }
               id={id}
               ref={ref => this.nativeField = ref}
               className="field"
-              value={this.getIndex()}
+              value={this.getNativeIndex()}
               disabled={disabled}
               onChange={this.onNativeChange.bind(this)}
             >
@@ -341,6 +360,7 @@ class SelectField extends React.Component {
             <Dropdown
               { ...omit(rest, [
                 'validate', 'parseValue', 'autoCompleteThreshold', 'onChange',
+                'acceptAnyOption',
               ]) }
               isOpen={opened}
               theme={theme}
