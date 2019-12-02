@@ -18,6 +18,7 @@ class SelectFieldPage extends React.Component {
       autocomplete: {},
       forceLabel: {},
       animated: {},
+      acceptAnyOption: {},
       animating: false,
     };
 
@@ -233,6 +234,30 @@ class SelectFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{ JSON.stringify(this.state.animated, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">Accept any option</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <SelectField
+              required={true}
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              onChange={this.onChange.bind(this, 'acceptAnyOption')}
+              label="Label"
+              placeholder="Select one..."
+              options={this.objectOptions}
+              parseTitle={val => val.title}
+              parseValue={val => val.value}
+              value={{title: '100 items', value: 100}}
+              acceptAnyOption
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{ JSON.stringify(this.state.acceptAnyOption, null, 2)}</pre>
           </div>
         </div>
       </div>
