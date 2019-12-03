@@ -35,7 +35,7 @@ class SelectField extends React.Component {
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
     validate: PropTypes.func,
-    emptyText: PropTypes.string,
+    emptyText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     acceptAnyOption: PropTypes.bool,
   }
 
