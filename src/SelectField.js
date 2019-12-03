@@ -110,7 +110,8 @@ class SelectField extends React.Component {
 
   getIndex(value) {
     const { options, parseValue } = this.props;
-    return options.findIndex((item) => parseValue(item) === parseValue(value));
+    return options.findIndex(item => parseValue(item) === value ||
+      parseValue(item) === parseValue(value));
   }
 
   onPropValueChange(propagateChange = true) {
