@@ -13,10 +13,13 @@ import styles from './theme/components/SelectField.styl';
 class SelectField extends React.Component {
 
   static propTypes = {
+    acceptAnyOption: PropTypes.bool,
     autoCompletePlaceholder: PropTypes.string,
     autoCompleteThreshold: PropTypes.number,
     boxed: PropTypes.bool,
+    compareRawValueOnChange: PropTypes.bool,
     disabled: PropTypes.bool,
+    emptyText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     forceLabel: PropTypes.bool,
     label: PropTypes.oneOfType([
       PropTypes.string,
@@ -35,15 +38,16 @@ class SelectField extends React.Component {
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
     validate: PropTypes.func,
-    emptyText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    acceptAnyOption: PropTypes.bool,
   }
 
   static defaultProps = {
+    acceptAnyOption: false,
     autoCompletePlaceholder: 'Search...',
     autoCompleteThreshold: 400,
     boxed: false,
+    compareRawValueOnChange: false,
     disabled: false,
+    emptyText: null,
     forceLabel: false,
     label: null,
     native: false,
@@ -67,6 +71,7 @@ class SelectField extends React.Component {
     valid: true,
     value: null,
     dirty: false,
+    unknownOptions: [],
   };
 
   constructor(props) {
@@ -79,9 +84,12 @@ class SelectField extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { parseValue } = this.props;
+    const { parseValue, compareRawValueOnChange } = this.props;
 
-    if (parseValue(prevProps.value) !== parseValue(this.props.value)) {
+    if (
+      (compareRawValueOnChange && prevProps.value !== this.props.value) ||
+      parseValue(prevProps.value) !== parseValue(this.props.value)
+    ) {
       this.onPropValueChange();
     }
 
@@ -110,7 +118,10 @@ class SelectField extends React.Component {
 
   getIndex(value) {
     const { options, parseValue } = this.props;
-    return options.findIndex(item => parseValue(item) === value ||
+    const { unknownOptions } = this.state;
+
+    const mergedOptions = [...unknownOptions, ...options];
+    return mergedOptions.findIndex(item => parseValue(item) === value ||
       parseValue(item) === parseValue(value));
   }
 
@@ -124,9 +135,11 @@ class SelectField extends React.Component {
     } = this.props;
 
     if (value && acceptAnyOption && this.getIndex(value) === -1) {
-      options.unshift(value);
+      this.state.unknownOptions = [value];
+      this.setState({ unknownOptions: [value] });
     }
 
+    const mergedOptions = [...this.state.unknownOptions, ...options];
     const index = typeof value === 'undefined' || value === null
       ? -1
       : this.getIndex(value);
@@ -134,7 +147,7 @@ class SelectField extends React.Component {
     if (native && !autoComplete) {
       this.onNativeChange(null, index, propagateChange);
     } else {
-      this.onChange(options[index], null, propagateChange);
+      this.onChange(mergedOptions[index], null, propagateChange);
     }
   }
 
@@ -165,17 +178,25 @@ class SelectField extends React.Component {
   }
 
   onNativeChange(e, forceIndex, propagateChange = true) {
-    const { validate, parseValue, options, disabled } = this.props;
+    const {
+      validate,
+      parseValue,
+      options,
+      disabled,
+    } = this.props;
+    const { unknownOptions } = this.state;
 
     if (disabled && propagateChange) {
       return;
     }
 
+    const mergedOptions = [...unknownOptions, ...options];
     const index = typeof forceIndex !== 'undefined' && forceIndex !== null
       ? forceIndex
-      : e?.target?.value;
+      : parseInt(e?.target?.value, 10);
 
-    const option = options[index];
+    const option = mergedOptions[index];
+
     const value = option ? parseValue(option) : null;
     const valid = validate(value);
 
@@ -252,9 +273,11 @@ class SelectField extends React.Component {
 
   getNativeIndex() {
     const { options, parseValue } = this.props;
+    const { unknownOptions } = this.state;
     const value = this.getValue();
+    const mergedOptions = [...unknownOptions, ...options];
 
-    return options?.findIndex((item) => parseValue(item) === value);
+    return mergedOptions?.findIndex((item) => parseValue(item) === value);
   }
 
   open() {
@@ -294,9 +317,11 @@ class SelectField extends React.Component {
       autoCompleting,
       autoCompleteOptions,
       autoCompleteValue,
+      unknownOptions,
     } = this.state;
 
-    const listOptions = autoCompleteOptions || options;
+    const mergedOptions = [...unknownOptions, ...options];
+    const listOptions = autoCompleteOptions || mergedOptions;
 
     return (
       <div
@@ -331,7 +356,7 @@ class SelectField extends React.Component {
             <select
               { ...omit(rest, [
                 'validate', 'parseValue', 'autoCompleteThreshold', 'placement',
-                'acceptAnyOption',
+                'acceptAnyOption', 'compareRawValueOnChange',
               ]) }
               id={id}
               ref={ref => this.nativeField = ref}
@@ -344,24 +369,19 @@ class SelectField extends React.Component {
                 <option value="-1">{ placeholder }</option>
               ) }
 
-              { (!options || options.length === 0) && emptyText && (
+              { !mergedOptions.length && emptyText && (
                 <option disabled>{ emptyText }</option>
               )}
 
-              { options.map((item, index) => (
-                <option
-                  key={index}
-                  value={index}
-                >
-                  { parseTitle(item) }
-                </option>
+              { mergedOptions.map((item, index) => (
+                <option key={index} value={index}>{ parseTitle(item) }</option>
               ))}
             </select>
           ) : (
             <Dropdown
               { ...omit(rest, [
                 'validate', 'parseValue', 'autoCompleteThreshold', 'onChange',
-                'acceptAnyOption',
+                'acceptAnyOption', 'compareRawValueOnChange',
               ]) }
               isOpen={opened}
               theme={theme}
