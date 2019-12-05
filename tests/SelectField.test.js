@@ -215,4 +215,26 @@ describe('<SelectField />', () => {
     component.find(DropdownItem).at(0).find('a').simulate('click');
     expect(component.instance().getValue()).toBe('Five');
   });
+
+  it('should update internal value when options change', () => {
+    const component = mount(
+      <SelectField
+        options={[]}
+        value={5}
+        parseValue={opt => opt.value}
+      />
+    );
+
+    expect(component.instance().getValue()).not.toBeDefined();
+
+    component.setProps({
+      options: [
+        { title: 'Four', value: 4 },
+        { title: 'Five', value: 5 },
+        { title: 'Six', value: 6 },
+      ],
+    });
+
+    expect(component.instance().getValue()).toBe(5);
+  });
 });
