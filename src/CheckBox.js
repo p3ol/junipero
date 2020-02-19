@@ -121,6 +121,7 @@ class CheckBox extends React.Component {
               type="checkbox"
               onChange={this.onChange.bind(this)}
               value={value}
+              checked={checked}
               disabled={disabled}
             />
             <div className="check" />
