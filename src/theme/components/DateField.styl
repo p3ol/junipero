@@ -138,6 +138,10 @@
           &.active
             color: $color-white
 
+          &.disabled, &.inactive.disabled
+            opacity: .2
+            pointer-events: none
+
         .separator
           width: 100%
           min-width: 100%
