@@ -167,4 +167,33 @@ describe('<DateField />', () => {
     expect(onToggle.calledWith(false)).toBe(true);
   });
 
+  it('should have a 3 days limited datepicker', () => {
+    const component = mount(
+      <DateField
+        minDate={new Date('December 15, 2019 00:00:00')}
+        value={new Date('December 16, 2019 00:00:00')}
+        maxDate={new Date('December 17, 2019 00:00:00')}
+      />
+    );
+    component.find('.field').first().simulate('click', { button: 0 });
+    expect(component.find('.day').not('.disabled').length).toBe(2);
+  });
+
+  it('should not pick a disabled date', () => {
+    const component = mount(
+      <DateField
+        minDate={new Date('December 15, 2019 00:00:00')}
+        value={new Date('December 16, 2019 00:00:00')}
+      />
+    );
+
+    component.find('.field').first().simulate('click', { button: 0 });
+    component.find('.day.disabled').first().simulate('click', { button: 0 });
+
+    const value = component.state('displayed');
+    expect(value.getFullYear()).toBe(2019);
+    expect(value.getMonth()).toBe(11);
+    expect(value.getDate()).toBe(16);
+  });
+
 });
