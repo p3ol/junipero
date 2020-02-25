@@ -176,7 +176,7 @@ describe('<DateField />', () => {
       />
     );
     component.find('.field').first().simulate('click', { button: 0 });
-    expect(component.find('.day').not('.disabled').length).toBe(2);
+    expect(component.find('.day').not('.disabled').length).toBe(3);
   });
 
   it('should not pick a disabled date', () => {
