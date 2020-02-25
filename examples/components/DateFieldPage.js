@@ -4,6 +4,8 @@ import { CSSTransition }  from 'react-transition-group';
 
 import { DateField } from '@poool/junipero';
 
+const today = new Date();
+
 class DateFieldPage extends React.Component {
 
   constructor(props) {
@@ -16,6 +18,7 @@ class DateFieldPage extends React.Component {
         value: new Date(),
         valid: true,
       },
+      limited: {},
       customTitle: {},
       animated: {},
       animating: false,
@@ -153,6 +156,27 @@ class DateFieldPage extends React.Component {
           <div className="col-6">
             <p>Current state :</p>
             <pre>{JSON.stringify(this.state.animated, null, 2)}</pre>
+          </div>
+        </div>
+
+        <h2 className="mt-5">2 Weeks limited</h2>
+        <div className="row mt-5">
+          <div className="col-6">
+            <DateField
+              label="Label"
+              value={this.state.limited.value}
+              disabled={this.props.disabled}
+              error={this.props.error}
+              boxed={this.props.boxed}
+              placeholder="Pick a date"
+              onChange={this.onChange.bind(this, 'limited')}
+              minDate={new Date().setDate(today.getDate() - 7)}
+              maxDate={new Date().setDate(today.getDate() + 7)}
+            />
+          </div>
+          <div className="col-6">
+            <p>Current state :</p>
+            <pre>{JSON.stringify(this.state.limited, null, 2)}</pre>
           </div>
         </div>
       </div>
