@@ -168,11 +168,14 @@ describe('<DateField />', () => {
   });
 
   it('should have a 3 days limited datepicker', () => {
+    const previousDay = new Date('December 15, 2019 03:57:00');
+    const day = new Date('December 16, 2019 05:38:00');
+    const nextDay = new Date('December 17, 2019 08:24:00');
     const component = mount(
       <DateField
-        minDate={new Date('December 15, 2019 00:00:00')}
-        value={new Date('December 16, 2019 00:00:00')}
-        maxDate={new Date('December 17, 2019 00:00:00')}
+        minDate={previousDay}
+        value={day}
+        maxDate={nextDay}
       />
     );
     component.find('.field').first().simulate('click', { button: 0 });
@@ -180,10 +183,12 @@ describe('<DateField />', () => {
   });
 
   it('should not pick a disabled date', () => {
+    const day = new Date('December 16, 2019 00:00:00');
+    const nextDay = new Date('December 17, 2019 00:00:00');
     const component = mount(
       <DateField
-        minDate={new Date('December 15, 2019 00:00:00')}
-        value={new Date('December 16, 2019 00:00:00')}
+        minDate={day}
+        value={nextDay}
       />
     );
 
@@ -193,7 +198,8 @@ describe('<DateField />', () => {
     const value = component.state('displayed');
     expect(value.getFullYear()).toBe(2019);
     expect(value.getMonth()).toBe(11);
-    expect(value.getDate()).toBe(16);
+    expect(value.getDate()).toBe(17);
+  });
   });
 
 });
