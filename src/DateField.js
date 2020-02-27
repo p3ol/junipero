@@ -268,11 +268,31 @@ class DateField extends React.Component {
   }
 
   isBeforeMinDate(date) {
-    return exists(this.props.minDate) && date < new Date(this.props.minDate);
+    if (!exists(this.props.minDate)) {
+      return false;
+    }
+
+    const minDate = new Date(this.props.minDate);
+
+    return date < this.getDateToUTC(
+      minDate.getFullYear(),
+      minDate.getMonth(),
+      minDate.getDate()
+    );
   }
 
   isAfterMaxDate(date) {
-    return exists(this.props.maxDate) && date > new Date(this.props.maxDate);
+    if (!exists(this.props.maxDate)) {
+      return false;
+    }
+
+    const maxDate = new Date(this.props.maxDate);
+
+    return date > this.getDateToUTC(
+      maxDate.getFullYear(),
+      maxDate.getMonth(),
+      maxDate.getDate()
+    );
   }
 
   isDayDisabled(date) {
