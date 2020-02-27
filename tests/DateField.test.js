@@ -200,6 +200,22 @@ describe('<DateField />', () => {
     expect(value.getMonth()).toBe(11);
     expect(value.getDate()).toBe(17);
   });
+
+  it('should add formated "min" and "max" prop to native date input', () => {
+    const day = new Date('December 16, 2019');
+    const nextDay = new Date('December 17, 2019');
+    const component = mount(
+      <DateField
+        minDate={day}
+        maxDate={nextDay}
+        value={nextDay}
+        native={true}
+      />
+    );
+
+    const field = component.find('input[type="date"]');
+    expect(field.prop('min')).toBe('2019-12-16');
+    expect(field.prop('max')).toBe('2019-12-17');
   });
 
 });
