@@ -280,7 +280,13 @@ class DateField extends React.Component {
   }
 
   getNativeDate(date) {
-    return exists(date) && `${date.getFullYear()}` +
+    if (!exists(date)) {
+      return null;
+    }
+
+    date = new Date(date);
+
+    return `${date.getFullYear()}` +
       `-${('0' + (date.getMonth() + 1)).slice(-2)}` +
       `-${('0' + (date.getDate() + 1)).slice(-2)}`;
   }
@@ -350,8 +356,8 @@ class DateField extends React.Component {
               value={nativeValue || ''}
               onChange={this.onNativeChange.bind(this)}
               validate={null}
-              min={this.getNativeDate(new Date(minDate))}
-              max={this.getNativeDate(new Date(maxDate))}
+              min={this.getNativeDate(minDate)}
+              max={this.getNativeDate(maxDate)}
               placeholder={placeholder}
             />
           ) : (
