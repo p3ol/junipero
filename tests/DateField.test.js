@@ -167,4 +167,55 @@ describe('<DateField />', () => {
     expect(onToggle.calledWith(false)).toBe(true);
   });
 
+  it('should have a 3 days limited datepicker', () => {
+    const previousDay = new Date('December 15, 2019 03:57:00');
+    const day = new Date('December 16, 2019 05:38:00');
+    const nextDay = new Date('December 17, 2019 08:24:00');
+    const component = mount(
+      <DateField
+        minDate={previousDay}
+        value={day}
+        maxDate={nextDay}
+      />
+    );
+    component.find('.field').first().simulate('click', { button: 0 });
+    expect(component.find('.day').not('.disabled').length).toBe(3);
+  });
+
+  it('should not pick a disabled date', () => {
+    const day = new Date('December 16, 2019 00:00:00');
+    const nextDay = new Date('December 17, 2019 00:00:00');
+    const component = mount(
+      <DateField
+        minDate={day}
+        value={nextDay}
+      />
+    );
+
+    component.find('.field').first().simulate('click', { button: 0 });
+    component.find('.day.disabled').first().simulate('click', { button: 0 });
+
+    const value = component.state('displayed');
+    expect(value.getFullYear()).toBe(2019);
+    expect(value.getMonth()).toBe(11);
+    expect(value.getDate()).toBe(17);
+  });
+
+  it('should add formated "min" and "max" prop to native date input', () => {
+    const day = new Date('December 16, 2019');
+    const nextDay = new Date('December 17, 2019');
+    const component = mount(
+      <DateField
+        minDate={day}
+        maxDate={nextDay}
+        value={nextDay}
+        native={true}
+      />
+    );
+
+    const field = component.find('input[type="date"]');
+    expect(field.prop('min')).toBe('2019-12-16');
+    expect(field.prop('max')).toBe('2019-12-17');
+  });
+
 });

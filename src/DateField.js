@@ -5,7 +5,7 @@ import Dropdown from './Dropdown';
 import DropdownMenu from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
 import { inject } from './style';
-import { omit, classNames } from './utils';
+import { exists, omit, classNames } from './utils';
 import styles from './theme/components/DateField.styl';
 
 class DateField extends React.Component {
@@ -33,6 +33,14 @@ class DateField extends React.Component {
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
     validate: PropTypes.func,
+    minDate: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.instanceOf(Date),
+    ]),
+    maxDate: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.instanceOf(Date),
+    ]),
   }
 
   static defaultProps = {
@@ -59,6 +67,8 @@ class DateField extends React.Component {
     }),
     parseValue: value => value,
     validate: value => typeof value !== 'undefined' && value !== null,
+    minDate: null,
+    maxDate: null,
   }
 
   state = {
@@ -223,6 +233,10 @@ class DateField extends React.Component {
     const newDate = this.getDateToUTC(date.year, date.month, date.day);
     const valid = this.props.validate(newDate);
 
+    if (this.isDayDisabled(newDate)) {
+      return;
+    }
+
     this.setState({
       opened: false,
       value: new Date(newDate),
@@ -253,6 +267,50 @@ class DateField extends React.Component {
     return new Date(Date.UTC(year, month, day, 0, 0, 0));
   }
 
+  isBeforeMinDate(date) {
+    if (!exists(this.props.minDate)) {
+      return false;
+    }
+
+    const minDate = new Date(this.props.minDate);
+
+    return date < this.getDateToUTC(
+      minDate.getFullYear(),
+      minDate.getMonth(),
+      minDate.getDate()
+    );
+  }
+
+  isAfterMaxDate(date) {
+    if (!exists(this.props.maxDate)) {
+      return false;
+    }
+
+    const maxDate = new Date(this.props.maxDate);
+
+    return date > this.getDateToUTC(
+      maxDate.getFullYear(),
+      maxDate.getMonth(),
+      maxDate.getDate()
+    );
+  }
+
+  isDayDisabled(date) {
+    return this.isBeforeMinDate(date) || this.isAfterMaxDate(date);
+  }
+
+  getNativeDate(date) {
+    if (!exists(date)) {
+      return null;
+    }
+
+    date = new Date(date);
+
+    return `${date.getFullYear()}` +
+      `-${('0' + (date.getMonth() + 1)).slice(-2)}` +
+      `-${('0' + (date.getDate())).slice(-2)}`;
+  }
+
   render() {
     const {
       disabled,
@@ -269,6 +327,8 @@ class DateField extends React.Component {
       theme,
       native,
       animateMenu,
+      minDate,
+      maxDate,
       ...rest
     } = this.props;
 
@@ -305,7 +365,7 @@ class DateField extends React.Component {
             <input
               { ...omit(rest, [
                 'onChange', 'monthNames', 'weekDaysNames', 'validate',
-                'parseValue',
+                'parseValue', 'minDate', 'maxDate',
               ]) }
               ref={(ref) => this.input = ref}
               className="field"
@@ -316,13 +376,15 @@ class DateField extends React.Component {
               value={nativeValue || ''}
               onChange={this.onNativeChange.bind(this)}
               validate={null}
+              min={this.getNativeDate(minDate)}
+              max={this.getNativeDate(maxDate)}
               placeholder={placeholder}
             />
           ) : (
             <Dropdown
               { ...omit(rest, [
                 'onChange', 'monthNames', 'weekDaysNames', 'validate',
-                'parseValue',
+                'parseValue', 'minDate', 'maxDate',
               ]) }
               isOpen={opened}
               theme={theme}
@@ -388,11 +450,15 @@ class DateField extends React.Component {
                           key={index}
                         >
                           <a
-                            className={[
-                              'day',
-                              date.inactive ? 'inactive' : null,
-                              this.isDateSelected(date) ? 'active' : null,
-                            ].join(' ')}
+                            className={classNames('day', {
+                              inactive: date.inactive,
+                              active: this.isDateSelected(date),
+                              disabled: this.isDayDisabled(this.getDateToUTC(
+                                date.year,
+                                date.month,
+                                date.day
+                              )),
+                            })}
                             href="#"
                             onClick={this.onChange.bind(this, date)}
                           >
