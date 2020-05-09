@@ -59,7 +59,7 @@
     "redux": "4.0.4",
     "redux-logger": "3.0.6",
     "rollup": "1.27.8",
-    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-delete": "1.2.0",
     "rollup-plugin-eslint": "7.0.0",
