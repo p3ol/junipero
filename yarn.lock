@@ -7845,10 +7845,10 @@ react-dom@16.12.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
-react-intl-tel-input@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-intl-tel-input/-/react-intl-tel-input-7.1.0.tgz#9b89feeea90c58fe588d82c62f5086ee497eb710"
-  integrity sha512-V2n94vevhluTZW+TtyH0vERJqKj16uXjDe1kXv7HyfalDZuVtxZ13TsSGltXuaVYQ1gF/uwr2YNhKiUhQnyxuA==
+react-intl-tel-input@7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/react-intl-tel-input/-/react-intl-tel-input-7.1.1.tgz#8154456a90de9f0472a45c53c6ecaaf4e8f4b1bf"
+  integrity sha512-ENF/+LWMxDyFkpaz4NFqx5drmjXOxAveJJKppT82KeCtN/aLHIO0Y/w0RkS4i4MMXo8ggFvnaix9w8XBQ4WXVw==
   dependencies:
     classnames "^2.2.5"
     libphonenumber-js-utils "^8.10.2"
