@@ -6169,7 +6169,7 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js-utils@^8.10.2:
+libphonenumber-js-utils@^8.10.5:
   version "8.10.5"
   resolved "https://registry.yarnpkg.com/libphonenumber-js-utils/-/libphonenumber-js-utils-8.10.5.tgz#778cb7633c94e2524f08c3109a7450095b4e6727"
   integrity sha512-VxpwgrAGps1p5avOVQVBTCpUQwkrJZqptV2DoTimY3VXTzm0EetbT73sWVTkg8FmreVmM2qwwFl7yqymdOkFug==
@@ -8094,13 +8094,13 @@ react-dom@16.12.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
-react-intl-tel-input@7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/react-intl-tel-input/-/react-intl-tel-input-7.1.1.tgz#8154456a90de9f0472a45c53c6ecaaf4e8f4b1bf"
-  integrity sha512-ENF/+LWMxDyFkpaz4NFqx5drmjXOxAveJJKppT82KeCtN/aLHIO0Y/w0RkS4i4MMXo8ggFvnaix9w8XBQ4WXVw==
+react-intl-tel-input@8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/react-intl-tel-input/-/react-intl-tel-input-8.0.2.tgz#19a1cb312e4aff104015170ccbeb50c63177341f"
+  integrity sha512-tnylK7poLuzsYil/5CXzeMMettqb/LWOsi0ZVv+BVdGLxsMxA7r0ki2gc4vpKX6BBT6K1aMzU2NVBzP9qXzzGQ==
   dependencies:
     classnames "^2.2.5"
-    libphonenumber-js-utils "^8.10.2"
+    libphonenumber-js-utils "^8.10.5"
     prop-types "^15.6.1"
     react-style-proptype "^3.0.0"
     underscore.deferred "^0.4.0"
