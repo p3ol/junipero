@@ -1046,15 +1046,15 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@poool/eslint-config-react@0.0.1-alpha.5":
-  version "0.0.1-alpha.5"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-0.0.1-alpha.5.tgz#22abcf75cdeef0de547049b815bc803af4da363c"
-  integrity sha512-/1QsVhi5MFq89gVxk+K11zuwmUOcZd1e3889y5CpgdtVe5cukzW+iDX/m3oPNcAM4vB2zSdVDTzNKJdDmHMgZA==
+"@poool/eslint-config-react@0.0.1-alpha.6":
+  version "0.0.1-alpha.6"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-0.0.1-alpha.6.tgz#24e39f08cfcf3af15ec3be65b71d6eb6712c1005"
+  integrity sha512-DkoaB9q/0Wb/qD7Rjr7bUdNgr06Xnbq1AbkM9VaOkqWCw28YZZ9BYzGkJF5ANVmay4DHj9wy890v9QE0Dwq/hg==
 
-"@poool/eslint-config@0.0.1-alpha.5":
-  version "0.0.1-alpha.5"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-0.0.1-alpha.5.tgz#79c086f427efc946ca5ef959542ee0f55efa300e"
-  integrity sha512-8VKxuglCxUYDNuXLMZXcrveqBZMfUDtCVIwfyDHGgd7lecchKEjkHInRw15xuX6sIju5UWnGHrhZ8eoBQ5RmsA==
+"@poool/eslint-config@0.0.1-alpha.6":
+  version "0.0.1-alpha.6"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-0.0.1-alpha.6.tgz#dffd93a47b803868e0a0050fb6eb13ed598ed5bc"
+  integrity sha512-kh0r4Qi+ZrafoAtgw4rlzx+G2nLBi5H7hw53ZkXZQr8aGsfg1xsHlAo0MCy13uaBBx4uXfb968wR8FLOBNChZA==
 
 "@rollup/plugin-babel@5.0.2":
   version "5.0.2"
