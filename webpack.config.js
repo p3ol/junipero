@@ -1,12 +1,10 @@
-const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
-  entry: {
-    'examples': './examples/index.js',
-  },
+  entry: './examples/index.js',
   devtool: 'inline-source-map',
   mode: 'development',
   devServer: {
@@ -16,17 +14,13 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      debug: true,
-    }),
     new HtmlWebpackPlugin({
       template: './examples/index.html',
-      chunks: ['examples'],
       inject: true,
     }),
+    new FriendlyErrorsWebpackPlugin({ clearConsole: true }),
   ],
   resolve: {
-    extensions: ['.js'],
     alias: {
       '@poool/junipero': path.resolve('./src'),
     },
@@ -46,7 +40,7 @@ module.exports = {
           loader: 'postcss-loader',
           options: {
             sourceMap: true,
-            plugins: (loader) => ([autoprefixer]),
+            plugins: loader => ([autoprefixer]),
           },
         },
         'stylus-loader',
