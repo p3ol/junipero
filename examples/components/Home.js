@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => (
+export default () => (
   <div className="container">
     <h1>Junipero - Examples</h1>
 
@@ -26,5 +26,3 @@ const Home = () => (
     </ul>
   </div>
 );
-
-export default Home;

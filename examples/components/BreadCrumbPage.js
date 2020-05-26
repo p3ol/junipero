@@ -3,28 +3,16 @@ import { Link } from 'react-router-dom';
 
 import { BreadCrumb } from '@poool/junipero';
 
-class BreadCrumbPage extends React.Component {
+const items = ['Access', 'Appearence', 'Messages', 'Scenarios'];
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      items : ['Access', 'Appearence', 'Messages', 'Scenarios'],
-    };
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <p><Link to="/">Back</Link></p>
-        <h1>BreadCrumb Example</h1>
-        <div className="row mt-5">
-          <div className="col-12">
-            <BreadCrumb items={this.state.items} />
-          </div>
-        </div>
+export default () => (
+  <div className="container">
+    <p><Link to="/">Back</Link></p>
+    <h1>BreadCrumb Example</h1>
+    <div className="row mt-5">
+      <div className="col-12">
+        <BreadCrumb items={items} />
       </div>
-    );
-  }
-}
-
-export default BreadCrumbPage;
+    </div>
+  </div>
+);
