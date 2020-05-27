@@ -12,6 +12,10 @@
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
   "sideEffects": false,
+  "engines": {
+    "node": ">= 10",
+    "yarn": ">= 1"
+  },
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

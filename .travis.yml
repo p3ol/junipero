@@ -1,14 +1,27 @@
-sudo: required
-
 language: node_js
+
 node_js:
-    - "10"
-    - "12"
+  - "10"
+  - "12"
+  - "14"
 
 cache: yarn
 
+stages:
+  - code
+  - build
+
+jobs:
+  include:
+    - stage: code
+      name: "Eslint check"
+      script: yarn lint
+    - stage: build
+      name: "Build check"
+      script: yarn build
+
 script:
-    - yarn test
+  - yarn test
 
 after_success:
   - ./node_modules/.bin/codecov
