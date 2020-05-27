@@ -17,6 +17,7 @@ export default class Dropdown extends React.Component {
       PropTypes.func,
       PropTypes.string,
       PropTypes.object,
+      PropTypes.node,
     ]),
     theme: PropTypes.string,
     onToggle: PropTypes.func,

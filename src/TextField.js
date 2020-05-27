@@ -14,7 +14,8 @@ export default class TextField extends React.Component {
     error: PropTypes.oneOfType([
       PropTypes.node,
       PropTypes.object,
-      React.Node,
+      PropTypes.func,
+      PropTypes.bool,
     ]),
     label: PropTypes.oneOfType([
       PropTypes.string,

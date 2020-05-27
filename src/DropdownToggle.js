@@ -12,6 +12,7 @@ export default class DropdownToggle extends React.Component {
       PropTypes.func,
       PropTypes.string,
       PropTypes.object,
+      PropTypes.node,
     ]),
     tagRefName: PropTypes.string,
     onClick: PropTypes.func,

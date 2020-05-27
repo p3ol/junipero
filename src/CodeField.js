@@ -165,7 +165,7 @@ export default class CodeField extends React.Component {
     return (
       <div
         { ...omit(rest, [
-          'autofocus', 'validate', 'onChange',
+          'valid', 'autofocus', 'validate', 'onChange',
         ]) }
         className={classNames(
           'junipero',

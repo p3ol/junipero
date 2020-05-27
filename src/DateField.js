@@ -15,9 +15,11 @@ export default class DateField extends React.Component {
     disabled: PropTypes.bool,
     forceLabel: PropTypes.bool,
     error: PropTypes.oneOfType([
+      PropTypes.func,
       PropTypes.node,
       PropTypes.object,
-      React.Node,
+      PropTypes.string,
+      PropTypes.bool,
     ]),
     id: PropTypes.string,
     label: PropTypes.oneOfType([

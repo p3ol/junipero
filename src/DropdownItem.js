@@ -20,7 +20,8 @@ DropdownItem.propTypes = {
   tag: PropTypes.oneOf([
     PropTypes.string,
     PropTypes.node,
-    React.Node,
+    PropTypes.func,
+    PropTypes.object,
   ]),
 };
 

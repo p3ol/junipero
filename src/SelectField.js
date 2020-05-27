@@ -24,7 +24,8 @@ export default class SelectField extends React.Component {
     error: PropTypes.oneOfType([
       PropTypes.node,
       PropTypes.object,
-      React.Node,
+      PropTypes.string,
+      PropTypes.bool,
     ]),
     id: PropTypes.string,
     label: PropTypes.oneOfType([

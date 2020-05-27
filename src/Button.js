@@ -16,6 +16,7 @@ export default class Button extends React.Component {
       PropTypes.func,
       PropTypes.string,
       PropTypes.object,
+      PropTypes.node,
     ]),
     theme: PropTypes.string,
     type: PropTypes.string,

@@ -15,6 +15,7 @@ export default class DropdownMenu extends React.Component {
       PropTypes.func,
       PropTypes.string,
       PropTypes.object,
+      PropTypes.node,
     ]),
     animate: PropTypes.func,
   }
