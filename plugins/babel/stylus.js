@@ -55,7 +55,7 @@ const compileStylusFile = (jsFile, stylusFile) => {
       .replace(MODULE_REGEX, match[0].replace('~', ''));
   }
 
-  let parsed = stylus(stylusContent)
+  const parsed = stylus(stylusContent)
     .include(dirname(path))
     .include(resolve('./node_modules'))
     .render();
@@ -73,7 +73,7 @@ const resolveModulePath = (filename) => {
   return resolve(dir);
 };
 
-module.exports = ({types: t}) => {
+module.exports = ({ types: t }) => {
   return {
     visitor: {
       ImportDeclaration: (path, state) => {
