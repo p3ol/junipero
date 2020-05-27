@@ -46,6 +46,10 @@ export default class Tooltip extends React.Component {
   }
 
   componentDidMount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     if (this.props.trigger === 'click') {
       document.addEventListener('click', this.onClickOutside, false);
     }
@@ -194,6 +198,10 @@ export default class Tooltip extends React.Component {
   }
 
   componentWillUnmount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     try {
       document.removeEventListener('click', this.onClickOutside);
     } catch (e) {}

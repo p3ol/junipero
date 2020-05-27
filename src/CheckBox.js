@@ -36,6 +36,10 @@ export default class CheckBox extends React.Component {
   }
 
   componentDidMount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.addEventListener('mouseup', this.onMouseUp, false);
   }
 
@@ -136,6 +140,10 @@ export default class CheckBox extends React.Component {
   }
 
   componentWillUnmount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.removeEventListener('mouseup', this.onMouseUp);
   }
 

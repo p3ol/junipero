@@ -71,6 +71,10 @@ export default class ColorPicker extends React.Component {
   }
 
   componentDidMount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.addEventListener('mousedown', this.onClickOutside, true);
     document.addEventListener('mousemove', this.onMouseMove, true);
     document.addEventListener('mouseup', this.onMouseUp, true);
@@ -168,7 +172,10 @@ export default class ColorPicker extends React.Component {
     const { disabled, format, readOnly } = this.props;
     const { handleMoving, handleType } = this.state;
 
-    if (!handleMoving || !handleType || disabled || readOnly) {
+    if (
+      typeof window === 'undefined' || !handleMoving || !handleType ||
+      disabled || readOnly
+    ) {
       return;
     }
 
@@ -397,6 +404,10 @@ export default class ColorPicker extends React.Component {
   }
 
   componentWillUnmount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.removeEventListener('mousedown', this.onClickOutside);
     document.removeEventListener('mousemove', this.onMouseMove);
     document.removeEventListener('mouseup', this.onMouseUp);

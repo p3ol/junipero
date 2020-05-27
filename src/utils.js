@@ -268,7 +268,7 @@ export const stringifyColor = (color, format = 'auto') => {
 };
 
 export const getContainerNode = (container) => (
-  typeof container === 'string'
+  typeof container === 'string' && typeof document !== 'undefined'
     ? document.querySelector(container) || document.createElement('div')
     : container
 );

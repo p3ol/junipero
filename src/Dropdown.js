@@ -54,6 +54,10 @@ export default class Dropdown extends React.Component {
   }
 
   componentDidMount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.addEventListener('click', this.onClickOutside, false);
   }
 
@@ -165,6 +169,10 @@ export default class Dropdown extends React.Component {
   }
 
   componentWillUnmount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.removeEventListener('click', this.onClickOutside);
   }
 

@@ -50,6 +50,10 @@ export default class Slider extends React.Component {
   }
 
   componentDidMount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.addEventListener('mousemove', this.onMouseMove, true);
     document.addEventListener('mouseup', this.onMouseUp, true);
 
@@ -209,6 +213,10 @@ export default class Slider extends React.Component {
   }
 
   componentWillUnmount () {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.removeEventListener('mousemove', this.onMouseMove, true);
     document.removeEventListener('mouseup', this.onMouseUp, true);
     document.removeEventListener('resize', this.onResize, true);
