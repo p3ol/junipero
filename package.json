@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero.cjs.js",
   "jsnext:main": "dist/junipero.esm.js",
