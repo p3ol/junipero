@@ -36,6 +36,7 @@
     "@rollup/plugin-babel": "5.0.2",
     "@rollup/plugin-commonjs": "12.0.0",
     "@rollup/plugin-node-resolve": "8.0.0",
+    "@storybook/react": "^5.3.19",
     "auto-changelog": "2.0.0",
     "autoprefixer": "9.8.0",
     "babel-eslint": "10.1.0",
@@ -98,7 +99,8 @@
     "prepack": "yarn lint && yarn build && yarn test",
     "test": "./node_modules/.bin/jest",
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "changelog": "./node_modules/.bin/auto-changelog"
+    "changelog": "./node_modules/.bin/auto-changelog",
+    "storybook": "./node_modules/.bin/start-storybook"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
