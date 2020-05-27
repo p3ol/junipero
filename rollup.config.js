@@ -6,7 +6,7 @@ import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
 
 const isForIE = process.env.BABEL_ENV === 'ie';
-const input = './src/index.js';
+const input = './lib/index.js';
 const output = `./dist${isForIE ? '/ie' : ''}/junipero`;
 const formats = ['umd', 'cjs', 'esm'];
 
@@ -23,30 +23,48 @@ const defaultPlugins = [
     exclude: 'node_modules/**',
     babelHelpers: 'runtime',
   }),
-  postcss({
-    extensions: ['.styl'],
-    minimize: true,
-    inject: false,
-    plugins: [
-      autoprefixer,
-    ],
-  }),
   resolve(),
   commonjs(),
   terser(),
 ];
 
-export default formats.map(f => ({
-  input,
-  plugins: [
-    ...defaultPlugins,
-  ],
-  external: defaultExternals,
-  output: {
-    file: `${output}.${f}.js`,
-    format: f,
-    name: 'junipero',
-    sourcemap: true,
-    globals: defaultGlobals,
+export default [
+  ...formats.map(f => ({
+    input,
+    plugins: [
+      ...defaultPlugins,
+    ],
+    external: defaultExternals,
+    output: {
+      file: `${output}.${f}.js`,
+      format: f,
+      name: 'junipero',
+      sourcemap: true,
+      globals: defaultGlobals,
+    },
+  })),
+  {
+    input: './lib/index.styl',
+    plugins: [
+      postcss({
+        extensions: ['.styl'],
+        minimize: true,
+        inject: false,
+        extract: true,
+        plugins: [
+          autoprefixer,
+        ],
+      }),
+    ],
+    output: {
+      file: `${output}.min.css`,
+    },
+    onwarn: (warning, warn) => {
+      if (warning.code === 'FILE_NAME_CONFLICT') {
+        return;
+      }
+
+      warn(warning);
+    },
   },
-}));
+];
