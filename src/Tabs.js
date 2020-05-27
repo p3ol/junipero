@@ -7,7 +7,7 @@ import styles from './theme/components/Tabs.styl';
 
 import Tab from './Tab';
 
-class Tabs extends React.Component {
+export default class Tabs extends React.Component {
 
   static propTypes = {
     activeTab: PropTypes.number,
@@ -27,12 +27,12 @@ class Tabs extends React.Component {
     activeTab: this.props.activeTab,
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-tabs-styles');
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.activeTab !== prevProps.activeTab) {
       this.setState({
         activeTab: this.props.activeTab,
@@ -40,13 +40,13 @@ class Tabs extends React.Component {
     }
   }
 
-  getTabs() {
+  getTabs () {
     return React.Children
       .toArray(this.props.children)
       .filter((child) => child.type === Tab);
   }
 
-  onTabClick(item, index, e) {
+  onTabClick (item, index, e) {
     e?.preventDefault();
 
     if (this.props.disabled || item.props.disabled) {
@@ -62,7 +62,7 @@ class Tabs extends React.Component {
     return false;
   }
 
-  render() {
+  render () {
     const tabs = this.getTabs();
     const { theme, disabled, className, ...rest } = this.props;
     const { activeTab } = this.state;
@@ -111,5 +111,3 @@ class Tabs extends React.Component {
     );
   }
 }
-
-export default Tabs;

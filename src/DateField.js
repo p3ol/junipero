@@ -8,12 +8,18 @@ import { inject } from './style';
 import { exists, omit, classNames } from './utils';
 import styles from './theme/components/DateField.styl';
 
-class DateField extends React.Component {
+export default class DateField extends React.Component {
 
   static propTypes = {
     boxed: PropTypes.bool,
     disabled: PropTypes.bool,
     forceLabel: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.object,
+      React.Node,
+    ]),
+    id: PropTypes.string,
     label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
@@ -81,24 +87,24 @@ class DateField extends React.Component {
     dirty: false,
   };
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-date-field-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (this.props.value) {
       this.init();
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.value !== prevProps.value && this.props.value) {
       this.init();
     }
   }
 
-  init() {
+  init () {
     const value = new Date(this.props.value);
     this.onChange({
       year: value.getFullYear(),
@@ -107,7 +113,7 @@ class DateField extends React.Component {
     }, null, false);
   }
 
-  onToggle(opened) {
+  onToggle (opened) {
     const { disabled, readOnly } = this.props;
 
     if (disabled || readOnly) {
@@ -123,31 +129,31 @@ class DateField extends React.Component {
     });
   }
 
-  isDateSelected(date) {
+  isDateSelected (date) {
     return date.year === this.state.selected.getFullYear() &&
       date.month === this.state.selected.getMonth() &&
       date.day === this.state.selected.getDate();
   }
 
-  getMonthName(month) {
+  getMonthName (month) {
     return this.props.monthNames[month];
   }
 
-  getWeekDaysNames() {
+  getWeekDaysNames () {
     return this.props.weekDaysNames;
   }
 
-  getDaysCount(year, month) {
+  getDaysCount (year, month) {
     return new Date(year, month + 1, 0).getDate();
   }
 
-  getWeekDayOfMonth(year, month, day = 1) {
+  getWeekDayOfMonth (year, month, day = 1) {
     let weekDay = new Date(year, month, day).getDay();
     weekDay = weekDay === 0 ? 7 : weekDay;
     return weekDay;
   }
 
-  getPreviousMonthDays(year, month) {
+  getPreviousMonthDays (year, month) {
     const selectedMonth = month === 0 ? 11 : month - 1;
     const selectedYear = month === 0 ? year - 1 : year;
     const selectedWeekDay = this.getWeekDayOfMonth(year, month);
@@ -157,7 +163,7 @@ class DateField extends React.Component {
       .slice(selectedDaysCount - (selectedWeekDay - 1));
   }
 
-  getMonthDays(year, month, inactive = false) {
+  getMonthDays (year, month, inactive = false) {
     return Array
       .from({ length: this.getDaysCount(year, month) }, (v, k) => ({
         year,
@@ -167,7 +173,7 @@ class DateField extends React.Component {
       }));
   }
 
-  getNextMonthDays(year, month) {
+  getNextMonthDays (year, month) {
     const daysCount = this.getDaysCount(year, month);
     const weekDay = this.getWeekDayOfMonth(year, month) - 1;
     const nextMonth = month === 11 ? 0 : month + 1;
@@ -182,43 +188,43 @@ class DateField extends React.Component {
       }));
   }
 
-  onPreviousMonthClick(e) {
+  onPreviousMonthClick (e) {
     e?.preventDefault();
 
     const { displayed } = this.state;
 
     this.setState({
       displayed: this.getDateToUTC(
-        displayed.getMonth() === 0 ?
-          displayed.getFullYear() - 1 :
-          displayed.getFullYear(),
-        displayed.getMonth() === 0 ?
-          11 :
-          displayed.getMonth() - 1,
+        displayed.getMonth() === 0
+          ? displayed.getFullYear() - 1
+          : displayed.getFullYear(),
+        displayed.getMonth() === 0
+          ? 11
+          : displayed.getMonth() - 1,
         displayed.getDate()
       ),
     });
   }
 
-  onNextMonthClick(e) {
+  onNextMonthClick (e) {
     e?.preventDefault();
 
     const { displayed } = this.state;
 
     this.setState({
       displayed: this.getDateToUTC(
-        displayed.getMonth() === 11 ?
-          displayed.getFullYear() + 1 :
-          displayed.getFullYear(),
-        displayed.getMonth() === 11 ?
-          0 :
-          displayed.getMonth() + 1,
+        displayed.getMonth() === 11
+          ? displayed.getFullYear() + 1
+          : displayed.getFullYear(),
+        displayed.getMonth() === 11
+          ? 0
+          : displayed.getMonth() + 1,
         displayed.getDate()
       ),
     });
   }
 
-  onNativeChange(e) {
+  onNativeChange (e) {
     const [year, month, day] = e.target.value?.split(/\D/);
     this.onChange({
       year,
@@ -227,7 +233,7 @@ class DateField extends React.Component {
     }, e);
   }
 
-  onChange(date, e, propagateChange = true) {
+  onChange (date, e, propagateChange = true) {
     e?.preventDefault();
 
     const newDate = this.getDateToUTC(date.year, date.month, date.day);
@@ -255,19 +261,19 @@ class DateField extends React.Component {
     });
   }
 
-  open() {
+  open () {
     this.onToggle(true);
   }
 
-  close() {
+  close () {
     this.onToggle(false);
   }
 
-  getDateToUTC(year, month, day) {
+  getDateToUTC (year, month, day) {
     return new Date(Date.UTC(year, month, day, 0, 0, 0));
   }
 
-  isBeforeMinDate(date) {
+  isBeforeMinDate (date) {
     if (!exists(this.props.minDate)) {
       return false;
     }
@@ -281,7 +287,7 @@ class DateField extends React.Component {
     );
   }
 
-  isAfterMaxDate(date) {
+  isAfterMaxDate (date) {
     if (!exists(this.props.maxDate)) {
       return false;
     }
@@ -295,11 +301,11 @@ class DateField extends React.Component {
     );
   }
 
-  isDayDisabled(date) {
+  isDayDisabled (date) {
     return this.isBeforeMinDate(date) || this.isAfterMaxDate(date);
   }
 
-  getNativeDate(date) {
+  getNativeDate (date) {
     if (!exists(date)) {
       return null;
     }
@@ -311,7 +317,7 @@ class DateField extends React.Component {
       `-${('0' + (date.getDate())).slice(-2)}`;
   }
 
-  render() {
+  render () {
     const {
       disabled,
       forceLabel,
@@ -336,7 +342,7 @@ class DateField extends React.Component {
 
     return (
       <div
-        ref={(ref) => this.container = ref}
+        ref={ref => { this.container = ref; }}
         className={classNames(
           'junipero',
           'junipero-field',
@@ -367,7 +373,7 @@ class DateField extends React.Component {
                 'onChange', 'monthNames', 'weekDaysNames', 'validate',
                 'parseValue', 'minDate', 'maxDate',
               ]) }
-              ref={(ref) => this.input = ref}
+              ref={ref => { this.input = ref; }}
               className="field"
               type="date"
               readOnly={readOnly}
@@ -394,8 +400,8 @@ class DateField extends React.Component {
                 tag="a"
                 className="field"
               >
-                { value ?
-                  parseTitle(value)
+                { value
+                  ? parseTitle(value)
                   : placeholder
                 }
               </DropdownToggle>
@@ -486,5 +492,3 @@ class DateField extends React.Component {
   }
 
 }
-
-export default DateField;

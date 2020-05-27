@@ -123,7 +123,7 @@ describe('<SelectField />', () => {
     );
     component.find('select.field').simulate('change', { target: {
       value: 1,
-    }});
+    } });
     expect(component.instance().getValue()).toBe('Two');
     component.instance().reset();
     expect(component.instance().getValue()).toBe('One');
@@ -140,7 +140,7 @@ describe('<SelectField />', () => {
     component.find(TextField).find('input.field')
       .simulate('change', { target: {
         value: 'test',
-      }});
+      } });
 
     jest.runAllTimers();
     expect(autoComplete.calledOnce).toBe(true);
@@ -159,7 +159,7 @@ describe('<SelectField />', () => {
     component.find(TextField).find('input.field')
       .simulate('change', { target: {
         value: '',
-      }});
+      } });
 
     jest.runAllTimers();
     expect(autoComplete.called).toBe(false);

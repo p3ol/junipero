@@ -205,7 +205,7 @@ module.exports = {
   // watchman: true,
 
   // Enable enzyme
-  'setupFilesAfterEnv': [
+  setupFilesAfterEnv: [
     '<rootDir>/tests/config/enzyme.js',
     '<rootDir>/tests/config/popper.js',
   ],

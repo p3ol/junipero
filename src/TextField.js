@@ -5,12 +5,17 @@ import { inject } from './style';
 import { omit, exists, classNames } from './utils';
 import styles from './theme/components/TextField.styl';
 
-class TextField extends React.Component {
+export default class TextField extends React.Component {
 
   static propTypes = {
     boxed: PropTypes.bool,
     disabled: PropTypes.bool,
     forceLabel: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.object,
+      React.Node,
+    ]),
     label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
@@ -22,6 +27,7 @@ class TextField extends React.Component {
     rows: PropTypes.number,
     theme: PropTypes.string,
     type: PropTypes.string,
+    valid: PropTypes.bool,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -52,16 +58,16 @@ class TextField extends React.Component {
   state = {
     dirty: exists(this.props.value) && this.props.value !== '',
     focused: false,
-    valid: exists(this.props.valid) ? this.props.valid : true,
-    value: exists(this.props.value) ? this.props.value : '',
+    valid: this.props.valid ?? true,
+    value: this.props.value ?? '',
   };
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-text-field-styles');
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.value !== prevProps.value) {
       this.setState({
         value: this.props.value,
@@ -70,7 +76,7 @@ class TextField extends React.Component {
     }
   }
 
-  onFocus(e) {
+  onFocus (e) {
     const { value } = this.state;
 
     if (this.props.disabled) {
@@ -93,7 +99,7 @@ class TextField extends React.Component {
     return true;
   }
 
-  onBlur(e) {
+  onBlur (e) {
     const { value } = this.state;
 
     if (this.props.disabled) {
@@ -118,7 +124,7 @@ class TextField extends React.Component {
     return true;
   }
 
-  onChange(e) {
+  onChange (e) {
     let value = e.target.value;
     const valid = this.props.validate(value);
 
@@ -138,7 +144,7 @@ class TextField extends React.Component {
     });
   }
 
-  reset() {
+  reset () {
     this.setState({
       focused: false,
       value: exists(this.props.value) ? this.props.value : '',
@@ -148,15 +154,15 @@ class TextField extends React.Component {
     });
   }
 
-  focus() {
+  focus () {
     this.input?.focus();
   }
 
-  blur() {
+  blur () {
     this.input?.blur();
   }
 
-  getType() {
+  getType () {
     return [
       'date', 'number', 'password', 'color', 'email', 'tel',
     ].includes(this.props.type)
@@ -164,7 +170,7 @@ class TextField extends React.Component {
       : 'text';
   }
 
-  render() {
+  render () {
     const { focused, value, valid, dirty } = this.state;
 
     const {
@@ -218,7 +224,7 @@ class TextField extends React.Component {
             { ...omit(rest, [
               'onChange',
             ]) }
-            ref={(ref) => this.input = ref}
+            ref={ref => { this.input = ref; }}
             className="field"
             type={this.getType()}
             disabled={disabled}
@@ -239,6 +245,5 @@ class TextField extends React.Component {
       </div>
     );
   }
-}
 
-export default TextField;
+}

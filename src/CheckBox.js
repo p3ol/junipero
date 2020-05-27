@@ -5,7 +5,7 @@ import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/CheckBox.styl';
 
-class CheckBox extends React.Component {
+export default class CheckBox extends React.Component {
 
   static propTypes = {
     checked: PropTypes.bool,
@@ -30,16 +30,16 @@ class CheckBox extends React.Component {
     checked: this.props.checked,
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-check-box-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.addEventListener('mouseup', this.onMouseUp, false);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.checked !== prevProps.checked) {
       this.setState({
         active: false,
@@ -48,7 +48,7 @@ class CheckBox extends React.Component {
     }
   }
 
-  reset() {
+  reset () {
     this.setState({
       active: false,
       checked: this.props.checked,
@@ -60,7 +60,7 @@ class CheckBox extends React.Component {
     });
   }
 
-  onChange(e) {
+  onChange (e) {
     e.persist?.();
 
     if (this.props.disabled) {
@@ -79,7 +79,7 @@ class CheckBox extends React.Component {
     });
   }
 
-  onMouseDown() {
+  onMouseDown () {
     if (this.props.disabled) {
       return;
     }
@@ -91,7 +91,7 @@ class CheckBox extends React.Component {
     this.setState({ active: false });
   }
 
-  render() {
+  render () {
     const { theme, className, disabled, children, value, ...rest } = this.props;
     const { active, checked } = this.state;
 
@@ -135,10 +135,8 @@ class CheckBox extends React.Component {
     );
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener('mouseup', this.onMouseUp);
   }
 
 }
-
-export default CheckBox;

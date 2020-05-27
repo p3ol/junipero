@@ -10,7 +10,7 @@ import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/TagsField.styl';
 
-class TagsField extends React.Component {
+export default class TagsField extends React.Component {
 
   static propTypes = {
     autoCompleteUniqueValues: PropTypes.bool,
@@ -26,6 +26,7 @@ class TagsField extends React.Component {
     placeholder: PropTypes.string,
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
+    tabIndex: PropTypes.number,
     theme: PropTypes.string,
     value: PropTypes.array,
     animateTag: PropTypes.func,
@@ -74,16 +75,16 @@ class TagsField extends React.Component {
 
   menuRef = null;
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-tags-field-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.onPropValueChanged();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (
       this.props.value !== prevProps.value ||
       this.props.value?.length !== prevProps.value?.length
@@ -92,7 +93,7 @@ class TagsField extends React.Component {
     }
   }
 
-  onPropValueChanged() {
+  onPropValueChanged () {
     const { value, parseValue } = this.props;
 
     this.setState({
@@ -101,7 +102,7 @@ class TagsField extends React.Component {
     });
   }
 
-  onClick(e) {
+  onClick (e) {
     if (this.props.disabled) {
       return false;
     }
@@ -111,7 +112,7 @@ class TagsField extends React.Component {
     return false;
   }
 
-  onFocus(e) {
+  onFocus (e) {
     if (this.props.disabled) {
       return false;
     }
@@ -130,7 +131,7 @@ class TagsField extends React.Component {
     return true;
   }
 
-  onBlur(e) {
+  onBlur (e) {
     if (this.props.disabled) {
       return false;
     }
@@ -154,7 +155,7 @@ class TagsField extends React.Component {
     return true;
   }
 
-  onInputChange(e) {
+  onInputChange (e) {
     const {
       disabled,
       autoComplete,
@@ -202,12 +203,12 @@ class TagsField extends React.Component {
     });
   }
 
-  onKeyDown(event) {
+  onKeyDown (event) {
     if (this.props.disabled) {
       return false;
     }
 
-    const {selected, input, value} = this.state;
+    const { selected, input, value } = this.state;
 
     if (
       (event.which === 8 || event.keyCode === 8) && // BACKSPACE
@@ -228,7 +229,7 @@ class TagsField extends React.Component {
     return true;
   }
 
-  onKeyPress(event) {
+  onKeyPress (event) {
     if (this.props.disabled) {
       return false;
     }
@@ -243,7 +244,7 @@ class TagsField extends React.Component {
     return true;
   }
 
-  add(item) {
+  add (item) {
     const { parseValue } = this.props;
 
     if (!item || (item.trim && item.trim() === '')) {
@@ -264,7 +265,7 @@ class TagsField extends React.Component {
     });
   }
 
-  remove(index) {
+  remove (index) {
     this.state.value.splice(index, 1);
 
     this.setState({
@@ -278,35 +279,35 @@ class TagsField extends React.Component {
     });
   }
 
-  selectItem() {
+  selectItem () {
     this.setState({
       selected: this.state.value.length - 1,
     });
   }
 
-  unselectItem() {
+  unselectItem () {
     this.setState({
       selected: -1,
     });
   }
 
-  reset() {
+  reset () {
     this.onPropValueChanged();
     this.setState({ input: '' });
   }
 
-  onSelectTag(item) {
+  onSelectTag (item) {
     this.add(item);
     this.setState({ opened: false });
   }
 
-  onToggle(opened) {
+  onToggle (opened) {
     this.setState({ opened }, () => {
       this.props.onToggle(opened);
     });
   }
 
-  render() {
+  render () {
     const {
       disabled,
       readOnly,
@@ -398,7 +399,7 @@ class TagsField extends React.Component {
                 'autoCompleteThreshold',
                 'autoCompleteUniqueValues',
               ]) }
-              ref={ref => this.textInput = ref}
+              ref={ref => { this.textInput = ref; }}
               type="text"
               readOnly={readOnly}
               disabled={disabled}
@@ -425,7 +426,7 @@ class TagsField extends React.Component {
             >
             </DropdownToggle>
             <DropdownMenu
-              ref={ref => this.menuRef = ref}
+              ref={ref => { this.menuRef = ref; }}
               className={classNames({
                 'auto-completing': autoCompleting,
               })}
@@ -451,5 +452,3 @@ class TagsField extends React.Component {
     );
   }
 }
-
-export default TagsField;

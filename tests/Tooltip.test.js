@@ -22,7 +22,7 @@ describe('<Tooltip />', () => {
 
   it('should also render tooltip when using click as trigger', () => {
     const map = {};
-    document.addEventListener = (name, cb) => map[name] = sinon.spy(cb);
+    document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
 
     const wrapper = mount(
       <div>
@@ -65,7 +65,7 @@ describe('<Tooltip />', () => {
       <Tooltip disabled={true}>
         <span className="inner" />
       </Tooltip>
-    )});
+    ) });
 
     wrapper.update();
     expect(wrapper.find('.junipero-tooltip').length).toBe(0);
@@ -99,7 +99,7 @@ describe('<Tooltip />', () => {
 
   it('should clean document listeners on unmount', () => {
     const map = {};
-    document.addEventListener = (name, cb) => map[name] = sinon.spy(cb);
+    document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
     document.removeEventListener = (name, cb) => delete map[name];
 
     const wrapper = mount(

@@ -6,7 +6,7 @@ import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/Switch.styl';
 
-class Switch extends React.Component {
+export default class Switch extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
@@ -28,7 +28,7 @@ class Switch extends React.Component {
     onChange: () => {},
     parseTitle: (val) => val,
     parseValue: (val) => val,
-    validate: value => typeof value !== undefined && value !== null,
+    validate: value => typeof value !== 'undefined' && value !== null,
   }
 
   state = {
@@ -38,22 +38,22 @@ class Switch extends React.Component {
 
   buttons = []
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-switch-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.onChange(this.props.value, false);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.value !== prevProps.value) {
       this.onChange(this.props.value);
     }
   }
 
-  onChange(option, propagateChange = true) {
+  onChange (option, propagateChange = true) {
     if (option?.disabled || this.props.disabled) {
       return;
     }
@@ -75,11 +75,11 @@ class Switch extends React.Component {
     });
   }
 
-  isActive(option) {
+  isActive (option) {
     return this.state.value === this.props.parseValue(option);
   }
 
-  render() {
+  render () {
     const {
       disabled,
       theme,
@@ -104,7 +104,7 @@ class Switch extends React.Component {
             { ...omit(rest, [
               'validate', 'parseValue', 'onChange', 'value',
             ]) }
-            ref={ref => this.buttons[index] = ref}
+            ref={ref => { this.buttons[index] = ref; }}
             className={classNames({
               selected: this.isActive(option),
             })}
@@ -122,5 +122,3 @@ class Switch extends React.Component {
   }
 
 }
-
-export default Switch;

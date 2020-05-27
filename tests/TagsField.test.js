@@ -77,7 +77,7 @@ describe('<TagsField />', () => {
 
   it('should not set field as focused when focusing input if event ' +
     'is prevented', () => {
-    const onFocus = sinon.spy(e => e.defaultPrevented = true);
+    const onFocus = sinon.spy(e => { e.defaultPrevented = true; });
     const component = mount(<TagsField onFocus={onFocus} value={[]} />);
     component.find('.junipero-tags-field input').simulate('focus');
     expect(onFocus.called).toBe(true);
@@ -104,7 +104,7 @@ describe('<TagsField />', () => {
 
   it('should not set field as unfocused when bluring input if event ' +
     'is prevented', () => {
-    const onBlur = sinon.spy(e => e.defaultPrevented = true);
+    const onBlur = sinon.spy(e => { e.defaultPrevented = true; });
     const component = mount(<TagsField onBlur={onBlur} value={[]} />);
     component.find('.junipero-tags-field input').simulate('focus');
     expect(component.state('focused')).toBe(true);
@@ -211,8 +211,6 @@ describe('<TagsField />', () => {
     expect(component.state('input')).toBe('');
   });
 
-
-  // AUTOCOMPLETE
   it('should not open autocomplete dropdown when changing input without ' +
     'matching anything', () => {
     jest.useFakeTimers();

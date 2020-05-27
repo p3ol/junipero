@@ -6,7 +6,7 @@ import { inject } from './style';
 import { getContainerNode, omit, classNames } from './utils';
 import styles from './theme/components/Modal.styl';
 
-class Modal extends React.Component {
+export default class Modal extends React.Component {
 
   static propTypes = {
     apparition: PropTypes.string,
@@ -30,20 +30,20 @@ class Modal extends React.Component {
     opened: false,
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-modal-styles');
   }
 
-  open() {
+  open () {
     this.toggle(true);
   }
 
-  close() {
+  close () {
     this.toggle(false);
   }
 
-  toggle(opened) {
+  toggle (opened) {
     const { disabled, onToggle } = this.props;
 
     if (disabled) {
@@ -57,13 +57,13 @@ class Modal extends React.Component {
     });
   }
 
-  onBackdropClick(e) {
+  onBackdropClick (e) {
     if (e.target === this.backdrop) {
       this.close();
     }
   }
 
-  render() {
+  render () {
     const {
       className,
       container,
@@ -82,7 +82,7 @@ class Modal extends React.Component {
 
     const modalContent = (
       <div
-        ref={ref => this.content = ref}
+        ref={ref => { this.content = ref; }}
         className="junipero-modal-content"
       >
         <a
@@ -98,7 +98,7 @@ class Modal extends React.Component {
 
     const modalWrapper = (
       <div
-        ref={ref => this.container = ref}
+        ref={ref => { this.container = ref; }}
         { ...omit(rest, [
           'onToggle',
         ]) }
@@ -114,7 +114,7 @@ class Modal extends React.Component {
         )}
       >
         <div
-          ref={(ref) => this.backdrop = ref}
+          ref={ref => { this.backdrop = ref; }}
           role="presentation"
           className="junipero-modal-wrapper"
           onClick={this.onBackdropClick.bind(this)}
@@ -130,5 +130,3 @@ class Modal extends React.Component {
     );
   }
 }
-
-export default Modal;

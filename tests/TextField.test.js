@@ -30,7 +30,7 @@ describe('<TextField />', () => {
 
   it('shouldn\'t set field as focused when input is focused and event ' +
     'is prevented', () => {
-    const onFocus = sinon.spy(e => e.defaultPrevented = true);
+    const onFocus = sinon.spy(e => { e.defaultPrevented = true; });
     const component = shallow(<TextField onFocus={onFocus} />);
     component.find('input').simulate('focus', {});
     expect(onFocus.called).toBe(true);
@@ -61,7 +61,7 @@ describe('<TextField />', () => {
 
   it('shouldn\'t set field as unfocused when input is blurred and event ' +
     'is prevented', () => {
-    const onBlur = sinon.spy(e => e.defaultPrevented = true);
+    const onBlur = sinon.spy(e => { e.defaultPrevented = true; });
     const component = shallow(<TextField onBlur={onBlur} />);
     component.find('input').simulate('focus');
     expect(component.state('focused')).toBe(true);

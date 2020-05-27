@@ -70,7 +70,7 @@ describe('<CheckBox />', () => {
 
   it('should set active state to false on document mouse up event', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = cb;
+    document.addEventListener = (event, cb) => { map[event] = cb; };
     const component = shallow(<CheckBox />);
     map.mouseup();
     expect(component.state('active')).toBe(false);
@@ -78,8 +78,9 @@ describe('<CheckBox />', () => {
 
   it('should remove document mouse up event handler on unmount', () => {
     const map = {};
-    document.addEventListener = jest.fn((event, cb) => map[event] = cb);
-    document.removeEventListener = jest.fn((event, cb) => map[event] = null);
+    document.addEventListener = jest.fn((event, cb) => { map[event] = cb; });
+    document.removeEventListener = jest
+      .fn((event, cb) => { map[event] = null; });
 
     const component = mount(<CheckBox />);
     component.unmount();

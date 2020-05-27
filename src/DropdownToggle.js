@@ -4,7 +4,7 @@ import { Reference } from 'react-popper';
 
 import { omit, classNames } from './utils';
 
-class DropdownToggle extends React.Component {
+export default class DropdownToggle extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
@@ -31,7 +31,7 @@ class DropdownToggle extends React.Component {
     onToggle: PropTypes.func.isRequired,
   }
 
-  onClick(e) {
+  onClick (e) {
     if (this.props.disabled || this.context.disabled) {
       e?.preventDefault();
       return;
@@ -41,7 +41,7 @@ class DropdownToggle extends React.Component {
     this.context.onToggle(e);
   }
 
-  render() {
+  render () {
     const {
       className,
       tag: Tag,
@@ -58,7 +58,7 @@ class DropdownToggle extends React.Component {
             { ...omit(rest, [
               'onClick',
             ]) }
-            { ...{ [tagRefName]: ref} }
+            { ...{ [tagRefName]: ref } }
             className={classNames(
               'junipero',
               'junipero-dropdown-toggle',
@@ -72,5 +72,3 @@ class DropdownToggle extends React.Component {
   }
 
 }
-
-export default DropdownToggle;

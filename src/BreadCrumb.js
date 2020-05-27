@@ -5,7 +5,7 @@ import { inject } from './style';
 import { classNames } from './utils';
 import styles from './theme/components/BreadCrumb.styl';
 
-class BreadCrumb extends React.Component {
+export default class BreadCrumb extends React.Component {
 
   static propTypes = {
     items: PropTypes.array,
@@ -19,12 +19,12 @@ class BreadCrumb extends React.Component {
     animateItem: item => item,
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-bread-crumb-styles');
   }
 
-  render() {
+  render () {
     const { items, className, theme, animateItem, ...rest } = this.props;
 
     return (
@@ -44,5 +44,3 @@ class BreadCrumb extends React.Component {
     );
   }
 }
-
-export default BreadCrumb;

@@ -5,7 +5,7 @@ import { inject } from './style';
 import { classNames } from './utils';
 import styles from './theme/components/Button.styl';
 
-class Button extends React.Component {
+export default class Button extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
@@ -35,12 +35,12 @@ class Button extends React.Component {
 
   innerRef = null
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-button-styles');
   }
 
-  onClick(e) {
+  onClick (e) {
     if (this.props.disabled) {
       return;
     }
@@ -48,7 +48,7 @@ class Button extends React.Component {
     this.props.onClick(e);
   }
 
-  render() {
+  render () {
     const {
       tag: Tag,
       submit,
@@ -77,7 +77,7 @@ class Button extends React.Component {
           },
           className,
         )}
-        ref={(ref) => this.innerRef = ref}
+        ref={ref => { this.innerRef = ref; }}
         onClick={this.onClick.bind(this)}
         type={submit ? 'submit' : Tag === 'button' ? 'button' : null}
         disabled={disabled}
@@ -88,5 +88,3 @@ class Button extends React.Component {
   }
 
 }
-
-export default Button;

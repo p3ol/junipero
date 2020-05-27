@@ -10,7 +10,7 @@ import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/SelectField.styl';
 
-class SelectField extends React.Component {
+export default class SelectField extends React.Component {
 
   static propTypes = {
     acceptAnyOption: PropTypes.bool,
@@ -21,16 +21,24 @@ class SelectField extends React.Component {
     disabled: PropTypes.bool,
     emptyText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     forceLabel: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.object,
+      React.Node,
+    ]),
+    id: PropTypes.string,
     label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
       PropTypes.bool,
     ]),
     native: PropTypes.bool,
+    opened: PropTypes.bool,
     options: PropTypes.array,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
     theme: PropTypes.string,
+    valid: PropTypes.bool,
     animateMenu: PropTypes.func,
     autoComplete: PropTypes.func,
     onChange: PropTypes.func,
@@ -67,23 +75,23 @@ class SelectField extends React.Component {
     autoCompleteOptions: null,
     autoCompleteValue: '',
     autoCompleting: false,
-    opened: this.props.opened || false,
+    opened: this.props.opened ?? false,
     valid: true,
     value: null,
     dirty: false,
     unknownOptions: [],
   };
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-select-field-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.onPropValueChange(false);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     const { parseValue, compareRawValueOnChange } = this.props;
 
     if (
@@ -106,7 +114,7 @@ class SelectField extends React.Component {
     }
   }
 
-  onToggle(opened) {
+  onToggle (opened) {
     if (this.props.disabled) {
       return;
     }
@@ -120,7 +128,7 @@ class SelectField extends React.Component {
     });
   }
 
-  getIndex(value) {
+  getIndex (value) {
     const { options, parseValue } = this.props;
     const { unknownOptions } = this.state;
 
@@ -129,7 +137,7 @@ class SelectField extends React.Component {
       parseValue(item) === parseValue(value));
   }
 
-  onPropValueChange(propagateChange = true) {
+  onPropValueChange (propagateChange = true) {
     const {
       native,
       options,
@@ -155,7 +163,7 @@ class SelectField extends React.Component {
     }
   }
 
-  onChange(item, e, propagateChange = true) {
+  onChange (item, e, propagateChange = true) {
     e?.preventDefault();
 
     const { parseValue, validate, disabled } = this.props;
@@ -181,7 +189,7 @@ class SelectField extends React.Component {
     });
   }
 
-  onNativeChange(e, forceIndex, propagateChange = true) {
+  onNativeChange (e, forceIndex, propagateChange = true) {
     const {
       validate,
       parseValue,
@@ -218,19 +226,19 @@ class SelectField extends React.Component {
     });
   }
 
-  reset() {
+  reset () {
     this.resetAutoComplete();
     this.onPropValueChange();
   }
 
-  resetAutoComplete() {
+  resetAutoComplete () {
     this.setState({
       autoCompleteValue: '',
       autoCompleteOptions: null,
     });
   }
 
-  onAutoCompleteChange(input) {
+  onAutoCompleteChange (input) {
     const { autoComplete, autoCompleteThreshold } = this.props;
     clearTimeout(this._autoCompleteTimeout);
 
@@ -257,16 +265,16 @@ class SelectField extends React.Component {
     });
   }
 
-  getValue() {
+  getValue () {
     const { parseValue } = this.props;
     const { value } = this.state;
 
-    return parseValue && value !== undefined && value !== null ?
-      parseValue(value) :
-      value;
+    return parseValue && value !== undefined && value !== null
+      ? parseValue(value)
+      : value;
   }
 
-  getTitle() {
+  getTitle () {
     const { parseTitle, placeholder } = this.props;
     const { value } = this.state;
 
@@ -275,7 +283,7 @@ class SelectField extends React.Component {
       : placeholder;
   }
 
-  getNativeIndex() {
+  getNativeIndex () {
     const { options, parseValue } = this.props;
     const { unknownOptions } = this.state;
     const value = this.getValue();
@@ -284,15 +292,15 @@ class SelectField extends React.Component {
     return mergedOptions?.findIndex((item) => parseValue(item) === value);
   }
 
-  open() {
+  open () {
     this.onToggle(true);
   }
 
-  close() {
+  close () {
     this.onToggle(false);
   }
 
-  render() {
+  render () {
     const {
       disabled,
       required,
@@ -329,7 +337,7 @@ class SelectField extends React.Component {
 
     return (
       <div
-        ref={ref => this.container = ref}
+        ref={ref => { this.container = ref; }}
         className={classNames(
           'junipero',
           'junipero-field',
@@ -363,7 +371,7 @@ class SelectField extends React.Component {
                 'acceptAnyOption', 'compareRawValueOnChange',
               ]) }
               id={id}
-              ref={ref => this.nativeField = ref}
+              ref={ref => { this.nativeField = ref; }}
               className="field"
               value={this.getNativeIndex()}
               disabled={disabled}
@@ -398,7 +406,7 @@ class SelectField extends React.Component {
                 { this.getTitle() }
               </DropdownToggle>
               <DropdownMenu
-                ref={ref => this.menuRef = ref}
+                ref={ref => { this.menuRef = ref; }}
                 className={classNames({
                   'auto-completing': autoCompleting,
                 })}
@@ -408,7 +416,7 @@ class SelectField extends React.Component {
                   <li className="auto-complete">
                     <TextField
                       theme={theme}
-                      ref={(ref) => this.autoCompleteInput = ref}
+                      ref={ref => { this.autoCompleteInput = ref; }}
                       label={false}
                       placeholder={autoCompletePlaceholder}
                       value={autoCompleteValue}
@@ -447,5 +455,3 @@ class SelectField extends React.Component {
   }
 
 }
-
-export default SelectField;

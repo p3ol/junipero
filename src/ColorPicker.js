@@ -14,7 +14,7 @@ import {
 } from './utils';
 import styles from './theme/components/ColorPicker.styl';
 
-class ColorPicker extends React.Component {
+export default class ColorPicker extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
@@ -65,12 +65,12 @@ class ColorPicker extends React.Component {
 
   colorAlpha = null
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-color-picker-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.addEventListener('mousedown', this.onClickOutside, true);
     document.addEventListener('mousemove', this.onMouseMove, true);
     document.addEventListener('mouseup', this.onMouseUp, true);
@@ -78,13 +78,13 @@ class ColorPicker extends React.Component {
     this.onInputChange({ value: this.props.value }, false);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.value !== prevProps.value) {
       this.onInputChange({ value: this.props.value });
     }
   }
 
-  onChange() {
+  onChange () {
     const { value, valid } = this.state;
 
     this.props.onChange({
@@ -93,7 +93,7 @@ class ColorPicker extends React.Component {
     });
   }
 
-  onInputChange(e, propagateChange = true) {
+  onInputChange (e, propagateChange = true) {
     let newState = {
       value: e?.value,
       valid: false,
@@ -133,7 +133,7 @@ class ColorPicker extends React.Component {
     }
   }
 
-  getCursorPosition(type) {
+  getCursorPosition (type) {
     switch (type) {
       case 'hue':
         return { x: this.colorHue?.offsetWidth * (this.state.h / 360), y: 0 };
@@ -147,7 +147,7 @@ class ColorPicker extends React.Component {
     }
   }
 
-  onMouseDown(type, e) {
+  onMouseDown (type, e) {
     if (e.button !== 0) {
       return;
     }
@@ -235,13 +235,13 @@ class ColorPicker extends React.Component {
     });
   }
 
-  onToggle(opened) {
+  onToggle (opened) {
     this.setState({ opened }, () => {
       this.props.onToggle(opened);
     });
   }
 
-  getElementOffset(el) {
+  getElementOffset (el) {
     const rect = el.getBoundingClientRect();
 
     return {
@@ -250,15 +250,15 @@ class ColorPicker extends React.Component {
     };
   }
 
-  open() {
+  open () {
     this.onToggle(true);
   }
 
-  close() {
+  close () {
     this.onToggle(false);
   }
 
-  render() {
+  render () {
     const {
       className,
       theme,
@@ -272,7 +272,7 @@ class ColorPicker extends React.Component {
 
     const field = (
       <TextField
-        ref={(ref) => this.input = ref?.input}
+        ref={ref => { this.input = ref?.input; }}
         { ...omit(rest, [
           'onChange', 'native',
         ])}
@@ -297,7 +297,7 @@ class ColorPicker extends React.Component {
       >
         { native ? field : (
           <Dropdown
-            ref={(ref) => this.menuRef = ref}
+            ref={ref => { this.menuRef = ref; }}
             disabled={disabled}
             theme={theme}
             isOpen={opened}
@@ -308,10 +308,13 @@ class ColorPicker extends React.Component {
               apparition="css"
               animate={animateMenu}
             >
-              <div className="color-wheel" ref={(ref) => this.colorWheel = ref}>
+              <div
+                className="color-wheel"
+                ref={ref => { this.colorWheel = ref; }}
+              >
                 <div
                   className="lightness"
-                  ref={(ref) => this.colorLightness = ref}
+                  ref={ref => { this.colorLightness = ref; }}
                   onMouseDown={this.onMouseDown.bind(this, 'lightness')}
                   style={{
                     backgroundColor: stringifyColor({
@@ -349,7 +352,7 @@ class ColorPicker extends React.Component {
                   <div className="sliders">
                     <div
                       className="hue"
-                      ref={(ref) => this.colorHue = ref}
+                      ref={ref => { this.colorHue = ref; }}
                       onMouseDown={this.onMouseDown.bind(this, 'hue')}
                     >
                       <a
@@ -363,7 +366,7 @@ class ColorPicker extends React.Component {
                     </div>
                     <div
                       className="alpha"
-                      ref={(ref) => this.colorAlpha = ref}
+                      ref={ref => { this.colorAlpha = ref; }}
                       onMouseDown={this.onMouseDown.bind(this, 'alpha')}
                       style={{
                         backgroundColor: stringifyColor({
@@ -393,12 +396,10 @@ class ColorPicker extends React.Component {
     );
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener('mousedown', this.onClickOutside);
     document.removeEventListener('mousemove', this.onMouseMove);
     document.removeEventListener('mouseup', this.onMouseUp);
   }
 
 }
-
-export default ColorPicker;

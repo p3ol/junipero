@@ -7,7 +7,7 @@ import { omit, classNames } from './utils';
 import DropdownMenu from './DropdownMenu';
 import styles from './theme/components/Dropdown.styl';
 
-class Dropdown extends React.Component {
+export default class Dropdown extends React.Component {
 
   static propTypes = {
     disabled: PropTypes.bool,
@@ -47,16 +47,16 @@ class Dropdown extends React.Component {
 
   menuRef = null
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-dropdown-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.addEventListener('click', this.onClickOutside, false);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.disabled !== prevProps.disabled) {
       this.close();
     }
@@ -66,7 +66,7 @@ class Dropdown extends React.Component {
     }
   }
 
-  getChildContext() {
+  getChildContext () {
     return {
       disabled: this.props.disabled,
       theme: this.props.theme,
@@ -94,7 +94,7 @@ class Dropdown extends React.Component {
     }
   }
 
-  open(e) {
+  open (e) {
     if (this.props.disabled) {
       e?.preventDefault();
       return;
@@ -103,17 +103,15 @@ class Dropdown extends React.Component {
     this.onChange(true);
   }
 
-  close() {
+  close () {
     this.onChange(false);
   }
 
-  toggle(e) {
-    this.state.opened
-      ? this.close()
-      : this.open(e);
+  toggle (e) {
+    this.state.opened ? this.close() : this.open(e);
   }
 
-  onChange(opened) {
+  onChange (opened) {
     this.setState({
       opened,
     }, () => {
@@ -121,7 +119,7 @@ class Dropdown extends React.Component {
     });
   }
 
-  render() {
+  render () {
     const {
       className,
       theme,
@@ -138,7 +136,7 @@ class Dropdown extends React.Component {
           { ...omit(rest, [
             'onToggle', 'placement', 'isOpen',
           ])}
-          ref={(ref) => this.dropdownRef = ref}
+          ref={ref => { this.dropdownRef = ref; }}
           className={classNames(
             'junipero',
             'junipero-dropdown',
@@ -165,10 +163,8 @@ class Dropdown extends React.Component {
     );
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener('click', this.onClickOutside);
   }
 
 }
-
-export default Dropdown;

@@ -12,7 +12,7 @@ describe('<BreadCrumb />', () => {
 
   it('should render a list of breadcrumb items', () => {
     const component = shallow(<BreadCrumb items={['test', 'secondTest']} />);
-    const nodes = [<span>test</span>, <span>secondTest</span>];
+    const nodes = [<span key={0}>test</span>, <span key={1}>secondTest</span>];
     expect(component.contains(nodes)).toBe(true);
   });
 

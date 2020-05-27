@@ -5,7 +5,7 @@ import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/CodeField.styl';
 
-class CodeField extends React.Component {
+export default class CodeField extends React.Component {
 
   static propTypes = {
     autofocus: PropTypes.bool,
@@ -14,6 +14,7 @@ class CodeField extends React.Component {
     required: PropTypes.bool,
     size: PropTypes.number,
     theme: PropTypes.string,
+    valid: PropTypes.bool,
     value: PropTypes.string,
     onChange: PropTypes.func,
     validate: PropTypes.func,
@@ -27,13 +28,14 @@ class CodeField extends React.Component {
     size: 6,
     theme: 'default',
     value: null,
+    valid: true,
     onChange: () => {},
     validate: value => typeof value !== 'undefined' && value !== null,
   }
 
   state = {
     focused: false,
-    valid: this.props.valid || true,
+    valid: this.props.valid ?? true,
     values: Array.from({ length: this.props.size }, (item, index) => (
       this.props.value?.[index] || ''
     )),
@@ -41,18 +43,18 @@ class CodeField extends React.Component {
 
   inputs = [];
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-code-field-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (this.props.autofocus) {
       this.focus();
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.value !== prevProps.value) {
       this.state.values = this.state.values.map((item, index) => (
         this.props.value?.[index] || ''
@@ -64,11 +66,11 @@ class CodeField extends React.Component {
     }
   }
 
-  focus(index = 0) {
+  focus (index = 0) {
     this.inputs[index]?.focus();
   }
 
-  onItemChange(index, e) {
+  onItemChange (index, e) {
     const { onChange } = this.props;
     const { values } = this.state;
 
@@ -93,7 +95,7 @@ class CodeField extends React.Component {
     }
   }
 
-  onKeyDown(key, e) {
+  onKeyDown (key, e) {
     e.persist();
 
     if (this.props.disabled) {
@@ -116,9 +118,10 @@ class CodeField extends React.Component {
     }
 
     if (e.keyCode === 37 || e.key === 'ArrowLeft') {
-      if (current.selectionStart != current.selectionEnd || key === 0) {
+      if (current.selectionStart !== current.selectionEnd || key === 0) {
         return;
       }
+
       prev.selectionStart = current.selectionStart;
       prev.selectionEnd = current.selectionStart;
       prev.focus();
@@ -127,28 +130,28 @@ class CodeField extends React.Component {
     }
 
     if (e.keyCode === 39 || e.key === 'ArrowRight') {
-      if (current.selectionStart != current.selectionEnd ||
+      if (current.selectionStart !== current.selectionEnd ||
           key === this.props.size - 1) {
         return;
       }
+
       next.selectionStart = current.selectionStart;
       next.selectionEnd = current.selectionStart;
       next.focus();
       e.preventDefault();
-      return;
     }
   }
 
-  isValid(value) {
+  isValid (value) {
     const { size, validate } = this.props;
     return value.length === size && validate(value);
   }
 
-  isDirty(index) {
+  isDirty (index) {
     return this.state.values[index];
   }
 
-  render() {
+  render () {
     const {
       theme,
       className,
@@ -191,7 +194,7 @@ class CodeField extends React.Component {
               size={1}
               maxLength={1}
               disabled={disabled}
-              ref={(ref) => this.inputs[index] = ref}
+              ref={ref => { this.inputs[index] = ref; }}
               onChange={this.onItemChange.bind(this, index)}
               onKeyDown={this.onKeyDown.bind(this, index)}
             />
@@ -202,5 +205,3 @@ class CodeField extends React.Component {
   }
 
 }
-
-export default CodeField;

@@ -7,7 +7,7 @@ import { inject } from './style';
 import { getContainerNode, omit, classNames } from './utils';
 import styles from './theme/components/Tooltip.styl';
 
-class Tooltip extends React.Component {
+export default class Tooltip extends React.Component {
 
   static propTypes = {
     apparition: PropTypes.oneOf(['insert', 'css']),
@@ -40,19 +40,19 @@ class Tooltip extends React.Component {
 
   scheduleUpdate = null
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-tooltip-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (this.props.trigger === 'click') {
       document.addEventListener('click', this.onClickOutside, false);
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.disabled != this.props.disabled && this.props.disabled) {
+  componentDidUpdate (prevProps) {
+    if (prevProps.disabled !== this.props.disabled && this.props.disabled) {
       this.setState({ opened: false });
     }
   }
@@ -85,11 +85,11 @@ class Tooltip extends React.Component {
     this.setState({ opened }, () => onToggle(opened));
   }
 
-  updatePopper() {
+  updatePopper () {
     this.scheduleUpdate?.();
   }
 
-  getHandlers() {
+  getHandlers () {
     const { trigger } = this.props;
     const handlers = {};
 
@@ -105,7 +105,7 @@ class Tooltip extends React.Component {
     return handlers;
   }
 
-  render() {
+  render () {
     const {
       text,
       className,
@@ -163,7 +163,7 @@ class Tooltip extends React.Component {
     return (
       <Manager>
         <Reference
-          innerRef={(ref) => this.target = ref}
+          innerRef={ref => { this.target = ref; }}
         >
           { ({ ref }) => (
             !children || typeof children === 'string' ? (
@@ -193,11 +193,10 @@ class Tooltip extends React.Component {
 
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     try {
       document.removeEventListener('click', this.onClickOutside);
     } catch (e) {}
   }
-}
 
-export default Tooltip;
+}

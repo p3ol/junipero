@@ -4,7 +4,7 @@ jest.mock('popper.js', () => {
   return class {
     static placements = PopperJS.placements;
 
-    constructor() {
+    constructor () {
       return {
         destroy: () => {},
         scheduleUpdate: () => {},

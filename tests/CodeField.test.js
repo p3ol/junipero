@@ -51,13 +51,15 @@ describe('<CodeField />', () => {
   it('should update internal value when any digit value changes', () => {
     const component = mount(<CodeField />);
     component.find('input').first().simulate('change');
-    component.find('input').first().simulate('change', { target: { value: 1 }});
+    component.find('input').first()
+      .simulate('change', { target: { value: 1 } });
     expect(component.state('values').join('')).toBe('1');
   });
 
   it('should update internal value when hitting backspace', () => {
     const component = mount(<CodeField />);
-    component.find('input').first().simulate('change', { target: { value: 1 }});
+    component.find('input').first()
+      .simulate('change', { target: { value: 1 } });
     component.find('input').at(1).simulate('focus');
     component.find('input').at(1).simulate('keydown', { key: 'Backspace' });
     expect(component.state('values').join('')).toBe('');
@@ -65,7 +67,8 @@ describe('<CodeField />', () => {
 
   it('should not update internal value if disabled', () => {
     const component = mount(<CodeField disabled={true} value="1" />);
-    component.find('input').first().simulate('change', { target: { value: 2 }});
+    component.find('input').first()
+      .simulate('change', { target: { value: 2 } });
     component.find('input').at(1).simulate('focus');
     component.find('input').at(1).simulate('keydown', { key: 'Backspace' });
     expect(component.state('values').join('')).toBe('1');
@@ -128,7 +131,8 @@ describe('<CodeField />', () => {
         value="123456"
       />
     );
-    component.find('input').first().simulate('change', { target: { value: 2 }});
+    component.find('input').first()
+      .simulate('change', { target: { value: 2 } });
     expect(onChange.calledWith(sinon.match.has('valid', true))).toBe(true);
   });
 

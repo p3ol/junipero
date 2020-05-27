@@ -5,7 +5,7 @@ import { Popper } from 'react-popper';
 
 import { getContainerNode, omit, classNames } from './utils';
 
-class DropdownMenu extends React.Component {
+export default class DropdownMenu extends React.Component {
 
   static propTypes = {
     apparition: PropTypes.oneOf(['insert', 'css']),
@@ -33,11 +33,11 @@ class DropdownMenu extends React.Component {
 
   innerRef = null;
 
-  updatePopper() {
+  updatePopper () {
     this.scheduleUpdate?.();
   }
 
-  render() {
+  render () {
     const {
       className,
       tag: Tag,
@@ -63,7 +63,7 @@ class DropdownMenu extends React.Component {
       <Popper
         placement={placement}
         modifiers={modifiers}
-        innerRef={(ref) => this.innerRef = ref}
+        innerRef={ref => { this.innerRef = ref; }}
       >
         { ({ ref, style, placement_, scheduleUpdate }) => {
           this.scheduleUpdate = scheduleUpdate;
@@ -107,5 +107,3 @@ class DropdownMenu extends React.Component {
   }
 
 }
-
-export default DropdownMenu;

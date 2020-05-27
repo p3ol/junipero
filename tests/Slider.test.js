@@ -50,7 +50,7 @@ describe('<Slider />', () => {
 
   it('should register document events to track mouse click & position', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
     shallow(<Slider />);
     expect(map.mousemove).toBeDefined();
     expect(map.mouseup).toBeDefined();
@@ -58,7 +58,7 @@ describe('<Slider />', () => {
 
   it('should remove document events on unmount', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
     document.removeEventListener = (event, cb) => delete map[event];
 
     const component = mount(<Slider />);
@@ -84,7 +84,7 @@ describe('<Slider />', () => {
 
   it('should set slider as not moving on mouse up', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const component = mount(<Slider />);
     component.find('.junipero-slider').simulate('mousedown', { button: 0 });
@@ -95,7 +95,7 @@ describe('<Slider />', () => {
 
   it('should trigger onChange event on mouse move', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const onChange = sinon.spy();
     const component = mount(<Slider onChange={onChange} />);
@@ -108,7 +108,7 @@ describe('<Slider />', () => {
   it('shouldn\'t trigger onChange event on mouse move when slider is ' +
     'disabled', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const onChange = sinon.spy();
     const component = mount(<Slider disabled={true} onChange={onChange} />);
@@ -128,7 +128,7 @@ describe('<Slider />', () => {
 
   it('should listen for page resize event when autoResize is true', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
     mount(<Slider autoResize={true} />);
     expect(map.resize).toBeDefined();
   });

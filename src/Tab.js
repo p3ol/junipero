@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { omit, classNames } from './utils';
 
-class Tab extends React.Component {
+export default class Tab extends React.Component {
 
   static propTypes = {
     key: PropTypes.number,
@@ -17,7 +17,7 @@ class Tab extends React.Component {
     animate: tab => tab,
   }
 
-  render() {
+  render () {
     const { className, key, animate, ...rest } = this.props;
 
     return animate((
@@ -34,5 +34,3 @@ class Tab extends React.Component {
     ), key);
   }
 }
-
-export default Tab;

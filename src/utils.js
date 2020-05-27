@@ -156,13 +156,13 @@ export const rgba2hsva = ({ r, g, b, a }) => {
   b = Math.min(b, 1);
   a = Math.min(a, 1);
 
-  let h, s;
+  let h;
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   const v = max;
   const d = max - min;
 
-  s = max == 0 ? 0 : d / max;
+  const s = max === 0 ? 0 : d / max;
 
   if (max === min) {
     h = 0;
@@ -243,7 +243,7 @@ export const stringifyColor = (color, format = 'auto') => {
 
   switch (format) {
     case 'hsl':
-    case 'hsla':
+    case 'hsla': {
       const hsla = denormalizeHSLA(hsva2hsla(color));
       return `hsl${color.a < 1 ? 'a' : ''}(` +
         `${hsla.h}, ` +
@@ -251,8 +251,9 @@ export const stringifyColor = (color, format = 'auto') => {
         `${hsla.l}%` +
         (color.a < 1 ? `, ${hsla.a}` : '') +
         ')';
+    }
     case 'rgb':
-    case 'rgba':
+    case 'rgba': {
       const rgba = denormalizeRGBA(hsva2rgba(color));
       return `rgb${color.a < 1 ? 'a' : ''}(` +
         `${rgba.r}, ` +
@@ -260,6 +261,7 @@ export const stringifyColor = (color, format = 'auto') => {
         `${rgba.b}` +
         (color.a < 1 ? `, ${rgba.a}` : '') +
         ')';
+    }
     default:
       return rgba2hex(denormalizeRGBA(hsva2rgba(color)));
   }

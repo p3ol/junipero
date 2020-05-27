@@ -5,7 +5,7 @@ import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/Slider.styl';
 
-class Slider extends React.Component {
+export default class Slider extends React.Component {
 
   static propTypes = {
     autoResize: PropTypes.bool,
@@ -44,12 +44,12 @@ class Slider extends React.Component {
 
   slideRef = null
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-slider-styles');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.addEventListener('mousemove', this.onMouseMove, true);
     document.addEventListener('mouseup', this.onMouseUp, true);
 
@@ -62,7 +62,7 @@ class Slider extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.step !== prevProps.step) {
       this.setState({ precision: this.getPrecision() });
     }
@@ -72,12 +72,12 @@ class Slider extends React.Component {
     }
   }
 
-  getPrecision() {
+  getPrecision () {
     const decimals = `${this.props.step}`.split('.')[1];
     return decimals?.length || 0;
   }
 
-  getValue(value) {
+  getValue (value) {
     const { min, max, step } = this.props;
 
     return parseFloat((
@@ -85,7 +85,7 @@ class Slider extends React.Component {
     ).toFixed(this.state.precision));
   }
 
-  getElementOffset(el) {
+  getElementOffset (el) {
     const rect = el.getBoundingClientRect();
 
     return {
@@ -94,11 +94,11 @@ class Slider extends React.Component {
     };
   }
 
-  getPosition() {
+  getPosition () {
     return this.state.parentWidth * (this.state.value / this.props.max);
   }
 
-  onMouseDown(e) {
+  onMouseDown (e) {
     if (e.button !== 0) {
       return;
     }
@@ -140,7 +140,7 @@ class Slider extends React.Component {
     });
   }
 
-  onChange(value) {
+  onChange (value) {
     if (this.props.disabled) {
       return;
     }
@@ -154,7 +154,7 @@ class Slider extends React.Component {
     });
   }
 
-  render() {
+  render () {
     const {
       theme,
       disabled,
@@ -179,7 +179,7 @@ class Slider extends React.Component {
           },
           className,
         )}
-        ref={(ref) => this.innerRef = ref}
+        ref={ref => { this.innerRef = ref; }}
         onMouseDown={this.onMouseDown.bind(this)}
       >
         <div className="slider-wrapper">
@@ -187,7 +187,7 @@ class Slider extends React.Component {
             <span className="label">{ label }</span>
           ) }
 
-          <div className="slide" ref={(ref) => this.slideRef = ref}>
+          <div className="slide" ref={ref => { this.slideRef = ref; }}>
             <div
               className="fill"
               style={{ width: `${this.getPosition()}px` }}
@@ -208,12 +208,10 @@ class Slider extends React.Component {
     );
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener('mousemove', this.onMouseMove, true);
     document.removeEventListener('mouseup', this.onMouseUp, true);
     document.removeEventListener('resize', this.onResize, true);
   }
 
 }
-
-export default Slider;

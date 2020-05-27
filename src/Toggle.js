@@ -5,7 +5,7 @@ import { inject } from './style';
 import { omit, classNames } from './utils';
 import styles from './theme/components/Toggle.styl';
 
-class Toggle extends React.Component {
+export default class Toggle extends React.Component {
 
   static propTypes = {
     checked: PropTypes.bool,
@@ -36,18 +36,18 @@ class Toggle extends React.Component {
     active: false,
   };
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     inject(styles, 'junipero-toggle-styles');
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.checked !== prevProps.checked) {
       this.onChange(null, this.props.checked);
     }
   }
 
-  reset() {
+  reset () {
     this.setState({
       checked: this.props.checked,
     }, () => {
@@ -55,7 +55,7 @@ class Toggle extends React.Component {
     });
   }
 
-  onChange(e, forceValue) {
+  onChange (e, forceValue) {
     if (this.props.disabled) {
       return;
     }
@@ -74,7 +74,7 @@ class Toggle extends React.Component {
     });
   }
 
-  render() {
+  render () {
     const {
       disabled,
       theme,
@@ -129,5 +129,3 @@ class Toggle extends React.Component {
   }
 
 }
-
-export default Toggle;

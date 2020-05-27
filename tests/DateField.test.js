@@ -134,7 +134,7 @@ describe('<DateField />', () => {
 
     const field = component.find('input[type="date"]');
     expect(field.length).toBe(1);
-    field.simulate('change', { target: { value: '2019-03-13' }});
+    field.simulate('change', { target: { value: '2019-03-13' } });
     expect(onChange.called).toBe(true);
     const value = component.state('value');
     expect(value.getFullYear()).toBe(2019);

@@ -28,7 +28,7 @@ describe('<ColorPicker />', () => {
 
   it('should register document events to track mouse click & position', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
     shallow(<ColorPicker />);
     expect(map.mousedown).toBeDefined();
     expect(map.mousemove).toBeDefined();
@@ -37,7 +37,7 @@ describe('<ColorPicker />', () => {
 
   it('should remove document events on unmount', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
     document.removeEventListener = (event, cb) => delete map[event];
 
     const component = mount(<ColorPicker />);
@@ -86,7 +86,7 @@ describe('<ColorPicker />', () => {
 
   it('should set color cursors as not moving on mouse up event', () => {
     const map = {};
-    document.addEventListener = (event, cb) => map[event] = sinon.spy(cb);
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const component = mount(<ColorPicker />);
     component.find('.lightness').simulate('mousedown', { button: 0 });
