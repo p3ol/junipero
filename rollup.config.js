@@ -5,7 +5,7 @@ import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
 
-const isForIE = process.env.BABEL_ENV === 'ie';
+const isForIE = process.env.BROWSERSLIST_ENV === 'ie';
 const input = './lib/index.js';
 const output = `./dist${isForIE ? '/ie' : ''}/junipero`;
 const formats = ['umd', 'cjs', 'esm'];
@@ -51,8 +51,9 @@ export default [
         minimize: true,
         inject: false,
         extract: true,
+        sourceMap: true,
         plugins: [
-          autoprefixer,
+          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
         ],
       }),
     ],

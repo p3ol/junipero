@@ -95,7 +95,7 @@
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --hot --inline --open",
     "clean": "rm -rf ./dist || true",
     "build:default": "./node_modules/.bin/rollup -c",
-    "build:ie": "BABEL_ENV=ie ./node_modules/.bin/rollup -c",
+    "build:ie": "BROWSERSLIST_ENV=ie ./node_modules/.bin/rollup -c",
     "build": "yarn clean && yarn build:default && yarn build:ie",
     "prepack": "yarn lint && yarn build && yarn test",
     "test": "./node_modules/.bin/jest",
