@@ -31,6 +31,7 @@
     "@babel/plugin-transform-runtime": "7.10.0",
     "@babel/preset-env": "7.10.0",
     "@babel/preset-react": "7.10.0",
+    "@percy/storybook": "^3.3.0",
     "@poool/eslint-config": "0.0.1-alpha.6",
     "@poool/eslint-config-react": "0.0.1-alpha.6",
     "@rollup/plugin-babel": "5.0.2",
@@ -100,7 +101,8 @@
     "test": "./node_modules/.bin/jest",
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
     "changelog": "./node_modules/.bin/auto-changelog",
-    "storybook": "./node_modules/.bin/start-storybook"
+    "storybook": "./node_modules/.bin/start-storybook",
+    "snapshot": "./node_modules/.bin/build-storybook -c .storybook && ./node_modules/.bin/percy-storybook --widths=320,1280"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
