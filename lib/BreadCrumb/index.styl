@@ -1,0 +1,14 @@
+@require "../theme/colors"
+
+.junipero.breadcrumb
+  .item
+    &:after
+      content: '>'
+      margin: 0 5px
+
+    &:last-child
+      font-weight: bold
+      color: $color-eastern-blue
+
+      &:after
+        content: ''
