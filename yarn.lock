@@ -1318,7 +1318,7 @@
   resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-0.0.1-alpha.6.tgz#dffd93a47b803868e0a0050fb6eb13ed598ed5bc"
   integrity sha512-kh0r4Qi+ZrafoAtgw4rlzx+G2nLBi5H7hw53ZkXZQr8aGsfg1xsHlAo0MCy13uaBBx4uXfb968wR8FLOBNChZA==
 
-"@popperjs/core@^2.4.0":
+"@popperjs/core@2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.0.tgz#0e1bdf8d021e7ea58affade33d9d607e11365915"
   integrity sha512-NMrDy6EWh9TPdSRiHmHH2ye1v5U0gBD7pRYwSwJvomx7Bm4GG04vu63dYiVzebLOx2obPpJugew06xVP0Nk7hA==
