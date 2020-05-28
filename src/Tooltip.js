@@ -176,7 +176,7 @@ export default class Tooltip extends React.Component {
     return (
       <Manager>
         <Reference
-          innerRef={ref => { this.target = ref; }}
+          innerRef={ref => { if (!ref) { return; } this.target = ref; }}
         >
           { ({ ref }) => (
             !children || typeof children === 'string' ? (
