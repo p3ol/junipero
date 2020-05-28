@@ -34,6 +34,7 @@ These libraries are not bundled with Junipero and required at runtime:
 - [react](https://www.npmjs.com/package/react)
 - [prop-types](https://www.npmjs.com/package/prop-types)
 - [react-popper](https://www.npmjs.com/package/react-popper)
+- [@popperjs/core](https://www.npmjs.com/package/@popperjs/core)
 
 ## [Documentation](https://junipero.design)
 
