@@ -128,9 +128,18 @@ export default class Tooltip extends React.Component {
       <Popper
         {...popperOptions}
         placement={placement}
+        modifiers={[
+          ...(popperOptions?.modifiers || []),
+          {
+            name: 'offset',
+            options: {
+              offset: [0, 16],
+            },
+          },
+        ]}
       >
-        { ({ ref, style, placement, arrowProps, scheduleUpdate }) => {
-          this.scheduleUpdate = scheduleUpdate;
+        { ({ ref, style, placement, arrowProps, update }) => {
+          this.scheduleUpdate = update;
 
           return (
             <div
