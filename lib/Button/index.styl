@@ -1,0 +1,33 @@
+@require "../theme/colors"
+
+.junipero.button
+  padding: 8px 20px
+  font-weight: bold
+  background: $color-white
+  color: $color-black
+  border-radius: 2px
+  appearance: none
+  border: none
+  transition-property: box-shadow
+  transition-duration: .1s
+  transition-timing-function: ease-in-out
+
+  &:hover
+    background: $color-white - 10
+
+  &:active
+    background: $color-white - 20
+
+  &.primary
+    background: $color-eastern-blue
+    color: $color-white
+    outline: none
+
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+
+    &:hover
+      background: $color-atoll
+
+    &:active
+      background: $color-persian-green
