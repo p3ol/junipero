@@ -1,0 +1,60 @@
+@require "../theme/colors"
+
+.junipero.checkbox
+  display: flex
+  outline: none
+
+  &:active
+    .check .inner
+      transform: scale(0.95)
+
+  &:focus
+    .check
+      .inner
+        box-shadow: 0 0 0 1px $color-eastern-blue,
+                    0 0 0 3px rgba($color-eastern-blue, .5)
+
+  .check
+    flex: 0 0 auto
+    max-width: auto
+    padding-right: 10px
+
+    input
+      display: none
+
+      &:checked + .inner
+        background: $color-eastern-blue
+
+        &:after
+          opacity: 1
+
+    .inner
+      width: 16px
+      height: 16px
+      border-radius: 2px
+      box-shadow: 0 0 0 1px $color-eastern-blue
+      display: inline-block
+      vertical-align: middle
+      position: relative
+      top: -2px
+      transition-property: box-shadow, background
+      transition-duration: .1s
+      transition-timing-function: ease-in-out
+
+      &:after
+        content: ''
+        width: 6px
+        height: 10px
+        border-bottom: 2px solid $color-white
+        border-right: 2px solid $color-white
+        transform: translateX(-50%) translateY(-50%) rotate(45deg)
+        position: absolute
+        top: calc(50% - 2px)
+        left: 50%
+        opacity: 0
+        transition: opacity .1s ease-in-out
+
+  .content
+    flex-basis: 0
+    flex-grow: 1
+    max-width: 100%
