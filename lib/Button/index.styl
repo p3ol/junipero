@@ -4,30 +4,320 @@
   padding: 8px 20px
   font-weight: bold
   background: $color-white
-  color: $color-black
+  color: $color-midnight
   border-radius: 2px
   appearance: none
   border: none
-  transition-property: box-shadow
+  transition-property: box-shadow, background, color
   transition-duration: .1s
   transition-timing-function: ease-in-out
+  outline: none
 
+  // Default
   &:hover
     background: $color-white - 10
+
+  &:focus
+    box-shadow: 0 0 0 2px rgba($color-midnight, .2)
 
   &:active
     background: $color-white - 20
 
+  &:disabled
+    background: $color-alabaster
+    color: $color-alto
+
+  &.outline
+    background: transparent
+    color: $color-midnight
+    box-shadow: 0 0 0 1px ($color-white - 20)
+
+    &:hover
+      background: $color-white - 10
+      box-shadow: 0 0 0 1px ($color-white - 10)
+
+      &:focus
+        box-shadow: 0 0 0 1px ($color-white - 10),
+                    0 0 0 3px rgba($color-midnight, .2)
+
+    &:focus
+      box-shadow: 0 0 0 1px ($color-white - 20),
+                  0 0 0 3px rgba($color-midnight, .2)
+
+    &:active
+      background: $color-white - 20
+
+      &:focus
+        box-shadow: 0 0 0 1px ($color-white - 20),
+                    0 0 0 3px rgba($color-midnight, .2)
+
+    &:disabled
+      &, &:hover, &:active, &:focus
+        background: $color-alabaster
+        color: $color-alto
+        box-shadow: none
+
+  // Primary
   &.primary
     background: $color-eastern-blue
     color: $color-white
-    outline: none
-
-    &:focus
-      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
 
     &:hover
       background: $color-atoll
 
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+
     &:active
       background: $color-persian-green
+
+    &:disabled
+      background: $color-powder-blue
+      color: $color-white
+
+    &.outline
+      background: transparent
+      color: $color-eastern-blue
+      box-shadow: 0 0 0 1px $color-eastern-blue
+
+      &:hover
+        background: $color-atoll
+        box-shadow: 0 0 0 1px $color-atoll
+        color: $color-white
+
+        &:focus
+          box-shadow: 0 0 0 1px $color-atoll,
+                      0 0 0 3px rgba($color-eastern-blue, .5)
+
+      &:focus
+        box-shadow: 0 0 0 1px $color-eastern-blue,
+                    0 0 0 3px rgba($color-eastern-blue, .5)
+
+      &:active
+        background: $color-persian-green
+        box-shadow: 0 0 0 1px $color-persian-green
+
+        &:focus
+          box-shadow: 0 0 0 1px $color-persian-green,
+                      0 0 0 3px rgba($color-eastern-blue, .5)
+
+      &:disabled
+        &, &:hover, &:active, &:focus
+          background: $color-powder-blue
+          color: $color-white
+          box-shadow: none
+
+  // Secondary
+  &.secondary
+    background: $color-persian-green
+    color: $color-white
+
+    &:hover
+      background: $color-atoll
+
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-persian-green, .5)
+
+    &:active
+      background: $color-eastern-blue
+
+    &:disabled
+      background: $color-powder-blue
+      color: $color-white
+
+    &.outline
+      background: transparent
+      color: $color-persian-green
+      box-shadow: 0 0 0 1px $color-persian-green
+
+      &:hover
+        background: $color-atoll
+        box-shadow: 0 0 0 1px $color-atoll
+        color: $color-white
+
+        &:focus
+          box-shadow: 0 0 0 1px $color-atoll,
+                      0 0 0 3px rgba($color-persian-green, .5)
+
+      &:focus
+        box-shadow: 0 0 0 1px $color-eastern-blue,
+                    0 0 0 3px rgba($color-persian-green, .5)
+
+      &:active
+        background: $color-eastern-blue
+        box-shadow: 0 0 0 1px $color-eastern-blue
+
+        &:focus
+          box-shadow: 0 0 0 1px $color-eastern-blue,
+                      0 0 0 3px rgba($color-persian-green, .5)
+
+      &:disabled
+        &, &:hover, &:active, &:focus
+          background: $color-powder-blue
+          color: $color-white
+          box-shadow: none
+
+  // Warning
+  &.warning
+    background: $color-buttercup
+    color: $color-white
+
+    &:hover
+      background: $color-buttercup - 10
+
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-buttercup, .5)
+
+    &:active
+      background: $color-buttercup - 20
+
+    &:disabled
+      background: $color-disabled-buttercup
+      color: $color-white
+
+    &.outline
+      background: transparent
+      color: $color-buttercup
+      box-shadow: 0 0 0 1px $color-buttercup
+
+      &:hover
+        background: $color-buttercup - 10
+        box-shadow: 0 0 0 1px ($color-buttercup - 10)
+        color: $color-white
+
+        &:focus
+          box-shadow: 0 0 0 1px ($color-buttercup - 10),
+                      0 0 0 3px rgba($color-buttercup, .5)
+
+      &:focus
+        box-shadow: 0 0 0 1px $color-buttercup,
+                    0 0 0 3px rgba($color-buttercup, .5)
+
+      &:active
+        background: $color-buttercup - 20
+        box-shadow: 0 0 0 1px ($color-buttercup - 20)
+
+        &:focus
+          box-shadow: 0 0 0 1px ($color-buttercup - 20),
+                      0 0 0 3px rgba($color-buttercup, .5)
+
+      &:disabled
+        &, &:hover, &:active, &:focus
+          background: $color-disabled-buttercup
+          color: $color-white
+          box-shadow: none
+
+  // Danger
+  &.danger
+    background: $color-monza
+    color: $color-white
+
+    &:hover
+      background: $color-monza - 10
+
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-monza, .5)
+
+    &:active
+      background: $color-monza - 20
+
+    &:disabled
+      background: $color-disabled-monza
+      color: $color-white
+
+    &.outline
+      background: transparent
+      color: $color-monza
+      box-shadow: 0 0 0 1px $color-monza
+
+      &:hover
+        background: $color-monza - 10
+        box-shadow: 0 0 0 1px ($color-monza - 10)
+        color: $color-white
+
+        &:focus
+          box-shadow: 0 0 0 1px ($color-monza - 10),
+                      0 0 0 3px rgba($color-monza, .5)
+
+      &:focus
+        box-shadow: 0 0 0 1px $color-monza,
+                    0 0 0 3px rgba($color-monza, .5)
+
+      &:active
+        background: $color-monza - 20
+        box-shadow: 0 0 0 1px ($color-monza - 20)
+
+        &:focus
+          box-shadow: 0 0 0 1px ($color-monza - 20),
+                      0 0 0 3px rgba($color-monza, .5)
+
+      &:disabled
+        &, &:hover, &:active, &:focus
+          background: $color-disabled-monza
+          color: $color-white
+          box-shadow: none
+
+  // Success
+  &.success
+    background: $color-java
+    color: $color-white
+
+    &:hover
+      background: $color-java - 10
+
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-java, .5)
+
+    &:active
+      background: $color-java - 20
+
+    &:disabled
+      background: $color-disabled-java
+      color: $color-white
+
+    &.outline
+      background: transparent
+      color: $color-java
+      box-shadow: 0 0 0 1px $color-java
+
+      &:hover
+        background: $color-java - 10
+        box-shadow: 0 0 0 1px ($color-java - 10)
+        color: $color-white
+
+        &:focus
+          box-shadow: 0 0 0 1px ($color-java - 10),
+                      0 0 0 3px rgba($color-java, .5)
+
+      &:focus
+        box-shadow: 0 0 0 1px $color-java,
+                    0 0 0 3px rgba($color-java, .5)
+
+      &:active
+        background: $color-java - 20
+        box-shadow: 0 0 0 1px ($color-java - 20)
+
+        &:focus
+          box-shadow: 0 0 0 1px ($color-java - 20),
+                      0 0 0 3px rgba($color-java, .5)
+
+      &:disabled
+        &, &:hover, &:active, &:focus
+          background: $color-disabled-java
+          color: $color-white
+          box-shadow: none
+
+  .icon,
+  .material-icons
+    font-size: 18px
+    vertical-align: middle
+    position: relative
+    top: -1px
+
+  &.small
+    padding: 5px 15px
+    font-size: 14px
+
+  &.big
+    padding: 10px 25px
+    font-size: 20px
