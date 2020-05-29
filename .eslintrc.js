@@ -15,7 +15,7 @@ module.exports = {
     'no-empty': [2, { allowEmptyCatch: true }],
 
     // Common props are not checked anyway
-    'react/prop-types': [2, { ignore: ['className', 'children', 'value'] }],
+    'react/prop-types': [2, { ignore: ['className', 'children'] }],
 
     // Directly assigning this.state is sometimes required in addition to
     // setState
