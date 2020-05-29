@@ -1452,7 +1452,7 @@
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
-"@storybook/addon-storysource@^5.3.19":
+"@storybook/addon-storysource@5.3.19":
   version "5.3.19"
   resolved "https://registry.yarnpkg.com/@storybook/addon-storysource/-/addon-storysource-5.3.19.tgz#ae693e88db5d220cb256a9ef4a2366c300e8d88c"
   integrity sha512-W7mIAHuxYT+b1huaHCHLkBAh2MbeWmF8CxeBCFiOgZaYYQUTDEh018HJF8u2AqiWSouRhcfzhTnGxOo0hNRBgw==
@@ -1690,7 +1690,7 @@
     pretty-hrtime "^1.0.3"
     regenerator-runtime "^0.13.3"
 
-"@storybook/react@^5.3.19":
+"@storybook/react@5.3.19":
   version "5.3.19"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-5.3.19.tgz#ad7e7a5538399e2794cdb5a1b844a2b77c10bd09"
   integrity sha512-OBRUqol3YLQi/qE55x2pWkv4YpaAmmfj6/Km+7agx+og+oNQl0nnlXy7r27X/4j3ERczzURa5pJHtSjwiNaJNw==
