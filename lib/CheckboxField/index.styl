@@ -11,8 +11,7 @@
   &:focus
     .check
       .inner
-        box-shadow: 0 0 0 1px $color-eastern-blue,
-                    0 0 0 3px rgba($color-eastern-blue, .5)
+        box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
 
   .check
     flex: 0 0 auto
@@ -32,7 +31,7 @@
       width: 16px
       height: 16px
       border-radius: 2px
-      box-shadow: 0 0 0 1px $color-eastern-blue
+      background: $color-black-squeeze
       display: inline-block
       vertical-align: middle
       position: relative
@@ -43,8 +42,8 @@
 
       &:after
         content: ''
-        width: 6px
-        height: 10px
+        width: 5px
+        height: 9px
         border-bottom: 2px solid $color-white
         border-right: 2px solid $color-white
         transform: translateX(-50%) translateY(-50%) rotate(45deg)
