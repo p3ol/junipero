@@ -1,0 +1,34 @@
+@require "../theme/colors"
+
+.junipero.code
+  display: inline-block
+  min-width: 250px
+
+  .wrapper
+    display: flex
+    align-items: center
+
+  input
+    outline: none
+    padding: 9px
+    border-radius: 2px
+    background: $color-black-squeeze
+    border: none
+    margin: 5px
+    text-align: center
+    flex: 1 1 auto
+    font-size: 16px
+    transition: box-shadow .1s ease-in-out
+
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+
+    &:disabled
+      opacity: .5
+
+  &.invalid.dirty
+    input
+      background: $color-lavender-blush
+
+      &:focus
+        box-shadow: 0 0 0 2px rgba($color-monza, .5)
