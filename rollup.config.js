@@ -4,10 +4,12 @@ import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
+import path from 'path';
 
 const isForIE = process.env.BROWSERSLIST_ENV === 'ie';
-const input = './lib/index.js';
-const output = `./dist${isForIE ? '/ie' : ''}/junipero`;
+const input = './src/index.js';
+const output = `./dist${isForIE ? '/ie' : ''}`;
+const name = 'junipero';
 const formats = ['umd', 'cjs', 'esm'];
 
 const defaultExternals = ['react', 'react-dom', 'prop-types', 'react-popper'];
@@ -36,12 +38,24 @@ export default [
     ],
     external: defaultExternals,
     output: {
-      file: `${output}.${f}.js`,
+      ...(f === 'esm' ? {
+        dir: `${output}/esm`,
+        chunkFileNames: '[name].js',
+      } : {
+        file: `${output}/${name}.${f}.js`,
+      }),
       format: f,
       name: 'junipero',
       sourcemap: true,
       globals: defaultGlobals,
     },
+    ...(f === 'esm' ? {
+      manualChunks: id => {
+        return id.includes('node_modules')
+          ? 'vendor'
+          : path.parse(id).name;
+      },
+    } : {}),
   })),
   {
     input: './lib/index.styl',

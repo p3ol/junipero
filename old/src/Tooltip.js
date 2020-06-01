@@ -128,9 +128,18 @@ export default class Tooltip extends React.Component {
       <Popper
         {...popperOptions}
         placement={placement}
+        modifiers={[
+          ...(popperOptions?.modifiers || []),
+          {
+            name: 'offset',
+            options: {
+              offset: [0, 16],
+            },
+          },
+        ]}
       >
-        { ({ ref, style, placement, arrowProps, scheduleUpdate }) => {
-          this.scheduleUpdate = scheduleUpdate;
+        { ({ ref, style, placement, arrowProps, update }) => {
+          this.scheduleUpdate = update;
 
           return (
             <div
@@ -167,7 +176,7 @@ export default class Tooltip extends React.Component {
     return (
       <Manager>
         <Reference
-          innerRef={ref => { this.target = ref; }}
+          innerRef={ref => { if (!ref) { return; } this.target = ref; }}
         >
           { ({ ref }) => (
             !children || typeof children === 'string' ? (

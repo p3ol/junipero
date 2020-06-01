@@ -10,7 +10,7 @@ export default class DropdownMenu extends React.Component {
   static propTypes = {
     apparition: PropTypes.oneOf(['insert', 'css']),
     container: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    modifiers: PropTypes.object,
+    modifiers: PropTypes.array,
     tag: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.string,
@@ -22,7 +22,7 @@ export default class DropdownMenu extends React.Component {
 
   static defaultProps = {
     apparition: 'insert',
-    modifiers: {},
+    modifiers: [],
     tag: 'div',
   }
 
@@ -63,11 +63,19 @@ export default class DropdownMenu extends React.Component {
     const menu = (
       <Popper
         placement={placement}
-        modifiers={modifiers}
+        modifiers={[
+          ...modifiers,
+          {
+            name: 'offset',
+            options: {
+              offset: [0, 10],
+            },
+          },
+        ]}
         innerRef={ref => { this.innerRef = ref; }}
       >
-        { ({ ref, style, placement_, scheduleUpdate }) => {
-          this.scheduleUpdate = scheduleUpdate;
+        { ({ ref, style, placement_, update }) => {
+          this.scheduleUpdate = update;
 
           return (
             <Tag
