@@ -7825,7 +7825,7 @@ jest-each@^26.0.1:
     jest-util "^26.0.1"
     pretty-format "^26.0.1"
 
-jest-environment-jsdom-fourteen@^1.0.1:
+jest-environment-jsdom-fourteen@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/jest-environment-jsdom-fourteen/-/jest-environment-jsdom-fourteen-1.0.1.tgz#4cd0042f58b4ab666950d96532ecb2fc188f96fb"
   integrity sha512-DojMX1sY+at5Ep+O9yME34CdidZnO3/zfPh8UW+918C5fIZET5vCjfkegixmsi7AtdYfkr4bPlIzmWnlvQkP7Q==
@@ -8192,7 +8192,7 @@ jest-worker@^26.0.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^26.0.1:
+jest@26.0.1:
   version "26.0.1"
   resolved "https://registry.yarnpkg.com/jest/-/jest-26.0.1.tgz#5c51a2e58dff7525b65f169721767173bf832694"
   integrity sha512-29Q54kn5Bm7ZGKIuH2JRmnKl85YRigp0o0asTc6Sb6l2ch1DCXIeZTLLFy9ultJvhkTqbswF5DEx4+RlkmCxWg==
