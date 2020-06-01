@@ -1,0 +1,82 @@
+.junipero.text-input
+  display: inline-block
+  position: relative
+  min-width: 250px
+  width: auto
+
+  input
+    padding: 9px
+    border-radius: 2px
+    background: $color-black-squeeze
+    border: none
+    outline: none
+    font-size: 16px
+    width: 100%
+    transition: box-shadow .1s ease-in-out
+
+    &:focus
+      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+
+    &:disabled
+      opacity: .5
+
+      & + span
+        opacity: .5
+
+  .placeholder,
+  .label
+    position: absolute
+    pointer-events: none
+    user-select: none
+    transform-origin: 0 0
+
+  .placeholder
+    left: 9px
+    top: 50%
+    transform: translateY(-50%)
+    color: $color-shuttle-gray
+
+  .label
+    top: 4px
+    left: 9px
+    opacity: 0
+    transform: translateY(5px) scale(0.7)
+    transition-property: opacity, transform
+    transition-duration: .1s
+    transition-timing-function: ease-out
+    color: $color-eastern-blue
+
+  &:not(.empty),
+  &.label-enforced
+    .label
+      transform: translateY(0) scale(0.7)
+      opacity: 1
+
+    &:not(.labeled)
+      .label
+        display: none
+
+  &.labeled
+    input
+      padding: 13px 9px
+
+    &:not(.empty),
+    &.label-enforced
+      input
+        padding: 21px 9px 5px
+
+    &.label-enforced
+      .placeholder
+        top: calc(50% + 8px)
+
+
+  &.invalid.dirty
+    input
+      background: $color-lavender-blush
+
+      &:focus
+        box-shadow: 0 0 0 2px rgba($color-monza, .5)
+
+    .placeholder,
+    .label
+      color: $color-monza
