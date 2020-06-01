@@ -1,7 +1,8 @@
 [![npm](https://img.shields.io/npm/v/@poool/junipero.svg)](https://www.npmjs.com/package/@poool/junipero)
 [![GitHub](https://img.shields.io/github/license/p3ol/junipero.svg)](https://github.com/p3ol/junipero)
 [![Build Status](https://travis-ci.org/p3ol/junipero.svg?branch=master)](https://travis-ci.org/p3ol/junipero)
-[![codecov](https://codecov.io/gh/p3ol/junipero/branch/master/graph/badge.svg)](https://codecov.io/gh/p3ol/junipero) [![Greenkeeper badge](https://badges.greenkeeper.io/p3ol/junipero.svg)](https://greenkeeper.io/)
+[![codecov](https://codecov.io/gh/p3ol/junipero/branch/master/graph/badge.svg)](https://codecov.io/gh/p3ol/junipero)
+[![Percy](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Poool/junipero)
 
 ![junipero](https://storage.googleapis.com/junipero-cdn/images/logo-github.png)
 
