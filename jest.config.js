@@ -18,6 +18,6 @@ module.exports = {
   ],
   setupFilesAfterEnv: [
     '<rootDir>/.ci/config/enzyme.js',
-    // '<rootDir>/tests/config/popper.js',
+    '<rootDir>/.ci/config/popper.js',
   ],
 };
