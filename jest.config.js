@@ -12,6 +12,7 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     // '^.+\\.styl$': '<rootDir>/tests/transformers/stylus.js',
   },
+  testEnvironment: 'jest-environment-jsdom-fourteen',
   testPathIgnorePatterns: [
     '/node_modules/',
     '/old/',
