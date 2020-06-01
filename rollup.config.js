@@ -7,7 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import path from 'path';
 
 const isForIE = process.env.BROWSERSLIST_ENV === 'ie';
-const input = './src/index.js';
+const input = './lib/index.js';
 const output = `./dist${isForIE ? '/ie' : ''}`;
 const name = 'junipero';
 const formats = ['umd', 'cjs', 'esm'];
