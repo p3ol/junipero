@@ -1337,10 +1337,10 @@
   resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-0.0.1-alpha.6.tgz#24e39f08cfcf3af15ec3be65b71d6eb6712c1005"
   integrity sha512-DkoaB9q/0Wb/qD7Rjr7bUdNgr06Xnbq1AbkM9VaOkqWCw28YZZ9BYzGkJF5ANVmay4DHj9wy890v9QE0Dwq/hg==
 
-"@poool/eslint-config@0.0.1-alpha.6":
-  version "0.0.1-alpha.6"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-0.0.1-alpha.6.tgz#dffd93a47b803868e0a0050fb6eb13ed598ed5bc"
-  integrity sha512-kh0r4Qi+ZrafoAtgw4rlzx+G2nLBi5H7hw53ZkXZQr8aGsfg1xsHlAo0MCy13uaBBx4uXfb968wR8FLOBNChZA==
+"@poool/eslint-config@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-1.0.0.tgz#ea415d15227920b2e32df335eb70a22572dc2b1e"
+  integrity sha512-7BU/d780ICinl7Yb4RAtrn8D/cxLnD6d85f/E9ZUI3QZjUJOQba95cN/zz7Eeqnz0Zje30OY7pU8T0N3h07wmg==
 
 "@popperjs/core@2.4.0":
   version "2.4.0"
