@@ -96,7 +96,6 @@
     "prop-types": "15.7.2"
   },
   "scripts": {
-    "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --hot --inline --open",
     "clean": "rm -rf ./dist || true",
     "build:default": "./node_modules/.bin/rollup -c",
     "build:ie": "BROWSERSLIST_ENV=ie ./node_modules/.bin/rollup -c",
@@ -105,7 +104,7 @@
     "test": "./node_modules/.bin/jest",
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
     "changelog": "./node_modules/.bin/auto-changelog",
-    "storybook": "./node_modules/.bin/start-storybook",
+    "serve": "./node_modules/.bin/start-storybook",
     "snapshot": "./node_modules/.bin/build-storybook -c .storybook && ./node_modules/.bin/percy-storybook --widths=320,1280"
   },
   "auto-changelog": {
