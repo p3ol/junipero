@@ -1,0 +1,97 @@
+.junipero.date-time-picker
+  display: inline-block
+
+  input
+    cursor: default
+
+  .calendar
+    .calendar-header
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 10px
+
+      .arrow-wrapper
+        max-width: 100%
+        width: auto
+        display: block
+        padding: 0 15px
+        min-width: 0
+        cursor: pointer
+
+        .arrow
+          border-style: solid
+          display: inline-block
+          height: 9px
+          margin-left: 3px
+          margin-right: 3px
+          transform: rotate(-135deg)
+          width: 9px
+
+        &.left
+          .arrow
+            border-width: 2px 2px 0 0
+
+        &.right
+          .arrow
+            border-width: 0 0 2px 2px
+
+      .current-month
+        padding: 5px
+        color: $color-midnight
+
+    .calendar-body
+      padding: 0 15px
+      font-size: 12px
+
+      .week-days
+        display: flex
+        align-items: center
+        justify-content: space-between
+        font-weight: bold
+
+        .week-day
+          text-align: center
+          min-width: 30px
+
+      .days
+        display: flex
+        align-items: center
+        justify-content: space-around
+        flex-wrap: wrap
+
+        .day
+          min-width: 30px
+          display: inline-block
+          text-align: center
+          padding: 5px 0
+          border-radius: 4px
+          text-decoration: none
+          cursor: pointer
+
+          &.inactive
+            color: $color-pale-sky
+            opacity: .5
+
+          &.active
+            color: $color-white
+
+          &.disabled, &.inactive.disabled
+            opacity: .2
+            pointer-events: none
+
+        .separator
+          width: 100%
+          min-width: 100%
+
+    .arrow, .week-days
+      color: $color-eastern-blue
+
+    .day
+      color: $color-midnight
+
+      &:hover
+        background: $color-catskill-white
+
+      &.active
+        background: $color-eastern-blue
