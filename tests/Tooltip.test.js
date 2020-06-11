@@ -100,7 +100,7 @@ describe('<Tooltip />', () => {
   it('should clean document listeners on unmount', () => {
     const map = {};
     document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
-    document.removeEventListener = (name, cb) => delete map[name];
+    document.removeEventListener = name => delete map[name];
 
     const wrapper = mount(
       <div>

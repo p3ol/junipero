@@ -132,7 +132,7 @@ export default class Slider extends React.Component {
     this.onChange(value || 0);
   }
 
-  onMouseUp = (e) => {
+  onMouseUp = () => {
     this.setState({
       moving: false,
     });
