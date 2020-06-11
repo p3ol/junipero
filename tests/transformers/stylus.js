@@ -61,7 +61,7 @@ const compileStylusFile = (jsFile, stylusFile) => {
 };
 
 module.exports = {
-  process (src, filename, config, options) {
+  process (src, filename) {
     return 'module.exports = ' +
       JSON.stringify(compileStylusFile(src, filename)) +
       ';';

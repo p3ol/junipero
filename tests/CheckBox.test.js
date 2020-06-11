@@ -80,7 +80,7 @@ describe('<CheckBox />', () => {
     const map = {};
     document.addEventListener = jest.fn((event, cb) => { map[event] = cb; });
     document.removeEventListener = jest
-      .fn((event, cb) => { map[event] = null; });
+      .fn(event => { map[event] = null; });
 
     const component = mount(<CheckBox />);
     component.unmount();

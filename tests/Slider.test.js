@@ -59,7 +59,7 @@ describe('<Slider />', () => {
   it('should remove document events on unmount', () => {
     const map = {};
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
-    document.removeEventListener = (event, cb) => delete map[event];
+    document.removeEventListener = event => delete map[event];
 
     const component = mount(<Slider />);
     expect(map.mousemove).toBeDefined();
