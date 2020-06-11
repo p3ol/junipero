@@ -50,11 +50,8 @@ export default [
       globals: defaultGlobals,
     },
     ...(f === 'esm' ? {
-      manualChunks: id => {
-        return id.includes('node_modules')
-          ? 'vendor'
-          : path.parse(id).name;
-      },
+      manualChunks: id =>
+        id.includes('node_modules') ? 'vendor' : path.parse(id).name,
     } : {}),
   })),
   {
