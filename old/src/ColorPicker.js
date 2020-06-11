@@ -228,7 +228,7 @@ export default class ColorPicker extends React.Component {
     });
   }
 
-  onMouseUp = (e) => {
+  onMouseUp = () => {
     const { disabled, readOnly } = this.props;
     const { handleMoving, handleType } = this.state;
 

@@ -153,7 +153,7 @@ export default class Dropdown extends React.Component {
             className,
           )}
         >
-          { React.Children.map(children, (child, index) => (
+          { React.Children.map(children, child => (
             child.type === DropdownMenu
               ? React.cloneElement(child, {
                 ref: (ref) => {
