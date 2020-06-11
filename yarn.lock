@@ -1332,10 +1332,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@poool/eslint-config-react@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.0.1.tgz#ad05062946ce371c29e1ed1a346017882d6e6b0f"
-  integrity sha512-Vjj2zQ+2Baim6bCGpB7bb1AWKUxHxNqC9jT/xzWrGlbwGWcd9pfOryXum5TyO09Bc12K4T97E7fWtMNsLCI0Hg==
+"@poool/eslint-config-react@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.0.2.tgz#f1dc8968205c38f8ee658db73c78b43952d9a725"
+  integrity sha512-xJPJ8xRMERGKPYv+QN0g7YeQhd80+0ujApoPvX3K/zWndB2YHC8igkssAavsj0ZhYCmsce6L+biGgXYeIhzfJw==
 
 "@poool/eslint-config@1.0.0":
   version "1.0.0"
