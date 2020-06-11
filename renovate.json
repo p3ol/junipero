@@ -1,5 +1,10 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "packageRules": [{
+    "updateTypes": ["minor", "pin"],
+    "depTypeList": ["devDependencies", "dependencies"],
+    "automerge": true
+  }]
 }
