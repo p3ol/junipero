@@ -67,8 +67,8 @@ export default class SelectField extends React.Component {
     autoComplete: null,
     onChange: () => {},
     onToggle: () => {},
-    parseTitle: (val) => val?.toString(),
-    parseValue: (val) => val,
+    parseTitle: val => val?.toString(),
+    parseValue: val => val,
     validate: value => typeof value !== 'undefined' && value !== null,
   }
 
@@ -254,7 +254,7 @@ export default class SelectField extends React.Component {
             autoCompleting: false,
           }, () => this.menuRef?.updatePopper());
         } else {
-          autoComplete?.(input.value, (items) => {
+          autoComplete?.(input.value, items => {
             this.setState({
               autoCompleteValue: input.value,
               autoCompleteOptions: [].concat(items),
@@ -290,7 +290,7 @@ export default class SelectField extends React.Component {
     const value = this.getValue();
     const mergedOptions = [...unknownOptions, ...options];
 
-    return mergedOptions?.findIndex((item) => parseValue(item) === value);
+    return mergedOptions?.findIndex(item => parseValue(item) === value);
   }
 
   open () {

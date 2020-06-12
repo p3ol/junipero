@@ -62,7 +62,7 @@ export const injectStyles = (styles, options = {}) => {
 
 export const omit = (obj = {}, keys = []) => {
   const res = {};
-  Object.entries(obj).forEach((item) => {
+  Object.entries(obj).forEach(item => {
     if (!keys.includes(item[0])) {
       res[item[0]] = item[1];
     }
@@ -188,9 +188,8 @@ export const rgba2hsva = ({ r, g, b, a }) => {
 };
 
 /* eslint-disable no-bitwise */
-export const rgba2hex = ({ r, g, b }) => (
-  '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).substr(1)
-);
+export const rgba2hex = ({ r, g, b }) =>
+  '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).substr(1);
 /* eslint-enable no-bitwise */
 
 export const denormalizeHSLA = ({ h, s, l, a }) => ({
@@ -267,16 +266,15 @@ export const stringifyColor = (color, format = 'auto') => {
   }
 };
 
-export const getContainerNode = (container) => (
+export const getContainerNode = container =>
   typeof container === 'string' && typeof document !== 'undefined'
     ? document.querySelector(container) || document.createElement('div')
-    : container
-);
+    : container;
 
 export const classNames = (...args) => {
   const classes = [];
 
-  args.map((arg) => {
+  args.map(arg => {
     if (!arg) {
       return;
     }

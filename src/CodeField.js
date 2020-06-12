@@ -36,9 +36,9 @@ export default class CodeField extends React.Component {
   state = {
     focused: false,
     valid: this.props.valid ?? true,
-    values: Array.from({ length: this.props.size }, (item, index) => (
+    values: Array.from({ length: this.props.size }, (item, index) =>
       this.props.value?.[index] || ''
-    )),
+    ),
   };
 
   inputs = [];
@@ -56,9 +56,9 @@ export default class CodeField extends React.Component {
 
   componentDidUpdate (prevProps) {
     if (this.props.value !== prevProps.value) {
-      this.state.values = this.state.values.map((item, index) => (
+      this.state.values = this.state.values.map((item, index) =>
         this.props.value?.[index] || ''
-      ));
+      );
 
       this.setState({
         values: this.state.values,

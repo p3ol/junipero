@@ -81,7 +81,7 @@ export default class Dropdown extends React.Component {
     };
   }
 
-  onClickOutside = (e) => {
+  onClickOutside = e => {
     const container = this.dropdownRef;
     const menu = this.menuRef?.innerRef;
 
@@ -153,16 +153,16 @@ export default class Dropdown extends React.Component {
             className,
           )}
         >
-          { React.Children.map(children, child => (
+          { React.Children.map(children, child =>
             child.type === DropdownMenu
               ? React.cloneElement(child, {
-                ref: (ref) => {
+                ref: ref => {
                   this.menuRef = ref;
                   child.ref?.(ref);
                 },
               })
               : child
-          )) }
+          ) }
         </Tag>
       </Manager>
     );

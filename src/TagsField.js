@@ -97,7 +97,7 @@ export default class TagsField extends React.Component {
     const { value, parseValue } = this.props;
 
     this.setState({
-      value: value?.map((item) => parseValue(item)) || [],
+      value: value?.map(item => parseValue(item)) || [],
       selected: -1,
     });
   }
@@ -184,7 +184,7 @@ export default class TagsField extends React.Component {
         }, () => {
           clearTimeout(this._autoCompleteTimeout);
           this._autoCompleteTimeout = setTimeout(() => {
-            autoComplete?.(this.state.input, (items) => {
+            autoComplete?.(this.state.input, items => {
               items = autoCompleteUniqueValues
                 ? items.filter(it => this.state.value.indexOf(it) === -1)
                 : items;
