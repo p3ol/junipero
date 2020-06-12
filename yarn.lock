@@ -1332,15 +1332,15 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@poool/eslint-config-react@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.0.3.tgz#a863d54871314e273f7737796e357fc6241ab193"
-  integrity sha512-7nI3dtHFimdRmG5jkkU0GsIv0IAyR3WQAyRdOy3a9m3/PpDVaxTCCnD+4J1/pDXfzru2DMah23WbwDFB0ojyRQ==
+"@poool/eslint-config-react@1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.1.4.tgz#77bb5d2bd81179417021e16a959e7349e6f8a6d1"
+  integrity sha512-DjrTBvEhd91eT5T0yf7In4XY7JmInXNKMordem34NZgU1PfVSZLGTkZ7cRdbui/zwvVNbuR4WsJDhp4F1HpifA==
 
-"@poool/eslint-config@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-1.0.3.tgz#c9b249b542f9927b49659c8ee9bba201e3f51658"
-  integrity sha512-guRKFNXXar/XtRRPM9ZW18mvr1qiGDa5+k/pVQt9N12+SZsf6KApNB8VXWOlCBTgzTkaPUnujtJFivHJJp8j1A==
+"@poool/eslint-config@1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-1.1.4.tgz#4b67041b25e1613c57641d319cfdd38ec8161087"
+  integrity sha512-92g0m3Wq1tdi6dNN6vN4o2XIHAeRkbwzCLuMUa7KxYSiZDlRawc1YFH8bNq1aO28GO48Kc0Y8V7P0XZ0IASUNw==
 
 "@popperjs/core@2.4.2":
   version "2.4.2"
