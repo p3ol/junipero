@@ -8008,10 +8008,10 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.1.1.tgz#0becf31e3812fa70dc231e259f40d892d4767900"
   integrity sha512-SCsAORWK59BvauR2L1BTdjQbJcSGJJz03U0awektk2hshLKrITDDFTlgGCqIZpTDlPC/NFlZee6xTMzXPVLiHw==
 
-react-intl-tel-input@8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/react-intl-tel-input/-/react-intl-tel-input-8.0.2.tgz#19a1cb312e4aff104015170ccbeb50c63177341f"
-  integrity sha512-tnylK7poLuzsYil/5CXzeMMettqb/LWOsi0ZVv+BVdGLxsMxA7r0ki2gc4vpKX6BBT6K1aMzU2NVBzP9qXzzGQ==
+react-intl-tel-input@8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/react-intl-tel-input/-/react-intl-tel-input-8.0.4.tgz#4cc02466f629be56d53b66571ee13d789e612979"
+  integrity sha512-ANF49ltQDzsWt4NAN6QNmAQLTDIPd7e/2LuM1FMrhCctpNxGuifZ4RUzVXSnyt0dfZkqjfDu1Q4hACAhuiFXag==
   dependencies:
     classnames "^2.2.5"
     libphonenumber-js-utils "^8.10.5"
