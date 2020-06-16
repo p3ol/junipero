@@ -21,7 +21,7 @@ const fileExists = filename => {
   }
 };
 
-const resolveModulePath = (filename) => {
+const resolveModulePath = filename => {
   const dir = dirname(filename);
   if (isAbsolute(dir)) { return dir; }
   if (process.env.PWD) { return resolve(process.env.PWD, dir); }

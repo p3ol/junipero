@@ -26,8 +26,8 @@ export default class Switch extends React.Component {
     type: 'primary',
     value: null,
     onChange: () => {},
-    parseTitle: (val) => val,
-    parseValue: (val) => val,
+    parseTitle: val => val,
+    parseValue: val => val,
     validate: value => typeof value !== 'undefined' && value !== null,
   }
 

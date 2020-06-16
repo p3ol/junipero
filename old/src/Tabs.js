@@ -43,7 +43,7 @@ export default class Tabs extends React.Component {
   getTabs () {
     return React.Children
       .toArray(this.props.children)
-      .filter((child) => child.type === Tab);
+      .filter(child => child.type === Tab);
   }
 
   onTabClick (item, index, e) {

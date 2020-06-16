@@ -84,9 +84,11 @@ export default class Slider extends React.Component {
   getValue (value) {
     const { min, max, step } = this.props;
 
-    return parseFloat((
-      Math.max(min, Math.min(max, Math.round(value / step) * step))
-    ).toFixed(this.state.precision));
+    return parseFloat(
+      Math
+        .max(min, Math.min(max, Math.round(value / step) * step))
+        .toFixed(this.state.precision)
+    );
   }
 
   getElementOffset (el) {
@@ -118,7 +120,7 @@ export default class Slider extends React.Component {
     e.preventDefault?.();
   }
 
-  onMouseMove = (e) => {
+  onMouseMove = e => {
     if (!this.state.moving || !this.slideRef || this.props.disabled) {
       return;
     }

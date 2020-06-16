@@ -61,7 +61,7 @@ export default class Tooltip extends React.Component {
     }
   }
 
-  onClickOutside = (e) => {
+  onClickOutside = e => {
     if (this.target && !this.target.contains(e?.target)) {
       this.toggleTooltip(false);
     }
@@ -75,7 +75,7 @@ export default class Tooltip extends React.Component {
     this.toggleTooltip(false);
   }
 
-  toggleTooltip = (forceOpen) => {
+  toggleTooltip = forceOpen => {
     const { disabled, onToggle } = this.props;
 
     if (disabled) {
@@ -178,7 +178,7 @@ export default class Tooltip extends React.Component {
         <Reference
           innerRef={ref => { if (!ref) { return; } this.target = ref; }}
         >
-          { ({ ref }) => (
+          { ({ ref }) =>
             !children || typeof children === 'string' ? (
               <span
                 className="tooltip-toggle"
@@ -190,7 +190,7 @@ export default class Tooltip extends React.Component {
               React.Children.only(children),
               { ref, ...this.getHandlers() }
             )
-          )}
+          }
         </Reference>
         { opened || animate || apparition === 'css'
           ? container

@@ -125,7 +125,7 @@ export default class ColorPicker extends React.Component {
     });
   }
 
-  onClickOutside = (e) => {
+  onClickOutside = e => {
     if (this.input && this.input === e.target) {
       return;
     }
@@ -168,7 +168,7 @@ export default class ColorPicker extends React.Component {
     e.preventDefault();
   }
 
-  onMouseMove = (e) => {
+  onMouseMove = e => {
     const { disabled, format, readOnly } = this.props;
     const { handleMoving, handleType } = this.state;
 

@@ -16,7 +16,7 @@ describe('<TagsField />', () => {
 
   const autoComplete = (val, cb) => {
     const search = new RegExp(val, 'i');
-    cb(autoCompleteOptions.filter((item) => (search.test(item))));
+    cb(autoCompleteOptions.filter(item => search.test(item)));
   };
 
   it('should render', () => {
