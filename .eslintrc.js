@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@poool/eslint-config-react'],
   overrides: [{
-    files: ['lib/**/*.test.js'],
+    files: ['packages/**/*.test.js'],
     parser: 'babel-eslint',
     env: {
       jest: true,

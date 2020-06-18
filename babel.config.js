@@ -1,17 +1,12 @@
 module.exports = {
-  presets: [
-    ['@babel/preset-env', {
-      corejs: 3,
-      useBuiltIns: 'usage',
-    }],
-    '@babel/preset-react',
-  ],
-  plugins: [
-    ['@babel/plugin-transform-runtime', {
-      corejs: 3,
-    }],
-    ['@babel/plugin-proposal-class-properties', {
-      loose: true,
-    }],
-  ],
+  env: {
+    tests: {
+      presets: ['@babel/env', '@babel/react'],
+      plugins: [
+        ['@babel/transform-runtime', {
+          regenerator: true,
+        }],
+      ],
+    },
+  },
 };

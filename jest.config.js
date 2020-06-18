@@ -1,24 +1,14 @@
 module.exports = {
-  clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: [
     '/node_modules/',
+    '/old/',
     '^.+\\.stories.js$',
     '^.+\\.styl$',
   ],
-  timers: 'fake',
-  transform: {
-    '^.+\\.js$': 'babel-jest',
-    // '^.+\\.styl$': '<rootDir>/tests/transformers/stylus.js',
-  },
-  testEnvironment: 'jest-environment-jsdom-fourteen',
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '/old/',
-  ],
-  setupFilesAfterEnv: [
-    '<rootDir>/.ci/config/enzyme.js',
-    '<rootDir>/.ci/config/popper.js',
+  projects: [
+    '<rootDir>/packages/junipero/jest.config.js',
+    '<rootDir>/packages/junipero-native/jest.config.js',
   ],
 };

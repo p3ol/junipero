@@ -8,7 +8,7 @@ import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import DropdownItem from '../DropdownItem';
 
-export default { title: 'Dropdown' };
+export default { title: 'junipero/Dropdown' };
 
 export const basic = () => (
   <Dropdown onToggle={action('toggle')}>

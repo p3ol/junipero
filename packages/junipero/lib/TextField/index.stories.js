@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 import TextField from './index';
 
-export default { title: 'TextField' };
+export default { title: 'junipero/TextField' };
 
 export const basic = () => (
   <TextField placeholder="First name" onChange={action('change')} />

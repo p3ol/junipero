@@ -306,7 +306,7 @@ const DateField = forwardRef(({
                         disabled: isDayDisabled(day.date),
                       })}
                       href="#"
-                      onClick={onChange_.bind(this, day.date)}
+                      onClick={onChange_.bind(null, day.date)}
                     >
                       { day.date.getDate() }
                     </a>

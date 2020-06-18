@@ -22,7 +22,7 @@ const defaultGlobals = {
 
 const defaultPlugins = [
   babel({
-    exclude: 'node_modules/**',
+    exclude: /node_modules/,
     babelHelpers: 'runtime',
   }),
   resolve(),
@@ -69,7 +69,7 @@ export default [
       }),
     ],
     output: {
-      file: `${output}.min.css`,
+      file: `${output}/${name}.min.css`,
     },
     onwarn: (warning, warn) => {
       if (warning.code === 'FILE_NAME_CONFLICT') {

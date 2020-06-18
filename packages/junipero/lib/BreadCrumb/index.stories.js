@@ -2,7 +2,7 @@ import React from 'react';
 
 import BreadCrumb from './index';
 
-export default { title: 'BreadCrumb' };
+export default { title: 'junipero/BreadCrumb' };
 
 export const basic = () => (
   <BreadCrumb items={['One', 'Two', 'Three']} />

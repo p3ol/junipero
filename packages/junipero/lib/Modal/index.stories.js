@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import Button from '../Button';
 import Modal from './index';
 
-export default { title: 'Modal' };
+export default { title: 'junipero/Modal' };
 
 export const basic = () => {
   const modalRef = useRef();

@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import DateField from './index';
 
-export default { title: 'DateField' };
+export default { title: 'junipero/DateField' };
 
 export const basic = () => (
   <DateField placeholder="Date of birth" onChange={action('change')} />

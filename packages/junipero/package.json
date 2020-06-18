@@ -1,0 +1,41 @@
+{
+  "name": "@poool/junipero",
+  "version": "1.5.1",
+  "description": "🏔 Junipero Design System React components",
+  "main": "dist/junipero.cjs.js",
+  "jsnext:main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "src/index.js",
+  "unpkg": "dist/junipero.min.js",
+  "cdn": "dist/junipero.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/junipero"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 10",
+    "yarn": ">= 1"
+  },
+  "peerDependencies": {
+    "@popperjs/core": "^2.4.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-popper": "^2.2.0"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "7.10.2",
+    "core-js": "3.6.5",
+    "prop-types": "15.7.2"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build:default": "rollup -c",
+    "build:ie": "BROWSERSLIST_ENV=ie rollup -c",
+    "build": "yarn clean && yarn build:default && yarn build:ie",
+    "test": "jest"
+  }
+}

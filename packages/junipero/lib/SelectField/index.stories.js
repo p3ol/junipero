@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import SelectField from './index';
 
-export default { title: 'SelectField' };
+export default { title: 'junipero/SelectField' };
 
 const options = ['One', 'Two', 'Three'];
 

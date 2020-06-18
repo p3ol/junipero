@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import ColorField from './index';
 
-export default { title: 'ColorField' };
+export default { title: 'junipero/ColorField' };
 
 export const basic = () => (
   <ColorField onChange={action('change')} />

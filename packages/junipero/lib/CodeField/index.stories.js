@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 import CodeField from './index';
 
-export default { title: 'CodeField' };
+export default { title: 'junipero/CodeField' };
 
 export const basic = () => (
   <CodeField onChange={action('change')} />
