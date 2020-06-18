@@ -35,7 +35,11 @@ describe('<DateField />', () => {
   it('should initialize if value prop is defined on mount', () => {
     const ref = createRef();
     mount(
-      <DateField ref={ref} value={new Date('December 17, 1995 03:24:00')} />
+      <DateField
+        ref={ref}
+        required
+        value={new Date('December 17, 1995 03:24:00')}
+      />
     );
 
     const value = ref.current.internalValue;
