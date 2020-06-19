@@ -17,7 +17,7 @@ import { useEventListener } from '../hooks';
 
 const SliderField = forwardRef(({
   className,
-  value,
+  value = 0,
   disabled = false,
   globalEventsTarget = global,
   min = 0,
@@ -32,19 +32,21 @@ const SliderField = forwardRef(({
   const handleRef = useRef();
   const slideRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
-    value: ensureMinMax(value, min, max),
+    value: parseFloat(ensureMinMax(Math.round(value / step) * step, min, max)
+      .toFixed(getFloatPrecision(step))),
     precision: getFloatPrecision(step),
     dirty: false,
     moving: false,
   });
 
   useEffect(() => {
-    dispatch({ value: ensureMinMax(value, min, max) });
-  }, [value]);
-
-  useEffect(() => {
-    dispatch({ precision: getFloatPrecision(step) });
-  }, [step]);
+    state.precision = getFloatPrecision(step);
+    state.value = parseFloat(
+      ensureMinMax(Math.round(value / step) * step, min, max)
+        .toFixed(state.precision)
+    );
+    dispatch({ precision: state.precision, value: state.value });
+  }, [value, step]);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -53,6 +55,7 @@ const SliderField = forwardRef(({
     handleRef,
     internalValue: state.value,
     moving: state.moving,
+    precision: state.precision,
     reset,
   }));
 
