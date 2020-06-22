@@ -1,0 +1,55 @@
+@require "../theme/colors"
+
+.junipero.tabs
+  border: 1px solid $color-black-squeeze
+  border-radius: 10px
+
+  .titles
+    border-bottom: 1px solid $color-black-squeeze
+    list-style: none
+    display: flex
+    padding: 0
+    margin: 0
+    align-items: center
+    justify-content: flex-start
+
+    li
+      flex: 0 0 auto
+      padding: 0 20px
+
+      a
+        color: $color-shuttle-gray
+        text-decoration: none
+        position: relative
+        display: block
+        padding: 15px 0
+
+        &:after
+          content: ''
+          position: absolute
+          left: 0
+          width: 100%
+          height: 3px
+          background: $color-shuttle-gray
+          border-radius: 2px 2px 0 0
+          bottom: -1px
+          opacity: 0
+
+        &:hover
+          color: $color-shuttle-gray
+
+          &:after
+            opacity: 1
+
+      &.active
+        a
+          color: $color-eastern-blue
+          pointer-events: none
+          user-select: none
+
+          &:after
+            background: $color-eastern-blue
+            opacity: 1
+
+  .content
+    padding: 20px
