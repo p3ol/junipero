@@ -17,6 +17,7 @@ import { useEventListener } from '../hooks';
 const Dropdown = forwardRef(({
   children,
   className,
+  clickOutsideTarget,
   disabled = false,
   globalEventsTarget = global,
   opened = false,
@@ -111,7 +112,8 @@ const Dropdown = forwardRef(({
       !container.contains(e.target) &&
       container !== e.target &&
       !menu.contains(e.target) &&
-      menu !== e.target
+      menu !== e.target &&
+      (!clickOutsideTarget || !clickOutsideTarget.contains(e.target))
     ) {
       close();
     }
@@ -171,15 +173,19 @@ const Dropdown = forwardRef(({
 });
 
 Dropdown.propTypes = {
+  clickOutsideTarget: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.object,
+  ]),
   disabled: PropTypes.bool,
   globalEventsTarget: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.object,
   ]),
+  onToggle: PropTypes.func,
   opened: PropTypes.bool,
   placement: PropTypes.string,
   popperOptions: PropTypes.object,
-  onToggle: PropTypes.func,
 };
 
 export default Dropdown;
