@@ -40,7 +40,7 @@
     "@rollup/plugin-commonjs": "13.0.0",
     "@rollup/plugin-node-resolve": "8.0.1",
     "auto-changelog": "2.1.0",
-    "autoprefixer": "9.8.2",
+    "autoprefixer": "9.8.4",
     "babel-eslint": "10.1.0",
     "babel-jest": "24.9.0",
     "babel-loader": "8.1.0",
