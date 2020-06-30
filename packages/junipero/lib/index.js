@@ -9,6 +9,11 @@ export { default as DropdownItem } from './DropdownItem';
 export { default as DropdownMenu } from './DropdownMenu';
 export { default as DropdownToggle } from './DropdownToggle';
 export { default as Modal } from './Modal';
+export { default as SelectField } from './SelectField';
+export { default as SliderField } from './SliderField';
+export { default as Tab } from './Tab';
+export { default as Tabs } from './Tabs';
+export { default as TagsField } from './TagsField';
 export { default as TextField } from './TextField';
 
 export { useEventListener } from './hooks';
