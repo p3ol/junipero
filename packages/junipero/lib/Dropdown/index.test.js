@@ -169,4 +169,42 @@ describe('<Dropdown />', () => {
     expect(component.find('span.test').length).toBe(1);
   });
 
+  it('should allow to define a custom target to check for a click outside ' +
+    'event', async () => {
+    const ref = createRef();
+    const buttonRef = createRef();
+    const linkRef = createRef();
+
+    const map = {};
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
+    mount(<a ref={linkRef} className="link" />);
+
+    const component = mount(
+      <div>
+        <button className="button" ref={buttonRef} />
+        <Dropdown
+          globalEventsTarget={document}
+          ref={ref}
+          clickOutsideTarget={linkRef.current}
+        >
+          <DropdownToggle>
+            Open me
+          </DropdownToggle>
+          <DropdownMenu />
+        </Dropdown>
+      </div>
+    );
+
+    component.find('.junipero.dropdown-toggle').simulate('click');
+    expect(ref.current.opened).toBe(true);
+    expect(component.find('.junipero.dropdown-menu').length).toBe(1);
+    expect(linkRef.current).toBeDefined();
+    act(() => { map.click({ target: linkRef.current }); });
+    expect(ref.current.opened).toBe(true);
+    expect(component.find('.junipero.dropdown-menu').length).toBe(1);
+    act(() => { map.click({ target: buttonRef.current }); });
+    expect(ref.current.opened).toBe(false);
+  });
+
 });
