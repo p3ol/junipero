@@ -33,9 +33,7 @@
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",
-    "build:default": "rollup -c",
-    "build:ie": "BROWSERSLIST_ENV=ie rollup -c",
-    "build": "yarn clean && yarn build:default && yarn build:ie",
+    "build": "yarn clean && rollup -c",
     "test": "jest"
   }
 }
