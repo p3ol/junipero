@@ -1,0 +1,55 @@
+@require "../theme/colors"
+
+.junipero.tooltip
+  color: $color-white
+  border-radius: 4px
+  padding: 8px 21px
+  text-align: center
+  pointer-events: none
+  max-width: 250px
+  background: $color-midnight
+
+  .arrow
+    position: absolute
+
+  &[data-placement*="top"] .arrow,
+  &[data-placement*="bottom"] .arrow
+    border-left: 8px solid transparent
+    border-right: 8px solid transparent
+    width: 16px
+    height: 8px
+
+  &[data-placement*="left"] .arrow,
+  &[data-placement*="right"] .arrow
+    border-top: 8px solid transparent
+    border-bottom: 8px solid transparent
+    width: 8px
+    height: 16px
+
+  &[data-placement*="top"]
+    .arrow
+      border-top-width: 8px
+      border-top-style: solid
+      border-top-color: $color-midnight
+      bottom: -7px
+
+  &[data-placement*="bottom"]
+    .arrow
+      border-bottom-width: 8px
+      border-bottom-style: solid
+      border-bottom-color: $color-midnight
+      top: -7px
+
+  &[data-placement*="right"]
+    .arrow
+      border-right-width: 8px
+      border-right-style: solid
+      border-right-color: $color-midnight
+      left: -7px
+
+  &[data-placement*="left"]
+    .arrow
+      border-left-width: 8px
+      border-left-style: solid
+      border-left-color: $color-midnight
+      right: -7px
