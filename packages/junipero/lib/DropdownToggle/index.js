@@ -5,8 +5,8 @@ import React, {
   useContext,
 } from 'react';
 import PropTypes from 'prop-types';
+import { classNames } from '@poool/junipero-utils';
 
-import { classNames } from '../utils';
 import { DropdownContext } from '../contexts';
 
 const DropdownToggle = forwardRef(({

@@ -6,9 +6,9 @@ import React, {
   useReducer,
 } from 'react';
 import PropTypes from 'prop-types';
+import { classNames, mockState } from '@poool/junipero-utils';
+import { useTimeout, useEventListener } from '@poool/junipero-hooks';
 
-import { classNames, mockState } from '../utils';
-import { useTimeout, useEventListener } from '../hooks';
 import TextField from '../TextField';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';

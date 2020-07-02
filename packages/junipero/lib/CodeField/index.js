@@ -6,8 +6,7 @@ import React, {
   forwardRef,
 } from 'react';
 import PropTypes from 'prop-types';
-
-import { classNames, mockState } from '../utils';
+import { classNames, mockState } from '@poool/junipero-utils';
 
 const CodeField = forwardRef(({
   className,

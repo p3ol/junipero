@@ -1,12 +1,12 @@
 const path = require('path');
 
 module.exports = {
-  displayName: 'junipero-native',
+  displayName: 'junipero-utils',
   clearMocks: true,
   rootDir: path.resolve(),
   timers: 'fake',
   testEnvironment: 'jest-environment-jsdom-fourteen',
-  testMatch: ['<rootDir>/packages/junipero-native/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/junipero-utils/**/*.test.js'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],

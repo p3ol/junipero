@@ -22,10 +22,12 @@ const defaultGlobals = {
 
 const defaultPlugins = [
   babel({
-    exclude: /node_modules/,
+    exclude: /node_modules\/(?!@poool\/junipero-)/,
     babelHelpers: 'runtime',
   }),
-  resolve(),
+  resolve({
+    rootDir: path.resolve('../../'),
+  }),
   commonjs(),
   terser(),
 ];

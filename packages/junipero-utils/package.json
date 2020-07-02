@@ -1,17 +1,17 @@
 {
-  "name": "@poool/junipero",
+  "name": "@poool/junipero-utils",
   "version": "1.5.1",
-  "description": "🏔 Junipero Design System React components",
-  "main": "dist/junipero.cjs.js",
+  "description": "🏔 Junipero Design System utils",
+  "main": "dist/junipero-utils.cjs.js",
   "jsnext:main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "esnext": "src/index.js",
-  "unpkg": "dist/junipero.min.js",
-  "cdn": "dist/junipero.min.js",
+  "unpkg": "dist/junipero-utils.min.js",
+  "cdn": "dist/junipero-utils.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
-    "directory": "packages/junipero"
+    "directory": "packages/junipero-utils"
   },
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
@@ -20,18 +20,10 @@
     "node": ">= 10",
     "yarn": ">= 1"
   },
-  "peerDependencies": {
-    "@popperjs/core": "^2.4.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-popper": "^2.2.0"
-  },
   "dependencies": {
-    "@poool/junipero-utils": "1.5.1",
-    "@poool/junipero-hooks": "1.5.1",
+    "@poool/junipero-utils": "^1.5.1",
     "@babel/runtime-corejs3": "7.10.2",
-    "core-js": "3.6.5",
-    "prop-types": "15.7.2"
+    "core-js": "3.6.5"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

@@ -7,12 +7,12 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { usePopper } from 'react-popper';
+import { classNames, mockState } from '@poool/junipero-utils';
+import { useEventListener } from '@poool/junipero-hooks';
 
+import { DropdownContext } from '../contexts';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
-import { classNames, mockState } from '../utils';
-import { DropdownContext } from '../contexts';
-import { useEventListener } from '../hooks';
 
 const Dropdown = forwardRef(({
   children,

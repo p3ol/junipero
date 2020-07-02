@@ -6,9 +6,8 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import PropTypes from 'prop-types';
-
-import { classNames, mockState } from '../utils';
-import { useEventListener } from '../hooks';
+import { classNames, mockState } from '@poool/junipero-utils';
+import { useEventListener } from '@poool/junipero-hooks';
 
 const ToggleField = forwardRef(({
   checked,

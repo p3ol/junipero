@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import sinon from 'sinon';
+import { classNames } from '@poool/junipero-utils';
 
-import { classNames } from '../utils';
 import { useEventListener, useTimeout } from './';
 
 /* eslint-disable react/prop-types */

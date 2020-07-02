@@ -1,7 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
-
-import { classNames } from '../utils';
+import { classNames } from '@poool/junipero-utils';
 
 const Button = forwardRef(({
   children,

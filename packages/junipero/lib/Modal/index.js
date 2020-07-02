@@ -7,8 +7,7 @@ import React, {
 } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-
-import { classNames, mockState, ensureNode } from '../utils';
+import { classNames, mockState, ensureNode } from '@poool/junipero-utils';
 
 const Modal = forwardRef(({
   animate,

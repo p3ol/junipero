@@ -6,8 +6,8 @@ import React, {
 } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import { classNames, ensureNode } from '@poool/junipero-utils';
 
-import { classNames, ensureNode } from '../utils';
 import { DropdownContext } from '../contexts';
 
 const DropdownMenu = forwardRef(({

@@ -6,14 +6,13 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-
 import {
   classNames,
   mockState,
   getFloatPrecision,
   ensureMinMax,
-} from '../utils';
-import { useEventListener } from '../hooks';
+} from '@poool/junipero-utils';
+import { useEventListener } from '@poool/junipero-hooks';
 
 const SliderField = forwardRef(({
   className,

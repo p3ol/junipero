@@ -4,8 +4,7 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-
-import { classNames } from '../utils';
+import { classNames } from '@poool/junipero-utils';
 
 const Tab = forwardRef(({
   className,

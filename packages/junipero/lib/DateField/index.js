@@ -6,7 +6,6 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import PropTypes from 'prop-types';
-
 import {
   classNames,
   mockState,
@@ -14,7 +13,8 @@ import {
   subMonths,
   addMonths,
   getDaysInMonth,
-} from '../utils';
+} from '@poool/junipero-utils';
+
 import TextField from '../TextField';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';

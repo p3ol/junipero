@@ -6,8 +6,7 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-
-import { classNames, mockState, exists } from '../utils';
+import { classNames, mockState, exists } from '@poool/junipero-utils';
 
 const TextField = forwardRef(({
   autoFocus,

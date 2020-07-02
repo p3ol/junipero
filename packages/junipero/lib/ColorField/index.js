@@ -6,9 +6,14 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
+import {
+  classNames,
+  mockState,
+  parseColor,
+  stringifyColor,
+} from '@poool/junipero-utils';
+import { useEventListener } from '@poool/junipero-hooks';
 
-import { classNames, mockState, parseColor, stringifyColor } from '../utils';
-import { useEventListener } from '../hooks';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
