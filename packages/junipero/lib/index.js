@@ -15,6 +15,7 @@ export { default as Tab } from './Tab';
 export { default as Tabs } from './Tabs';
 export { default as TagsField } from './TagsField';
 export { default as TextField } from './TextField';
+export { default as ToggleField } from './ToggleField';
 
 export { useEventListener } from './hooks';
 export { classNames, exists, isNull, isUndefined } from './utils';
