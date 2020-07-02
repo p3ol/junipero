@@ -1,9 +1,10 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 
 import CheckboxField from './index';
 
 export default { title: 'junipero/CheckboxField' };
 
 export const basic = () => (
-  <CheckboxField>Check this</CheckboxField>
+  <CheckboxField onChange={action('change')}>Check this</CheckboxField>
 );
