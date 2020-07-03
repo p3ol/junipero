@@ -52,8 +52,18 @@ export default [
       globals: defaultGlobals,
     },
     ...(f === 'esm' ? {
-      manualChunks: id =>
-        id.includes('node_modules') ? 'vendor' : path.parse(id).name,
+      manualChunks: id => {
+        if (/packages\/junipero\/lib\/(\w+)\/index.js/.test(id)) {
+          return path.parse(id).dir.split('/').pop();
+        } else if (
+          id.includes('node_modules') ||
+          /packages\/junipero-(\w+)/.test(id)
+        ) {
+          return 'vendor';
+        } else {
+          return path.parse(id).name;
+        }
+      },
     } : {}),
   })),
   {
