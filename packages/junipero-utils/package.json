@@ -21,7 +21,6 @@
     "yarn": ">= 1"
   },
   "dependencies": {
-    "@poool/junipero-utils": "^1.5.1",
     "@babel/runtime-corejs3": "7.10.2",
     "core-js": "3.6.5"
   },

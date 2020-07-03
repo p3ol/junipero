@@ -7,7 +7,7 @@ import path from 'path';
 const isForIE = process.env.BROWSERSLIST_ENV === 'ie';
 const input = './lib/index.js';
 const output = `./dist${isForIE ? '/ie' : ''}`;
-const name = 'junipero-utils';
+const name = 'junipero-hooks';
 const formats = ['umd', 'cjs', 'esm'];
 
 const defaultExternals = ['react'];

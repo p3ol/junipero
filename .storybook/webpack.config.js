@@ -5,12 +5,9 @@ module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.styl$/,
     sideEffects: true,
-    // resolve: {
-    //   alias: {
-    //     '@poool/junipero-utils':
-    //       path.resolve('../packages/junipero-utils/lib/index.js'),
-    //   }
-    // },
+    resolve: {
+      modules: ['node_modules', path.resolve('./node_modules')]
+    },
     use: [
       'style-loader',
       'css-loader',

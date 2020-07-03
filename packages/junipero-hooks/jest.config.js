@@ -5,8 +5,11 @@ module.exports = {
   clearMocks: true,
   rootDir: path.resolve(),
   timers: 'fake',
+  moduleNameMapper: {
+    '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
+  },
   testEnvironment: 'jest-environment-jsdom-fourteen',
-  testMatch: ['<rootDir>/packages/junipero-hooks/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/junipero-hooks/lib/*.test.js'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],

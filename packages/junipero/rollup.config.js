@@ -22,7 +22,7 @@ const defaultGlobals = {
 
 const defaultPlugins = [
   babel({
-    exclude: /node_modules\/(?!@poool\/junipero-)/,
+    exclude: /node_modules/,
     babelHelpers: 'runtime',
   }),
   resolve({
