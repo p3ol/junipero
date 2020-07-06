@@ -36,6 +36,7 @@ const TagsField = forwardRef(({
   onFocus = () => {},
   onKeyDown = () => {},
   onKeyPress = () => {},
+  onToggle = () => {},
   parseValue = val => val?.trim?.() || val,
   parseTitle = val => val,
   validate = val => !!val?.length || !required,
@@ -48,7 +49,7 @@ const TagsField = forwardRef(({
   const dropdownRef = useRef();
   const menuRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
-    value: value || [],
+    value: [...(value || [])],
     valid: validate(value || []) && (value || []).every(t => validateTag(t)),
     availableOptions: options,
     inputValue: '',
@@ -69,11 +70,14 @@ const TagsField = forwardRef(({
     menuRef,
     internalValue: state.value,
     inputValue: state.inputValue,
+    inputValid: state.inputValid,
+    availableOptions: state.availableOptions,
     dirty: state.dirty,
     opened: state.opened,
     searchResults: state.searchResults,
     searching: state.searching,
     valid: state.valid,
+    focused: state.focused,
     focus,
     blur,
     reset,
@@ -82,7 +86,7 @@ const TagsField = forwardRef(({
   }));
 
   useEffect(() => {
-    state.value = value || [];
+    state.value = [...(value || [])];
 
     dispatch({
       value: state.value,
@@ -95,6 +99,10 @@ const TagsField = forwardRef(({
   }, searchThreshold, [state.inputValue]);
 
   const onInputChange_ = e => {
+    if (disabled) {
+      return;
+    }
+
     dispatch({
       inputValue: e.target.value,
       inputDirty: true,
@@ -108,12 +116,14 @@ const TagsField = forwardRef(({
   };
 
   const onInputFocus_ = e => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
+
     dispatch({ focused: true });
 
-    if (
-      (state.searchResults && state.inputValue) ||
-      state.availableOptions?.length
-    ) {
+    if (state.searchResults || state.availableOptions?.length) {
       dropdownRef.current?.open();
     }
 
@@ -137,6 +147,8 @@ const TagsField = forwardRef(({
     ) {
       add(state.inputValue);
     }
+
+    dropdownRef.current?.close();
 
     onBlur(e);
   };
@@ -162,12 +174,15 @@ const TagsField = forwardRef(({
       return;
     }
 
+    /* istanbul ignore else: useless else */
     if (
       (e.key === 'Backspace' || e.key === 'ArrowLeft') &&
       !state.inputValue.trim() &&
       state.value.length
     ) {
       focus(state.value.length - 1);
+    } else if (e.key === 'Escape') {
+      dropdownRef.current?.close();
     }
 
     onKeyDown(e);
@@ -185,6 +200,9 @@ const TagsField = forwardRef(({
       focus(index - 1);
     } else if (e.key === 'ArrowRight') {
       focus(index + 1);
+    } else if (e.key === 'Escape') {
+      blur();
+      focus();
     }
   };
 
@@ -198,8 +216,10 @@ const TagsField = forwardRef(({
     focus();
   };
 
-  const onDropdownToggle_ = ({ opened }) =>
+  const onDropdownToggle_ = ({ opened }) => {
     dispatch({ opened });
+    onToggle({ opened });
+  };
 
   const onOptionClick_ = (option, e) => {
     e.preventDefault();
@@ -212,7 +232,13 @@ const TagsField = forwardRef(({
       return;
     }
 
-    state.value.push(item);
+    if (
+      !onlyAllowOneOccurence ||
+      !state.value.find(i => parseValue(i) === parseValue(item))
+    ) {
+      state.value.push(item);
+    }
+
     state.availableOptions = options?.filter(o =>
       !onlyAllowOneOccurence ||
       !state.value.find(i => parseValue(i) === parseValue(o)));
@@ -270,7 +296,7 @@ const TagsField = forwardRef(({
   };
 
   const reset = () => {
-    state.value = value || [];
+    state.value = [...(value || [])];
 
     dispatch({
       value: state.value,
@@ -376,7 +402,6 @@ const TagsField = forwardRef(({
             onBlur={onInputBlur_}
             autoFocus={autoFocus}
             disabled={disabled}
-            validate={() => true}
           />
           { !state.inputValue && placeholder && (
             <span className="placeholder">{ placeholder }</span>
@@ -437,6 +462,13 @@ TagsField.propTypes = {
   ]),
   onlyAllowOptions: PropTypes.bool,
   onlyAllowOneOccurence: PropTypes.bool,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onKeyPress: PropTypes.func,
+  onToggle: PropTypes.func,
+  parseTitle: PropTypes.func,
   options: PropTypes.array,
   placeholder: PropTypes.oneOfType([
     PropTypes.string,
@@ -452,12 +484,6 @@ TagsField.propTypes = {
   validateInput: PropTypes.func,
   validateTag: PropTypes.func,
   value: PropTypes.array,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onKeyPress: PropTypes.func,
-  parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
 };
 
