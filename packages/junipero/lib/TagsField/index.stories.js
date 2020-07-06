@@ -57,11 +57,21 @@ export const withSearch = () => (
     label="First names"
     onChange={action('change')}
     parseTitle={o => o?.title || o}
-    onlyAllowSearchResults
   />
 );
 
 export const withSearchAndOptions = () => (
+  <TagsField
+    search={val => search.filter(o => (new RegExp(val, 'ig')).test(o.title))}
+    placeholder="Type a name..."
+    label="First names"
+    onChange={action('change')}
+    parseTitle={o => o?.title || o}
+    options={options}
+  />
+);
+
+export const withOneOccurenceMax = () => (
   <TagsField
     search={val => search.filter(o => (new RegExp(val, 'ig')).test(o.title))}
     placeholder="Type a name..."
@@ -76,7 +86,7 @@ export const withSearchAndOptions = () => (
 export const withValidation = () => (
   <TagsField
     validateTag={tag => parseInt(tag) > 1000}
-    validateInput={val => parseInt(val) > 0}
+    validateInput={val => val === '' || parseInt(val) > 0}
     onChange={action('change')}
   />
 );

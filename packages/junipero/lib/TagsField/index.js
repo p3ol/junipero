@@ -21,11 +21,11 @@ const TagsField = forwardRef(({
   options,
   placeholder,
   search,
-  autoAddOnBlur = false,
+  autoAddOnBlur = true,
   disabled = false,
   forceLabel = false,
   noSearchResults = 'No result found :(',
-  onlyAllowSearchResults = false,
+  onlyAllowOptions = false,
   onlyAllowOneOccurence = true,
   required = false,
   searchMinCharacters = 2,
@@ -39,7 +39,7 @@ const TagsField = forwardRef(({
   parseValue = val => val?.trim?.() || val,
   parseTitle = val => val,
   validate = val => !!val?.length || !required,
-  validateInput = val => !!val?.trim?.(),
+  validateInput = () => true,
   validateTag = val => !!val,
 }, ref) => {
   const innerRef = useRef();
@@ -123,7 +123,18 @@ const TagsField = forwardRef(({
   const onInputBlur_ = e => {
     dispatch({ focused: false });
 
-    if (state.inputValue && autoAddOnBlur && validateInput(state.inputValue)) {
+    const menu = dropdownRef.current?.menuRef.current;
+
+    if (
+      state.inputValue &&
+      autoAddOnBlur &&
+      !onlyAllowOptions &&
+      validateInput(state.inputValue) &&
+      (
+        !menu ||
+        !menu.contains(e.relatedTarget)
+      )
+    ) {
       add(state.inputValue);
     }
 
@@ -137,7 +148,7 @@ const TagsField = forwardRef(({
 
     if (
       e.key === 'Enter' &&
-      !onlyAllowSearchResults &&
+      !onlyAllowOptions &&
       validateInput(state.inputValue)
     ) {
       add(state.inputValue);
@@ -281,7 +292,13 @@ const TagsField = forwardRef(({
     }
 
     const results = await search(state.inputValue);
-    dispatch({ searchResults: results, searching: false });
+    dispatch({
+      searchResults: results.filter(r =>
+        !onlyAllowOneOccurence ||
+        !state.value.find(i => parseValue(i) === parseValue(r))
+      ),
+      searching: false,
+    });
     dropdownRef.current?.open();
   };
 
@@ -359,6 +376,7 @@ const TagsField = forwardRef(({
             onBlur={onInputBlur_}
             autoFocus={autoFocus}
             disabled={disabled}
+            validate={() => true}
           />
           { !state.inputValue && placeholder && (
             <span className="placeholder">{ placeholder }</span>
@@ -388,7 +406,7 @@ const TagsField = forwardRef(({
             ) : (
               <div className="items">
                 { state.availableOptions
-                  .map((o, index) => renderOption(o, index)) }
+                  ?.map((o, index) => renderOption(o, index)) }
               </div>
             ) }
           </DropdownMenu>
@@ -417,7 +435,7 @@ TagsField.propTypes = {
     PropTypes.node,
     PropTypes.func,
   ]),
-  onlyAllowSearchResults: PropTypes.bool,
+  onlyAllowOptions: PropTypes.bool,
   onlyAllowOneOccurence: PropTypes.bool,
   options: PropTypes.array,
   placeholder: PropTypes.oneOfType([
