@@ -5,6 +5,7 @@ module.exports = {
   clearMocks: true,
   rootDir: path.resolve(),
   timers: 'fake',
+  preset: 'jest-react-native',
   moduleNameMapper: {
     '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
   },
