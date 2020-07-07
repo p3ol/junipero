@@ -8,6 +8,7 @@ export { default as Dropdown } from './Dropdown';
 export { default as DropdownItem } from './DropdownItem';
 export { default as DropdownMenu } from './DropdownMenu';
 export { default as DropdownToggle } from './DropdownToggle';
+export { default as Loader } from './Loader';
 export { default as Modal } from './Modal';
 export { default as SelectField } from './SelectField';
 export { default as SliderField } from './SliderField';
