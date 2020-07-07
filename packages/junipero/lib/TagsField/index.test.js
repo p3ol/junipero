@@ -389,11 +389,14 @@ describe('<TagsField />', () => {
   it('should reopen options when bluring input and autoAddOnBlur is ' +
     'disabled', async () => {
     const ref = createRef();
+    const map = {};
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
     jest.useFakeTimers();
     const component = mount(
       <TagsField
         ref={ref}
         value={[]}
+        globalEventsTarget={document}
         search={autoComplete}
         autoAddOnBlur={false}
       />
@@ -403,8 +406,10 @@ describe('<TagsField />', () => {
     await act(async () => { jest.runAllTimers(); });
     component.update();
     expect(ref.current.opened).toBe(true);
-    expect(component.find('.junipero.dropdown-item a').text()).toBe('Dave');
-    component.find('input').simulate('blur');
+    expect(component.find('.junipero.dropdown-item a').at(0).text())
+      .toBe('Dave');
+    act(() => { map.click({ target: document.body }); });
+    component.update();
     expect(ref.current.opened).toBe(false);
     expect(component.find('.junipero.dropdown-item a').length).toBe(0);
     component.find('input').simulate('focus');
@@ -506,11 +511,12 @@ describe('<TagsField />', () => {
     component.find('input').simulate('focus');
     component.find('.junipero.dropdown-item a').at(1).simulate('click');
     expect(ref.current.internalValue[0]).toBe('Astor');
+    component.find('input').simulate('focus');
     expect(component.find('.junipero.dropdown-item a').at(1).text())
       .toBe('Astrid');
-    component.find('input').simulate('focus');
     component.find('.junipero.dropdown-item a').at(1).simulate('click');
     expect(ref.current.internalValue[1]).toBe('Astrid');
+    component.find('input').simulate('focus');
     expect(component.find('.junipero.dropdown-item a').at(1).text())
       .toBe('Freeman');
     act(() => { ref.current.remove(1); });
@@ -524,6 +530,7 @@ describe('<TagsField />', () => {
     component.setProps({ onlyAllowOneOccurence: false });
     component.find('input').simulate('focus');
     component.find('.junipero.dropdown-item a').at(1).simulate('click');
+    component.find('input').simulate('focus');
     expect(component.find('.junipero.dropdown-item a').at(1).text())
       .toBe('Astor');
     act(() => { ref.current.remove(0); });

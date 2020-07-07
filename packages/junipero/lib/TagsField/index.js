@@ -24,6 +24,7 @@ const TagsField = forwardRef(({
   autoAddOnBlur = true,
   disabled = false,
   forceLabel = false,
+  globalEventsTarget = global,
   noSearchResults = 'No result found :(',
   onlyAllowOptions = false,
   onlyAllowOneOccurence = true,
@@ -148,8 +149,6 @@ const TagsField = forwardRef(({
       add(state.inputValue);
     }
 
-    dropdownRef.current?.close();
-
     onBlur(e);
   };
 
@@ -223,7 +222,6 @@ const TagsField = forwardRef(({
 
   const onOptionClick_ = (option, e) => {
     e.preventDefault();
-
     add(option);
   };
 
@@ -256,8 +254,9 @@ const TagsField = forwardRef(({
 
     if (state.searchResults) {
       dispatch({ searchResults: null, searching: false });
-      dropdownRef.current?.close();
     }
+
+    dropdownRef.current?.close();
   };
 
   const remove = (index, e) => {
@@ -416,6 +415,7 @@ const TagsField = forwardRef(({
           ref={dropdownRef}
           onToggle={onDropdownToggle_}
           clickOutsideTarget={wrapperRef.current}
+          globalEventsTarget={globalEventsTarget}
         >
           <DropdownToggle tag="div" trigger="manual" tabIndex={-1} />
           <DropdownMenu ref={menuRef}>
@@ -447,6 +447,10 @@ TagsField.propTypes = {
   autoSearchOnFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   forceLabel: PropTypes.bool,
+  globalEventsTarget: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.object,
+  ]),
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,

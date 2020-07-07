@@ -71,6 +71,18 @@ export const withSearchAndOptions = () => (
   />
 );
 
+export const withoutAutoAdd = () => (
+  <TagsField
+    search={val => search.filter(o => (new RegExp(val, 'ig')).test(o.title))}
+    placeholder="Type a name..."
+    label="First names"
+    onChange={action('change')}
+    parseTitle={o => o?.title || o}
+    options={options}
+    autoAddOnBlur={false}
+  />
+);
+
 export const withOneOccurenceMax = () => (
   <TagsField
     search={val => search.filter(o => (new RegExp(val, 'ig')).test(o.title))}
