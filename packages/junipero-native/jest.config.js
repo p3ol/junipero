@@ -9,13 +9,17 @@ module.exports = {
   moduleNameMapper: {
     '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
   },
-  testEnvironment: 'jest-environment-jsdom-fourteen',
-  testMatch: ['<rootDir>/packages/junipero-native/lib/*.test.js'],
+  testMatch: ['<rootDir>/packages/junipero-native/lib/**/*.test.js'],
   testPathIgnorePatterns: [
-    '/node_modules/',
+    'node_modules',
+  ],
+  coveragePathIgnorePatterns: [
+    'node_modules',
+    'theme',
+    '^.+\\.stories.js$',
+    '^.+\\.styles.js$',
   ],
   setupFilesAfterEnv: [
-    '<rootDir>/.ci/config/enzyme.js',
-    '<rootDir>/.ci/config/popper.js',
+    '<rootDir>/.ci/config/react-native.js',
   ],
 };

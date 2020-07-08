@@ -37,6 +37,7 @@ const CheckboxField = forwardRef(({
   useImperativeHandle(ref, () => ({
     innerRef,
     inputRef,
+    internalValue: state.checked,
     focused: state.focused,
     active: state.active,
   }));
@@ -71,17 +72,18 @@ const CheckboxField = forwardRef(({
       onPressIn={onPressIn_}
       onPressOut={onPressOut_}
       onPress={onChange_}
+      onFocus={onFocus_}
+      onBlur={onBlur_}
+      testID="CheckboxField/Main"
     >
       <View
-        focusable={true}
         ref={innerRef}
-        onFocus={onFocus_}
-        onBlur={onBlur_}
         style={[
           styles.wrapper,
           customStyle.wrapper,
         ]}
         { ...rest }
+        testID="CheckboxField/Wrapper"
       >
         <View
           style={[
@@ -96,6 +98,7 @@ const CheckboxField = forwardRef(({
               customStyle.check__focused,
             ]),
           ]}
+          testID="CheckboxField/Check"
         >
           <View
             style={[
@@ -106,6 +109,7 @@ const CheckboxField = forwardRef(({
                 customStyle.tick__checked,
               ]),
             ]}
+            testID="CheckboxField/Tick"
           />
           <View
             style={[
@@ -116,11 +120,20 @@ const CheckboxField = forwardRef(({
                 customStyle.checkBackground__checked,
               ]),
             ]}
+            testID="CheckboxField/CheckBackground"
           />
         </View>
-        <View style={[styles.content, customStyle.content]}>
+        <View
+          style={[styles.content, customStyle.content]}
+          testID="CheckboxField/Content"
+        >
           { typeof children === 'string' ? (
-            <Text style={[styles.text, customStyle.text]}>{ children }</Text>
+            <Text
+              style={[styles.text, customStyle.text]}
+              testID="CheckboxField/Text"
+            >
+              { children }
+            </Text>
           ) : children }
         </View>
       </View>
@@ -141,5 +154,7 @@ CheckboxField.propTypes = {
     PropTypes.bool,
   ]),
 };
+
+CheckboxField.displayName = 'CheckboxField';
 
 export default CheckboxField;

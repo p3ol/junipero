@@ -1,13 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 import { colors, commons } from '../theme';
 
 export default StyleSheet.create({
   wrapper: {
-    cursor: 'pointer',
+    ...(Platform.OS === 'web' ? { cursor: 'pointer' } : {}),
     flexDirection: 'row',
-    alignItems: 'start',
-    justifyContent: 'start',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   check: {
     flex: -1,
@@ -42,10 +42,8 @@ export default StyleSheet.create({
     width: 5,
     height: 9,
     borderBottomWidth: 2,
-    borderBottomStyle: 'solid',
     borderBottomColor: colors.white,
     borderRightWidth: 2,
-    borderRightStyle: 'solid',
     borderRightColor: colors.white,
     transform: [
       { translateX: '-50%' },
