@@ -37,6 +37,7 @@ export default {
   buttercup: '#F5A623',
   disabledButtercup: '#F6CA86',
   monza: '#D0021B',
+  monzaAlpha: a => `rgba(208, 2, 27, ${a})`,
   disabledMonza: '#EA959C',
   lavenderBlush: '#FFEBEE',
 };

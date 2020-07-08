@@ -1,6 +1,15 @@
 body
   padding: 20px
 
+  [data-testid]
+    input
+      outline: none
+
+    &[data-testid*="Label"],
+    &[data-testid*="Placeholder"]
+      pointer-events: none
+      user-select: none
+
 .fade-in
 
   &-enter, &-appear
