@@ -6,6 +6,9 @@ module.exports = {
     env: {
       jest: true,
     },
+  }, {
+    files: ['packages/junipero-native'],
+    extends: ['@poool/eslint-config-react-native'],
   }],
   rules: {
     // regex cannot be concatenated
