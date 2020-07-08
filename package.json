@@ -62,6 +62,7 @@
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-react-native": "^18.0.0",
     "lerna": "3.22.1",
+    "metro-react-native-babel-preset": "0.60.0",
     "postcss-loader": "3.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
