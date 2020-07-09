@@ -1,7 +1,6 @@
 import React, { createRef } from 'react';
 import { render, wait, fireEvent, act } from '@testing-library/react-native';
 import sinon from 'sinon';
-// import { act } from 'react-dom/test-utils';
 
 import TextField from './';
 
