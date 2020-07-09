@@ -33,5 +33,8 @@
   "scripts": {
     "clean": "rm -rf ./dist || true",
     "build": "yarn clean && rollup -c"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
