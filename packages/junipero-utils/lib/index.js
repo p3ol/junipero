@@ -38,7 +38,7 @@ export const ensureNode = selectorOrNode =>
     ? document.querySelector(selectorOrNode) || document.createElement('div')
     : selectorOrNode;
 
-export const COLOR_PARSERS = [{
+const COLOR_PARSERS = [{
   regex: /(rgb)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*%?,\s*(\d{1,3})\s*%?(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
   parse: ([_useless, _alsoUseless, r, g, b, a]) => ({
     r: parseInt(r, 10) / 255,
