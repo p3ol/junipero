@@ -50,7 +50,7 @@ export default formats.map(f => ({
   },
   ...(f === 'esm' ? {
     manualChunks: id => {
-      if (/packages\/junipero-native\/lib\/(\w+)\/index(\.styles\.js|\.js)/.test(id)) {
+      if (/packages\/junipero-native\/lib\/(\w+)\/(.+)(\.styles\.js|\.js)/.test(id)) {
         return path.parse(id).dir.split('/').pop();
       } else if (
         id.includes('node_modules') ||
