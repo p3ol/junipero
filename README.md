@@ -1,41 +1,25 @@
-[![npm](https://img.shields.io/npm/v/@poool/junipero.svg)](https://www.npmjs.com/package/@poool/junipero)
+![junipero](https://storage.googleapis.com/junipero-cdn/images/logo-github.png)
+
+<div align="center">
+
 [![GitHub](https://img.shields.io/github/license/p3ol/junipero.svg)](https://github.com/p3ol/junipero)
 [![Build Status](https://travis-ci.org/p3ol/junipero.svg?branch=master)](https://travis-ci.org/p3ol/junipero)
 [![codecov](https://codecov.io/gh/p3ol/junipero/branch/master/graph/badge.svg)](https://codecov.io/gh/p3ol/junipero)
 [![Percy](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Poool/junipero)
 
-![junipero](https://storage.googleapis.com/junipero-cdn/images/logo-github.png)
+<br />
+<p>A collection of lightweight and beautifully designed React/React Native components</p>
+</div>
 
-> A collection of lightweight and beautifully designed React components
+## Packages
 
-## Installation
+| Name | Description | |
+| :--: | :--: | :--: |
+| `@poool/junipero` | Simple and beautiful React components for the web | [documentation](https://github.com/p3ol/junipero/blob/master/packages/junipero) |
+| `@poool/junipero-native` | A lighter version of Junipero for React Native apps | [documentation](https://github.com/p3ol/junipero/blob/master/packages/junipero-native) |
+| `@poool/junipero-hooks` | Custom React hooks we use inside Junipero packages | [documentation](https://github.com/p3ol/junipero/blob/master/packages/junipero-hooks) |
+| `@poool/junipero-utils` | Simple utilities we commonly use inside Junipero packages | [documentation](https://github.com/p3ol/junipero/blob/master/packages/junipero-utils) |
 
-```bash
-yarn add @poool/junipero
-```
-
-## Usage
-
-```javascript
-import React, { Component } from 'react';
-import { TextField } from '@poool/junipero';
-
-class Example extends Component {
-  render() {
-    return (
-      <TextField />
-    );
-  }
-}
-```
-
-#### Dependencies
-
-These libraries are not bundled with Junipero and required at runtime:
-- [react](https://www.npmjs.com/package/react)
-- [prop-types](https://www.npmjs.com/package/prop-types)
-- [react-popper](https://www.npmjs.com/package/react-popper)
-- [@popperjs/core](https://www.npmjs.com/package/@popperjs/core)
 
 ## [Documentation](https://junipero.design)
 
@@ -53,7 +37,7 @@ Install dependencies:
 yarn install
 ```
 
-Run examples at http://localhost:65000/ with webpack dev server:
+Run examples at http://localhost:50452/ with Storybook:
 
 ```bash
 yarn serve
