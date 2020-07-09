@@ -104,7 +104,7 @@ const Dropdown = forwardRef(({
     const container = innerRef.current;
     const menu = menuRef.current;
 
-    if (!container || !menu) {
+    if (!state.opened || !container || !menu) {
       return;
     }
 

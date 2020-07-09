@@ -207,4 +207,31 @@ describe('<Dropdown />', () => {
     expect(ref.current.opened).toBe(false);
   });
 
+  it('should not trigger onToggle event when clicking outside toggle and ' +
+    'menu is not opened', async () => {
+    const ref = createRef();
+    const onToggle = sinon.spy();
+
+    const map = {};
+    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
+    const component = mount(
+      <Dropdown
+        globalEventsTarget={document}
+        onToggle={onToggle}
+        ref={ref}
+      >
+        <DropdownToggle>
+          Open me
+        </DropdownToggle>
+        <DropdownMenu />
+      </Dropdown>
+    );
+
+    act(() => { map.click({ target: document.body }); });
+    expect(ref.current.opened).toBe(false);
+    expect(component.find('.junipero.dropdown-menu').length).toBe(0);
+    expect(onToggle.called).toBe(false);
+  });
+
 });
