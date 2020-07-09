@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { classNames } from '@poool/junipero-utils';
 
 const Button = forwardRef(({
-  children,
   className,
   disabled = false,
   tag: Tag = 'button',
@@ -36,9 +35,7 @@ const Button = forwardRef(({
       ref={innerRef}
       onClick={onClick_}
       disabled={disabled}
-    >
-      { children }
-    </Tag>
+    />
   );
 });
 
