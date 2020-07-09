@@ -44,6 +44,7 @@ const CheckboxField = forwardRef(({
   useImperativeHandle(ref, () => ({
     innerRef,
     inputRef,
+    internalValue: state.checked,
     focused: state.focused,
     active: state.active,
   }));
