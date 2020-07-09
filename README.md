@@ -21,7 +21,6 @@
 | `@poool/junipero-hooks` | Custom React hooks we use inside Junipero packages | [documentation](https://github.com/p3ol/junipero/blob/master/packages/junipero-hooks) |
 | `@poool/junipero-utils` | Simple utilities we commonly use inside Junipero packages | [documentation](https://github.com/p3ol/junipero/blob/master/packages/junipero-utils) |
 
-
 ## [Documentation](https://junipero.design)
 
 https://junipero.design
