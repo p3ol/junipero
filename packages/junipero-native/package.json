@@ -27,6 +27,8 @@
     "react-native": "^0.62.0"
   },
   "dependencies": {
+    "@poool/junipero-utils": "1.5.1",
+    "@poool/junipero-hooks": "1.5.1",
     "prop-types": "15.7.2"
   },
   "scripts": {
