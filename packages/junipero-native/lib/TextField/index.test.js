@@ -148,4 +148,14 @@ describe('<TextField />', () => {
     await wait(() => getByTestId('TextField/Label'));
   });
 
+  it('should allow to render a multiline text input', async () => {
+    const ref = createRef();
+    const { getByTestId } = render(
+      <TextField rows={10} ref={ref} label="Label" placeholder="Placeholder" />
+    );
+    await wait(() => getByTestId('TextField/Input'));
+    fireEvent.changeText(getByTestId('TextField/Input'), 'a');
+    expect(ref.current.internalValue).toBe('a');
+  });
+
 });
