@@ -138,4 +138,10 @@ describe('<TextField />', () => {
     expect(ref.current.focused).toBe(false);
   });
 
+  it('should allow to render a multiline textarea', () => {
+    const ref = createRef();
+    const component = mount(<TextField rows={10} ref={ref} />);
+    expect(component.find('textarea').length).toBe(1);
+  });
+
 });

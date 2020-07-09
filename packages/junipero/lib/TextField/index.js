@@ -92,6 +92,8 @@ const TextField = forwardRef(({
   const isEmpty = () =>
     !state.value;
 
+  const Tag = rest.rows > 1 ? 'textarea' : 'input';
+
   return (
     <div
       ref={innerRef}
@@ -110,13 +112,13 @@ const TextField = forwardRef(({
         className
       )}
     >
-      <input
+      <Tag
         { ...rest }
         ref={inputRef}
         autoFocus={autoFocus}
         disabled={disabled}
         required={required}
-        type={type}
+        type={Tag === 'textarea' ? undefined : type}
         value={state.value}
         onBlur={onBlur_}
         onChange={onChange_}

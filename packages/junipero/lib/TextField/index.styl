@@ -6,7 +6,8 @@
   min-width: 250px
   width: auto
 
-  input
+  input,
+  textarea
     padding: 9px
     border-radius: 2px
     background: $color-black-squeeze
@@ -48,6 +49,15 @@
     transition-timing-function: ease-out
     color: $color-eastern-blue
 
+  textarea
+    font-family: "Open Sans", sans-serif
+    font-size: 16px
+    color: $color-midnight
+
+    & + .placeholder
+      top: 11px
+      transform: translateY(0)
+
   &:not(.empty),
   &.label-enforced
     .label
@@ -59,12 +69,14 @@
         display: none
 
   &.labeled
-    input
+    input,
+    textarea
       padding: 13px 9px
 
     &:not(.empty),
     &.label-enforced
-      input
+      input,
+      textarea
         padding: 21px 9px 5px
 
     &.label-enforced
@@ -73,7 +85,8 @@
 
 
   &.invalid.dirty
-    input
+    input,
+    textarea
       background: $color-lavender-blush
 
       &:focus

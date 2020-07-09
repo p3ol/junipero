@@ -9,6 +9,15 @@ export const basic = () => (
   <TextField placeholder="First name" onChange={action('change')} />
 );
 
+export const basicMultiline = () => (
+  <TextField
+    rows={10}
+    label="First name"
+    placeholder="First name"
+    onChange={action('change')}
+  />
+);
+
 export const withLabel = () => (
   <TextField
     placeholder="Type your first name"
