@@ -55,6 +55,10 @@ const TextField = forwardRef(({
     }
   }, [value]);
 
+  useEffect(() => {
+    dispatch({ valid: valid ?? false });
+  }, [valid]);
+
   const onChange_ = e => {
     if (disabled) {
       return;

@@ -144,4 +144,15 @@ describe('<TextField />', () => {
     expect(component.find('textarea').length).toBe(1);
   });
 
+  it('should set text field as invalid if valid prop is changed', async () => {
+    const ref = createRef();
+    const component = mount(
+      <TextField ref={ref} label="Label" placeholder="Placeholder" />
+    );
+    component.find('input').simulate('change', { target: { valud: 'a' } });
+    expect(ref.current.valid).toBe(true);
+    component.setProps({ valid: false });
+    expect(ref.current.valid).toBe(false);
+  });
+
 });
