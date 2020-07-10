@@ -10,9 +10,9 @@ describe('<DateField />', () => {
   it('should render', () => {
     const ref = createRef();
     const component = mount(<DateField ref={ref} />);
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     act(() => { ref.current.reset(); });
-    component.find('input').simulate('blur');
+    component.find('.base').simulate('blur');
     expect(component.find('.junipero.date-picker').length).toBe(1);
   });
 
@@ -65,14 +65,14 @@ describe('<DateField />', () => {
   it('should open calendar when clicking field', () => {
     const ref = createRef();
     const component = mount(<DateField ref={ref} />);
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     expect(ref.current.opened).toBe(true);
   });
 
   it('shouldn\'t open calendar if field is disabled', () => {
     const ref = createRef();
     const component = mount(<DateField ref={ref} disabled={true} />);
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     expect(ref.current.opened).toBe(false);
   });
 
@@ -81,7 +81,7 @@ describe('<DateField />', () => {
     const component = mount(
       <DateField ref={ref} value={new Date('December 17, 1995 03:24:00')} />
     );
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     component.find('a.arrow-wrapper.left').simulate('click', { button: 0 });
 
     const value = ref.current.displayed;
@@ -97,7 +97,7 @@ describe('<DateField />', () => {
     const component = mount(
       <DateField ref={ref} value={new Date('January 17, 1995 03:24:00')} />
     );
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     component.find('a.arrow-wrapper.left').simulate('click', { button: 0 });
 
     const value = ref.current.displayed;
@@ -112,7 +112,7 @@ describe('<DateField />', () => {
     const component = mount(
       <DateField ref={ref} value={new Date('November 17, 1995 03:24:00')} />
     );
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     component.find('a.arrow-wrapper.right').simulate('click', { button: 0 });
 
     const value = ref.current.displayed;
@@ -128,7 +128,7 @@ describe('<DateField />', () => {
     const component = mount(
       <DateField ref={ref} value={new Date('December 17, 1995 03:24:00')} />
     );
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     component.find('a.arrow-wrapper.right').simulate('click', { button: 0 });
 
     const value = ref.current.displayed;
@@ -179,7 +179,7 @@ describe('<DateField />', () => {
     const component = mount(
       <DateField min={previousDay} value={day} max={nextDay} />
     );
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     expect(component.find('.day').not('.disabled').length).toBe(3);
   });
 

@@ -11,10 +11,10 @@
   font-size: 16px
   transition: box-shadow .1s ease-in-out
 
-  &.focused
+  &.focused:not(.disabled)
     box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
 
-  &:disabled
+  &.disabled
     opacity: .5
 
     span

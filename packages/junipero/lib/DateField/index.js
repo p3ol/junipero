@@ -15,7 +15,7 @@ import {
   getDaysInMonth,
 } from '@poool/junipero-utils';
 
-import TextField from '../TextField';
+import BaseField from '../BaseField';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
@@ -57,6 +57,7 @@ const DateField = forwardRef(({
     valid: false,
     dirty: false,
     opened: false,
+    focused: autoFocus ?? false,
   });
 
   useImperativeHandle(ref, () => ({
@@ -86,9 +87,14 @@ const DateField = forwardRef(({
   }, [value]);
 
   const onFocus_ = e => {
-    dispatch({ displayed: new Date(state.selected) });
+    dispatch({ focused: true, displayed: new Date(state.selected) });
     dropdownRef.current?.open();
     onFocus(e);
+  };
+
+  const onBlur_ = e => {
+    dispatch({ focused: false });
+    onBlur(e);
   };
 
   const onChange_ = (date, e) => {
@@ -110,7 +116,6 @@ const DateField = forwardRef(({
     });
 
     dropdownRef.current?.close();
-    fieldRef.current?.setDirty(true);
 
     onChange({ value: parseValue(state.value), valid: state.valid });
   };
@@ -138,8 +143,6 @@ const DateField = forwardRef(({
       valid: false,
       dirty: false,
     });
-
-    fieldRef.current?.reset();
   };
 
   const onPreviousMonthClick = e => {
@@ -245,18 +248,19 @@ const DateField = forwardRef(({
     >
       <Dropdown onToggle={onToggle_} disabled={disabled} ref={dropdownRef}>
         <DropdownToggle trigger="manual" href={null} tag="div">
-          <TextField
+          <BaseField
             ref={fieldRef}
             disabled={disabled}
             placeholder={placeholder}
             label={label}
             value={parseTitle(state.value)}
             valid={state.valid}
-            validate={() => state.valid}
-            readOnly={true}
             autoFocus={autoFocus}
+            dirty={state.dirty}
+            focused={state.focused}
+            empty={!state.value}
             onFocus={onFocus_}
-            onBlur={onBlur}
+            onBlur={onBlur_}
           />
         </DropdownToggle>
         <DropdownMenu
