@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.2](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2020-07-10)
+
+
+### Bug Fixes
+
+* **web:** fix Dropdown popper modifiers order ([36aec76](https://github.com/p3ol/junipero/commit/36aec768865be1259d788defb69d417af73315c8))
+* **web:** replace DateField inner input with BaseField ([15ac5f1](https://github.com/p3ol/junipero/commit/15ac5f18918402e6140f878aa3f207738f3fa90b))
+* **web:** replace SelectField inner input with BaseField ([e6c3dec](https://github.com/p3ol/junipero/commit/e6c3decd5c2a39e85d666a3d34f3147309fb0b5a))
+
+
+### Features
+
+* **web:** add BaseField component ([f9830d7](https://github.com/p3ol/junipero/commit/f9830d73f41f6d2dc0436b252b88b10d25f60921))
+
+
+
+
+
 # [2.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-07-10)
 
 
