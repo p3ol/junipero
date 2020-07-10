@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-07-10)
+
+
+### Bug Fixes
+
+* **native:** fix text field valid state not being updated alongside prop ([1cc8dfe](https://github.com/p3ol/junipero/commit/1cc8dfe50810af4b5418292906e3aef7e39901ba))
+
+
+
+
+
 # [2.0.0-alpha.0](https://github.com/p3ol/junipero/compare/v1.5.1...v2.0.0-alpha.0) (2020-07-09)
 
 

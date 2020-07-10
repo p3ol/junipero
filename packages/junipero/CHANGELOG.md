@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-07-10)
+
+
+### Bug Fixes
+
+* **web:** don't trigger onToggle event when clicking outside when menu is not opened ([158ce6b](https://github.com/p3ol/junipero/commit/158ce6b01ebca6cb12b2e3c8ea2415f73b6ac1b8))
+* **web:** fix text field valid state not being updated alongside prop ([6c55380](https://github.com/p3ol/junipero/commit/6c553807cb10a8937c269134a7e69c07ec3efa76))
+
+
+
+
+
 # [2.0.0-alpha.0](https://github.com/p3ol/junipero/compare/v1.5.1...v2.0.0-alpha.0) (2020-07-09)
 
 
