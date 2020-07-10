@@ -39,8 +39,8 @@ const Dropdown = forwardRef(({
       ...popperOptions,
       placement,
       modifiers: [
-        ...(popperOptions.modifiers || []),
         { name: 'offset', options: { offset: [0, 10] } },
+        ...(popperOptions.modifiers || []),
       ],
     }
   );
