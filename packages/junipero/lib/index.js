@@ -1,3 +1,4 @@
+export { default as BaseField } from './BaseField';
 export { default as BreadCrumb } from './BreadCrumb';
 export { default as Button } from './Button';
 export { default as CheckboxField } from './CheckboxField';
