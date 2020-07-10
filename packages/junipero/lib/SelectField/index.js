@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { classNames, mockState } from '@poool/junipero-utils';
 import { useTimeout, useEventListener } from '@poool/junipero-hooks';
 
+import BaseField from '../BaseField';
 import TextField from '../TextField';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
@@ -54,7 +55,7 @@ const SelectField = forwardRef(({
     valid: false,
     dirty: false,
     selectedIndex: null,
-    focused: false,
+    focused: autoFocus,
   });
 
   useImperativeHandle(ref, () => ({
@@ -173,7 +174,6 @@ const SelectField = forwardRef(({
     dispatch({ value: state.value, dirty: true, valid: state.valid });
 
     dropdownRef.current?.close();
-    fieldRef.current?.setDirty(true);
 
     onChange({ value: parseValue(state.value), valid: state.valid });
   };
@@ -214,7 +214,6 @@ const SelectField = forwardRef(({
       searching: false,
     });
 
-    fieldRef.current?.reset();
     searchFieldRef.current?.reset();
   };
 
@@ -249,18 +248,19 @@ const SelectField = forwardRef(({
     >
       <Dropdown onToggle={onToggle_} disabled={disabled} ref={dropdownRef}>
         <DropdownToggle trigger="manual" href={null} tag="div">
-          <TextField
+          <BaseField
             ref={fieldRef}
             disabled={disabled}
             placeholder={placeholder}
             label={label}
+            empty={!state.value}
             value={parseTitle(state.value || '')}
             valid={state.valid}
-            validate={() => state.valid}
-            readOnly={true}
-            autoFocus={autoFocus}
+            focused={state.focused}
             onFocus={onFocus_}
             onBlur={onBlur_}
+            dirty={state.dirty}
+            autoFocus={autoFocus}
           />
           <div className="arrow" />
         </DropdownToggle>

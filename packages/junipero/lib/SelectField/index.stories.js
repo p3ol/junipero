@@ -24,6 +24,15 @@ export const basic = () => (
   />
 );
 
+export const withLabel = () => (
+  <SelectField
+    options={options}
+    placeholder="Choose one item"
+    label="Chosen item"
+    onChange={action('change')}
+  />
+);
+
 export const noOptions = () => (
   <SelectField
     placeholder="Choose one item"

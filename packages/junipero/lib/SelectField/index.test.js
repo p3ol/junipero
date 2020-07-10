@@ -11,9 +11,9 @@ describe('<SelectField />', () => {
   it('should render', () => {
     const ref = createRef();
     const component = mount(<SelectField ref={ref} />);
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     act(() => { ref.current.reset(); });
-    component.find('input').simulate('blur');
+    component.find('.base').simulate('blur');
     expect(component.find('.junipero.select').length).toBe(1);
   });
 
@@ -36,7 +36,7 @@ describe('<SelectField />', () => {
   it('should close menu when disabled prop changes', () => {
     const ref = createRef();
     const component = mount(<SelectField ref={ref} options={options} />);
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     expect(ref.current.opened).toBe(true);
     component.setProps({ disabled: true });
     expect(ref.current.opened).toBe(false);
@@ -47,7 +47,7 @@ describe('<SelectField />', () => {
     const component = mount(
       <SelectField ref={ref} value="One" options={options} />
     );
-    component.find('input').simulate('focus');
+    component.find('.base').simulate('focus');
     component.find('.dropdown-item').at(1).find('a').simulate('click');
     expect(ref.current.internalValue).toBe('Two');
     act(() => { ref.current.reset(); });
@@ -185,7 +185,7 @@ describe('<SelectField />', () => {
     );
 
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-toggle input').getDOMNode());
+      .toBe(component.find('.dropdown-toggle .base').getDOMNode());
     act(() => { map.keydown({ key: 'ArrowDown' }); });
     expect(document.activeElement)
       .toBe(component.find('.dropdown-item').at(0).getDOMNode());
@@ -245,10 +245,10 @@ describe('<SelectField />', () => {
     );
 
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-toggle input').getDOMNode());
+      .toBe(component.find('.dropdown-toggle .base').getDOMNode());
     act(() => { map.keydown({ key: 'ArrowUp' }); });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-toggle input').getDOMNode());
+      .toBe(component.find('.dropdown-toggle .base').getDOMNode());
   });
 
 });
