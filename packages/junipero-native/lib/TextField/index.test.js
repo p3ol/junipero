@@ -158,4 +158,23 @@ describe('<TextField />', () => {
     expect(ref.current.internalValue).toBe('a');
   });
 
+  it('should set text field as invalid if valid prop is changed', async () => {
+    const ref = createRef();
+    const { getByTestId, rerender } = render(
+      <TextField ref={ref} label="Label" placeholder="Placeholder" />
+    );
+    await wait(() => getByTestId('TextField/Input'));
+    fireEvent.changeText(getByTestId('TextField/Input'), 'a');
+    expect(ref.current.valid).toBe(true);
+    rerender(
+      <TextField
+        ref={ref}
+        valid={false}
+        label="Label"
+        placeholder="Placeholder"
+      />
+    );
+    expect(ref.current.valid).toBe(false);
+  });
+
 });

@@ -59,6 +59,10 @@ const TextField = forwardRef(({
     }
   }, [value]);
 
+  useEffect(() => {
+    dispatch({ valid: valid ?? false });
+  }, [valid]);
+
   const onChange_ = val => {
     /* istanbul ignore if: TextInput doesn't fire change event if disabled */
     if (disabled) {
