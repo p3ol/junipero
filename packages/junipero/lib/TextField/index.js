@@ -44,7 +44,6 @@ const TextField = forwardRef(({
     reset,
     focus,
     blur,
-    setDirty,
   }));
 
   useEffect(() => {
@@ -89,9 +88,6 @@ const TextField = forwardRef(({
 
   const blur = () =>
     inputRef.current?.blur();
-
-  const setDirty = dirty =>
-    dispatch({ dirty });
 
   const isEmpty = () =>
     !state.value;
