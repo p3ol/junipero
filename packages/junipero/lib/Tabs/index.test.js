@@ -1,7 +1,6 @@
 import React, { createRef } from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
-import { act } from 'react-dom/test-utils';
 
 import Tabs from './';
 import Tab from '../Tab';
