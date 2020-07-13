@@ -25,6 +25,7 @@ export {
   exists,
   isNull,
   isUndefined,
+  mockState,
 } from '@poool/junipero-utils';
 
 export {
