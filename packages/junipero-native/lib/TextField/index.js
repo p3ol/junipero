@@ -16,7 +16,7 @@ const TextField = forwardRef(({
   autoFocus,
   placeholder,
   label,
-  testID,
+  testID = 'TextField/Input',
   valid,
   value,
   customStyle = {},
@@ -144,7 +144,7 @@ const TextField = forwardRef(({
             customStyle.input__invalid,
           ]),
         ]}
-        testID={ testID || 'TextField/Input'}
+        testID={ testID }
       />
       <View
         testID="TextField/InputBackground"

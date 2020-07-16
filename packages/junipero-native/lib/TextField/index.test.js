@@ -8,14 +8,13 @@ describe('<TextField />', () => {
 
   it('should render', async () => {
     const ref = createRef();
-    const { getByTestId } =
-      render(<TextField ref={ref} testID="test" placeholder="Text" />);
-    await wait(() => getByTestId('test'));
-    fireEvent.changeText(getByTestId('test'), 'a');
+    const { getByTestId } = render(<TextField ref={ref} placeholder="Text" />);
+    await wait(() => getByTestId('TextField/Input'));
+    fireEvent.changeText(getByTestId('TextField/Input'), 'a');
     expect(ref.current.internalValue).toBe('a');
-    fireEvent.focus(getByTestId('test'));
+    fireEvent.focus(getByTestId('TextField/Input'));
     expect(ref.current.focused).toBe(true);
-    fireEvent.blur(getByTestId('test'));
+    fireEvent.blur(getByTestId('TextField/Input'));
     expect(ref.current.focused).toBe(false);
   });
 
@@ -178,4 +177,12 @@ describe('<TextField />', () => {
     expect(ref.current.valid).toBe(false);
   });
 
+  it('should override the default testID of the TextInput', async () => {
+    const ref = createRef();
+    const { getByTestId } =
+      render(<TextField ref={ref} testID="test" placeholder="Text" />);
+    await wait(() =>
+      expect(getByTestId('test')).toBeTruthy()
+    );
+  });
 });
