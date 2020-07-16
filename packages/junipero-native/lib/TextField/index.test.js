@@ -177,4 +177,12 @@ describe('<TextField />', () => {
     expect(ref.current.valid).toBe(false);
   });
 
+  it('should override the default testID of the TextInput', async () => {
+    const ref = createRef();
+    const { getByTestId } =
+      render(<TextField ref={ref} testID="test" placeholder="Text" />);
+    await wait(() =>
+      expect(getByTestId('test')).toBeTruthy()
+    );
+  });
 });
