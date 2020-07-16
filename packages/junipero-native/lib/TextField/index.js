@@ -16,6 +16,7 @@ const TextField = forwardRef(({
   autoFocus,
   placeholder,
   label,
+  testID,
   valid,
   value,
   customStyle = {},
@@ -143,7 +144,7 @@ const TextField = forwardRef(({
             customStyle.input__invalid,
           ]),
         ]}
-        testID="TextField/Input"
+        testID={ testID || 'TextField/Input'}
       />
       <View
         testID="TextField/InputBackground"
@@ -233,6 +234,7 @@ TextField.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   validate: PropTypes.func,
+  testID: PropTypes.string,
 };
 
 TextField.displayName = 'TextField';

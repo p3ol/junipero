@@ -8,13 +8,14 @@ describe('<TextField />', () => {
 
   it('should render', async () => {
     const ref = createRef();
-    const { getByTestId } = render(<TextField ref={ref} placeholder="Text" />);
-    await wait(() => getByTestId('TextField/Input'));
-    fireEvent.changeText(getByTestId('TextField/Input'), 'a');
+    const { getByTestId } =
+      render(<TextField ref={ref} testID="test" placeholder="Text" />);
+    await wait(() => getByTestId('test'));
+    fireEvent.changeText(getByTestId('test'), 'a');
     expect(ref.current.internalValue).toBe('a');
-    fireEvent.focus(getByTestId('TextField/Input'));
+    fireEvent.focus(getByTestId('test'));
     expect(ref.current.focused).toBe(true);
-    fireEvent.blur(getByTestId('TextField/Input'));
+    fireEvent.blur(getByTestId('test'));
     expect(ref.current.focused).toBe(false);
   });
 
