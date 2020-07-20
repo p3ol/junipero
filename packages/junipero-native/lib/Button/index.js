@@ -1,50 +1,71 @@
-import React from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableWithoutFeedback, Text, View } from 'react-native';
 
 import styles from './index.styles';
 import { applyStyles } from '../theme';
 
-const Button = ({
+const Button = forwardRef(({
   children,
   testID = 'Button',
   disabled = false,
-  onClick = () => {},
+  onPress = () => {},
   customStyle = {},
   ...rest
-}) => {
+}, ref) => {
+
+  const [active, setActive] = useState(false);
+
+  useImperativeHandle(ref, () => ({
+    active: active,
+  }));
+
   const onPress_ = e => {
     if (disabled) {
       return;
     }
+    onPress(e);
+  };
 
-    onClick(e);
+  const onPressIn_ = () => {
+    setActive(true);
+  };
+
+  const onPressOut_ = () => {
+    setActive(false);
   };
 
   return (
-    <TouchableOpacity
-      { ...rest }
-      style={[
-        styles.button,
-        customStyle,
-        applyStyles(disabled, styles.disabledButton),
-      ]}
-      disabled={ disabled }
+    <TouchableWithoutFeedback
+      testID={ testID }
+      onPress={ onPress_ }
+      onPressIn={ !disabled && onPressIn_ }
+      onPressOut={ !disabled && onPressOut_ }
     >
-      <Text
-        onPress={ onPress_ }
-        style={styles.title}
-        testID={ testID }>
-        {children}
-      </Text>
-    </TouchableOpacity>
+      <View
+        { ...rest }
+        style={[
+          styles.button,
+          customStyle.button,
+          applyStyles(disabled, styles.disabledButton),
+        ]}
+      >
+        { typeof children === 'string' ? (
+          <Text
+            style={[styles.title, customStyle.title]}
+          >
+            { children }
+          </Text>
+        ) : children }
+      </View>
+    </TouchableWithoutFeedback>
   );
-};
+});
 
 Button.propTypes = {
   customStyle: PropTypes.object,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func,
+  onPress: PropTypes.func,
   testID: PropTypes.string,
 };
 

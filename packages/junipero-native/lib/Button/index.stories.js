@@ -9,7 +9,9 @@ export const basic = () => (
 );
 
 export const customStyles = () => (
-  <Button customStyle={{ backgroundColor: 'green' }}> Clique ici</Button>
+  <Button customStyle={{ button: { backgroundColor: 'green' } }}>
+    Clique ici
+  </Button>
 );
 
 export const disabled = () => (
