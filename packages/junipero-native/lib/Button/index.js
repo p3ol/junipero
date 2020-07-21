@@ -52,8 +52,14 @@ const Button = forwardRef(({
         style={[
           styles.button,
           customStyle.button,
-          applyStyles(disabled, styles.button__disabled),
-          applyStyles(active, styles.button__active),
+          applyStyles(disabled, [
+            styles.button__disabled,
+            customStyle.button__disabled,
+          ]),
+          applyStyles(active, [
+            styles.button__active,
+            customStyle.button__active,
+          ]),
         ]}
       >
         { typeof children === 'string' ? (

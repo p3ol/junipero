@@ -5,38 +5,30 @@ import sinon from 'sinon';
 
 import Button from './';
 
-describe('<TextField />', () => {
+describe('<Button />', () => {
 
   it('should render', async () => {
-
     const { getByTestId } = render(<Button>Click</Button>);
     await wait(() => getByTestId('Button'));
     expect(getByTestId('Button')).toBeDefined();
-
     fireEvent.press(getByTestId('Button'));
 
   });
 
   it('should fire onPress event by clicking the button', async () => {
-
     const onPress = sinon.spy();
-
     const { getByTestId } = render(<Button onPress={onPress}>Click</Button>);
     await wait(() => getByTestId('Button'));
-
     fireEvent.press(getByTestId('Button'));
     expect(onPress.called).toBe(true);
   });
 
   it('should not be able to press if button is disabled', async () => {
-
     const onPress = sinon.spy();
-
     const { getByTestId } = render(
       <Button disabled onPress={onPress}>Click</Button>
     );
     await wait(() => getByTestId('Button'));
-
     fireEvent.press(getByTestId('Button'));
     fireEvent.pressIn(getByTestId('Button'));
     fireEvent.pressOut(getByTestId('Button'));
@@ -44,12 +36,10 @@ describe('<TextField />', () => {
   });
 
   it('should render with the provided component as children', async () => {
-
     const { getByTestId } =
       render(<Button><Text testID='title'>Click</Text></Button>);
     await wait(() => getByTestId('title'));
     expect(getByTestId('title')).toBeDefined();
-
   });
 
   it('should toggle button active state on click', async () => {
