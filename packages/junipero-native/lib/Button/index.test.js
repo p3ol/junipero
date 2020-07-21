@@ -38,14 +38,15 @@ describe('<TextField />', () => {
     await wait(() => getByTestId('Button'));
 
     fireEvent.press(getByTestId('Button'));
+    fireEvent.pressIn(getByTestId('Button'));
+    fireEvent.pressOut(getByTestId('Button'));
     expect(onPress.called).toBe(false);
   });
 
   it('should render with the provided component as children', async () => {
 
-    const { getByTestId } = render(
-      <Button><Text testID='title'>Click</Text></Button>
-    );
+    const { getByTestId } =
+      render(<Button><Text testID='title'>Click</Text></Button>);
     await wait(() => getByTestId('title'));
     expect(getByTestId('title')).toBeDefined();
 

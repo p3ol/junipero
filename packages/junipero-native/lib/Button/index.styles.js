@@ -7,8 +7,11 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 4,
   },
-  disabledButton: {
+  button__disabled: {
     opacity: 0.4,
+  },
+  button__active: {
+    opacity: 0.7,
   },
   title: {
     color: 'white',

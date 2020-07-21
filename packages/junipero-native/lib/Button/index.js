@@ -11,13 +11,12 @@ const Button = forwardRef(({
   disabled = false,
   onPress = () => {},
   customStyle = {},
-  ...rest
-}, ref) => {
+  ...rest }, ref) => {
 
   const [active, setActive] = useState(false);
 
   useImperativeHandle(ref, () => ({
-    active: active,
+    active,
   }));
 
   const onPress_ = e => {
@@ -28,26 +27,33 @@ const Button = forwardRef(({
   };
 
   const onPressIn_ = () => {
+    if (disabled) {
+      return;
+    }
     setActive(true);
   };
 
   const onPressOut_ = () => {
+    if (disabled) {
+      return;
+    }
     setActive(false);
   };
 
   return (
     <TouchableWithoutFeedback
-      testID={ testID }
-      onPress={ onPress_ }
-      onPressIn={ !disabled && onPressIn_ }
-      onPressOut={ !disabled && onPressOut_ }
+      testID={testID}
+      onPress={onPress_}
+      onPressIn={onPressIn_}
+      onPressOut={onPressOut_}
     >
       <View
         { ...rest }
         style={[
           styles.button,
           customStyle.button,
-          applyStyles(disabled, styles.disabledButton),
+          applyStyles(disabled, styles.button__disabled),
+          applyStyles(active, styles.button__active),
         ]}
       >
         { typeof children === 'string' ? (

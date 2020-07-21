@@ -5,15 +5,15 @@ import Button from './index';
 export default { title: 'junipero-native/Button' };
 
 export const basic = () => (
-  <Button>Clique ici</Button>
+  <Button>Click here</Button>
 );
 
 export const customStyles = () => (
   <Button customStyle={{ button: { backgroundColor: 'green' } }}>
-    Clique ici
+    Click here
   </Button>
 );
 
 export const disabled = () => (
-  <Button disabled > Clique ici</Button>
+  <Button disabled >Click here</Button>
 );
