@@ -1351,20 +1351,20 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@poool/eslint-config-react@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.2.2.tgz#184e38783852d18fdceaa89b9139c3c2889a0a71"
-  integrity sha512-8dt+F5Xa6gyG+S7VqrM8mCf4juTo8HyyrQOY/g8+63zqZZ+tH9RMaixgahBpfUt0cEkhheeiwJ82l8TRBXLZiA==
+"@poool/eslint-config-react@1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.2.3.tgz#289b38bc2828d9bff6bd11d031d5b6b32ed8123f"
+  integrity sha512-K6MiL7mjlQ2+diDiMYYd281veag/N62BAKNvEPRaHoz0XNgfqmlIGGKU/Zv3jq8kPTxSr8eC+a7gEKqqJInmnw==
 
-"@poool/eslint-config@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-1.2.2.tgz#dd15d1059c073748af02b98c30a195016171235b"
-  integrity sha512-AEQ8Z+Tec6SN1LlKJ1d84w/hT5JMmIhDxy6HJ/KZPYlgt3CW6iIIivS9TX/Obqimbu2TWBz8ostVRVU5UpQuzA==
+"@poool/eslint-config@1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-1.2.3.tgz#721d1df18d128555e0d6d0b62415feb9a036e181"
+  integrity sha512-VRzL1LKGZiju1oN41oVAOLzUaI71sBUIBT1Ieu2iNXXNfiDg3mV0cLlqMKNzzQHQjwZAozdt/orkBKDx7Ds+2Q==
 
-"@poool/eslint-plugin@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-plugin/-/eslint-plugin-1.2.2.tgz#87c4c7ee1b871c4a8760f7191417957959f04dbd"
-  integrity sha512-avBFyddG/8kNnYi2fkNvjdu06L5PSE24KcCQq13Jgmd6vcZnSRb3Xwzlo+gkUDfFDbPGVoOowwDmoGyvkeowag==
+"@poool/eslint-plugin@1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-plugin/-/eslint-plugin-1.2.3.tgz#4fbd3b97a23025217fb0115ce623f0d8ccdb262f"
+  integrity sha512-HJx0D4YSGDeKOQ+rsR+RxN0vAsaGjqywB9w8m7+x/4dE/Ry1BwN/rgCcxAHQuslSaZcGyM7DAbgrciPq2KMmvg==
   dependencies:
     eslint-rule-composer "0.3.0"
 
