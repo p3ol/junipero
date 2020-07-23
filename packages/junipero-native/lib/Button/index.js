@@ -98,9 +98,7 @@ const Button = forwardRef(({
           { backgroundColor: color },
           customStyle.button,
           applyStyles(outline, [
-            { backgroundColor: '#fff',
-              borderColor: customStyle?.button?.backgroundColor || color,
-              borderWidth: 1 },
+            { backgroundColor: '#fff', borderColor: color, borderWidth: 1 },
             customStyle.button__outline,
           ]),
           applyStyles(disabled, [
@@ -120,8 +118,12 @@ const Button = forwardRef(({
               : size === 'small'
                 ? styles.title__small
                 : styles.title,
+            color === '#FFF' && { color: colors.midnight },
+            color === '#F8F8F8' && { color: colors.midnight },
             applyStyles(outline, [
               { color: customStyle?.button?.backgroundColor || color },
+              color === '#FFF' && { color: colors.midnight },
+              color === '#F8F8F8' && { color: colors.midnight },
               customStyle.title__outline,
             ]),
             customStyle.title,
@@ -133,7 +135,7 @@ const Button = forwardRef(({
                 const icon = getIcon(child?.props?.icon);
                 return React.cloneElement(
                   child,
-                  { style: styles.icon, ...child.props.stye },
+                  { style: styles.icon, ...child.props.style },
                   icon,
                 );
               } else {
