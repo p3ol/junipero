@@ -2,13 +2,14 @@ import React, {
   useState,
   forwardRef,
   useImperativeHandle,
-  useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableWithoutFeedback, Text, View } from 'react-native';
 
-import styles from './index.styles';
-import { applyStyles, colors, getIcon } from '../theme';
+import styles, {
+  primary,
+} from './index.styles';
+import { applyStyles, getIcon } from '../theme';
 
 const Button = forwardRef(({
   children,
@@ -20,13 +21,7 @@ const Button = forwardRef(({
   size = 'default',
   customStyle = {},
   ...rest }, ref) => {
-
   const [active, setActive] = useState(false);
-  const [color, setColor] = useState();
-
-  useEffect(() => {
-    getColor();
-  }, []);
 
   useImperativeHandle(ref, () => ({
     active,
@@ -36,6 +31,7 @@ const Button = forwardRef(({
     if (disabled) {
       return;
     }
+
     onPress(e);
   };
 
@@ -43,6 +39,7 @@ const Button = forwardRef(({
     if (disabled) {
       return;
     }
+
     setActive(true);
   };
 
@@ -50,35 +47,47 @@ const Button = forwardRef(({
     if (disabled) {
       return;
     }
+
     setActive(false);
   };
 
-  const getColor = () => {
+  // const getColor = () => {
+  //   switch (theme) {
+  //     case 'basic':
+  //       setColor(disabled ? colors.alabaster : colors.white);
+  //       break;
+  //     case 'primary':
+  //       setColor(disabled ? colors.powderBlue : colors.easternBlue);
+  //       break;
+  //     case 'secondary':
+  //       setColor(disabled ? colors.powderBlue : colors.persianGreen);
+  //       break;
+  //     case 'warning':
+  //       setColor(disabled ? colors.disabledButtercup : colors.buttercup);
+  //       break;
+  //     case 'danger':
+  //       setColor(disabled ? colors.disabledMonza : colors.monza);
+  //       break;
+  //     case 'success':
+  //       setColor(disabled ? colors.disabledJava : colors.java);
+  //       break;
+  //     default:
+  //       setColor(customStyle?.button?.backgroundColor ||
+  //         disabled ? colors.powderBlue : colors.easternBlue);
+  //       break;
+  //   }
+  // };
+
+  const getStyles = () => {
     switch (theme) {
-      case 'basic':
-        setColor(disabled ? colors.alabaster : colors.white);
-        break;
       case 'primary':
-        setColor(disabled ? colors.powderBlue : colors.easternBlue);
-        break;
-      case 'secondary':
-        setColor(disabled ? colors.powderBlue : colors.persianGreen);
-        break;
-      case 'warning':
-        setColor(disabled ? colors.disabledButtercup : colors.buttercup);
-        break;
-      case 'danger':
-        setColor(disabled ? colors.disabledMonza : colors.monza);
-        break;
-      case 'success':
-        setColor(disabled ? colors.disabledJava : colors.java);
-        break;
+        return primary;
       default:
-        setColor(customStyle?.button?.backgroundColor ||
-          disabled ? colors.powderBlue : colors.easternBlue);
-        break;
+        return primary;
     }
   };
+
+  const themeStyles = getStyles();
 
   return (
     <TouchableWithoutFeedback
@@ -90,19 +99,23 @@ const Button = forwardRef(({
       <View
         { ...rest }
         style={[
-          size === 'big'
-            ? styles.button__big
-            : size === 'small'
-              ? styles.button__small
-              : styles.button,
-          { backgroundColor: color },
+          styles.button,
+          themeStyles.button,
           customStyle.button,
+          applyStyles(size === 'small', [
+            styles.button__small,
+            customStyle.button__small,
+          ]),
+          applyStyles(size === 'big', [
+            styles.button__big,
+            customStyle.button__big,
+          ]),
           applyStyles(outline, [
-            { backgroundColor: '#fff', borderColor: color, borderWidth: 1 },
+            themeStyles.button__outline,
             customStyle.button__outline,
           ]),
           applyStyles(disabled, [
-            customStyle?.button?.backgroundColor && { opacity: 0.7 },
+            themeStyles.button__disabled,
             customStyle.button__disabled,
           ]),
           applyStyles(active, [
@@ -111,39 +124,43 @@ const Button = forwardRef(({
           ]),
         ]}
       >
-        <Text
-          style={[
-            size === 'big'
-              ? styles.title__big
-              : size === 'small'
-                ? styles.title__small
-                : styles.title,
-            color === '#FFF' && { color: colors.midnight },
-            color === '#F8F8F8' && { color: colors.midnight },
-            applyStyles(outline, [
-              { color: customStyle?.button?.backgroundColor || color },
-              color === '#FFF' && { color: colors.midnight },
-              color === '#F8F8F8' && { color: colors.midnight },
-              customStyle.title__outline,
-            ]),
-            customStyle.title,
-          ]}
-        >
-          {
-            React.Children.map(children, child => {
-              if (child?.props?.icon) {
-                const icon = getIcon(child?.props?.icon);
-                return React.cloneElement(
-                  child,
-                  { style: styles.icon, ...child.props.style },
-                  icon,
-                );
-              } else {
-                return child;
-              }
-            })
-          }
-        </Text>
+        { typeof children === 'string' ? (
+          <Text
+            style={[
+              styles.title,
+              themeStyles.title,
+              customStyle.title,
+              applyStyles(size === 'small', [
+                styles.title__small,
+                customStyle.title__small,
+              ]),
+              applyStyles(size === 'big', [
+                styles.title__big,
+                customStyle.title__big,
+              ]),
+              applyStyles(outline, [
+                themeStyles.title__outline,
+                customStyle.title__outline,
+              ]),
+            ]}
+          >
+            { children }
+            {/* {
+              React.Children.map(children, child => {
+                if (child?.props?.icon) {
+                  const icon = getIcon(child?.props?.icon);
+                  return React.cloneElement(
+                    child,
+                    { style: styles.icon, ...child.props.style },
+                    icon,
+                  );
+                } else {
+                  return child;
+                }
+              })
+            } */}
+          </Text>
+        ) : children }
       </View>
     </TouchableWithoutFeedback>
   );

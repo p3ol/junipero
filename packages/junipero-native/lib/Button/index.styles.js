@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { commons } from '../theme';
+import { commons, colors } from '../theme';
 
 export default StyleSheet.create({
   button: {
@@ -51,3 +51,26 @@ export default StyleSheet.create({
     marginHorizontal: 10,
   },
 });
+
+export const primary = {
+  button: {
+    backgroundColor: colors.easternBlue,
+  },
+  button__active: {
+    backgroundColor: colors.persianGreen,
+  },
+  button__disabled: {
+    backgroundColor: colors.powderBlue,
+  },
+  button__outline: {
+    backgroundColor: 'transparent',
+    borderColor: colors.easternBlue,
+    borderWidth: 1,
+  },
+  title: {
+    color: colors.white,
+  },
+  title__outline: {
+    color: colors.easternBlue,
+  },
+};

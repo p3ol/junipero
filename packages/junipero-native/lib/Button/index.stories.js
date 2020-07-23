@@ -4,12 +4,19 @@ import Button from './index';
 
 export default { title: 'junipero-native/Button' };
 
+const fontStyles = { fontFamily: 'Material Icons' };
+
 export const basic = () => (
   <React.Fragment>
     <p><Button theme='basic'>Default</Button></p>
     <p><Button disabled theme='basic'>Disabled</Button></p>
     <p><Button outline theme='basic'>Outline</Button></p>
-    <p><Button theme='basic'><Text icon='visibility'/>With icon</Button></p>
+    <p>
+      <Button theme='basic'>
+        <Text style={fontStyles}>{'\u{e900}'}</Text>
+        <Text>With icon</Text>
+      </Button>
+    </p>
     <p><Button size='big' theme='basic'>Big</Button></p>
     <p><Button size='small' theme='basic'>Small</Button></p>
   </React.Fragment>
@@ -17,10 +24,15 @@ export const basic = () => (
 
 export const primary = () => (
   <React.Fragment>
-    <p><Button theme='primary'>Default</Button></p>
+    <p><Button theme="primary">Default</Button></p>
     <p><Button disabled theme='primary'>Disabled</Button></p>
     <p><Button outline theme='primary'>Outline</Button></p>
-    <p><Button theme='primary'><Text icon='visibility'/>With icon</Button></p>
+    <p>
+      <Button theme='primary'>
+        <Text style={fontStyles}>check</Text>
+        <Text>With icon</Text>
+      </Button>
+    </p>
     <p><Button size='big' theme='primary'>Big</Button></p>
     <p><Button size='small' theme='primary'>Small</Button></p>
   </React.Fragment>
