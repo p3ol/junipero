@@ -7,12 +7,32 @@ import Button from './';
 
 describe('<Button />', () => {
 
-  it('should render', async () => {
-    const { getByTestId } = render(<Button>Click</Button>);
-    await wait(() => getByTestId('Button'));
-    expect(getByTestId('Button')).toBeDefined();
-    fireEvent.press(getByTestId('Button'));
-
+  it('should render all different themes', async () => {
+    const { getByTestId } = render(
+      <React.Fragment>
+        <Button testID="press" theme="basic">Click</Button>
+        <Button theme="primary">Click</Button>
+        <Button theme="secondary">Click</Button>
+        <Button theme="warning">Click</Button>
+        <Button theme="danger">Click</Button>
+        <Button theme="success">Click</Button>
+      </React.Fragment>
+    );
+    await wait(() => {
+      getByTestId('basic');
+      getByTestId('primary');
+      getByTestId('secondary');
+      getByTestId('warning');
+      getByTestId('danger');
+      getByTestId('success');
+    });
+    expect(getByTestId('basic')).toBeDefined();
+    expect(getByTestId('primary')).toBeDefined();
+    expect(getByTestId('secondary')).toBeDefined();
+    expect(getByTestId('warning')).toBeDefined();
+    expect(getByTestId('danger')).toBeDefined();
+    expect(getByTestId('success')).toBeDefined();
+    fireEvent.press(getByTestId('press'));
   });
 
   it('should fire onPress event by clicking the button', async () => {

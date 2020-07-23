@@ -29,20 +29,17 @@ export default StyleSheet.create({
   },
   title: {
     ...commons.defaultFont,
-    color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
 
   },
   title__big: {
     ...commons.defaultFont,
-    color: '#fff',
     fontSize: 20,
     fontWeight: 'bold',
   },
   title__small: {
     ...commons.defaultFont,
-    color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
   },
@@ -72,5 +69,120 @@ export const primary = {
   },
   title__outline: {
     color: colors.easternBlue,
+  },
+};
+
+export const secondary = {
+  button: {
+    backgroundColor: colors.persianGreen,
+  },
+  button__active: {
+    backgroundColor: '#0e6176',
+  },
+  button__disabled: {
+    backgroundColor: colors.powderBlue,
+  },
+  button__outline: {
+    backgroundColor: 'transparent',
+    borderColor: colors.persianGreen,
+    borderWidth: 1,
+  },
+  title: {
+    color: colors.white,
+  },
+  title__outline: {
+    color: colors.persianGreen,
+  },
+};
+
+export const warning = {
+  button: {
+    backgroundColor: colors.buttercup,
+  },
+  button__active: {
+    backgroundColor: '#dc8d0a',
+  },
+  button__disabled: {
+    backgroundColor: colors.disabledButtercup,
+  },
+  button__outline: {
+    backgroundColor: 'transparent',
+    borderColor: colors.buttercup,
+    borderWidth: 1,
+  },
+  title: {
+    color: colors.white,
+  },
+  title__outline: {
+    color: colors.buttercup,
+  },
+};
+
+export const danger = {
+  button: {
+    backgroundColor: colors.monza,
+  },
+  button__active: {
+    backgroundColor: '#b70002',
+  },
+  button__disabled: {
+    backgroundColor: colors.disabledMonza,
+  },
+  button__outline: {
+    backgroundColor: 'transparent',
+    borderColor: colors.monza,
+    borderWidth: 1,
+  },
+  title: {
+    color: colors.white,
+  },
+  title__outline: {
+    color: colors.monza,
+  },
+};
+
+export const success = {
+  button: {
+    backgroundColor: colors.java,
+  },
+  button__active: {
+    backgroundColor: '#08b790',
+  },
+  button__disabled: {
+    backgroundColor: colors.disabledJava,
+  },
+  button__outline: {
+    backgroundColor: 'transparent',
+    borderColor: colors.java,
+    borderWidth: 1,
+  },
+  title: {
+    color: colors.white,
+  },
+  title__outline: {
+    color: colors.java,
+  },
+};
+
+export const basic = {
+  button: {
+    backgroundColor: colors.white,
+  },
+  button__active: {
+    backgroundColor: colors.alabaster,
+  },
+  button__disabled: {
+    backgroundColor: colors.alabaster,
+  },
+  button__outline: {
+    backgroundColor: 'transparent',
+    borderColor: colors.alabaster,
+    borderWidth: 1,
+  },
+  title: {
+    color: colors.midnight,
+  },
+  title__outline: {
+    color: colors.midnight,
   },
 };

@@ -8,8 +8,13 @@ import { TouchableWithoutFeedback, Text, View } from 'react-native';
 
 import styles, {
   primary,
+  secondary,
+  warning,
+  danger,
+  success,
+  basic,
 } from './index.styles';
-import { applyStyles, getIcon } from '../theme';
+import { applyStyles } from '../theme';
 
 const Button = forwardRef(({
   children,
@@ -51,39 +56,20 @@ const Button = forwardRef(({
     setActive(false);
   };
 
-  // const getColor = () => {
-  //   switch (theme) {
-  //     case 'basic':
-  //       setColor(disabled ? colors.alabaster : colors.white);
-  //       break;
-  //     case 'primary':
-  //       setColor(disabled ? colors.powderBlue : colors.easternBlue);
-  //       break;
-  //     case 'secondary':
-  //       setColor(disabled ? colors.powderBlue : colors.persianGreen);
-  //       break;
-  //     case 'warning':
-  //       setColor(disabled ? colors.disabledButtercup : colors.buttercup);
-  //       break;
-  //     case 'danger':
-  //       setColor(disabled ? colors.disabledMonza : colors.monza);
-  //       break;
-  //     case 'success':
-  //       setColor(disabled ? colors.disabledJava : colors.java);
-  //       break;
-  //     default:
-  //       setColor(customStyle?.button?.backgroundColor ||
-  //         disabled ? colors.powderBlue : colors.easternBlue);
-  //       break;
-  //   }
-  // };
-
   const getStyles = () => {
     switch (theme) {
       case 'primary':
         return primary;
+      case 'secondary':
+        return secondary;
+      case 'warning':
+        return warning;
+      case 'danger':
+        return danger;
+      case 'success':
+        return success;
       default:
-        return primary;
+        return basic;
     }
   };
 
@@ -98,6 +84,7 @@ const Button = forwardRef(({
     >
       <View
         { ...rest }
+        testID={theme}
         style={[
           styles.button,
           themeStyles.button,
@@ -127,9 +114,6 @@ const Button = forwardRef(({
         { typeof children === 'string' ? (
           <Text
             style={[
-              styles.title,
-              themeStyles.title,
-              customStyle.title,
               applyStyles(size === 'small', [
                 styles.title__small,
                 customStyle.title__small,
@@ -138,6 +122,9 @@ const Button = forwardRef(({
                 styles.title__big,
                 customStyle.title__big,
               ]),
+              styles.title,
+              themeStyles.title,
+              customStyle.title,
               applyStyles(outline, [
                 themeStyles.title__outline,
                 customStyle.title__outline,
@@ -145,20 +132,6 @@ const Button = forwardRef(({
             ]}
           >
             { children }
-            {/* {
-              React.Children.map(children, child => {
-                if (child?.props?.icon) {
-                  const icon = getIcon(child?.props?.icon);
-                  return React.cloneElement(
-                    child,
-                    { style: styles.icon, ...child.props.style },
-                    icon,
-                  );
-                } else {
-                  return child;
-                }
-              })
-            } */}
           </Text>
         ) : children }
       </View>

@@ -13,7 +13,7 @@ export const basic = () => (
     <p><Button outline theme='basic'>Outline</Button></p>
     <p>
       <Button theme='basic'>
-        <Text style={fontStyles}>{'\u{e900}'}</Text>
+        <Text style={fontStyles}>check</Text>
         <Text>With icon</Text>
       </Button>
     </p>
@@ -43,7 +43,12 @@ export const secondary = () => (
     <p><Button theme='secondary'>Default</Button></p>
     <p><Button disabled theme='secondary'>Disabled</Button></p>
     <p><Button outline theme='secondary'>Outline</Button></p>
-    <p><Button theme='secondary'><Text icon='visibility'/>With icon</Button></p>
+    <p>
+      <Button theme='secondary'>
+        <Text style={fontStyles}>check</Text>
+        <Text>With icon</Text>
+      </Button>
+    </p>
     <p><Button size='big' theme='secondary'>Big</Button></p>
     <p><Button size='small' theme='secondary'>Small</Button></p>
   </React.Fragment>
@@ -54,7 +59,12 @@ export const warning = () => (
     <p><Button theme='warning'>Default</Button></p>
     <p><Button disabled theme='warning'>Disabled</Button></p>
     <p><Button outline theme='warning'>Outline</Button></p>
-    <p><Button theme='warning'><Text icon='visibility'/>With icon</Button></p>
+    <p>
+      <Button theme='warning'>
+        <Text style={fontStyles}>check</Text>
+        <Text>With icon</Text>
+      </Button>
+    </p>
     <p><Button size='big' theme='warning'>Big</Button></p>
     <p><Button size='small' theme='warning'>Small</Button></p>
   </React.Fragment>
@@ -65,7 +75,12 @@ export const danger = () => (
     <p><Button theme='danger'>Dafault</Button></p>
     <p><Button disabled theme='danger'>Disabled</Button></p>
     <p><Button outline theme='danger'>Outline</Button></p>
-    <p><Button theme='danger'><Text icon='visibility'/>With icon</Button></p>
+    <p>
+      <Button theme='danger'>
+        <Text style={fontStyles}>check</Text>
+        <Text>With icon</Text>
+      </Button>
+    </p>
     <p><Button size='big' theme='danger'>Big</Button></p>
     <p><Button size='small' theme='danger'>Small</Button></p>
   </React.Fragment>
@@ -76,35 +91,13 @@ export const success = () => (
     <p><Button theme='success'>Default</Button></p>
     <p><Button disabled theme='success'>Disabled</Button></p>
     <p><Button outline theme='success'>Outline</Button></p>
-    <p><Button theme='success'><Text icon='visibility'/>With icon</Button></p>
+    <p>
+      <Button theme='success'>
+        <Text style={fontStyles}>check</Text>
+        <Text>With icon</Text>
+      </Button>
+    </p>
     <p><Button size='big' theme='success'>Big</Button></p>
     <p><Button size='small' theme='success'>Small</Button></p>
   </React.Fragment>
 );
-
-export const custom = () => (
-  <React.Fragment>
-    <p><Button customStyle={customStyles}>
-      Default
-    </Button></p>
-    <p><Button disabled customStyle={customStyles}>
-      Disabled
-    </Button></p>
-    <p><Button outline customStyle={customStyles}>
-      Outline
-    </Button></p>
-    <p><Button customStyle={customStyles}>
-      With icon
-    </Button></p>
-    <p><Button size='big' customStyle={customStyles}>
-      Big
-    </Button></p>
-    <p><Button size='small' customStyle={customStyles}>
-      Small
-    </Button></p>
-  </React.Fragment>
-);
-
-const customStyles = {
-  button: { backgroundColor: 'purple' },
-};
