@@ -1,19 +1,32 @@
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, {
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import { TouchableWithoutFeedback, Text, View } from 'react-native';
 
 import styles from './index.styles';
-import { applyStyles } from '../theme';
+import { applyStyles, colors, getIcon } from '../theme';
 
 const Button = forwardRef(({
   children,
   testID = 'Button',
+  outline = false,
   disabled = false,
   onPress = () => {},
+  theme = 'default',
+  size = 'default',
   customStyle = {},
   ...rest }, ref) => {
 
   const [active, setActive] = useState(false);
+  const [color, setColor] = useState();
+
+  useEffect(() => {
+    getColor();
+  }, []);
 
   useImperativeHandle(ref, () => ({
     active,
@@ -40,6 +53,33 @@ const Button = forwardRef(({
     setActive(false);
   };
 
+  const getColor = () => {
+    switch (theme) {
+      case 'basic':
+        setColor(disabled ? colors.alabaster : colors.white);
+        break;
+      case 'primary':
+        setColor(disabled ? colors.powderBlue : colors.easternBlue);
+        break;
+      case 'secondary':
+        setColor(disabled ? colors.powderBlue : colors.persianGreen);
+        break;
+      case 'warning':
+        setColor(disabled ? colors.disabledButtercup : colors.buttercup);
+        break;
+      case 'danger':
+        setColor(disabled ? colors.disabledMonza : colors.monza);
+        break;
+      case 'success':
+        setColor(disabled ? colors.disabledJava : colors.java);
+        break;
+      default:
+        setColor(customStyle?.button?.backgroundColor ||
+          disabled ? colors.powderBlue : colors.easternBlue);
+        break;
+    }
+  };
+
   return (
     <TouchableWithoutFeedback
       testID={testID}
@@ -50,10 +90,21 @@ const Button = forwardRef(({
       <View
         { ...rest }
         style={[
-          styles.button,
+          size === 'big'
+            ? styles.button__big
+            : size === 'small'
+              ? styles.button__small
+              : styles.button,
+          { backgroundColor: color },
           customStyle.button,
+          applyStyles(outline, [
+            { backgroundColor: '#fff',
+              borderColor: customStyle?.button?.backgroundColor || color,
+              borderWidth: 1 },
+            customStyle.button__outline,
+          ]),
           applyStyles(disabled, [
-            styles.button__disabled,
+            customStyle?.button?.backgroundColor && { opacity: 0.7 },
             customStyle.button__disabled,
           ]),
           applyStyles(active, [
@@ -62,13 +113,35 @@ const Button = forwardRef(({
           ]),
         ]}
       >
-        { typeof children === 'string' ? (
-          <Text
-            style={[styles.title, customStyle.title]}
-          >
-            { children }
-          </Text>
-        ) : children }
+        <Text
+          style={[
+            size === 'big'
+              ? styles.title__big
+              : size === 'small'
+                ? styles.title__small
+                : styles.title,
+            applyStyles(outline, [
+              { color: customStyle?.button?.backgroundColor || color },
+              customStyle.title__outline,
+            ]),
+            customStyle.title,
+          ]}
+        >
+          {
+            React.Children.map(children, child => {
+              if (child?.props?.icon) {
+                const icon = getIcon(child?.props?.icon);
+                return React.cloneElement(
+                  child,
+                  { style: styles.icon, ...child.props.stye },
+                  icon,
+                );
+              } else {
+                return child;
+              }
+            })
+          }
+        </Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -77,6 +150,9 @@ const Button = forwardRef(({
 Button.propTypes = {
   customStyle: PropTypes.object,
   disabled: PropTypes.bool,
+  outline: PropTypes.bool,
+  theme: PropTypes.string,
+  size: PropTypes.string,
   onPress: PropTypes.func,
   testID: PropTypes.string,
 };
