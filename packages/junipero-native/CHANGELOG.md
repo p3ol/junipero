@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.3](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2020-07-27)
+
+
+### Bug Fixes
+
+* **native:** allow testID overriding in the TextField component ([6113e4f](https://github.com/p3ol/junipero/commit/6113e4f5a0d185c2d0ebf323a258fbef2bffa64b))
+* **native:** create own test for testID overriding & define a default value for testID ([5637721](https://github.com/p3ol/junipero/commit/56377215e9c06ebd06451ebd758df00d3ea080b3))
+
+
+
+
+
 # [2.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-07-10)
 
 
