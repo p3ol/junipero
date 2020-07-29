@@ -7,7 +7,4 @@ export default {
     fontWeight: 'normal',
     color: colors.midnight,
   },
-  iconFont: {
-    fontFamily: 'Poool-Ico-2',
-  },
 };
