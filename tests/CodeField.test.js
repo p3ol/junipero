@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 
 import CodeField from '../src/CodeField';
 
@@ -35,8 +36,8 @@ describe('<CodeField />', () => {
   });
 
   it('should focus the first digit when autofocus is true', () => {
-    const component = mount(<CodeField autofocus={true} />);
-    expect(component.find('input').first().is(':focus')).toBe(true);
+    const { container } = render(<CodeField autofocus={true} />);
+    expect(container.querySelector('input:first-child:focus')).toBeTruthy();
   });
 
   it('should update internal value when value prop changes', () => {
@@ -76,50 +77,58 @@ describe('<CodeField />', () => {
 
   it('should not erase previous digit if hitting backspace in next one ' +
     'when something is selected or text is remaining in input', () => {
-    const component = mount(<CodeField value="123" />);
-    component.find('input').at(1).simulate('focus');
-    component.find('input').at(1).getDOMNode().setSelectionRange(1, 1);
-    component.find('input').at(1).simulate('keydown', { key: 'Backspace' });
-    expect(component.state('values').join('')).toBe('123');
+    const ref = createRef();
+    const { container } = render(<CodeField ref={ref} value="123" />);
+    fireEvent.focus(container.querySelector('input:nth-child(2)'));
+    container.querySelector('input:nth-child(2)').setSelectionRange(1, 1);
+    fireEvent.keyDown(
+      container.querySelector('input:nth-child(2)'), { key: 'Backspace' });
+    expect(ref.current.state.values.join('')).toBe('123');
   });
 
   it('should move to the next digit if hitting arrow right after text', () => {
-    const component = mount(<CodeField value="123" />);
-    component.find('input').at(1).simulate('focus');
-    component.find('input').at(1).simulate('keydown', { key: 'ArrowRight' });
-    expect(component.find('input').at(2).is(':focus')).toBe(true);
+    const { container } = render(<CodeField value="123" />);
+    fireEvent.focus(container.querySelector('input:nth-child(2)'));
+    fireEvent.keyDown(
+      container.querySelector('input:nth-child(2)'), { key: 'ArrowRight' });
+    expect(container.querySelector('input:nth-child(3):focus')).toBeTruthy();
   });
 
   it('should not move to the next digit if hitting arrow right if text is ' +
     'selected', () => {
-    const component = mount(<CodeField value="123" />);
-    component.find('input').at(1).simulate('focus');
-    component.find('input').at(1).getDOMNode().setSelectionRange(0, 1);
-    component.find('input').at(1).simulate('keydown', { key: 'ArrowRight' });
-    expect(component.find('input').at(2).is(':focus')).toBe(false);
+    const { container } = render(<CodeField value="123" />);
+    fireEvent.focus(container.querySelector('input:nth-child(2)'));
+    container.querySelector('input:nth-child(2)').setSelectionRange(0, 1);
+    fireEvent.keyDown(
+      container.querySelector('input:nth-child(2)'), { key: 'ArrowRight' });
+    expect(container.querySelector('input:nth-child(3):focus')).toBeNull();
   });
 
+  // JSDOM/Enzyme fuckup
   it('should move to the previous digit if hitting arrow right after ' +
     'text', () => {
-    const component = mount(<CodeField value="123" />);
-    component.find('input').at(1).simulate('focus');
-    component.find('input').at(1).simulate('keydown', { key: 'ArrowLeft' });
-    expect(component.find('input').first().is(':focus')).toBe(true);
+    const { container } = render(<CodeField value="123" />);
+    fireEvent.focus(container.querySelector('input:nth-child(2)'));
+    fireEvent.keyDown(
+      container.querySelector('input:nth-child(2)'), { key: 'ArrowLeft' });
+    expect(container.querySelector('input:first-child:focus')).toBeTruthy();
   });
 
   it('should not move to the next digit if hitting arrow right if text is ' +
     'selected', () => {
-    const component = mount(<CodeField value="123" />);
-    component.find('input').at(1).simulate('focus');
-    component.find('input').at(1).getDOMNode().setSelectionRange(0, 1);
-    component.find('input').at(1).simulate('keydown', { key: 'ArrowLeft' });
-    expect(component.find('input').first().is(':focus')).toBe(false);
+    const { container } = render(<CodeField value="123" />);
+    fireEvent.focus(container.querySelector('input:nth-child(2)'));
+    container.querySelector('input:nth-child(2)').setSelectionRange(0, 1);
+    fireEvent.keyDown(
+      container.querySelector('input:nth-child(2)'), { key: 'ArrowLeft' });
+    expect(container.querySelector('input:first-child:focus')).toBeNull();
   });
 
   it('should not do anything if key is not recognized', () => {
-    const component = mount(<CodeField value="123" />);
-    component.find('input').first().simulate('keydown', { key: 'ArrowDown' });
-    expect(component.find('input').at(1).is(':focus')).toBe(false);
+    const { container } = render(<CodeField value="123" />);
+    fireEvent.keyDown(
+      container.querySelector('input:nth-child(1)'), { key: 'ArrowDown' });
+    expect(container.querySelector('input:first-child:focus')).toBeNull();
   });
 
   it('should validate internal value with custom predicate', () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 
 import TagsField from '../src/TagsField';
 
@@ -51,9 +52,9 @@ describe('<TagsField />', () => {
   });
 
   it('should focus on input when clicked on', () => {
-    const component = mount(<TagsField value={[]} />);
-    component.find('.junipero-tags-field').simulate('click');
-    expect(component.find('input').is(':focus')).toBe(true);
+    const { container } = render(<TagsField value={[]} />);
+    fireEvent.click(container.querySelector('.junipero-tags-field'));
+    expect(container.querySelector('input:focus')).toBeTruthy();
   });
 
   it('should not focus on input when clicked on if field is disabled', () => {
