@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.10.5",
-    "@babel/core": "7.11.0",
+    "@babel/core": "7.11.1",
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/plugin-proposal-export-default-from": "7.10.4",
     "@babel/plugin-proposal-object-rest-spread": "7.11.0",
@@ -89,7 +89,7 @@
     "webpack-merge": "5.1.1"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.11.0",
+    "@babel/runtime-corejs3": "7.11.1",
     "core-js": "3.6.5",
     "prop-types": "15.7.2"
   },
