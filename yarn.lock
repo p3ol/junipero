@@ -1217,10 +1217,10 @@
     "@babel/plugin-transform-react-jsx-source" "^7.10.4"
     "@babel/plugin-transform-react-pure-annotations" "^7.10.4"
 
-"@babel/runtime-corejs3@7.11.1":
-  version "7.11.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.11.1.tgz#075c87ae7abcf3edbdf9fbed917d5f11ac30958a"
-  integrity sha512-0gB7HCuTwvPxyCMWJTsRqh8muWkWR6U2c/o5x+oTJPR0xzaFl+thzQxHv4kzMkQadRIhe6KW1D/q1yVrjXmsKA==
+"@babel/runtime-corejs3@7.11.2":
+  version "7.11.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.11.2.tgz#02c3029743150188edeb66541195f54600278419"
+  integrity sha512-qh5IR+8VgFz83VBa6OkaET6uN/mJOhHONuy3m1sgF0CV6mXdPSEBdA7e1eUbVvyNtANjMbg22JUv71BaDXLY6A==
   dependencies:
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
