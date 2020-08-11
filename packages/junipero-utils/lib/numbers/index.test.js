@@ -1,6 +1,7 @@
 import {
   ensureMinMax,
   getFloatPrecision,
+  formatThousand,
 } from './';
 
 describe('numbers', () => {
@@ -26,6 +27,15 @@ describe('numbers', () => {
 
     it('should work evey if nothing is passed in args', () => {
       expect(ensureMinMax()).toBe(0);
+    });
+  });
+
+  describe('formatThousand(value)', () => {
+    it('should format a big number with thousand separators', () => {
+      expect(formatThousand(10000000)).toBe('10 000 000');
+    });
+    it('should also allow to format floats', () => {
+      expect(formatThousand(10000000.33)).toBe('10 000 000.33');
     });
   });
 });

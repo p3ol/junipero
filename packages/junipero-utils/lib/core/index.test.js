@@ -4,6 +4,11 @@ import {
   exists,
   isUndefined,
   isNull,
+  get,
+  set,
+  omit,
+  omitBy,
+  pick,
 } from './';
 
 describe('core', () => {
@@ -89,6 +94,170 @@ describe('core', () => {
 
     it('should return false when value is not defined', () => {
       expect(exists()).toBe(false);
+    });
+  });
+
+  describe('get()', () => {
+    it('should allow to get a value of a property in a given object', () => {
+      const foo = { bar: 'test' };
+      expect(get(foo, 'bar')).toBe('test');
+    });
+
+    it('should allow to get a value of a nested property in a given ' +
+      'object', () => {
+      const foo = { bar: { stuff: 'test' } };
+      expect(get(foo, 'bar.stuff')).toBe('test');
+    });
+
+    it('should allow to get a particular value in an array', () => {
+      const foo = ['bar', 'stuff', 'test'];
+      expect(get(foo, '1')).toBe('stuff');
+    });
+
+    it('should allow to get a particular value in an array for a given ' +
+      'object', () => {
+      const foo = { bar: ['stuff', 'test'] };
+      expect(get(foo, 'bar.0')).toBe('stuff');
+    });
+
+    // We need to go deeper
+    it('should allow to get a particular value in a nested property in an ' +
+      'array for a given array', () => {
+      const foo = { bar: [{ stuff: 'test' }] };
+      expect(get(foo, 'bar.0.stuff')).toBe('test');
+    });
+
+    it('should not throw an error if any given parameter is null or ' +
+      'undefined', () => {
+      let error;
+      try {
+        get();
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeUndefined();
+    });
+
+    it('should allow to get a default value when nested property is not ' +
+      'found', () => {
+      const foo = { bar: 'test' };
+      expect(get(foo, 'bar.stuff', 'thing')).toBe('thing');
+    });
+  });
+
+  describe('set()', () => {
+    it('should allow to set the value of a property in a given object', () => {
+      const foo = { bar: 'test' };
+      set(foo, 'bar', 'stuff');
+      expect(foo.bar).toBe('stuff');
+    });
+
+    it('should allow to set the value of a nested property in a given ' +
+      'object', () => {
+      const foo = { bar: { stuff: 'test' } };
+      set(foo, 'bar.stuff', 'thing');
+      expect(foo.bar.stuff).toBe('thing');
+    });
+
+    it('should allow to set a particular value in an array', () => {
+      const foo = ['bar', 'stuff', 'test'];
+      set(foo, '1', 'thing');
+      expect(foo[1]).toBe('thing');
+    });
+
+    it('should allow to set a particular value in an array for a given ' +
+      'object', () => {
+      const foo = { bar: ['stuff', 'test'] };
+      set(foo, 'bar.0', 'thing');
+      expect(foo.bar[0]).toBe('thing');
+    });
+
+    // We need to go even deepier
+    it('should allow to set a particular value in a nested property in an ' +
+      'array for a given object', () => {
+      const foo = { bar: [{ stuff: 'test' }] };
+      set(foo, 'bar.0.stuff', 'thing');
+      expect(foo.bar[0].stuff).toBe('thing');
+    });
+
+    it('should not throw an error if any given parameter is null or ' +
+      'undefined', () => {
+      let error;
+      try {
+        set();
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeUndefined();
+    });
+
+    it('should allow to set a value even when nested property is not ' +
+      'found', () => {
+      const foo = { bar: 'test' };
+      set(foo, 'bar.0.stuff', 'thing');
+      expect(foo.bar[0].stuff).toBe('thing');
+    });
+  });
+
+  describe('omit()', () => {
+    it('should allow to omit a value from an object', () => {
+      const foo = { bar: 'stuff', thing: 'test' };
+      expect(omit(foo, ['thing'])).toMatchObject({ bar: 'stuff' });
+    });
+
+    it('should not throw an error if any given parameter is null or ' +
+      'undefined', () => {
+      let error;
+      try {
+        omit();
+        omit(null);
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeUndefined();
+    });
+  });
+
+  describe('omitBy()', () => {
+    it('should allow to omit some pairs from an object', () => {
+      const foo = { bar: 1, test: 10, thing: 3, stuff: 14 };
+      expect(omitBy(foo, (k, v) => v > 5))
+        .toMatchObject({ test: 10, stuff: 14 });
+    });
+
+    it('should not throw an error if any given parameter is null or ' +
+      'undefined', () => {
+      let error;
+      try {
+        omitBy();
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeUndefined();
+    });
+  });
+
+  describe('pick()', () => {
+    it('should allow to only get some pairs from an object', () => {
+      const foo = { bar: 'test', thing: 'stuff', skywalker: null };
+      expect(pick(foo, ['bar', 'skywalker', 'yoda']))
+        .toMatchObject({ bar: 'test', skywalker: null });
+    });
+
+    it('should not throw an error if any given parameter is null or ' +
+      'undefined', () => {
+      let error;
+      try {
+        pick();
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeUndefined();
     });
   });
 });

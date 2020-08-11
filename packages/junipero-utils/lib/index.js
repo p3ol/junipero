@@ -4,6 +4,11 @@ export {
   exists,
   isUndefined,
   isNull,
+  get,
+  set,
+  omitBy,
+  omit,
+  pick,
 } from './core';
 
 export {
