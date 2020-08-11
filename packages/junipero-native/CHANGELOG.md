@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.4](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2020-08-11)
+
+
+### Bug Fixes
+
+* **native:** fix some names, add custom styles and remove useless lines ([35b74fb](https://github.com/p3ol/junipero/commit/35b74fb3000e0987060f1db2ec43326c461fa974))
+* **native:** remove useless code ([5070c88](https://github.com/p3ol/junipero/commit/5070c88a3fd726d4ef8a7050feac6756279459d7))
+
+
+### Features
+
+* **native:** add basic theme to button component ([44eae02](https://github.com/p3ol/junipero/commit/44eae027948a7b226e9d8e58adba9664a4a172c7))
+* **native:** add button component (wip) ([31f61ca](https://github.com/p3ol/junipero/commit/31f61cab1c4ee661576c066c91ecd5520015d64d))
+* **native:** change Button base component & add tests ([06f6cc9](https://github.com/p3ol/junipero/commit/06f6cc9ba46aa35dc9d55184c64dc7c0b6ca2cbf))
+* **native:** fix few things according to requested changes ([ad1d678](https://github.com/p3ol/junipero/commit/ad1d678f9af31ddc271fe990b2060004075485e2))
+* **native:** wip add multiple default styles for button component & icons ([c4565bd](https://github.com/p3ol/junipero/commit/c4565bd058544b7e5b308a10cee69fcdb0e9a0c9))
+* **native:** working button component ([95e974d](https://github.com/p3ol/junipero/commit/95e974d4c7ef7e4ebfb67cebeb4a7952fe46331e))
+
+
+
+
+
 # [2.0.0-alpha.3](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2020-07-27)
 
 
