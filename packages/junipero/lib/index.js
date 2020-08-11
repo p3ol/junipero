@@ -26,6 +26,11 @@ export {
   isNull,
   isUndefined,
   mockState,
+  get,
+  set,
+  omit,
+  pick,
+  cloneDeep,
 } from '@poool/junipero-utils';
 
 export {
