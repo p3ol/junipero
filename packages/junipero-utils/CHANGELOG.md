@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2020-08-11)
+
+
+### Features
+
+* **utils:** add cloneDeep util ([55a1dbf](https://github.com/p3ol/junipero/commit/55a1dbf286ecce13938da83ed3e7a66def47c1f0))
+
+
+
+
+
 # [2.0.0-alpha.5](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2020-08-11)
 
 
