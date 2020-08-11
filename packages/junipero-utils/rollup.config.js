@@ -42,7 +42,12 @@ export default formats.map(f => ({
     globals: defaultGlobals,
   },
   ...(f === 'esm' ? {
-    manualChunks: id =>
-      id.includes('node_modules') ? 'vendor' : path.parse(id).name,
+    manualChunks: id => {
+      if (/packages\/junipero-utils\/lib\/(\w+)\/index.js/.test(id)) {
+        return path.parse(id).dir.split('/').pop();
+      } else {
+        return id.includes('node_modules') ? 'vendor' : path.parse(id).name;
+      }
+    },
   } : {}),
 }));

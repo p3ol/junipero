@@ -9,7 +9,7 @@ module.exports = {
     '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
   },
   testEnvironment: 'jest-environment-jsdom-fourteen',
-  testMatch: ['<rootDir>/packages/junipero-utils/lib/*.test.js'],
+  testMatch: ['<rootDir>/packages/junipero-utils/lib/**/*.test.js'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
