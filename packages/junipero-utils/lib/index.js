@@ -9,6 +9,7 @@ export {
   omitBy,
   omit,
   pick,
+  cloneDeep,
 } from './core';
 
 export {
