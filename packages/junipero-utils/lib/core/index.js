@@ -69,3 +69,15 @@ export const pick = (obj = {}, keys = []) =>
     }
     return res;
   }, {});
+
+export const cloneDeep = (obj = {}) =>
+  typeof obj !== 'object' || obj === null
+    ? obj
+    : obj instanceof Date
+      ? new Date(obj.getTime())
+      : Array.isArray(obj)
+        ? [...obj.map(o => cloneDeep(o))]
+        : Object.entries(obj).reduce((res, [k, v]) => {
+          res[k] = cloneDeep(v);
+          return res;
+        }, {});

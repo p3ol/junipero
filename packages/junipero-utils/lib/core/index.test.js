@@ -9,6 +9,7 @@ import {
   omit,
   omitBy,
   pick,
+  cloneDeep,
 } from './';
 
 describe('core', () => {
@@ -253,6 +254,37 @@ describe('core', () => {
       let error;
       try {
         pick();
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeUndefined();
+    });
+  });
+
+  describe('cloneDeep()', () => {
+    it('should allow to clone an object with subproperties', () => {
+      const obj = { foo: 'bar' };
+      const newObj = cloneDeep(obj);
+      newObj.foo = 'test';
+      expect(newObj).not.toBe(obj);
+      expect(obj.foo).toBe('bar');
+    });
+
+    it('should allow to clone an object with nested props', () => {
+      const obj = { foo: { stuff: new Date(), bar: [{}] } };
+      const newObj = cloneDeep(obj);
+      expect(newObj).not.toBe(obj);
+      expect(obj.foo.stuff).not.toBe(newObj.foo.stuff);
+      expect(obj.foo.bar).not.toBe(newObj.foo.bar);
+      expect(obj.foo.bar[0]).not.toBe(newObj.foo.bar[0]);
+    });
+
+    it('should not throw an error if any given parameter is null or ' +
+      'undefined', () => {
+      let error;
+      try {
+        cloneDeep();
       } catch (e) {
         error = e;
       }
