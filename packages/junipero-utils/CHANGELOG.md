@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.5](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2020-08-11)
+
+
+### Features
+
+* **utils:** add some more utils ([bb23823](https://github.com/p3ol/junipero/commit/bb23823eb71ac4b3bc36b273198ee5ee931fe580))
+
+
+
+
+
 # [2.0.0-alpha.4](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2020-08-11)
 
 
