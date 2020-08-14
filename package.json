@@ -37,7 +37,7 @@
     "@poool/eslint-plugin": "1.2.3",
     "@popperjs/core": "2.4.4",
     "@rollup/plugin-babel": "5.2.0",
-    "@rollup/plugin-commonjs": "14.0.0",
+    "@rollup/plugin-commonjs": "15.0.0",
     "@rollup/plugin-node-resolve": "9.0.0",
     "@testing-library/react": "10.4.8",
     "auto-changelog": "2.2.0",
