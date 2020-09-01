@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2020-09-01)
+
+
+### Bug Fixes
+
+* **utils:** fix wrongly replaced undefined values using cloneDeep ([d8e2b2c](https://github.com/p3ol/junipero/commit/d8e2b2c17e354d329370bfa6f44c74b438d147b6))
+
+
+
+
+
 # [2.0.0-alpha.7](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2020-08-11)
 
 
