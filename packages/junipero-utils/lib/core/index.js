@@ -70,7 +70,7 @@ export const pick = (obj = {}, keys = []) =>
     return res;
   }, {});
 
-export const cloneDeep = (obj = {}) =>
+export const cloneDeep = obj =>
   typeof obj !== 'object' || obj === null
     ? obj
     : obj instanceof Date

@@ -280,6 +280,13 @@ describe('core', () => {
       expect(obj.foo.bar[0]).not.toBe(newObj.foo.bar[0]);
     });
 
+    it('should not override undefined values with plain objects', () => {
+      const obj = { foo: undefined };
+      const newObj = cloneDeep(obj);
+      expect(newObj).not.toBe(obj);
+      expect(newObj.foo).toBeUndefined();
+    });
+
     it('should not throw an error if any given parameter is null or ' +
       'undefined', () => {
       let error;
