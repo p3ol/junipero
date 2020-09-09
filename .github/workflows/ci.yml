@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [master,develop]
   pull_request:
-    branches: [master]
+    branches: [master,develop]
 
 jobs:
   lint:
@@ -41,7 +41,6 @@ jobs:
         uses: codecov/codecov-action@v1.0.7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
 
   build:
     name: Building
