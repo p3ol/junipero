@@ -61,7 +61,7 @@
     "eslint-plugin-standard": "4.0.1",
     "file-loader": "6.1.0",
     "friendly-errors-webpack-plugin": "1.7.0",
-    "html-webpack-plugin": "4.4.1",
+    "html-webpack-plugin": "4.5.0",
     "jest": "26.4.2",
     "postcss": "7.0.32",
     "postcss-loader": "4.0.1",
