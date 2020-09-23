@@ -63,7 +63,7 @@
     "friendly-errors-webpack-plugin": "1.7.0",
     "html-webpack-plugin": "4.4.1",
     "jest": "26.4.2",
-    "postcss": "7.0.32",
+    "postcss": "8.0.8",
     "postcss-loader": "4.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
