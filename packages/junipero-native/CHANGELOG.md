@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.9](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2020-10-05)
+
+
+### Bug Fixes
+
+* **native:** fix missing Button import ([8c2db4f](https://github.com/p3ol/junipero/commit/8c2db4f6abfedd5760d6bb2410455b3808f524a3))
+
+
+
+
+
 # [2.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2020-09-01)
 
 **Note:** Version bump only for package @poool/junipero-native
