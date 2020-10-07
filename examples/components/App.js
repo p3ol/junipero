@@ -19,6 +19,7 @@ import TooltipPage from './TooltipPage';
 import TabsPage from './TabsPage';
 import ModalPage from './ModalPage';
 import ColorPickerPage from './ColorPickerPage';
+import RadioFieldPage from './RadioFieldPage';
 import SwitchPage from './SwitchPage';
 import DropdownPage from './DropdownPage';
 import Toolbox from './Toolbox';
@@ -56,6 +57,7 @@ export default () => {
             <Route exact path="/modal" component={ModalPage} />
             <Route exact path="/color-picker" component={ColorPickerPage} />
             <Route exact path="/switch" component={SwitchPage} />
+            <Route exact path="/radio-field" component={RadioFieldPage} />
             <Route exact path="/dropdown" component={DropdownPage} />
           </Switch>
         </Router>
