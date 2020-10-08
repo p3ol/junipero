@@ -53,6 +53,21 @@ describe('<RadioField />', () => {
     expect(component.find('input').at(0).prop('checked')).toBe(true);
   });
 
+  it('should fire onChange when component is mounted, to set first option ' +
+    'as already selected', () => {
+    const onChange = sinon.spy();
+    const onChangeWaitedArgs = { title: 'One', value: 'One' };
+    shallow(
+      <RadioField
+        onChange={onChange}
+        value="One"
+        options={options}
+      />
+    );
+    expect(onChange.calledOnce).toBe(true);
+    expect(onChange.calledWith(onChangeWaitedArgs)).toBe(true);
+  });
+
   it('should fire onChange event handler when clicking an item', () => {
     const onChange = sinon.spy();
     const onChangeWaitedArgs = { title: 'One', value: 'One' };
@@ -64,7 +79,7 @@ describe('<RadioField />', () => {
       />
     );
     component.find('.radio-wrapper').at(0).simulate('click', { button: 0 });
-    expect(onChange.calledOnce).toBe(true);
+    expect(onChange.called).toBe(true);
     expect(onChange.calledWith(onChangeWaitedArgs)).toBe(true);
   });
 
@@ -96,12 +111,13 @@ describe('<RadioField />', () => {
       />
     );
     component.find('.radio-wrapper').at(1).simulate('click', { button: 0 });
-    expect(onChange.calledOnce).toBe(true);
+    expect(onChange.calledTwice).toBe(true);
     expect(onChange.calledWith(onChangeWaitedArgs)).toBe(true);
   });
 
   it('shouldn\'t fire onChange event if disabled', () => {
     const onChange = sinon.spy();
+    const onChangeArgs = { title: 'Two', value: 'two' };
     const component = shallow(
       <RadioField
         onChange={onChange}
@@ -111,7 +127,7 @@ describe('<RadioField />', () => {
       />
     );
     component.find('.radio-wrapper').at(0).simulate('click', { button: 0 });
-    expect(onChange.called).toBe(false);
+    expect(onChange.calledWith(onChangeArgs)).toBe(false);
   });
 
   it('should set an id and a name correctly to avoid issues on multiple ' +
