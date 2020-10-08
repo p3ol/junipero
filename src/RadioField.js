@@ -10,10 +10,14 @@ export default class RadioField extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
+    label: PropTypes.string,
     options: PropTypes.array,
     disabled: PropTypes.bool,
     theme: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]),
     onChange: PropTypes.func,
     parseTitle: PropTypes.func,
     parseValue: PropTypes.func,
@@ -22,6 +26,7 @@ export default class RadioField extends React.Component {
   static defaultProps = {
     id: '',
     name: '',
+    label: '',
     options: [],
     disabled: false,
     theme: 'default',
@@ -42,16 +47,8 @@ export default class RadioField extends React.Component {
   }
 
   componentDidMount () {
-    const { onChange, parseTitle, parseValue, options, value } = this.props;
-
-    this.setState({
-      checked: options?.find(i => parseValue(i) === value) || options[0],
-    }, () => {
-      onChange({
-        title: parseTitle(this.state.checked),
-        value: parseValue(this.state.checked),
-      });
-    });
+    const { parseValue, options, value } = this.props;
+    this.setState({ checked: options?.find(i => parseValue(i) === value) });
   }
 
   onChange (item, e) {
@@ -68,6 +65,7 @@ export default class RadioField extends React.Component {
       onChange({
         title: parseTitle(this.state.checked),
         value: parseValue(this.state.checked),
+        valid: true,
       });
     });
   }
@@ -81,6 +79,7 @@ export default class RadioField extends React.Component {
     const {
       id,
       name,
+      label,
       options,
       theme,
       className,
@@ -99,6 +98,7 @@ export default class RadioField extends React.Component {
           className,
         )}
       >
+        <p className="label">{label}</p>
         <ul>
           { options.map((item, key) => {
             return (
@@ -117,7 +117,7 @@ export default class RadioField extends React.Component {
                     readOnly
                   />
                   <div className="check"></div>
-                  <div className="label">
+                  <div className="item-label">
                     { parseTitle(item) }
                   </div>
                 </label>
