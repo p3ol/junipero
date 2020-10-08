@@ -10,7 +10,7 @@ export default class RadioField extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
-    items: PropTypes.array,
+    options: PropTypes.array,
     disabled: PropTypes.bool,
     theme: PropTypes.string,
     value: PropTypes.string,
@@ -22,7 +22,7 @@ export default class RadioField extends React.Component {
   static defaultProps = {
     id: '',
     name: '',
-    items: [],
+    options: [],
     disabled: false,
     theme: 'default',
     value: '',
@@ -42,9 +42,9 @@ export default class RadioField extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({ checked: this.props.items?.find(i =>
+    this.setState({ checked: this.props.options?.find(i =>
       this.props.parseValue(i) === this.props.value) ||
-      this.props.items[0],
+      this.props.options[0],
     });
   }
 
@@ -75,7 +75,7 @@ export default class RadioField extends React.Component {
     const {
       id,
       name,
-      items,
+      options,
       theme,
       className,
       disabled,
@@ -94,7 +94,7 @@ export default class RadioField extends React.Component {
         )}
       >
         <ul>
-          { items.map((item, key) => {
+          { options.map((item, key) => {
             return (
               <li
                 key={key}
