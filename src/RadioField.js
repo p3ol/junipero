@@ -42,9 +42,15 @@ export default class RadioField extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({ checked: this.props.options?.find(i =>
-      this.props.parseValue(i) === this.props.value) ||
-      this.props.options[0],
+    const { onChange, parseTitle, parseValue, options, value } = this.props;
+
+    this.setState({
+      checked: options?.find(i => parseValue(i) === value) || options[0],
+    }, () => {
+      onChange({
+        title: parseTitle(this.state.checked),
+        value: parseValue(this.state.checked),
+      });
     });
   }
 
