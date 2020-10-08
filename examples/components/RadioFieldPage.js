@@ -10,6 +10,7 @@ export default () => {
   const [state, dispatch] = useReducer(mockState, {
     default: {},
     objects: {},
+    labeled: {},
     unthemed: {},
   });
 
@@ -57,7 +58,7 @@ export default () => {
         <div className="col-6">
             <RadioField
               id="with-objects"
-              name="with-obejcts"
+              name="with-objects"
               options={optionsAsObjects}
               required={true}
               value="three"
@@ -70,6 +71,28 @@ export default () => {
         <div className="col-6">
           <p>Current state:</p>
           <pre>{ JSON.stringify(state.objects, null, 2)}</pre>
+        </div>
+      </div>
+
+      <h2 className="mt-5">With label</h2>
+      <div className="row mt-5">
+        <div className="col-6">
+            <RadioField
+              id="with-label"
+              name="with-label"
+              options={optionsAsObjects}
+              required={true}
+              value="three"
+              disabled={disabled}
+              label="This field has a label"
+              parseTitle={opt => opt?.title}
+              parseValue={opt => opt?.value}
+              onChange={onChange.bind(null, 'labeled')}
+            />
+        </div>
+        <div className="col-6">
+          <p>Current state:</p>
+          <pre>{ JSON.stringify(state.labeled, null, 2)}</pre>
         </div>
       </div>
 
