@@ -16,9 +16,9 @@ export default () => {
   const onChange = (name, field) =>
     dispatch({ [name]: field });
 
-  const items = ['One', 'Two', 'Three'];
+  const options = ['One', 'Two', 'Three'];
 
-  const itemsAsObjects = [{
+  const optionsAsObjects = [{
     title: 'One',
     value: 'one',
   }, {
@@ -40,7 +40,7 @@ export default () => {
           <RadioField
             id="default"
             name="default"
-            items={items}
+            options={options}
             required={true}
             disabled={disabled}
             onChange={onChange.bind(null, 'default')}
@@ -58,12 +58,12 @@ export default () => {
             <RadioField
               id="with-objects"
               name="with-obejcts"
-              items={itemsAsObjects}
+              options={optionsAsObjects}
               required={true}
               value="three"
               disabled={disabled}
-              parseTitle={opt => opt.title}
-              parseValue={opt => opt.value}
+              parseTitle={opt => opt?.title}
+              parseValue={opt => opt?.value}
               onChange={onChange.bind(null, 'objects')}
             />
         </div>
@@ -79,7 +79,7 @@ export default () => {
           <RadioField
             theme="none"
             value="Two"
-            items={items}
+            options={options}
             required={true}
             disabled={disabled}
             onChange={onChange.bind(null, 'unthemed')}
