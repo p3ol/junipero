@@ -9,6 +9,7 @@ export { default as DropdownItem } from './DropdownItem';
 export { default as DropdownMenu } from './DropdownMenu';
 export { default as DropdownToggle } from './DropdownToggle';
 export { default as Modal } from './Modal';
+export { default as RadioField } from './RadioField';
 export { default as SelectField } from './SelectField';
 export { default as Slider } from './Slider';
 export { default as Switch } from './Switch';

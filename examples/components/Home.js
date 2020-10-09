@@ -15,6 +15,7 @@ export default () => (
       <li><Link to="/date-field">DateField</Link></li>
       <li><Link to="/dropdown">Dropdown</Link></li>
       <li><Link to="/modal">Modal</Link></li>
+      <li><Link to="/radio-field">RadioField</Link></li>
       <li><Link to="/select-field">SelectField</Link></li>
       <li><Link to="/slider">Slider</Link></li>
       <li><Link to="/switch">Switch</Link></li>
