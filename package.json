@@ -40,7 +40,6 @@
     "@rollup/plugin-commonjs": "15.1.0",
     "@rollup/plugin-node-resolve": "9.0.0",
     "@testing-library/react": "11.0.4",
-    "auto-changelog": "2.2.1",
     "autoprefixer": "9.8.6",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.5.2",
@@ -78,6 +77,8 @@
     "rollup-plugin-postcss": "3.1.8",
     "rollup-plugin-terser": "7.0.2",
     "sinon": "9.2.0",
+    "standard-changelog": "2.0.24",
+    "standard-version": "9.0.0",
     "stylus": "0.54.8",
     "stylus-loader": "4.1.0",
     "uglify-js": "3.11.1",
@@ -103,7 +104,8 @@
     "prepack": "yarn lint && yarn build && yarn test",
     "test": "./node_modules/.bin/jest",
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "changelog": "./node_modules/.bin/auto-changelog"
+    "changelog": "./node_modules/.bin/standard-changelog",
+    "release": "./node_modules/.bin/standard-version && git push --follow-tags"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
