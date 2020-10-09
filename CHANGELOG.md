@@ -1,3 +1,28 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.6.0](https://github.com/p3ol/junipero/compare/v1.5.1...v1.6.0) (2020-10-09)
+
+
+### Features
+
+* **examples:** add radiofield examples ([4efc00c](https://github.com/p3ol/junipero/commit/4efc00c36f6eeac3560a3acaf3ce5b9aea504bd0))
+* **lib:** add radiofield component ([610b448](https://github.com/p3ol/junipero/commit/610b44864abcf7ea82ab56a72479d7a05fb32ae6))
+* **radiofield:** add a label as a prop ([e97ade6](https://github.com/p3ol/junipero/commit/e97ade6b0a0486dbedc5deb56de4b95aa3758dc8))
+* **radiofield:** add a labeled example ([a903259](https://github.com/p3ol/junipero/commit/a90325955f02879997925e2701df1638182b971e))
+* **radiofield:** trigger onchange method after component being mounted ([f00015a](https://github.com/p3ol/junipero/commit/f00015a29180752a1b043398e4e4150b6e1af4bf))
+
+
+### Bug Fixes
+
+* **chore:** handle postcss-loader changes ([38818fd](https://github.com/p3ol/junipero/commit/38818fd692bf0dfb09ae32106e98bee9ec645fc1))
+* **deps:** update dependency @babel/runtime-corejs3 to v7.11.2 ([24afdb6](https://github.com/p3ol/junipero/commit/24afdb6dcb6547a0f1356c7fbf12afa702ebfe92))
+* **radiofield:** fix missing end of file ([9bbe12b](https://github.com/p3ol/junipero/commit/9bbe12b738543d3fefc6c1141cfc687eb5d6b28c))
+* fix enzyme/jsdom fuckup on focus state with testing-library ([390b5b4](https://github.com/p3ol/junipero/commit/390b5b4c1a1509da41bdc438e2610cd79ff1704e))
+* fix linter issues ([fa30fec](https://github.com/p3ol/junipero/commit/fa30fecebc706694ce961386d93dcdde86d453bb))
+* fix linter issues ([6a8a0bb](https://github.com/p3ol/junipero/commit/6a8a0bbd52c23ec90559760f3444f31d65a58c88))
+
 ### Changelog
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
