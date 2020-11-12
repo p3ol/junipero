@@ -12,6 +12,8 @@ module.exports = {
     contentBase: './dist',
     port: 65000,
     host: 'localhost',
+    hot: true,
+    open: true,
     historyApiFallback: true,
   },
   plugins: [

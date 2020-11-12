@@ -83,14 +83,11 @@
     "standard-version": "9.0.0",
     "stylus": "0.54.8",
     "stylus-loader": "4.3.0",
-    "uglify-js": "3.11.5",
-    "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "4.1.1",
     "webpack": "5.4.0",
     "webpack-bundle-analyzer": "3.9.0",
     "webpack-cli": "4.1.0",
-    "webpack-dev-server": "3.11.0",
-    "webpack-merge": "5.3.0"
+    "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.12.5",
@@ -98,7 +95,7 @@
     "prop-types": "15.7.2"
   },
   "scripts": {
-    "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --hot --inline --open",
+    "serve": "./node_modules/.bin/webpack serve --config ./webpack.config.js",
     "clean": "rm -rf ./dist || true",
     "build:default": "./node_modules/.bin/rollup -c",
     "build:ie": "BABEL_ENV=ie ./node_modules/.bin/rollup -c",
