@@ -272,28 +272,30 @@ export const getContainerNode = container =>
     : container;
 
 export const classNames = (...args) => {
-  const classes = [];
-
-  args.map(arg => {
+  const classes = args.reduce((res, arg) => {
     if (!arg) {
-      return;
+      return res;
     }
 
     if (typeof arg === 'string' || typeof arg === 'number') {
-      classes.push(arg);
+      res.push(arg);
     } else if (Array.isArray(arg) && arg.length) {
       const inner = classNames(...arg);
       if (inner) {
-        classes.push(inner);
+        res.push(inner);
       }
     } else if (typeof arg === 'object') {
       Object.entries(arg).map(([k, v]) => {
         if (v) {
-          classes.push(k);
+          res.push(k);
         }
+
+        return null;
       });
     }
-  });
+
+    return res;
+  }, []);
 
   return classes.join(' ');
 };

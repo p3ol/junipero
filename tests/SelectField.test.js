@@ -130,7 +130,7 @@ describe('<SelectField />', () => {
   });
 
   it('should search for items on auto complete field change', () => {
-    const autoComplete = sinon.spy((search, cb) => cb('Three'));
+    const autoComplete = sinon.spy((search, fn) => fn('Three'));
     jest.useFakeTimers();
 
     const component = mount(
@@ -149,7 +149,7 @@ describe('<SelectField />', () => {
 
   it('shouldn\'t call autoComplete callback when autocomplete value is ' +
     'not set or empty', () => {
-    const autoComplete = sinon.spy((search, cb) => cb('Three'));
+    const autoComplete = sinon.spy((search, fn) => fn('Three'));
     jest.useFakeTimers();
 
     const component = mount(
