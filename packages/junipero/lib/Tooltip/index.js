@@ -80,8 +80,8 @@ const Tooltip = forwardRef(({
     }
 
     if (
-      !tooltipRef.contains(e.target) &&
-      tooltipRef !== e.target &&
+      !innerRef.contains(e.target) &&
+      innerRef !== e.target &&
       (
         !clickOutsideTarget ||
         (
