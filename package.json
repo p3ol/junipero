@@ -39,7 +39,7 @@
     "@poool/eslint-plugin": "1.3.3",
     "@popperjs/core": "2.5.4",
     "@rollup/plugin-babel": "5.2.2",
-    "@rollup/plugin-commonjs": "16.0.0",
+    "@rollup/plugin-commonjs": "17.0.0",
     "@rollup/plugin-node-resolve": "10.0.0",
     "@testing-library/react": "11.2.2",
     "autoprefixer": "9.8.6",
