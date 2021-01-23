@@ -78,7 +78,7 @@
     "rollup": "2.36.1",
     "rollup-plugin-postcss": "4.0.0",
     "rollup-plugin-terser": "7.0.2",
-    "sinon": "9.2.3",
+    "sinon": "9.2.4",
     "standard-changelog": "2.0.27",
     "standard-version": "9.1.0",
     "stylus": "0.54.8",
