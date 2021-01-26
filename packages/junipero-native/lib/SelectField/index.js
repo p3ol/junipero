@@ -43,6 +43,7 @@ const SelectField = forwardRef(({
     if (disabled) {
       return;
     }
+    console.log('ça clique');
     dispatch({ active: false });
   };
 
@@ -52,37 +53,53 @@ const SelectField = forwardRef(({
   };
 
   return (
-    <View>
+    <React.Fragment>
       <TouchableWithoutFeedback
         testID={testID}
         onPress={onPress_}
       >
-        <View style={[
-          styles.baseField,
-          applyStyles(state.active, [
-            styles.baseField__active,
-            customStyle.baseField__active,
-          ]),
-        ]}>
-          <Text style={styles.placeholder}>
-            {state.selectedOption?.title || 'Choose one item'}
-          </Text>
+        <View>
+          {
+            state.active && <View style={[styles.fieldBackground]}> </View>
+          }
+          <View style={[
+            styles.baseField,
+            applyStyles(state.active, [
+              styles.baseField__active,
+              customStyle.baseField__active,
+            ]),
+          ]}>
+            <Text
+              style={[
+                styles.value,
+                applyStyles(!state.selectedOption, [
+                  styles.placeholder,
+                  customStyle.placeholder,
+                ]),
+              ]}
+              pointerEvents="none"
+            >
+              {state.selectedOption?.title || 'Choose one item'}
+            </Text>
+            <Text style={styles.icon}>code</Text>
+          </View>
         </View>
       </TouchableWithoutFeedback>
-      { state.active && <View style={styles.dropdownMenu}>
-        {
-          options.map(option =>
-            <Text
-              key={option.title}
-              style={styles.dropdownItem}
-              onPress={onOptionPress_.bind(null, option)}>
-              {option.title}
-            </Text>
-          )
-        }
-      </View>
+      { state.active &&
+        <View style={styles.dropdownMenu} onBlur={onBlur_}>
+          {
+            options.map(option =>
+              <Text
+                key={option.title}
+                style={styles.dropdownItem}
+                onPress={onOptionPress_.bind(null, option)}>
+                {option.title}
+              </Text>
+            )
+          }
+        </View>
       }
-    </View>
+    </React.Fragment>
   );
 });
 
