@@ -12,6 +12,10 @@ export default StyleSheet.create({
     backgroundColor: colors.easternBlueAlpha(0.5),
     zIndex: -10,
     borderRadius: 4,
+    opacity: 0,
+  },
+  fieldBackground__active: {
+    opacity: 1,
   },
   baseField: {
     flexDirection: 'row',
@@ -26,6 +30,19 @@ export default StyleSheet.create({
   placeholder: {
     ...commons.defaultFont,
     color: colors.shuttleGray,
+  },
+  label: {
+    ...commons.defaultFont,
+    position: 'absolute',
+    top: 4,
+    left: 9,
+    fontSize: 11,
+    color: colors.easternBlue,
+    zIndex: 4,
+    opacity: 0,
+  },
+  label__notEmpty: {
+    opacity: 1,
   },
   value: {
     ...commons.defaultFont,

@@ -11,14 +11,14 @@ import { applyStyles } from '../theme';
 import styles from './index.styles.js';
 
 const SelectField = forwardRef(({
-  children,
   testID = 'SelectField',
+  label,
+  forceLabel,
+  placeholder,
   disabled = false,
   defaultOption = null,
   onPress = () => {},
   options = [],
-  theme = 'default',
-  size = 'default',
   customStyle = {},
   ...rest }, ref) => {
 
@@ -39,12 +39,8 @@ const SelectField = forwardRef(({
     onPress(e);
   };
 
-  const onBlur_ = () => {
-    if (disabled) {
-      return;
-    }
-    console.log('ça clique');
-    dispatch({ active: false });
+  const isEmpty = () => {
+    !state.selectedOption;
   };
 
   const onOptionPress_ = option => {
@@ -55,38 +51,61 @@ const SelectField = forwardRef(({
   return (
     <React.Fragment>
       <TouchableWithoutFeedback
+        {...rest}
         testID={testID}
         onPress={onPress_}
       >
         <View>
-          {
-            state.active && <View style={[styles.fieldBackground]}> </View>
-          }
+          <View style={[
+            styles.fieldBackground,
+            customStyle.fieldBackground,
+            applyStyles(state.active, [
+              styles.fieldBackground__active,
+              customStyle.fieldBackground__active,
+            ]),
+          ]}>
+          </View>
           <View style={[
             styles.baseField,
+            customStyle.baseField,
             applyStyles(state.active, [
               styles.baseField__active,
               customStyle.baseField__active,
             ]),
           ]}>
-            <Text
-              style={[
-                styles.value,
-                applyStyles(!state.selectedOption, [
-                  styles.placeholder,
-                  customStyle.placeholder,
-                ]),
-              ]}
-              pointerEvents="none"
-            >
-              {state.selectedOption?.title || 'Choose one item'}
-            </Text>
+            <View>
+              <Text
+                pointerEvents="none"
+                style={[
+                  styles.label,
+                  customStyle.label,
+                  applyStyles(!isEmpty() || forceLabel, [
+                    styles.label__notEmpty,
+                    customStyle.label__notEmpty,
+                  ]),
+                ]}
+              >
+                {label}
+              </Text>
+              <Text
+                pointerEvents="none"
+                style={[
+                  styles.value,
+                  applyStyles(isEmpty(), [
+                    styles.placeholder,
+                    customStyle.placeholder,
+                  ]),
+                ]}
+              >
+                {state.selectedOption?.title || placeholder}
+              </Text>
+            </View>
             <Text style={styles.icon}>code</Text>
           </View>
         </View>
       </TouchableWithoutFeedback>
       { state.active &&
-        <View style={styles.dropdownMenu} onBlur={onBlur_}>
+        <View style={styles.dropdownMenu}>
           {
             options.map(option =>
               <Text
@@ -105,11 +124,12 @@ const SelectField = forwardRef(({
 
 SelectField.propTypes = {
   customStyle: PropTypes.object,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  forceLabel: PropTypes.bool,
   disabled: PropTypes.bool,
   defaultOption: PropTypes.object,
   options: PropTypes.array,
-  theme: PropTypes.string,
-  size: PropTypes.string,
   onPress: PropTypes.func,
   testID: PropTypes.string,
 };

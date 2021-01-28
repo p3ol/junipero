@@ -11,6 +11,19 @@ const options = [
 
 export const basic = () => (
   <React.Fragment>
-    <SelectField options={options} theme='basic'/>
+    <SelectField
+      options={options}
+      placeholder="Choose one item"
+    />
+  </React.Fragment>
+);
+
+export const withLabel = () => (
+  <React.Fragment>
+    <SelectField
+      options={options}
+      placeholder="Choose one item"
+      label="Chosen item"
+    />
   </React.Fragment>
 );
