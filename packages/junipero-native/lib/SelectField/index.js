@@ -14,10 +14,11 @@ const SelectField = forwardRef(({
   testID = 'SelectField',
   label,
   forceLabel,
+  noSearchResults = 'No result found :(',
   placeholder,
   disabled = false,
   defaultOption = null,
-  onPress = () => {},
+  onChange = () => {},
   options = [],
   customStyle = {},
   ...rest }, ref) => {
@@ -36,20 +37,22 @@ const SelectField = forwardRef(({
       return;
     }
     dispatch({ active: true });
-    onPress(e);
   };
 
   const isEmpty = () => {
-    !state.selectedOption;
+    return !state.selectedOption;
   };
 
   const onOptionPress_ = option => {
     dispatch({ active: false });
     dispatch({ selectedOption: option });
+    onChange(option);
   };
 
   return (
-    <React.Fragment>
+    <View
+      style={styles.wrapper}
+    >
       <TouchableWithoutFeedback
         {...rest}
         testID={testID}
@@ -65,17 +68,22 @@ const SelectField = forwardRef(({
             ]),
           ]}>
           </View>
-          <View style={[
+          <View
+            pointerEvents="none"
+            style={[
             styles.baseField,
             customStyle.baseField,
             applyStyles(state.active, [
               styles.baseField__active,
               customStyle.baseField__active,
             ]),
+            applyStyles(!!label && !forceLabel, [
+              styles.baseField__labeled,
+              customStyle.baseField__labeled,
+            ]),
           ]}>
             <View>
               <Text
-                pointerEvents="none"
                 style={[
                   styles.label,
                   customStyle.label,
@@ -88,49 +96,66 @@ const SelectField = forwardRef(({
                 {label}
               </Text>
               <Text
-                pointerEvents="none"
                 style={[
                   styles.value,
                   applyStyles(isEmpty(), [
                     styles.placeholder,
                     customStyle.placeholder,
                   ]),
+                  applyStyles(forceLabel, [
+                    styles.placeholder__labelEnforced,
+                    customStyle.placeholder__labelEnforced,
+                  ]),
                 ]}
               >
-                {state.selectedOption?.title || placeholder}
+                {state.selectedOption?.title ||state.selectedOption ||placeholder}
               </Text>
             </View>
-            <Text style={styles.icon}>code</Text>
+            <Text
+              style={[
+                styles.icon,
+                customStyle.icon,
+                applyStyles(state.active, [
+                  styles.icon__active,
+                  customStyle.icon__active,
+                ]),
+              ]}
+            >
+              code
+            </Text>
           </View>
         </View>
       </TouchableWithoutFeedback>
       { state.active &&
         <View style={styles.dropdownMenu}>
-          {
-            options.map(option =>
+          { options.length
+            ? options.map(option=>
               <Text
-                key={option.title}
+                key={option.title||option}
                 style={styles.dropdownItem}
                 onPress={onOptionPress_.bind(null, option)}>
-                {option.title}
+                {option||option.title}
               </Text>
             )
+            : <Text style={styles.noResults}>{noSearchResults}</Text>
+
           }
         </View>
       }
-    </React.Fragment>
+    </View>
   );
 });
 
 SelectField.propTypes = {
   customStyle: PropTypes.object,
   placeholder: PropTypes.string,
+  noSearchResults: PropTypes.string,
   label: PropTypes.string,
   forceLabel: PropTypes.bool,
   disabled: PropTypes.bool,
   defaultOption: PropTypes.object,
   options: PropTypes.array,
-  onPress: PropTypes.func,
+  onChange: PropTypes.func,
   testID: PropTypes.string,
 };
 

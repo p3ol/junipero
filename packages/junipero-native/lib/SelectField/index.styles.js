@@ -3,6 +3,11 @@ import { StyleSheet } from 'react-native';
 import { colors, commons } from '../theme';
 
 export default StyleSheet.create({
+  wrapper: {
+    position: 'relative',
+    height: 'auto',
+    minWidth: 250,
+  },
   fieldBackground: {
     position: 'absolute',
     left: -2,
@@ -22,18 +27,35 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     zIndex: 10,
     minHeight: 40,
-    flex: 1,
+    height: 'auto',
     padding: 9,
     borderRadius: 2,
     backgroundColor: colors.blackSqueeze,
   },
+  baseField__labeled: {
+    paddingVertical: 12,
+    paddingHorizontal: 9,
+  },
   placeholder: {
     ...commons.defaultFont,
+    position: 'absolute',
+    left: 9,
+    minWidth: 200,
+    // top: '50%',
+    // transform: [
+    //   { translateY: '-50%' },
+    // ],
     color: colors.shuttleGray,
+    zIndex: 3,
+  },
+  placeholder__labelEnforced: {
+    top: 19,
+    transform: [
+      { translateY: 0 },
+    ],
   },
   label: {
     ...commons.defaultFont,
-    position: 'absolute',
     top: 4,
     left: 9,
     fontSize: 11,
@@ -52,6 +74,9 @@ export default StyleSheet.create({
     color: colors.shuttleGray,
     transform: [{ rotate: '90deg' }],
   },
+  icon__active: {
+    color: colors.easternBlue,
+  },
   dropdownMenu: {
     backgroundColor: colors.white,
     minWidth: 250,
@@ -64,8 +89,14 @@ export default StyleSheet.create({
     marginTop: 10,
   },
   dropdownItem: {
+    ...commons.defaultFont,
     paddingVertical: 5,
     paddingHorizontal: 20,
+  },
+  noResults: {
     ...commons.defaultFont,
+    color: colors.shuttleGray,
+    padding: 10,
+    textAlign: 'center',
   },
 });
