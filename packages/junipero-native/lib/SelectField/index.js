@@ -12,21 +12,24 @@ import { applyStyles } from '../theme';
 import styles from './index.styles.js';
 
 const SelectField = forwardRef(({
+  autoFocus = false,
   testID = 'SelectField',
   label,
   forceLabel,
   noSearchResults = 'No result found :(',
   placeholder,
   disabled = false,
-  defaultOption = null,
+  defaultOption = '',
   onChange = () => {},
   options = [],
+  parseTitle = val => val?.toString?.(),
+  parseValue = val => val,
   customStyle = {},
   ...rest }, ref) => {
 
   const innerRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
-    active: false,
+    active: autoFocus,
     selectedOption: defaultOption,
   });
 
@@ -49,7 +52,7 @@ const SelectField = forwardRef(({
   const onOptionPress_ = option => {
     dispatch({ active: false });
     dispatch({ selectedOption: option });
-    onChange(option);
+    onChange(parseValue(option) || parseTitle(option));
   };
 
   return (
@@ -123,7 +126,7 @@ const SelectField = forwardRef(({
                   ]),
                 ]}
               >
-                {state.selectedOption?.title ||state.selectedOption ||placeholder}
+                {parseTitle(state.selectedOption) ||placeholder}
               </Text>
             </View>
             <Text
@@ -146,11 +149,11 @@ const SelectField = forwardRef(({
           { options.length
             ? options.map(option=>
               <Text
-                key={option.title||option}
-                testID={option.title||option}
+                key={parseTitle(option)}
+                testID={parseTitle(option)}
                 style={styles.dropdownItem}
                 onPress={onOptionPress_.bind(null, option)}>
-                {option||option.title}
+                {parseTitle(option)}
               </Text>
             )
             : <Text style={styles.noResults} testID="SelectField/NoResults" >
@@ -165,6 +168,7 @@ const SelectField = forwardRef(({
 });
 
 SelectField.propTypes = {
+  autoFocus: PropTypes.bool,
   customStyle: PropTypes.object,
   placeholder: PropTypes.string,
   noSearchResults: PropTypes.string,

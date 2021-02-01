@@ -8,6 +8,9 @@ export default StyleSheet.create({
     height: 'auto',
     minWidth: 250,
   },
+  wrapper__disabled: {
+    opacity: 0.5,
+  },
   fieldBackground: {
     position: 'absolute',
     left: -2,
