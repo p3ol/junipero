@@ -2,6 +2,7 @@ import React, {
   useReducer,
   forwardRef,
   useImperativeHandle,
+  useRef,
 } from 'react';
 import PropTypes from 'prop-types';
 import { mockState } from '@poool/junipero-utils';
@@ -23,6 +24,7 @@ const SelectField = forwardRef(({
   customStyle = {},
   ...rest }, ref) => {
 
+  const innerRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
     active: false,
     selectedOption: defaultOption,
@@ -30,6 +32,7 @@ const SelectField = forwardRef(({
 
   useImperativeHandle(ref, () => ({
     active: state.active,
+    selectedOption: state.selectedOption,
   }));
 
   const onPress_ = e => {
@@ -51,12 +54,22 @@ const SelectField = forwardRef(({
 
   return (
     <View
-      style={styles.wrapper}
+      pointerEvents={disabled ? 'none' : 'auto'}
+      ref={innerRef}
+      style={[
+        styles.wrapper,
+        applyStyles(disabled, [
+          styles.wrapper__disabled,
+          customStyle.wrapper__disabled,
+        ]),
+      ]}
+      testID="SelectField/Main"
     >
       <TouchableWithoutFeedback
         {...rest}
         testID={testID}
         onPress={onPress_}
+        testID="SelectField/Field"
       >
         <View>
           <View style={[
@@ -84,6 +97,7 @@ const SelectField = forwardRef(({
           ]}>
             <View>
               <Text
+                testID="SelectField/Label"
                 style={[
                   styles.label,
                   customStyle.label,
@@ -96,6 +110,7 @@ const SelectField = forwardRef(({
                 {label}
               </Text>
               <Text
+                testID="SelectField/Value"
                 style={[
                   styles.value,
                   applyStyles(isEmpty(), [
@@ -127,17 +142,20 @@ const SelectField = forwardRef(({
         </View>
       </TouchableWithoutFeedback>
       { state.active &&
-        <View style={styles.dropdownMenu}>
+        <View style={styles.dropdownMenu} testID="SelectField/Dropdown">
           { options.length
             ? options.map(option=>
               <Text
                 key={option.title||option}
+                testID={option.title||option}
                 style={styles.dropdownItem}
                 onPress={onOptionPress_.bind(null, option)}>
                 {option||option.title}
               </Text>
             )
-            : <Text style={styles.noResults}>{noSearchResults}</Text>
+            : <Text style={styles.noResults} testID="SelectField/NoResults" >
+              {noSearchResults}
+            </Text>
 
           }
         </View>
