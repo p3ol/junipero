@@ -96,11 +96,19 @@ export default StyleSheet.create({
     ...commons.defaultFont,
     paddingVertical: 5,
     paddingHorizontal: 20,
+    opacity: 1,
+  },
+  dropdownItem__searching: {
+    opacity: 0.5,
   },
   noResults: {
     ...commons.defaultFont,
     color: colors.shuttleGray,
     padding: 10,
     textAlign: 'center',
+  },
+  search: {
+    paddingHorizontal: 10,
+    paddingBottom: 10,
   },
 });

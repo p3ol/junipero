@@ -6,7 +6,9 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { mockState } from '@poool/junipero-utils';
+import { useTimeout } from '@poool/junipero-hooks';
 import { TouchableWithoutFeedback, Text, View } from 'react-native';
+import TextField from '../TextField';
 
 import { applyStyles } from '../theme';
 import styles from './index.styles.js';
@@ -15,6 +17,7 @@ const SelectField = forwardRef(({
   autoFocus = false,
   testID = 'SelectField',
   label,
+  noItems = 'No items found :(',
   noSearchResults = 'No result found :(',
   placeholder,
   disabled = false,
@@ -23,6 +26,10 @@ const SelectField = forwardRef(({
   options = [],
   parseTitle = val => val?.toString?.(),
   parseValue,
+  search,
+  searchPlaceholder = 'Search...',
+  searchMinCharacters = 2,
+  searchThreshold = 400,
   customStyle = {},
   ...rest }, ref) => {
 
@@ -30,12 +37,18 @@ const SelectField = forwardRef(({
   const [state, dispatch] = useReducer(mockState, {
     active: autoFocus,
     selectedOption: defaultOption,
+    searchValue: '',
+    searching: false,
   });
 
   useImperativeHandle(ref, () => ({
     active: state.active,
     selectedOption: state.selectedOption,
   }));
+
+  useTimeout(() => {
+    search_();
+  }, searchThreshold, [state.searchValue]);
 
   const onPress_ = () => {
     if (disabled) {
@@ -53,6 +66,23 @@ const SelectField = forwardRef(({
     dispatch({ active: false });
     dispatch({ selectedOption: option });
     onChange(value);
+  };
+
+  const onSearch_ = field =>
+    dispatch({ searchValue: field.value, searching: true });
+
+  const search_ = async () => {
+    console.log('pipi');
+    if (!state.searchValue) {
+      dispatch({ searching: false, searchResults: null });
+    }
+
+    if (state.searchValue?.length < searchMinCharacters) {
+      return;
+    }
+
+    const results = await search(state.searchValue);
+    dispatch({ searchResults: results, searching: false });
   };
 
   return (
@@ -147,20 +177,47 @@ const SelectField = forwardRef(({
       </TouchableWithoutFeedback>
       { state.active &&
         <View style={styles.dropdownMenu} testID="SelectField/Dropdown">
-          { options.length
-            ? options.map(option =>
-              <Text
-                key={parseTitle(option)}
-                testID={parseTitle(option)}
-                style={styles.dropdownItem}
-                onPress={onOptionPress_.bind(null, option)}>
-                {parseTitle(option)}
+          {
+            search &&
+            <View style={styles.search}>
+              <TextField
+                placeholder={searchPlaceholder}
+                onChange={onSearch_}
+              />
+            </View>
+          }
+          { state.searchResults
+            ? state.searchResults.length
+              ? state.searchResults.map(result =>
+                <Text
+                  key={parseTitle(result)}
+                  testID={parseTitle(result)}
+                  style={styles.dropdownItem}
+                  onPress={onOptionPress_.bind(null, result)}>
+                  {parseTitle(result)}
+                </Text>
+              )
+              : <Text style={styles.noResults} testID="SelectField/NoResults" >
+                {noSearchResults}
               </Text>
-            )
-            : <Text style={styles.noResults} testID="SelectField/NoResults" >
-              {noSearchResults}
-            </Text>
-
+            : options.length
+              ? options.map(option =>
+                <Text
+                  key={parseTitle(option)}
+                  testID={parseTitle(option)}
+                  style={[
+                    styles.dropdownItem,
+                    applyStyles(state.searching, [
+                      styles.dropdownItem__searching,
+                    ]),
+                  ]}
+                  onPress={onOptionPress_.bind(null, option)}>
+                  {parseTitle(option)}
+                </Text>
+              )
+              : <Text style={styles.noResults} testID="SelectField/NoResults" >
+                {noItems}
+              </Text>
           }
         </View>
       }
@@ -172,6 +229,7 @@ SelectField.propTypes = {
   autoFocus: PropTypes.bool,
   customStyle: PropTypes.object,
   placeholder: PropTypes.string,
+  noItems: PropTypes.string,
   noSearchResults: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
@@ -180,6 +238,10 @@ SelectField.propTypes = {
   onChange: PropTypes.func,
   parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
+  search: PropTypes.func,
+  searchPlaceholder: PropTypes.string,
+  searchMinCharacters: PropTypes.number,
+  searchThreshold: PropTypes.number,
   testID: PropTypes.string,
 };
 

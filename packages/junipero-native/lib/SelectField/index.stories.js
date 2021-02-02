@@ -6,6 +6,8 @@ export default { title: 'junipero-native/SelectField' };
 
 const options = ['One', 'Two', 'Three'];
 
+const search = ['Four', 'Five', 'Six'];
+
 const objectOptions = [
   { title: 'One', value: 1 },
   { title: 'Two', value: 2 },
@@ -84,4 +86,11 @@ export const autoFocused = () => (
       onChange={action('change')}
     />
   </React.Fragment>
+);
+
+export const withSearch = () => (
+  <SelectField
+    options={options}
+    search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
+    onChange={action('change')} />
 );
