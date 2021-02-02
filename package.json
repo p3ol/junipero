@@ -82,7 +82,7 @@
     "standard-changelog": "2.0.27",
     "standard-version": "9.1.0",
     "stylus": "0.54.8",
-    "stylus-loader": "4.3.3",
+    "stylus-loader": "5.0.0",
     "url-loader": "4.1.1",
     "webpack": "5.19.0",
     "webpack-bundle-analyzer": "4.4.0",
