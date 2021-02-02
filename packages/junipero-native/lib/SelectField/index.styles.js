@@ -75,6 +75,7 @@ export default StyleSheet.create({
   icon: {
     ...commons.iconFont,
     color: colors.shuttleGray,
+    right: 10,
     transform: [{ rotate: '90deg' }],
   },
   icon__active: {

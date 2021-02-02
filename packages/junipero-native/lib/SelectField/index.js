@@ -15,7 +15,6 @@ const SelectField = forwardRef(({
   autoFocus = false,
   testID = 'SelectField',
   label,
-  forceLabel,
   noSearchResults = 'No result found :(',
   placeholder,
   disabled = false,
@@ -23,7 +22,7 @@ const SelectField = forwardRef(({
   onChange = () => {},
   options = [],
   parseTitle = val => val?.toString?.(),
-  parseValue = val => val,
+  parseValue,
   customStyle = {},
   ...rest }, ref) => {
 
@@ -95,7 +94,7 @@ const SelectField = forwardRef(({
                 styles.baseField__active,
                 customStyle.baseField__active,
               ]),
-              applyStyles(!!label && !forceLabel, [
+              applyStyles(!!label, [
                 styles.baseField__labeled,
                 customStyle.baseField__labeled,
               ]),
@@ -106,7 +105,7 @@ const SelectField = forwardRef(({
                 style={[
                   styles.label,
                   customStyle.label,
-                  applyStyles(!isEmpty() || forceLabel, [
+                  applyStyles(!isEmpty(), [
                     styles.label__notEmpty,
                     customStyle.label__notEmpty,
                   ]),
@@ -122,10 +121,10 @@ const SelectField = forwardRef(({
                     styles.placeholder,
                     customStyle.placeholder,
                   ]),
-                  applyStyles(forceLabel, [
-                    styles.placeholder__labelEnforced,
-                    customStyle.placeholder__labelEnforced,
-                  ]),
+                  // applyStyles(forceLabel, [
+                  //   styles.placeholder__labelEnforced,
+                  //   customStyle.placeholder__labelEnforced,
+                  // ]),
                 ]}
               >
                 {parseTitle(state.selectedOption) || placeholder}
@@ -175,7 +174,6 @@ SelectField.propTypes = {
   placeholder: PropTypes.string,
   noSearchResults: PropTypes.string,
   label: PropTypes.string,
-  forceLabel: PropTypes.bool,
   disabled: PropTypes.bool,
   defaultOption: PropTypes.object,
   options: PropTypes.array,
