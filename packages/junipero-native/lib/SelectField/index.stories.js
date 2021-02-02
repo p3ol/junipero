@@ -4,7 +4,6 @@ import SelectField from './index';
 
 export default { title: 'junipero-native/SelectField' };
 
-
 const options = ['One', 'Two', 'Three'];
 
 const objectOptions = [
@@ -59,6 +58,9 @@ export const withObjectOptionsAndValueEnforced = () => (
     <SelectField
       placeholder="Choose one item"
       onChange={action('change')}
+      options={objectOptions}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
     />
   </React.Fragment>
 );

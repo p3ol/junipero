@@ -38,7 +38,7 @@ const SelectField = forwardRef(({
     selectedOption: state.selectedOption,
   }));
 
-  const onPress_ = e => {
+  const onPress_ = () => {
     if (disabled) {
       return;
     }
@@ -50,9 +50,10 @@ const SelectField = forwardRef(({
   };
 
   const onOptionPress_ = option => {
+    const value = option.value ? parseValue(option) : parseTitle(option);
     dispatch({ active: false });
     dispatch({ selectedOption: option });
-    onChange(parseValue(option) || parseTitle(option));
+    onChange(value);
   };
 
   return (
@@ -72,32 +73,33 @@ const SelectField = forwardRef(({
         {...rest}
         testID={testID}
         onPress={onPress_}
-        testID="SelectField/Field"
       >
         <View>
-          <View style={[
-            styles.fieldBackground,
-            customStyle.fieldBackground,
-            applyStyles(state.active, [
-              styles.fieldBackground__active,
-              customStyle.fieldBackground__active,
-            ]),
-          ]}>
+          <View
+            testID="SelectField/Field"
+            style={[
+              styles.fieldBackground,
+              customStyle.fieldBackground,
+              applyStyles(state.active, [
+                styles.fieldBackground__active,
+                customStyle.fieldBackground__active,
+              ]),
+            ]}>
           </View>
           <View
             pointerEvents="none"
             style={[
-            styles.baseField,
-            customStyle.baseField,
-            applyStyles(state.active, [
-              styles.baseField__active,
-              customStyle.baseField__active,
-            ]),
-            applyStyles(!!label && !forceLabel, [
-              styles.baseField__labeled,
-              customStyle.baseField__labeled,
-            ]),
-          ]}>
+              styles.baseField,
+              customStyle.baseField,
+              applyStyles(state.active, [
+                styles.baseField__active,
+                customStyle.baseField__active,
+              ]),
+              applyStyles(!!label && !forceLabel, [
+                styles.baseField__labeled,
+                customStyle.baseField__labeled,
+              ]),
+            ]}>
             <View>
               <Text
                 testID="SelectField/Label"
@@ -126,7 +128,7 @@ const SelectField = forwardRef(({
                   ]),
                 ]}
               >
-                {parseTitle(state.selectedOption) ||placeholder}
+                {parseTitle(state.selectedOption) || placeholder}
               </Text>
             </View>
             <Text
@@ -147,7 +149,7 @@ const SelectField = forwardRef(({
       { state.active &&
         <View style={styles.dropdownMenu} testID="SelectField/Dropdown">
           { options.length
-            ? options.map(option=>
+            ? options.map(option =>
               <Text
                 key={parseTitle(option)}
                 testID={parseTitle(option)}
@@ -178,6 +180,8 @@ SelectField.propTypes = {
   defaultOption: PropTypes.object,
   options: PropTypes.array,
   onChange: PropTypes.func,
+  parseTitle: PropTypes.func,
+  parseValue: PropTypes.func,
   testID: PropTypes.string,
 };
 
