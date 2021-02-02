@@ -38,12 +38,16 @@ const SelectField = forwardRef(({
     active: autoFocus,
     selectedOption: defaultOption,
     searchValue: '',
+    searchResults: null,
     searching: false,
   });
 
   useImperativeHandle(ref, () => ({
     active: state.active,
     selectedOption: state.selectedOption,
+    searching: state.searching,
+    searchValue: state.searchValue,
+    searchResults: state.searchResults,
   }));
 
   useTimeout(() => {
@@ -72,11 +76,13 @@ const SelectField = forwardRef(({
     dispatch({ searchValue: field.value, searching: true });
 
   const search_ = async () => {
-    console.log('pipi');
     if (!state.searchValue) {
-      dispatch({ searching: false, searchResults: null });
+      if (state.searching || state.searchResults) {
+        dispatch({ searching: false, searchResults: null });
+      } else {
+        return;
+      }
     }
-
     if (state.searchValue?.length < searchMinCharacters) {
       return;
     }
@@ -181,6 +187,7 @@ const SelectField = forwardRef(({
             search &&
             <View style={styles.search}>
               <TextField
+                testID="SelectField/SearchField"
                 placeholder={searchPlaceholder}
                 onChange={onSearch_}
               />
