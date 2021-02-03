@@ -157,10 +157,6 @@ const SelectField = forwardRef(({
                     styles.placeholder,
                     customStyle.placeholder,
                   ]),
-                  // applyStyles(forceLabel, [
-                  //   styles.placeholder__labelEnforced,
-                  //   customStyle.placeholder__labelEnforced,
-                  // ]),
                 ]}
               >
                 {parseTitle(state.selectedOption) || placeholder}
@@ -222,7 +218,7 @@ const SelectField = forwardRef(({
                   {parseTitle(option)}
                 </Text>
               )
-              : <Text style={styles.noResults} testID="SelectField/NoResults" >
+              : <Text style={styles.noResults} testID="SelectField/NoItems" >
                 {noItems}
               </Text>
           }

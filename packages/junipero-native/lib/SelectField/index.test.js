@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { render, wait, fireEvent } from '@testing-library/react-native';
+import { render, wait, fireEvent, act } from '@testing-library/react-native';
 
 import SelectField from './';
 
@@ -10,7 +10,6 @@ describe('<SelectField />', () => {
     const { getByTestId } = render(
       <SelectField
         ref={ref}
-        placeholder="Choose one item"
       />
     );
     await wait(() => getByTestId('SelectField/Main'));
@@ -24,7 +23,6 @@ describe('<SelectField />', () => {
       <SelectField
         ref={ref}
         options={['One', 'Two']}
-        placeholder="Choose one item"
       />
     );
     await wait(() => getByTestId('SelectField/Main'));
@@ -39,13 +37,12 @@ describe('<SelectField />', () => {
     const { getByTestId } = render(
       <SelectField
         ref={ref}
-        placeholder="Choose one item"
       />
     );
     await wait(() => getByTestId('SelectField/Main'));
     fireEvent.press(getByTestId('SelectField/Field'));
     expect(ref.current.active).toBe(true);
-    expect(getByTestId('SelectField/NoResults')).toBeTruthy();
+    expect(getByTestId('SelectField/NoItems')).toBeTruthy();
   });
 
   it('should do nothing if the field is disabled', async () => {
@@ -54,7 +51,6 @@ describe('<SelectField />', () => {
       <SelectField
         ref={ref}
         disabled
-        placeholder="Choose one item"
       />
     );
     await wait(() => getByTestId('SelectField/Main'));
@@ -72,7 +68,6 @@ describe('<SelectField />', () => {
     const { getByTestId } = render(
       <SelectField
         ref={ref}
-        placeholder="Choose one item"
         onChange={value => { selectedvalue = value; }}
         options={options}
         parseTitle={o => o.title}
@@ -96,7 +91,6 @@ describe('<SelectField />', () => {
     const { getByTestId } = render(
       <SelectField
         ref={ref}
-        placeholder="Choose one item"
         onChange={value => { selectedvalue = value; }}
         options={options}
         parseTitle={o => o.title}
@@ -116,7 +110,6 @@ describe('<SelectField />', () => {
     const { getByTestId } = render(
       <SelectField
         ref={ref}
-        placeholder="Choose one item"
         options={['One', 'Two']}
         search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
       />
@@ -127,8 +120,47 @@ describe('<SelectField />', () => {
     fireEvent.changeText(getByTestId('SelectField/SearchField'), 'Four');
     expect(ref.current.searching).toBe(true);
     expect(ref.current.searchValue).toBe('Four');
-    await wait(() => expect(ref.current.searching).toBe(false));
+    await act(async () => { await wait(() => expect(ref.current.searching).toBe(false)); });
     fireEvent.press(getByTestId('Four'));
     expect(ref.current.selectedOption).toBe('Four');
   });
+});
+
+it('should return custom message if there is no search results', async () => {
+  const search = ['Three', 'Four'];
+  const ref = createRef();
+  const { getByTestId } = render(
+    <SelectField
+      ref={ref}
+      noSearchResults={'no results'}
+      options={['One', 'Two']}
+      search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
+    />
+  );
+  await wait(() => getByTestId('SelectField/Main'));
+  fireEvent.press(getByTestId('SelectField/Field'));
+  expect(ref.current.active).toBe(true);
+  fireEvent.changeText(getByTestId('SelectField/SearchField'), 'Six');
+  await act(async () => { await wait(() => getByTestId('SelectField/NoResults')); });
+  expect(ref.current.searching).toBe(false);
+  expect(ref.current.searchResults).toMatchObject([]);
+});
+
+it('should update state if the field value is empty after editing', async () => {
+  const search = ['Three', 'Four'];
+  const ref = createRef();
+  const { getByTestId } = render(
+    <SelectField
+      ref={ref}
+      noSearchResults={'no results'}
+      options={['One', 'Two']}
+      search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
+    />
+  );
+  await wait(() => getByTestId('SelectField/Main'));
+  fireEvent.press(getByTestId('SelectField/Field'));
+  expect(ref.current.active).toBe(true);
+  fireEvent.changeText(getByTestId('SelectField/SearchField'), 'Six');
+  fireEvent.changeText(getByTestId('SelectField/SearchField'), '');
+  await act(async () => { await wait(() => expect(ref.current.searching).toBe(false)); });
 });
