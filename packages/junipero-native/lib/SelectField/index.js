@@ -58,7 +58,7 @@ const SelectField = forwardRef(({
     if (disabled) {
       return;
     }
-    dispatch({ active: true });
+    dispatch({ active: !state.active });
   };
 
   const isEmpty = () => {
