@@ -1,0 +1,44 @@
+@require "../theme/colors"
+
+.junipero.badge
+  font-weight: bold
+  font-size: 10px;
+  border-radius: 10px
+  outline: none
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 7px;
+  width: 20px;
+  height: 20px;
+  background: $color-alto;
+
+  // Primary
+  &.primary
+    background: $color-eastern-blue
+    color: $color-white
+
+  // Secondary
+  &.secondary
+    background: $color-persian-green
+    color: $color-white
+
+  // Ternary
+  &.ternary
+    background: $color-portage
+    color: $color-white
+
+  // Warning
+  &.warning
+    background: $color-buttercup
+    color: $color-white
+
+  // Danger
+  &.danger
+    background: $color-monza
+    color: $color-white
+
+  // Success
+  &.success
+    background: $color-java
+    color: $color-white
