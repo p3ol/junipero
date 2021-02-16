@@ -14,9 +14,7 @@ const Badge = ({
         'badge',
         className,
       )}>
-      <span>
-        { value }
-      </span>
+      { value }
     </div>
   );
 };
