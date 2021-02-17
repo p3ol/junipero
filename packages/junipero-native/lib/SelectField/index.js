@@ -25,7 +25,7 @@ const SelectField = forwardRef(({
   onChange = () => {},
   options = [],
   parseTitle = val => val?.toString?.(),
-  parseValue,
+  parseValue = () => {},
   search,
   searchPlaceholder = 'Search...',
   searchMinCharacters = 2,

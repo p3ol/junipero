@@ -9,6 +9,12 @@ const options = ['One', 'Two', 'Three'];
 const search = ['Four', 'Five', 'Six'];
 
 const objectOptions = [
+  { title: 'One' },
+  { title: 'Two' },
+  { title: 'Three' },
+];
+
+const objectOptionsWithValues = [
   { title: 'One', value: 1 },
   { title: 'Two', value: 2 },
   { title: 'Three', value: 3 },
@@ -60,7 +66,7 @@ export const withObjectOptionsAndValueEnforced = () => (
     <SelectField
       placeholder="Choose one item"
       onChange={action('change')}
-      options={objectOptions}
+      options={objectOptionsWithValues}
       parseTitle={o => o.title}
       parseValue={o => o.value}
     />
