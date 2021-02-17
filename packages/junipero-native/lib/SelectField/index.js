@@ -172,7 +172,7 @@ const SelectField = forwardRef(({
                 ]),
               ]}
             >
-              code
+              {'< >'}
             </Text>
           </View>
         </View>

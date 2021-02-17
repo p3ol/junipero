@@ -7,10 +7,4 @@ export default {
     fontWeight: 'normal',
     color: colors.midnight,
   },
-  iconFont: {
-    fontFamily: 'Material Icons',
-    fontSize: 20,
-    fontWeight: 'normal',
-    color: colors.midnight,
-  },
 };

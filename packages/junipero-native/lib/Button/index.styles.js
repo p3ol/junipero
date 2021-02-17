@@ -45,7 +45,6 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   icon: {
-    ...commons.iconFont,
     marginHorizontal: 10,
   },
 });

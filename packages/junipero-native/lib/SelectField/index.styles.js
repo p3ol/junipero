@@ -73,10 +73,10 @@ export default StyleSheet.create({
     ...commons.defaultFont,
   },
   icon: {
-    ...commons.iconFont,
+    fontWeight: 'bold',
     color: colors.shuttleGray,
     right: 10,
-    transform: [{ rotate: '90deg' }],
+    transform: [{ rotate: '90deg' }, { scaleX: 0.8 }, { scaleY: 1.5 }],
   },
   icon__active: {
     color: colors.easternBlue,
