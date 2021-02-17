@@ -109,7 +109,7 @@ const SelectField = forwardRef(({
         testID={testID}
         onPress={onPress_}
       >
-        <View>
+        <View style={styles.fieldWrapper}>
           <View
             testID="SelectField/Field"
             style={[
@@ -130,51 +130,49 @@ const SelectField = forwardRef(({
                 styles.baseField__active,
                 customStyle.baseField__active,
               ]),
-              applyStyles(!!label, [
+              applyStyles(!!label && state.selectedOption, [
                 styles.baseField__labeled,
                 customStyle.baseField__labeled,
               ]),
             ]}>
-            <View>
-              <Text
-                testID="SelectField/Label"
-                style={[
-                  styles.label,
-                  customStyle.label,
-                  applyStyles(!isEmpty(), [
-                    styles.label__notEmpty,
-                    customStyle.label__notEmpty,
-                  ]),
-                ]}
-              >
-                {label}
-              </Text>
-              <Text
-                testID="SelectField/Value"
-                style={[
-                  styles.value,
-                  applyStyles(isEmpty(), [
-                    styles.placeholder,
-                    customStyle.placeholder,
-                  ]),
-                ]}
-              >
-                {parseTitle(state.selectedOption) || placeholder}
-              </Text>
-            </View>
             <Text
+              testID="SelectField/Label"
               style={[
-                styles.icon,
-                customStyle.icon,
-                applyStyles(state.active, [
-                  styles.icon__active,
-                  customStyle.icon__active,
+                styles.label,
+                customStyle.label,
+                applyStyles(!isEmpty(), [
+                  styles.label__notEmpty,
+                  customStyle.label__notEmpty,
                 ]),
               ]}
             >
-              {'< >'}
+              {label}
+            </Text>
+            <Text
+              testID="SelectField/Value"
+              style={[
+                styles.value,
+                applyStyles(isEmpty(), [
+                  styles.placeholder,
+                  customStyle.placeholder,
+                ]),
+              ]}
+            >
+              {parseTitle(state.selectedOption) || placeholder}
             </Text>
           </View>
+          <Text
+            style={[
+              styles.icon,
+              customStyle.icon,
+              applyStyles(state.active, [
+                styles.icon__active,
+                customStyle.icon__active,
+              ]),
+            ]}
+          >
+            {'< >'}
+          </Text>
         </View>
       </TouchableWithoutFeedback>
       { state.active &&

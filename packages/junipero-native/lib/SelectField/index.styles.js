@@ -11,6 +11,10 @@ export default StyleSheet.create({
   wrapper__disabled: {
     opacity: 0.5,
   },
+  fieldWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   fieldBackground: {
     position: 'absolute',
     left: -2,
@@ -36,18 +40,14 @@ export default StyleSheet.create({
     backgroundColor: colors.blackSqueeze,
   },
   baseField__labeled: {
-    paddingVertical: 12,
+    paddingTop: 21,
+    paddingBottom: 5,
     paddingHorizontal: 9,
   },
   placeholder: {
     ...commons.defaultFont,
-    position: 'absolute',
     left: 9,
     minWidth: 200,
-    // top: '50%',
-    // transform: [
-    //   { translateY: '-50%' },
-    // ],
     color: colors.shuttleGray,
     zIndex: 3,
   },
@@ -59,6 +59,7 @@ export default StyleSheet.create({
   },
   label: {
     ...commons.defaultFont,
+    position: 'absolute',
     top: 4,
     left: 9,
     fontSize: 11,
@@ -73,9 +74,13 @@ export default StyleSheet.create({
     ...commons.defaultFont,
   },
   icon: {
+    ...commons.defaultFont,
+    position: 'absolute',
     fontWeight: 'bold',
     color: colors.shuttleGray,
     right: 10,
+    alignSelf: 'center',
+    zIndex: 10,
     transform: [{ rotate: '90deg' }, { scaleX: 0.8 }, { scaleY: 1.5 }],
   },
   icon__active: {
