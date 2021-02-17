@@ -6,12 +6,12 @@ export default { title: 'junipero/Tag' };
 
 export const basic = () => (
   <>
-    <p><Tag value="New"/></p>
-    <p><Tag className="primary" value="New"/></p>
-    <p><Tag className="secondary" value="New"/></p>
-    <p><Tag className="ternary" value="New"/></p>
-    <p><Tag className="warning" value="New"/></p>
-    <p><Tag className="danger" value="New"/></p>
-    <p><Tag className="success" value="New"/></p>
+    <p><Tag>New</Tag></p>
+    <p><Tag className="primary">New</Tag></p>
+    <p><Tag className="secondary">New</Tag></p>
+    <p><Tag className="ternary">New</Tag></p>
+    <p><Tag className="warning">New</Tag></p>
+    <p><Tag className="danger">New</Tag></p>
+    <p><Tag className="success">New</Tag></p>
   </>
 );
