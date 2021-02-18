@@ -1,26 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { classNames } from '@poool/junipero-utils';
 
-const Badge = ({
-  className,
-  value,
-}) => {
-
-  return (
-    <div
-      className={classNames(
-        'junipero',
-        'badge',
-        className,
-      )}>
-      { value }
-    </div>
-  );
-};
+const Badge = ({ className, ...rest }) => (
+  <span {...rest} className={classNames('junipero', 'badge', className)}/>
+);
 
 export default Badge;
-
-Badge.propTypes = {
-  value: PropTypes.string,
-};
