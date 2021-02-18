@@ -5,7 +5,7 @@ import Tag from './';
 
 describe('<Tag />', () => {
   it('should render tag component', () => {
-    const component = mount(<Tag />);
+    const component = mount(<Tag>1</Tag>);
     expect(component.find('.junipero.tag').length).toBe(1);
   });
 });
