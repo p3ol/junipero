@@ -6,25 +6,42 @@ import TextField from '../TextField';
 
 export default { title: 'junipero/Card' };
 
+const styles = {
+  title: { fontSize: '22px', lineHeight: '38px', marginBottom: '20px' },
+  text: { fontSize: '16px', lineHeight: '32px' },
+  icon: { marginBottom: '50px', height: '50px', width: '50px' },
+  form: { display: 'flex', flexDirection: 'column' },
+  formItem: { marginTop: '30px' },
+};
+
 const Form = () => (
   <React.Fragment>
-    <div className="card-title">Card title</div>
-    <div className="card-body">This form centralises everything you need to
+    <div style={styles.title}>Card title</div>
+    <div style={styles.text}>This form centralises everything you need to
     configure your app the easiest way possible. It has beautiful text fields,
     some hand crafted card header & footer, and a nice box shadow that will
     melt your 2001 ATI graphics card.</div>
-    <div className="card-form">
-      <TextField label="Label" value="Thomas Bangalter" />
-      <TextField label="Label" type="password" value="securePassword" />
-      <Button className="primary">Update</Button>
+    <div style={styles.form}>
+      <TextField
+        style={styles.formItem}
+        label="Label"
+        value="Thomas Bangalter"
+      />
+      <TextField
+        style={styles.formItem}
+        label="Label"
+        type="password"
+        value="securePassword"
+      />
+      <Button style={styles.formItem} className="primary">Update</Button>
     </div>
   </React.Fragment>
 );
 
 const CardBody = () => (
   <React.Fragment>
-    <div className="card-title">Card title</div>
-    <div className="card-body">This is a basic card. You can use it to display
+    <div style={styles.title}>Card title</div>
+    <div style={styles.text}>This is a basic card. You can use it to display
     any type of text, picture and/or icon. It is supposed to have 30px/40px
     paddings and regular paragraph texts.</div>
   </React.Fragment>
@@ -32,9 +49,9 @@ const CardBody = () => (
 
 const CardBodyWithIcon = () => (
   <React.Fragment>
-    <img className="card-icon" src="https://cutt.ly/6k12q0g"/>
-    <div className="card-title">Card title</div>
-    <div className="card-body">This is a basic card. You can use it to display
+    <img style={styles.icon} src="https://cutt.ly/6k12q0g"/>
+    <div style={styles.title}>Card title</div>
+    <div style={styles.text}>This is a basic card. You can use it to display
     any type of text, picture and/or icon. It is supposed to have 30px/40px
     paddings and regular paragraph texts.</div>
   </React.Fragment>
