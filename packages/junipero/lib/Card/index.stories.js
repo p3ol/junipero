@@ -6,50 +6,48 @@ import TextField from '../TextField';
 
 export default { title: 'junipero/Card' };
 
-const text = 'This is a basic card. You can use it to display any type of' +
-  'text, picture and/or icon. It is supposed to have 30px/40px paddings and' +
-  'regular paragraph texts.';
-
-const Form = () => {
-  return (
-    <React.Fragment>
-      <TextField
-        label="Label"
-        value="Thomas Bangalter"
-      />
+const Form = () => (
+  <React.Fragment>
+    <div className="card-title">Card title</div>
+    <div className="card-body">This form centralises everything you need to
+    configure your app the easiest way possible. It has beautiful text fields,
+    some hand crafted card header & footer, and a nice box shadow that will
+    melt your 2001 ATI graphics card.</div>
+    <div className="card-form">
+      <TextField label="Label" value="Thomas Bangalter" />
+      <TextField label="Label" type="password" value="securePassword" />
       <Button className="primary">Update</Button>
-    </React.Fragment>
-  );
-};
+    </div>
+  </React.Fragment>
+);
+
+const CardBody = () => (
+  <React.Fragment>
+    <div className="card-title">Card title</div>
+    <div className="card-body">This is a basic card. You can use it to display
+    any type of text, picture and/or icon. It is supposed to have 30px/40px
+    paddings and regular paragraph texts.</div>
+  </React.Fragment>
+);
+
+const CardBodyWithIcon = () => (
+  <React.Fragment>
+    <img className="card-icon" src="https://cutt.ly/6k12q0g"/>
+    <div className="card-title">Card title</div>
+    <div className="card-body">This is a basic card. You can use it to display
+    any type of text, picture and/or icon. It is supposed to have 30px/40px
+    paddings and regular paragraph texts.</div>
+  </React.Fragment>
+);
 
 export const basic = () => (
-  <>
-    <Card title="Card Title" text={text}/>
-  </>
+  <Card><CardBody /></Card>
 );
 
 export const withIcon = () => (
-  <>
-    <Card icon="https://cutt.ly/6k12q0g" title="Card Title" text={text}/>
-  </>
-);
-
-export const withIllustration = () => (
-  <>
-    <Card
-      illustration="https://cutt.ly/Pk19ejU"
-      title="Card Title"
-      text={text}
-    />
-  </>
+  <Card><CardBodyWithIcon /></Card>
 );
 
 export const withForm = () => (
-  <>
-    <Card
-      title="Card Title"
-    >
-      <Form />
-    </Card>
-  </>
+  <Card><Form /></Card>
 );
