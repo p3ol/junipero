@@ -1,3 +1,4 @@
+export { default as Alert } from './Alert';
 export { default as BaseField } from './BaseField';
 export { default as BreadCrumb } from './BreadCrumb';
 export { default as Button } from './Button';

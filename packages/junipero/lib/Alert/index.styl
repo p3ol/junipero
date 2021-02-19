@@ -1,0 +1,33 @@
+@require "../theme/colors"
+
+.junipero.alert
+  display: inline-block
+  border-radius: 10px
+  box-shadow: 0 4px 30px -7px rgba($color-midnight, 0.1)
+  min-height: 74px
+  min-width: 150px
+
+  .alert-header
+    display: inline-block
+    width: 20%
+    height: 100%
+    background: $color-monza
+
+  .alert-body
+    width: 80%
+    display: inline-block
+    flex-direction: column
+
+    .alert-title
+      font-size: 22px
+      line-height: 38px
+
+    .alert-text
+      font-size: 14px
+      line-height: 24px
+
+    .alert-esc
+      position: absolute
+      font-size: 20px
+      right: 10px
+      top: 10px
