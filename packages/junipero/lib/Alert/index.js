@@ -5,7 +5,7 @@ import { classNames } from '@poool/junipero-utils';
 
 const Alert = ({
   className,
-  onClick,
+  onClick = () => {},
   onClose = () => {},
   icon = '',
   title,
@@ -13,12 +13,16 @@ const Alert = ({
   text,
 }) => {
 
-  const _onClose = () => {
+  const _onClose = e => {
+    e.stopPropagation();
     onClose();
   };
 
   return (
-    <div className={classNames('junipero', 'alert', theme, className)}>
+    <div
+      className={classNames('junipero', 'alert', theme, className)}
+      onClick={onClick}
+    >
       <div className="alert-header">
         <span className={classNames('icon', className)}>{icon}</span>
       </div>

@@ -10,7 +10,7 @@ export const full = () => (
       <Alert
         title="Title"
         className="full material-icons"
-        icon="gpp_good"
+        icon="check_box"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
@@ -41,7 +41,7 @@ export const empty = () => (
       <Alert
         title="Title"
         className="material-icons"
-        icon="gpp_good"
+        icon="check_box"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
