@@ -1,33 +1,81 @@
 @require "../theme/colors"
 
 .junipero.alert
-  display: inline-block
+  display: inline-flex
+  position: relative
+  overflow: hidden;
   border-radius: 10px
   box-shadow: 0 4px 30px -7px rgba($color-midnight, 0.1)
-  min-height: 74px
-  min-width: 150px
+
+  &:before
+    position: absolute
+    content: ''
+    width:15px
+    height:100%
+
+  &.full:before
+    width: 75px
+
+  &.success
+    color: $color-blue-chill
+    &:before
+      background: $color-blue-chill
+
+  &.warning
+    color: $color-buttercup
+    &:before
+      background: $color-buttercup
+
+  &.danger
+    color: $color-monza
+    &:before
+      background: $color-monza
 
   .alert-header
-    display: inline-block
-    width: 20%
-    height: 100%
-    background: $color-monza
+    display: flex
+    text-align: center
+
+    .icon
+      display: inline-block
+      z-index: 10
+      width: 75px
+      margin: auto 0 auto 15px
+
+      &.full
+        margin: auto 15px auto 0
+        color: $color-white
+
 
   .alert-body
-    width: 80%
     display: inline-block
-    flex-direction: column
+    margin: 10px 50px 10px 0
 
     .alert-title
       font-size: 22px
       line-height: 38px
+      display: block
 
     .alert-text
       font-size: 14px
       line-height: 24px
+      display: block
+      color: $color-shuttle-gray
 
     .alert-esc
+      color: $color-shuttle-gray
       position: absolute
       font-size: 20px
       right: 10px
       top: 10px
+
+      &:hover
+        cursor: pointer
+
+    .success
+      color: $color-blue-chill
+
+    .warning
+      color: $color-buttercup
+
+    .danger
+      color: $color-monza
