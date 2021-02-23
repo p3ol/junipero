@@ -1,4 +1,5 @@
 export { default as Alert } from './Alert';
+export { default as Badge } from './Badge';
 export { default as BaseField } from './BaseField';
 export { default as BreadCrumb } from './BreadCrumb';
 export { default as Button } from './Button';
@@ -17,6 +18,7 @@ export { default as SliderField } from './SliderField';
 export { default as Tab } from './Tab';
 export { default as Tabs } from './Tabs';
 export { default as TagsField } from './TagsField';
+export { default as Tag } from './Tag';
 export { default as TextField } from './TextField';
 export { default as ToggleField } from './ToggleField';
 export { default as Tooltip } from './Tooltip';
