@@ -9,26 +9,26 @@ export const full = () => (
     <p>
       <Alert
         title="Title"
-        className="full material-icons"
+        className="full material-icons success"
+        full
         icon="check_box"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
     <p>
       <Alert
-        theme="warning"
         title="Title"
         icon="warning"
-        className="full material-icons"
+        className="full material-icons warning"
+        full
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
     <p>
       <Alert
-        theme="danger"
         title="Title"
         icon="error"
-        className="full material-icons"
+        className="full material-icons danger"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
@@ -40,26 +40,24 @@ export const empty = () => (
     <p>
       <Alert
         title="Title"
-        className="material-icons"
+        className="material-icons success"
         icon="check_box"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
     <p>
       <Alert
-        theme="warning"
         title="Title"
         icon="warning"
-        className="material-icons"
+        className="material-icons warning"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
     <p>
       <Alert
-        theme="danger"
         title="Title"
         icon="error"
-        className="material-icons"
+        className="material-icons danger"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
