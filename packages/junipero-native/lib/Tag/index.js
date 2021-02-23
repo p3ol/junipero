@@ -36,7 +36,11 @@ const Tag = ({ theme = 'default', customStyle = {}, ...rest }) => {
   const themeStyles = getStyles();
 
   return (
-    <Text {...rest } style={[styles.tag, customStyle, themeStyles]} />
+    <Text
+      {...rest }
+      testID={theme}
+      style={[styles.tag, customStyle, themeStyles]}
+    />
   );
 };
 
