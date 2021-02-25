@@ -5,12 +5,11 @@ import { classNames } from '@poool/junipero-utils';
 
 const Alert = ({
   className,
-  onClick = () => {},
   onClose = () => {},
   icon = '',
-  full = false,
   title,
   text,
+  ...rest
 }) => {
 
   const _onClose = e => {
@@ -20,8 +19,8 @@ const Alert = ({
 
   return (
     <div
-      className={classNames('junipero', 'alert', { full }, className)}
-      onClick={onClick}
+      { ...rest }
+      className={classNames('junipero', 'alert', className)}
     >
       <div className="alert-header">
         <span className={classNames('icon', className)}>{icon}</span>
@@ -29,7 +28,7 @@ const Alert = ({
       <div className="alert-body">
         <span className={classNames('alert-title')}>{title}</span>
         <span className="alert-text">{text}</span>
-        <span className="alert-esc" onClick={_onClose}>×</span>
+        <a className="alert-esc" onClick={_onClose}>×</a>
       </div>
     </div>
   );
