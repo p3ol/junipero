@@ -118,6 +118,7 @@ const TextField = forwardRef(({
         disabled={disabled}
         required={required}
         textContentType={textContentType}
+        secureTextEntry={textContentType === 'password'}
         value={state.value}
         multiline={rest.rows > 1}
         numberOfLines={rest.rows || 1}
