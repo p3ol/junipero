@@ -43,12 +43,12 @@ const Form = () => (
     melt your 2001 ATI graphics card.</Text>
     <View style={styles.form}>
       <TextField
-        customStyle={{ input: styles.formItem }}
+        customStyle={{ wrapper: styles.formItem }}
         label="Label"
         value="Thomas Bangalter"
       />
       <TextField
-        customStyle={{ input: styles.formItem }}
+        customStyle={{ wrapper: styles.formItem }}
         label="Label"
         textContentType="password"
         value="securePassword"
