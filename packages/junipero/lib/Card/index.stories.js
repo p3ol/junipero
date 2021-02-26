@@ -22,18 +22,15 @@ const Form = () => (
     some hand crafted card header & footer, and a nice box shadow that will
     melt your 2001 ATI graphics card.</div>
     <div style={styles.form}>
-      <TextField
-        style={styles.formItem}
-        label="Label"
-        value="Thomas Bangalter"
-      />
-      <TextField
-        style={styles.formItem}
-        label="Label"
-        type="password"
-        value="securePassword"
-      />
-      <Button style={styles.formItem} className="primary">Update</Button>
+      <div style={styles.formItem}>
+        <TextField label="Label" value="Thomas Bangalter" />
+      </div>
+      <div style={styles.formItem}>
+        <TextField label="Label" type="password" value="securePassword" />
+      </div>
+      <div style={styles.formItem}>
+        <Button className="primary">Update</Button>
+      </div>
     </div>
   </React.Fragment>
 );
