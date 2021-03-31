@@ -203,7 +203,7 @@ export default class DateField extends React.Component {
         displayed.getMonth() === 0
           ? 11
           : displayed.getMonth() - 1,
-        displayed.getDate()
+        1
       ),
     });
   }
@@ -221,7 +221,7 @@ export default class DateField extends React.Component {
         displayed.getMonth() === 11
           ? 0
           : displayed.getMonth() + 1,
-        displayed.getDate()
+        1
       ),
     });
   }

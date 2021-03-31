@@ -72,7 +72,7 @@ describe('<DateField />', () => {
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1995);
     expect(value.getMonth()).toBe(10);
-    expect(value.getDate()).toBe(17);
+    expect(value.getDate()).toBe(1);
   });
 
   it('should jump to previous year on previous arrow click if current ' +
@@ -88,7 +88,7 @@ describe('<DateField />', () => {
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1994);
     expect(value.getMonth()).toBe(11);
-    expect(value.getDate()).toBe(17);
+    expect(value.getDate()).toBe(1);
   });
 
   it('should display next month on next arrow click', () => {
@@ -103,7 +103,7 @@ describe('<DateField />', () => {
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1995);
     expect(value.getMonth()).toBe(11);
-    expect(value.getDate()).toBe(17);
+    expect(value.getDate()).toBe(1);
   });
 
   it('should jump to next year on next arrow click if current ' +
@@ -119,7 +119,7 @@ describe('<DateField />', () => {
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1996);
     expect(value.getMonth()).toBe(0);
-    expect(value.getDate()).toBe(17);
+    expect(value.getDate()).toBe(1);
   });
 
   it('should show a native date field when using native prop', () => {
