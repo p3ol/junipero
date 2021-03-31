@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/p3ol/junipero/compare/v1.6.0...v1.6.1) (2021-03-31)
+
+
+### Bug Fixes
+
+* **datePicker:** repair tests ([bb53838](https://github.com/p3ol/junipero/commit/bb5383819f9c2227407a3c6b4f04b8a0ac6e4145))
+* **datePicker:** set day to first of the month to avoid months jumps ([c7f9219](https://github.com/p3ol/junipero/commit/c7f921952683ab34ed2ea69bd856f4e4a1488977))
+* **deps:** update dependency core-js to v3.10.0 ([b3709ef](https://github.com/p3ol/junipero/commit/b3709eff4949438dc70363b720fa02a9eea000ab))
+* **deps:** update dependency core-js to v3.7.0 ([2485e9c](https://github.com/p3ol/junipero/commit/2485e9cf94f404f85c99e78d8378ce73a5d73039))
+* **deps:** update dependency core-js to v3.8.0 ([d58ac88](https://github.com/p3ol/junipero/commit/d58ac88a682c12bc7eae7d30d9607532b9dbf7ad))
+* **deps:** update dependency core-js to v3.8.1 ([b5c56e1](https://github.com/p3ol/junipero/commit/b5c56e1efa7d94a701199f140f32796fc25f32b4))
+* **deps:** update dependency core-js to v3.8.2 ([8c778dd](https://github.com/p3ol/junipero/commit/8c778ddd37923dd9151b55320856f777b611a477))
+* **deps:** update dependency core-js to v3.8.3 ([e04725a](https://github.com/p3ol/junipero/commit/e04725a69f97a81edadf06af35d57455ec3f010f))
+* **deps:** update dependency core-js to v3.9.0 ([b750c11](https://github.com/p3ol/junipero/commit/b750c11543028127889a997af2166992fe1d159f))
+* **deps:** update dependency core-js to v3.9.1 ([4c9c838](https://github.com/p3ol/junipero/commit/4c9c838576fb649bad51f7642e255a35e77c2a1f))
+
 ## [1.6.0](https://github.com/p3ol/junipero/compare/v1.5.1...v1.6.0) (2020-10-09)
 
 
