@@ -1,5 +1,7 @@
 export {
   classNames,
+  addClass,
+  removeClass,
   mockState,
   exists,
   isUndefined,
@@ -10,6 +12,7 @@ export {
   omit,
   pick,
   cloneDeep,
+  fromPairs,
 } from './core';
 
 export {
