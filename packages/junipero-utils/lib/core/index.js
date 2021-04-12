@@ -3,7 +3,7 @@ export const classNames = (...args) => {
 
   args.map(arg => {
     if (!arg) {
-      return;
+      return false;
     }
 
     if (typeof arg === 'string' || typeof arg === 'number') {
@@ -18,8 +18,12 @@ export const classNames = (...args) => {
         if (v) {
           classes.push(k);
         }
+
+        return false;
       });
     }
+
+    return false;
   });
 
   return classes.join(' ');
@@ -81,3 +85,10 @@ export const cloneDeep = obj =>
           res[k] = cloneDeep(v);
           return res;
         }, {});
+
+export const fromPairs = (pairs = []) =>
+  pairs.reduce((res, [k, v]) => {
+    res[k] = v;
+
+    return res;
+  }, {});

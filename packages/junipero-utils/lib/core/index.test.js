@@ -10,6 +10,7 @@ import {
   omitBy,
   pick,
   cloneDeep,
+  fromPairs,
 } from './';
 
 describe('core', () => {
@@ -297,6 +298,16 @@ describe('core', () => {
       }
 
       expect(error).toBeUndefined();
+    });
+  });
+
+  describe('fromPairs()', () => {
+    it('should allow to make an object from a table', () => {
+      const arr = [['foo', 'bar'], ['stuff', 'thing'], [0, true]];
+      const obj = fromPairs(arr);
+      expect(obj.foo).toBe('bar');
+      expect(obj.stuff).toBe('thing');
+      expect(obj[0]).toBe(true);
     });
   });
 });
