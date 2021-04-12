@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero",
-  "version": "2.0.0-alpha.10",
+  "version": "2.0.0-alpha.11",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.10.2",
-    "@poool/junipero-hooks": "^2.0.0-alpha.10",
-    "@poool/junipero-utils": "^2.0.0-alpha.10",
+    "@poool/junipero-hooks": "^2.0.0-alpha.11",
+    "@poool/junipero-utils": "^2.0.0-alpha.11",
     "core-js": "3.6.5",
     "prop-types": "15.7.2"
   },
