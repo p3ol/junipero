@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2021-04-12)
+
+
+### Bug Fixes
+
+* **utils:** fix missing exports ([52e3efa](https://github.com/p3ol/junipero/commit/52e3efa5e1ab58f241981e3c134c882c4183a38f))
+
+
+
+
+
 # [2.0.0-alpha.11](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2021-04-12)
 
 
