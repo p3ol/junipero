@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.10](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2021-04-12)
+
+
+### Bug Fixes
+
+* **native:** center buttons text ([8626dfb](https://github.com/p3ol/junipero/commit/8626dfb83d279f350ac104b1862afbf29f5a0213))
+* **native:** fix icon behaviour ([8cfc753](https://github.com/p3ol/junipero/commit/8cfc7537ca77652f7a16db8ee8d2620b28cf7bc4))
+* **native:** fix parseValue props ([f7cae20](https://github.com/p3ol/junipero/commit/f7cae209ef9f6151d64b03103d259333ec95ad04))
+* **native:** fix typo ([5f31653](https://github.com/p3ol/junipero/commit/5f3165364186f71f2bf1367bd912d3cecc49a194))
+* **native:** remove material icons ([b9b9856](https://github.com/p3ol/junipero/commit/b9b98564a64d4d65793378dc546e9b98ed7daccf))
+
+
+### Features
+
+* **native:** add labeled selectfield wip ([43bf4a1](https://github.com/p3ol/junipero/commit/43bf4a17b3bca88a94405a3bdcc1e6c583aeb59c))
+* **native:** add new cases to storybook ([7059108](https://github.com/p3ol/junipero/commit/70591081d4cce343a44a4b703c1af4ee570a1a1c))
+* **native:** add new iconFont ([aa45d8a](https://github.com/p3ol/junipero/commit/aa45d8ad93132f7e27e74a17dd15450a7726a05e))
+* **native:** add new selectfields in storybook ([1404366](https://github.com/p3ol/junipero/commit/1404366f393365022e25781938400225e14a4b93))
+* **native:** add noResults case ([1041e6f](https://github.com/p3ol/junipero/commit/1041e6f569a9348b773f0be8c6416ee8d996c3db))
+* **native:** add password obscuration for textfield component ([a995de4](https://github.com/p3ol/junipero/commit/a995de4343d966efb83ce4956c9d2b889c04f84d))
+* **native:** add selectfield component ([af6fa37](https://github.com/p3ol/junipero/commit/af6fa37d03535327aebbd93d3ce48d8e231343bb))
+* **native:** basic selectField ([ea0f20f](https://github.com/p3ol/junipero/commit/ea0f20fe98ace0e5b7b667a200985038ccc95419))
+* **native:** selectfield with object option and value enforced ([867536d](https://github.com/p3ol/junipero/commit/867536dffb14ab30cdf704bb8f12f515680f5419))
+* **native:** selectField with search ([b102975](https://github.com/p3ol/junipero/commit/b1029751063a0b68b6ab0841dbbf0f6e17972c41))
+
+
+
+
+
 # [2.0.0-alpha.9](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2020-10-05)
 
 

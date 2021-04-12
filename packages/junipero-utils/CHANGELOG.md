@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.10](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2021-04-12)
+
+
+### Features
+
+* **utils:** add fromPairs helper ([c2189b2](https://github.com/p3ol/junipero/commit/c2189b2d611a864e1f93fec038b4b63a2143605c))
+
+
+
+
+
 # [2.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2020-09-01)
 
 

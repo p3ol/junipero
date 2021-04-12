@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.10](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2021-04-12)
+
+
+### Bug Fixes
+
+* clean code according to last review ([8a393a1](https://github.com/p3ol/junipero/commit/8a393a1f787047e9c9d97cfdb1adce06ef6df229))
+* clean code and remove styles from card component to add them in storybook ([cc42b55](https://github.com/p3ol/junipero/commit/cc42b55b8593932d05aeeffa70eef1228ddf9585))
+* clean code and remove useless props ([47acae0](https://github.com/p3ol/junipero/commit/47acae018d303b5f6cbac746c8502d50877b4c80))
+* clear code ([0b42433](https://github.com/p3ol/junipero/commit/0b424333f1490d49242d7e0c650d5a33d5ffd15b))
+* clear code ([606a23b](https://github.com/p3ol/junipero/commit/606a23bbc560e2bb68e3c304c5da3eba9ecd2501))
+* fix code according to last review ([e35b561](https://github.com/p3ol/junipero/commit/e35b561e05110f6e4a0a62afb3ed513c4c1e9239))
+* fix code according to previous reviews ([94daa0b](https://github.com/p3ol/junipero/commit/94daa0bc8e5e34a75d5a796f53b39beb41bf5d6d))
+* fix fomr styles in card stories ([6fc369c](https://github.com/p3ol/junipero/commit/6fc369ccf3736c092e4d116dadfed7236ae81644))
+* remove useless prop ([ea82980](https://github.com/p3ol/junipero/commit/ea829807506a5ef390705a6a93092ca7ba1ca751))
+* remove useless prop ([5869060](https://github.com/p3ol/junipero/commit/58690600e6257001b3fa76e3185bc5d4a9c4168b))
+* **native:** center buttons text ([8626dfb](https://github.com/p3ol/junipero/commit/8626dfb83d279f350ac104b1862afbf29f5a0213))
+* **native:** fix icon behaviour ([8cfc753](https://github.com/p3ol/junipero/commit/8cfc7537ca77652f7a16db8ee8d2620b28cf7bc4))
+* **native:** fix parseValue props ([f7cae20](https://github.com/p3ol/junipero/commit/f7cae209ef9f6151d64b03103d259333ec95ad04))
+* **native:** fix typo ([5f31653](https://github.com/p3ol/junipero/commit/5f3165364186f71f2bf1367bd912d3cecc49a194))
+* **native:** remove material icons ([b9b9856](https://github.com/p3ol/junipero/commit/b9b98564a64d4d65793378dc546e9b98ed7daccf))
+* **tooltip:** fix broken tooltip click trigger ([0173e94](https://github.com/p3ol/junipero/commit/0173e94692abe3bc262f80fcc34906f8d6aa5097))
+
+
+### Features
+
+* **native:** add password obscuration for textfield component ([a995de4](https://github.com/p3ol/junipero/commit/a995de4343d966efb83ce4956c9d2b889c04f84d))
+* **utils:** add fromPairs helper ([c2189b2](https://github.com/p3ol/junipero/commit/c2189b2d611a864e1f93fec038b4b63a2143605c))
+* add new tag component ([132b230](https://github.com/p3ol/junipero/commit/132b2305cbe145e6e29f6c1b48e82eb40af0e627))
+* add styles for alert component ([d449b0b](https://github.com/p3ol/junipero/commit/d449b0b7a73e19e7c353d312cde9911975b02917))
+* **native:** add labeled selectfield wip ([43bf4a1](https://github.com/p3ol/junipero/commit/43bf4a17b3bca88a94405a3bdcc1e6c583aeb59c))
+* **native:** add new cases to storybook ([7059108](https://github.com/p3ol/junipero/commit/70591081d4cce343a44a4b703c1af4ee570a1a1c))
+* **native:** add new iconFont ([aa45d8a](https://github.com/p3ol/junipero/commit/aa45d8ad93132f7e27e74a17dd15450a7726a05e))
+* **native:** add new selectfields in storybook ([1404366](https://github.com/p3ol/junipero/commit/1404366f393365022e25781938400225e14a4b93))
+* **native:** add noResults case ([1041e6f](https://github.com/p3ol/junipero/commit/1041e6f569a9348b773f0be8c6416ee8d996c3db))
+* **native:** selectfield with object option and value enforced ([867536d](https://github.com/p3ol/junipero/commit/867536dffb14ab30cdf704bb8f12f515680f5419))
+* **wip:** add Alert component ([d59e66e](https://github.com/p3ol/junipero/commit/d59e66e575bcf74bf702d20597f21dca73b937ca))
+* new badge component ([a5a03ca](https://github.com/p3ol/junipero/commit/a5a03ca253d83aaf074978a1bdd4dc3cc001c643))
+* new card component ([5bbb263](https://github.com/p3ol/junipero/commit/5bbb26319cbead9909c68ba46a7d84efb9fba11e))
+* **native:** add selectfield component ([af6fa37](https://github.com/p3ol/junipero/commit/af6fa37d03535327aebbd93d3ce48d8e231343bb))
+* **native:** basic selectField ([ea0f20f](https://github.com/p3ol/junipero/commit/ea0f20fe98ace0e5b7b667a200985038ccc95419))
+* **native:** selectField with search ([b102975](https://github.com/p3ol/junipero/commit/b1029751063a0b68b6ab0841dbbf0f6e17972c41))
+
+
+
+
+
 # [2.0.0-alpha.9](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2020-10-05)
 
 
