@@ -1,5 +1,7 @@
 import {
   classNames,
+  addClass,
+  removeClass,
   mockState,
   exists,
   isUndefined,
@@ -47,6 +49,67 @@ describe('core', () => {
     it('should do nothing of a non object-like structure', () => {
       expect(classNames('test', ['secondTest'], true))
         .toBe('test secondTest');
+    });
+  });
+
+  describe('addClass(element, class)', () => {
+    it('should correctly add a class to an element', () => {
+      const elmt = { className: '' };
+      addClass(elmt, 'test');
+      expect(elmt.className).toBe('test');
+    });
+
+    it('should not add the same class twice', () => {
+      const elmt = { className: 'test' };
+      addClass(elmt, 'test');
+      expect(elmt.className).toBe('test');
+    });
+
+    it('should correctly add a class to an element alongside other ' +
+      'classes', () => {
+      const elmt = { className: 'foo bar' };
+      addClass(elmt, 'test');
+      expect(elmt.className).toBe('foo bar test');
+    });
+  });
+
+  describe('removeClass(element, class)', () => {
+    it('should correctly remove an existing class from an element ' +
+      '(in between)', () => {
+      const elmt = { className: 'foo bar test' };
+      removeClass(elmt, 'bar');
+      expect(elmt.className).toBe('foo test');
+    });
+
+    it('should correctly remove an existing class from an element ' +
+      '(start)', () => {
+      const elmt = { className: 'foo bar test' };
+      removeClass(elmt, 'foo');
+      expect(elmt.className).toBe('bar test');
+    });
+
+    it('should correctly remove an existing class from an element ' +
+      '(end)', () => {
+      const elmt = { className: 'foo bar test' };
+      removeClass(elmt, 'test');
+      expect(elmt.className).toBe('foo bar');
+    });
+
+    it('should correctly remove all classes from an element', () => {
+      const elmt = { className: 'foo' };
+      removeClass(elmt, 'foo');
+      expect(elmt.className).toBe('');
+    });
+
+    it('should correctly remove an existing class using classList', () => {
+      const elmt = { classList: {
+        classes: ['foo', 'bar', 'test'],
+        remove: function (cls) {
+          this.classes = this.classes.filter(c => c !== cls);
+        },
+      } };
+      removeClass(elmt, 'bar');
+      expect(elmt.classList.classes).toMatchObject(['foo', 'test']);
     });
   });
 

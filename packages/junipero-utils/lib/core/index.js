@@ -29,6 +29,23 @@ export const classNames = (...args) => {
   return classes.join(' ');
 };
 
+export const addClass = (elmt, cls) => {
+  if (elmt.className.indexOf(cls) === -1) {
+    elmt.className += (elmt.className.length > 0 ? ' ' : '') + cls;
+  }
+};
+
+export const removeClass = (elmt, cls) => {
+  if (elmt.classList) {
+    elmt.classList.remove(cls);
+  } else {
+    elmt.className = elmt.className
+      .replace(new RegExp(`(^|\\b)${cls}(\\b|$)`, 'gi'), '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+};
+
 export const mockState = (state, action) => ({ ...state, ...action });
 
 export const isUndefined = v => typeof v === 'undefined';
