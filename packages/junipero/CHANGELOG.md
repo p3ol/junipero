@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2021-04-13)
+
+
+### Bug Fixes
+
+* **lib:** fix badge colors ([393749a](https://github.com/p3ol/junipero/commit/393749aff5115c9260d3d071a6ff1307bea51f14))
+* **lib:** fix tag colors ([782226e](https://github.com/p3ol/junipero/commit/782226e1abddbb28ec86168f2fb40708c1456ad3))
+
+
+
+
+
 # [2.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2021-04-12)
 
 **Note:** Version bump only for package @poool/junipero
