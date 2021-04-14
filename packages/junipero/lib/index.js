@@ -26,6 +26,8 @@ export { default as Tooltip } from './Tooltip';
 
 export {
   classNames,
+  addClass,
+  removeClass,
   exists,
   isNull,
   isUndefined,
@@ -35,6 +37,7 @@ export {
   omit,
   pick,
   cloneDeep,
+  fromPairs,
 } from '@poool/junipero-utils';
 
 export {
