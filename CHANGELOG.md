@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.20](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.19...v2.0.0-alpha.20) (2021-04-14)
+
+
+### Bug Fixes
+
+* fix babel root config ([26b2b28](https://github.com/p3ol/junipero/commit/26b2b28464910555ae9c31c42363914aa7f0602e))
+
+
+
+
+
 # [2.0.0-alpha.19](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.18...v2.0.0-alpha.19) (2021-04-14)
 
 
