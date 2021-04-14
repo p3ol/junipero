@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.17](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2021-04-14)
+
+
+### Bug Fixes
+
+* **lib:** fix dropdown styling ([9b1166c](https://github.com/p3ol/junipero/commit/9b1166c45f0f9fc475f80bb9559185563ea096b3))
+
+
+
+
+
 # [2.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2021-04-14)
 
 
