@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2021-04-14)
+
+
+### Bug Fixes
+
+* **hooks:** fix missing peer dep ([fb598b9](https://github.com/p3ol/junipero/commit/fb598b9261bede980bd06b966d88eab988a79a2f))
+* **lib:** fix font boldness ([fa63747](https://github.com/p3ol/junipero/commit/fa637470feb5295a3a399a663cd429557334db91))
+* **lib:** fix missing line heights ([fefd7c9](https://github.com/p3ol/junipero/commit/fefd7c95de1e99b69b1c10e5cee28b38be039ca6))
+
+
+
+
+
 # [2.0.0-alpha.14](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2021-04-14)
 
 
