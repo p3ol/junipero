@@ -1,10 +1,16 @@
 module.exports = {
+  presets: [
+    '@babel/preset-env',
+    ['@babel/preset-react', {
+      runtime: 'classic',
+    }],
+  ],
   env: {
     tests: {
       presets: [
-        '@babel/env',
-        ['@babel/react', {
-          runtime: 'automatic',
+        '@babel/preset-env',
+        ['@babel/preset-react', {
+          runtime: 'classic',
         }],
         'module:metro-react-native-babel-preset',
       ],

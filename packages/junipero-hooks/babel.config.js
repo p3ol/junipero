@@ -5,7 +5,7 @@ module.exports = {
       useBuiltIns: 'usage',
     }],
     ['@babel/preset-react', {
-      runtime: 'automatic',
+      runtime: 'classic',
     }],
   ],
   plugins: [
