@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2021-04-14)
+
+
+### Bug Fixes
+
+* **lib:** fix badge styling ([3bfd7da](https://github.com/p3ol/junipero/commit/3bfd7da7508e094288193f572fe1b3cbcbb43a1f))
+
+
+
+
+
 # [2.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2021-04-14)
 
 
