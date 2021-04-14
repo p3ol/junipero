@@ -26,6 +26,7 @@ describe('useEventListener(name, listener, target)', () => {
 
   it('should allow to use global event listeners', () => {
     const map = {};
+
     global.addEventListener = (event, cb) => { map[event] = cb; };
 
     const component = mount(<TestComponent />);

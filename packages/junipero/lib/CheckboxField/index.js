@@ -54,6 +54,7 @@ const CheckboxField = forwardRef(({
       state.checked = !state.checked;
       dispatch({ checked: state.checked });
       e.preventDefault?.();
+
       return false;
     }
 

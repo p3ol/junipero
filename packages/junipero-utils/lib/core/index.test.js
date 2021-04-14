@@ -195,6 +195,7 @@ describe('core', () => {
     it('should not throw an error if any given parameter is null or ' +
       'undefined', () => {
       let error;
+
       try {
         get();
       } catch (e) {
@@ -249,6 +250,7 @@ describe('core', () => {
     it('should not throw an error if any given parameter is null or ' +
       'undefined', () => {
       let error;
+
       try {
         set();
       } catch (e) {
@@ -275,6 +277,7 @@ describe('core', () => {
     it('should not throw an error if any given parameter is null or ' +
       'undefined', () => {
       let error;
+
       try {
         omit();
         omit(null);
@@ -296,6 +299,7 @@ describe('core', () => {
     it('should not throw an error if any given parameter is null or ' +
       'undefined', () => {
       let error;
+
       try {
         omitBy();
       } catch (e) {
@@ -316,6 +320,7 @@ describe('core', () => {
     it('should not throw an error if any given parameter is null or ' +
       'undefined', () => {
       let error;
+
       try {
         pick();
       } catch (e) {
@@ -354,6 +359,7 @@ describe('core', () => {
     it('should not throw an error if any given parameter is null or ' +
       'undefined', () => {
       let error;
+
       try {
         cloneDeep();
       } catch (e) {

@@ -48,6 +48,7 @@ describe('<ToggleField />', () => {
 
   it('should toggle checked state on enter or space hit when focused', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = cb; };
 
     const component = mount(<ToggleField globalEventsTarget={document} />);
@@ -66,6 +67,7 @@ describe('<ToggleField />', () => {
   it('should not toggle toggle checked state on enter or space hit ' +
     'and toggle is not focused', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = cb; };
 
     const component = mount(<ToggleField globalEventsTarget={document} />);

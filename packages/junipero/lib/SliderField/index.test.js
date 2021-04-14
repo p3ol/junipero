@@ -80,7 +80,9 @@ describe('<SliderField />', () => {
 
   it('should register document events to track mouse click & position', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     mount(<SliderField globalEventsTarget={document} />);
     expect(map.mousemove).toBeDefined();
     expect(map.mouseup).toBeDefined();
@@ -88,7 +90,9 @@ describe('<SliderField />', () => {
 
   it('should remove document events on unmount', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     document.removeEventListener = event => delete map[event];
 
     const component = mount(<SliderField globalEventsTarget={document} />);
@@ -102,7 +106,9 @@ describe('<SliderField />', () => {
 
   it('should set slider as moving on mouse down', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     const ref = createRef();
     const component = mount(
       <SliderField globalEventsTarget={document} ref={ref} />
@@ -123,6 +129,7 @@ describe('<SliderField />', () => {
   it('should trigger onChange event on mouse move', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const onChange = sinon.spy();
@@ -150,6 +157,7 @@ describe('<SliderField />', () => {
     'disabled', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const onChange = sinon.spy();
@@ -170,6 +178,7 @@ describe('<SliderField />', () => {
   it('should allow to move slider using arrow keys', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const component = mount(

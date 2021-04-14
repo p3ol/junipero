@@ -23,6 +23,7 @@ describe('<Tooltip />', () => {
 
   it('should also render tooltip when using click as trigger', () => {
     const map = {};
+
     document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
 
     const wrapper = mount(
@@ -69,7 +70,9 @@ describe('<Tooltip />', () => {
 
   it('should allow to click outside without trying to close tooltip', () => {
     const map = {};
+
     document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
+
     const wrapper = mount(
       <Tooltip globalEventsTarget={document} trigger="click">
         Text
@@ -91,7 +94,9 @@ describe('<Tooltip />', () => {
 
   it('should clean document listeners on unmount', () => {
     const map = {};
+
     document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
+
     document.removeEventListener = name => delete map[name];
 
     const wrapper = mount(
@@ -148,6 +153,7 @@ describe('<Tooltip />', () => {
     const linkRef = createRef();
 
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     mount(<a ref={linkRef} className="link" />);

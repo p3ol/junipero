@@ -47,6 +47,7 @@ describe('<CheckboxField />', () => {
 
   it('should toggle checkbox active state on click', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = cb; };
 
     const component = mount(<CheckboxField globalEventsTarget={document} />);
@@ -69,6 +70,7 @@ describe('<CheckboxField />', () => {
   it('should toggle checkbox checked state on enter or space hit ' +
     'when focused', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = cb; };
 
     const component = mount(<CheckboxField globalEventsTarget={document} />);
@@ -87,6 +89,7 @@ describe('<CheckboxField />', () => {
   it('should not toggle checkbox checked state on enter or space hit ' +
     'and checkbox is not focused', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = cb; };
 
     const component = mount(<CheckboxField globalEventsTarget={document} />);

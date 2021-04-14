@@ -1,10 +1,11 @@
+import path from 'path';
+
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
-import path from 'path';
 
 const isForIE = process.env.BROWSERSLIST_ENV === 'ie';
 const input = './lib/index.js';

@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 import { mockState } from '@poool/junipero-utils';
 import { useTimeout } from '@poool/junipero-hooks';
 import { TouchableWithoutFeedback, Text, View } from 'react-native';
-import TextField from '../TextField';
 
+import TextField from '../TextField';
 import { applyStyles } from '../theme';
 import styles from './index.styles.js';
 
@@ -58,6 +58,7 @@ const SelectField = forwardRef(({
     if (disabled) {
       return;
     }
+
     dispatch({ active: !state.active });
   };
 
@@ -83,6 +84,7 @@ const SelectField = forwardRef(({
         return;
       }
     }
+
     if (state.searchValue?.length < searchMinCharacters) {
       return;
     }

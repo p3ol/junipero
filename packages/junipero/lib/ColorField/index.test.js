@@ -53,7 +53,9 @@ describe('<ColorField />', () => {
 
   it('should register document events to track mouse click & position', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     mount(<ColorField globalEventsTarget={document} />);
     expect(map.mousemove).toBeDefined();
     expect(map.mouseup).toBeDefined();
@@ -61,7 +63,9 @@ describe('<ColorField />', () => {
 
   it('should remove document events on unmount', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     document.removeEventListener = event => delete map[event];
 
     const component = mount(<ColorField globalEventsTarget={document} />);
@@ -77,7 +81,9 @@ describe('<ColorField />', () => {
     'selected', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     const component = mount(
       <ColorField opened={true} ref={ref} globalEventsTarget={document} />
     );
@@ -108,7 +114,9 @@ describe('<ColorField />', () => {
     'selected', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     const component = mount(
       <ColorField opened={true} ref={ref} globalEventsTarget={document} />
     );
@@ -129,7 +137,9 @@ describe('<ColorField />', () => {
     'selected', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     const component = mount(
       <ColorField opened={true} ref={ref} globalEventsTarget={document} />
     );
@@ -151,7 +161,9 @@ describe('<ColorField />', () => {
     const ref = createRef();
     const onBlur = sinon.spy();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     const component = mount(
       <ColorField onBlur={onBlur} globalEventsTarget={document} ref={ref} />
     );
@@ -199,6 +211,7 @@ describe('<ColorField />', () => {
   it('should set color cursors as not moving on mouse up event', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const component = mount(

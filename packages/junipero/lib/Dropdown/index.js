@@ -153,6 +153,7 @@ const Dropdown = forwardRef(({
           ? React.cloneElement(child, {
             ref: ref_ => {
               toggleRef.current = ref_?.innerRef?.current;
+
               if (typeof child?.ref === 'function') {
                 child.ref(ref_);
               } else if (child.ref) {
@@ -164,6 +165,7 @@ const Dropdown = forwardRef(({
             ? React.cloneElement(child, {
               ref: ref_ => {
                 menuRef.current = ref_?.innerRef?.current;
+
                 if (typeof child?.ref === 'function') {
                   child.ref(ref_);
                 } else if (child.ref) {

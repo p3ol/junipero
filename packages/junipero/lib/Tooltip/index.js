@@ -8,7 +8,6 @@ import React, {
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { usePopper } from 'react-popper';
-
 import { ensureNode, classNames, mockState } from '@poool/junipero-utils';
 import { useEventListener } from '@poool/junipero-hooks';
 

@@ -58,6 +58,7 @@ describe('<Dropdown />', () => {
   it('should auto close menu when clicking outside', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     mount(
@@ -73,6 +74,7 @@ describe('<Dropdown />', () => {
   it('should not try to close menu when it doesn\'t exist', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     mount(<Dropdown ref={ref} opened={true} globalEventsTarget={document} />);
@@ -83,6 +85,7 @@ describe('<Dropdown />', () => {
   it('should not try to close menu when clicked inside', () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     mount(
@@ -176,6 +179,7 @@ describe('<Dropdown />', () => {
     const linkRef = createRef();
 
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     mount(<a ref={linkRef} className="link" />);
@@ -213,6 +217,7 @@ describe('<Dropdown />', () => {
     const onToggle = sinon.spy();
 
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const component = mount(

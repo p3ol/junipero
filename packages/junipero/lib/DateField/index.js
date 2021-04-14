@@ -203,6 +203,7 @@ const DateField = forwardRef(({
 
   const getWeekDayOfMonth = date => {
     const weekDay = date.getDay();
+
     return weekDay === 0 ? 7 : weekDay;
   };
 

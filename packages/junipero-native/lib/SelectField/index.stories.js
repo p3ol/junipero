@@ -1,5 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+
 import SelectField from './index';
 
 export default { title: 'junipero-native/SelectField' };

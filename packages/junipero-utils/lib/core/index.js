@@ -10,6 +10,7 @@ export const classNames = (...args) => {
       classes.push(arg);
     } else if (Array.isArray(arg) && arg.length) {
       const inner = classNames(...arg);
+
       if (inner) {
         classes.push(inner);
       }
@@ -66,12 +67,14 @@ export const set = (obj = {}, path = '', value, customizer = val => val) => {
       if (a[c] && typeof a[c] === 'object') {
         return a[c];
       }
+
       a[c] = Math.abs(path[i + 1]) >> 0 === +path[i + 1] ? [] : {};
 
       return a[c];
     }, obj);
 
   subObj[path.slice(-1)[0]] = customizer(value, subObj[path.slice(-1)[0]]);
+
   return obj;
 };
 
@@ -88,6 +91,7 @@ export const pick = (obj = {}, keys = []) =>
     if (!isUndefined(obj[k])) {
       res[k] = obj[k];
     }
+
     return res;
   }, {});
 
@@ -100,6 +104,7 @@ export const cloneDeep = obj =>
         ? [...obj.map(o => cloneDeep(o))]
         : Object.entries(obj).reduce((res, [k, v]) => {
           res[k] = cloneDeep(v);
+
           return res;
         }, {});
 

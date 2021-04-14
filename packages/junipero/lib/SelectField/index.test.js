@@ -172,6 +172,7 @@ describe('<SelectField />', () => {
 
   it('should allow to select items using keyboard arrows', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const ref = createRef();
@@ -215,7 +216,9 @@ describe('<SelectField />', () => {
 
   it('should not trigger keyboard actions when menu is not opened', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     document.activeElement?.blur();
 
     const ref = createRef();
@@ -232,7 +235,9 @@ describe('<SelectField />', () => {
 
   it('should not try to select an item if no options are specified', () => {
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     document.activeElement?.blur();
 
     const ref = createRef();

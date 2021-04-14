@@ -1,12 +1,14 @@
 export const startOfMonth = date => {
   const d = new Date(date);
   d.setDate(1);
+
   return d;
 };
 
 export const endOfMonth = date => {
   const d = addMonths(date, 1);
   d.setDate(0);
+
   return d;
 };
 

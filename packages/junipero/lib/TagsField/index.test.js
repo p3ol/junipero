@@ -26,11 +26,13 @@ describe('<TagsField />', () => {
 
   const autoComplete = val => {
     const search = new RegExp(val, 'i');
+
     return autoCompleteOptions.filter(item => search.test(item));
   };
 
   const autoCompleteWithObjects = val => {
     const search = new RegExp(val, 'i');
+
     return autoCompleteObjectOptions.filter(item => search.test(item.name));
   };
 
@@ -390,7 +392,9 @@ describe('<TagsField />', () => {
     'disabled', async () => {
     const ref = createRef();
     const map = {};
+
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
+
     jest.useFakeTimers();
     const component = mount(
       <TagsField

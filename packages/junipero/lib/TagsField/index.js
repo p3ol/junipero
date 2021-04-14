@@ -119,6 +119,7 @@ const TagsField = forwardRef(({
   const onInputFocus_ = e => {
     if (disabled) {
       e.preventDefault();
+
       return;
     }
 

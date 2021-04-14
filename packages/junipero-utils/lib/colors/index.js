@@ -46,6 +46,7 @@ export const hsva2hsla = ({ h, s, v, a }) => {
     return { h, s: 1, l: 1, a };
   } else {
     const l = v * (2 - s) / 2;
+
     return {
       h,
       s: v * s / (1 - Math.abs(2 * l - 1)),
@@ -67,6 +68,7 @@ export const hsla2hsva = ({ h, s, l, a }) => {
     return { h, s: 0, v: 0, a };
   } else {
     const v = l + s * (1 - Math.abs(2 * l - 1)) / 2;
+
     return {
       h,
       s: 2 * (v - l) / v,
@@ -206,6 +208,7 @@ export const stringifyColor = (color, format = 'auto') => {
     case 'hsl':
     case 'hsla': {
       const hsla = denormalizeHSLA(hsva2hsla(color));
+
       return `hsl${color.a < 1 ? 'a' : ''}(` +
         `${hsla.h}, ` +
         `${hsla.s}%, ` +
@@ -216,6 +219,7 @@ export const stringifyColor = (color, format = 'auto') => {
     case 'rgb':
     case 'rgba': {
       const rgba = denormalizeRGBA(hsva2rgba(color));
+
       return `rgb${color.a < 1 ? 'a' : ''}(` +
         `${rgba.r}, ` +
         `${rgba.g}, ` +

@@ -9,6 +9,7 @@ export const useEventListener = (name, handler, target = global) => {
 
   useEffect(() => {
     const isSupported = target && target.addEventListener;
+
     if (!isSupported) {
       return () => {};
     }
