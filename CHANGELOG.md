@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.14](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2021-04-14)
+
+
+### Bug Fixes
+
+* **lib:** set react peer dep to v17 ([857855b](https://github.com/p3ol/junipero/commit/857855b351b4aea3fb0e8f6b0507db4dea3206f6))
+
+
+
+
+
 # [2.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2021-04-13)
 
 
