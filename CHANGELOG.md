@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.18](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2021-04-14)
+
+
+### Bug Fixes
+
+* **lib:** fix missing exports ([86fee43](https://github.com/p3ol/junipero/commit/86fee43d87050ac02346322a1740318bb56d4aee))
+
+
+### Features
+
+* **lib:** add texts & titles styling ([3aa14fa](https://github.com/p3ol/junipero/commit/3aa14fa3db6e4803d7a7a5e546258b546c530bcd))
+
+
+
+
+
 # [2.0.0-alpha.17](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2021-04-14)
 
 
