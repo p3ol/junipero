@@ -3,7 +3,9 @@ module.exports = {
     tests: {
       presets: [
         '@babel/env',
-        '@babel/react',
+        ['@babel/react', {
+          runtime: 'automatic',
+        }],
         'module:metro-react-native-babel-preset',
       ],
       plugins: [

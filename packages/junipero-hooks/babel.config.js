@@ -4,7 +4,9 @@ module.exports = {
       corejs: 3,
       useBuiltIns: 'usage',
     }],
-    '@babel/preset-react',
+    ['@babel/preset-react', {
+      runtime: 'automatic',
+    }],
   ],
   plugins: [
     ['@babel/plugin-transform-runtime', {
