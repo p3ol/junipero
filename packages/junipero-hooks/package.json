@@ -20,6 +20,9 @@
     "node": ">= 10",
     "yarn": ">= 1"
   },
+  "peerDependencies": {
+    "react": "^17.0.0"
+  },
   "dependencies": {
     "@babel/runtime-corejs3": "7.10.2",
     "core-js": "3.6.5"
