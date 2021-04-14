@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.19](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.18...v2.0.0-alpha.19) (2021-04-14)
+
+
+### Bug Fixes
+
+* upgrade dependencies ([3d100f8](https://github.com/p3ol/junipero/commit/3d100f858637962b168277bc27d2c715a7681f1d))
+
+
+
+
+
 # [2.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2021-04-12)
 
 
