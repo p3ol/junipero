@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.21](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.20...v2.0.0-alpha.21) (2021-04-15)
+
+
+### Bug Fixes
+
+* **lib:** fix missing loader colors ([b5bd35e](https://github.com/p3ol/junipero/commit/b5bd35e2277571cca5f33e5a4dd72913f1cc2cc1))
+
+
+
+
+
 # [2.0.0-alpha.20](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.19...v2.0.0-alpha.20) (2021-04-14)
 
 
