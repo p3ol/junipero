@@ -1,19 +1,16 @@
 @require "../theme/colors"
 
 .junipero.loader
-  display: inline-block
-  vertical-align: middle
-  position: relative
-  top: -1px
-
   &.dots
+    display: inline
+
     .dot
       display: inline-block
       width: 7px
       height: 7px
       margin-right: 2px
       border-radius: 50%
-      background: rgba($color-eastern-blue, .8)
+      background: $color-alto
       opacity: 1
       animation: loader-fade 1.5s ease-out infinite
       vertical-align: middle
@@ -29,21 +26,48 @@
       &:nth-child(3)
         animation-delay: .4s
 
+    &.primary .dot
+      background: $color-eastern-blue
+
+    &.secondary .dot
+      background: $color-portage
+
+    &.premium .dot
+      background: $color-persian-green
+
+    &.warning .dot
+      background: $color-buttercup
+
+    &.danger .dot
+      background: $color-monza
+
+    &.success .dot
+      background: $color-java
+
+    &.light .dot
+      background: $color-white
+
+    &.dark .dot
+      background: $color-midnight
+
   &.bar
-    background: rgba($color-black-squeeze, .7)
+    background: $color-gallery
     height: 6px
     overflow: hidden
     width: 250px
+    display: block
+    border-radius: 3px
 
     .inner
       width: 100%
       height: 6px
       transform: translateX(-50%)
       display: block
+      border-radius: 3px
 
       &:after
         content: ""
-        background: $color-eastern-blue
+        background: $color-alto
         display: block
         height: 6px
         width: 40%
@@ -51,17 +75,42 @@
     &.active .inner
       animation: loader-slide 1.5s ease-in-out infinite
 
+    &.primary .inner:after
+      background: $color-eastern-blue
+
+    &.secondary .inner:after
+      background: $color-portage
+
+    &.premium .inner:after
+      background: $color-persian-green
+
+    &.warning .inner:after
+      background: $color-buttercup
+
+    &.danger .inner:after
+      background: $color-monza
+
+    &.success .inner:after
+      background: $color-java
+
+    &.light .inner:after
+      background: $color-white
+
+    &.dark .inner:after
+      background: $color-midnight
+
   &.spinner
     width: 18px
     height: 18px
     border-radius: 50%
-    background: linear-gradient(to right, $color-eastern-blue 10%, rgba($color-eastern-blue, 0) 42%)
+    background: linear-gradient(to right, $color-alto 10%, transparent 42%)
     animation: loader-rotate .5s infinite linear
+    display: inline-block
 
     &:before
       width: 50%
       height: 50%
-      background: $color-eastern-blue
+      background: $color-alto
       border-radius: 100% 0 0 0
       position: absolute
       top: 0
@@ -80,6 +129,54 @@
       left: 0
       bottom: 0
       right: 0
+
+    &.primary
+      background: linear-gradient(to right, $color-eastern-blue 10%, transparent 42%)
+
+      &:before
+        background: $color-eastern-blue
+
+    &.secondary
+      background: linear-gradient(to right, $color-portage 10%, transparent 42%)
+
+      &:before
+        background: $color-portage
+
+    &.premium
+      background: linear-gradient(to right, $color-persian-green 10%, transparent 42%)
+
+      &:before
+        background: $color-persian-green
+
+    &.warning
+      background: linear-gradient(to right, $color-buttercup 10%, transparent 42%)
+
+      &:before
+        background: $color-buttercup
+
+    &.danger
+      background: linear-gradient(to right, $color-monza 10%, transparent 42%)
+
+      &:before
+        background: $color-monza
+
+    &.success
+      background: linear-gradient(to right, $color-java 10%, transparent 42%)
+
+      &:before
+        background: $color-java
+
+    &.light
+      background: linear-gradient(to right, $color-white 10%, transparent 42%)
+
+      &:before
+        background: $color-white
+
+    &.dark
+      background: linear-gradient(to right, $color-midnight 10%, transparent 42%)
+
+      &:before
+        background: $color-midnight
 
 
 @keyframes loader-fade
