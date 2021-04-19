@@ -23,6 +23,21 @@ export const useEventListener = (name, handler, target = global) => {
   }, [name, target]);
 };
 
+export const useInterval = (cb, time, changes = []) => {
+  const returnedCallbackRef = useRef();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      returnedCallbackRef.current = cb();
+    }, time);
+
+    return () => {
+      clearInterval(interval);
+      returnedCallbackRef.current?.();
+    };
+  }, changes);
+};
+
 export const useTimeout = (cb, time, changes = []) => {
   const returnedCallbackRef = useRef();
 
