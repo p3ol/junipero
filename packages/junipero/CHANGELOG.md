@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2021-04-19)
+
+
+### Bug Fixes
+
+* **lib:** fix missing datefield arrow ([3e38e55](https://github.com/p3ol/junipero/commit/3e38e55602d3a3f4ca97f215e960df465d301c19))
+* **lib:** fix missing export ([bab95c1](https://github.com/p3ol/junipero/commit/bab95c1069142282d8bfcdfa0d37fa87a78f5340))
+
+
+
+
+
 # [2.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2021-04-15)
 
 **Note:** Version bump only for package @poool/junipero

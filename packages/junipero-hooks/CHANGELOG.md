@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2021-04-19)
+
+
+### Features
+
+* **hooks:** new useInterval hook ([0a4d3d8](https://github.com/p3ol/junipero/commit/0a4d3d8f732e1a91f57992cce4dbb916cbf6151a))
+
+
+
+
+
 # [2.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2021-04-15)
 
 **Note:** Version bump only for package @poool/junipero-hooks

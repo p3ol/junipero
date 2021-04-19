@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2021-04-19)
+
+**Note:** Version bump only for package @poool/junipero-native
+
+
+
+
+
 # [2.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2021-04-15)
 
 **Note:** Version bump only for package @poool/junipero-native
