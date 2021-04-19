@@ -5,13 +5,14 @@
   font-weight: bold
   background: $color-white
   color: $color-midnight
-  border-radius: 2px
+  border-radius: 4px
   appearance: none
   border: none
   transition-property: box-shadow, background, color
   transition-duration: .1s
   transition-timing-function: ease-in-out
   outline: none
+  line-height: normal
 
   // Default
   &:hover
@@ -317,6 +318,10 @@
   &.small
     padding: 5px 15px
     font-size: 14px
+
+    .icon,
+    .material-icons
+      font-size: 24px
 
   &.big
     padding: 10px 25px
