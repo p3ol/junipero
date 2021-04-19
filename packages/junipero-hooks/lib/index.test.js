@@ -4,17 +4,19 @@ import { act } from 'react-dom/test-utils';
 import sinon from 'sinon';
 import { classNames } from '@poool/junipero-utils';
 
-import { useEventListener, useTimeout } from './';
+import { useEventListener, useTimeout, useInterval } from './';
 
 /* eslint-disable react/prop-types */
-const TestComponent = ({ target, onTimeout }) => {
+const TestComponent = ({ target, onTimeout, onInterval }) => {
   const [clicked, setClicked] = useState(false);
 
   useEventListener('click', () => {
     setClicked(true);
   }, target);
 
-  useTimeout(() => {
+  onInterval && useInterval(() => onInterval(), 500, []);
+
+  onTimeout && useTimeout(() => {
     onTimeout();
   }, 500);
 
@@ -45,6 +47,24 @@ describe('useEventListener(name, listener, target)', () => {
     component.unmount();
   });
 
+});
+
+describe('useInterval(cb, time, changes)', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  it('should execute task each given amount of ms', async () => {
+    const onInterval = sinon.spy();
+    mount(<TestComponent onInterval={onInterval} />);
+    jest.useFakeTimers();
+    jest.advanceTimersByTime(2000);
+    expect(onInterval.callCount).toEqual(4);
+  });
+
+  afterAll(() => {
+    jest.clearAllTimers();
+  });
 });
 
 describe('useTimeout(listener, time, changes)', () => {
