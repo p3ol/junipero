@@ -42,5 +42,6 @@ export {
 
 export {
   useEventListener,
+  useInterval,
   useTimeout,
 } from '@poool/junipero-hooks';
