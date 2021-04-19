@@ -23,6 +23,7 @@ export { default as Tag } from './Tag';
 export { default as TextField } from './TextField';
 export { default as ToggleField } from './ToggleField';
 export { default as Tooltip } from './Tooltip';
+export { default as TouchableZone } from './TouchableZone';
 
 export {
   classNames,
