@@ -242,6 +242,8 @@ const DateField = forwardRef(({
         'date-picker',
         {
           dirty: state.dirty,
+          focused: state.focused,
+          disabled,
         },
         className,
       )}
@@ -263,6 +265,7 @@ const DateField = forwardRef(({
             onFocus={onFocus_}
             onBlur={onBlur_}
           />
+          <div className="arrow" />
         </DropdownToggle>
         <DropdownMenu
           className="calendar"

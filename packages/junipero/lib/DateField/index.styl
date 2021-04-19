@@ -13,7 +13,40 @@
     .base
       cursor: default
 
+    .arrow
+      position: absolute
+      width: 10px
+      height: 15px
+      top: 50%
+      right: 10px
+      transform: translateY(-50%)
+      pointer-events: none
+      user-select: none
+
+      &:before,
+      &:after
+        content: ''
+        display: block
+        position: relative
+        width: 5px
+        height: 5px
+        left: 2px
+        transform: rotate(45deg)
+        border: 0px solid $color-shuttle-gray
+        transition: border-color .1s ease-in-out
+
+      &:before
+        border-left-width: 2px
+        border-top-width: 2px
+        top: 1px
+
+      &:after
+        border-right-width: 2px
+        border-bottom-width: 2px
+
   .calendar
+    line-height: normal
+
     .calendar-header
       display: flex
       align-items: center
@@ -104,3 +137,17 @@
 
       &.active
         background: $color-eastern-blue
+
+  &.focused
+    .arrow
+      &:before, &:after
+        border-color: $color-eastern-blue
+
+  &.disabled
+    .arrow
+      &:before, &:after
+        border-color: $color-shuttle-gray
+
+    .junipero.base.empty
+      .label
+        opacity: 0
