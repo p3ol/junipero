@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.24](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2021-04-19)
+
+
+### Bug Fixes
+
+* **lib:** fix missing box-sizing selector ([729d448](https://github.com/p3ol/junipero/commit/729d448dcbb8a856385369971296fa35e42d0c13))
+
+
+
+
+
 # [2.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2021-04-19)
 
 
