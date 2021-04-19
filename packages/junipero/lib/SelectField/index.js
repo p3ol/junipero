@@ -19,6 +19,7 @@ import DropdownItem from '../DropdownItem';
 const SelectField = forwardRef(({
   animateMenu,
   className,
+  container,
   label,
   options,
   placeholder,
@@ -264,7 +265,7 @@ const SelectField = forwardRef(({
           />
           <div className="arrow" />
         </DropdownToggle>
-        <DropdownMenu animate={animateMenu}>
+        <DropdownMenu container={container} animate={animateMenu}>
           { search && (
             <div className="search">
               <TextField
@@ -304,6 +305,10 @@ SelectField.propTypes = {
   search: PropTypes.func,
   autoFocus: PropTypes.bool,
   animateMenu: PropTypes.func,
+  container: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
   disabled: PropTypes.bool,
   globalEventsTarget: PropTypes.oneOfType([
     PropTypes.node,
