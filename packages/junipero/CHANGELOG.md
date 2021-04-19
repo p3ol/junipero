@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.25](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2021-04-19)
+
+
+### Bug Fixes
+
+* **lib:** fix missing font weight ([c6ecb20](https://github.com/p3ol/junipero/commit/c6ecb20d88ecd85a21da3fbad18eaee58e73ab0e))
+
+
+
+
+
 # [2.0.0-alpha.24](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2021-04-19)
 
 
