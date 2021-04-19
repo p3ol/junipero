@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero-hooks",
-  "version": "2.0.0-alpha.23",
+  "version": "2.0.0-beta.0",
   "description": "🏔 Junipero Design System React hooks",
   "main": "dist/junipero-hooks.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -28,7 +28,7 @@
     "core-js": "3.10.1"
   },
   "devDependencies": {
-    "@poool/junipero-utils": "^2.0.0-alpha.22"
+    "@poool/junipero-utils": "^2.0.0-beta.0"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

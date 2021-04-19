@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.0](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.25...v2.0.0-beta.0) (2021-04-19)
+
+
+### Bug Fixes
+
+* **lib:** fix icon layout ([b96d53e](https://github.com/p3ol/junipero/commit/b96d53ea567b253804d62ddd17087d1c6d2b86e1))
+* **lib:** fix wrong radiuses ([034a6d9](https://github.com/p3ol/junipero/commit/034a6d90cedc4ee2d6cdf63299bf1eea3141217f))
+* **lib:** update tabs styles ([f115bcd](https://github.com/p3ol/junipero/commit/f115bcd3fdc80816e718b092fa727a5e8f88a3a0))
+
+
+### Features
+
+* **lib:** add touchable zone component ([0f5808f](https://github.com/p3ol/junipero/commit/0f5808fe967d9c78059c51935979263e180834d9))
+* **lib:** better touchable zone component ([2a5b33f](https://github.com/p3ol/junipero/commit/2a5b33f172a94f9227704141c0a5c8d959b518ca))
+
+
+
+
+
 # [2.0.0-alpha.25](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2021-04-19)
 
 
