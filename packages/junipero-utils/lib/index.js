@@ -43,4 +43,5 @@ export {
 export {
   ensureMinMax,
   getFloatPrecision,
+  formatThousand,
 } from './numbers';
