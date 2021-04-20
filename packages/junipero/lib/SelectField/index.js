@@ -218,7 +218,14 @@ const SelectField = forwardRef(({
     searchFieldRef.current?.reset();
   };
 
-  const renderOption = (o, index) => (
+  const renderOption = (o, index) => o.options ? (
+    <div key={index} className="items-group">
+      <div className="group-label">{ parseTitle(o) }</div>
+      <div className="items">
+        { o.options.map(renderOption) }
+      </div>
+    </div>
+  ) : (
     <DropdownItem
       key={index}
       tabIndex={0}
@@ -238,6 +245,7 @@ const SelectField = forwardRef(({
         'field',
         'select',
         {
+          'with-search': !!search,
           searching: state.searching,
           focused: state.focused,
           dirty: state.dirty,

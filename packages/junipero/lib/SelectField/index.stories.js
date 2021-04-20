@@ -16,6 +16,25 @@ const objectOptions = [
   { title: 'Three', value: 3 },
 ];
 
+const optionsWithGroups = [
+  {
+    title: 'First group',
+    options: [
+      { title: 'One', value: 1 },
+      { title: 'Two', value: 2 },
+      { title: 'Three', value: 3 },
+    ],
+  },
+  {
+    title: 'Second group',
+    options: [
+      { title: 'Four', value: 4 },
+      { title: 'Five', value: 5 },
+      { title: 'Six', value: 6 },
+    ],
+  },
+];
+
 export const basic = () => (
   <SelectField
     options={options}
@@ -78,6 +97,21 @@ export const autoFocused = () => (
 export const withSearch = () => (
   <SelectField
     options={options}
+    search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
+    onChange={action('change')} />
+);
+
+export const withGroups = () => (
+  <SelectField
+    options={optionsWithGroups}
+    parseTitle={o => o.title}
+    onChange={action('change')} />
+);
+
+export const withGroupsAndSearch = () => (
+  <SelectField
+    options={optionsWithGroups}
+    parseTitle={o => o.title}
     search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
     onChange={action('change')} />
 );

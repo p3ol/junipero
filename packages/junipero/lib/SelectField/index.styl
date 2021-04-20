@@ -1,3 +1,4 @@
+@require "../theme/vars"
 @require "../theme/colors"
 
 .junipero.select
@@ -51,6 +52,26 @@
     padding: 10px
     color: $color-shuttle-gray
     text-align: center
+
+  &:not(.with-search)
+    .items-group
+      &:first-child
+        border-top: 0
+        padding-top: 0
+
+  .items-group
+    padding: 10px 0
+    border-top: 1px solid $color-alabaster
+
+    &:last-child
+      padding-bottom: 0
+
+    .group-label
+      font-size: $text-extra-font-size
+      line-height: $text-extra-line-height
+      color: $color-alto
+      padding: 0 15px 10px
+
 
   .search
     padding: 0 10px 10px

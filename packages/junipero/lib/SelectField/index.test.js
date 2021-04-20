@@ -7,6 +7,15 @@ import SelectField from './';
 
 describe('<SelectField />', () => {
   const options = ['One', 'Two', 'Three', 'Four'];
+  const optionsWithGroups = [
+    {
+      title: 'Group 1',
+      options: ['One', 'Two', 'Three'],
+    }, {
+      title: 'Group 2',
+      options: ['Four', 'Five', 'Six'],
+    },
+  ];
 
   it('should render', () => {
     const ref = createRef();
@@ -254,6 +263,18 @@ describe('<SelectField />', () => {
     act(() => { map.keydown({ key: 'ArrowUp' }); });
     expect(document.activeElement)
       .toBe(component.find('.dropdown-toggle .base').getDOMNode());
+  });
+
+  it('should allow to group options', () => {
+    const component = mount(
+      <SelectField
+        autoFocus
+        parseTitle={o => o.title || o}
+        options={optionsWithGroups}
+      />
+    );
+    expect(component.find('.items-group:first-child .group-label').text())
+      .toBe('Group 1');
   });
 
 });
