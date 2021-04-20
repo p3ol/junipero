@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.3](https://github.com/p3ol/junipero/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2021-04-20)
+
+
+### Bug Fixes
+
+* **utils:** fix missing export ([f36fd5e](https://github.com/p3ol/junipero/commit/f36fd5e08606dcbc6040fb80202d6733942ec6aa))
+
+
+
+
+
 # [2.0.0-beta.2](https://github.com/p3ol/junipero/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2021-04-19)
 
 
