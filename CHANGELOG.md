@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.4](https://github.com/p3ol/junipero/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2021-04-20)
+
+
+### Features
+
+* **lib:** add groups to select field options ([5f0223a](https://github.com/p3ol/junipero/commit/5f0223ad13ad8d64de74d9639c3db77655cf883a))
+
+
+
+
+
 # [2.0.0-beta.3](https://github.com/p3ol/junipero/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2021-04-20)
 
 
