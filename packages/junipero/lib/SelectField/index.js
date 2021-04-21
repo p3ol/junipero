@@ -32,6 +32,7 @@ const SelectField = forwardRef(({
   noItems = 'No items found :(',
   noSearchResults = 'No result found :(',
   required = false,
+  searchAutoFocus = false,
   searchPlaceholder = 'Search...',
   searchMinCharacters = 2,
   searchThreshold = 400,
@@ -278,6 +279,7 @@ const SelectField = forwardRef(({
             <div className="search">
               <TextField
                 ref={searchFieldRef}
+                autoFocus={searchAutoFocus}
                 disabled={disabled}
                 placeholder={searchPlaceholder}
                 label={searchLabel}
@@ -355,6 +357,7 @@ SelectField.propTypes = {
     PropTypes.func,
   ]),
   required: PropTypes.bool,
+  searchAutoFocus: PropTypes.bool,
   searchPlaceholder: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
