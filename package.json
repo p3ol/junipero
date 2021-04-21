@@ -23,10 +23,10 @@
     "react-popper": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.13.14",
-    "@babel/core": "7.13.15",
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.13.16",
     "@babel/eslint-parser": "7.13.14",
-    "@babel/eslint-plugin": "7.13.15",
+    "@babel/eslint-plugin": "7.13.16",
     "@babel/plugin-proposal-class-properties": "7.13.0",
     "@babel/plugin-proposal-export-default-from": "7.12.13",
     "@babel/plugin-proposal-object-rest-spread": "7.13.8",
@@ -90,7 +90,7 @@
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.13.10",
+    "@babel/runtime-corejs3": "7.13.17",
     "core-js": "3.10.2",
     "prop-types": "15.7.2"
   },
