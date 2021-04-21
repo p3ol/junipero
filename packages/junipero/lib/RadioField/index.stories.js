@@ -115,3 +115,38 @@ export const twoRadiosCombined = () => {
     </>
   );
 };
+
+export const multipleRadiosCombined = () => {
+  const [intelligence, setIntelligence] = useState('strong');
+
+  const onChange = (value, type) => {
+    setIntelligence(value.value);
+  };
+
+  return (
+    <>
+      <RadioField
+        label="This one's stronger"
+        description="This is a description"
+        onChange={value => onChange(value, 'strong')}
+        value='strong'
+        checked={intelligence === 'strong'}
+      />
+      <RadioField
+        label="This one's dumb"
+        description="This is a description"
+        onChange={value => onChange(value, 'strong')}
+        value='strong'
+        checked={intelligence === 'dumb'}
+        disabled
+      />
+      <RadioField
+        label="This one's smarter"
+        description="This is a description"
+        onChange={value => onChange(value, 'smart')}
+        value='smart'
+        checked={intelligence === 'smart'}
+      />
+    </>
+  );
+};
