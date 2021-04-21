@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.6](https://github.com/p3ol/junipero/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2021-04-21)
+
+
+### Features
+
+* **lib:** add searchAutoFocus prop to select field ([0ef0033](https://github.com/p3ol/junipero/commit/0ef0033e7d5b5fe7e44d317f08b1f263d2216fc4))
+
+
+
+
+
 # [2.0.0-beta.5](https://github.com/p3ol/junipero/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2021-04-21)
 
 
