@@ -56,6 +56,7 @@ const RadioField = forwardRef(({
       state.checked = true;
       dispatch({ checked: state.checked });
       e.preventDefault?.();
+      onChange({ value, checked: state.checked });
 
       return false;
     }

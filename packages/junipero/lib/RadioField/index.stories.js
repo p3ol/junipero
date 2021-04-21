@@ -90,10 +90,10 @@ export const withDescriptionChecked = () => {
 };
 
 export const twoRadiosCombined = () => {
-  const [smart, setSmart] = useState(false);
-  const [strong, setStrong] = useState(false);
+  const [intelligence, setIntelligence] = useState('');
 
   const onChange = (value, type) => {
+    setIntelligence(value.value);
   };
 
   return (
@@ -102,13 +102,50 @@ export const twoRadiosCombined = () => {
         label="This one's stronger"
         description="This is a description"
         onChange={value => onChange(value, 'strong')}
-        checked={strong}
+        value='strong'
+        checked={intelligence === 'strong'}
       />
       <RadioField
         label="This one's smarter"
         description="This is a description"
         onChange={value => onChange(value, 'smart')}
-        checked={smart}
+        value='smart'
+        checked={intelligence === 'smart'}
+      />
+    </>
+  );
+};
+
+export const multipleRadiosCombined = () => {
+  const [intelligence, setIntelligence] = useState('strong');
+
+  const onChange = (value, type) => {
+    setIntelligence(value.value);
+  };
+
+  return (
+    <>
+      <RadioField
+        label="This one's stronger"
+        description="This is a description"
+        onChange={value => onChange(value, 'strong')}
+        value='strong'
+        checked={intelligence === 'strong'}
+      />
+      <RadioField
+        label="This one's dumb"
+        description="This is a description"
+        onChange={value => onChange(value, 'strong')}
+        value='strong'
+        checked={intelligence === 'dumb'}
+        disabled
+      />
+      <RadioField
+        label="This one's smarter"
+        description="This is a description"
+        onChange={value => onChange(value, 'smart')}
+        value='smart'
+        checked={intelligence === 'smart'}
       />
     </>
   );
