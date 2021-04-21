@@ -6,12 +6,12 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-import { classNames, exists, mockState } from '@poool/junipero-utils';
+import { classNames, mockState } from '@poool/junipero-utils';
 import { useEventListener } from '@poool/junipero-hooks';
 
 const RadioField = forwardRef(({
   className,
-  checked = false,
+  checked,
   description,
   disabled = false,
   globalEventsTarget = global,
@@ -44,9 +44,6 @@ const RadioField = forwardRef(({
   }));
 
   const onKeyPress_ = e => {
-    if (disabled) {
-      return;
-    }
 
     if (
       !state.checked &&
@@ -92,7 +89,7 @@ const RadioField = forwardRef(({
           active: state.active,
           checked: state.checked,
           focused: state.focused,
-          boxed: exists(description),
+          boxed: !!description,
           disabled,
         },
         className

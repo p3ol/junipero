@@ -92,7 +92,7 @@ export const withDescriptionChecked = () => {
 export const twoRadiosCombined = () => {
   const [intelligence, setIntelligence] = useState('');
 
-  const onChange = (value, type) => {
+  const onChange = value => {
     setIntelligence(value.value);
   };
 
@@ -119,7 +119,7 @@ export const twoRadiosCombined = () => {
 export const multipleRadiosCombined = () => {
   const [intelligence, setIntelligence] = useState('strong');
 
-  const onChange = (value, type) => {
+  const onChange = value => {
     setIntelligence(value.value);
   };
 
