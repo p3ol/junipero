@@ -5,6 +5,7 @@
   align-items: center
 
   &.checked
+
     &.boxed
       background: $color-black-squeeze
       border-color: $color-eastern-blue
@@ -17,6 +18,7 @@
     cursor pointer
 
   &:focus:not(.disabled)
+
     &.boxed .inner, .inner
       box-shadow: 0 0 0 2px rgba($color-eastern-blue .5)
       
@@ -45,7 +47,7 @@
     opacity: .5 
 
   .label
-    margin-left: 20px
+    margin-left: 12px
   
   &.boxed
     border: 1px solid $color-catskill-white
@@ -53,8 +55,7 @@
     border-radius: 4px
     
     .label
-      display: flex
-      flex-direction: column
+      margin-left: 20px
 
       & :first-child
         line-height: $text-default-line-height

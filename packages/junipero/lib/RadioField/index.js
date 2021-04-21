@@ -44,8 +44,16 @@ const RadioField = forwardRef(({
   }));
 
   const onKeyPress_ = e => {
-    if (state.focused && (e.key === 'Enter' || e.key === ' ')) {
-      state.checked = !state.checked;
+    if (disabled) {
+      return;
+    }
+
+    if (
+      !state.checked &&
+      state.focused &&
+      (e.key === 'Enter' || e.key === ' ')
+    ) {
+      state.checked = true;
       dispatch({ checked: state.checked });
       e.preventDefault?.();
 
