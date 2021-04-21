@@ -47,6 +47,7 @@
 
     &:active
       background: $color-white - 20
+      color: $color-midnight
 
       &:focus
         box-shadow: 0 0 0 1px ($color-white - 20),
@@ -54,9 +55,9 @@
 
     &:disabled
       &, &:hover, &:active, &:focus
-        background: $color-alabaster
+        background: transparent
+        box-shadow: 0 0 0 1px $color-alabaster
         color: $color-alto
-        box-shadow: none
 
   // Primary
   &.primary
@@ -97,6 +98,7 @@
       &:active
         background: $color-persian-green
         box-shadow: 0 0 0 1px $color-persian-green
+        color: $color-white
 
         &:focus
           box-shadow: 0 0 0 1px $color-persian-green,
@@ -104,9 +106,9 @@
 
       &:disabled
         &, &:hover, &:active, &:focus
-          background: $color-powder-blue
-          color: $color-white
-          box-shadow: none
+          background: transparent
+          box-shadow: 0 0 0 1px $color-powder-blue
+          color: $color-powder-blue
 
   // Secondary
   &.secondary
@@ -147,6 +149,7 @@
       &:active
         background: $color-eastern-blue
         box-shadow: 0 0 0 1px $color-eastern-blue
+        color: $color-white
 
         &:focus
           box-shadow: 0 0 0 1px $color-eastern-blue,
@@ -154,9 +157,9 @@
 
       &:disabled
         &, &:hover, &:active, &:focus
-          background: $color-powder-blue
-          color: $color-white
-          box-shadow: none
+          background: transparent
+          box-shadow: 0 0 0 1px $color-powder-blue
+          color: $color-powder-blue
 
   // Warning
   &.warning
@@ -197,6 +200,7 @@
       &:active
         background: $color-buttercup - 20
         box-shadow: 0 0 0 1px ($color-buttercup - 20)
+        color: $color-white
 
         &:focus
           box-shadow: 0 0 0 1px ($color-buttercup - 20),
@@ -204,9 +208,9 @@
 
       &:disabled
         &, &:hover, &:active, &:focus
-          background: $color-disabled-buttercup
-          color: $color-white
-          box-shadow: none
+          background: transparent
+          box-shadow: 0 0 0 1px $color-disabled-buttercup
+          color: $color-disabled-buttercup
 
   // Danger
   &.danger
@@ -247,6 +251,7 @@
       &:active
         background: $color-monza - 20
         box-shadow: 0 0 0 1px ($color-monza - 20)
+        color: $color-white
 
         &:focus
           box-shadow: 0 0 0 1px ($color-monza - 20),
@@ -254,9 +259,9 @@
 
       &:disabled
         &, &:hover, &:active, &:focus
-          background: $color-disabled-monza
-          color: $color-white
-          box-shadow: none
+          background: transparent
+          color: $color-disabled-monza
+          box-shadow: 0 0 0 1px $color-disabled-monza
 
   // Success
   &.success
@@ -297,6 +302,7 @@
       &:active
         background: $color-java - 20
         box-shadow: 0 0 0 1px ($color-java - 20)
+        color: $color-white
 
         &:focus
           box-shadow: 0 0 0 1px ($color-java - 20),
@@ -304,9 +310,9 @@
 
       &:disabled
         &, &:hover, &:active, &:focus
-          background: $color-disabled-java
-          color: $color-white
-          box-shadow: none
+          background: transparent
+          color: $color-disabled-java
+          box-shadow: 0 0 0 1px $color-disabled-java
 
   .icon,
   .material-icons
