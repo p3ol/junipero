@@ -44,7 +44,6 @@ const RadioField = forwardRef(({
   }));
 
   const onKeyPress_ = e => {
-
     if (
       !state.checked &&
       state.focused &&
