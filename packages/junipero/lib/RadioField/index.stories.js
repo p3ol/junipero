@@ -101,14 +101,14 @@ export const twoRadiosCombined = () => {
       <RadioField
         label="This one's stronger"
         description="This is a description"
-        onChange={value => onChange(value, 'strong')}
+        onChange={value => onChange(value)}
         value='strong'
         checked={intelligence === 'strong'}
       />
       <RadioField
         label="This one's smarter"
         description="This is a description"
-        onChange={value => onChange(value, 'smart')}
+        onChange={value => onChange(value)}
         value='smart'
         checked={intelligence === 'smart'}
       />
@@ -128,22 +128,22 @@ export const multipleRadiosCombined = () => {
       <RadioField
         label="This one's stronger"
         description="This is a description"
-        onChange={value => onChange(value, 'strong')}
+        onChange={value => onChange(value)}
         value='strong'
         checked={intelligence === 'strong'}
       />
       <RadioField
         label="This one's dumb"
         description="This is a description"
-        onChange={value => onChange(value, 'strong')}
-        value='strong'
+        onChange={value => onChange(value)}
+        value='dumb'
         checked={intelligence === 'dumb'}
         disabled
       />
       <RadioField
         label="This one's smarter"
         description="This is a description"
-        onChange={value => onChange(value, 'smart')}
+        onChange={value => onChange(value)}
         value='smart'
         checked={intelligence === 'smart'}
       />
