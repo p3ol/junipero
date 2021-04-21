@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.5](https://github.com/p3ol/junipero/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2021-04-21)
+
+
+### Bug Fixes
+
+* **lib:** fix buttons active colors ([7f3444b](https://github.com/p3ol/junipero/commit/7f3444b5f22604a8b5ecca1c7a77039a9484db1c))
+* **lib:** fix select field groups spacing ([2d57743](https://github.com/p3ol/junipero/commit/2d577431a8d0b347449bc67b71fcb3479d80a300))
+
+
+
+
+
 # [2.0.0-beta.4](https://github.com/p3ol/junipero/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2021-04-20)
 
 
