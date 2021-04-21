@@ -14,6 +14,7 @@ export { default as DropdownMenu } from './DropdownMenu';
 export { default as DropdownToggle } from './DropdownToggle';
 export { default as Loader } from './Loader';
 export { default as Modal } from './Modal';
+export { default as RadioField } from './RadioField';
 export { default as SelectField } from './SelectField';
 export { default as SliderField } from './SliderField';
 export { default as Tab } from './Tab';
