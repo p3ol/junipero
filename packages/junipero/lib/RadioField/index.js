@@ -98,7 +98,7 @@ const RadioField = forwardRef(({
       )}
       onFocus={onFocus_}
       onBlur={onBlur_}
-      tabIndex={1}
+      tabIndex={!disabled ? 1 : null}
     >
       <input
         { ...rest }
