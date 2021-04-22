@@ -9,8 +9,7 @@ export const full = () => (
     <p>
       <Alert
         title="Title"
-        className="full material-icons success"
-        full
+        className="full success"
         icon="check_box"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
@@ -19,8 +18,7 @@ export const full = () => (
       <Alert
         title="Title"
         icon="warning"
-        className="full material-icons warning"
-        full
+        className="full warning"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
@@ -28,7 +26,7 @@ export const full = () => (
       <Alert
         title="Title"
         icon="error"
-        className="full material-icons danger"
+        className="full danger"
         text="Lorem Ipsum is simply dummy text of the printing "
       />
     </p>
