@@ -1,6 +1,5 @@
 import React, {
   forwardRef,
-  useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
@@ -11,28 +10,20 @@ import { useEventListener } from '@poool/junipero-hooks';
 
 const RadioField = forwardRef(({
   className,
-  checked,
-  description,
   disabled = false,
   globalEventsTarget = global,
   id,
-  label,
+  name,
+  options = [],
   value,
   onChange = () => {},
-  onFocus = () => {},
-  onBlur = () => {},
   ...rest
 }, ref) => {
   const innerRef = useRef();
   const inputRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
-    checked: checked ?? false,
-    focused: false,
+    focused: null,
   });
-
-  useEffect(() => {
-    dispatch({ checked: checked ?? false });
-  }, [checked]);
 
   useEventListener('keypress', e => {
     onKeyPress_(e);
@@ -46,15 +37,18 @@ const RadioField = forwardRef(({
   }));
 
   const onKeyPress_ = e => {
+    const input = e.target.querySelector('input');
+
+    if (!input) {
+      return;
+    }
+
     if (
-      !state.checked &&
-      state.focused &&
+      value !== input.value &&
       (e.key === 'Enter' || e.key === ' ')
     ) {
-      state.checked = true;
-      dispatch({ checked: state.checked });
       e.preventDefault?.();
-      onChange({ value, checked: state.checked });
+      onChange({ value: input.value });
 
       return false;
     }
@@ -62,65 +56,79 @@ const RadioField = forwardRef(({
     return true;
   };
 
-  const onChange_ = e => {
-    state.checked = e?.target?.checked ?? false;
-    dispatch({ checked: state.checked });
-    onChange({ value, checked: state.checked });
+  const onChange_ = (item, e) => {
+    if (item.disabled) {
+      return;
+    }
+
+    onChange({ value: e.target.value });
   };
 
-  const onFocus_ = e => {
-    dispatch({ focused: true });
-    onFocus(e);
+  const onFocus_ = item => {
+    dispatch({ focused: item.value });
   };
 
-  const onBlur_ = e => {
-    dispatch({ focused: false });
-    onBlur(e);
+  const onBlur_ = () => {
+    dispatch({ focused: null });
   };
+
+  const isChecked = item =>
+    value === item.value;
+
+  const isFocused = item =>
+    state.focused === item.value;
 
   return (
-    <label
-      htmlFor={id}
-      ref={innerRef}
-      className={classNames(
-        'junipero',
-        'field',
-        'radio',
-        {
-          active: state.active,
-          checked: state.checked,
-          focused: state.focused,
-          boxed: !!description,
-          disabled,
-        },
-        className
+    <div>
+      { options.map((item, index) => (
+        <label
+          ref={innerRef}
+          key={index}
+          className={classNames(
+            'junipero',
+            'field',
+            'radio',
+            {
+              active: state.active,
+              checked: isChecked(item),
+              focused: isFocused(item),
+              boxed: !!item.description,
+              disabled: disabled || item.disabled,
+            },
+            className
+          )}
+          onFocus={onFocus_.bind(null, item)}
+          onBlur={onBlur_}
+          tabIndex={!item.disabled ? 1 : null}
+        >
+          <input
+            { ...rest }
+            id={id}
+            name={name}
+            ref={inputRef}
+            type="radio"
+            value={item.value}
+            checked={isChecked(item)}
+            onChange={onChange_.bind(null, item)}
+            tabIndex={-1}
+          />
+          <div className="inner">
+          </div>
+          <div className="label">
+            <div>{ item.title }</div>
+            {
+              item.description &&
+              <div className="description">{item.description}</div>
+            }
+          </div>
+        </label>
+      )
       )}
-      onFocus={onFocus_}
-      onBlur={onBlur_}
-      tabIndex={!disabled ? 1 : null}
-    >
-      <input
-        { ...rest }
-        id={id}
-        ref={inputRef}
-        type="radio"
-        value={value}
-        checked={state.checked}
-        onChange={onChange_}
-        tabIndex={-1}
-      />
-      <div className="inner">
-      </div>
-      <div className="label">
-        <div>{ label }</div>
-        { description && <div className="description">{description}</div>}
-      </div>
-    </label>
+    </div>
   );
 });
 
 RadioField.propTypes = {
-  checked: PropTypes.bool,
   disabled: PropTypes.bool,
   description: PropTypes.string,
   globalEventsTarget: PropTypes.oneOfType([
@@ -128,10 +136,9 @@ RadioField.propTypes = {
     PropTypes.object,
   ]),
   id: PropTypes.string,
-  label: PropTypes.string,
+  name: PropTypes.array,
+  options: PropTypes.array,
   onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
