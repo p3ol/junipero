@@ -41,6 +41,8 @@ const RadioField = forwardRef(({
   useImperativeHandle(ref, () => ({
     innerRef,
     inputRef,
+    focused: state.focused,
+    internalValue: state.checked,
   }));
 
   const onKeyPress_ = e => {
