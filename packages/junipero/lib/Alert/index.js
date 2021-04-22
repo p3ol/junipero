@@ -22,7 +22,11 @@ const Alert = ({
       className={classNames('junipero', 'alert', className)}
     >
       <div className="alert-header">
-        <span className={classNames('icon', className)}>{icon}</span>
+        <span
+          className={classNames('icon material-icons', className)}
+        >
+          {icon}
+        </span>
       </div>
       <div className="alert-body">
         <span className={classNames('alert-title')}>{title}</span>
