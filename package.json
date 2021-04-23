@@ -84,7 +84,7 @@
     "stylus": "0.54.8",
     "stylus-loader": "5.0.0",
     "url-loader": "4.1.1",
-    "webpack": "5.35.0",
+    "webpack": "5.35.1",
     "webpack-bundle-analyzer": "4.4.1",
     "webpack-cli": "4.6.0",
     "webpack-dev-server": "3.11.2"
