@@ -13,14 +13,13 @@ const RadioField = forwardRef(({
   disabled = false,
   globalEventsTarget = global,
   id,
-  name,
   options = [],
   value,
   onChange = () => {},
   ...rest
 }, ref) => {
-  const innerRef = useRef();
-  const inputRef = useRef();
+  const innersRef = useRef([]);
+  const inputsRef = useRef([]);
   const [state, dispatch] = useReducer(mockState, {
     focused: null,
   });
@@ -30,25 +29,27 @@ const RadioField = forwardRef(({
   }, globalEventsTarget);
 
   useImperativeHandle(ref, () => ({
-    innerRef,
-    inputRef,
+    innersRef,
+    inputsRef,
     focused: state.focused,
-    internalValue: state.checked,
   }));
 
   const onKeyPress_ = e => {
-    const input = e.target.querySelector('input');
+    const foundIndex = options.findIndex(o => o.value === state.focused);
 
-    if (!input) {
-      return;
+    /* istanbul ignore if: just in case */
+    if (foundIndex < 0) {
+      return false;
     }
 
+    const inputValue = inputsRef.current[foundIndex]?.value;
+
     if (
-      value !== input.value &&
+      value !== inputValue &&
       (e.key === 'Enter' || e.key === ' ')
     ) {
+      onChange({ value: inputValue });
       e.preventDefault?.();
-      onChange({ value: input.value });
 
       return false;
     }
@@ -57,11 +58,11 @@ const RadioField = forwardRef(({
   };
 
   const onChange_ = (item, e) => {
-    if (item.disabled) {
+    if (disabled || item.disabled) {
       return;
     }
 
-    onChange({ value: e.target.value });
+    onChange({ value: e?.target?.value });
   };
 
   const onFocus_ = item => {
@@ -82,14 +83,16 @@ const RadioField = forwardRef(({
     <div>
       { options.map((item, index) => (
         <label
-          ref={innerRef}
+          htmlFor={id}
+          ref={el => {
+            innersRef.current[index] = el;
+          }}
           key={index}
           className={classNames(
             'junipero',
             'field',
             'radio',
             {
-              active: state.active,
               checked: isChecked(item),
               focused: isFocused(item),
               boxed: !!item.description,
@@ -104,8 +107,10 @@ const RadioField = forwardRef(({
           <input
             { ...rest }
             id={id}
-            name={name}
-            ref={inputRef}
+            name={item.value}
+            ref={el => {
+              inputsRef.current[index] = el;
+            }}
             type="radio"
             value={item.value}
             checked={isChecked(item)}
@@ -136,7 +141,6 @@ RadioField.propTypes = {
     PropTypes.object,
   ]),
   id: PropTypes.string,
-  name: PropTypes.array,
   options: PropTypes.array,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([

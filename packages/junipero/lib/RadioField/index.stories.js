@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { action } from '@storybook/addon-actions';
 
 import RadioField from './index';
 
@@ -9,12 +8,6 @@ const basicOptions = [
   { title: 'Apple', value: 'Apple' },
   { title: 'Pear', value: 'Pear' },
   { title: 'Orange', value: 'Orange' },
-];
-
-const basicOptions2 = [
-  { title: 'Apple', value: 'Apple' },
-  { title: 'Pear', value: 'Pear' },
-  { title: 'Orange', value: 'Orange', disabled: true },
 ];
 
 const withDescriptions = [
@@ -37,7 +30,7 @@ export const basic = () => {
   );
 };
 
-export const basicAllDisabled = () => {
+export const basicDisabled = () => {
   return (
     <>
       <RadioField
@@ -49,6 +42,8 @@ export const basicAllDisabled = () => {
 };
 
 export const basicOneDisabled = () => {
+  const options_ = [...basicOptions];
+  options_[2].disabled = true;
   const [state, setState] = useState('Apple');
 
   const onChange = ({ value }) => {
@@ -58,7 +53,7 @@ export const basicOneDisabled = () => {
   return (
     <>
       <RadioField
-        options={basicOptions2}
+        options={options_}
         onChange={onChange}
         value={state}
       />
@@ -66,7 +61,7 @@ export const basicOneDisabled = () => {
   );
 };
 
-export const basicDisabledWithActive = () => {
+export const basicDisabledOneActive = () => {
   const [state, setState] = useState('Apple');
 
   const onChange = ({ value }) => {
@@ -103,112 +98,41 @@ export const withDescription = () => {
   );
 };
 
-// export const basic = () => {
-//   const [checked, setChecked] = useState(false);
+export const withDescriptionDisabled = () => {
+  const [state, setState] = useState('');
 
-//   const onChange = value => {
-//     setChecked(value.checked);
-//   };
-
-//   return (
-//     <>
-//       <RadioField checked={checked}
-//         onChange={value => onChange(value)}
-//         label="Enabled"/>
-//       <button onClick={() => setChecked(false)}>reset</button>
-//     </>
-
-//   );
-// };
-
-export const disabled = () => {
-  return (
-    <RadioField label="Disabled" onChange={action('change')} disabled/>
-  );
-};
-
-export const active = () => {
-  return (
-    <RadioField label="Active" onChange={action('change')} checked/>
-  );
-};
-
-export const activeDisabled = () => {
-  return (
-    <RadioField
-      label="Active and disabled"
-      onChange={action('change')}
-      disabled
-      checked
-    />
-  );
-};
-
-// export const withDescription = () => {
-//   return (
-//     <RadioField
-//       label="Super title"
-//       description="This is a description"
-//       onChange={action('change')}
-//       checked
-//     />
-//   );
-// };
-
-export const withDescriptionAndUnchecked = () => {
-  return (
-    <RadioField
-      label="Super title"
-      description="This is a description"
-      onChange={action('change')}
-    />
-  );
-};
-
-export const withDescriptionButDisabled = () => {
-  return (
-    <RadioField
-      label="Super title"
-      description="This is a description"
-      onChange={action('change')}
-      disabled
-    />
-  );
-};
-
-export const withDescriptionChecked = () => {
-  return (
-    <RadioField
-      label="Super title"
-      description="This is a description"
-      onChange={action('change')}
-      checked
-    />
-  );
-};
-
-export const twoRadiosCombined = () => {
-  const [intelligence, setIntelligence] = useState('');
-
-  const onChange = value => {
-    setIntelligence(value.value);
+  const onChange = ({ value }) => {
+    setState(value);
   };
 
   return (
     <>
       <RadioField
-        label="This one's stronger"
-        description="This is a description"
-        onChange={value => onChange(value)}
-        value='strong'
-        checked={intelligence === 'strong'}
+        disabled
+        options={withDescriptions}
+        onChange={onChange}
+        value={state}
       />
+    </>
+  );
+};
+
+export const withDescriptionDisabledOneActive = () => {
+  const withDescriptions_ = [...withDescriptions];
+  withDescriptions_[2].disabled = true;
+  const [state, setState] = useState('Pear');
+
+  const onChange = ({ value }) => {
+    setState(value);
+  };
+
+  return (
+    <>
       <RadioField
-        label="This one's smarter"
-        description="This is a description"
-        onChange={value => onChange(value)}
-        value='smart'
-        checked={intelligence === 'smart'}
+        disabled
+        options={withDescriptions_}
+        onChange={onChange}
+        value={state}
       />
     </>
   );
