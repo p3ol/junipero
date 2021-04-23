@@ -117,8 +117,7 @@ const RadioField = forwardRef(({
             onChange={onChange_.bind(null, item)}
             tabIndex={-1}
           />
-          <div className="inner">
-          </div>
+          <div className="inner" />
           <div className="label">
             <div>{ item.title }</div>
             {
