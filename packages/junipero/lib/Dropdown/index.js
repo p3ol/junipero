@@ -104,15 +104,18 @@ const Dropdown = forwardRef(({
     const container = innerRef.current;
     const menu = menuRef.current;
 
-    if (!state.opened || !container || !menu) {
+    if (!state.opened || !container) {
       return;
     }
 
     if (
       !container.contains(e.target) &&
       container !== e.target &&
-      !menu.contains(e.target) &&
-      menu !== e.target &&
+      (
+        !menu ||
+        (!menu.contains(e.target) &&
+        menu !== e.target)
+      ) &&
       (
         !clickOutsideTarget ||
         (

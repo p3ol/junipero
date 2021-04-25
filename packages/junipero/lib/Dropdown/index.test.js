@@ -71,7 +71,7 @@ describe('<Dropdown />', () => {
     expect(ref.current.opened).toBe(false);
   });
 
-  it('should not try to close menu when it doesn\'t exist', () => {
+  it('should close menu even when it doesn\'t exist', () => {
     const ref = createRef();
     const map = {};
 
@@ -79,7 +79,7 @@ describe('<Dropdown />', () => {
 
     mount(<Dropdown ref={ref} opened={true} globalEventsTarget={document} />);
     act(() => { map.click({ target: document.body }); });
-    expect(ref.current.opened).toBe(true);
+    expect(ref.current.opened).toBe(false);
   });
 
   it('should not try to close menu when clicked inside', () => {
