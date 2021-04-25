@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.7](https://github.com/p3ol/junipero/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2021-04-25)
+
+
+### Bug Fixes
+
+* **lib:** fix dropdown not closing when menu is animated ([4108ff2](https://github.com/p3ol/junipero/commit/4108ff2bed7b889fc45863aee812dd8f4d6116e3))
+* **toggle:** handle onChange when using keyboard to change state ([53b406d](https://github.com/p3ol/junipero/commit/53b406d5ef8fc930c342bbff3333fe36cc823338))
+
+
+
+
+
 # [2.0.0-beta.6](https://github.com/p3ol/junipero/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2021-04-21)
 
 
