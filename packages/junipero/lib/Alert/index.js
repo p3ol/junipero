@@ -10,9 +10,8 @@ const Alert = ({
   text,
   ...rest
 }) => {
-
-  const _onClose = e => {
-    e.stopPropagation();
+  const onClose_ = e => {
+    e.preventDefault();
     onClose();
   };
 
@@ -27,13 +26,11 @@ const Alert = ({
       <div className="alert-body">
         <span className={classNames('alert-title')}>{title}</span>
         <span className="alert-text">{text}</span>
-        <a className="alert-esc" onClick={_onClose}>×</a>
+        <a className="alert-esc" onClick={onClose_}>×</a>
       </div>
     </div>
   );
 };
-
-export default Alert;
 
 Alert.propTypes = {
   icon: PropTypes.string,
@@ -44,3 +41,5 @@ Alert.propTypes = {
   onClick: PropTypes.func,
   onClose: PropTypes.func,
 };
+
+export default Alert;

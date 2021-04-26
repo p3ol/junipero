@@ -6,8 +6,10 @@ const Loader = ({
   className,
   active = false,
   type = 'dots',
+  ...rest
 }) => (
   <div
+    { ...rest }
     className={classNames(
       'junipero',
       'loader',

@@ -46,6 +46,7 @@ const DateField = forwardRef(({
   }),
   parseValue = val => val,
   validate = val => !required || typeof val !== 'undefined',
+  ...rest
 }, ref) => {
   const innerRef = useRef();
   const dropdownRef = useRef();
@@ -236,6 +237,7 @@ const DateField = forwardRef(({
 
   return (
     <div
+      { ...rest }
       className={classNames(
         'junipero',
         'field',

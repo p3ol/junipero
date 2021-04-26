@@ -43,6 +43,7 @@ const TagsField = forwardRef(({
   validate = val => !!val?.length || !required,
   validateInput = () => true,
   validateTag = val => !!val,
+  ...rest
 }, ref) => {
   const innerRef = useRef();
   const wrapperRef = useRef();
@@ -348,6 +349,7 @@ const TagsField = forwardRef(({
 
   return (
     <div
+      { ...rest }
       ref={innerRef}
       className={classNames(
         'junipero',

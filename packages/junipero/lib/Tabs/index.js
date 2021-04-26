@@ -16,6 +16,7 @@ const Tabs = forwardRef(({
   active = 0,
   disabled = false,
   onChange = () => {},
+  ...rest
 }, ref) => {
   const innerRef = useRef();
   const [activeTab, setActiveTab] = useState(active);
@@ -46,6 +47,7 @@ const Tabs = forwardRef(({
 
   return (
     <div
+      { ...rest }
       ref={innerRef}
       className={classNames(
         'junipero',

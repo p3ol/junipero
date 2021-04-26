@@ -19,13 +19,13 @@ const Tab = forwardRef(({
 
   return (
     <div
+      { ...rest }
       className={classNames(
         'junipero',
         'tab',
         className,
       )}
       ref={innerRef}
-      { ...rest }
     />
   );
 });

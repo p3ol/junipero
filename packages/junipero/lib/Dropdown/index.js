@@ -140,6 +140,7 @@ const Dropdown = forwardRef(({
 
   return (
     <div
+      { ...rest }
       className={classNames(
         'junipero',
         'dropdown',
@@ -149,7 +150,6 @@ const Dropdown = forwardRef(({
         className,
       )}
       ref={innerRef}
-      { ...rest }
     >
       <DropdownContext.Provider value={getContext()}>
         { React.Children.map(children, child => child.type === DropdownToggle

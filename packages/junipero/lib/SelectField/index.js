@@ -43,6 +43,7 @@ const SelectField = forwardRef(({
   parseTitle = val => val?.toString?.(),
   parseValue = val => val,
   validate = val => !required || typeof val !== 'undefined',
+  ...rest
 }, ref) => {
   const innerRef = useRef();
   const dropdownRef = useRef();
@@ -240,6 +241,7 @@ const SelectField = forwardRef(({
 
   return (
     <div
+      { ...rest }
       ref={innerRef}
       className={classNames(
         'junipero',

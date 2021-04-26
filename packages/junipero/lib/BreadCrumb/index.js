@@ -26,7 +26,14 @@ const BreadCrumb = forwardRef(({
       )}
     >
       { items.map((item, index) =>
-        animateItem(<Item className="item" key={index}>{item}</Item>, index)
+        animateItem((
+          <Item
+            className="item"
+            key={index}
+          >
+            { item }
+          </Item>
+        ), index)
       ) }
     </div>
   );
