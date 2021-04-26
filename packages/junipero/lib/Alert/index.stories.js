@@ -4,62 +4,66 @@ import Alert from './index';
 
 export default { title: 'junipero/Alert' };
 
-export const full = () => (
+export const expanded = () => (
   <>
     <p>
       <Alert
         title="Title"
-        className="full material-icons success"
-        full
-        icon="check_box"
-        text="Lorem Ipsum is simply dummy text of the printing "
-      />
+        className="success"
+        icon={<i className="material-icons">check_box</i>}
+      >
+        Lorem Ipsum is simply dummy text of the printing
+      </Alert>
     </p>
     <p>
       <Alert
         title="Title"
-        icon="warning"
-        className="full material-icons warning"
-        full
-        text="Lorem Ipsum is simply dummy text of the printing "
-      />
+        icon={<i className="material-icons">warning</i>}
+        className="warning"
+      >
+        Lorem Ipsum is simply dummy text of the printing
+      </Alert>
     </p>
     <p>
       <Alert
         title="Title"
-        icon="error"
-        className="full material-icons danger"
-        text="Lorem Ipsum is simply dummy text of the printing "
-      />
+        icon={<i className="material-icons">error</i>}
+        className="danger"
+      >
+        Lorem Ipsum is simply dummy text of the printing
+      </Alert>
     </p>
   </>
 );
 
-export const empty = () => (
+export const compact = () => (
   <>
     <p>
       <Alert
         title="Title"
-        className="material-icons success"
-        icon="check_box"
-        text="Lorem Ipsum is simply dummy text of the printing "
-      />
+        className="success compact"
+        icon={<i className="material-icons">check_box</i>}
+      >
+        Lorem Ipsum is simply dummy text of the printing
+      </Alert>
     </p>
     <p>
       <Alert
         title="Title"
-        icon="warning"
-        className="material-icons warning"
-        text="Lorem Ipsum is simply dummy text of the printing "
-      />
+        icon={<i className="material-icons">warning</i>}
+        className="warning compact"
+      >
+        Lorem Ipsum is simply dummy text of the printing
+      </Alert>
     </p>
     <p>
       <Alert
         title="Title"
-        icon="error"
-        className="material-icons danger"
-        text="Lorem Ipsum is simply dummy text of the printing "
-      />
+        icon={<i className="material-icons">error</i>}
+        className="danger compact"
+      >
+        Lorem Ipsum is simply dummy text of the printing
+      </Alert>
     </p>
   </>
 );

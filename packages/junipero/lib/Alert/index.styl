@@ -9,76 +9,109 @@
   border-radius: 10px
   box-shadow: 0 4px 30px -7px rgba($color-midnight, 0.1)
 
-  &:before
-    position: absolute
-    content: ''
-    width:15px
-    height:100%
-
-  &.full:before
+  .border
+    flex: 0 1 75px
     width: 75px
-
-  &.success
-    color: $color-blue-chill
-    &:before
-      background: $color-blue-chill
-
-  &.warning
-    color: $color-buttercup
-    &:before
-      background: $color-buttercup
-
-  &.danger
-    color: $color-monza
-    &:before
-      background: $color-monza
-
-  .alert-header
-    display: flex
-    text-align: center
+    margin-right: 14px
 
     .icon
-      display: inline-block
-      z-index: 10
-      width: 75px
-      margin: auto 0 auto 15px
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 35px
+      background-color: $color-shuttle-gray
+      color: $color-white
 
-      &.full
-        margin: auto 15px auto 0
-        color: $color-white
+  .content
+    flex: 1 0 auto
+    width: auto
+    padding: 10px 0
 
+    .title
+      margin: 0
+      color: $color-midnight
 
-  .alert-body
-    display: inline-block
-    margin: 10px 50px 10px 0
-
-    .alert-title
-      font-size: 22px
-      line-height: 38px
-      display: block
-
-    .alert-text
-      font-size: 14px
-      line-height: 24px
-      display: block
+    .text
       color: $color-shuttle-gray
 
-    .alert-esc
-      color: $color-shuttle-gray
-      position: absolute
-      font-size: 20px
-      right: 10px
-      top: 10px
-      z-index: 10
+  .close
+    color: $color-shuttle-gray
+    position: absolute
+    font-size: 20px
+    line-height: 20px
+    right: 10px
+    top: 10px
+    z-index: 1
 
-      &:hover
-        cursor: pointer
+    &:hover
+      cursor: pointer
 
-    .success
+  // Sizes
+  &.compact
+    .border
+      display: flex
+      flex: 0 0 auto
+      width: auto
+      margin-right: 0
+
+      &:before
+        content: ''
+        width: 15px
+        height: 100%
+        background: $color-shuttle-gray
+        flex: 0 0 15px
+
+      .icon
+        flex: 1 0 auto
+        width: auto
+        padding: 0 25px
+        background: transparent
+        color: $color-shuttle-gray
+
+  // Colors
+  &.success
+    .title
       color: $color-blue-chill
 
-    .warning
+    .icon
+      background: $color-blue-chill
+      color: $color-white
+
+    &.compact
+      .border:before
+        background: $color-blue-chill
+
+      .icon
+        color: $color-blue-chill
+
+  &.warning
+    .title
       color: $color-buttercup
 
-    .danger
+    .icon
+      background: $color-buttercup
+      color: $color-white
+
+    &.compact
+      .border:before
+        background: $color-buttercup
+
+      .icon
+        color: $color-buttercup
+
+  &.danger
+    .title
       color: $color-monza
+
+    .icon
+      background: $color-monza
+      color: $color-white
+
+    &.compact
+      .border:before
+        background: $color-monza
+
+      .icon
+        color: $color-monza

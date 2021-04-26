@@ -4,41 +4,56 @@ import { classNames } from '@poool/junipero-utils';
 
 const Alert = ({
   className,
-  onClose = () => {},
-  icon = '',
+  icon,
   title,
-  text,
+  tag: Tag = 'a',
+  children,
+  onClose,
   ...rest
 }) => {
   const onClose_ = e => {
     e.preventDefault();
-    onClose();
+    onClose?.();
   };
 
   return (
-    <div
+    <Tag
       { ...rest }
       className={classNames('junipero', 'alert', className)}
     >
-      <div className="alert-header">
-        <span className={classNames('icon', className)}>{icon}</span>
+      <div className="border">
+        { icon && (
+          <span className="icon">{ icon }</span>
+        ) }
       </div>
-      <div className="alert-body">
-        <span className={classNames('alert-title')}>{title}</span>
-        <span className="alert-text">{text}</span>
-        <a className="alert-esc" onClick={onClose_}>×</a>
+      <div className="content">
+        <h5 className="junipero title">{ title }</h5>
+        <div className="junipero text secondary">{ children }</div>
       </div>
-    </div>
+      <span role="button" className="close" onClick={onClose_}>×</span>
+    </Tag>
   );
 };
 
 Alert.propTypes = {
-  icon: PropTypes.string,
-  full: PropTypes.bool,
-  title: PropTypes.string,
-  text: PropTypes.string,
-  theme: PropTypes.string,
-  onClick: PropTypes.func,
+  icon: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.object,
+  ]),
+  tag: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.object,
+  ]),
+  title: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.object,
+  ]),
   onClose: PropTypes.func,
 };
 
