@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.8](https://github.com/p3ol/junipero/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2021-04-26)
+
+
+### Bug Fixes
+
+* **lib:** fix some props not being passed to children ([c57fc6d](https://github.com/p3ol/junipero/commit/c57fc6d21db81f64c24fb52c36548a253f182343))
+
+
+
+
+
 # [2.0.0-beta.7](https://github.com/p3ol/junipero/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2021-04-25)
 
 
