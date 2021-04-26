@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.9](https://github.com/p3ol/junipero/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2021-04-26)
+
+
+### Bug Fixes
+
+* **lib:** fix alert component ([eaf0318](https://github.com/p3ol/junipero/commit/eaf0318641199766a4188a44befe2aceb6725ed8))
+
+
+
+
+
 # [2.0.0-beta.8](https://github.com/p3ol/junipero/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2021-04-26)
 
 
