@@ -10,6 +10,12 @@ const basicOptions = [
   { title: 'Orange', value: 'Orange' },
 ];
 
+const basicOptionsOneDisabled = [
+  { title: 'Apple', value: 'Apple' },
+  { title: 'Pear', value: 'Pear' },
+  { title: 'Orange', value: 'Orange', disabled: true },
+];
+
 const withDescriptions = [
   { title: 'Apple', value: 'Apple', description: 'This is a description' },
   { title: 'Pear', value: 'Pear', description: 'This is a description' },
@@ -42,8 +48,6 @@ export const basicDisabled = () => {
 };
 
 export const basicOneDisabled = () => {
-  const options_ = [...basicOptions];
-  options_[2].disabled = true;
   const [state, setState] = useState('Apple');
 
   const onChange = ({ value }) => {
@@ -53,7 +57,7 @@ export const basicOneDisabled = () => {
   return (
     <>
       <RadioField
-        options={options_}
+        options={basicOptionsOneDisabled}
         onChange={onChange}
         value={state}
       />

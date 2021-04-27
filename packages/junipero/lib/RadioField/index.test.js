@@ -22,21 +22,21 @@ describe('<RadioField />', () => {
     const component = mount(
       <RadioField options={basicOptions} />
     );
-    expect(component.find('.junipero.radio').length).toBe(3);
+    expect(component.find('.junipero.radio label').length).toBe(3);
   });
 
   it('should render no options without error', () => {
     const component = mount(
       <RadioField />
     );
-    expect(component.find('.junipero.radio').length).toBe(0);
+    expect(component.find('.junipero.radio label').length).toBe(0);
   });
 
   it('should render with descriptions', () => {
     const component = mount(
       <RadioField options={withDescriptions} />
     );
-    expect(component.find('.junipero.radio.boxed').length).toBe(3);
+    expect(component.find('.junipero.radio .boxed').length).toBe(3);
   });
 
   it('should provide some imperative handles', () => {
@@ -133,7 +133,7 @@ describe('<RadioField />', () => {
     );
 
     component.find('label').at(0).simulate('focus');
-    expect(component.find('.junipero.radio.focused').length).toBe(1);
+    expect(component.find('.junipero.radio .focused').length).toBe(1);
     expect(map.keypress).toBeDefined();
     act(() => map.keypress({ key: 'Enter' }));
     component.update();
@@ -156,7 +156,7 @@ describe('<RadioField />', () => {
       />
     );
     component.find('label').at(1).simulate('focus');
-    expect(component.find('.junipero.radio.focused').length).toBe(1);
+    expect(component.find('.junipero.radio .focused').length).toBe(1);
     expect(map.keypress).toBeDefined();
     act(() => map.keypress({ key: ' ' }));
     component.update();
@@ -168,9 +168,9 @@ describe('<RadioField />', () => {
   it('should toggle focused state on focus', () => {
     const component = mount(<RadioField options={basicOptions} />);
     component.find('label').at(0).simulate('focus');
-    expect(component.find('.junipero.radio.focused').length).toBe(1);
+    expect(component.find('.junipero.radio .focused').length).toBe(1);
     component.find('label').at(0).simulate('blur');
-    expect(component.find('.junipero.radio.focused').length).toBe(0);
+    expect(component.find('.junipero.radio .focused').length).toBe(0);
   });
 
   it('should not uncheck on enter hit if checked', () => {
@@ -187,10 +187,10 @@ describe('<RadioField />', () => {
         value='Apple'
       />);
     component.find('label').at(0).simulate('focus');
-    expect(component.find('.junipero.radio.checked').length).toBe(1);
+    expect(component.find('.junipero.radio .checked').length).toBe(1);
     expect(map.keypress).toBeDefined();
     act(() => map.keypress({ key: 'Enter' }));
     component.update();
-    expect(component.find('.junipero.radio.checked').length).toBe(1);
+    expect(component.find('.junipero.radio .checked').length).toBe(1);
   });
 });

@@ -80,7 +80,14 @@ const RadioField = forwardRef(({
     state.focused === item.value;
 
   return (
-    <div>
+    <div
+      className={classNames(
+        'junipero',
+        'field',
+        'radio',
+        className,
+      )}
+    >
       { options.map((item, index) => (
         <label
           htmlFor={id}
@@ -89,16 +96,12 @@ const RadioField = forwardRef(({
           }}
           key={index}
           className={classNames(
-            'junipero',
-            'field',
-            'radio',
             {
               checked: isChecked(item),
               focused: isFocused(item),
               boxed: !!item.description,
               disabled: disabled || item.disabled,
             },
-            className
           )}
           onFocus={onFocus_.bind(null, item)}
           onBlur={onBlur_}
