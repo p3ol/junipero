@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.12](https://github.com/p3ol/junipero/compare/v2.0.0-beta.11...v2.0.0-beta.12) (2021-04-28)
+
+
+### Bug Fixes
+
+* **lib:** fix text sizes ([6868c84](https://github.com/p3ol/junipero/commit/6868c84b7d75717174ed9cb8364dd37ca48d95d2))
+
+
+
+
+
 # [2.0.0-beta.11](https://github.com/p3ol/junipero/compare/v2.0.0-beta.10...v2.0.0-beta.11) (2021-04-28)
 
 
