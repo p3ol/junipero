@@ -1,0 +1,67 @@
+@require "../theme/colors"
+
+.junipero.radio
+
+  label
+    display: flex
+    align-items: center
+
+    &.checked
+
+      &.boxed
+        background: $color-black-squeeze
+        border-color: $color-eastern-blue
+
+      .inner 
+        background: $color-eastern-blue
+        transition: background .1s ease-out
+
+    &:hover
+      cursor pointer
+
+    &:focus:not(.disabled)
+
+      &.boxed .inner, .inner
+        box-shadow: 0 0 0 2px rgba($color-eastern-blue .5)
+        
+
+    .inner
+      border: 2px solid $color-catskill-white
+      background: $color-catskill-white
+      width: 16px
+      height: 16px
+      border-radius: 50%
+    
+      &:before
+        position: relative
+        display: block
+        content: ''
+        width: 12px
+        height: 12px
+        border-radius: 50%
+        transition: background .1s ease-out
+
+    input
+      display: none
+
+    &.disabled
+      pointer-events: none
+      opacity: .5 
+
+    .label
+      margin-left: 12px
+    
+    &.boxed
+      border: 1px solid $color-catskill-white
+      padding: 15px 20px
+      border-radius: 4px
+      
+      .label
+        margin-left: 20px
+
+        & :first-child
+          line-height: $text-default-line-height
+
+        .description
+          font-size: $text-extra-font-size 
+          line-height: $text-extra-line-height
