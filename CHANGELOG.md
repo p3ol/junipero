@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.11](https://github.com/p3ol/junipero/compare/v2.0.0-beta.10...v2.0.0-beta.11) (2021-04-28)
+
+
+### Bug Fixes
+
+* **lib:** prevent focus if disabled ([0162d65](https://github.com/p3ol/junipero/commit/0162d65c4bd025ac44028a91189b1be489b0c67d))
+* **radio:** remove toggle field fix from this story ([ddc1252](https://github.com/p3ol/junipero/commit/ddc1252cc4b9c9be23da9725f7f6a9d305b62536))
+
+
+### Features
+
+* **lib:** add stories + tests ([488bcfe](https://github.com/p3ol/junipero/commit/488bcfe5a35f15638b08392b5ca1ebb242e7d7a4))
+* **lib:** add tests ([cfee600](https://github.com/p3ol/junipero/commit/cfee600cf438c35c759ba66a31f22359c1d45180))
+* **lib:** disable key press if disabled ([ccc14bb](https://github.com/p3ol/junipero/commit/ccc14bba4fa6187984d1071353e805490c55cefa))
+* **lib:** radio field component ([e0b000d](https://github.com/p3ol/junipero/commit/e0b000d12cbf6efbc9158a6c339c67ca2b69a6a0))
+* **lib:** remove line break for inner div ([06af945](https://github.com/p3ol/junipero/commit/06af945b91197519342ae7255774dabcfd6dd9f0))
+* **lib:** wip rework radio field ([f50253d](https://github.com/p3ol/junipero/commit/f50253de600451e3f0d6683528ab39c856ecff6e))
+* **radio:** add EOL ([e483f9d](https://github.com/p3ol/junipero/commit/e483f9d58a28fba88513480a1a3348f1cb66aecb))
+* **radio:** add focused and internalValue to ImperativeHandle ([f4a7f95](https://github.com/p3ol/junipero/commit/f4a7f958e577af9738e845cbcd82d232e9581fd9))
+* **radio:** add multiple radio story ([c787c11](https://github.com/p3ol/junipero/commit/c787c11a42c691c91a8fe02505fa79eafd78cf79))
+* **radio:** remove useless line break ([3a74e37](https://github.com/p3ol/junipero/commit/3a74e37983723f3683a84911558c190ca7a8de36))
+* **radio:** remove useless type option on stories ([307683a](https://github.com/p3ol/junipero/commit/307683a296c7a3cc14a7ce9004bfeee65d04a1ab))
+* **radio-field:** add multiple radio story ([d878492](https://github.com/p3ol/junipero/commit/d87849214de91cd8acd1320884ac48d49544acb4))
+* **radio-field:** enable triggering onChange with enter ([fb3fba8](https://github.com/p3ol/junipero/commit/fb3fba8d4ac6a5f91a43d035a1a438125d552d26))
+
+
+
+
+
 # [2.0.0-beta.10](https://github.com/p3ol/junipero/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2021-04-28)
 
 
