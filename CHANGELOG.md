@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.10](https://github.com/p3ol/junipero/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2021-04-28)
+
+
+### Bug Fixes
+
+* **lib:** fix alerts layout ([350409c](https://github.com/p3ol/junipero/commit/350409cc7a0beb890d66ec966682346f1f38601c))
+* **lib:** fix tooltip bot being animatable due to unique parent ([2c7e9be](https://github.com/p3ol/junipero/commit/2c7e9bec514fcea9213f2d4c7e9f3da34958f688))
+
+
+
+
+
 # [2.0.0-beta.9](https://github.com/p3ol/junipero/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2021-04-26)
 
 
