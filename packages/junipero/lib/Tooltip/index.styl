@@ -1,16 +1,18 @@
 @require "../theme/colors"
 
 .junipero.tooltip
-  color: $color-white
-  border-radius: 4px
-  padding: 8px 21px
-  text-align: center
-  pointer-events: none
-  max-width: 250px
-  background: $color-midnight
 
-  .arrow
-    position: absolute
+  .tooltip-inner
+    color: $color-white
+    border-radius: 4px
+    padding: 8px 21px
+    text-align: center
+    pointer-events: none
+    max-width: 250px
+    background: $color-midnight
+
+    .arrow
+      position: absolute
 
   &[data-placement*="top"] .arrow,
   &[data-placement*="bottom"] .arrow

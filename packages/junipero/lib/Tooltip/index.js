@@ -122,6 +122,13 @@ const Tooltip = forwardRef(({
     return handlers;
   };
 
+  const tooltipInner = (
+    <div className="tooltip-inner">
+      { text }
+      <div ref={setArrowRef} style={styles?.arrow} className="arrow" />
+    </div>
+  );
+
   const tooltip = (
     <div
       className={classNames(
@@ -134,8 +141,10 @@ const Tooltip = forwardRef(({
       { ...attributes?.popper || {} }
       ref={setTooltipRef}
     >
-      { text }
-      <div ref={setArrowRef} style={styles?.arrow} className="arrow" />
+      { animate
+        ? animate(tooltipInner, { opened: state.opened })
+        : tooltipInner
+      }
     </div>
   );
 
@@ -155,11 +164,8 @@ const Tooltip = forwardRef(({
 
       { state.opened || animate || apparition === 'css'
         ? container
-          ? createPortal(
-            animate ? animate(tooltip, { opened: state.opened }) : tooltip,
-            ensureNode(container)
-          )
-          : animate ? animate(tooltip, { opened: state.opened }) : tooltip
+          ? createPortal(tooltip, ensureNode(container))
+          : tooltip
         : null
       }
     </>
