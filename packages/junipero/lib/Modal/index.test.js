@@ -66,6 +66,17 @@ describe('<Modal />', () => {
     expect(ref.current.innerRef.current).toBeTruthy();
   });
 
+  it('should not close modal closable = false', () => {
+    const ref = createRef();
+    const component = mount(<Modal closable={false} ref={ref} />);
+    act(() => { ref.current.open(); });
+    component.update();
+    expect(ref.current.innerRef.current).toBeTruthy();
+    component.find('.wrapper')
+      .simulate('click', { target: ref.current.wrapperRef.current });
+    expect(ref.current.innerRef.current).toBeTruthy();
+  });
+
   it('should animate modal if animate prop is provided', () => {
     const ref = createRef();
     const animate = sinon.spy(modal => modal);

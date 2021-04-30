@@ -17,6 +17,7 @@ const Modal = forwardRef(({
   container = 'body',
   disabled = false,
   opened = false,
+  closable = true,
   onToggle = () => {},
   ...rest
 }, ref) => {
@@ -48,7 +49,8 @@ const Modal = forwardRef(({
 
     if (
       disabled ||
-      (e.target !== wrapperRef.current && e.target !== closeButtonRef.current)
+      !closable ||
+      (e.target !== wrapperRef.current && e.target !== closeButtonRef?.current)
     ) {
       return;
     }
@@ -109,12 +111,14 @@ const Modal = forwardRef(({
         className="wrapper"
       >
         <div ref={contentRef} className="content">
-          <a
-            href="#"
-            ref={closeButtonRef}
-            className="close"
-            onClick={onBackdropClick}
-          />
+          { closable && (
+            <a
+              href="#"
+              ref={closeButtonRef}
+              className="close"
+              onClick={onBackdropClick}
+            />
+          ) }
           { children }
         </div>
       </div>
@@ -135,6 +139,7 @@ Modal.propTypes = {
     PropTypes.node,
     PropTypes.object,
   ]),
+  closable: PropTypes.bool,
   disabled: PropTypes.bool,
   onToggle: PropTypes.func,
   opened: PropTypes.bool,

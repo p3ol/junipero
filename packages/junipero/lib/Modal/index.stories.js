@@ -59,3 +59,24 @@ export const panel = () => {
     </>
   );
 };
+
+export const nonClosablePanel = () => {
+  const modalRef = useRef();
+
+  return (
+    <>
+      <Button onClick={() => modalRef.current?.open()}>Open me</Button>
+      <Modal
+        closable={false}
+        className="panel"
+        ref={modalRef}
+        onToggle={action('toggle')}
+      >
+        <div>Test</div>
+        <div>
+          <Button onClick={() => modalRef.current?.close()}>Close me</Button>
+        </div>
+      </Modal>
+    </>
+  );
+};
