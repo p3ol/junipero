@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.13](https://github.com/p3ol/junipero/compare/v2.0.0-beta.12...v2.0.0-beta.13) (2021-04-30)
+
+
+### Bug Fixes
+
+* **lib:** handle non-a-links dropdown items child ([929eb32](https://github.com/p3ol/junipero/commit/929eb32374986d71d6ebb1e4d106915851425f02))
+
+
+
+
+
 # [2.0.0-beta.12](https://github.com/p3ol/junipero/compare/v2.0.0-beta.11...v2.0.0-beta.12) (2021-04-28)
 
 
