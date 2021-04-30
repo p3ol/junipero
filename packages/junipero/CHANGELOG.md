@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.14](https://github.com/p3ol/junipero/compare/v2.0.0-beta.13...v2.0.0-beta.14) (2021-04-30)
+
+
+### Features
+
+* **lib:** add closable prop to modal ([a0efdb0](https://github.com/p3ol/junipero/commit/a0efdb08d76d2bb82b5164efbbd60053f2470d36))
+
+
+
+
+
 # [2.0.0-beta.13](https://github.com/p3ol/junipero/compare/v2.0.0-beta.12...v2.0.0-beta.13) (2021-04-30)
 
 
