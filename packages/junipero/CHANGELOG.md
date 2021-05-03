@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.21](https://github.com/p3ol/junipero/compare/v2.0.0-beta.20...v2.0.0-beta.21) (2021-05-03)
+
+
+### Bug Fixes
+
+* **lib:** close select field on click when already opened ([48d6caa](https://github.com/p3ol/junipero/commit/48d6caa834699eb96b935d695d51431edc46c8c4))
+* **lib:** pass basefield props to underlying div ([609c920](https://github.com/p3ol/junipero/commit/609c9209d038fe9a2810a3eb42b0242a5a4dc8ad))
+
+
+
+
+
 # [2.0.0-beta.20](https://github.com/p3ol/junipero/compare/v2.0.0-beta.19...v2.0.0-beta.20) (2021-05-03)
 
 
