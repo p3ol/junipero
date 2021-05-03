@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.20](https://github.com/p3ol/junipero/compare/v2.0.0-beta.19...v2.0.0-beta.20) (2021-05-03)
+
+
+### Bug Fixes
+
+* **lib:** fix wrong value prop check ([b27dcdc](https://github.com/p3ol/junipero/commit/b27dcdc2b73f5747a8c6fef388bcb5f25ce01cc5))
+
+
+
+
+
 # [2.0.0-beta.19](https://github.com/p3ol/junipero/compare/v2.0.0-beta.18...v2.0.0-beta.19) (2021-05-03)
 
 
