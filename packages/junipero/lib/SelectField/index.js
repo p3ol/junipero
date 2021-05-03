@@ -132,6 +132,14 @@ const SelectField = forwardRef(({
     onFocus(e);
   };
 
+  const onMouseDown_ = () => {
+    if (state.opened && state.focused) {
+      dropdownRef.current?.close();
+    } else {
+      dropdownRef.current?.open();
+    }
+  };
+
   const onBlur_ = e => {
     dispatch({ focused: false });
     onBlur(e);
@@ -269,6 +277,7 @@ const SelectField = forwardRef(({
             value={parseTitle(state.value || '')}
             valid={state.valid}
             focused={state.focused}
+            onMouseDown={onMouseDown_}
             onFocus={onFocus_}
             onBlur={onBlur_}
             dirty={state.dirty}
