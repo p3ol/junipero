@@ -35,7 +35,7 @@ export const basic = () => {
       onChange={onChange}
       value={state}
       parseTitle={o => o.title}
-      parseValue={o => o.value}
+      parseValue={o => o.value ?? o}
     />
   );
 };
@@ -45,7 +45,7 @@ export const basicDisabled = () => (
     disabled
     options={basicOptions}
     parseTitle={o => o.title}
-    parseValue={o => o.value}
+    parseValue={o => o.value ?? o}
   />
 );
 
@@ -62,7 +62,7 @@ export const basicOneDisabled = () => {
       onChange={onChange}
       value={state}
       parseTitle={o => o.title}
-      parseValue={o => o.value}
+      parseValue={o => o.value ?? o}
     />
   );
 };
@@ -81,7 +81,7 @@ export const basicDisabledOneActive = () => {
       onChange={onChange}
       value={state}
       parseTitle={o => o.title}
-      parseValue={o => o.value}
+      parseValue={o => o.value ?? o}
     />
   );
 };
@@ -100,7 +100,7 @@ export const withDescription = () => {
       onChange={onChange}
       value={state}
       parseTitle={o => o.title}
-      parseValue={o => o.value}
+      parseValue={o => o.value ?? o}
     />
   );
 };
@@ -120,7 +120,7 @@ export const withDescriptionDisabled = () => {
       onChange={onChange}
       value={state}
       parseTitle={o => o.title}
-      parseValue={o => o.value}
+      parseValue={o => o.value ?? o}
     />
   );
 };
@@ -142,7 +142,7 @@ export const withDescriptionDisabledOneActive = () => {
       onChange={onChange}
       value={state}
       parseTitle={o => o.title}
-      parseValue={o => o.value}
+      parseValue={o => o.value ?? o}
     />
   );
 };
@@ -161,7 +161,7 @@ export const boxedWithoutDescription = () => {
       onChange={onChange}
       value={state}
       parseTitle={o => o.title}
-      parseValue={o => o.value}
+      parseValue={o => o.value ?? o}
     />
   );
 };
