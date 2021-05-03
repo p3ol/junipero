@@ -39,13 +39,11 @@ const RadioField = forwardRef(({
   }));
 
   const onKeyDown_ = (option, e) => {
-    console.log(state.value !== option, state.value !== parseValue(option), (e.key === 'Enter' || e.key === ' '));
     if (
       state.value !== option &&
       state.value !== parseValue(option) &&
       (e.key === 'Enter' || e.key === ' ')
     ) {
-      console.log(state.value, option, e.key);
       onChange_(option);
     }
 
