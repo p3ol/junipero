@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.19](https://github.com/p3ol/junipero/compare/v2.0.0-beta.18...v2.0.0-beta.19) (2021-05-03)
+
+
+### Bug Fixes
+
+* **lib:** fix modal click event wrongly prevented ([773b3ee](https://github.com/p3ol/junipero/commit/773b3ee4210a3ca96a355484e194f49ae0797d4d))
+* **lib:** fix wrong tab indexes ([52c1532](https://github.com/p3ol/junipero/commit/52c15320de918b2d19ea1bc905d0c3e7bee1ad05))
+* **lib:** increase tab indexes by 1 ([a12be63](https://github.com/p3ol/junipero/commit/a12be635906965f115e018c7f862b0542e716fb7))
+
+
+
+
+
 # [2.0.0-beta.18](https://github.com/p3ol/junipero/compare/v2.0.0-beta.17...v2.0.0-beta.18) (2021-05-03)
 
 
