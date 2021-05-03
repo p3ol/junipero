@@ -30,22 +30,24 @@ export const basic = () => {
   };
 
   return (
-    <>
-      <RadioField options={basicOptions} onChange={onChange} value={state} />
-    </>
+    <RadioField
+      options={basicOptions}
+      onChange={onChange}
+      value={state}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
+    />
   );
 };
 
-export const basicDisabled = () => {
-  return (
-    <>
-      <RadioField
-        disabled
-        options={basicOptions}
-      />
-    </>
-  );
-};
+export const basicDisabled = () => (
+  <RadioField
+    disabled
+    options={basicOptions}
+    parseTitle={o => o.title}
+    parseValue={o => o.value}
+  />
+);
 
 export const basicOneDisabled = () => {
   const [state, setState] = useState('Apple');
@@ -55,13 +57,13 @@ export const basicOneDisabled = () => {
   };
 
   return (
-    <>
-      <RadioField
-        options={basicOptionsOneDisabled}
-        onChange={onChange}
-        value={state}
-      />
-    </>
+    <RadioField
+      options={basicOptionsOneDisabled}
+      onChange={onChange}
+      value={state}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
+    />
   );
 };
 
@@ -73,14 +75,14 @@ export const basicDisabledOneActive = () => {
   };
 
   return (
-    <>
-      <RadioField
-        disabled
-        options={basicOptions}
-        onChange={onChange}
-        value={state}
-      />
-    </>
+    <RadioField
+      disabled
+      options={basicOptions}
+      onChange={onChange}
+      value={state}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
+    />
   );
 };
 
@@ -92,13 +94,14 @@ export const withDescription = () => {
   };
 
   return (
-    <>
-      <RadioField
-        options={withDescriptions}
-        onChange={onChange}
-        value={state}
-      />
-    </>
+    <RadioField
+      className="boxed"
+      options={withDescriptions}
+      onChange={onChange}
+      value={state}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
+    />
   );
 };
 
@@ -110,14 +113,15 @@ export const withDescriptionDisabled = () => {
   };
 
   return (
-    <>
-      <RadioField
-        disabled
-        options={withDescriptions}
-        onChange={onChange}
-        value={state}
-      />
-    </>
+    <RadioField
+      disabled
+      className="boxed"
+      options={withDescriptions}
+      onChange={onChange}
+      value={state}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
+    />
   );
 };
 
@@ -131,13 +135,33 @@ export const withDescriptionDisabledOneActive = () => {
   };
 
   return (
-    <>
-      <RadioField
-        disabled
-        options={withDescriptions_}
-        onChange={onChange}
-        value={state}
-      />
-    </>
+    <RadioField
+      disabled
+      className="boxed"
+      options={withDescriptions_}
+      onChange={onChange}
+      value={state}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
+    />
+  );
+};
+
+export const boxedWithoutDescription = () => {
+  const [state, setState] = useState('Apple');
+
+  const onChange = ({ value }) => {
+    setState(value);
+  };
+
+  return (
+    <RadioField
+      className="boxed"
+      options={basicOptions}
+      onChange={onChange}
+      value={state}
+      parseTitle={o => o.title}
+      parseValue={o => o.value}
+    />
   );
 };

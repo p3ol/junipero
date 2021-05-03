@@ -7,12 +7,7 @@
     align-items: center
 
     &.checked
-
-      &.boxed
-        background: $color-black-squeeze
-        border-color: $color-eastern-blue
-
-      .inner 
+      .inner
         background: $color-eastern-blue
         transition: background .1s ease-out
 
@@ -20,10 +15,8 @@
       cursor pointer
 
     &:focus:not(.disabled)
-
-      &.boxed .inner, .inner
+      .inner
         box-shadow: 0 0 0 2px rgba($color-eastern-blue .5)
-        
 
     .inner
       border: 2px solid $color-catskill-white
@@ -31,7 +24,7 @@
       width: 16px
       height: 16px
       border-radius: 50%
-    
+
       &:before
         position: relative
         display: block
@@ -46,22 +39,40 @@
 
     &.disabled
       pointer-events: none
-      opacity: .5 
+      opacity: .5
 
     .label
       margin-left: 12px
-    
-    &.boxed
+
+      .description
+        display: none
+
+  &.boxed
+    label
       border: 1px solid $color-catskill-white
       padding: 15px 20px
       border-radius: 4px
-      
+      margin-bottom: 10px
+
+      &:last-child
+        margin-bottom: 0
+
+      &:focus:not(.disabled)
+        .inner
+          box-shadow: 0 0 0 2px rgba($color-eastern-blue .5)
+
+      &.checked
+        background: $color-black-squeeze
+        border-color: $color-eastern-blue
+
       .label
         margin-left: 20px
+        user-select: none
 
-        & :first-child
+        .title
+          font-size: $text-default-font-size
           line-height: $text-default-line-height
 
         .description
-          font-size: $text-extra-font-size 
+          font-size: $text-extra-font-size
           line-height: $text-extra-line-height

@@ -6,127 +6,123 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, mockState } from '@poool/junipero-utils';
-import { useEventListener } from '@poool/junipero-hooks';
 
 const RadioField = forwardRef(({
   className,
   disabled = false,
-  globalEventsTarget = global,
   id,
+  name,
   options = [],
   value,
+  parseTitle = val => val?.toString?.(),
+  parseValue = val => val,
+  onBlur = () => {},
+  onFocus = () => {},
   onChange = () => {},
   ...rest
 }, ref) => {
-  const innersRef = useRef([]);
-  const inputsRef = useRef([]);
+  const wrapperRef = useRef();
+  const innerRefs = useRef([]);
+  const inputRefs = useRef([]);
   const [state, dispatch] = useReducer(mockState, {
     focused: null,
+    dirty: false,
+    value,
   });
 
-  useEventListener('keypress', e => {
-    onKeyPress_(e);
-  }, globalEventsTarget);
-
   useImperativeHandle(ref, () => ({
-    innersRef,
-    inputsRef,
+    innerRefs,
+    inputRefs,
     focused: state.focused,
+    dirty: state.dirty,
+    internalValue: state.value,
   }));
 
-  const onKeyPress_ = e => {
-    const foundIndex = options.findIndex(o => o.value === state.focused);
-
-    /* istanbul ignore if: just in case */
-    if (foundIndex < 0) {
-      return false;
-    }
-
-    const inputValue = inputsRef.current[foundIndex]?.value;
-
+  const onKeyDown_ = (option, e) => {
+    console.log(state.value !== option, state.value !== parseValue(option), (e.key === 'Enter' || e.key === ' '));
     if (
-      value !== inputValue &&
+      state.value !== option &&
+      state.value !== parseValue(option) &&
       (e.key === 'Enter' || e.key === ' ')
     ) {
-      onChange({ value: inputValue });
-      e.preventDefault?.();
-
-      return false;
+      console.log(state.value, option, e.key);
+      onChange_(option);
     }
 
     return true;
   };
 
-  const onChange_ = (item, e) => {
-    if (disabled || item.disabled) {
+  const onChange_ = option => {
+    if (disabled || option.disabled) {
       return;
     }
 
-    onChange({ value: e?.target?.value });
+    dispatch({ value: option, dirty: true });
+    onChange({ value: parseValue(option) });
   };
 
-  const onFocus_ = item => {
-    dispatch({ focused: item.value });
+  const onFocus_ = (option, index, e) => {
+    dispatch({ focused: option });
+    onFocus(option, index, e);
   };
 
-  const onBlur_ = () => {
+  const onBlur_ = (option, index, e) => {
     dispatch({ focused: null });
+    onBlur(option, index, e);
   };
 
-  const isChecked = item =>
-    value === item.value;
+  const isChecked = option =>
+    state.value === option || state.value === parseValue(option);
 
-  const isFocused = item =>
-    state.focused === item.value;
+  const isFocused = option =>
+    state.focused === option;
 
   return (
     <div
+      { ...rest }
       className={classNames(
         'junipero',
         'field',
         'radio',
+        { disabled, dirty: state.dirty },
         className,
       )}
+      ref={wrapperRef}
     >
-      { options.map((item, index) => (
+      { options.map((option, index) => (
         <label
           htmlFor={id}
-          ref={el => {
-            innersRef.current[index] = el;
-          }}
+          ref={el => { innerRefs.current[index] = el; }}
           key={index}
           className={classNames(
             {
-              checked: isChecked(item),
-              focused: isFocused(item),
-              boxed: !!item.description,
-              disabled: disabled || item.disabled,
+              checked: isChecked(option),
+              focused: isFocused(option),
+              disabled: disabled || option.disabled,
             },
           )}
-          onFocus={onFocus_.bind(null, item)}
-          onBlur={onBlur_}
-          tabIndex={!item.disabled ? 1 : null}
+          onKeyDown={onKeyDown_.bind(null, option)}
+          onFocus={onFocus_.bind(null, option, index)}
+          onBlur={onBlur_.bind(null, option, index)}
+          tabIndex={!option.disabled ? 1 : null}
         >
           <input
-            { ...rest }
             id={id}
-            name={item.value}
-            ref={el => {
-              inputsRef.current[index] = el;
-            }}
+            name={name}
+            ref={el => { inputRefs.current[index] = el; }}
             type="radio"
-            value={item.value}
-            checked={isChecked(item)}
-            onChange={onChange_.bind(null, item)}
+            value={parseValue(option)}
+            checked={isChecked(option)}
+            onChange={onChange_.bind(null, option)}
             tabIndex={-1}
           />
           <div className="inner" />
           <div className="label">
-            <div>{ item.title }</div>
-            {
-              item.description &&
-              <div className="description">{item.description}</div>
-            }
+            <div className="title">{ parseTitle(option) }</div>
+
+            { option.description && (
+              <div className="description">{ option.description }</div>
+            ) }
           </div>
         </label>
       )
@@ -143,8 +139,13 @@ RadioField.propTypes = {
     PropTypes.object,
   ]),
   id: PropTypes.string,
+  name: PropTypes.string,
   options: PropTypes.array,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  parseTitle: PropTypes.func,
+  parseValue: PropTypes.func,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

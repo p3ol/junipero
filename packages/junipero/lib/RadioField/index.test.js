@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
-import { act } from 'react-dom/test-utils';
+import { cloneDeep } from '@poool/junipero-utils';
 
 import RadioField from './';
 
@@ -34,18 +34,18 @@ describe('<RadioField />', () => {
 
   it('should render with descriptions', () => {
     const component = mount(
-      <RadioField options={withDescriptions} />
+      <RadioField className="boxed" options={withDescriptions} />
     );
-    expect(component.find('.junipero.radio .boxed').length).toBe(3);
+    expect(component.find('.junipero.radio.boxed .description').length).toBe(3);
   });
 
   it('should provide some imperative handles', () => {
     const ref = createRef();
     const component = mount(<RadioField ref={ref} options={basicOptions} />);
-    expect(ref.current.innersRef.current.length).toBe(3);
-    expect(ref.current.inputsRef.current.length).toBe(3);
+    expect(ref.current.innerRefs.current.length).toBe(3);
+    expect(ref.current.inputRefs.current.length).toBe(3);
     expect(component.getDOMNode().querySelectorAll('input')[0]).toBe(
-      ref.current.inputsRef.current[0]
+      ref.current.inputRefs.current[0]
     );
   });
 
@@ -55,14 +55,15 @@ describe('<RadioField />', () => {
       <RadioField
         onChange={onChange}
         options={basicOptions}
-      />);
-    component.find('input').at(1).simulate(
-      'change', { target: { name: 'Pear', value: 'Pear' } }
+        parseValue={o => o.value}
+      />
     );
-    expect(onChange.withArgs(
-      sinon.match({ value: 'Pear' })
-    ).called)
-      .toBe(true);
+    component.find('input').at(1).simulate(
+      'change',
+      { target: { value: 'Pear' } }
+    );
+
+    expect(onChange.withArgs(sinon.match({ value: 'Pear' })).called).toBe(true);
   });
 
   it('should not throw error if no onChange', () => {
@@ -72,7 +73,8 @@ describe('<RadioField />', () => {
       const component = mount(
         <RadioField
           options={basicOptions}
-        />);
+        />
+      );
       component.find('input').at(1).simulate(
         'change', { target: { name: 'Pear', value: 'Pear' } }
       );
@@ -90,7 +92,8 @@ describe('<RadioField />', () => {
         disabled
         onChange={onChange}
         options={basicOptions}
-      />);
+      />
+    );
     component.find('input').at(1).simulate(
       'change', { target: { name: 'Pear', value: 'Pear' } }
     );
@@ -101,14 +104,15 @@ describe('<RadioField />', () => {
   });
 
   it('should not fire onChange if element is disabled', () => {
-    const options_ = [...basicOptions];
+    const options_ = cloneDeep(basicOptions);
     options_[0].disabled = true;
     const onChange = sinon.spy();
     const component = mount(
       <RadioField
         onChange={onChange}
         options={basicOptions}
-      />);
+      />
+    );
     component.find('input').at(0).simulate(
       'change', { target: { name: 'Apple', value: 'Apple' } }
     );
@@ -120,22 +124,18 @@ describe('<RadioField />', () => {
 
   it('should fire onChange on focused element on enter hit', () => {
     const onChange = sinon.spy();
-    const map = {};
-
-    document.addEventListener = (event, cb) => { map[event] = cb; };
-
     const component = mount(
       <RadioField
-        globalEventsTarget={document}
         options={basicOptions}
         onChange={onChange}
+        parseValue={o => o.value}
       />
     );
 
     component.find('label').at(0).simulate('focus');
     expect(component.find('.junipero.radio .focused').length).toBe(1);
-    expect(map.keypress).toBeDefined();
-    act(() => map.keypress({ key: 'Enter' }));
+    expect(component.find('.junipero.radio .checked').length).toBe(0);
+    component.find('label').at(0).simulate('keydown', { key: 'Enter' });
     component.update();
     expect(onChange.withArgs(
       sinon.match({ value: 'Apple' })
@@ -144,21 +144,16 @@ describe('<RadioField />', () => {
 
   it('should fire onChange on focused element on space hit', () => {
     const onChange = sinon.spy();
-    const map = {};
-
-    document.addEventListener = (event, cb) => { map[event] = cb; };
-
     const component = mount(
       <RadioField
-        globalEventsTarget={document}
         options={basicOptions}
         onChange={onChange}
+        parseValue={o => o.value}
       />
     );
     component.find('label').at(1).simulate('focus');
     expect(component.find('.junipero.radio .focused').length).toBe(1);
-    expect(map.keypress).toBeDefined();
-    act(() => map.keypress({ key: ' ' }));
+    component.find('label').at(1).simulate('keydown', { key: ' ' });
     component.update();
     expect(onChange.withArgs(
       sinon.match({ value: 'Pear' })
@@ -174,22 +169,19 @@ describe('<RadioField />', () => {
   });
 
   it('should not uncheck on enter hit if checked', () => {
-    const map = {};
     const onChange = sinon.spy();
-
-    document.addEventListener = (event, cb) => { map[event] = cb; };
 
     const component = mount(
       <RadioField
-        globalEventsTarget={document}
         options={basicOptions}
         onChange={onChange}
-        value='Apple'
-      />);
+        value="Apple"
+        parseValue={o => o.value}
+      />
+    );
     component.find('label').at(0).simulate('focus');
     expect(component.find('.junipero.radio .checked').length).toBe(1);
-    expect(map.keypress).toBeDefined();
-    act(() => map.keypress({ key: 'Enter' }));
+    component.find('label').at(0).simulate('keydown', { key: 'Enter' });
     component.update();
     expect(component.find('.junipero.radio .checked').length).toBe(1);
   });
