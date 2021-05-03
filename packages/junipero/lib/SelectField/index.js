@@ -6,7 +6,7 @@ import React, {
   useReducer,
 } from 'react';
 import PropTypes from 'prop-types';
-import { classNames, mockState } from '@poool/junipero-utils';
+import { classNames, exists, mockState } from '@poool/junipero-utils';
 import { useTimeout, useEventListener } from '@poool/junipero-hooks';
 
 import BaseField from '../BaseField';
@@ -94,7 +94,7 @@ const SelectField = forwardRef(({
   }, [disabled]);
 
   useEffect(() => {
-    if (value) {
+    if (exists(value)) {
       dispatch({
         value: options?.find(o => parseValue(o) === parseValue(value)) || value,
         valid: validate(parseValue(value)),
