@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.16](https://github.com/p3ol/junipero/compare/v2.0.0-beta.15...v2.0.0-beta.16) (2021-05-03)
+
+
+### Bug Fixes
+
+* **lib:** remove useless logs ([b984c5d](https://github.com/p3ol/junipero/commit/b984c5d02a3dfe37f2889ca0f9304e022ab28874))
+
+
+
+
+
 # [2.0.0-beta.15](https://github.com/p3ol/junipero/compare/v2.0.0-beta.14...v2.0.0-beta.15) (2021-05-03)
 
 **Note:** Version bump only for package @poool/junipero
