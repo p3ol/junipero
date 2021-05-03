@@ -3,6 +3,7 @@ import React, {
   useImperativeHandle,
   useReducer,
   useRef,
+  useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, mockState } from '@poool/junipero-utils';
@@ -29,6 +30,14 @@ const RadioField = forwardRef(({
     dirty: false,
     value,
   });
+
+  useEffect(() => {
+    if (value) {
+      dispatch({
+        value: options?.find(o => parseValue(o) === parseValue(value)) || value,
+      });
+    }
+  }, [value, options]);
 
   useImperativeHandle(ref, () => ({
     innerRefs,
