@@ -45,8 +45,6 @@ const Modal = forwardRef(({
   }, [opened]);
 
   const onBackdropClick = e => {
-    e.preventDefault();
-
     if (
       disabled ||
       !closable ||
@@ -55,6 +53,7 @@ const Modal = forwardRef(({
       return;
     }
 
+    e.preventDefault();
     close();
   };
 
