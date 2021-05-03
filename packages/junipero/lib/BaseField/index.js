@@ -22,6 +22,7 @@ const BaseField = forwardRef(({
   tabIndex = 0,
   onBlur = () => {},
   onFocus = () => {},
+  ...rest
 }, ref) => {
   const innerRef = useRef();
 
@@ -47,6 +48,7 @@ const BaseField = forwardRef(({
 
   return (
     <div
+      { ...rest }
       tabIndex={tabIndex}
       className={classNames(
         'junipero',
