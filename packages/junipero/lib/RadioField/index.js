@@ -6,7 +6,7 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
-import { classNames, mockState } from '@poool/junipero-utils';
+import { classNames, exists, mockState } from '@poool/junipero-utils';
 
 const RadioField = forwardRef(({
   className,
@@ -32,9 +32,13 @@ const RadioField = forwardRef(({
   });
 
   useEffect(() => {
-    if (value) {
+    if (
+      exists(value) &&
+      value !== state.value &&
+      parseValue(value) !== state.value
+    ) {
       dispatch({
-        value: options?.find(o => parseValue(o) === parseValue(value)) || value,
+        value: options?.find(o => parseValue(o) === parseValue(value)),
       });
     }
   }, [value, options]);
