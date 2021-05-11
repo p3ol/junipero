@@ -20,7 +20,9 @@ const SliderField = forwardRef(({
   disabled = false,
   globalEventsTarget = global,
   min = 0,
+  minValue = 0,
   max = 100,
+  maxValue = 100,
   step = 1,
   onChange = () => {},
   onMouseDown = () => {},
@@ -31,8 +33,9 @@ const SliderField = forwardRef(({
   const handleRef = useRef();
   const slideRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
-    value: parseFloat(ensureMinMax(Math.round(value / step) * step, min, max)
-      .toFixed(getFloatPrecision(step))),
+    value: parseFloat(
+      ensureMinMax(Math.round(value / step) * step, minValue, maxValue
+      ).toFixed(getFloatPrecision(step))),
     precision: getFloatPrecision(step),
     dirty: false,
     moving: false,
@@ -92,7 +95,7 @@ const SliderField = forwardRef(({
     ) || 0;
 
     state.value = parseFloat(
-      Math.max(min, Math.min(max, Math.round(position / step) * step))
+      Math.max(minValue, Math.min(maxValue, Math.round(position / step) * step))
         .toFixed(state.precision)
     );
 
@@ -110,10 +113,10 @@ const SliderField = forwardRef(({
 
   const onKeyDown_ = e => {
     if (e.key === 'ArrowLeft') {
-      state.value = ensureMinMax(state.value - step, min, max);
+      state.value = ensureMinMax(state.value - step, minValue, maxValue);
       dispatch({ value: state.value });
     } else if (e.key === 'ArrowRight') {
-      state.value = ensureMinMax(state.value + step, min, max);
+      state.value = ensureMinMax(state.value + step, minValue, maxValue);
       dispatch({ value: state.value });
     } else if (e.key === 'ArrowUp') {
       dispatch({ value: min });
@@ -124,7 +127,7 @@ const SliderField = forwardRef(({
 
   const reset = () => {
     dispatch({
-      value: ensureMinMax(value, min, max),
+      value: ensureMinMax(value, minValue, maxValue),
       precision: getFloatPrecision(step),
       dirty: false,
       moving: false,
@@ -187,7 +190,9 @@ SliderField.propTypes = {
     PropTypes.object,
   ]),
   max: PropTypes.number,
+  maxValue: PropTypes.number,
   min: PropTypes.number,
+  minValue: PropTypes.number,
   onChange: PropTypes.func,
   onMouseDown: PropTypes.func,
   step: PropTypes.number,
