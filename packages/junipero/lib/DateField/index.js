@@ -126,6 +126,14 @@ const DateField = forwardRef(({
     onToggle({ opened });
   };
 
+  const onMouseDown_ = () => {
+    if (state.opened && state.focused) {
+      dropdownRef.current?.close();
+    } else {
+      dropdownRef.current?.open();
+    }
+  };
+
   const focus = () => {
     fieldRef.current?.focus();
     dropdownRef.current?.open();
@@ -266,6 +274,7 @@ const DateField = forwardRef(({
             empty={!state.value}
             onFocus={onFocus_}
             onBlur={onBlur_}
+            onMouseDown={onMouseDown_}
           />
           <div className="arrow" />
         </DropdownToggle>
