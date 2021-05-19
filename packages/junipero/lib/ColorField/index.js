@@ -246,6 +246,7 @@ const ColorField = forwardRef(({
 
   return (
     <div
+      { ...rest }
       className={classNames(
         'junipero',
         'field',
@@ -269,7 +270,6 @@ const ColorField = forwardRef(({
       >
         <DropdownToggle trigger="manual" href={null} tag="div">
           <TextField
-            { ...rest }
             ref={inputRef}
             disabled={disabled}
             value={state.value}
