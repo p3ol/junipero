@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.22](https://github.com/p3ol/junipero/compare/v2.0.0-beta.21...v2.0.0-beta.22) (2021-05-19)
+
+
+### Bug Fixes
+
+* **lib:** close datefield menu on re-click ([2b3fb53](https://github.com/p3ol/junipero/commit/2b3fb5303b45c13aa0e80f0e0a2e699fa97e0d4d))
+* **lib:** fix basefield opacity when disabled ([209096f](https://github.com/p3ol/junipero/commit/209096f2c833ea83a3690874869790f831a88397))
+* **lib:** fix slider field missing minValue & maxValue props ([fdb6040](https://github.com/p3ol/junipero/commit/fdb60409d73891b9f69c5277f1f0ac089e743c72))
+* **lib:** fix wrong menus sizes ([ef45f8b](https://github.com/p3ol/junipero/commit/ef45f8b7c82dff98b3bf4b8921a802be783b1bcb))
+* **lib:** move colorfield rest props to parent ([0d1e889](https://github.com/p3ol/junipero/commit/0d1e889b31eae452abd2704d15372cc474100147))
+
+
+
+
+
 # [2.0.0-beta.21](https://github.com/p3ol/junipero/compare/v2.0.0-beta.20...v2.0.0-beta.21) (2021-05-03)
 
 
