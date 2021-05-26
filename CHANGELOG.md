@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.23](https://github.com/p3ol/junipero/compare/v2.0.0-beta.22...v2.0.0-beta.23) (2021-05-26)
+
+
+### Features
+
+* **lib:** externalize components css to standalone files ([8883b84](https://github.com/p3ol/junipero/commit/8883b84cc7357f8f28980eaa4f152bbe16058a32))
+
+
+
+
+
 # [2.0.0-beta.22](https://github.com/p3ol/junipero/compare/v2.0.0-beta.21...v2.0.0-beta.22) (2021-05-19)
 
 
