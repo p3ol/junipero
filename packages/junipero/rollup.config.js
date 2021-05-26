@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
@@ -12,6 +13,13 @@ const input = './lib/index.js';
 const output = `./dist${isForIE ? '/ie' : ''}`;
 const name = 'junipero';
 const formats = ['umd', 'cjs', 'esm'];
+
+const components = fs.readdirSync('./lib', { withFileTypes: true })
+  .filter(f =>
+    f.isDirectory() &&
+    fs.existsSync(path.resolve('./lib', f.name, 'index.styl'))
+  )
+  .map(f => f.name);
 
 const defaultExternals = ['react', 'react-dom', 'prop-types', 'react-popper'];
 const defaultGlobals = {
@@ -32,6 +40,14 @@ const defaultPlugins = [
   commonjs(),
   terser(),
 ];
+
+const onFileConflictWarn = (warning, warn) => {
+  if (warning.code === 'FILE_NAME_CONFLICT') {
+    return;
+  }
+
+  warn(warning);
+};
 
 export default [
   ...formats.map(f => ({
@@ -84,12 +100,44 @@ export default [
     output: {
       file: `${output}/${name}.min.css`,
     },
-    onwarn: (warning, warn) => {
-      if (warning.code === 'FILE_NAME_CONFLICT') {
-        return;
-      }
-
-      warn(warning);
-    },
+    onwarn: onFileConflictWarn,
   },
+  {
+    input: './lib/reset.styl',
+    plugins: [
+      postcss({
+        extensions: ['.styl'],
+        minimize: true,
+        inject: false,
+        extract: true,
+        sourceMap: true,
+        plugins: [
+          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
+        ],
+      }),
+    ],
+    output: {
+      file: `${output}/css/index.min.css`,
+    },
+    onwarn: onFileConflictWarn,
+  },
+  ...components.map(c => ({
+    input: `./lib/${c}/index.styl`,
+    plugins: [
+      postcss({
+        extensions: ['.styl'],
+        minimize: true,
+        inject: false,
+        extract: true,
+        sourceMap: true,
+        plugins: [
+          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
+        ],
+      }),
+    ],
+    output: {
+      file: `${output}/css/${c}.min.css`,
+    },
+    onwarn: onFileConflictWarn,
+  })),
 ];
