@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.24](https://github.com/p3ol/junipero/compare/v2.0.0-beta.23...v2.0.0-beta.24) (2021-05-28)
+
+
+### Bug Fixes
+
+* **lib:** add additional dropdownProps & dropdownMenuProps ([cf642ed](https://github.com/p3ol/junipero/commit/cf642ed26ec3f6201e3b4cb588fac81befb81dd7))
+* **lib:** fix color field missing placeholder & label ([0b96b05](https://github.com/p3ol/junipero/commit/0b96b050a993ef360404bbfb0cbfbcabc08f6b33))
+
+
+
+
+
 # [2.0.0-beta.23](https://github.com/p3ol/junipero/compare/v2.0.0-beta.22...v2.0.0-beta.23) (2021-05-26)
 
 
