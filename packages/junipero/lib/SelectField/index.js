@@ -26,6 +26,8 @@ const SelectField = forwardRef(({
   search,
   searchLabel,
   value,
+  dropdownProps,
+  dropdownMenuProps,
   autoFocus = false,
   disabled = false,
   globalEventsTarget = global,
@@ -183,10 +185,9 @@ const SelectField = forwardRef(({
     state.valid = validate(parseValue(option));
 
     dispatch({ value: state.value, dirty: true, valid: state.valid });
+    onChange({ value: parseValue(state.value), valid: state.valid });
 
     dropdownRef.current?.close();
-
-    onChange({ value: parseValue(state.value), valid: state.valid });
   };
 
   const onSearch_ = field =>
@@ -266,7 +267,12 @@ const SelectField = forwardRef(({
         className,
       )}
     >
-      <Dropdown onToggle={onToggle_} disabled={disabled} ref={dropdownRef}>
+      <Dropdown
+        disabled={disabled}
+        {...dropdownProps}
+        onToggle={onToggle_}
+        ref={dropdownRef}
+      >
         <DropdownToggle trigger="manual" href={null} tag="div">
           <BaseField
             ref={fieldRef}
@@ -285,7 +291,11 @@ const SelectField = forwardRef(({
           />
           <div className="arrow" />
         </DropdownToggle>
-        <DropdownMenu container={container} animate={animateMenu}>
+        <DropdownMenu
+          animate={animateMenu}
+          container={container}
+          { ...dropdownMenuProps }
+        >
           { search && (
             <div className="search">
               <TextField
@@ -331,6 +341,8 @@ SelectField.propTypes = {
     PropTypes.node,
   ]),
   disabled: PropTypes.bool,
+  dropdownProps: PropTypes.object,
+  dropdownMenuProps: PropTypes.object,
   globalEventsTarget: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.object,
