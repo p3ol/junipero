@@ -24,6 +24,8 @@ const ColorField = forwardRef(({
   value,
   valid,
   className,
+  placeholder,
+  label,
   autoFocus = false,
   disabled = false,
   format = 'auto',
@@ -278,6 +280,8 @@ const ColorField = forwardRef(({
             onFocus={onFocus_}
             onChange={onChange_}
             autoFocus={autoFocus}
+            placeholder={placeholder}
+            label={label}
           />
         </DropdownToggle>
         <DropdownMenu animate={animateMenu}>
@@ -375,6 +379,19 @@ ColorField.propTypes = {
     PropTypes.object,
   ]),
   opened: PropTypes.bool,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.node,
+    PropTypes.func,
+    PropTypes.bool,
+  ]),
+  placeholder: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.node,
+    PropTypes.func,
+  ]),
   readOnly: PropTypes.bool,
   valid: PropTypes.bool,
   value: PropTypes.string,
