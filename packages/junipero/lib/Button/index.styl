@@ -1,10 +1,22 @@
 @require "../theme/colors"
 
 .junipero.button
+  --main-color: $color-white
+  --sub-color: var(--default-sub-color)
+  --hover-color: var(--default-hover-color)
+  --outline-color: var(--default-outline-color)
+  --reversed-color: var(--default-reversed-color)
+  --active-color: var(--default-active-color)
+  --disabled-color: var(--default-disabled-color)
+  --alternate-color: var(--default-alternate-color)
+  --reversed-alternate-color: var(--default-reversed-alternate-color)
+  --shadow-color: var(--default-shadow-color)
+  --border-color: var(--default-border-color)
+
   padding: 8px 20px
   font-weight: bold
-  background: $color-white
-  color: $color-midnight
+  background: var(--main-color)
+  color: var(--sub-color)
   border-radius: 4px
   appearance: none
   border: none
@@ -16,303 +28,54 @@
 
   // Default
   &:hover
-    background: $color-white - 10
+    background: var(--hover-color)
 
   &:focus
-    box-shadow: 0 0 0 2px rgba($color-midnight, .2)
+    box-shadow: 0 0 0 2px var(--shadow-color)
 
   &:active
-    background: $color-white - 20
+    background: var(--active-color)
 
   &:disabled
-    background: $color-alabaster
-    color: $color-alto
+    background: var(--disabled-color)
+    color: var(--alternate-color)
 
   &.outline
     background: transparent
-    color: $color-midnight
-    box-shadow: 0 0 0 1px ($color-white - 20)
+    color: var(--outline-color)
+    box-shadow: 0 0 0 1px var(--border-color)
 
     &:hover
-      background: $color-white - 10
-      box-shadow: 0 0 0 1px ($color-white - 10)
+      background: var(--hover-color)
+      color: var(--reversed-color)
+      box-shadow: 0 0 0 1px var(--hover-color)
 
       &:focus
-        box-shadow: 0 0 0 1px ($color-white - 10),
-                    0 0 0 3px rgba($color-midnight, .2)
+        box-shadow: 0 0 0 1px var(--hover-color),
+                    0 0 0 3px var(--shadow-color)
 
     &:focus
-      box-shadow: 0 0 0 1px ($color-white - 20),
-                  0 0 0 3px rgba($color-midnight, .2)
+      box-shadow: 0 0 0 1px var(--border-color),
+                  0 0 0 3px var(--shadow-color)
 
     &:active
-      background: $color-white - 20
-      color: $color-midnight
+      background: var(--active-color)
+      color: var(--sub-color)
 
       &:focus
-        box-shadow: 0 0 0 1px ($color-white - 20),
-                    0 0 0 3px rgba($color-midnight, .2)
+        box-shadow: 0 0 0 1px var(--active-color),
+                    0 0 0 3px var(--shadow-color)
 
     &:disabled
       &, &:hover, &:active, &:focus
         background: transparent
-        box-shadow: 0 0 0 1px $color-alabaster
-        color: $color-alto
+        box-shadow: 0 0 0 1px var(--disabled-color)
+        color: var(--reversed-alternate-color)
 
-  // Primary
-  &.primary
-    background: $color-eastern-blue
-    color: $color-white
-
-    &:hover
-      background: $color-atoll
-
-    &:focus
-      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
-
-    &:active
-      background: $color-persian-green
-
-    &:disabled
-      background: $color-powder-blue
-      color: $color-white
-
-    &.outline
-      background: transparent
-      color: $color-eastern-blue
-      box-shadow: 0 0 0 1px $color-eastern-blue
-
-      &:hover
-        background: $color-atoll
-        box-shadow: 0 0 0 1px $color-atoll
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px $color-atoll,
-                      0 0 0 3px rgba($color-eastern-blue, .5)
-
-      &:focus
-        box-shadow: 0 0 0 1px $color-eastern-blue,
-                    0 0 0 3px rgba($color-eastern-blue, .5)
-
-      &:active
-        background: $color-persian-green
-        box-shadow: 0 0 0 1px $color-persian-green
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px $color-persian-green,
-                      0 0 0 3px rgba($color-eastern-blue, .5)
-
-      &:disabled
-        &, &:hover, &:active, &:focus
-          background: transparent
-          box-shadow: 0 0 0 1px $color-powder-blue
-          color: $color-powder-blue
-
-  // Secondary
-  &.secondary
-    background: $color-persian-green
-    color: $color-white
-
-    &:hover
-      background: $color-atoll
-
-    &:focus
-      box-shadow: 0 0 0 2px rgba($color-persian-green, .5)
-
-    &:active
-      background: $color-eastern-blue
-
-    &:disabled
-      background: $color-powder-blue
-      color: $color-white
-
-    &.outline
-      background: transparent
-      color: $color-persian-green
-      box-shadow: 0 0 0 1px $color-persian-green
-
-      &:hover
-        background: $color-atoll
-        box-shadow: 0 0 0 1px $color-atoll
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px $color-atoll,
-                      0 0 0 3px rgba($color-persian-green, .5)
-
-      &:focus
-        box-shadow: 0 0 0 1px $color-eastern-blue,
-                    0 0 0 3px rgba($color-persian-green, .5)
-
-      &:active
-        background: $color-eastern-blue
-        box-shadow: 0 0 0 1px $color-eastern-blue
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px $color-eastern-blue,
-                      0 0 0 3px rgba($color-persian-green, .5)
-
-      &:disabled
-        &, &:hover, &:active, &:focus
-          background: transparent
-          box-shadow: 0 0 0 1px $color-powder-blue
-          color: $color-powder-blue
-
-  // Warning
-  &.warning
-    background: $color-buttercup
-    color: $color-white
-
-    &:hover
-      background: $color-buttercup - 10
-
-    &:focus
-      box-shadow: 0 0 0 2px rgba($color-buttercup, .5)
-
-    &:active
-      background: $color-buttercup - 20
-
-    &:disabled
-      background: $color-disabled-buttercup
-      color: $color-white
-
-    &.outline
-      background: transparent
-      color: $color-buttercup
-      box-shadow: 0 0 0 1px $color-buttercup
-
-      &:hover
-        background: $color-buttercup - 10
-        box-shadow: 0 0 0 1px ($color-buttercup - 10)
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px ($color-buttercup - 10),
-                      0 0 0 3px rgba($color-buttercup, .5)
-
-      &:focus
-        box-shadow: 0 0 0 1px $color-buttercup,
-                    0 0 0 3px rgba($color-buttercup, .5)
-
-      &:active
-        background: $color-buttercup - 20
-        box-shadow: 0 0 0 1px ($color-buttercup - 20)
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px ($color-buttercup - 20),
-                      0 0 0 3px rgba($color-buttercup, .5)
-
-      &:disabled
-        &, &:hover, &:active, &:focus
-          background: transparent
-          box-shadow: 0 0 0 1px $color-disabled-buttercup
-          color: $color-disabled-buttercup
-
-  // Danger
-  &.danger
-    background: $color-monza
-    color: $color-white
-
-    &:hover
-      background: $color-monza - 10
-
-    &:focus
-      box-shadow: 0 0 0 2px rgba($color-monza, .5)
-
-    &:active
-      background: $color-monza - 20
-
-    &:disabled
-      background: $color-disabled-monza
-      color: $color-white
-
-    &.outline
-      background: transparent
-      color: $color-monza
-      box-shadow: 0 0 0 1px $color-monza
-
-      &:hover
-        background: $color-monza - 10
-        box-shadow: 0 0 0 1px ($color-monza - 10)
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px ($color-monza - 10),
-                      0 0 0 3px rgba($color-monza, .5)
-
-      &:focus
-        box-shadow: 0 0 0 1px $color-monza,
-                    0 0 0 3px rgba($color-monza, .5)
-
-      &:active
-        background: $color-monza - 20
-        box-shadow: 0 0 0 1px ($color-monza - 20)
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px ($color-monza - 20),
-                      0 0 0 3px rgba($color-monza, .5)
-
-      &:disabled
-        &, &:hover, &:active, &:focus
-          background: transparent
-          color: $color-disabled-monza
-          box-shadow: 0 0 0 1px $color-disabled-monza
-
-  // Success
-  &.success
-    background: $color-java
-    color: $color-white
-
-    &:hover
-      background: $color-java - 10
-
-    &:focus
-      box-shadow: 0 0 0 2px rgba($color-java, .5)
-
-    &:active
-      background: $color-java - 20
-
-    &:disabled
-      background: $color-disabled-java
-      color: $color-white
-
-    &.outline
-      background: transparent
-      color: $color-java
-      box-shadow: 0 0 0 1px $color-java
-
-      &:hover
-        background: $color-java - 10
-        box-shadow: 0 0 0 1px ($color-java - 10)
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px ($color-java - 10),
-                      0 0 0 3px rgba($color-java, .5)
-
-      &:focus
-        box-shadow: 0 0 0 1px $color-java,
-                    0 0 0 3px rgba($color-java, .5)
-
-      &:active
-        background: $color-java - 20
-        box-shadow: 0 0 0 1px ($color-java - 20)
-        color: $color-white
-
-        &:focus
-          box-shadow: 0 0 0 1px ($color-java - 20),
-                      0 0 0 3px rgba($color-java, .5)
-
-      &:disabled
-        &, &:hover, &:active, &:focus
-          background: transparent
-          color: $color-disabled-java
-          box-shadow: 0 0 0 1px $color-disabled-java
+  for type in (primary secondary ternary success warning danger)
+    &.{type}
+      for color in (main sub hover outline reversed active disabled alternate reversed-alternate shadow border)
+        {'--' + color}-color: "var(--%s-%s-color)" % (type color)
 
   .icon,
   .material-icons

@@ -52,6 +52,24 @@ export const secondary = () => (
   </>
 );
 
+export const ternary = () => (
+  <>
+    <p><Button className="ternary">Default</Button></p>
+    <p><Button disabled className="ternary">Disabled</Button></p>
+    <p><Button className="ternary outline">Outline</Button></p>
+    <p>
+      <Button className="ternary outline" disabled>Outline disabled</Button>
+    </p>
+    <p>
+      <Button className="ternary">
+        <i className="material-icons">add_box</i> With icon
+      </Button>
+    </p>
+    <p><Button className="ternary small">Small</Button></p>
+    <p><Button className="ternary big">Big</Button></p>
+  </>
+);
+
 export const warning = () => (
   <>
     <p><Button className="warning">Default</Button></p>

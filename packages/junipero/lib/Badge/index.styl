@@ -1,7 +1,11 @@
 @require "../theme/colors"
 
 .junipero.badge
-  background: $color-alto
+  --main-color: var(--default-main-color)
+  --sub-color: var(--default-sub-color)
+
+  background: var(--main-color)
+  color: var(--sub-color)
   border-radius: 10px
   font-weight: 700
   display: inline-block
@@ -12,26 +16,7 @@
   min-width: 20px
   padding: 0 4px
 
-  &.primary
-    background: $color-eastern-blue
-    color: $color-white
-
-  &.secondary
-    background: $color-portage
-    color: $color-white
-
-  &.premium
-    background: $color-persian-green
-    color: $color-white
-
-  &.warning
-    background: $color-buttercup
-    color: $color-white
-
-  &.danger
-    background: $color-monza
-    color: $color-white
-
-  &.success
-    background: $color-java
-    color: $color-white
+  for type in (primary secondary ternary warning danger success)
+    &.{type}
+      for color in (main sub)
+        {'--' + color}-color: "var(--%s-%s-color)" % (type color)
