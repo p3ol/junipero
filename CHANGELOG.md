@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.25](https://github.com/p3ol/junipero/compare/v2.0.0-beta.24...v2.0.0-beta.25) (2021-06-08)
+
+
+### Features
+
+* **lib:** add always-opened capability ([0aa46ea](https://github.com/p3ol/junipero/commit/0aa46eacf1aea66787a3aad74473065d3df1dc26))
+* **lib:** use css variables instead of overriding classes ([31dfeeb](https://github.com/p3ol/junipero/commit/31dfeebe7f46155af9c35107f9028efdf5591292))
+
+
+
+
+
 # [2.0.0-beta.24](https://github.com/p3ol/junipero/compare/v2.0.0-beta.23...v2.0.0-beta.24) (2021-05-28)
 
 
