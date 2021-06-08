@@ -32,6 +32,7 @@ const ColorField = forwardRef(({
   globalEventsTarget = global,
   opened = false,
   readOnly = false,
+  trigger = 'click',
   onChange = () => {},
   onFocus = () => {},
   onToggle = () => {},
@@ -114,7 +115,10 @@ const ColorField = forwardRef(({
   };
 
   const onFocus_ = e => {
-    dropdownRef.current?.open();
+    if (trigger !== 'manual') {
+      dropdownRef.current?.open();
+    }
+
     onFocus(e);
   };
 
@@ -265,6 +269,7 @@ const ColorField = forwardRef(({
       ref={innerRef}
     >
       <Dropdown
+        trigger={trigger}
         opened={state.opened}
         globalEventsTarget={globalEventsTarget}
         onToggle={onDropdownToggle_}
@@ -378,6 +383,7 @@ ColorField.propTypes = {
     PropTypes.node,
     PropTypes.object,
   ]),
+  trigger: PropTypes.string,
   opened: PropTypes.bool,
   label: PropTypes.oneOfType([
     PropTypes.string,

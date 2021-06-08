@@ -33,11 +33,13 @@ const SelectField = forwardRef(({
   globalEventsTarget = global,
   noItems = 'No items found :(',
   noSearchResults = 'No result found :(',
+  opened = false,
   required = false,
   searchAutoFocus = false,
   searchPlaceholder = 'Search...',
   searchMinCharacters = 2,
   searchThreshold = 400,
+  trigger = 'click',
   onBlur = () => {},
   onChange = () => {},
   onFocus = () => {},
@@ -56,7 +58,7 @@ const SelectField = forwardRef(({
     searchValue: '',
     searchResults: null,
     searching: false,
-    opened: false,
+    opened: opened ?? autoFocus,
     valid: false,
     dirty: false,
     selectedIndex: null,
@@ -135,6 +137,10 @@ const SelectField = forwardRef(({
   };
 
   const onMouseDown_ = () => {
+    if (trigger === 'manual') {
+      return;
+    }
+
     if (state.opened && state.focused) {
       dropdownRef.current?.close();
     } else {
@@ -187,7 +193,9 @@ const SelectField = forwardRef(({
     dispatch({ value: state.value, dirty: true, valid: state.valid });
     onChange({ value: parseValue(state.value), valid: state.valid });
 
-    dropdownRef.current?.close();
+    if (trigger !== 'manual') {
+      dropdownRef.current?.close();
+    }
   };
 
   const onSearch_ = field =>
@@ -208,12 +216,18 @@ const SelectField = forwardRef(({
 
   const focus = () => {
     fieldRef.current?.focus();
-    dropdownRef.current?.open();
+
+    if (trigger !== 'manual') {
+      dropdownRef.current?.open();
+    }
   };
 
   const blur = () => {
     fieldRef.current?.blur();
-    dropdownRef.current?.close();
+
+    if (trigger !== 'manual') {
+      dropdownRef.current?.close();
+    }
   };
 
   const reset = () => {
@@ -270,6 +284,8 @@ const SelectField = forwardRef(({
       <Dropdown
         disabled={disabled}
         {...dropdownProps}
+        opened={state.opened}
+        trigger={trigger}
         onToggle={onToggle_}
         ref={dropdownRef}
       >
@@ -371,6 +387,7 @@ SelectField.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onToggle: PropTypes.func,
+  opened: PropTypes.bool,
   parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
   placeholder: PropTypes.oneOfType([
@@ -396,6 +413,7 @@ SelectField.propTypes = {
   ]),
   searchMinCharacters: PropTypes.number,
   searchThreshold: PropTypes.number,
+  trigger: PropTypes.string,
   validate: PropTypes.func,
   value: PropTypes.any,
 };

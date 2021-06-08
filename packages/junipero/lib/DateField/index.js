@@ -32,7 +32,9 @@ const DateField = forwardRef(({
   disabled = false,
   monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'],
+  opened = false,
   required = false,
+  trigger = 'click',
   weekDaysNames = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
   onChange = () => {},
   onFocus = () => {},
@@ -57,7 +59,7 @@ const DateField = forwardRef(({
     displayed: value || new Date(),
     valid: false,
     dirty: false,
-    opened: false,
+    opened: opened ?? autoFocus,
     focused: autoFocus ?? false,
   });
 
@@ -89,7 +91,11 @@ const DateField = forwardRef(({
 
   const onFocus_ = e => {
     dispatch({ focused: true, displayed: new Date(state.selected) });
-    dropdownRef.current?.open();
+
+    if (trigger !== 'manual') {
+      dropdownRef.current?.open();
+    }
+
     onFocus(e);
   };
 
@@ -116,7 +122,9 @@ const DateField = forwardRef(({
       displayed: new Date(state.value),
     });
 
-    dropdownRef.current?.close();
+    if (trigger !== 'manual') {
+      dropdownRef.current?.close();
+    }
 
     onChange({ value: parseValue(state.value), valid: state.valid });
   };
@@ -127,6 +135,10 @@ const DateField = forwardRef(({
   };
 
   const onMouseDown_ = () => {
+    if (trigger === 'manual') {
+      return;
+    }
+
     if (state.opened && state.focused) {
       dropdownRef.current?.close();
     } else {
@@ -136,12 +148,18 @@ const DateField = forwardRef(({
 
   const focus = () => {
     fieldRef.current?.focus();
-    dropdownRef.current?.open();
+
+    if (trigger !== 'manual') {
+      dropdownRef.current?.open();
+    }
   };
 
   const blur = () => {
     fieldRef.current?.blur();
-    dropdownRef.current?.close();
+
+    if (trigger !== 'manual') {
+      dropdownRef.current?.close();
+    }
   };
 
   const reset = () => {
@@ -259,7 +277,13 @@ const DateField = forwardRef(({
       )}
       ref={innerRef}
     >
-      <Dropdown onToggle={onToggle_} disabled={disabled} ref={dropdownRef}>
+      <Dropdown
+        trigger={trigger}
+        onToggle={onToggle_}
+        disabled={disabled}
+        opened={state.opened}
+        ref={dropdownRef}
+      >
         <DropdownToggle trigger="manual" href={null} tag="div">
           <BaseField
             ref={fieldRef}
@@ -361,6 +385,7 @@ DateField.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  opened: PropTypes.bool,
   onToggle: PropTypes.func,
   placeholder: PropTypes.oneOfType([
     PropTypes.string,
@@ -371,6 +396,7 @@ DateField.propTypes = {
   parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
   required: PropTypes.bool,
+  trigger: PropTypes.string,
   validate: PropTypes.func,
   value: PropTypes.instanceOf(Date),
   weekDaysNames: PropTypes.array,

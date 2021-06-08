@@ -131,3 +131,13 @@ export const animated = () => (
     )}
     onChange={action('change')} />
 );
+
+export const alwaysOpened = () => (
+  <SelectField
+    trigger="manual"
+    opened={true}
+    options={options}
+    placeholder="Choose one item"
+    onChange={action('change')}
+  />
+);

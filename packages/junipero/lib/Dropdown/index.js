@@ -23,6 +23,7 @@ const Dropdown = forwardRef(({
   opened = false,
   placement = 'bottom-start',
   popperOptions = {},
+  trigger = 'click',
   onToggle = () => {},
   ...rest
 }, ref) => {
@@ -104,7 +105,7 @@ const Dropdown = forwardRef(({
     const container = innerRef.current;
     const menu = menuRef.current;
 
-    if (!state.opened || !container) {
+    if (!state.opened || !container || trigger === 'manual') {
       return;
     }
 
@@ -197,6 +198,7 @@ Dropdown.propTypes = {
   opened: PropTypes.bool,
   placement: PropTypes.string,
   popperOptions: PropTypes.object,
+  trigger: PropTypes.string,
 };
 
 export default Dropdown;

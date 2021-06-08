@@ -60,3 +60,12 @@ export const animated = () => (
     onChange={action('change')}
   />
 );
+
+export const alwaysOpened = () => (
+  <DateField
+    opened={true}
+    trigger="manual"
+    placeholder="Date of birth"
+    onChange={action('change')}
+  />
+);

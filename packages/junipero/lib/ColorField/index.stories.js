@@ -40,3 +40,7 @@ export const animated = () => (
     onChange={action('change')}
   />
 );
+
+export const alwaysOpened = () => (
+  <ColorField opened={true} trigger="manual" onChange={action('change')} />
+);
