@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.26](https://github.com/p3ol/junipero/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2021-06-14)
+
+
+### Bug Fixes
+
+* **lib:** fix missing proptype ([ed5bb5c](https://github.com/p3ol/junipero/commit/ed5bb5c246ce3a5b2dd744d939887657dd3e8ddf))
+* **lib:** fix missing stylus import ([2a34028](https://github.com/p3ol/junipero/commit/2a34028718bd5caad400c71bcac4d64eb38123bd))
+
+
+
+
+
 # [2.0.0-beta.25](https://github.com/p3ol/junipero/compare/v2.0.0-beta.24...v2.0.0-beta.25) (2021-06-08)
 
 
