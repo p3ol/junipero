@@ -355,6 +355,7 @@ SelectField.propTypes = {
   container: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
+    PropTypes.object,
   ]),
   disabled: PropTypes.bool,
   dropdownProps: PropTypes.object,
