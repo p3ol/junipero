@@ -40,6 +40,7 @@ export {
   pick,
   cloneDeep,
   fromPairs,
+  mergeDeep,
 } from '@poool/junipero-utils';
 
 export {
