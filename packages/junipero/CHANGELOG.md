@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.28](https://github.com/p3ol/junipero/compare/v2.0.0-beta.27...v2.0.0-beta.28) (2021-06-16)
+
+
+### Features
+
+* **lib:** export utils mergeDeep method ([fdd961d](https://github.com/p3ol/junipero/commit/fdd961d89beeef7a5aece5be7bfcc82a959e8e9c))
+
+
+
+
+
 # [2.0.0-beta.27](https://github.com/p3ol/junipero/compare/v2.0.0-beta.26...v2.0.0-beta.27) (2021-06-16)
 
 
