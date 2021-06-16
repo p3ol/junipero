@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.27](https://github.com/p3ol/junipero/compare/v2.0.0-beta.26...v2.0.0-beta.27) (2021-06-16)
+
+
+### Bug Fixes
+
+* **lib:** fix overflowing select field value ([dc9db16](https://github.com/p3ol/junipero/commit/dc9db1604da53e0240df4c0c8f21ebe276e2b91c))
+* **lib:** fix tabs overriding touchable zone styling ([a331d29](https://github.com/p3ol/junipero/commit/a331d2945a24706c1171ef12d2e9dc0e4edfd729))
+* **lib:** fix touchable zone background ([2687a21](https://github.com/p3ol/junipero/commit/2687a218468ea8f5c32ebb7a575e71e6dfd95407))
+
+
+
+
+
 # [2.0.0-beta.26](https://github.com/p3ol/junipero/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2021-06-14)
 
 
