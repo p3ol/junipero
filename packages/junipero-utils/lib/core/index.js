@@ -53,6 +53,13 @@ export const isUndefined = v => typeof v === 'undefined';
 
 export const isNull = v => v === null;
 
+export const isArray = a => Array.isArray(a);
+
+export const isObject = o =>
+  typeof o === 'object' && o?.constructor?.name === 'Object';
+
+export const isDate = d => d instanceof Date;
+
 export const exists = v => !isNull(v) && !isUndefined(v);
 
 export const get = (obj = {}, path = '', defaultValue = null) => path
@@ -98,9 +105,9 @@ export const pick = (obj = {}, keys = []) =>
 export const cloneDeep = obj =>
   typeof obj !== 'object' || obj === null
     ? obj
-    : obj instanceof Date
+    : isDate(obj)
       ? new Date(obj.getTime())
-      : Array.isArray(obj)
+      : isArray(obj)
         ? [...obj.map(o => cloneDeep(o))]
         : Object.entries(obj).reduce((res, [k, v]) => {
           res[k] = cloneDeep(v);
@@ -114,3 +121,23 @@ export const fromPairs = (pairs = []) =>
 
     return res;
   }, {});
+
+export const mergeDeep = (target, ...sources) =>
+  isArray(target)
+    ? target.concat(...sources)
+    : isObject(target)
+      ? sources.reduce((s, source) => (
+        isObject(source)
+          ? Object.entries(source).reduce((t, [k, v]) => {
+            /* istanbul ignore else: no else needed */
+            if (isArray(t[k]) || isObject(t[k])) {
+              t[k] = mergeDeep(target[k], v);
+            } else if (!t[k] || !isObject(t[k])) {
+              t[k] = v;
+            }
+
+            return t;
+          }, s)
+          : s
+      ), target)
+      : target;

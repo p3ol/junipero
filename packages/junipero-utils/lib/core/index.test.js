@@ -13,6 +13,7 @@ import {
   pick,
   cloneDeep,
   fromPairs,
+  mergeDeep,
 } from './';
 
 describe('core', () => {
@@ -371,12 +372,36 @@ describe('core', () => {
   });
 
   describe('fromPairs()', () => {
-    it('should allow to make an object from a table', () => {
+    it('should allow to make an object from an array', () => {
       const arr = [['foo', 'bar'], ['stuff', 'thing'], [0, true]];
       const obj = fromPairs(arr);
       expect(obj.foo).toBe('bar');
       expect(obj.stuff).toBe('thing');
       expect(obj[0]).toBe(true);
+
+      expect(fromPairs()).toMatchObject({});
+    });
+  });
+
+  describe('mergeDeep(target, source)', () => {
+    it('should correctly merge objects', () => {
+      expect(mergeDeep({}, { foo: 'bar' })).toMatchObject({ foo: 'bar' });
+      expect(mergeDeep({ foo: 'bar' }, { foo: 'test' }))
+        .toMatchObject({ foo: 'test' });
+      expect(mergeDeep({ foo: { bar: 'test' } }, { foo: { bar: 'stuff' } }))
+        .toMatchObject({ foo: { bar: 'stuff' } });
+      expect(mergeDeep({ foo: 0 }, { bar: 1 }))
+        .toMatchObject({ foo: 0, bar: 1 });
+
+      const date = new Date();
+      expect(mergeDeep(date, { foo: 'bar' })).toBe(date);
+      expect(mergeDeep({ foo: 'bar' }, date)).toMatchObject({ foo: 'bar' });
+
+      expect(mergeDeep([0, 1], [2, 3])).toMatchObject([0, 1, 2, 3]);
+      expect(mergeDeep([0, 1], { foo: 'bar' }))
+        .toMatchObject([0, 1, { foo: 'bar' }]);
+      expect(mergeDeep({ foo: [0, 1] }, { foo: [2, 3, { bar: 'stuff' }] }))
+        .toMatchObject({ foo: [0, 1, 2, 3, { bar: 'stuff' }] });
     });
   });
 });

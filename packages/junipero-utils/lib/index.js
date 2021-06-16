@@ -13,6 +13,7 @@ export {
   pick,
   cloneDeep,
   fromPairs,
+  mergeDeep,
 } from './core';
 
 export {
