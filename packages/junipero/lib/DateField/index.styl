@@ -1,4 +1,7 @@
 .junipero.date-picker
+  --main-color: $color-eastern-blue
+  --sub-color: $color-shuttle-gray
+
   display: inline-block
   min-width: 250px
 
@@ -35,7 +38,7 @@
         height: 7px
         left: 2px
         transform: rotate(45deg)
-        border: 0px solid $color-shuttle-gray
+        border: 0px solid var(--sub-color)
         transition: border-color .1s ease-in-out
 
       &:before
@@ -130,7 +133,7 @@
           min-width: 100%
 
     .arrow, .week-days
-      color: $color-eastern-blue
+      color: var(--main-color)
 
     .day
       color: $color-midnight
@@ -139,17 +142,17 @@
         background: $color-catskill-white
 
       &.active
-        background: $color-eastern-blue
+        background: var(--main-color)
 
   &.focused
     .arrow
       &:before, &:after
-        border-color: $color-eastern-blue
+        border-color: var(--main-color)
 
   &.disabled
     .arrow
       &:before, &:after
-        border-color: $color-shuttle-gray
+        border-color: var(--sub-color)
 
     .junipero.base.empty
       .label

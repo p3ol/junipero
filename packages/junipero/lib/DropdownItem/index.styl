@@ -1,14 +1,18 @@
 @require "../theme/colors"
 
 .junipero.dropdown-item
+  --main-color: $color-eastern-blue
+  --text-color: $color-midnight
+  --background-color: $color-black-squeeze
+
   &:hover, &:focus
-    background: $color-black-squeeze
+    background: var(--background-color)
 
     a, .dropdown-link
-      color: $color-eastern-blue
+      color: var(--main-color)
 
   a, .dropdown-link
-    color: $color-midnight
+    color: var(--text-color)
     text-decoration: none
     padding: 5px 15px
     display: block

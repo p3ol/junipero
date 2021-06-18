@@ -1,6 +1,8 @@
 @require "../theme/colors"
 
 .junipero.code
+  --background-color: $color-black-squeeze
+  --shadow-color: rgba($color-eastern-blue, .5)
   display: inline-block
   min-width: 250px
 
@@ -12,7 +14,7 @@
     outline: none
     padding: 9px
     border-radius: 4px
-    background: $color-black-squeeze
+    background: var(--background-color)
     border: none
     margin: 5px
     text-align: center
@@ -22,14 +24,11 @@
     transition: box-shadow .1s ease-in-out
 
     &:focus
-      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+      box-shadow: 0 0 0 2px var(--shadow-color)
 
     &:disabled
       opacity: .5
 
   &.invalid.dirty
-    input
-      background: $color-lavender-blush
-
-      &:focus
-        box-shadow: 0 0 0 2px rgba($color-monza, .5)
+    --background-color: $color-lavender-blush
+    --shadow-color: rgba($color-monza, .5)

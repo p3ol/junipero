@@ -1,15 +1,17 @@
 @require "../theme/colors"
 
 .junipero.tooltip
+  --background-color: $color-midnight
+  --text-color: $color-white
 
   .tooltip-inner
-    color: $color-white
+    color: var(--text-color)
     border-radius: 4px
     padding: 8px 21px
     text-align: center
     pointer-events: none
     max-width: 250px
-    background: $color-midnight
+    background: var(--background-color)
 
     .arrow
       position: absolute
@@ -32,26 +34,26 @@
     .arrow
       border-top-width: 8px
       border-top-style: solid
-      border-top-color: $color-midnight
+      border-top-color: var(--background-color)
       bottom: -7px
 
   &[data-placement*="bottom"]
     .arrow
       border-bottom-width: 8px
       border-bottom-style: solid
-      border-bottom-color: $color-midnight
+      border-bottom-color: var(--background-color)
       top: -7px
 
   &[data-placement*="right"]
     .arrow
       border-right-width: 8px
       border-right-style: solid
-      border-right-color: $color-midnight
+      border-right-color: var(--background-color)
       left: -7px
 
   &[data-placement*="left"]
     .arrow
       border-left-width: 8px
       border-left-style: solid
-      border-left-color: $color-midnight
+      border-left-color: var(--background-color)
       right: -7px

@@ -1,20 +1,25 @@
 @require "../theme/colors"
 
 .junipero.touchable-zone
+  --background-color: $color-alabaster
+  --text-color: $color-shuttle-gray
+  --hover-color: $color-gallery
+  --active-color: $color-alto
+
   cursor: pointer
   border-radius: 4px
-  background-color: $color-alabaster
-  color: $color-shuttle-gray
+  background-color: var(--background-color)
+  color: var(--text-color)
   display: inline-block
   width: 350px
   height: 130px
   user-select: none
 
   &:hover
-    background-color: $color-gallery
+    background-color: var(--hover-color)
 
     &:active
-      background-color: $color-alto
+      background-color: var(--active-color)
 
   .content
     display: flex

@@ -1,26 +1,30 @@
 @require "../theme/colors"
 
 .junipero.toggle
+  --main-color: $color-eastern-blue
+  --shadow-color: rgba($color-eastern-blue, .5)
+  --background-color: $color-catskill-white
+
   display: flex
   outline: none
 
   &:focus
     .inner
-      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+      box-shadow: 0 0 0 2px var(--shadow-color)
 
   input
     display: none
 
     &:checked
       & + .inner
-        background: $color-eastern-blue
+        background: var(--main-color)
 
         .handle
           left: 100%
           transform: translateX(-100%)
 
         & + .label
-          color: $color-eastern-blue
+          color: var(--main-color)
 
   .inner
     flex: 0 0 40px
@@ -32,7 +36,7 @@
     transition-timing-function: ease-in-out
     padding: 2px
     cursor: pointer
-    background: $color-catskill-white
+    background: var(--background-color)
 
     .handle
       background: $color-white
@@ -52,5 +56,5 @@
     margin-left: 10px
     position: relative
     top: -1px
-    color: $color-catskill-white
+    color: var(--background-color)
     transition: color .1s ease-in-out

@@ -1,6 +1,8 @@
 @require '../theme/colors'
 
 .junipero.modal
+  --background-color: rgba($color-midnight, .9)
+
   position: fixed
   top: 0
   right: 0
@@ -20,7 +22,7 @@
     position: absolute
     z-index: 2
     padding: 50px
-    background: rgba($color-midnight, .9)
+    background: var(--background-color)
     overflow: auto
     display: flex
     align-items: center

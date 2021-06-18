@@ -1,6 +1,10 @@
 @require "../theme/colors"
 
 .junipero.tabs
+  --main-color: $color-eastern-blue
+  --text-color: $color-shuttle-gray
+  --background-color: $color-gallery
+
   .titles
     list-style: none
     display: flex
@@ -20,7 +24,7 @@
         position: absolute
         width: 100%
         height: 2px
-        background: $color-gallery
+        background: var(--background-color)
         bottom: -1px
         z-index: 1
         left: 0
@@ -36,7 +40,7 @@
           border-radius: 0 2px 2px 0
 
       a
-        color: $color-shuttle-gray
+        color: var(--text-color)
         text-decoration: none
         position: relative
         display: block
@@ -48,26 +52,26 @@
           left: 0
           width: 100%
           height: 2px
-          background: $color-shuttle-gray
+          background: var(--text-color)
           border-radius: 2px
           bottom: -1px
           opacity: 0
           z-index: 2
 
         &:hover
-          color: $color-shuttle-gray
+          color: var(--text-color)
 
           &:after
             opacity: 1
 
       &.active
         a
-          color: $color-eastern-blue
+          color: var(--main-color)
           pointer-events: none
           user-select: none
 
           &:after
-            background: $color-eastern-blue
+            background: var(--main-color)
             opacity: 1
 
   & > .content

@@ -1,6 +1,11 @@
 @require "../theme/colors"
 
 .junipero.checkbox
+  --main-color: $color-eastern-blue
+  --background-color: $color-black-squeeze
+  --shadow-color: rgba($color-eastern-blue, .5)
+  --tick-color: $color-white
+
   display: flex
   outline: none
 
@@ -11,7 +16,7 @@
   &:focus
     .check
       .inner
-        box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+        box-shadow: 0 0 0 2px var(--shadow-color)
 
   .check
     flex: 0 0 auto
@@ -22,7 +27,7 @@
       display: none
 
       &:checked + .inner
-        background: $color-eastern-blue
+        background: var(--main-color)
 
         &:after
           opacity: 1
@@ -31,7 +36,7 @@
       width: 16px
       height: 16px
       border-radius: 2px
-      background: $color-black-squeeze
+      background: var(--background-color)
       display: inline-block
       vertical-align: middle
       position: relative
@@ -44,8 +49,8 @@
         content: ''
         width: 5px
         height: 9px
-        border-bottom: 2px solid $color-white
-        border-right: 2px solid $color-white
+        border-bottom: 2px solid var(--tick-color)
+        border-right: 2px solid var(--tick-color)
         transform: translateX(-50%) translateY(-50%) rotate(45deg)
         position: absolute
         top: calc(50% - 2px)

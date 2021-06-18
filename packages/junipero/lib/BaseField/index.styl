@@ -1,13 +1,19 @@
 @require "../theme/colors"
 
 .junipero.base
+  --main-color: $color-eastern-blue
+  --background-color: $color-black-squeeze
+  --text-color: $color-midnight
+  --sub-color: $color-shuttle-gray
+  --shadow-color: rgba($color-eastern-blue, .5)
+
   display: block
   position: relative
   min-height: 40px
   width: 100%
   padding: 9px
   border-radius: 4px
-  background: $color-black-squeeze
+  background: var(--background-color)
   border: none
   outline: none
   font-size: 16px
@@ -15,7 +21,7 @@
   transition: box-shadow .1s ease-in-out
 
   &.focused:not(.disabled)
-    box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+    box-shadow: 0 0 0 2px var(--shadow-color)
 
   &.disabled
     opacity: .5
@@ -31,7 +37,7 @@
     left: 9px
     top: 50%
     transform: translateY(-50%)
-    color: $color-shuttle-gray
+    color: var(--sub-color)
 
   .label
     top: 4px
@@ -41,7 +47,7 @@
     transition-property: opacity, transform
     transition-duration: .1s
     transition-timing-function: ease-out
-    color: $color-eastern-blue
+    color: var(--main-color)
 
   .value
     text-overflow: ellipsis

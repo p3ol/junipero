@@ -1,6 +1,11 @@
 @require "../theme/colors"
 
 .junipero.tags-input
+  --main-color: $color-eastern-blue
+  --text-color: $color-shuttle-gray
+  --background-color: $color-black-squeeze
+  --shadow-color: rgba($color-eastern-blue, .5)
+
   display: inline-block
   position: relative
   min-width: 250px
@@ -8,7 +13,7 @@
 
   &.focused
     .wrapper
-      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+      box-shadow: 0 0 0 2px var(--shadow-color)
 
   &.disabled
     opacity: .5
@@ -17,13 +22,13 @@
 
   .no-items, .no-results
     padding: 10px
-    color: $color-shuttle-gray
+    color: var(--text-color)
     text-align: center
 
   .wrapper
     padding: 5px 9px 0
     border-radius: 2px
-    background: $color-black-squeeze
+    background: var(--background-color)
     border: none
     outline: none
     font-size: 16px
@@ -46,7 +51,7 @@
     .tag
       padding: 2px 8px
       border-radius: 4px
-      background: $color-eastern-blue
+      background: var(--main-color)
       color: $color-white
       margin-right: 5px
       font-size: 14px
@@ -54,10 +59,10 @@
       cursor: pointer
 
       &.active:not(.invalid), &:focus:not(.invalid)
-        background: $color-persian-green
+        --main-color: $color-persian-green
 
       &.invalid
-        background: $color-monza
+        --main-color: $color-monza
 
       a.remove
         display: inline-block
@@ -106,7 +111,7 @@
       left: 0
       top: 50%
       transform: translateY(-50%)
-      color: $color-shuttle-gray
+      color: var(--text-color)
 
     .label
       top: 4px
@@ -116,7 +121,7 @@
       transition-property: opacity, transform
       transition-duration: .1s
       transition-timing-function: ease-out
-      color: $color-eastern-blue
+      color: var(--main-color)
 
   &:not(.empty),
   &.label-enforced
@@ -150,13 +155,6 @@
       display: block
 
   &.invalid.dirty
-    .wrapper
-      background: $color-lavender-blush
-
-    &.focused
-      .wrapper
-        box-shadow: 0 0 0 2px rgba($color-monza, .5)
-
-    .placeholder,
-    .label
-      color: $color-monza
+    --background-color: $color-lavender-blush
+    --shadow-color: rgba($color-monza, .5)
+    --main-color: $color-monza

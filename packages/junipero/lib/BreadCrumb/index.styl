@@ -1,14 +1,19 @@
 @require "../theme/colors"
 
 .junipero.breadcrumb
+  --text-color: $color-midnight
+  --active-color: $color-eastern-blue
+
   .item
+    color: var(--text-color)
+
     &:after
       content: '>'
       margin: 0 5px
 
     &:last-child
       font-weight: bold
-      color: $color-eastern-blue
+      color: var(--active-color)
 
       &:after
         content: ''

@@ -1,6 +1,12 @@
 @require "../theme/colors"
 
 .junipero.text-input
+  --main-color: $color-eastern-blue
+  --text-color: $color-midnight
+  --sub-color: $color-shuttle-gray
+  --shadow-color: rgba($color-eastern-blue, .5)
+  --background-color: $color-black-squeeze
+
   display: inline-block
   position: relative
   min-width: 250px
@@ -10,7 +16,7 @@
   textarea
     padding: 9px
     border-radius: 2px
-    background: $color-black-squeeze
+    background: var(--background-color)
     border: none
     outline: none
     font-size: 16px
@@ -19,7 +25,7 @@
     transition: box-shadow .1s ease-in-out
 
     &:focus
-      box-shadow: 0 0 0 2px rgba($color-eastern-blue, .5)
+      box-shadow: 0 0 0 2px var(--shadow-color)
 
     &:disabled
       opacity: .5
@@ -38,7 +44,7 @@
     left: 9px
     top: 50%
     transform: translateY(-50%)
-    color: $color-shuttle-gray
+    color: var(--sub-color)
 
   .label
     top: 4px
@@ -48,13 +54,13 @@
     transition-property: opacity, transform
     transition-duration: .1s
     transition-timing-function: ease-out
-    color: $color-eastern-blue
+    color: var(--main-color)
 
   textarea
     font-family: "Open Sans", sans-serif
     font-size: 16px
     line-height: normal
-    color: $color-midnight
+    color: var(--text-color)
 
     & + .placeholder
       top: 11px
@@ -87,13 +93,6 @@
 
 
   &.invalid.dirty
-    input,
-    textarea
-      background: $color-lavender-blush
-
-      &:focus
-        box-shadow: 0 0 0 2px rgba($color-monza, .5)
-
-    .placeholder,
-    .label
-      color: $color-monza
+    --background-color: $color-lavender-blush
+    --shadow-color: rgba($color-monza, .5)
+    --main-color: $color-monza
