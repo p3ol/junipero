@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.29](https://github.com/p3ol/junipero/compare/v2.0.0-beta.28...v2.0.0-beta.29) (2021-06-18)
+
+
+### Bug Fixes
+
+* **lib:** replace all colors with css vars ([9a0c23b](https://github.com/p3ol/junipero/commit/9a0c23b4f0d8d8ac9e2787163a64301f8b570230))
+
+
+
+
+
 # [2.0.0-beta.28](https://github.com/p3ol/junipero/compare/v2.0.0-beta.27...v2.0.0-beta.28) (2021-06-16)
 
 
