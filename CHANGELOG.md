@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.30](https://github.com/p3ol/junipero/compare/v2.0.0-beta.29...v2.0.0-beta.30) (2021-06-22)
+
+
+### Features
+
+* **radiofield:** set value prop propType to any ([63645fb](https://github.com/p3ol/junipero/commit/63645fbd10fb9ef0ff0dfa1ff34ac8509f99d2af))
+
+
+
+
+
 # [2.0.0-beta.29](https://github.com/p3ol/junipero/compare/v2.0.0-beta.28...v2.0.0-beta.29) (2021-06-18)
 
 
