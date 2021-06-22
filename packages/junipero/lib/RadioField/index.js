@@ -162,6 +162,7 @@ RadioField.propTypes = {
     PropTypes.number,
     PropTypes.object,
     PropTypes.bool,
+    PropTypes.array,
   ]),
 };
 
