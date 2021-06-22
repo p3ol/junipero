@@ -157,13 +157,7 @@ RadioField.propTypes = {
   onFocus: PropTypes.func,
   parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-    PropTypes.bool,
-    PropTypes.array,
-  ]),
+  value: PropTypes.any,
 };
 
 export default RadioField;
