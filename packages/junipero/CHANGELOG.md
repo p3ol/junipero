@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.31](https://github.com/p3ol/junipero/compare/v2.0.0-beta.30...v2.0.0-beta.31) (2021-06-24)
+
+
+### Bug Fixes
+
+* **lib:** fix default button colors ([5ce3022](https://github.com/p3ol/junipero/commit/5ce3022d2fbd075f0d309cb2ba72f2e7064e7c5f))
+
+
+
+
+
 # [2.0.0-beta.30](https://github.com/p3ol/junipero/compare/v2.0.0-beta.29...v2.0.0-beta.30) (2021-06-22)
 
 
