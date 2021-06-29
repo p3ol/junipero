@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.2](https://github.com/p3ol/junipero/compare/v2.0.0-rc.1...v2.0.0-rc.2) (2021-06-29)
+
+
+### Bug Fixes
+
+* **lib:** fix placeholders & labels overflowing everywhere ([bca42ae](https://github.com/p3ol/junipero/commit/bca42ae8b6883e56f0d55b56c1e845c7b4162e0c))
+
+
+### Features
+
+* **lib:** add preview to colorfield ([6bf1566](https://github.com/p3ol/junipero/commit/6bf156621f6e0000238a95d223b9c5272840db6c))
+
+
+
+
+
 # [2.0.0-rc.1](https://github.com/p3ol/junipero/compare/v2.0.0-rc.0...v2.0.0-rc.1) (2021-06-29)
 
 
