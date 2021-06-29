@@ -11,6 +11,7 @@ describe('<ColorField />', () => {
     const component = mount(<ColorField />);
     component.find('input').simulate('focus');
     expect(component.find('.junipero.color-input').length).toBe(1);
+    expect(component.find('.pigment').length).toBe(1);
   });
 
   it('should provide some imperative handles', () => {
@@ -258,6 +259,13 @@ describe('<ColorField />', () => {
     expect(ref.current.s).toBe(0);
     expect(ref.current.v).toBe(100);
     expect(ref.current.a).toBe(100);
+  });
+
+  it('should allow to not have a preview', () => {
+    const component = mount(
+      <ColorField previewEnabled={false} value="#F00" />
+    );
+    expect(component.find('.pigment').length).toBe(0);
   });
 
 });

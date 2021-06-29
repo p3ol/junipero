@@ -293,7 +293,7 @@ const ColorField = forwardRef(({
           { previewEnabled && (
             <div
               style={{ backgroundColor: state.value }}
-              className="color-preview"
+              className="pigment"
             />
           ) }
         </DropdownToggle>
