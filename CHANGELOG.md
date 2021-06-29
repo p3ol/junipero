@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.1](https://github.com/p3ol/junipero/compare/v2.0.0-rc.0...v2.0.0-rc.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* **lib:** fix missing card shadow variable ([c59201c](https://github.com/p3ol/junipero/commit/c59201cc7b324903aa8e4f68cae613323cdcd7eb))
+
+
+
+
+
 # [2.0.0-rc.0](https://github.com/p3ol/junipero/compare/v2.0.0-beta.31...v2.0.0-rc.0) (2021-06-28)
 
 
