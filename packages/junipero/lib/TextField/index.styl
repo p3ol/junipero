@@ -39,6 +39,11 @@
     pointer-events: none
     user-select: none
     transform-origin: 0 0
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    display: block
+    width: calc(100% - 18px)
 
   .placeholder
     left: 9px
@@ -55,6 +60,7 @@
     transition-duration: .1s
     transition-timing-function: ease-out
     color: var(--main-color)
+    width: 130%
 
   textarea
     font-family: "Open Sans", sans-serif
