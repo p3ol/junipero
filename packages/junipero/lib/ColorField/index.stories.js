@@ -18,6 +18,15 @@ export const withPlaceholder = () => (
   />
 );
 
+export const withoutPreview = () => (
+  <ColorField
+    placeholder="Select a color"
+    label="Chosen color"
+    previewEnabled={false}
+    onChange={action('change')}
+  />
+);
+
 export const autoFocused = () => (
   <ColorField
     autoFocus={true}

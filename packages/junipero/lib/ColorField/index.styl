@@ -10,6 +10,30 @@
   .dropdown, .field, .dropdown-toggle
     width: 100%
 
+  &.with-preview
+    .dropdown-toggle
+      .field.text-input
+        input
+          padding-right: 30px
+
+        .placeholder
+          width: calc(100% - 39px)
+
+        .label
+          width: calc(130% - 30px)
+
+      .color-preview
+        width: 12px
+        height: 12px
+        border-radius: 100%
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        right: 8px
+        background-color: $color-white
+        box-shadow: 0 0 0 2px $color-white,
+                    0 1px 3px 0 rgb(0 0 0 / 30%)
+
   .dropdown-toggle
     position: relative
     display: block

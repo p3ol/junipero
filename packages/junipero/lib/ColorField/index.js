@@ -29,6 +29,7 @@ const ColorField = forwardRef(({
   autoFocus = false,
   disabled = false,
   format = 'auto',
+  previewEnabled = true,
   globalEventsTarget = global,
   opened = false,
   readOnly = false,
@@ -263,6 +264,7 @@ const ColorField = forwardRef(({
           invalid: !state.valid && state.dirty,
           moving: state.handleMoving,
           opened: state.opened,
+          'with-preview': previewEnabled,
         },
         className,
       )}
@@ -288,6 +290,12 @@ const ColorField = forwardRef(({
             placeholder={placeholder}
             label={label}
           />
+          { previewEnabled && (
+            <div
+              style={{ backgroundColor: state.value }}
+              className="color-preview"
+            />
+          ) }
         </DropdownToggle>
         <DropdownMenu animate={animateMenu}>
           <div className="color-wheel" ref={colorWheelRef}>
@@ -398,6 +406,7 @@ ColorField.propTypes = {
     PropTypes.node,
     PropTypes.func,
   ]),
+  previewEnabled: PropTypes.bool,
   readOnly: PropTypes.bool,
   valid: PropTypes.bool,
   value: PropTypes.string,
