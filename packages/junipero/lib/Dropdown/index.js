@@ -4,6 +4,7 @@ import React, {
   useImperativeHandle,
   useReducer,
   useRef,
+  useCallback,
 } from 'react';
 import PropTypes from 'prop-types';
 import { usePopper } from 'react-popper';
@@ -130,7 +131,7 @@ const Dropdown = forwardRef(({
     }
   };
 
-  const getContext = () => ({
+  const getContext = useCallback(() => ({
     opened: state.opened,
     disabled,
     styles,
@@ -138,7 +139,12 @@ const Dropdown = forwardRef(({
     toggle,
     update: update_,
     forceUpdate: forceUpdate_,
-  });
+  }), [
+    state.opened,
+    disabled,
+    styles,
+    attributes,
+  ]);
 
   return (
     <div
@@ -157,7 +163,7 @@ const Dropdown = forwardRef(({
         { React.Children.map(children, child => child.type === DropdownToggle
           ? React.cloneElement(child, {
             ref: ref_ => {
-              toggleRef.current = ref_?.innerRef?.current;
+              toggleRef.current = ref_;
 
               if (typeof child?.ref === 'function') {
                 child.ref(ref_);
@@ -169,7 +175,7 @@ const Dropdown = forwardRef(({
           : child.type === DropdownMenu
             ? React.cloneElement(child, {
               ref: ref_ => {
-                menuRef.current = ref_?.innerRef?.current;
+                menuRef.current = ref_;
 
                 if (typeof child?.ref === 'function') {
                   child.ref(ref_);

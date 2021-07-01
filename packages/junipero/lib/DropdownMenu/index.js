@@ -1,7 +1,5 @@
 import React, {
   forwardRef,
-  useRef,
-  useImperativeHandle,
   useContext,
 } from 'react';
 import { createPortal } from 'react-dom';
@@ -19,12 +17,7 @@ const DropdownMenu = forwardRef(({
   tag: Tag = 'ul',
   ...rest
 }, ref) => {
-  const innerRef = useRef();
   const { opened, styles, attributes } = useContext(DropdownContext);
-
-  useImperativeHandle(ref, () => ({
-    innerRef,
-  }));
 
   if (!opened && !animate && apparition === 'insert') {
     return null;
@@ -48,7 +41,7 @@ const DropdownMenu = forwardRef(({
       )}
       style={styles?.popper || {}}
       { ...attributes?.popper || {} }
-      ref={innerRef}
+      ref={ref}
     >
       { animate ? animate(menu, { opened }) : menu }
     </div>

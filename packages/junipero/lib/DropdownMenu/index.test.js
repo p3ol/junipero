@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
 
 import { DropdownContext } from '../contexts';
@@ -15,19 +15,6 @@ describe('<DropdownMenu />', () => {
       </DropdownContext.Provider>
     );
     expect(component.find('.junipero.dropdown-menu').length).toBe(1);
-  });
-
-  it('should provide some imperative handles', () => {
-    const ref = createRef();
-    const component = mount(
-      <DropdownContext.Provider
-        value={{ styles: {}, attributes: {}, opened: true }}
-      >
-        <DropdownMenu ref={ref} />
-      </DropdownContext.Provider>
-    );
-    expect(ref.current.innerRef.current).toBeDefined();
-    expect(component.getDOMNode()).toBe(ref.current.innerRef.current);
   });
 
   it('should allow to render menu inside a custom container', () => {

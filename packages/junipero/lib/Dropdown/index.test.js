@@ -136,9 +136,9 @@ describe('<Dropdown />', () => {
         </DropdownMenu>
       </Dropdown>
     );
-    expect(toggleRef.current.innerRef.current)
+    expect(toggleRef.current)
       .toBe(component.find('.junipero.dropdown-toggle').getDOMNode());
-    expect(menuRef.current.innerRef.current)
+    expect(menuRef.current)
       .toBe(component.find('.junipero.dropdown-menu').getDOMNode());
   });
 
@@ -156,9 +156,9 @@ describe('<Dropdown />', () => {
         </DropdownMenu>
       </Dropdown>
     );
-    expect(toggleRef.current.innerRef.current)
+    expect(toggleRef.current)
       .toBe(component.find('.junipero.dropdown-toggle').getDOMNode());
-    expect(menuRef.current.innerRef.current)
+    expect(menuRef.current)
       .toBe(component.find('.junipero.dropdown-menu').getDOMNode());
   });
 

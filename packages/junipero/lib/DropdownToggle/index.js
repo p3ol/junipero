@@ -1,7 +1,5 @@
 import React, {
   forwardRef,
-  useRef,
-  useImperativeHandle,
   useContext,
 } from 'react';
 import PropTypes from 'prop-types';
@@ -16,12 +14,7 @@ const DropdownToggle = forwardRef(({
   onClick = () => {},
   ...rest
 }, ref) => {
-  const innerRef = useRef();
   const { disabled, toggle } = useContext(DropdownContext);
-
-  useImperativeHandle(ref, () => ({
-    innerRef,
-  }));
 
   const onClick_ = e => {
     e?.preventDefault();
@@ -43,7 +36,7 @@ const DropdownToggle = forwardRef(({
         'dropdown-toggle',
         className,
       )}
-      ref={innerRef}
+      ref={ref}
       onClick={onClick_}
     />
   );
