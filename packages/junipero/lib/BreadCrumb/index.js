@@ -1,43 +1,37 @@
-import React, { forwardRef, useRef, useImperativeHandle } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from '@poool/junipero-utils';
 
 const BreadCrumb = forwardRef(({
   className,
-  items = [],
+  children,
+  items,
   itemTag: Item = 'span',
   animateItem = item => item,
   ...rest
-}, ref) => {
-  const innerRef = useRef();
-
-  useImperativeHandle(ref, () => ({
-    innerRef,
-  }));
-
-  return (
-    <div
-      { ...rest }
-      ref={innerRef}
-      className={classNames(
-        'junipero',
-        'breadcrumb',
-        className,
-      )}
-    >
-      { items.map((item, index) =>
-        animateItem((
-          <Item
-            className="item"
-            key={index}
-          >
-            { item }
-          </Item>
-        ), index)
-      ) }
-    </div>
-  );
-});
+}, ref) => (
+  <div
+    { ...rest }
+    ref={ref}
+    className={classNames(
+      'junipero',
+      'breadcrumb',
+      className,
+    )}
+  >
+    { items?.map((item, index) =>
+      animateItem((
+        <Item
+          className="item"
+          key={index}
+        >
+          { item }
+        </Item>
+      ), index)
+    ) }
+    { children }
+  </div>
+));
 
 BreadCrumb.propTypes = {
   items: PropTypes.array,
