@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.3](https://github.com/p3ol/junipero/compare/v2.0.0-rc.2...v2.0.0-rc.3) (2021-07-01)
+
+
+### Bug Fixes
+
+* **lib:** fix dropdown refs ([b941603](https://github.com/p3ol/junipero/commit/b9416037f70ca232f81ca165f89ba423876bed0e))
+* **lib:** fix missing forward refs ([958b16a](https://github.com/p3ol/junipero/commit/958b16a2b3275b521ef250e19fcdd1883aa99ebb))
+* **lib:** flag fields as junipero refs ([241f007](https://github.com/p3ol/junipero/commit/241f007ddcef4824c63bf7992324e94e92e89158))
+* **lib:** handle tooltip junipero refs ([fa9b3e2](https://github.com/p3ol/junipero/commit/fa9b3e23050e650ca149e9f575647e862af1561f))
+
+
+### Features
+
+* **lib:** add new breadcrumb item component ([e800d32](https://github.com/p3ol/junipero/commit/e800d321d2d126085b6df9769c614398ac5d1f87))
+
+
+
+
+
 # [2.0.0-rc.2](https://github.com/p3ol/junipero/compare/v2.0.0-rc.1...v2.0.0-rc.2) (2021-06-29)
 
 
