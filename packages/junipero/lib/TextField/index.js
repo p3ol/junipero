@@ -44,6 +44,7 @@ const TextField = forwardRef(({
     reset,
     focus,
     blur,
+    isJunipero: true,
   }));
 
   useEffect(() => {

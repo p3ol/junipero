@@ -49,6 +49,7 @@ const RadioField = forwardRef(({
     focused: state.focused,
     dirty: state.dirty,
     internalValue: state.value,
+    isJunipero: true,
   }));
 
   const onKeyDown_ = (option, e) => {

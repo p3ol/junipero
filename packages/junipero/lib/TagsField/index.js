@@ -85,6 +85,7 @@ const TagsField = forwardRef(({
     reset,
     add,
     remove,
+    isJunipero: true,
   }));
 
   useEffect(() => {

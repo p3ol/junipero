@@ -81,6 +81,7 @@ const SelectField = forwardRef(({
     focus,
     blur,
     reset,
+    isJunipero: true,
   }));
 
   useEventListener('keydown', e => {

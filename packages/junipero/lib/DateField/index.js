@@ -75,6 +75,7 @@ const DateField = forwardRef(({
     focus,
     blur,
     reset,
+    isJunipero: true,
   }));
 
   useEffect(() => {

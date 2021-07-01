@@ -59,6 +59,7 @@ const SliderField = forwardRef(({
     moving: state.moving,
     precision: state.precision,
     reset,
+    isJunipero: true,
   }));
 
   useEventListener('mousemove', e => {

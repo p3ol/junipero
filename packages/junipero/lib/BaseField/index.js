@@ -30,6 +30,7 @@ const BaseField = forwardRef(({
     innerRef,
     focus,
     blur,
+    isJunipero: true,
   }));
 
   useEffect(() => {

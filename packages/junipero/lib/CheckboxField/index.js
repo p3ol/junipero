@@ -47,6 +47,7 @@ const CheckboxField = forwardRef(({
     internalValue: state.checked,
     focused: state.focused,
     active: state.active,
+    isJunipero: true,
   }));
 
   const onKeyPress_ = e => {

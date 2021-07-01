@@ -42,6 +42,7 @@ const ToggleField = forwardRef(({
     innerRef,
     inputRef,
     focused: state.focused,
+    isJunipero: true,
   }));
 
   const onKeyPress_ = e => {

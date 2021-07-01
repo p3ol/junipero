@@ -80,6 +80,7 @@ const ColorField = forwardRef(({
     reset,
     handleMoving: state.handleMoving,
     handleType: state.handleType,
+    isJunipero: true,
   }));
 
   useEffect(() => {

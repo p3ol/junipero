@@ -46,6 +46,7 @@ const CodeField = forwardRef(({
     focus,
     blur,
     reset,
+    isJunipero: true,
   }));
 
   const focus = (index = 0) => {

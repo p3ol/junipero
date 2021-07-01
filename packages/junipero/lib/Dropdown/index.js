@@ -64,6 +64,7 @@ const Dropdown = forwardRef(({
     close,
     update: update_,
     forceUpdate: forceUpdate_,
+    isJunipero: true,
   }));
 
   const open = () => {
