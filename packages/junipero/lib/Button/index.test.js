@@ -1,5 +1,5 @@
-import React, { createRef } from 'react';
-import { shallow, mount } from 'enzyme';
+import React from 'react';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
 import Button from './';
@@ -25,13 +25,6 @@ describe('<Button />', () => {
       <Button disabled onClick={onClick}>Click me</Button>);
     component.find('button').simulate('click');
     expect(onClick.called).toBe(false);
-  });
-
-  it('should provide some imperative handles', () => {
-    const ref = createRef();
-    const component = mount(<Button ref={ref}>Click me</Button>);
-    expect(ref.current.innerRef).toBeDefined();
-    expect(component.getDOMNode()).toBe(ref.current.innerRef.current);
   });
 
 });

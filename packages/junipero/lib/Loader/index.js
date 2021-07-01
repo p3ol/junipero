@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from '@poool/junipero-utils';
 
-const Loader = ({
+const Loader = forwardRef(({
   className,
+  tag: Tag = 'div',
   active = false,
   type = 'dots',
   ...rest
-}) => (
-  <div
+}, ref) => (
+  <Tag
     { ...rest }
+    ref={ref}
     className={classNames(
       'junipero',
       'loader',
       type,
-      {
-        active,
-      },
+      { active },
       className,
     )}
   >
@@ -27,11 +27,17 @@ const Loader = ({
     { type === 'bar' && (
       <span className="inner" />
     )}
-  </div>
-);
+  </Tag>
+));
 
 Loader.propTypes = {
   active: PropTypes.bool,
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
   type: PropTypes.oneOf(['dots', 'bar', 'spinner']),
 };
 

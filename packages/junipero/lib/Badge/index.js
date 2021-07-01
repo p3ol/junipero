@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { classNames } from '@poool/junipero-utils';
 
-export default ({ className, ...rest }) => (
+const Badge = forwardRef(({ className, ...rest }, ref) => (
   <span
     { ...rest }
+    ref={ref}
     className={classNames('junipero', 'badge', className)}
   />
-);
+));
+
+export default Badge;

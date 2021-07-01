@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from '@poool/junipero-utils';
 
-const Alert = ({
+const Alert = forwardRef(({
   className,
   icon,
   title,
@@ -10,7 +10,7 @@ const Alert = ({
   children,
   onClose,
   ...rest
-}) => {
+}, ref) => {
   const onClose_ = e => {
     e.preventDefault();
     onClose?.();
@@ -19,6 +19,7 @@ const Alert = ({
   return (
     <Tag
       { ...rest }
+      ref={ref}
       className={classNames('junipero', 'alert', className)}
     >
       <div className="border">
@@ -33,7 +34,7 @@ const Alert = ({
       <span role="button" className="close" onClick={onClose_}>×</span>
     </Tag>
   );
-};
+});
 
 Alert.propTypes = {
   icon: PropTypes.oneOfType([

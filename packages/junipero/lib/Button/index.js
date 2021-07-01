@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from '@poool/junipero-utils';
 
@@ -9,12 +9,6 @@ const Button = forwardRef(({
   onClick = () => {},
   ...rest
 }, ref) => {
-  const innerRef = useRef();
-
-  useImperativeHandle(ref, () => ({
-    innerRef,
-  }));
-
   const onClick_ = e => {
     if (disabled) {
       return;
@@ -26,13 +20,13 @@ const Button = forwardRef(({
   return (
     <Tag
       { ...rest }
+      ref={ref}
       className={classNames(
         'junipero',
         'button',
         { disabled },
         className,
       )}
-      ref={innerRef}
       onClick={onClick_}
       disabled={disabled}
     />
