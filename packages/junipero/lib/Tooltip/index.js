@@ -148,6 +148,10 @@ const Tooltip = forwardRef(({
     </div>
   );
 
+  const setInnerRef_ = ref => {
+    setInnerRef(ref?.isJunipero ? ref?.innerRef?.current : ref);
+  };
+
   return (
     <>
       { !children || typeof children === 'string' ? (
@@ -159,7 +163,7 @@ const Tooltip = forwardRef(({
         />
       ) : React.cloneElement(
         React.Children.only(children),
-        { ...rest, ref: setInnerRef, ...getHandlers() }
+        { ...rest, ref: setInnerRef_, ...getHandlers() }
       ) }
 
       { state.opened || animate || apparition === 'css'

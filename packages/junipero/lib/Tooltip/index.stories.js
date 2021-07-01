@@ -3,6 +3,8 @@ import { action } from '@storybook/addon-actions';
 import { CSSTransition } from 'react-transition-group';
 
 import Tooltip from './index';
+import Button from '../Button';
+import TextField from '../TextField';
 
 export default { title: 'junipero/Tooltip' };
 
@@ -12,8 +14,19 @@ export const basic = () => (
     text="Text"
     onToggle={action('toggle')}
   >
-    Hover me
+    <Button>Hover me</Button>
   </Tooltip>
+);
+
+export const withTextField = () => (
+  <div style={{ left: 100, top: 100, position: 'relative' }}>
+    <Tooltip
+      text="Text"
+      onToggle={action('toggle')}
+    >
+      <TextField placeholder="Write something" />
+    </Tooltip>
+  </div>
 );
 
 export const withCustomPlacement = () => (
