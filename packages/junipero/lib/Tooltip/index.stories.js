@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { CSSTransition } from 'react-transition-group';
 
@@ -17,6 +17,24 @@ export const basic = () => (
     <Button>Hover me</Button>
   </Tooltip>
 );
+
+export const withChangingContent = () => {
+  const [enabled, setEnabled] = useState(false);
+
+  const onClick = () => {
+    setEnabled(old => !old);
+  };
+
+  return (
+    <Tooltip
+      style={{ left: 100, top: 100, position: 'relative' }}
+      text={enabled ? 'This is a long text for a tooltip' : 'Text'}
+      onToggle={action('toggle')}
+    >
+      <Button onClick={onClick}>Hover me</Button>
+    </Tooltip>
+  );
+};
 
 export const withTextField = () => (
   <div style={{ left: 100, top: 100, position: 'relative' }}>

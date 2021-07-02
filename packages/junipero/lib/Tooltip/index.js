@@ -54,6 +54,10 @@ const Tooltip = forwardRef(({
   );
 
   useEffect(() => {
+    update?.();
+  }, [text]);
+
+  useEffect(() => {
     dispatch({ opened: disabled ? false : opened });
   }, [opened, disabled]);
 
