@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.5](https://github.com/p3ol/junipero/compare/v2.0.0-rc.4...v2.0.0-rc.5) (2021-07-02)
+
+
+### Bug Fixes
+
+* **utils:** fix missing exports ([2f32fc1](https://github.com/p3ol/junipero/commit/2f32fc1e00b8805808f2339d610b62c93a089152))
+
+
+
+
+
 # [2.0.0-rc.0](https://github.com/p3ol/junipero/compare/v2.0.0-beta.31...v2.0.0-rc.0) (2021-06-28)
 
 **Note:** Version bump only for package @poool/junipero-utils
