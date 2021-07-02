@@ -165,7 +165,10 @@ const TagsField = forwardRef(({
       !onlyAllowOptions &&
       validateInput(state.inputValue)
     ) {
+      e.preventDefault();
       add(state.inputValue);
+
+      return;
     }
 
     onKeyPress(e);
