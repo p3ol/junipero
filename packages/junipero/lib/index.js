@@ -2,6 +2,7 @@ export { default as Alert } from './Alert';
 export { default as Badge } from './Badge';
 export { default as BaseField } from './BaseField';
 export { default as BreadCrumb } from './BreadCrumb';
+export { default as BreadCrumbItem } from './BreadCrumbItem';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as CheckboxField } from './CheckboxField';
@@ -30,17 +31,22 @@ export {
   classNames,
   addClass,
   removeClass,
-  exists,
-  isNull,
-  isUndefined,
   mockState,
+  isUndefined,
+  isNull,
+  isArray,
+  isObject,
+  isDate,
+  exists,
   get,
   set,
+  omitBy,
   omit,
   pick,
   cloneDeep,
   fromPairs,
   mergeDeep,
+  ensureNode,
 } from '@poool/junipero-utils';
 
 export {
