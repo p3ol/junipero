@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.6](https://github.com/p3ol/junipero/compare/v2.0.0-rc.5...v2.0.0-rc.6) (2021-07-02)
+
+
+### Bug Fixes
+
+* **lib:** fix tooltip position not being updated when content changes ([1767a56](https://github.com/p3ol/junipero/commit/1767a56a78af72ffd58b0ce3a5361e6c966cb9df))
+
+
+
+
+
 # [2.0.0-rc.5](https://github.com/p3ol/junipero/compare/v2.0.0-rc.4...v2.0.0-rc.5) (2021-07-02)
 
 **Note:** Version bump only for package @poool/junipero
