@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.8](https://github.com/p3ol/junipero/compare/v2.0.0-rc.7...v2.0.0-rc.8) (2021-07-05)
+
+
+### Bug Fixes
+
+* **lib:** add missing parseDescription for radio-field ([3c0bc66](https://github.com/p3ol/junipero/commit/3c0bc66bae91c4e1fe7cffabbc8d4ef92d1bb9dc))
+* **lib:** fix modal styles inheritance ([4c75be7](https://github.com/p3ol/junipero/commit/4c75be72af9d92f41dd16e203191a769359335e9))
+
+
+
+
+
 # [2.0.0-rc.7](https://github.com/p3ol/junipero/compare/v2.0.0-rc.6...v2.0.0-rc.7) (2021-07-02)
 
 
