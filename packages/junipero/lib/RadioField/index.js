@@ -16,6 +16,7 @@ const RadioField = forwardRef(({
   options = [],
   value,
   parseTitle = val => val?.toString?.(),
+  parseDescription = val => val?.description || '',
   parseValue = val => val,
   onBlur = () => {},
   onFocus = () => {},
@@ -133,7 +134,7 @@ const RadioField = forwardRef(({
             <div className="title">{ parseTitle(option) }</div>
 
             { option.description && (
-              <div className="description">{ option.description }</div>
+              <div className="description">{ parseDescription(option) }</div>
             ) }
           </div>
         </label>
@@ -157,6 +158,7 @@ RadioField.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   parseTitle: PropTypes.func,
+  parseDescription: PropTypes.func,
   parseValue: PropTypes.func,
   value: PropTypes.any,
 };
