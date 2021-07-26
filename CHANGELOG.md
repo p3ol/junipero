@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.9](https://github.com/p3ol/junipero/compare/v2.0.0-rc.8...v2.0.0-rc.9) (2021-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.10.1 ([4ad4f56](https://github.com/p3ol/junipero/commit/4ad4f56f5b1e79eeab9bcf457576b6aff938adc5))
+* **deps:** update dependency core-js to v3.10.2 ([175c3cd](https://github.com/p3ol/junipero/commit/175c3cd529b1552a48073254612822b6ef033b3f))
+* **deps:** update dependency core-js to v3.11.0 ([b299d69](https://github.com/p3ol/junipero/commit/b299d69949eb010e1eda3e8669faf0f28574c679))
+* **deps:** update dependency core-js to v3.15.2 ([0681751](https://github.com/p3ol/junipero/commit/0681751c709d12230642cbbbf57bcedf2f2714fb))
+
+
+### Features
+
+* **colorField:** add popperOptions to colorField ([62ec659](https://github.com/p3ol/junipero/commit/62ec659c567a2a0773bc9128e747c60321d24b6c))
+
+
+
+## [1.6.1](https://github.com/p3ol/junipero/compare/v1.6.0...v1.6.1) (2021-03-31)
+
+
+### Bug Fixes
+
+* **datePicker:** repair tests ([bb53838](https://github.com/p3ol/junipero/commit/bb5383819f9c2227407a3c6b4f04b8a0ac6e4145))
+* **datePicker:** set day to first of the month to avoid months jumps ([c7f9219](https://github.com/p3ol/junipero/commit/c7f921952683ab34ed2ea69bd856f4e4a1488977))
+* **deps:** update dependency core-js to v3.10.0 ([b3709ef](https://github.com/p3ol/junipero/commit/b3709eff4949438dc70363b720fa02a9eea000ab))
+* **deps:** update dependency core-js to v3.7.0 ([2485e9c](https://github.com/p3ol/junipero/commit/2485e9cf94f404f85c99e78d8378ce73a5d73039))
+* **deps:** update dependency core-js to v3.8.0 ([d58ac88](https://github.com/p3ol/junipero/commit/d58ac88a682c12bc7eae7d30d9607532b9dbf7ad))
+* **deps:** update dependency core-js to v3.8.1 ([b5c56e1](https://github.com/p3ol/junipero/commit/b5c56e1efa7d94a701199f140f32796fc25f32b4))
+* **deps:** update dependency core-js to v3.8.2 ([8c778dd](https://github.com/p3ol/junipero/commit/8c778ddd37923dd9151b55320856f777b611a477))
+* **deps:** update dependency core-js to v3.8.3 ([e04725a](https://github.com/p3ol/junipero/commit/e04725a69f97a81edadf06af35d57455ec3f010f))
+* **deps:** update dependency core-js to v3.9.0 ([b750c11](https://github.com/p3ol/junipero/commit/b750c11543028127889a997af2166992fe1d159f))
+* **deps:** update dependency core-js to v3.9.1 ([4c9c838](https://github.com/p3ol/junipero/commit/4c9c838576fb649bad51f7642e255a35e77c2a1f))
+
+
+
+# [1.6.0](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.9...v1.6.0) (2020-10-09)
+
+
+### Bug Fixes
+
+* **chore:** handle postcss-loader changes ([38818fd](https://github.com/p3ol/junipero/commit/38818fd692bf0dfb09ae32106e98bee9ec645fc1))
+* **deps:** update dependency @babel/runtime-corejs3 to v7.11.2 ([24afdb6](https://github.com/p3ol/junipero/commit/24afdb6dcb6547a0f1356c7fbf12afa702ebfe92))
+* **radiofield:** fix missing end of file ([9bbe12b](https://github.com/p3ol/junipero/commit/9bbe12b738543d3fefc6c1141cfc687eb5d6b28c))
+* fix enzyme/jsdom fuckup on focus state with testing-library ([390b5b4](https://github.com/p3ol/junipero/commit/390b5b4c1a1509da41bdc438e2610cd79ff1704e))
+
+
+### Features
+
+* **examples:** add radiofield examples ([4efc00c](https://github.com/p3ol/junipero/commit/4efc00c36f6eeac3560a3acaf3ce5b9aea504bd0))
+* **lib:** add radiofield component ([610b448](https://github.com/p3ol/junipero/commit/610b44864abcf7ea82ab56a72479d7a05fb32ae6))
+* **radiofield:** add a label as a prop ([e97ade6](https://github.com/p3ol/junipero/commit/e97ade6b0a0486dbedc5deb56de4b95aa3758dc8))
+* **radiofield:** add a labeled example ([a903259](https://github.com/p3ol/junipero/commit/a90325955f02879997925e2701df1638182b971e))
+* **radiofield:** trigger onchange method after component being mounted ([f00015a](https://github.com/p3ol/junipero/commit/f00015a29180752a1b043398e4e4150b6e1af4bf))
+
+
+
+
+
 # [2.0.0-rc.8](https://github.com/p3ol/junipero/compare/v2.0.0-rc.7...v2.0.0-rc.8) (2021-07-05)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.9](https://github.com/p3ol/junipero/compare/v2.0.0-rc.8...v2.0.0-rc.9) (2021-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.15.2 ([0681751](https://github.com/p3ol/junipero/commit/0681751c709d12230642cbbbf57bcedf2f2714fb))
+
+
+### Features
+
+* **colorField:** add popperOptions to colorField ([62ec659](https://github.com/p3ol/junipero/commit/62ec659c567a2a0773bc9128e747c60321d24b6c))
+
+
+
+
+
 # [2.0.0-rc.8](https://github.com/p3ol/junipero/compare/v2.0.0-rc.7...v2.0.0-rc.8) (2021-07-05)
 
 
