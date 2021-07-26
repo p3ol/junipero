@@ -20,7 +20,8 @@ const Form = () => (
     <div style={styles.text}>This form centralises everything you need to
     configure your app the easiest way possible. It has beautiful text fields,
     some hand crafted card header & footer, and a nice box shadow that will
-    melt your 2001 ATI graphics card.</div>
+    melt your 2001 ATI graphics card.
+    </div>
     <div style={styles.form}>
       <div style={styles.formItem}>
         <TextField label="Label" value="Thomas Bangalter" />
@@ -40,17 +41,19 @@ const CardBody = () => (
     <div style={styles.title}>Card title</div>
     <div style={styles.text}>This is a basic card. You can use it to display
     any type of text, picture and/or icon. It is supposed to have 30px/40px
-    paddings and regular paragraph texts.</div>
+    paddings and regular paragraph texts.
+    </div>
   </React.Fragment>
 );
 
 const CardBodyWithIcon = () => (
   <React.Fragment>
-    <img style={styles.icon} src="https://cutt.ly/6k12q0g"/>
+    <img style={styles.icon} src="https://cutt.ly/6k12q0g" />
     <div style={styles.title}>Card title</div>
     <div style={styles.text}>This is a basic card. You can use it to display
     any type of text, picture and/or icon. It is supposed to have 30px/40px
-    paddings and regular paragraph texts.</div>
+    paddings and regular paragraph texts.
+    </div>
   </React.Fragment>
 );
 

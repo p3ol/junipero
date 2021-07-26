@@ -57,7 +57,7 @@ describe('<Button />', () => {
 
   it('should render with the provided component as children', async () => {
     const { getByTestId } =
-      render(<Button><Text testID='title'>Click</Text></Button>);
+      render(<Button><Text testID="title">Click</Text></Button>);
     await wait(() => getByTestId('title'));
     expect(getByTestId('title')).toBeDefined();
   });

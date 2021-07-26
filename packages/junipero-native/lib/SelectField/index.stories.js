@@ -99,5 +99,6 @@ export const withSearch = () => (
   <SelectField
     options={options}
     search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
-    onChange={action('change')} />
+    onChange={action('change')}
+  />
 );

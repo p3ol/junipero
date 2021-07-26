@@ -121,8 +121,8 @@ const SelectField = forwardRef(({
                 styles.fieldBackground__active,
                 customStyle.fieldBackground__active,
               ]),
-            ]}>
-          </View>
+            ]}
+          />
           <View
             pointerEvents="none"
             style={[
@@ -136,7 +136,8 @@ const SelectField = forwardRef(({
                 styles.baseField__labeled,
                 customStyle.baseField__labeled,
               ]),
-            ]}>
+            ]}
+          >
             <Text
               testID="SelectField/Label"
               style={[
@@ -177,10 +178,9 @@ const SelectField = forwardRef(({
           </Text>
         </View>
       </TouchableWithoutFeedback>
-      { state.active &&
+      { state.active && (
         <View style={styles.dropdownMenu} testID="SelectField/Dropdown">
-          {
-            search &&
+          { search && (
             <View style={styles.search}>
               <TextField
                 testID="SelectField/SearchField"
@@ -188,42 +188,45 @@ const SelectField = forwardRef(({
                 onChange={onSearch_}
               />
             </View>
-          }
+          ) }
           { state.searchResults
             ? state.searchResults.length
-              ? state.searchResults.map(result =>
+              ? state.searchResults.map(result => (
                 <Text
                   key={parseTitle(result)}
                   testID={parseTitle(result)}
                   style={styles.dropdownItem}
-                  onPress={onOptionPress_.bind(null, result)}>
-                  {parseTitle(result)}
+                  onPress={onOptionPress_.bind(null, result)}
+                >
+                  { parseTitle(result) }
+                </Text>
+              )) : (
+                <Text style={styles.noResults} testID="SelectField/NoResults">
+                  { noSearchResults }
                 </Text>
               )
-              : <Text style={styles.noResults} testID="SelectField/NoResults" >
-                {noSearchResults}
+            : options.length ? options.map(option => (
+              <Text
+                key={parseTitle(option)}
+                testID={parseTitle(option)}
+                style={[
+                  styles.dropdownItem,
+                  applyStyles(state.searching, [
+                    styles.dropdownItem__searching,
+                  ]),
+                ]}
+                onPress={onOptionPress_.bind(null, option)}
+              >
+                { parseTitle(option) }
               </Text>
-            : options.length
-              ? options.map(option =>
-                <Text
-                  key={parseTitle(option)}
-                  testID={parseTitle(option)}
-                  style={[
-                    styles.dropdownItem,
-                    applyStyles(state.searching, [
-                      styles.dropdownItem__searching,
-                    ]),
-                  ]}
-                  onPress={onOptionPress_.bind(null, option)}>
-                  {parseTitle(option)}
-                </Text>
-              )
-              : <Text style={styles.noResults} testID="SelectField/NoItems" >
-                {noItems}
+            )) : (
+              <Text style={styles.noResults} testID="SelectField/NoItems">
+                { noItems }
               </Text>
+            )
           }
         </View>
-      }
+      )}
     </View>
   );
 });

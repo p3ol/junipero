@@ -91,21 +91,24 @@ export const autoFocused = () => (
   <SelectField
     options={options}
     autoFocus
-    onChange={action('change')} />
+    onChange={action('change')}
+  />
 );
 
 export const withSearch = () => (
   <SelectField
     options={options}
     search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
-    onChange={action('change')} />
+    onChange={action('change')}
+  />
 );
 
 export const withGroups = () => (
   <SelectField
     options={optionsWithGroups}
     parseTitle={o => o.title}
-    onChange={action('change')} />
+    onChange={action('change')}
+  />
 );
 
 export const withGroupsAndSearch = () => (
@@ -113,7 +116,8 @@ export const withGroupsAndSearch = () => (
     options={optionsWithGroups}
     parseTitle={o => o.title}
     search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
-    onChange={action('change')} />
+    onChange={action('change')}
+  />
 );
 
 export const animated = () => (
@@ -129,7 +133,8 @@ export const animated = () => (
         children={menu}
       />
     )}
-    onChange={action('change')} />
+    onChange={action('change')}
+  />
 );
 
 export const alwaysOpened = () => (

@@ -134,7 +134,7 @@ it('should return custom message if there is no search results', async () => {
   const { getByTestId } = render(
     <SelectField
       ref={ref}
-      noSearchResults={'no results'}
+      noSearchResults="no results"
       options={['One', 'Two']}
       search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
     />
@@ -157,7 +157,7 @@ it('should update state if the field value is empty after editing',
     const { getByTestId } = render(
       <SelectField
         ref={ref}
-        noSearchResults={'no results'}
+        noSearchResults="no results"
         options={['One', 'Two']}
         search={val => search.filter(o => (new RegExp(val, 'ig')).test(o))}
       />
