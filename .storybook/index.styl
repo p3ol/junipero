@@ -1,0 +1,103 @@
+@import "../packages/junipero/lib/index"
+
+body
+  padding: 20px
+
+  [data-testid]
+    input
+      outline: none
+
+    &[data-testid*="Label"],
+    &[data-testid*="Placeholder"]
+      pointer-events: none
+      user-select: none
+
+.fade-in
+
+  &-enter, &-appear
+    opacity: 0
+    transition: opacity .3s ease-out
+
+    &-active
+      opacity: 1
+
+  &-exit
+    opacity: 1
+    transition: opacity .3s ease-out
+
+    &-active
+      opacity: 0
+
+.fade-in-modal
+
+  &-enter, &-appear
+    opacity: 0
+    transition: opacity .3s ease-out
+
+    .content
+      opacity: 0
+      transform: translate3d(0, 10px, 0) scale(.99)
+
+    &-active
+      opacity: 1
+
+      .content
+        opacity: 1
+        transform: translate3d(0, 0, 0) scale(1)
+        transition: opacity .3s ease-out .3s, transform .3s ease-out .3s
+
+  &-exit
+    opacity: 1
+    transition: opacity .3s ease-out .3s
+
+    .content
+      opacity: 1
+      transform: translate3d(0, 0, 0) scale(1)
+
+    &-active
+      opacity: 0
+
+      .content
+        opacity: 0
+        transition: opacity .3s ease-out, transform .3s ease-out
+        transform: translate3d(0, 10px, 0) scale(.99)
+
+.slide-in-up
+
+  &-enter, &-appear
+    opacity: 0
+    transform: translate3d(0, 10px, 0) scale(.99)
+
+    &-active
+      opacity: 1
+      transform: translate3d(0, 0, 0) scale(1)
+      transition: opacity .3s ease-out .3s, transform .3s ease-out .3s
+
+  &-exit
+    opacity: 1
+    transform: translate3d(0, 0, 0) scale(1)
+
+    &-active
+      opacity: 0
+      transition: opacity .3s ease-out, transform .3s ease-out
+      transform: translate3d(0, 10px, 0) scale(.99)
+
+.slide-in-up-dropdown
+
+  &-enter
+    opacity: 0
+    transform: translate3d(0, 10px, 0)
+
+    &-active
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+      transition: opacity .1s ease-out, transform .1s ease-out
+
+  &-exit
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+    &-active
+      opacity: 0
+      transform: translate3d(0, 10px, 0)
+      transition: opacity .1s ease-out, transform .1s ease-out

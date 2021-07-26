@@ -1,0 +1,40 @@
+{
+  "name": "@poool/junipero-native",
+  "version": "2.0.0-rc.5",
+  "description": "🏔 Junipero Design System React Native components",
+  "main": "dist/junipero-native.cjs.js",
+  "jsnext:main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "src/index.js",
+  "unpkg": "dist/junipero-native.min.js",
+  "cdn": "dist/junipero-native.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/junipero-native"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 12",
+    "yarn": ">= 1"
+  },
+  "peerDependencies": {
+    "@popperjs/core": "^2.4.0",
+    "react": "^16.8.0",
+    "react-native": "^0.62.0"
+  },
+  "dependencies": {
+    "@poool/junipero-hooks": "^2.0.0-rc.5",
+    "@poool/junipero-utils": "^2.0.0-rc.5",
+    "prop-types": "15.7.2"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build": "yarn clean && rollup -c"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

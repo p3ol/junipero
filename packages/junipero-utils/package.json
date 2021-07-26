@@ -1,0 +1,35 @@
+{
+  "name": "@poool/junipero-utils",
+  "version": "2.0.0-rc.5",
+  "description": "🏔 Junipero Design System utils",
+  "main": "dist/junipero-utils.cjs.js",
+  "jsnext:main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "src/index.js",
+  "unpkg": "dist/junipero-utils.min.js",
+  "cdn": "dist/junipero-utils.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/junipero-utils"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 12",
+    "yarn": ">= 1"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "7.13.17",
+    "core-js": "3.10.2"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build": "yarn clean && rollup -c",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

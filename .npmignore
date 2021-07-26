@@ -1,2 +1,6 @@
 .npmrc
 coverage
+.ci
+.github
+.storybook
+old
