@@ -34,6 +34,7 @@ const ColorField = forwardRef(({
   opened = false,
   readOnly = false,
   trigger = 'click',
+  popperOptions = {},
   onChange = () => {},
   onFocus = () => {},
   onToggle = () => {},
@@ -277,6 +278,7 @@ const ColorField = forwardRef(({
         globalEventsTarget={globalEventsTarget}
         onToggle={onDropdownToggle_}
         ref={dropdownRef}
+        popperOptions={popperOptions}
       >
         <DropdownToggle trigger="manual" href={null} tag="div">
           <TextField
@@ -393,6 +395,7 @@ ColorField.propTypes = {
     PropTypes.object,
   ]),
   trigger: PropTypes.string,
+  popperOptions: PropTypes.object,
   opened: PropTypes.bool,
   label: PropTypes.oneOfType([
     PropTypes.string,
