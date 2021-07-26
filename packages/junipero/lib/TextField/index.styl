@@ -1,0 +1,104 @@
+@require "../theme/colors"
+
+.junipero.text-input
+  --main-color: $color-eastern-blue
+  --text-color: $color-midnight
+  --sub-color: $color-shuttle-gray
+  --shadow-color: rgba($color-eastern-blue, .5)
+  --background-color: $color-black-squeeze
+
+  display: inline-block
+  position: relative
+  min-width: 250px
+  width: auto
+
+  input,
+  textarea
+    padding: 9px
+    border-radius: 2px
+    background: var(--background-color)
+    border: none
+    outline: none
+    font-size: 16px
+    line-height: normal
+    width: 100%
+    transition: box-shadow .1s ease-in-out
+
+    &:focus
+      box-shadow: 0 0 0 2px var(--shadow-color)
+
+    &:disabled
+      opacity: .5
+
+      & + span
+        opacity: .5
+
+  .placeholder,
+  .label
+    position: absolute
+    pointer-events: none
+    user-select: none
+    transform-origin: 0 0
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    display: block
+    width: calc(100% - 18px)
+
+  .placeholder
+    left: 9px
+    top: 50%
+    transform: translateY(-50%)
+    color: var(--sub-color)
+
+  .label
+    top: 4px
+    left: 9px
+    opacity: 0
+    transform: translateY(5px) scale(0.7)
+    transition-property: opacity, transform
+    transition-duration: .1s
+    transition-timing-function: ease-out
+    color: var(--main-color)
+    width: 130%
+
+  textarea
+    font-family: "Open Sans", sans-serif
+    font-size: 16px
+    line-height: normal
+    color: var(--text-color)
+
+    & + .placeholder
+      top: 11px
+      transform: translateY(0)
+
+  &:not(.empty),
+  &.label-enforced
+    .label
+      transform: translateY(0) scale(0.7)
+      opacity: 1
+
+    &:not(.labeled)
+      .label
+        display: none
+
+  &.labeled
+    input,
+    textarea
+      padding: 13px 9px
+
+    &:not(.empty),
+    &.label-enforced
+      input,
+      textarea
+        padding: 21px 9px 5px
+
+    &.label-enforced
+      .placeholder
+        top: calc(50% + 8px)
+
+
+  &.invalid.dirty
+    --background-color: $color-lavender-blush
+    --shadow-color: rgba($color-monza, .5)
+    --main-color: $color-monza

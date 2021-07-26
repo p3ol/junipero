@@ -1,11 +1,13 @@
 module.exports = {
   extends: ['@poool/eslint-config-react'],
   overrides: [{
-    files: ['tests/**/*.js'],
-    parser: 'babel-eslint',
+    files: ['packages/**/*.test.js'],
     env: {
       jest: true,
     },
+  }, {
+    files: ['packages/junipero-native'],
+    extends: ['@poool/eslint-config-react-native'],
   }],
   rules: {
     // regex cannot be concatenated
@@ -15,7 +17,7 @@ module.exports = {
     'no-empty': [2, { allowEmptyCatch: true }],
 
     // Common props are not checked anyway
-    'react/prop-types': [2, { ignore: ['className', 'children', 'value'] }],
+    'react/prop-types': [2, { ignore: ['className', 'children'] }],
 
     // Directly assigning this.state is sometimes required in addition to
     // setState

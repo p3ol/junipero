@@ -1,0 +1,160 @@
+@require "../theme/colors"
+
+.junipero.tags-input
+  --main-color: $color-eastern-blue
+  --text-color: $color-shuttle-gray
+  --background-color: $color-black-squeeze
+  --shadow-color: rgba($color-eastern-blue, .5)
+
+  display: inline-block
+  position: relative
+  min-width: 250px
+  width: auto
+
+  &.focused
+    .wrapper
+      box-shadow: 0 0 0 2px var(--shadow-color)
+
+  &.disabled
+    opacity: .5
+    pointer-events: none
+    user-select: none
+
+  .no-items, .no-results
+    padding: 10px
+    color: var(--text-color)
+    text-align: center
+
+  .wrapper
+    padding: 5px 9px 0
+    border-radius: 2px
+    background: var(--background-color)
+    border: none
+    outline: none
+    font-size: 16px
+    line-height: normal
+    width: 100%
+    transition: box-shadow .1s ease-in-out
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    flex-wrap: wrap
+    overflow: auto
+    position: relative
+    cursor: text
+
+    .tag, .input
+      flex: 0 0 auto
+      display: block
+      margin-bottom: 5px
+
+    .tag
+      padding: 2px 8px
+      border-radius: 4px
+      background: var(--main-color)
+      color: $color-white
+      margin-right: 5px
+      font-size: 14px
+      line-height: normal
+      cursor: pointer
+
+      &.active:not(.invalid), &:focus:not(.invalid)
+        --main-color: $color-persian-green
+
+      &.invalid
+        --main-color: $color-monza
+
+      a.remove
+        display: inline-block
+        width: 10px
+        height: 10px
+        cursor: pointer
+        margin-left: 4px
+        position: relative
+        vertical-align: middle
+        top: -1px
+
+        &:before, &:after
+          content: ''
+          height: 100%
+          position: absolute
+          width: 2px
+          background: $color-white
+          left: calc(50% - 1px)
+          top: 0
+
+        &:before
+          transform: rotate(45deg)
+
+        &:after
+          transform: rotate(-45deg)
+
+    .input
+      position: relative
+
+      input
+        padding: 2px 0
+        display: block
+        background: none
+        border: none
+        font-size: 16px
+        line-height: normal
+
+    .placeholder,
+    .label
+      position: absolute
+      pointer-events: none
+      user-select: none
+      transform-origin: 0 0
+
+    .placeholder
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+      color: var(--text-color)
+
+    .label
+      top: 4px
+      left: 9px
+      opacity: 0
+      transform: translateY(5px) scale(0.7)
+      transition-property: opacity, transform
+      transition-duration: .1s
+      transition-timing-function: ease-out
+      color: var(--main-color)
+
+  &:not(.empty),
+  &.label-enforced
+    .label
+      transform: translateY(0) scale(0.7)
+      opacity: 1
+
+    &:not(.labeled)
+      .label
+        display: none
+
+  &.labeled
+    .wrapper
+      padding: 11px 9px 6px
+
+    &:not(.empty),
+    &.label-enforced
+      .wrapper
+        padding: 21px 9px 0
+
+        input
+          padding: 0
+
+  &.with-search
+    .dropdown
+      display: block
+
+    .dropdown-toggle
+      height: 0
+      background: #000
+      display: block
+
+  &.invalid.dirty
+    --background-color: $color-lavender-blush
+    --shadow-color: rgba($color-monza, .5)
+    --main-color: $color-monza
