@@ -4608,7 +4608,7 @@
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/manager-webpack5@^6.3.6":
+"@storybook/manager-webpack5@6.3.6":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/manager-webpack5/-/manager-webpack5-6.3.6.tgz#dc0a49e442314b77ea7e33f3f2a735375fca9b4c"
   integrity sha512-Mn54pn+8bFHSk8vLTu19tzdljCWDmcvAR6CVSyh1O3LXpT5hJ8v9qpskNyUrXVDjH0ydo6xcNbNh1yYCDitAuw==
@@ -7438,10 +7438,10 @@ classnames@^2.2.5:
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
-clean-css@5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-5.1.3.tgz#42348778c3acb0083946ba340896802be5517ee2"
-  integrity sha512-qGXzUCDpLwAlPx0kYeU4QXjzQIcIYZbJjD4FNm7NnSjoP0hYMVZhHOpUYJ6AwfkMX2cceLRq54MeCgHy/va1cA==
+clean-css@5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-5.1.4.tgz#d191c98347f9fc36b301f99bb827898151175782"
+  integrity sha512-e6JAuR0T2ahg7fOSv98Nxqh7mHWOac5TaCSgrr61h/6mkPLwlxX38hzob4h6IKj/UHlrrLXvAEjWqXlvi8r8lQ==
   dependencies:
     source-map "~0.6.0"
 
