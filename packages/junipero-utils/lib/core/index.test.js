@@ -211,6 +211,10 @@ describe('core', () => {
       const foo = { bar: 'test' };
       expect(get(foo, 'bar.stuff', 'thing')).toBe('thing');
     });
+
+    it('should not try to get a value inside the default value', () => {
+      expect(get({}, 'foo.bold', 'Default value')).toBe('Default value');
+    });
   });
 
   describe('set()', () => {
