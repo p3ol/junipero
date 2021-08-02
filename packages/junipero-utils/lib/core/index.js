@@ -64,7 +64,7 @@ export const exists = v => !isNull(v) && !isUndefined(v);
 
 export const get = (obj = {}, path = '', defaultValue = null) => path
   .split('.')
-  .reduce((a, c) => exists(a?.[c]) ? a[c] : defaultValue, obj);
+  .reduce((a, c) => exists(a?.[c]) ? a[c] : undefined, obj) ?? defaultValue;
 
 export const set = (obj = {}, path = '', value, customizer = val => val) => {
   path = path.split('.');
