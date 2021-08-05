@@ -93,6 +93,7 @@ const RadioField = forwardRef(({
   return (
     <div
       { ...rest }
+      id={id}
       className={classNames(
         'junipero',
         'field',
@@ -104,7 +105,6 @@ const RadioField = forwardRef(({
     >
       { options.map((option, index) => (
         <label
-          htmlFor={id}
           ref={el => { innerRefs.current[index] = el; }}
           key={index}
           className={classNames(
@@ -120,7 +120,7 @@ const RadioField = forwardRef(({
           tabIndex={!option.disabled ? index + 1 : null}
         >
           <input
-            id={id}
+            id={option.id || option.value}
             name={name}
             ref={el => { inputRefs.current[index] = el; }}
             type="radio"
