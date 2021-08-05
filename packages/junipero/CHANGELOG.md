@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.11](https://github.com/p3ol/junipero/compare/v2.0.0-rc.10...v2.0.0-rc.11) (2021-08-05)
+
+
+### Bug Fixes
+
+* **lib:** fix wrong use of id & name for radio fields ([b05647f](https://github.com/p3ol/junipero/commit/b05647fb3f4a17241c603f68d3d013a574c5d7b3))
+
+
+
+
+
 # [2.0.0-rc.10](https://github.com/p3ol/junipero/compare/v2.0.0-rc.9...v2.0.0-rc.10) (2021-08-02)
 
 
