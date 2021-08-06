@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.12](https://github.com/p3ol/junipero/compare/v2.0.0-rc.11...v2.0.0-rc.12) (2021-08-06)
+
+
+### Bug Fixes
+
+* **lib:** fix infinite ref updating ([108763a](https://github.com/p3ol/junipero/commit/108763a509bbc45767acefe7a73ef6efe447df42))
+
+
+
+
+
 # [2.0.0-rc.11](https://github.com/p3ol/junipero/compare/v2.0.0-rc.10...v2.0.0-rc.11) (2021-08-05)
 
 
