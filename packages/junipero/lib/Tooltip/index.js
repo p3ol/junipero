@@ -152,8 +152,12 @@ const Tooltip = forwardRef(({
     </div>
   );
 
-  const setInnerRef_ = ref => {
-    setInnerRef(ref?.isJunipero ? ref?.innerRef?.current : ref);
+  const setInnerRef_ = ref_ => {
+    if (!ref_) {
+      return;
+    }
+
+    setInnerRef(ref_?.isJunipero ? ref_?.innerRef?.current : ref_);
   };
 
   return (
