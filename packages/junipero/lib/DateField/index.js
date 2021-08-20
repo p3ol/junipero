@@ -201,12 +201,20 @@ const DateField = forwardRef(({
     dispatch({ displayed: state.displayed });
   };
 
+  const getDateToUTC = (year, month, day) => {
+    return new Date(Date.UTC(year, month, day, 0, 0, 0));
+  };
+
   const isBeforeMinDate = date => {
     if (!min) {
       return false;
     }
 
-    return date.getTime() < min.getTime();
+    return date < getDateToUTC(
+      min.getFullYear(),
+      min.getMonth(),
+      min.getDate()
+    );
   };
 
   const isAfterMaxDate = date => {
@@ -214,7 +222,11 @@ const DateField = forwardRef(({
       return false;
     }
 
-    return date.getTime() > max.getTime();
+    return date > getDateToUTC(
+      max.getFullYear(),
+      max.getMonth(),
+      max.getDate()
+    );
   };
 
   const isDayDisabled = date => {
@@ -347,10 +359,18 @@ const DateField = forwardRef(({
                       className={classNames('day', {
                         inactive: day.inactive,
                         active: !day.inactive && isDaySelected(day.date),
-                        disabled: isDayDisabled(day.date),
+                        disabled: isDayDisabled(getDateToUTC(
+                          day.date.getFullYear(),
+                          day.date.getMonth(),
+                          day.date.getDate()
+                        )),
                       })}
                       href="#"
-                      onClick={onChange_.bind(null, day.date)}
+                      onClick={onChange_.bind(null, getDateToUTC(
+                        day.date.getFullYear(),
+                        day.date.getMonth(),
+                        day.date.getDate()
+                      ))}
                     >
                       { day.date.getDate() }
                     </a>
