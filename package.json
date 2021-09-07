@@ -82,7 +82,7 @@
     "style-loader": "3.2.1",
     "stylus": "0.55.0",
     "stylus-loader": "6.1.0",
-    "uglify-js": "3.14.1",
+    "uglify-js": "3.14.2",
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "4.1.1",
     "webpack": "5.52.0",
