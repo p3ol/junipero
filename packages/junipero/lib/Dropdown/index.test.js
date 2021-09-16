@@ -2,6 +2,7 @@ import React, { createRef } from 'react';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { omit } from '@poool/junipero-utils';
 
 import Dropdown from './';
 import DropdownToggle from '../DropdownToggle';
@@ -45,6 +46,63 @@ describe('<Dropdown />', () => {
     expect(ref.current.opened).toBe(true);
     expect(component.find('.junipero.dropdown-menu').length).toBe(1);
     expect(component.find('.junipero.dropdown-item').length).toBe(1);
+  });
+
+  it('should be able to detect inner toggle & menu even when wrapped ' +
+    'inside other components when using the proper filter* props', () => {
+    const ref = createRef();
+
+    class CustomDropdownToggle extends React.Component {
+      static defaultProps = { mdxType: 'DropdownToggle' };
+
+      render () {
+        return <DropdownToggle { ...omit(this.props, ['mdxType']) } />;
+      }
+    }
+
+    class CustomDropdownMenu extends React.Component {
+      static defaultProps = { mdxType: 'DropdownMenu' };
+
+      render () {
+        return <DropdownMenu { ...omit(this.props, ['mdxType']) } />;
+      }
+    }
+
+    mount(
+      <Dropdown
+        filterToggle={c => c.props.mdxType === 'DropdownToggle'}
+        filterMenu={c => c.props.mdxType === 'DropdownMenu'}
+        ref={ref}
+      >
+        <CustomDropdownToggle>Open me</CustomDropdownToggle>
+        <CustomDropdownMenu>
+          <DropdownItem>Menu item</DropdownItem>
+        </CustomDropdownMenu>
+      </Dropdown>
+    );
+
+    expect(ref.current.toggleRef.current).toBeDefined();
+    expect(ref.current.menuRef.current).toBeDefined();
+  });
+
+  it('should not be able to detect inner toggle & menu when wrapped ' +
+    'inside other components when not using the proper filter* props', () => {
+    const ref = createRef();
+
+    const CustomDropdownToggle = props => <DropdownToggle { ...props } />;
+    const CustomDropdownMenu = props => <DropdownMenu { ...props } />;
+
+    mount(
+      <Dropdown ref={ref}>
+        <CustomDropdownToggle>Open me</CustomDropdownToggle>
+        <CustomDropdownMenu>
+          <DropdownItem>Menu item</DropdownItem>
+        </CustomDropdownMenu>
+      </Dropdown>
+    );
+
+    expect(ref.current.toggleRef.current).not.toBeDefined();
+    expect(ref.current.menuRef.current).not.toBeDefined();
   });
 
   it('should auto close menu when disabled prop changes', () => {

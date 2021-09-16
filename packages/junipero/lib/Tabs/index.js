@@ -1,4 +1,5 @@
 import React, {
+  Children,
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -15,6 +16,7 @@ const Tabs = forwardRef(({
   children,
   active = 0,
   disabled = false,
+  filterTab = child => child.type === Tab,
   onChange = () => {},
   ...rest
 }, ref) => {
@@ -41,9 +43,7 @@ const Tabs = forwardRef(({
     onChange(index);
   };
 
-  const tabs = React.Children
-    .toArray(children)
-    .filter(child => child.type === Tab);
+  const tabs = Children.toArray(children).filter(filterTab);
 
   return (
     <div
@@ -85,6 +85,7 @@ Tabs.propTypes = {
   active: PropTypes.number,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
+  filterTab: PropTypes.func,
 };
 
 export default Tabs;
