@@ -30,7 +30,7 @@
     "@babel/runtime-corejs3": "7.15.4",
     "@poool/junipero-hooks": "^2.0.0-rc.13",
     "@poool/junipero-utils": "^2.0.0-rc.13",
-    "core-js": "3.17.3",
+    "core-js": "3.18.1",
     "prop-types": "15.7.2"
   },
   "scripts": {
