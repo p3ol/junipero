@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.15](https://github.com/p3ol/junipero/compare/v2.0.0-rc.14...v2.0.0-rc.15) (2021-10-20)
+
+**Note:** Version bump only for package @poool/junipero-native
+
+
+
+
+
 # [2.0.0-rc.14](https://github.com/p3ol/junipero/compare/v2.0.0-rc.13...v2.0.0-rc.14) (2021-09-29)
 
 **Note:** Version bump only for package @poool/junipero-native

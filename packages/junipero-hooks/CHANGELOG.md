@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.15](https://github.com/p3ol/junipero/compare/v2.0.0-rc.14...v2.0.0-rc.15) (2021-10-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.18.2 ([600744c](https://github.com/p3ol/junipero/commit/600744ccdb31476c8ff9367e349e55ac83a09d93))
+* **deps:** update dependency core-js to v3.18.3 ([d9c9ca9](https://github.com/p3ol/junipero/commit/d9c9ca978a5b05229594b9f842dd1a63700ff1b6))
+
+
+
+
+
 # [2.0.0-rc.14](https://github.com/p3ol/junipero/compare/v2.0.0-rc.13...v2.0.0-rc.14) (2021-09-29)
 
 
