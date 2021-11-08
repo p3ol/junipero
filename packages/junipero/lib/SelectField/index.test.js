@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import sinon from 'sinon';
 import { act } from 'react-dom/test-utils';
 
+import { mountToBody } from '~test-utils';
 import SelectField from './';
 
 describe('<SelectField />', () => {
@@ -185,7 +186,7 @@ describe('<SelectField />', () => {
     document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
 
     const ref = createRef();
-    const component = mount(
+    const component = mountToBody(
       <SelectField
         autoFocus
         globalEventsTarget={document}
@@ -221,6 +222,7 @@ describe('<SelectField />', () => {
     component.find('.dropdown-item').at(3)
       .simulate('keypress', { key: 'Enter' });
     expect(ref.current.internalValue).toBe('Four');
+    component.detach();
   });
 
   it('should not trigger keyboard actions when menu is not opened', () => {
@@ -231,7 +233,7 @@ describe('<SelectField />', () => {
     document.activeElement?.blur();
 
     const ref = createRef();
-    mount(
+    const component = mountToBody(
       <SelectField
         globalEventsTarget={document}
         ref={ref}
@@ -240,6 +242,7 @@ describe('<SelectField />', () => {
     expect(document.activeElement).toBe(document.body);
     act(() => { map.keydown({ key: 'ArrowUp' }); });
     expect(document.activeElement).toBe(document.body);
+    component.detach();
   });
 
   it('should not try to select an item if no options are specified', () => {
@@ -250,7 +253,7 @@ describe('<SelectField />', () => {
     document.activeElement?.blur();
 
     const ref = createRef();
-    const component = mount(
+    const component = mountToBody(
       <SelectField
         autoFocus
         globalEventsTarget={document}
@@ -263,6 +266,7 @@ describe('<SelectField />', () => {
     act(() => { map.keydown({ key: 'ArrowUp' }); });
     expect(document.activeElement)
       .toBe(component.find('.dropdown-toggle .base').getDOMNode());
+    component.detach();
   });
 
   it('should allow to group options', () => {

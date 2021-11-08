@@ -7,6 +7,7 @@ module.exports = {
   timers: 'real',
   moduleNameMapper: {
     '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
+    '^~test-utils$': '<rootDir>/.ci/config/utils.js',
   },
   testMatch: ['<rootDir>/packages/junipero/lib/**/*.test.js'],
   testPathIgnorePatterns: [
