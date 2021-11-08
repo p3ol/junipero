@@ -50,29 +50,23 @@ describe('useEventListener(name, listener, target)', () => {
 });
 
 describe('useInterval(cb, time, changes)', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
   it('should execute task each given amount of ms', async () => {
+    jest.useFakeTimers();
     const onInterval = sinon.spy();
     mount(<TestComponent onInterval={onInterval} />);
-    jest.useFakeTimers();
     jest.advanceTimersByTime(2000);
     expect(onInterval.callCount).toEqual(4);
   });
 
   afterAll(() => {
     jest.clearAllTimers();
+    jest.useRealTimers();
   });
 });
 
 describe('useTimeout(listener, time, changes)', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
   it('should allow to execute a task after a given amount of ms', () => {
+    jest.useFakeTimers();
     const onTimeout = sinon.spy();
     mount(<TestComponent onTimeout={onTimeout} />);
     jest.runAllTimers();
@@ -81,5 +75,6 @@ describe('useTimeout(listener, time, changes)', () => {
 
   afterAll(() => {
     jest.clearAllTimers();
+    jest.useRealTimers();
   });
 });
