@@ -144,7 +144,7 @@ describe('<TextField />', () => {
     expect(component.find('textarea').length).toBe(1);
   });
 
-  it('should set text field as invalid if valid prop is changed', async () => {
+  it('should set text field as invalid if valid prop is changed', () => {
     const ref = createRef();
     const component = mount(
       <TextField ref={ref} label="Label" placeholder="Placeholder" />
