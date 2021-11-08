@@ -3,6 +3,7 @@ import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
+import { mountToBody } from '~test-utils';
 import CodeField from './index';
 
 describe('<CodeField />', () => {
@@ -55,22 +56,24 @@ describe('<CodeField />', () => {
   });
 
   it('should automatically focus field when autoFocus is enabled', () => {
-    const component = mount(<CodeField autoFocus={true} />);
+    const component = mountToBody(<CodeField autoFocus={true} />);
     expect(document.activeElement)
       .toBe(component.find('input:focus').at(0).getDOMNode());
+    component.detach();
   });
 
   it('should automatically switch field focus when changing value', () => {
-    const component = mount(<CodeField />);
+    const component = mountToBody(<CodeField />);
     expect(component.find('input:focus').length).toBe(0);
     component.find('input:first-child')
       .simulate('change', { target: { value: '1' } });
     expect(document.activeElement)
       .toBe(component.find('input').at(1).getDOMNode());
+    component.detach();
   });
 
   it('should allow navigating between inputs with arrow keys', () => {
-    const component = mount(<CodeField />);
+    const component = mountToBody(<CodeField />);
     expect(component.find('input:focus').length).toBe(0);
     component.find('input').at(0)
       .simulate('keydown', { key: 'ArrowRight' });
@@ -84,30 +87,33 @@ describe('<CodeField />', () => {
       .simulate('keydown', { key: 'ArrowLeft' });
     expect(document.activeElement)
       .toBe(component.find('input').at(1).getDOMNode());
+    component.detach();
   });
 
   it('should erase chars & move selection when hitting backspace', () => {
     const fieldRef = createRef();
-    const component = mount(<CodeField ref={fieldRef} value="224" />);
+    const component = mountToBody(<CodeField ref={fieldRef} value="224" />);
     expect(fieldRef.current?.internalValue).toBe('224');
     component.find('input').at(3).simulate('keydown', { key: 'Backspace' });
     expect(fieldRef.current?.internalValue).toBe('22');
     expect(document.activeElement)
       .toBe(component.find('input').at(2).getDOMNode());
+    component.detach();
   });
 
   it('should not allow to move selection if field is disabled', () => {
     document.activeElement?.blur();
-    const component = mount(<CodeField disabled />);
+    const component = mountToBody(<CodeField disabled />);
     component.find('input').at(0)
       .simulate('keydown', { key: 'ArrowRight' });
     expect(document.activeElement).toBe(document.body);
+    component.detach();
   });
 
   it('should focus/blur wanted input when using forwarded methods', () => {
     document.activeElement?.blur();
     const ref = createRef();
-    const component = mount(<CodeField ref={ref} />);
+    const component = mountToBody(<CodeField ref={ref} />);
     ref.current.focus();
     expect(document.activeElement)
       .toBe(component.find('input').at(0).getDOMNode());
@@ -116,6 +122,7 @@ describe('<CodeField />', () => {
       .toBe(component.find('input').at(4).getDOMNode());
     ref.current.blur(4);
     expect(document.activeElement).toBe(document.body);
+    component.detach();
   });
 
   it('should allow to reset field using forwarded method', () => {
