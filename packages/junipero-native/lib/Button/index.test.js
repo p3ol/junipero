@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
-import { Text } from 'react-native';
-import { render, wait, fireEvent } from '@testing-library/react-native';
+import { Text, View } from 'react-native';
+import { render, waitFor, fireEvent } from '@testing-library/react-native';
 import sinon from 'sinon';
 
 import Button from './';
@@ -9,36 +9,30 @@ describe('<Button />', () => {
 
   it('should render all different themes', async () => {
     const { getByTestId } = render(
-      <React.Fragment>
+      <View>
         <Button testID="press" theme="basic">Click</Button>
-        <Button theme="primary">Click</Button>
-        <Button theme="secondary">Click</Button>
-        <Button theme="warning">Click</Button>
-        <Button theme="danger">Click</Button>
-        <Button theme="success">Click</Button>
-      </React.Fragment>
+        <Button testID="primary" theme="primary">Click</Button>
+        <Button testID="secondary" theme="secondary">Click</Button>
+        <Button testID="warning" theme="warning">Click</Button>
+        <Button testID="danger" theme="danger">Click</Button>
+        <Button testID="success" theme="success">Click</Button>
+      </View>
     );
-    await wait(() => {
-      getByTestId('basic');
-      getByTestId('primary');
-      getByTestId('secondary');
-      getByTestId('warning');
-      getByTestId('danger');
-      getByTestId('success');
-    });
-    expect(getByTestId('basic')).toBeDefined();
-    expect(getByTestId('primary')).toBeDefined();
-    expect(getByTestId('secondary')).toBeDefined();
-    expect(getByTestId('warning')).toBeDefined();
-    expect(getByTestId('danger')).toBeDefined();
-    expect(getByTestId('success')).toBeDefined();
+    expect(getByTestId('press/Inner')).toBeDefined();
+    expect(getByTestId('primary/Inner')).toBeDefined();
+    expect(getByTestId('secondary/Inner')).toBeDefined();
+    expect(getByTestId('warning/Inner')).toBeDefined();
+    expect(getByTestId('danger/Inner')).toBeDefined();
+    expect(getByTestId('success/Inner')).toBeDefined();
     fireEvent.press(getByTestId('press'));
   });
 
   it('should fire onPress event by clicking the button', async () => {
     const onPress = sinon.spy();
-    const { getByTestId } = render(<Button onPress={onPress}>Click</Button>);
-    await wait(() => getByTestId('Button'));
+    const { getByTestId } = render(
+      <Button testID="Button" onPress={onPress}>Click</Button>
+    );
+    await waitFor(() => getByTestId('Button'));
     fireEvent.press(getByTestId('Button'));
     expect(onPress.called).toBe(true);
   });
@@ -46,29 +40,31 @@ describe('<Button />', () => {
   it('should not be able to press if button is disabled', async () => {
     const onPress = sinon.spy();
     const { getByTestId } = render(
-      <Button disabled onPress={onPress}>Click</Button>
+      <Button testID="Button" disabled onPress={onPress}>Click</Button>
     );
-    await wait(() => getByTestId('Button'));
+    await waitFor(() => getByTestId('Button'));
     fireEvent.press(getByTestId('Button'));
-    fireEvent.pressIn(getByTestId('Button'));
-    fireEvent.pressOut(getByTestId('Button'));
+    fireEvent(getByTestId('Button'), 'pressIn');
+    fireEvent(getByTestId('Button'), 'pressOut');
     expect(onPress.called).toBe(false);
   });
 
   it('should render with the provided component as children', async () => {
     const { getByTestId } =
       render(<Button><Text testID="title">Click</Text></Button>);
-    await wait(() => getByTestId('title'));
+    await waitFor(() => getByTestId('title'));
     expect(getByTestId('title')).toBeDefined();
   });
 
   it('should toggle button active state on click', async () => {
     const ref = createRef();
-    const { getByTestId } = render(<Button ref={ref}> Click </Button>);
-    await wait(() => getByTestId('Button'));
-    fireEvent.pressIn(getByTestId('Button'));
+    const { getByTestId } = render(
+      <Button testID="Button" ref={ref}> Click </Button>
+    );
+    await waitFor(() => getByTestId('Button'));
+    fireEvent(getByTestId('Button'), 'pressIn');
     expect(ref.current.active).toBe(true);
-    fireEvent.pressOut(getByTestId('Button'));
+    fireEvent(getByTestId('Button'), 'pressOut');
     expect(ref.current.active).toBe(false);
   });
 });
