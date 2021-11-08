@@ -13,7 +13,8 @@
     "clean": "./node_modules/.bin/lerna exec --parallel -- yarn clean",
     "build": "./node_modules/.bin/lerna exec -- yarn build",
     "serve": "./node_modules/.bin/start-storybook",
-    "snapshot": "./node_modules/.bin/build-storybook -c .storybook && percy-storybook --widths=320,1280"
+    "presnapshot": "./node_modules/.bin/build-storybook -c .storybook",
+    "snapshot": "./node_modules/.bin/percy storybook --config=./percy.config.js ./storybook-static"
   },
   "devDependencies": {
     "@babel/cli": "7.16.0",
@@ -26,6 +27,7 @@
     "@babel/plugin-transform-runtime": "7.16.0",
     "@babel/preset-env": "7.16.0",
     "@babel/preset-react": "7.16.0",
+    "@percy/cli": "1.0.0-beta.70",
     "@percy/storybook": "4.1.0",
     "@poool/eslint-config": "1.5.0",
     "@poool/eslint-config-react": "1.5.1",
