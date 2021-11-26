@@ -68,7 +68,7 @@
     "lerna": "4.0.0",
     "metro-react-native-babel-preset": "0.66.2",
     "postcss": "8.4.1",
-    "postcss-loader": "6.2.0",
+    "postcss-loader": "6.2.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.62.3",
