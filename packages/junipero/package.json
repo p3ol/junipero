@@ -31,7 +31,7 @@
     "@poool/junipero-hooks": "^2.0.0-rc.15",
     "@poool/junipero-utils": "^2.0.0-rc.15",
     "core-js": "3.20.2",
-    "prop-types": "15.7.2"
+    "prop-types": "15.8.1"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",
