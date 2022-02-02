@@ -50,7 +50,7 @@
     "clean-css": "5.2.4",
     "clean-webpack-plugin": "4.0.0",
     "codecov": "3.8.3",
-    "css-loader": "6.5.1",
+    "css-loader": "6.6.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.6",
     "eslint": "8.8.0",
