@@ -73,11 +73,13 @@ const CheckboxField = forwardRef(({
   };
 
   const onFocus_ = e => {
+    state.focused = true;
     dispatch({ focused: true });
     onFocus(e);
   };
 
   const onBlur_ = e => {
+    state.focused = false;
     dispatch({ focused: false });
     onBlur(e);
   };
