@@ -1,11 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Badge from './';
 
 describe('<Badge />', () => {
   it('should render a basic badge', () => {
-    const component = mount(<Badge>1</Badge>);
-    expect(component.find('.junipero.badge').length).toBe(1);
+    const { container } = render(<Badge>1</Badge>);
+    expect(container.querySelectorAll('.junipero.badge').length).toBe(1);
   });
 });
