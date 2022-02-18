@@ -24,7 +24,7 @@
     "react": "^17.0.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.16.8",
+    "@babel/runtime-corejs3": "7.17.2",
     "core-js": "3.21.1"
   },
   "devDependencies": {
