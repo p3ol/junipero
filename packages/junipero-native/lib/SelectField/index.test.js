@@ -17,6 +17,7 @@ describe('<SelectField />', () => {
     fireEvent.press(getByTestId('SelectField/Field'));
     expect(ref.current.active).toBe(true);
   });
+
   it('should be able to select a value', async () => {
     const ref = createRef();
     const { getByTestId } = render(
@@ -30,6 +31,24 @@ describe('<SelectField />', () => {
     expect(ref.current.active).toBe(true);
     fireEvent.press(getByTestId('One'));
     expect(ref.current.selectedOption).toBe('One');
+  });
+
+  it('should dissociate field title parsing from options parsing', async () => {
+    const ref = createRef();
+    const { getByTestId, getByText } = render(
+      <SelectField
+        ref={ref}
+        dissociateFieldParsing={true}
+        options={['One', 'Two']}
+        parseFieldTitle={o => o && `Custom parsed title: ${o}`}
+      />
+    );
+    await waitFor(() => getByTestId('SelectField/Main'));
+    fireEvent.press(getByTestId('SelectField/Field'));
+    expect(ref.current.active).toBe(true);
+    fireEvent.press(getByTestId('One'));
+    expect(ref.current.selectedOption).toBe('One');
+    expect(getByText('Custom parsed title: One')).toBeTruthy();
   });
 
   it('should display message if there is no options', async () => {

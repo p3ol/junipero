@@ -21,10 +21,12 @@ const SelectField = forwardRef(({
   noSearchResults = 'No result found :(',
   placeholder,
   disabled = false,
+  dissociateFieldParsing = false,
   defaultOption = '',
   onChange = () => {},
   options = [],
   parseTitle = val => val?.toString?.(),
+  parseFieldTitle = val => val?.toString?.(),
   parseValue = () => {},
   search,
   searchPlaceholder = 'Search...',
@@ -161,7 +163,12 @@ const SelectField = forwardRef(({
                 ]),
               ]}
             >
-              {parseTitle(state.selectedOption) || placeholder}
+              {
+                (dissociateFieldParsing
+                  ? parseFieldTitle
+                  : parseTitle
+                )(state.selectedOption) || placeholder
+              }
             </Text>
           </View>
           <Text
@@ -239,9 +246,11 @@ SelectField.propTypes = {
   noSearchResults: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
+  dissociateFieldParsing: PropTypes.bool,
   defaultOption: PropTypes.object,
   options: PropTypes.array,
   onChange: PropTypes.func,
+  parseFieldTitle: PropTypes.func,
   parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
   search: PropTypes.func,
