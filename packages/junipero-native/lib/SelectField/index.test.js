@@ -43,7 +43,7 @@ describe('<SelectField />', () => {
         parseFieldTitle={o => o && `Custom parsed title: ${o}`}
       />
     );
-    await waitFor(() => getByTestId('SelectField/Main'));
+    await wait(() => getByTestId('SelectField/Main'));
     fireEvent.press(getByTestId('SelectField/Field'));
     expect(ref.current.active).toBe(true);
     fireEvent.press(getByTestId('One'));
