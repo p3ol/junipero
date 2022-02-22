@@ -131,7 +131,7 @@ const RadioField = forwardRef(({
           />
           <div className="inner" />
           <div className="label">
-            <div className="title">{ parseTitle(option) }</div>
+            <div className="title">{ parseTitle(option, true) }</div>
 
             { option.description && (
               <div className="description">{ parseDescription(option) }</div>

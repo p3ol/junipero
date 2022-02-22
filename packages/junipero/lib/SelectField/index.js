@@ -44,9 +44,7 @@ const SelectField = forwardRef(({
   onChange = () => {},
   onFocus = () => {},
   onToggle = () => {},
-  dissociateFieldParsing = false,
   parseTitle = val => val?.toString?.(),
-  parseFieldTitle = val => val?.toString?.(),
   parseValue = val => val,
   validate = val => !required || typeof val !== 'undefined',
   ...rest
@@ -248,7 +246,7 @@ const SelectField = forwardRef(({
 
   const renderOption = (o, index) => o.options ? (
     <div key={index} className="items-group">
-      <div className="group-label">{ parseTitle(o) }</div>
+      <div className="group-label">{ parseTitle(o, false) }</div>
       <div className="items">
         { o.options.map(renderOption) }
       </div>
@@ -260,7 +258,7 @@ const SelectField = forwardRef(({
       onKeyPress={onSelect_.bind(null, o)}
     >
       <a href="#" onClick={onChange_.bind(null, o)} tabIndex={-1}>
-        { parseTitle(o) }
+        { parseTitle(o, false) }
       </a>
     </DropdownItem>
   );
@@ -299,12 +297,7 @@ const SelectField = forwardRef(({
             placeholder={placeholder}
             label={label}
             empty={!state.value}
-            value={
-              (dissociateFieldParsing
-                ? parseFieldTitle
-                : parseTitle
-              )(state.value || '')
-            }
+            value={parseTitle(state.value || '', true)}
             valid={state.valid}
             focused={state.focused}
             onMouseDown={onMouseDown_}

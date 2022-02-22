@@ -50,9 +50,10 @@ describe('<SelectField />', () => {
         ref={ref}
         value="One"
         options={options}
-        dissociateFieldParsing={true}
-        parseFieldTitle={o => o && `Custom parsed title: ${o}`}
-        parseTitle={o => o}
+        parseTitle={(o, isFieldValue) => o && isFieldValue
+          ? `Custom parsed title: ${o}`
+          : o
+        }
       />
     );
     expect(ref.current.internalValue).toBe('One');
