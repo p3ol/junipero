@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero-hooks",
-  "version": "2.0.0-rc.10",
+  "version": "2.0.0-rc.15",
   "description": "🏔 Junipero Design System React hooks",
   "main": "dist/junipero-hooks.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -24,11 +24,11 @@
     "react": "^17.0.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.15.4",
-    "core-js": "3.17.2"
+    "@babel/runtime-corejs3": "7.17.2",
+    "core-js": "3.21.1"
   },
   "devDependencies": {
-    "@poool/junipero-utils": "^2.0.0-rc.10"
+    "@poool/junipero-utils": "^2.0.0-rc.15"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

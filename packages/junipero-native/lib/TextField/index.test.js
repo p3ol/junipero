@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { render, wait, fireEvent, act } from '@testing-library/react-native';
+import { render, waitFor, fireEvent, act } from '@testing-library/react-native';
 import sinon from 'sinon';
 
 import TextField from './';
@@ -9,19 +9,19 @@ describe('<TextField />', () => {
   it('should render', async () => {
     const ref = createRef();
     const { getByTestId } = render(<TextField ref={ref} placeholder="Text" />);
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 'a');
     expect(ref.current.internalValue).toBe('a');
-    fireEvent.focus(getByTestId('TextField/Input'));
+    fireEvent(getByTestId('TextField/Input'), 'focus');
     expect(ref.current.focused).toBe(true);
-    fireEvent.blur(getByTestId('TextField/Input'));
+    fireEvent(getByTestId('TextField/Input'), 'blur');
     expect(ref.current.focused).toBe(false);
   });
 
   it('should correctly fire onChange event', async () => {
     const onChange = sinon.spy();
     const { getByTestId } = render(<TextField onChange={onChange} />);
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 't');
     expect(onChange.withArgs(sinon.match({ value: 't' })).called).toBe(true);
   });
@@ -29,7 +29,7 @@ describe('<TextField />', () => {
   it('should not fire onChange if field is disabled', async () => {
     const onChange = sinon.spy();
     const { getByTestId } = render(<TextField disabled onChange={onChange} />);
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 't');
     expect(onChange.called).toBe(false);
   });
@@ -55,13 +55,13 @@ describe('<TextField />', () => {
     const { getByTestId } = render(
       <TextField onFocus={onFocus} onBlur={onBlur} ref={ref} />
     );
-    await wait(() => getByTestId('TextField/Input'));
-    act(() => { ref.current.focus(); });
-    fireEvent.focus(getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
+    await act(async () => { ref.current.focus(); });
+    fireEvent(getByTestId('TextField/Input'), 'focus');
     expect(ref.current.focused).toBe(true);
     expect(onFocus.called).toBe(true);
-    act(() => { ref.current.blur(); });
-    fireEvent.blur(getByTestId('TextField/Input'));
+    await act(async () => { ref.current.blur(); });
+    fireEvent(getByTestId('TextField/Input'), 'blur');
     expect(ref.current.focused).toBe(false);
     expect(onBlur.called).toBe(true);
   });
@@ -73,11 +73,11 @@ describe('<TextField />', () => {
       <TextField ref={ref} value="foo" onChange={onChange} />
     );
 
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 'bar');
     expect(onChange.withArgs(sinon.match({ value: 'bar' })).called).toBe(true);
     expect(ref.current.dirty).toBe(true);
-    act(() => ref.current.reset());
+    await act(async () => { ref.current.reset(); });
     expect(onChange.withArgs(sinon.match({ value: 'foo' })).called).toBe(false);
     expect(ref.current.internalValue).toBe('foo');
     expect(ref.current.dirty).toBe(false);
@@ -88,7 +88,7 @@ describe('<TextField />', () => {
     const { getByTestId } = render(
       <TextField ref={ref} validate={val => /^[0-9]+$/g.test(val)} />
     );
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     expect(ref.current.valid).toBe(false);
     fireEvent.changeText(getByTestId('TextField/Input'), '1');
     expect(ref.current.internalValue).toBe('1');
@@ -102,7 +102,7 @@ describe('<TextField />', () => {
     'empty', async () => {
     const ref = createRef();
     const { getByTestId } = render(<TextField ref={ref} required />);
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     expect(ref.current.valid).toBe(false);
     fireEvent.changeText(getByTestId('TextField/Input'), 'a');
     expect(ref.current.internalValue).toBe('a');
@@ -112,11 +112,12 @@ describe('<TextField />', () => {
     expect(ref.current.valid).toBe(false);
   });
 
-  it('should allow to reset field even if value prop is not defined', () => {
+  it('should allow to reset field even if value prop is not ' +
+    'defined', async () => {
     const ref = createRef();
     render(<TextField ref={ref} />);
     expect(ref.current.internalValue).toBe('');
-    act(() => ref.current.reset());
+    await act(async () => { ref.current.reset(); });
     expect(ref.current.internalValue).toBe('');
   });
 
@@ -124,7 +125,7 @@ describe('<TextField />', () => {
     const ref = createRef();
     render(<TextField ref={ref} />);
     expect(ref.current.dirty).toBe(false);
-    act(() => { ref.current.setDirty(true); });
+    await act(async () => { ref.current.setDirty(true); });
     expect(ref.current.dirty).toBe(true);
   });
 
@@ -133,8 +134,8 @@ describe('<TextField />', () => {
     const { getByTestId } = render(
       <TextField forceLabel ref={ref} label="Label" placeholder="Placeholder" />
     );
-    await wait(() => getByTestId('TextField/Label'));
-    await wait(() => getByTestId('TextField/Placeholder'));
+    await waitFor(() => getByTestId('TextField/Label'));
+    await waitFor(() => getByTestId('TextField/Placeholder'));
   });
 
   it('should render a label if input is empty', async () => {
@@ -142,10 +143,10 @@ describe('<TextField />', () => {
     const { getByTestId } = render(
       <TextField ref={ref} label="Label" placeholder="Placeholder" />
     );
-    await wait(() => getByTestId('TextField/Input'));
-    await wait(() => getByTestId('TextField/Placeholder'));
+    await waitFor(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Placeholder'));
     fireEvent.changeText(getByTestId('TextField/Input'), 'a');
-    await wait(() => getByTestId('TextField/Label'));
+    await waitFor(() => getByTestId('TextField/Label'));
   });
 
   it('should allow to render a multiline text input', async () => {
@@ -153,7 +154,7 @@ describe('<TextField />', () => {
     const { getByTestId } = render(
       <TextField rows={10} ref={ref} label="Label" placeholder="Placeholder" />
     );
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 'a');
     expect(ref.current.internalValue).toBe('a');
   });
@@ -163,7 +164,7 @@ describe('<TextField />', () => {
     const { getByTestId, rerender } = render(
       <TextField ref={ref} label="Label" placeholder="Placeholder" />
     );
-    await wait(() => getByTestId('TextField/Input'));
+    await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 'a');
     expect(ref.current.valid).toBe(true);
     rerender(
@@ -181,7 +182,7 @@ describe('<TextField />', () => {
     const ref = createRef();
     const { getByTestId } =
       render(<TextField ref={ref} testID="test" placeholder="Text" />);
-    await wait(() =>
+    await waitFor(() =>
       expect(getByTestId('test')).toBeTruthy()
     );
   });

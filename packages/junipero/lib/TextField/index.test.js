@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import { act } from 'react-dom/test-utils';
 
+import { mountToBody } from '~test-utils';
 import TextField from './';
 
 describe('<TextField />', () => {
@@ -52,10 +53,14 @@ describe('<TextField />', () => {
     expect(fieldRef.current?.internalValue).toBe('400');
   });
 
-  it('should automatically focus field when autoFocus is enabled', () => {
-    const component = mount(<TextField autoFocus={true} />);
+  it('should automatically focus field when autoFocus is enabled', async () => {
+    const component = mountToBody(
+      <TextField tabIndex={0} autoFocus={true} />
+    );
+
     expect(document.activeElement)
       .toBe(component.find('input').getDOMNode());
+    component.detach();
   });
 
   it('should focus/blur wanted input when using forwarded methods', () => {
@@ -63,7 +68,7 @@ describe('<TextField />', () => {
     const ref = createRef();
     const onFocus = sinon.spy();
     const onBlur = sinon.spy();
-    const component = mount(
+    const component = mountToBody(
       <TextField onFocus={onFocus} onBlur={onBlur} ref={ref} />
     );
     act(() => {
@@ -78,6 +83,7 @@ describe('<TextField />', () => {
     });
     expect(document.activeElement).toBe(document.body);
     expect(onBlur.called).toBe(true);
+    component.detach();
   });
 
   it('should allow to reset field using forwarded method', () => {
@@ -144,7 +150,7 @@ describe('<TextField />', () => {
     expect(component.find('textarea').length).toBe(1);
   });
 
-  it('should set text field as invalid if valid prop is changed', async () => {
+  it('should set text field as invalid if valid prop is changed', () => {
     const ref = createRef();
     const component = mount(
       <TextField ref={ref} label="Label" placeholder="Placeholder" />

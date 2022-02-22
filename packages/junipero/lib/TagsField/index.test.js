@@ -3,6 +3,7 @@ import sinon from 'sinon';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
+import { mountToBody } from '~test-utils';
 import TagsField from './';
 
 describe('<TagsField />', () => {
@@ -78,9 +79,10 @@ describe('<TagsField />', () => {
   });
 
   it('should focus on input when clicked on', () => {
-    const component = mount(<TagsField value={[]} />);
+    const component = mountToBody(<TagsField value={[]} />);
     component.find('.wrapper').simulate('mousedown');
     expect(component.find('input').is(':focus')).toBe(true);
+    component.detach();
   });
 
   it('should not focus on input when clicked on if field is disabled', () => {
@@ -129,25 +131,29 @@ describe('<TagsField />', () => {
   });
 
   it('should select last tag when hitting backspace and input is empty', () => {
-    const component = mount(<TagsField value={['One', 'Two']} />);
+    const component = mountToBody(<TagsField value={['One', 'Two']} />);
     component.find('input').simulate('keydown', { key: 'Backspace' });
     expect(component.find('.tag').at(1).getDOMNode())
       .toBe(document.activeElement);
+    component.detach();
   });
 
   it('should unselect last tag when hitting esc key', () => {
-    const component = mount(<TagsField value={['One', 'Two']} />);
+    const component = mountToBody(<TagsField value={['One', 'Two']} />);
     component.find('input').simulate('keydown', { key: 'Backspace' });
     expect(component.find('.tag').at(1).getDOMNode())
       .toBe(document.activeElement);
     component.find('.tag:focus').simulate('keydown', { key: 'Escape' });
     expect(component.find('input').getDOMNode()).toBe(document.activeElement);
+    component.detach();
   });
 
   it('should remove a previously added tag when hitting backspace and ' +
     'input is empty', () => {
     const ref = createRef();
-    const component = mount(<TagsField ref={ref} value={['One', 'Two']} />);
+    const component = mountToBody(
+      <TagsField ref={ref} value={['One', 'Two']} />
+    );
     expect(ref.current.internalValue.length).toBe(2);
     component.find('input').simulate('keydown', { key: 'Backspace' });
     expect(component.find('.tag').at(1).getDOMNode())
@@ -155,12 +161,13 @@ describe('<TagsField />', () => {
     component.find('.tag:focus').simulate('keydown', { key: 'Backspace' });
     component.update();
     expect(ref.current.internalValue.length).toBe(1);
+    component.detach();
   });
 
   it('shouldn\'t select, unselect or remove selected tag if field is ' +
     'disabled', () => {
     const ref = createRef();
-    const component = mount(
+    const component = mountToBody(
       <TagsField ref={ref} disabled={true} value={['One']} />
     );
     component.find('input').simulate('focus');
@@ -174,6 +181,7 @@ describe('<TagsField />', () => {
     component.setProps({ disabled: true });
     component.find('input').simulate('keydown', { key: 'Backspace' });
     expect(ref.current.internalValue.length).toBe(1);
+    component.detach();
   });
 
   it('should add a new tag when hitting enter and input is not empty', () => {
@@ -210,7 +218,7 @@ describe('<TagsField />', () => {
 
   it('should reset field to prop value when calling reset', () => {
     const ref = createRef();
-    const component = mount(<TagsField ref={ref} value={['One']} />);
+    const component = mountToBody(<TagsField ref={ref} value={['One']} />);
     component.find('input').simulate('change', { target: { value: 'Two' } });
     component.find('input').simulate('keypress', { key: 'Enter' });
     expect(ref.current.internalValue.length).toBe(2);
@@ -225,6 +233,7 @@ describe('<TagsField />', () => {
     expect(ref.current.internalValue.pop()).toBe('One');
     expect(component.find('.tag:focus').length).toBe(0);
     expect(ref.current.inputValue).toBe('');
+    component.detach();
   });
 
   it('should not open search dropdown when changing input without ' +
@@ -423,7 +432,7 @@ describe('<TagsField />', () => {
 
   it('should allow to select tags using arrow keys', async () => {
     const ref = createRef();
-    const component = mount(
+    const component = mountToBody(
       <TagsField
         ref={ref}
         value={['Astor', 'Astrid', 'Dave']}
@@ -449,6 +458,7 @@ describe('<TagsField />', () => {
     expect(component.find('.tag:focus').length).toBe(0);
     component.find('.tag').at(1).simulate('keydown', { key: 'ArrowLeft' });
     expect(component.find('.tag:focus').length).toBe(0);
+    component.detach();
   });
 
   it('should not to select an already picked option', async () => {

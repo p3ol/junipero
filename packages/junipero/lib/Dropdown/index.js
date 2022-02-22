@@ -25,6 +25,8 @@ const Dropdown = forwardRef(({
   placement = 'bottom-start',
   popperOptions = {},
   trigger = 'click',
+  filterToggle = child => child.type === DropdownToggle,
+  filterMenu = child => child.type === DropdownMenu,
   onToggle = () => {},
   ...rest
 }, ref) => {
@@ -160,7 +162,7 @@ const Dropdown = forwardRef(({
       ref={innerRef}
     >
       <DropdownContext.Provider value={getContext()}>
-        { React.Children.map(children, child => child.type === DropdownToggle
+        { React.Children.map(children, child => filterToggle(child)
           ? React.cloneElement(child, {
             ref: ref_ => {
               toggleRef.current = ref_;
@@ -172,7 +174,7 @@ const Dropdown = forwardRef(({
               }
             },
           })
-          : child.type === DropdownMenu
+          : filterMenu(child)
             ? React.cloneElement(child, {
               ref: ref_ => {
                 menuRef.current = ref_;
@@ -206,6 +208,8 @@ Dropdown.propTypes = {
   placement: PropTypes.string,
   popperOptions: PropTypes.object,
   trigger: PropTypes.string,
+  filterMenu: PropTypes.func,
+  filterToggle: PropTypes.func,
 };
 
 export default Dropdown;

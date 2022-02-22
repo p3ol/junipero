@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.15](https://github.com/p3ol/junipero/compare/v2.0.0-rc.14...v2.0.0-rc.15) (2021-10-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.18.2 ([600744c](https://github.com/p3ol/junipero/commit/600744ccdb31476c8ff9367e349e55ac83a09d93))
+* **deps:** update dependency core-js to v3.18.3 ([d9c9ca9](https://github.com/p3ol/junipero/commit/d9c9ca978a5b05229594b9f842dd1a63700ff1b6))
+
+
+
+
+
+# [2.0.0-rc.14](https://github.com/p3ol/junipero/compare/v2.0.0-rc.13...v2.0.0-rc.14) (2021-09-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.18.1 ([7f5cde1](https://github.com/p3ol/junipero/commit/7f5cde19742f3f5fb529b0d8dba69e8fd84540ce))
+
+
+
+
+
+# [2.0.0-rc.13](https://github.com/p3ol/junipero/compare/v2.0.0-rc.12...v2.0.0-rc.13) (2021-09-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @babel/runtime-corejs3 to v7.15.3 ([e5d8f38](https://github.com/p3ol/junipero/commit/e5d8f38ee5558a06dffb8255991e41202d4a58fc))
+* **deps:** update dependency core-js to v3.16.1 ([7c44b67](https://github.com/p3ol/junipero/commit/7c44b678b8f9662a247077b7e64df8c536333208))
+* **deps:** update dependency core-js to v3.16.2 ([1c0648f](https://github.com/p3ol/junipero/commit/1c0648ffb4c056db8c153d40a11d445b0138d7d6))
+* **deps:** update dependency core-js to v3.16.3 ([41f3253](https://github.com/p3ol/junipero/commit/41f3253755f0df9ed07c555c07921df401136724))
+* **deps:** update dependency core-js to v3.16.4 ([e2f735d](https://github.com/p3ol/junipero/commit/e2f735d96cd5d127ed9c74d5ffd1a228ee337703))
+* **deps:** update dependency core-js to v3.17.1 ([43d466f](https://github.com/p3ol/junipero/commit/43d466f2811130410e294d8572f6ed991291435c))
+* **deps:** update dependency core-js to v3.17.2 ([c487c0a](https://github.com/p3ol/junipero/commit/c487c0a404ccb87a137b9e640e2b07bd875e6dbe))
+* **deps:** update dependency core-js to v3.17.3 ([115d08d](https://github.com/p3ol/junipero/commit/115d08ddc7c55690b55f4bafc36ee42ba1644086))
+
+
+
+
+
 # [2.0.0-rc.10](https://github.com/p3ol/junipero/compare/v2.0.0-rc.9...v2.0.0-rc.10) (2021-08-02)
 
 

@@ -1,6 +1,7 @@
 import React, { createRef } from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
+import { omit } from '@poool/junipero-utils';
 
 import Tabs from './';
 import Tab from '../Tab';
@@ -66,6 +67,41 @@ describe('<Tabs />', () => {
     );
     component.find('li.title').at(1).find('a').simulate('click');
     expect(ref.current.activeTab).toBe(0);
+  });
+
+  it('should be able to display tabs even when wrapped inside another ' +
+    'component when using the filterTab prop', () => {
+    class Wrapper extends React.Component {
+      static defaultProps = { mdxType: 'Tab' };
+
+      render () {
+        return <Tab { ...omit(this.props, ['mdxType']) } />;
+      }
+    }
+
+    const component = mount(
+      <Tabs filterTab={c => c.props.mdxType === 'Tab'}>
+        <Wrapper title="Tab 1">tab1</Wrapper>
+        <Wrapper title="Tab 2">tab2</Wrapper>
+      </Tabs>
+    );
+
+    expect(component.find('li.title').at(0).text()).toBe('Tab 1');
+    expect(component.find('li.title').at(1).text()).toBe('Tab 2');
+  });
+
+  it('should not be able to display tabs when wrapped inside another ' +
+    'component if no filterTab prop is passed', () => {
+    const Wrapper = props => <Tab { ...props } />;
+
+    const component = mount(
+      <Tabs>
+        <Wrapper title="Tab 1">tab1</Wrapper>
+        <Wrapper title="Tab 2">tab2</Wrapper>
+      </Tabs>
+    );
+
+    expect(component.find('li.title').length).toBe(0);
   });
 
 });

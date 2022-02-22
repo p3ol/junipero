@@ -18,7 +18,7 @@ import { applyStyles } from '../theme';
 
 const Button = forwardRef(({
   children,
-  testID = 'Button',
+  testID,
   outline = false,
   disabled = false,
   onPress = () => {},
@@ -84,7 +84,7 @@ const Button = forwardRef(({
     >
       <View
         { ...rest }
-        testID={theme}
+        testID={testID + '/Inner'}
         style={[
           styles.button,
           themeStyles.button,

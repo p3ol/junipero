@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero",
-  "version": "2.0.0-rc.12",
+  "version": "2.0.0-rc.15",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -27,11 +27,11 @@
     "react-popper": "^2.2.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.15.4",
-    "@poool/junipero-hooks": "^2.0.0-rc.10",
-    "@poool/junipero-utils": "^2.0.0-rc.10",
-    "core-js": "3.17.2",
-    "prop-types": "15.7.2"
+    "@babel/runtime-corejs3": "7.17.2",
+    "@poool/junipero-hooks": "^2.0.0-rc.15",
+    "@poool/junipero-utils": "^2.0.0-rc.15",
+    "core-js": "3.21.1",
+    "prop-types": "15.8.1"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",
