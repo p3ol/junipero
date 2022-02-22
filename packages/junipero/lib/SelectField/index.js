@@ -44,7 +44,9 @@ const SelectField = forwardRef(({
   onChange = () => {},
   onFocus = () => {},
   onToggle = () => {},
+  dissociateFieldParsing = false,
   parseTitle = val => val?.toString?.(),
+  parseFieldTitle = val => val?.toString?.(),
   parseValue = val => val,
   validate = val => !required || typeof val !== 'undefined',
   ...rest
@@ -297,7 +299,12 @@ const SelectField = forwardRef(({
             placeholder={placeholder}
             label={label}
             empty={!state.value}
-            value={parseTitle(state.value || '')}
+            value={
+              (dissociateFieldParsing
+                ? parseFieldTitle
+                : parseTitle
+              )(state.value || '')
+            }
             valid={state.valid}
             focused={state.focused}
             onMouseDown={onMouseDown_}
@@ -390,7 +397,9 @@ SelectField.propTypes = {
   onFocus: PropTypes.func,
   onToggle: PropTypes.func,
   opened: PropTypes.bool,
+  dissociateFieldParsing: PropTypes.bool,
   parseTitle: PropTypes.func,
+  parseFieldTitle: PropTypes.func,
   parseValue: PropTypes.func,
   placeholder: PropTypes.oneOfType([
     PropTypes.string,

@@ -146,3 +146,13 @@ export const alwaysOpened = () => (
     onChange={action('change')}
   />
 );
+
+export const withParsedFieldTitle = () => (
+  <SelectField
+    options={options}
+    placeholder="Choose one item"
+    dissociateFieldParsing={true}
+    parseFieldTitle={o => o && `Custom title: ${o}`}
+    onChange={action('change')}
+  />
+);

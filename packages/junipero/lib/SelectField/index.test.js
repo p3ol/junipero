@@ -42,6 +42,28 @@ describe('<SelectField />', () => {
     expect(ref.current.internalValue).toBe('Two');
   });
 
+  it('should dissociate field title parsing from options parsing', () => {
+    const ref = createRef();
+    const component = mount(
+      <SelectField
+        ref={ref}
+        value="One"
+        options={options}
+        dissociateFieldParsing={true}
+        parseFieldTitle={o => o && `Custom parsed title: ${o}`}
+        parseTitle={o => o}
+      />
+    );
+    expect(ref.current.internalValue).toBe('One');
+    expect(component.find('.value').text()).toBe(
+      'Custom parsed title: One'
+    );
+    component.find('.base').simulate('focus');
+    expect(ref.current.opened).toBe(true);
+    expect(component.find('.dropdown-item').at(0).find('a').text())
+      .toBe('One');
+  });
+
   it('should close menu when disabled prop changes', () => {
     const ref = createRef();
     const component = mount(<SelectField ref={ref} options={options} />);
