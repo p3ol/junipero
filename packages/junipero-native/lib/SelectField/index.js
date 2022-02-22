@@ -21,12 +21,10 @@ const SelectField = forwardRef(({
   noSearchResults = 'No result found :(',
   placeholder,
   disabled = false,
-  dissociateFieldParsing = false,
   defaultOption = '',
   onChange = () => {},
   options = [],
   parseTitle = val => val?.toString?.(),
-  parseFieldTitle = val => val?.toString?.(),
   parseValue = () => {},
   search,
   searchPlaceholder = 'Search...',
@@ -69,7 +67,7 @@ const SelectField = forwardRef(({
   };
 
   const onOptionPress_ = option => {
-    const value = option.value ? parseValue(option) : parseTitle(option);
+    const value = option.value ? parseValue(option) : parseTitle(option, false);
     dispatch({ active: false });
     dispatch({ selectedOption: option });
     onChange(value);
@@ -163,12 +161,7 @@ const SelectField = forwardRef(({
                 ]),
               ]}
             >
-              {
-                (dissociateFieldParsing
-                  ? parseFieldTitle
-                  : parseTitle
-                )(state.selectedOption) || placeholder
-              }
+              { parseTitle(state.selectedOption, true) || placeholder }
             </Text>
           </View>
           <Text
@@ -200,12 +193,12 @@ const SelectField = forwardRef(({
             ? state.searchResults.length
               ? state.searchResults.map(result => (
                 <Text
-                  key={parseTitle(result)}
-                  testID={parseTitle(result)}
+                  key={parseTitle(result, false)}
+                  testID={parseTitle(result, false)}
                   style={styles.dropdownItem}
                   onPress={onOptionPress_.bind(null, result)}
                 >
-                  { parseTitle(result) }
+                  { parseTitle(result, false) }
                 </Text>
               )) : (
                 <Text style={styles.noResults} testID="SelectField/NoResults">
@@ -214,8 +207,8 @@ const SelectField = forwardRef(({
               )
             : options.length ? options.map(option => (
               <Text
-                key={parseTitle(option)}
-                testID={parseTitle(option)}
+                key={parseTitle(option, false)}
+                testID={parseTitle(option, false)}
                 style={[
                   styles.dropdownItem,
                   applyStyles(state.searching, [
@@ -224,7 +217,7 @@ const SelectField = forwardRef(({
                 ]}
                 onPress={onOptionPress_.bind(null, option)}
               >
-                { parseTitle(option) }
+                { parseTitle(option, false) }
               </Text>
             )) : (
               <Text style={styles.noResults} testID="SelectField/NoItems">

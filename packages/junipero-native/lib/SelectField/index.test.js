@@ -38,12 +38,14 @@ describe('<SelectField />', () => {
     const { getByTestId } = render(
       <SelectField
         ref={ref}
-        dissociateFieldParsing={true}
         options={['One', 'Two']}
-        parseFieldTitle={o => o && `Custom parsed title: ${o}`}
+        parseTitle={(o, isFieldValue) => o && isFieldValue
+          ? `Custom parsed title: ${o}`
+          : o
+        }
       />
     );
-    await wait(() => getByTestId('SelectField/Main'));
+    await waitFor(() => getByTestId('SelectField/Main'));
     fireEvent.press(getByTestId('SelectField/Field'));
     expect(ref.current.active).toBe(true);
     fireEvent.press(getByTestId('One'));

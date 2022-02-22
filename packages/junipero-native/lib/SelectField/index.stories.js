@@ -107,8 +107,10 @@ export const withParsedFieldTitle = () => (
   <SelectField
     options={options}
     placeholder="Choose one item"
-    dissociateFieldParsing={true}
-    parseFieldTitle={o => o && `Custom title: ${o}`}
+    parseTitle={(o, isFieldValue) => o && isFieldValue
+      ? `Custom title: ${o}`
+      : o
+    }
     onChange={action('change')}
   />
 );
