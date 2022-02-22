@@ -35,7 +35,7 @@ describe('<SelectField />', () => {
 
   it('should dissociate field title parsing from options parsing', async () => {
     const ref = createRef();
-    const { getByTestId, getByText } = render(
+    const { getByTestId } = render(
       <SelectField
         ref={ref}
         dissociateFieldParsing={true}
@@ -48,7 +48,9 @@ describe('<SelectField />', () => {
     expect(ref.current.active).toBe(true);
     fireEvent.press(getByTestId('One'));
     expect(ref.current.selectedOption).toBe('One');
-    expect(getByText('Custom parsed title: One')).toBeTruthy();
+    expect(
+      getByTestId('SelectField/Value').props.children
+    ).toBe('Custom parsed title: One');
   });
 
   it('should display message if there is no options', async () => {
