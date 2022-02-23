@@ -1,5 +1,4 @@
 import React, { createRef } from 'react';
-import sinon from 'sinon';
 import { render, waitFor, fireEvent } from '@testing-library/react-native';
 
 import CheckboxField from './';
@@ -23,15 +22,15 @@ describe('<CheckboxField />', () => {
   });
 
   it('should correctly fire onChange event', async () => {
-    const onChange = sinon.spy();
+    const onChange = jest.fn();
     const { getByTestId } = render(<CheckboxField onChange={onChange} />);
     await waitFor(() => getByTestId('CheckboxField/Main'));
     fireEvent.press(getByTestId('CheckboxField/Main'));
-    expect(onChange.calledWith(sinon.match({ checked: true })))
-      .toBe(true);
+    expect(onChange)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ checked: true }));
     fireEvent.press(getByTestId('CheckboxField/Main'));
-    expect(onChange.calledWith(sinon.match({ checked: false })))
-      .toBe(true);
+    expect(onChange)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ checked: false }));
   });
 
   it('should toggle checkbox active state on click', async () => {
@@ -46,18 +45,17 @@ describe('<CheckboxField />', () => {
 
   it('should toggle checkbox focused state on focus', async () => {
     const ref = createRef();
-    const onFocus = sinon.spy();
-    const onBlur = sinon.spy();
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
     const { getByTestId } = render(
       <CheckboxField onFocus={onFocus} onBlur={onBlur} ref={ref} />
     );
     await waitFor(() => getByTestId('CheckboxField/Main'));
     fireEvent(getByTestId('CheckboxField/Main'), 'focus');
     expect(ref.current.focused).toBe(true);
-    expect(onFocus.called).toBe(true);
+    expect(onFocus).toHaveBeenCalled();
     fireEvent(getByTestId('CheckboxField/Main'), 'blur');
     expect(ref.current.focused).toBe(false);
-    expect(onBlur.called).toBe(true);
+    expect(onBlur).toHaveBeenCalled();
   });
-
 });

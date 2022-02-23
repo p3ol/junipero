@@ -1,6 +1,5 @@
 import React, { createRef } from 'react';
 import { render, waitFor, fireEvent, act } from '@testing-library/react-native';
-import sinon from 'sinon';
 
 import TextField from './';
 
@@ -19,19 +18,20 @@ describe('<TextField />', () => {
   });
 
   it('should correctly fire onChange event', async () => {
-    const onChange = sinon.spy();
+    const onChange = jest.fn();
     const { getByTestId } = render(<TextField onChange={onChange} />);
     await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 't');
-    expect(onChange.withArgs(sinon.match({ value: 't' })).called).toBe(true);
+    expect(onChange)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ value: 't' }));
   });
 
   it('should not fire onChange if field is disabled', async () => {
-    const onChange = sinon.spy();
+    const onChange = jest.fn();
     const { getByTestId } = render(<TextField disabled onChange={onChange} />);
     await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 't');
-    expect(onChange.called).toBe(false);
+    expect(onChange).not.toHaveBeenCalled();
   });
 
   it('should update state value when prop value changes', () => {
@@ -50,8 +50,8 @@ describe('<TextField />', () => {
 
   it('should allow to focus/blur input manually', async () => {
     const ref = createRef();
-    const onFocus = sinon.spy();
-    const onBlur = sinon.spy();
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
     const { getByTestId } = render(
       <TextField onFocus={onFocus} onBlur={onBlur} ref={ref} />
     );
@@ -59,26 +59,28 @@ describe('<TextField />', () => {
     await act(async () => { ref.current.focus(); });
     fireEvent(getByTestId('TextField/Input'), 'focus');
     expect(ref.current.focused).toBe(true);
-    expect(onFocus.called).toBe(true);
+    expect(onFocus).toHaveBeenCalled();
     await act(async () => { ref.current.blur(); });
     fireEvent(getByTestId('TextField/Input'), 'blur');
     expect(ref.current.focused).toBe(false);
-    expect(onBlur.called).toBe(true);
+    expect(onBlur).toHaveBeenCalled();
   });
 
   it('should allow to reset field', async () => {
     const ref = createRef();
-    const onChange = sinon.spy();
+    const onChange = jest.fn();
     const { getByTestId } = render(
       <TextField ref={ref} value="foo" onChange={onChange} />
     );
 
     await waitFor(() => getByTestId('TextField/Input'));
     fireEvent.changeText(getByTestId('TextField/Input'), 'bar');
-    expect(onChange.withArgs(sinon.match({ value: 'bar' })).called).toBe(true);
+    expect(onChange)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ value: 'bar' }));
     expect(ref.current.dirty).toBe(true);
     await act(async () => { ref.current.reset(); });
-    expect(onChange.withArgs(sinon.match({ value: 'foo' })).called).toBe(false);
+    expect(onChange)
+      .not.toHaveBeenLastCalledWith(expect.objectContaining({ value: 'foo' }));
     expect(ref.current.internalValue).toBe('foo');
     expect(ref.current.dirty).toBe(false);
   });
@@ -135,7 +137,7 @@ describe('<TextField />', () => {
       <TextField forceLabel ref={ref} label="Label" placeholder="Placeholder" />
     );
     await waitFor(() => getByTestId('TextField/Label'));
-    await waitFor(() => getByTestId('TextField/Placeholder'));
+    expect(getByTestId('TextField/Placeholder')).toBeTruthy();
   });
 
   it('should render a label if input is empty', async () => {
@@ -144,9 +146,8 @@ describe('<TextField />', () => {
       <TextField ref={ref} label="Label" placeholder="Placeholder" />
     );
     await waitFor(() => getByTestId('TextField/Input'));
-    await waitFor(() => getByTestId('TextField/Placeholder'));
     fireEvent.changeText(getByTestId('TextField/Input'), 'a');
-    await waitFor(() => getByTestId('TextField/Label'));
+    expect(getByTestId('TextField/Label')).toBeTruthy();
   });
 
   it('should allow to render a multiline text input', async () => {
@@ -180,10 +181,9 @@ describe('<TextField />', () => {
 
   it('should override the default testID of the TextInput', async () => {
     const ref = createRef();
-    const { getByTestId } =
-      render(<TextField ref={ref} testID="test" placeholder="Text" />);
-    await waitFor(() =>
-      expect(getByTestId('test')).toBeTruthy()
+    const { getByTestId } = render(
+      <TextField ref={ref} testID="test" placeholder="Text" />
     );
+    expect(getByTestId('test')).toBeTruthy();
   });
 });
