@@ -21,9 +21,8 @@
     "yarn": ">= 1"
   },
   "peerDependencies": {
-    "@popperjs/core": "^2.4.0",
-    "react": "^16.8.0",
-    "react-native": "^0.62.0"
+    "react": "^16.8.0 || ^17.0.0",
+    "react-native": "^0.62.0 || ^0.67.0"
   },
   "dependencies": {
     "@poool/junipero-hooks": "^2.0.0-rc.15",
