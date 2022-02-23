@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { classNames } from '@poool/junipero-utils';
 
 const Badge = forwardRef(({ className, ...rest }, ref) => (

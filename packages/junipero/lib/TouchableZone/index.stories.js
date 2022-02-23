@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TouchableZone from './index';
 
 export default { title: 'junipero/TouchableZone' };

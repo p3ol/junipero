@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Card from './index';
 import Button from '../Button';
 import TextField from '../TextField';
@@ -15,7 +13,7 @@ const styles = {
 };
 
 const Form = () => (
-  <React.Fragment>
+  <>
     <div style={styles.title}>Card title</div>
     <div style={styles.text}>This form centralises everything you need to
     configure your app the easiest way possible. It has beautiful text fields,
@@ -33,28 +31,28 @@ const Form = () => (
         <Button className="primary">Update</Button>
       </div>
     </div>
-  </React.Fragment>
+  </>
 );
 
 const CardBody = () => (
-  <React.Fragment>
+  <>
     <div style={styles.title}>Card title</div>
     <div style={styles.text}>This is a basic card. You can use it to display
     any type of text, picture and/or icon. It is supposed to have 30px/40px
     paddings and regular paragraph texts.
     </div>
-  </React.Fragment>
+  </>
 );
 
 const CardBodyWithIcon = () => (
-  <React.Fragment>
+  <>
     <img style={styles.icon} src="https://cutt.ly/6k12q0g" />
     <div style={styles.title}>Card title</div>
     <div style={styles.text}>This is a basic card. You can use it to display
     any type of text, picture and/or icon. It is supposed to have 30px/40px
     paddings and regular paragraph texts.
     </div>
-  </React.Fragment>
+  </>
 );
 
 export const basic = () => (

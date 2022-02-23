@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Alert from './index';
 
 export default { title: 'junipero/Alert' };

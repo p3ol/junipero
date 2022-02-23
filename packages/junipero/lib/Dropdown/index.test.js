@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import { Component, createRef } from 'react';
 import { fireEvent, render, act } from '@testing-library/react';
 import { omit } from '@poool/junipero-utils';
 
@@ -62,7 +62,7 @@ describe('<Dropdown />', () => {
       }
     }
 
-    class CustomDropdownMenu extends React.Component {
+    class CustomDropdownMenu extends Component {
       static defaultProps = { mdxType: 'DropdownMenu' };
 
       render () {

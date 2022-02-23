@@ -23,7 +23,14 @@ module.exports = {
       'node_modules/@react-native',
     ],
     presets: [
-      'module:metro-react-native-babel-preset',
+      ['module:metro-react-native-babel-preset', {
+        useTransformReactJSXExperimental: true,
+      }],
+    ],
+    plugins: [
+      ['@babel/plugin-transform-react-jsx', {
+        runtime: 'automatic',
+      }],
     ],
   }],
 };

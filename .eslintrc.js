@@ -18,6 +18,7 @@ module.exports = {
 
     // Common props are not checked anyway
     'react/prop-types': [2, { ignore: ['className', 'children'] }],
+    'react/react-in-jsx-scope': 0,
 
     // Directly assigning this.state is sometimes required in addition to
     // setState
