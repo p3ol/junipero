@@ -1,87 +1,109 @@
 import React, { createRef } from 'react';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
-import { act } from 'react-dom/test-utils';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import Modal from './';
 
 describe('<Modal />', () => {
-
   it('should render', () => {
     const ref = createRef();
-    const component = mount(<Modal opened={true} ref={ref} />);
-    expect(component.find('.junipero.modal').length).toBe(1);
+    const { container, unmount } = render(
+      <div className="container">
+        <Modal opened={true} container=".container" ref={ref} />
+      </div>
+    );
+    expect(container.querySelectorAll('.junipero.modal').length).toBe(1);
+    unmount();
   });
 
   it('should provide some imperative handles', () => {
     const ref = createRef();
-    const component = mount(<Modal opened={true} ref={ref} />);
+    const { container, unmount } = render(
+      <div className="container">
+        <Modal opened={true} ref={ref} container=".container" />
+      </div>
+    );
     expect(ref.current.innerRef).toBeDefined();
-    expect(component.getDOMNode()).toBe(ref.current.innerRef.current);
+    expect(container.querySelector('.junipero.modal'))
+      .toBe(ref.current.innerRef.current);
+    unmount();
   });
 
-  it('should remove modal from DOM when using close method', () => {
+  it('should remove modal from DOM when using close method', async () => {
     const ref = createRef();
-    mount(<Modal ref={ref} />);
-    act(() => { ref.current.open(); });
+    const { unmount } = render(<Modal ref={ref} />);
+    await act(async () => { ref.current.open(); });
     expect(ref.current.innerRef.current).toBeTruthy();
-    act(() => { ref.current.close(); });
+    await act(async () => { ref.current.close(); });
     expect(ref.current.innerRef.current).toBeFalsy();
-    act(() => { ref.current.toggle(); });
+    await act(async () => { ref.current.toggle(); });
     expect(ref.current.innerRef.current).toBeTruthy();
+    unmount();
   });
 
-  it('should not toggle modal if it is disabled', () => {
+  it('should not toggle modal if it is disabled', async () => {
     const ref = createRef();
-    const component = mount(<Modal ref={ref} disabled={true} />);
-    act(() => { ref.current.open(); });
+    const { rerender, unmount } = render(
+      <Modal ref={ref} disabled={true} />
+    );
+    await act(async () => { ref.current.open(); });
     expect(ref.current.innerRef.current).toBeFalsy();
-    component.setProps({ opened: true });
+    rerender(<Modal ref={ref} disabled={true} opened={true} />);
     expect(ref.current.innerRef.current).toBeTruthy();
-    act(() => { ref.current.close(); });
+    await act(async () => { ref.current.close(); });
     expect(ref.current.innerRef.current).toBeTruthy();
-    act(() => { ref.current.toggle(); });
+    await act(async () => { ref.current.toggle(); });
     expect(ref.current.innerRef.current).toBeTruthy();
+    unmount();
   });
 
-  it('should close modal when clicking on backdrop', () => {
+  it('should close modal when clicking on backdrop', async () => {
     const ref = createRef();
-    const component = mount(<Modal ref={ref} />);
-    act(() => { ref.current.open(); });
-    component.update();
+    const { container, unmount } = render(
+      <div className="container">
+        <Modal container=".container" ref={ref} />
+      </div>
+    );
+    await act(async () => { ref.current.open(); });
     expect(ref.current.innerRef.current).toBeTruthy();
-    component.find('.wrapper')
-      .simulate('click', { target: ref.current.wrapperRef.current });
+    fireEvent.click(container.querySelector('.wrapper'));
     expect(ref.current.innerRef.current).toBeFalsy();
+    unmount();
   });
 
-  it('should not close modal if clicked inside', () => {
+  it('should not close modal if clicked inside', async () => {
     const ref = createRef();
-    const component = mount(<Modal ref={ref} />);
-    act(() => { ref.current.open(); });
-    component.update();
+    const { container, unmount } = render(
+      <div className="container">
+        <Modal container=".container" ref={ref} />
+      </div>
+    );
+    await act(async () => { ref.current.open(); });
     expect(ref.current.innerRef.current).toBeTruthy();
-    component.find('.content')
-      .simulate('click', { target: ref.current.contentRef.current });
+    fireEvent.click(container.querySelector('.content'));
     expect(ref.current.innerRef.current).toBeTruthy();
+    unmount();
   });
 
-  it('should not close modal closable = false', () => {
+  it('should not close modal closable = false', async () => {
     const ref = createRef();
-    const component = mount(<Modal closable={false} ref={ref} />);
-    act(() => { ref.current.open(); });
-    component.update();
+    const { container, unmount } = render(
+      <div className="container">
+        <Modal container=".container" closable={false} ref={ref} />
+      </div>
+    );
+    await act(async () => { ref.current.open(); });
     expect(ref.current.innerRef.current).toBeTruthy();
-    component.find('.wrapper')
-      .simulate('click', { target: ref.current.wrapperRef.current });
+    fireEvent.click(container.querySelector('.wrapper'));
     expect(ref.current.innerRef.current).toBeTruthy();
+    unmount();
   });
 
-  it('should animate modal if animate prop is provided', () => {
+  it('should animate modal if animate prop is provided', async () => {
     const ref = createRef();
-    const animate = sinon.spy(modal => modal);
-    mount(<Modal ref={ref} animate={animate} />);
-    act(() => { ref.current.open(); });
-    expect(animate.called).toBe(true);
+    const animate = jest.fn(modal => modal);
+    const { unmount } = render(<Modal ref={ref} animate={animate} />);
+    await act(async () => { ref.current.open(); });
+    expect(animate).toHaveBeenCalled();
+    unmount();
   });
 });

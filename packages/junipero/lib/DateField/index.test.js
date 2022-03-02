@@ -1,26 +1,22 @@
 import React, { createRef } from 'react';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
-import { act } from 'react-dom/test-utils';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import DateField from './';
 
 describe('<DateField />', () => {
-
   it('should render', () => {
     const ref = createRef();
-    const component = mount(<DateField ref={ref} />);
-    component.find('.base').simulate('focus');
-    act(() => { ref.current.reset(); });
-    component.find('.base').simulate('blur');
-    expect(component.find('.junipero.date-picker').length).toBe(1);
+    const { container, unmount } = render(<DateField ref={ref} />);
+    expect(container.querySelectorAll('.junipero.date-picker').length).toBe(1);
+    unmount();
   });
 
   it('should provide some imperative handles', () => {
     const ref = createRef();
-    const component = mount(<DateField ref={ref} />);
+    const { container, unmount } = render(<DateField ref={ref} />);
     expect(ref.current.innerRef).toBeDefined();
-    expect(component.getDOMNode()).toBe(ref.current.innerRef.current);
+    expect(container.querySelector('.junipero.date-picker'))
+      .toBe(ref.current.innerRef.current);
     expect(ref.current.fieldRef).toBeDefined();
     expect(ref.current.dropdownRef).toBeDefined();
     expect(ref.current.opened).toBe(false);
@@ -30,11 +26,12 @@ describe('<DateField />', () => {
     expect(ref.current.displayed).toBeDefined();
     expect(ref.current.selected).toBeDefined();
     expect(ref.current.valid).toBe(false);
+    unmount();
   });
 
   it('should initialize if value prop is defined on mount', () => {
     const ref = createRef();
-    mount(
+    const { unmount } = render(
       <DateField
         ref={ref}
         required
@@ -47,174 +44,217 @@ describe('<DateField />', () => {
     expect(value.getFullYear()).toBe(1995);
     expect(value.getMonth()).toBe(11);
     expect(value.getDate()).toBe(17);
+    unmount();
   });
 
   it('should update internal value when value prop changes', () => {
     const ref = createRef();
-    const component = mount(<DateField ref={ref} />);
+    const { rerender, unmount } = render(<DateField ref={ref} />);
     expect(ref.current.internalValue).toBeFalsy();
-    component.setProps({ value: new Date('December 17, 1995 03:24:00') });
-
+    rerender(
+      <DateField ref={ref} value={new Date('December 17, 1995 03:24:00')} />
+    );
     const value = ref.current.internalValue;
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1995);
     expect(value.getMonth()).toBe(11);
     expect(value.getDate()).toBe(17);
+    unmount();
   });
 
-  it('should open calendar when clicking field', () => {
+  it('should open calendar when clicking field', async () => {
     const ref = createRef();
-    const component = mount(<DateField ref={ref} />);
-    component.find('.base').simulate('focus');
+    const { container, unmount } = render(<DateField ref={ref} />);
+    await act(async () => { container.querySelector('.base').focus(); });
     expect(ref.current.opened).toBe(true);
+    unmount();
   });
 
-  it('shouldn\'t open calendar if field is disabled', () => {
+  it('shouldn\'t open calendar if field is disabled', async () => {
     const ref = createRef();
-    const component = mount(<DateField ref={ref} disabled={true} />);
-    component.find('.base').simulate('focus');
+    const { container, unmount } = render(
+      <DateField ref={ref} disabled={true} />
+    );
+    await act(async () => { container.querySelector('.base').focus(); });
     expect(ref.current.opened).toBe(false);
+    unmount();
   });
 
   it('should display previous month on previous arrow click', () => {
     const ref = createRef();
-    const component = mount(
-      <DateField ref={ref} value={new Date('December 17, 1995 03:24:00')} />
+    const { container, unmount } = render(
+      <DateField
+        autoFocus={true}
+        ref={ref}
+        value={new Date('December 17, 1995 03:24:00')}
+      />
     );
-    component.find('.base').simulate('focus');
-    component.find('a.arrow-wrapper.left').simulate('click', { button: 0 });
+    fireEvent
+      .click(container.querySelector('a.arrow-wrapper.left'), { button: 0 });
 
     const value = ref.current.displayed;
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1995);
     expect(value.getMonth()).toBe(10);
     expect(value.getDate()).toBe(17);
+    unmount();
   });
 
   it('should jump to previous year on previous arrow click if current ' +
     'month is 0 (january)', () => {
     const ref = createRef();
-    const component = mount(
-      <DateField ref={ref} value={new Date('January 17, 1995 03:24:00')} />
+    const { container, unmount } = render(
+      <DateField
+        autoFocus={true}
+        ref={ref}
+        value={new Date('January 17, 1995 03:24:00')}
+      />
     );
-    component.find('.base').simulate('focus');
-    component.find('a.arrow-wrapper.left').simulate('click', { button: 0 });
+    fireEvent
+      .click(container.querySelector('a.arrow-wrapper.left'), { button: 0 });
 
     const value = ref.current.displayed;
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1994);
     expect(value.getMonth()).toBe(11);
     expect(value.getDate()).toBe(17);
+    unmount();
   });
 
   it('should display next month on next arrow click', () => {
     const ref = createRef();
-    const component = mount(
-      <DateField ref={ref} value={new Date('November 17, 1995 03:24:00')} />
+    const { container, unmount } = render(
+      <DateField
+        autoFocus={true}
+        ref={ref}
+        value={new Date('November 17, 1995 03:24:00')}
+      />
     );
-    component.find('.base').simulate('focus');
-    component.find('a.arrow-wrapper.right').simulate('click', { button: 0 });
+    fireEvent
+      .click(container.querySelector('a.arrow-wrapper.right'), { button: 0 });
 
     const value = ref.current.displayed;
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1995);
     expect(value.getMonth()).toBe(11);
     expect(value.getDate()).toBe(17);
+    unmount();
   });
 
   it('should jump to next year on next arrow click if current ' +
     'month is 11 (december)', () => {
     const ref = createRef();
-    const component = mount(
-      <DateField ref={ref} value={new Date('December 17, 1995 03:24:00')} />
+    const { container, unmount } = render(
+      <DateField
+        autoFocus={true}
+        ref={ref}
+        value={new Date('December 17, 1995 03:24:00')}
+      />
     );
-    component.find('.base').simulate('focus');
-    component.find('a.arrow-wrapper.right').simulate('click', { button: 0 });
+    fireEvent
+      .click(container.querySelector('a.arrow-wrapper.right'), { button: 0 });
 
     const value = ref.current.displayed;
     expect(value).toBeDefined();
     expect(value.getFullYear()).toBe(1996);
     expect(value.getMonth()).toBe(0);
     expect(value.getDate()).toBe(17);
+    unmount();
   });
 
   it('should show a placeholder when provided', () => {
-    const component = mount(<DateField placeholder="placeholder" />);
-    expect(component.find('.placeholder').length).toBe(1);
-    expect(component.find('.placeholder').html())
+    const { container, unmount } = render(
+      <DateField placeholder="placeholder" />
+    );
+    expect(container.querySelectorAll('.placeholder').length).toBe(1);
+    expect(container.querySelector('.placeholder').outerHTML)
       .toBe('<span class="placeholder">placeholder</span>');
+    unmount();
   });
 
   it('should show a label when provided and field is dirty', () => {
-    const component = mount(
+    const { container, unmount } = render(
       <DateField label="label" autoFocus={true} placeholder="placeholder" />
     );
-    expect(component.find('.placeholder').length).toBe(1);
-    expect(component.find('.placeholder').html())
+    expect(container.querySelectorAll('.placeholder').length).toBe(1);
+    expect(container.querySelector('.placeholder').outerHTML)
       .toBe('<span class="placeholder">placeholder</span>');
-    component.find('.day').first().simulate('click');
-    expect(component.find('.placeholder').length).toBe(0);
-    expect(component.find('.label').length).toBe(1);
-    expect(component.find('.label').html())
+
+    fireEvent.click(container.querySelectorAll('.day')[0]);
+    expect(container.querySelectorAll('.placeholder').length).toBe(0);
+    expect(container.querySelectorAll('.label').length).toBe(1);
+    expect(container.querySelector('.label').outerHTML)
       .toBe('<span class="label">label</span>');
+    unmount();
   });
 
-  it('should fire onToggle event when opened/closed', () => {
+  it('should fire onToggle event when opened/closed', async () => {
     const ref = createRef();
-    const onToggle = sinon.spy();
-    mount(<DateField ref={ref} onToggle={onToggle} />);
+    const onToggle = jest.fn();
+    const { container, unmount } = render(
+      <DateField ref={ref} onToggle={onToggle} />
+    );
 
-    act(() => { ref.current.focus(); });
+    await act(async () => { container.querySelector('.base').focus(); });
     expect(ref.current.opened).toBe(true);
-    expect(onToggle.calledWith(sinon.match({ opened: true }))).toBe(true);
-    act(() => { ref.current.blur(); });
+    expect(onToggle)
+      .toHaveBeenCalledWith(expect.objectContaining({ opened: true }));
+
+    fireEvent.click(document.body);
     expect(ref.current.opened).toBe(false);
-    expect(onToggle.calledWith(sinon.match({ opened: false }))).toBe(true);
+    expect(onToggle)
+      .toHaveBeenCalledWith(expect.objectContaining({ opened: false }));
+    unmount();
   });
 
-  it('should have a 3 days limited datepicker', () => {
+  it('should have a 3 days limited datepicker when min/max is set', () => {
     const previousDay = new Date('December 15, 2019');
     const day = new Date('December 16, 2019');
     const nextDay = new Date('December 17, 2019');
-    const component = mount(
-      <DateField min={previousDay} value={day} max={nextDay} />
+    const { container, unmount } = render(
+      <DateField autoFocus={true} min={previousDay} value={day} max={nextDay} />
     );
-    component.find('.base').simulate('focus');
-    expect(component.find('.day').not('.disabled').length).toBe(3);
+    expect(container.querySelectorAll('.day:not(.disabled)').length).toBe(3);
+    unmount();
   });
 
-  it('should not pick a disabled date', () => {
+  it('should not let you pick a disabled date', () => {
     const ref = createRef();
     const day = new Date(2019, 11, 16);
     const nextDay = new Date(2019, 11, 17);
-    const component = mount(
+    const { container, unmount } = render(
       <DateField autoFocus={true} ref={ref} min={day} value={nextDay} />
     );
 
-    component.find('.day.disabled').first().simulate('click', { button: 0 });
+    fireEvent.click(container.querySelectorAll('.day.disabled')[0]);
 
     const value = ref.current.displayed;
     expect(value.getFullYear()).toBe(2019);
     expect(value.getMonth()).toBe(11);
     expect(value.getDate()).toBe(17);
+
+    unmount();
   });
 
-  it('should be able to reset date to original value', () => {
+  it('should be able to reset date to original value', async () => {
     const ref = createRef();
     const day = new Date(2019, 11, 16);
-    const component = mount(
+    const { container, unmount } = render(
       <DateField autoFocus={true} ref={ref} value={day} />
     );
 
-    component.find('.day').first().simulate('click', { button: 0 });
+    fireEvent.click(container.querySelectorAll('.day')[0]);
     let value = new Date(ref.current.internalValue.toUTCString());
     expect(value.getFullYear()).toBe(2019);
     expect(value.getMonth()).toBe(10);
     expect(value.getDate()).toBe(25);
-    act(() => { ref.current.reset(); });
+
+    await act(async () => { ref.current.reset(); });
     value = ref.current.internalValue;
     expect(value.getFullYear()).toBe(2019);
     expect(value.getMonth()).toBe(11);
     expect(value.getDate()).toBe(16);
+
+    unmount();
   });
 });

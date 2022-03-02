@@ -1,15 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Tab from './';
 
 describe('<Tab />', () => {
-
   it('should render', () => {
-    const component = mount(
-      <Tab />
-    );
-    expect(component.find('.junipero.tab').length).toBe(1);
+    const { container, unmount } = render(<Tab />);
+    expect(container.querySelectorAll('.junipero.tab').length).toBe(1);
+    unmount();
   });
-
 });

@@ -153,6 +153,8 @@ const ColorField = forwardRef(({
       return;
     }
 
+    state.handleMoving = true;
+    state.handleType = type;
     dispatch({ handleMoving: true, handleType: type });
     onMouseMove_(e);
   };

@@ -1,24 +1,25 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import { DropdownContext } from '../contexts';
 import DropdownMenu from './';
 
 describe('<DropdownMenu />', () => {
-
   it('should render', () => {
-    const component = mount(
+    const { container, unmount } = render(
       <DropdownContext.Provider
         value={{ styles: {}, attributes: {}, opened: true }}
       >
         <DropdownMenu />
       </DropdownContext.Provider>
     );
-    expect(component.find('.junipero.dropdown-menu').length).toBe(1);
+    expect(container.querySelectorAll('.junipero.dropdown-menu').length)
+      .toBe(1);
+    unmount();
   });
 
   it('should allow to render menu inside a custom container', () => {
-    mount(
+    const { unmount } = render(
       <DropdownContext.Provider
         value={{ styles: {}, attributes: {}, opened: true }}
       >
@@ -27,10 +28,11 @@ describe('<DropdownMenu />', () => {
     );
     expect(document.body.querySelector('.junipero.junipero-menu'))
       .toBeDefined();
+    unmount();
   });
 
   it('should allow to animate menu', () => {
-    const component = mount(
+    const { container, unmount } = render(
       <DropdownContext.Provider
         value={{ styles: {}, attributes: {}, opened: true }}
       >
@@ -43,33 +45,39 @@ describe('<DropdownMenu />', () => {
         />
       </DropdownContext.Provider>
     );
-    expect(component.find('.animation').length).toBe(1);
+    expect(container.querySelectorAll('.animation').length).toBe(1);
+    unmount();
   });
 
   it('should allow the use of insert apparition mode', () => {
-    const component = mount(
-      <DropdownContext.Provider
-        value={{ opened: false }}
-      >
+    const { container, rerender, unmount } = render(
+      <DropdownContext.Provider value={{ opened: false }}>
         <DropdownMenu apparition="insert" />
       </DropdownContext.Provider>
     );
-    expect(component.find('.menu-inner').length).toBe(0);
-    component.setProps({ value: { opened: true } });
-    expect(component.find('.menu-inner').length).toBe(1);
+    expect(container.querySelectorAll('.menu-inner').length).toBe(0);
+    rerender(
+      <DropdownContext.Provider value={{ opened: true }}>
+        <DropdownMenu apparition="insert" />
+      </DropdownContext.Provider>
+    );
+    expect(container.querySelectorAll('.menu-inner').length).toBe(1);
+    unmount();
   });
 
   it('should allow the use of css apparition mode', () => {
-    const component = mount(
-      <DropdownContext.Provider
-        value={{ opened: false }}
-      >
+    const { container, rerender, unmount } = render(
+      <DropdownContext.Provider value={{ opened: false }}>
         <DropdownMenu apparition="css" />
       </DropdownContext.Provider>
     );
-    expect(component.find('.menu-inner').length).toBe(1);
-    component.setProps({ value: { opened: true } });
-    expect(component.find('.menu-inner').length).toBe(1);
+    expect(container.querySelectorAll('.menu-inner').length).toBe(1);
+    rerender(
+      <DropdownContext.Provider value={{ opened: true }}>
+        <DropdownMenu apparition="css" />
+      </DropdownContext.Provider>
+    );
+    expect(container.querySelectorAll('.menu-inner').length).toBe(1);
+    unmount();
   });
-
 });

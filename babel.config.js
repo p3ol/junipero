@@ -10,6 +10,9 @@ module.exports = {
       'node_modules/react-native',
     ],
     presets: ['@babel/preset-env'],
+    plugins: [
+      '@babel/transform-runtime',
+    ],
   }, {
     test: [
       './packages/junipero-native/**/*.js',
@@ -17,13 +20,6 @@ module.exports = {
     ],
     presets: [
       'module:metro-react-native-babel-preset',
-    ],
-  }, {
-    test: '**/*.test.js',
-    plugins: [
-      ['@babel/transform-runtime', {
-        regenerator: true,
-      }],
     ],
   }],
 };

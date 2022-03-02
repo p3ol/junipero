@@ -1,48 +1,43 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
+import { render, fireEvent } from '@testing-library/react';
 
 import { DropdownContext } from '../contexts';
 import DropdownToggle from './';
 
 describe('<DropdownToggle />', () => {
-
   it('should render', () => {
-    const component = mount(
-      <DropdownContext.Provider
-        value={{ disabled: false, toggle: () => {} }}
-      >
+    const { container, unmount } = render(
+      <DropdownContext.Provider value={{ disabled: false, toggle: () => {} }}>
         <DropdownToggle>Open me</DropdownToggle>
       </DropdownContext.Provider>
     );
-    expect(component.find('.junipero.dropdown-toggle').length).toBe(1);
+    expect(container.querySelectorAll('.junipero.dropdown-toggle').length)
+      .toBe(1);
+    unmount();
   });
 
   it('should trigger dropdown toggle on click', () => {
-    const toggle = sinon.spy();
-    const component = mount(
-      <DropdownContext.Provider
-        value={{ disabled: false, toggle }}
-      >
+    const toggle = jest.fn();
+    const { container, unmount } = render(
+      <DropdownContext.Provider value={{ disabled: false, toggle }}>
         <DropdownToggle>Open me</DropdownToggle>
       </DropdownContext.Provider>
     );
-    component.find('.junipero.dropdown-toggle').simulate('click');
-    expect(toggle.called).toBe(true);
+    fireEvent.click(container.querySelector('.junipero.dropdown-toggle'));
+    expect(toggle).toHaveBeenCalled();
+    unmount();
   });
 
   it('should not trigger dropdown toggle on click if dropdown is ' +
     'disabled', () => {
-    const toggle = sinon.spy();
-    const component = mount(
-      <DropdownContext.Provider
-        value={{ disabled: true, toggle }}
-      >
+    const toggle = jest.fn();
+    const { container, unmount } = render(
+      <DropdownContext.Provider value={{ disabled: true, toggle }}>
         <DropdownToggle>Open me</DropdownToggle>
       </DropdownContext.Provider>
     );
-    component.find('.junipero.dropdown-toggle').simulate('click');
-    expect(toggle.called).toBe(false);
+    fireEvent.click(container.querySelector('.junipero.dropdown-toggle'));
+    expect(toggle).not.toHaveBeenCalled();
+    unmount();
   });
-
 });
