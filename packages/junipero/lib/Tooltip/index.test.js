@@ -1,149 +1,125 @@
-import React, { createRef } from 'react';
-import sinon from 'sinon';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { createRef } from 'react';
+import { render, fireEvent } from '@testing-library/react';
 
 import Tooltip from './';
 
 describe('<Tooltip />', () => {
-
   it('should render', () => {
     const ref = createRef();
-    const wrapper = mount(
+    const { container, unmount } = render(
       <Tooltip ref={ref}>
         <span>Text</span>
       </Tooltip>
     );
-    wrapper.find('span').simulate('mouseenter');
-    expect(wrapper.find('.junipero.tooltip').length).toBe(1);
+    fireEvent.mouseEnter(container.querySelector('span'));
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(1);
     expect(ref.current.opened).toBe(true);
-    wrapper.find('span').simulate('mouseleave');
-    expect(wrapper.find('.junipero.tooltip').length).toBe(0);
+    fireEvent.mouseLeave(container.querySelector('span'));
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(0);
+    expect(ref.current.opened).toBe(false);
+    unmount();
   });
 
   it('should also render tooltip when using click as trigger', () => {
-    const map = {};
-
-    document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
-
-    const wrapper = mount(
-      <Tooltip globalEventsTarget={document} trigger="click">
+    const { container, unmount } = render(
+      <Tooltip trigger="click">
         Text
       </Tooltip>
     );
 
-    wrapper.find('span').simulate('click');
-    expect(wrapper.find('.junipero.tooltip').length).toBe(1);
-    act(() => { map.click({ target: document.body }); });
-    wrapper.update();
-    expect(wrapper.find('.junipero.tooltip').length).toBe(0);
+    fireEvent.click(container.querySelector('span'));
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(1);
+    fireEvent.click(document.body);
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(0);
+    unmount();
   });
 
   it('should render even with no children', () => {
-    const wrapper = mount(
-      <Tooltip />
-    );
-    wrapper.find('span').simulate('mouseenter');
-    expect(wrapper.find('.junipero.tooltip').length).toBe(1);
+    const { container, unmount } = render(<Tooltip />);
+    fireEvent.mouseEnter(container.querySelector('span'));
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(1);
+    unmount();
   });
 
   it('should render with a custom placement', () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <Tooltip placement="bottom-end" />
     );
-    wrapper.find('span').simulate('mouseenter');
-    expect(wrapper.find('.junipero.tooltip').length).toBe(1);
+    fireEvent.mouseEnter(container.querySelector('span'));
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(1);
+    unmount();
   });
 
   it('should automatically close tooltip when disabled prop changes', () => {
-    const wrapper = mount(
-      <Tooltip>
-        Text
-      </Tooltip>
-    );
-    wrapper.find('span').simulate('mouseenter');
-    expect(wrapper.find('.junipero.tooltip').length).toBe(1);
-    wrapper.setProps({ disabled: true });
-    wrapper.update();
-    expect(wrapper.find('.junipero.tooltip').length).toBe(0);
+    const { container, rerender, unmount } = render(<Tooltip>Text</Tooltip>);
+    fireEvent.mouseEnter(container.querySelector('span'));
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(1);
+    rerender(<Tooltip disabled>Text</Tooltip>);
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(0);
+    unmount();
   });
 
   it('should allow to click outside without trying to close tooltip', () => {
-    const map = {};
-
-    document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
-
-    const wrapper = mount(
-      <Tooltip globalEventsTarget={document} trigger="click">
+    const { container, unmount } = render(
+      <Tooltip trigger="click">
         Text
       </Tooltip>
     );
-    act(() => { map.click({ target: document.body }); });
-    expect(wrapper.find('.junipero.tooltip').length).toBe(0);
+    fireEvent.click(document.body);
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(0);
+    unmount();
   });
 
   it('shouldn\'t open tooltip if disabled', () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <Tooltip disabled={true}>
         Text
       </Tooltip>
     );
-    wrapper.find('span').simulate('mouseenter');
-    expect(wrapper.find('.junipero.tooltip').length).toBe(0);
-  });
-
-  it('should clean document listeners on unmount', () => {
-    const map = {};
-
-    document.addEventListener = (name, cb) => { map[name] = sinon.spy(cb); };
-
-    document.removeEventListener = name => delete map[name];
-
-    const wrapper = mount(
-      <Tooltip globalEventsTarget={document} trigger="click">
-        Text
-      </Tooltip>
-    );
-
-    wrapper.unmount();
-    expect(map.click).not.toBeDefined();
+    fireEvent.mouseEnter(container.querySelector('span'));
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(0);
+    unmount();
   });
 
   it('should be able render inside another container using portals', () => {
-    const container = document.createElement('div');
-    container.className = 'test-container';
-    document.body.appendChild(container);
+    const { unmount: unmountContainer } = render(
+      <div className="test-container" />
+    );
 
-    const wrapper = mount(
+    const { container, unmount } = render(
       <Tooltip container=".test-container" />
     );
-    wrapper.find('span').simulate('mouseenter');
-
+    fireEvent.mouseEnter(container.querySelector('span'));
     expect(document.querySelector('.test-container .junipero.tooltip'))
       .not.toBeFalsy();
+    unmountContainer();
+    unmount();
   });
 
   it('should animate tooltip if prop is provided', () => {
-    const animate = sinon.spy(tooltip => tooltip);
+    const animate = jest.fn(tooltip => tooltip);
 
-    const wrapper = mount(
+    const { container, unmount } = render(
       <Tooltip animate={animate} />
     );
-    wrapper.find('span').simulate('mouseenter');
-    expect(animate.called).toBe(true);
+    fireEvent.mouseEnter(container.querySelector('span'));
+    expect(animate).toHaveBeenCalled();
+    unmount();
   });
 
   it('should animate tooltip in custom container if prop is provided', () => {
-    const animate = sinon.spy(tooltip => tooltip);
-    const container = document.createElement('div');
-    container.className = 'test-container';
-    document.body.appendChild(container);
+    const animate = jest.fn(tooltip => tooltip);
+    const { unmount: unmountContainer } = render(
+      <div className="test-container" />
+    );
 
-    const wrapper = mount(
+    const { container, unmount } = render(
       <Tooltip container=".test-container" animate={animate} />
     );
-    wrapper.find('span').simulate('mouseenter');
-    expect(animate.called).toBe(true);
+    fireEvent.mouseEnter(container.querySelector('span'));
+    expect(animate).toHaveBeenCalled();
+    unmountContainer();
+    unmount();
   });
 
   it('should allow to define a custom target to check for a click outside ' +
@@ -152,18 +128,15 @@ describe('<Tooltip />', () => {
     const buttonRef = createRef();
     const linkRef = createRef();
 
-    const map = {};
+    const { unmount: unmountLink } = render(
+      <a ref={linkRef} className="link" />
+    );
 
-    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
-
-    mount(<a ref={linkRef} className="link" />);
-
-    const component = mount(
+    const { container, getByText, unmount } = render(
       <div>
         <button className="button" ref={buttonRef} />
         <Tooltip
           trigger="click"
-          globalEventsTarget={document}
           ref={ref}
           clickOutsideTarget={linkRef.current}
         >
@@ -172,15 +145,17 @@ describe('<Tooltip />', () => {
       </div>
     );
 
-    component.find('span').simulate('click');
+    fireEvent.click(getByText('Text'));
     expect(ref.current.opened).toBe(true);
-    expect(component.find('.junipero.tooltip').length).toBe(1);
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(1);
     expect(linkRef.current).toBeDefined();
-    act(() => { map.click({ target: linkRef.current }); });
+    fireEvent.click(linkRef.current);
     expect(ref.current.opened).toBe(true);
-    expect(component.find('.junipero.tooltip').length).toBe(1);
-    act(() => { map.click({ target: buttonRef.current }); });
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(1);
+    fireEvent.click(buttonRef.current);
     expect(ref.current.opened).toBe(false);
+    expect(container.querySelectorAll('.junipero.tooltip').length).toBe(0);
+    unmountLink();
+    unmount();
   });
-
 });

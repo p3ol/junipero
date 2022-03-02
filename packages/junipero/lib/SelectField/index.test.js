@@ -1,9 +1,6 @@
-import React, { createRef } from 'react';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
-import { act } from 'react-dom/test-utils';
+import { createRef } from 'react';
+import { render, fireEvent, act } from '@testing-library/react';
 
-import { mountToBody } from '~test-utils';
 import SelectField from './';
 
 describe('<SelectField />', () => {
@@ -18,34 +15,34 @@ describe('<SelectField />', () => {
     },
   ];
 
-  it('should render', () => {
+  it('should render', async () => {
     const ref = createRef();
-    const component = mount(<SelectField ref={ref} />);
-    component.find('.base').simulate('focus');
-    act(() => { ref.current.reset(); });
-    component.find('.base').simulate('blur');
-    expect(component.find('.junipero.select').length).toBe(1);
+    const { container, unmount } = render(<SelectField ref={ref} />);
+    expect(container.querySelectorAll('.junipero.select').length).toBe(1);
+    unmount();
   });
 
   it('should initialize if value prop is defined on mount', () => {
     const ref = createRef();
-    mount(<SelectField ref={ref} required value="One" />);
+    const { unmount } = render(<SelectField ref={ref} required value="One" />);
     expect(ref.current.internalValue).toBe('One');
+    unmount();
   });
 
   it('should update internal value when value prop changes', () => {
     const ref = createRef();
-    const component = mount(
+    const { rerender, unmount } = render(
       <SelectField ref={ref} value="One" options={options} />
     );
     expect(ref.current.internalValue).toBe('One');
-    component.setProps({ value: 'Two' });
+    rerender(<SelectField ref={ref} value="Two" options={options} />);
     expect(ref.current.internalValue).toBe('Two');
+    unmount();
   });
 
-  it('should dissociate field title parsing from options parsing', () => {
+  it('should dissociate field title parsing from options parsing', async () => {
     const ref = createRef();
-    const component = mount(
+    const { container, getByText, unmount } = render(
       <SelectField
         ref={ref}
         value="One"
@@ -57,58 +54,63 @@ describe('<SelectField />', () => {
       />
     );
     expect(ref.current.internalValue).toBe('One');
-    expect(component.find('.value').text()).toBe(
-      'Custom parsed title: One'
-    );
-    component.find('.base').simulate('focus');
+    expect(getByText('Custom parsed title: One')).toBeTruthy();
+    await act(async () => { container.querySelector('.base').focus(); });
     expect(ref.current.opened).toBe(true);
-    expect(component.find('.dropdown-item').at(0).find('a').text())
-      .toBe('One');
+    expect(getByText('One')).toBeTruthy();
+    unmount();
   });
 
-  it('should close menu when disabled prop changes', () => {
+  it('should close menu when disabled prop changes', async () => {
     const ref = createRef();
-    const component = mount(<SelectField ref={ref} options={options} />);
-    component.find('.base').simulate('focus');
+    const { container, rerender, unmount } = render(
+      <SelectField ref={ref} options={options} />
+    );
+    await act(async () => { container.querySelector('.base').focus(); });
     expect(ref.current.opened).toBe(true);
-    component.setProps({ disabled: true });
+    rerender(
+      <SelectField ref={ref} options={options} disabled={true} />
+    );
     expect(ref.current.opened).toBe(false);
+    unmount();
   });
 
-  it('should reset internal value when calling reset method for native', () => {
+  it('should reset internal value when calling reset method for ' +
+    'native', async () => {
     const ref = createRef();
-    const component = mount(
-      <SelectField ref={ref} value="One" options={options} />
+    const { getByText, unmount } = render(
+      <SelectField autoFocus={true} ref={ref} value="One" options={options} />
     );
-    component.find('.base').simulate('focus');
-    component.find('.dropdown-item').at(1).find('a').simulate('click');
+    fireEvent.click(getByText('Two'));
     expect(ref.current.internalValue).toBe('Two');
-    act(() => { ref.current.reset(); });
+    await act(async () => { ref.current.reset(); });
     expect(ref.current.internalValue).toBe('One');
+    unmount();
   });
 
   it('should search for items on search field change', async () => {
-    const search = sinon.spy(() => ['Three']);
+    const search = jest.fn(() => ['Three']);
     jest.useFakeTimers();
 
-    const component = mount(
+    const { container, unmount } = render(
       <SelectField autoFocus search={search} value="One" options={options} />
     );
-    component.find('.search input').simulate('change', {
-      target: { value: 'test' },
-    });
+    fireEvent.change(container.querySelector('.search input'),
+      { target: { value: 'test' } });
 
     await act(async () => { jest.runAllTimers(); });
-    expect(search.calledOnce).toBe(true);
-    expect(search.calledWith(sinon.match('test'))).toBe(true);
+    expect(search).toHaveBeenCalledTimes(1);
+    expect(search).toHaveBeenCalledWith('test');
+    jest.useRealTimers();
+    unmount();
   });
 
   it('should show an empty text when no search result is found', async () => {
-    const search = sinon.spy(() => []);
+    const search = jest.fn(() => []);
     jest.useFakeTimers();
 
     const ref = createRef();
-    const component = mount(
+    const { container, unmount } = render(
       <SelectField
         autoFocus
         search={search}
@@ -117,70 +119,76 @@ describe('<SelectField />', () => {
         options={options}
       />
     );
-    component.find('.search input').simulate('change', {
-      target: { value: 'test' },
-    });
+    fireEvent.change(container.querySelector('.search input'),
+      { target: { value: 'test' } });
 
     await act(async () => { jest.runAllTimers(); });
-    expect(search.calledOnce).toBe(true);
-    expect(search.calledWith(sinon.match('test'))).toBe(true);
-    component.update();
-    expect(component.find('.no-results').html())
+    expect(search).toHaveBeenCalledTimes(1);
+    expect(search).toHaveBeenCalledWith('test');
+    expect(container.querySelector('.no-results').outerHTML)
       .toBe('<div class="no-results">No result found :(</div>');
+    jest.useRealTimers();
+    unmount();
   });
 
   it('shouldn\'t call search callback when search value is not set or ' +
     'empty', async () => {
-    const search = sinon.spy(() => ['Three']);
+    const search = jest.fn(() => ['Three']);
     jest.useFakeTimers();
 
-    const component = mount(
+    const { container, unmount } = render(
       <SelectField autoFocus search={search} value="One" options={options} />
     );
-    component.find('.search input').simulate('change', {
-      target: { value: '' },
-    });
+    fireEvent.change(container.querySelector('.search input'),
+      { target: { value: '' } });
 
     await act(async () => { jest.runAllTimers(); });
-    expect(search.called).toBe(false);
+    expect(search).not.toHaveBeenCalled();
+    jest.useRealTimers();
+    unmount();
   });
 
-  it('should fire onToggle event when opened/closed', () => {
-    const onToggle = sinon.spy();
+  it('should fire onToggle event when opened/closed', async () => {
+    const onToggle = jest.fn();
     const ref = createRef();
-    mount(
+    const { unmount } = render(
       <SelectField ref={ref} options={options} onToggle={onToggle} />
     );
-    act(() => { ref.current.focus(); });
+    await act(async () => { ref.current.focus(); });
     expect(ref.current.opened).toBe(true);
-    expect(onToggle.calledWith(sinon.match({ opened: true }))).toBe(true);
-    act(() => { ref.current.blur(); });
+    expect(onToggle)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ opened: true }));
+    await act(async () => { ref.current.blur(); });
     expect(ref.current.opened).toBe(false);
-    expect(onToggle.calledWith(sinon.match({ opened: false }))).toBe(true);
+    expect(onToggle)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ opened: false }));
+    unmount();
   });
 
   it('should set a custom text if options aren\'t provided or empty', () => {
-    const component = mount(
+    const { container, unmount } = render(
       <SelectField autoFocus noItems="There is no data here." />
     );
-    expect(component.find('.dropdown-menu').find('div.no-items').html())
+    expect(container.querySelector('.no-items').outerHTML)
       .toBe('<div class="no-items">There is no data here.</div>');
+    unmount();
   });
 
   it('should accept a value not included in provided options and' +
     ' set it as first index', () => {
     const ref = createRef();
-    const component = mount(
+    const { getByText, unmount } = render(
       <SelectField autoFocus ref={ref} options={options} value="Five" />
     );
     expect(ref.current.internalValue).toBe('Five');
-    component.find('.dropdown-item').at(0).find('a').simulate('click');
+    fireEvent.click(getByText('One'));
     expect(ref.current.internalValue).toBe('One');
+    unmount();
   });
 
   it('should update internal value when options change', () => {
     const ref = createRef();
-    const component = mount(
+    const { rerender, unmount } = render(
       <SelectField
         ref={ref}
         options={[]}
@@ -191,117 +199,95 @@ describe('<SelectField />', () => {
 
     expect(ref.current.internalValue).toBe(5);
 
-    component.setProps({
-      value: 4,
-      options: [
-        { title: 'Four', value: 4 },
-        { title: 'Five', value: 5 },
-        { title: 'Six', value: 6 },
-      ],
-    });
+    rerender(
+      <SelectField
+        ref={ref}
+        options={[
+          { title: 'Four', value: 4 },
+          { title: 'Five', value: 5 },
+          { title: 'Six', value: 6 },
+        ]}
+        parseValue={o => o.value || o}
+        value={4}
+      />
+    );
 
     expect(ref.current.internalValue?.value).toBe(4);
+    unmount();
   });
 
   it('should allow to select items using keyboard arrows', () => {
-    const map = {};
-
-    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
-
     const ref = createRef();
-    const component = mountToBody(
+    const { container, getByText, unmount } = render(
       <SelectField
         autoFocus
-        globalEventsTarget={document}
         ref={ref}
         options={options}
       />
     );
 
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-toggle .base').getDOMNode());
-    act(() => { map.keydown({ key: 'ArrowDown' }); });
+      .toBe(container.querySelector('.dropdown-toggle .base'));
+    fireEvent.keyDown(document.body, { key: 'ArrowDown' });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-item').at(0).getDOMNode());
-    act(() => { map.keydown({ key: 'ArrowDown' }); });
-    act(() => { map.keydown({ key: 'ArrowDown' }); });
-    act(() => { map.keydown({ key: 'ArrowDown' }); });
+      .toBe(container.querySelectorAll('.dropdown-item')[0]);
+    fireEvent.keyDown(document.body, { key: 'ArrowDown' });
+    fireEvent.keyDown(document.body, { key: 'ArrowDown' });
+    fireEvent.keyDown(document.body, { key: 'ArrowDown' });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-item').at(3).getDOMNode());
-    act(() => { map.keydown({ key: 'ArrowDown' }); });
+      .toBe(container.querySelectorAll('.dropdown-item')[3]);
+    fireEvent.keyDown(document.body, { key: 'ArrowDown' });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-item').at(0).getDOMNode());
-    act(() => { map.keydown({ key: 'ArrowUp' }); });
+      .toBe(container.querySelectorAll('.dropdown-item')[0]);
+    fireEvent.keyDown(document.body, { key: 'ArrowUp' });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-item').at(3).getDOMNode());
-    act(() => { map.keydown({ key: 'ArrowUp' }); });
-    act(() => { map.keydown({ key: 'ArrowUp' }); });
-    act(() => { map.keydown({ key: 'ArrowUp' }); });
+      .toBe(container.querySelectorAll('.dropdown-item')[3]);
+    fireEvent.keyDown(document.body, { key: 'ArrowUp' });
+    fireEvent.keyDown(document.body, { key: 'ArrowUp' });
+    fireEvent.keyDown(document.body, { key: 'ArrowUp' });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-item').at(0).getDOMNode());
-    act(() => { map.keydown({ key: 'ArrowUp' }); });
+      .toBe(container.querySelectorAll('.dropdown-item')[0]);
+    fireEvent.keyDown(document.body, { key: 'ArrowUp' });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-item').at(3).getDOMNode());
-    component.find('.dropdown-item').at(3)
-      .simulate('keypress', { key: 'Enter' });
+      .toBe(container.querySelectorAll('.dropdown-item')[3]);
+
+    // lmao keyPress doesn't work without charCode, when keyDown... does work
+    fireEvent.keyPress(getByText('Four'), { key: 'Enter', charCode: 13 });
     expect(ref.current.internalValue).toBe('Four');
-    component.detach();
+
+    unmount();
   });
 
   it('should not trigger keyboard actions when menu is not opened', () => {
-    const map = {};
-
-    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
-
-    document.activeElement?.blur();
-
     const ref = createRef();
-    const component = mountToBody(
-      <SelectField
-        globalEventsTarget={document}
-        ref={ref}
-      />
-    );
+    const { unmount } = render(<SelectField ref={ref} />);
     expect(document.activeElement).toBe(document.body);
-    act(() => { map.keydown({ key: 'ArrowUp' }); });
+    fireEvent.keyDown(document.body, { key: 'ArrowDown' });
     expect(document.activeElement).toBe(document.body);
-    component.detach();
+    unmount();
   });
 
   it('should not try to select an item if no options are specified', () => {
-    const map = {};
-
-    document.addEventListener = (event, cb) => { map[event] = sinon.spy(cb); };
-
-    document.activeElement?.blur();
-
     const ref = createRef();
-    const component = mountToBody(
-      <SelectField
-        autoFocus
-        globalEventsTarget={document}
-        ref={ref}
-      />
-    );
-
+    const { container, unmount } = render(<SelectField autoFocus ref={ref} />);
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-toggle .base').getDOMNode());
-    act(() => { map.keydown({ key: 'ArrowUp' }); });
+      .toBe(container.querySelector('.dropdown-toggle .base'));
+    fireEvent.keyDown(document.body, { key: 'ArrowDown' });
     expect(document.activeElement)
-      .toBe(component.find('.dropdown-toggle .base').getDOMNode());
-    component.detach();
+      .toBe(container.querySelector('.dropdown-toggle .base'));
+    unmount();
   });
 
   it('should allow to group options', () => {
-    const component = mount(
+    const { getByText, unmount } = render(
       <SelectField
         autoFocus
         parseTitle={o => o.title || o}
         options={optionsWithGroups}
       />
     );
-    expect(component.find('.items-group:first-child .group-label').text())
-      .toBe('Group 1');
+    expect(getByText('Group 1')).toBeTruthy();
+    unmount();
   });
 
 });

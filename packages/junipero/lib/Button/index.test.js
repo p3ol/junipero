@@ -1,30 +1,31 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import sinon from 'sinon';
+import { render, fireEvent } from '@testing-library/react';
 
 import Button from './';
 
 describe('<Button />', () => {
-
   it('should render', () => {
-    const component = shallow(<Button>Click me</Button>);
-    component.find('button').simulate('click');
-    expect(component.find('.junipero.button').length).toBe(1);
+    const { container, unmount } = render(<Button>Click me</Button>);
+    expect(container.querySelectorAll('.junipero.button').length).toBe(1);
+    unmount();
   });
 
   it('should fire onClick event when handler is passed with props', () => {
-    const onClick = sinon.spy();
-    const component = shallow(<Button onClick={onClick}>Click me</Button>);
-    component.find('button').simulate('click');
-    expect(onClick.called).toBe(true);
+    const onClick = jest.fn();
+    const { container, unmount } = render(
+      <Button onClick={onClick}>Click me</Button>
+    );
+    fireEvent.click(container.querySelector('button'));
+    expect(onClick).toHaveBeenCalled();
+    unmount();
   });
 
   it('should not fire onClick event when button is disabled', () => {
-    const onClick = sinon.spy();
-    const component = shallow(
-      <Button disabled onClick={onClick}>Click me</Button>);
-    component.find('button').simulate('click');
-    expect(onClick.called).toBe(false);
+    const onClick = jest.fn();
+    const { container, unmount } = render(
+      <Button disabled onClick={onClick}>Click me</Button>
+    );
+    fireEvent.click(container.querySelector('button'));
+    expect(onClick).not.toHaveBeenCalled();
+    unmount();
   });
-
 });

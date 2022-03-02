@@ -1,29 +1,30 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Loader from './';
 
 describe('<Loader />', () => {
-
   it('should render dots', () => {
-    const component = mount(<Loader />);
-    expect(component.find('.junipero.loader.dots').length).toBe(1);
-    expect(component.find('.dot').length).toBe(3);
-    expect(component.find('.inner').length).toBe(0);
+    const { container, unmount } = render(<Loader />);
+    expect(container.querySelectorAll('.junipero.loader.dots').length).toBe(1);
+    expect(container.querySelectorAll('.dot').length).toBe(3);
+    expect(container.querySelectorAll('.inner').length).toBe(0);
+    unmount();
   });
 
   it('should render bars', () => {
-    const component = mount(<Loader type="bar" />);
-    expect(component.find('.junipero.loader.bar').length).toBe(1);
-    expect(component.find('.dot').length).toBe(0);
-    expect(component.find('.inner').length).toBe(1);
+    const { container, unmount } = render(<Loader type="bar" />);
+    expect(container.querySelectorAll('.junipero.loader.bar').length).toBe(1);
+    expect(container.querySelectorAll('.dot').length).toBe(0);
+    expect(container.querySelectorAll('.inner').length).toBe(1);
+    unmount();
   });
 
   it('should render spinner', () => {
-    const component = mount(<Loader type="spinner" />);
-    expect(component.find('.junipero.loader.spinner').length).toBe(1);
-    expect(component.find('.dot').length).toBe(0);
-    expect(component.find('.inner').length).toBe(0);
+    const { container, unmount } = render(<Loader type="spinner" />);
+    expect(container.querySelectorAll('.junipero.loader.spinner').length)
+      .toBe(1);
+    expect(container.querySelectorAll('.dot').length).toBe(0);
+    expect(container.querySelectorAll('.inner').length).toBe(0);
+    unmount();
   });
-
 });

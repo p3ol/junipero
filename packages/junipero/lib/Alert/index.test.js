@@ -1,28 +1,27 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
+import { render, fireEvent } from '@testing-library/react';
 
 import Alert from './';
 
 describe('<Alert />', () => {
-
   it('should render Alert box', () => {
-    const component = mount(<Alert icon="🐱" />);
-    expect(component.find('.junipero.alert').length).toBe(1);
+    const { container, unmount } = render(<Alert icon="🐱" />);
+    expect(container.querySelectorAll('.junipero.alert').length).toBe(1);
+    unmount();
   });
 
   it('should be able to trigger onClose', () => {
-    const onClose = sinon.spy();
-    const component = mount(<Alert onClose={onClose} />);
-    component.find('.close').simulate('click');
-    expect(onClose.called).toBe(true);
+    const onClose = jest.fn();
+    const { container, unmount } = render(<Alert onClose={onClose} />);
+    fireEvent.click(container.querySelector('.close'));
+    expect(onClose).toHaveBeenCalled();
+    unmount();
   });
 
   it('should be able to trigger onClick', () => {
-    const onClick = sinon.spy();
-    const component = mount(<Alert onClick={onClick} />);
-    component.simulate('click');
-    expect(onClick.called).toBe(true);
+    const onClick = jest.fn();
+    const { container, unmount } = render(<Alert onClick={onClick} />);
+    fireEvent.click(container.querySelector('.junipero.alert'));
+    expect(onClick).toHaveBeenCalled();
+    unmount();
   });
-
 });

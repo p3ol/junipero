@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import SelectField from './index';
@@ -22,77 +21,63 @@ const objectOptionsWithValues = [
 ];
 
 export const basic = () => (
-  <React.Fragment>
-    <SelectField
-      options={options}
-      placeholder="Choose one item"
-      onChange={action('change')}
-    />
-  </React.Fragment>
+  <SelectField
+    options={options}
+    placeholder="Choose one item"
+    onChange={action('change')}
+  />
 );
 
 export const withLabel = () => (
-  <React.Fragment>
-    <SelectField
-      options={options}
-      placeholder="Choose one item"
-      onChange={action('change')}
-      label="Chosen item"
-    />
-  </React.Fragment>
+  <SelectField
+    options={options}
+    placeholder="Choose one item"
+    onChange={action('change')}
+    label="Chosen item"
+  />
 );
 
 export const noOptions = () => (
-  <React.Fragment>
-    <SelectField
-      placeholder="Choose one item"
-      onChange={action('change')}
-    />
-  </React.Fragment>
+  <SelectField
+    placeholder="Choose one item"
+    onChange={action('change')}
+  />
 );
 
 export const withObjectOptions = () => (
-  <React.Fragment>
-    <SelectField
-      placeholder="Choose one item"
-      onChange={action('change')}
-      options={objectOptions}
-      parseTitle={o => o.title}
-    />
-  </React.Fragment>
+  <SelectField
+    placeholder="Choose one item"
+    onChange={action('change')}
+    options={objectOptions}
+    parseTitle={o => o.title}
+  />
 );
 
 export const withObjectOptionsAndValueEnforced = () => (
-  <React.Fragment>
-    <SelectField
-      placeholder="Choose one item"
-      onChange={action('change')}
-      options={objectOptionsWithValues}
-      parseTitle={o => o.title}
-      parseValue={o => o.value}
-    />
-  </React.Fragment>
+  <SelectField
+    placeholder="Choose one item"
+    onChange={action('change')}
+    options={objectOptionsWithValues}
+    parseTitle={o => o.title}
+    parseValue={o => o.value}
+  />
 );
 
 export const withPlaceholder = () => (
-  <React.Fragment>
-    <SelectField
-      options={options}
-      placeholder="Select an item"
-      onChange={action('change')}
-    />
-  </React.Fragment>
+  <SelectField
+    options={options}
+    placeholder="Select an item"
+    onChange={action('change')}
+  />
 );
 
 export const autoFocused = () => (
-  <React.Fragment>
-    <SelectField
-      options={options}
-      autoFocus
-      placeholder="Choose one item"
-      onChange={action('change')}
-    />
-  </React.Fragment>
+  <SelectField
+    options={options}
+    autoFocus
+    placeholder="Choose one item"
+    onChange={action('change')}
+  />
 );
 
 export const withSearch = () => (

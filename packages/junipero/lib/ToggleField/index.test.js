@@ -1,84 +1,76 @@
-import React, { createRef } from 'react';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
-import { act } from 'react-dom/test-utils';
+import { createRef } from 'react';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import ToggleField from './';
 
 describe('<ToggleField />', () => {
-
   it('should render', () => {
-    const component = shallow(<ToggleField checkedLabel="Check this" />);
-    component.find('input').simulate('change', { target: { checked: true } });
-    expect(component.find('.junipero.toggle').length).toBe(1);
+    const { container, unmount } = render(
+      <ToggleField checkedLabel="Check this" />
+    );
+    expect(container.querySelectorAll('.junipero.toggle').length).toBe(1);
+    unmount();
   });
 
   it('should provide some imperative handles', () => {
     const ref = createRef();
-    const component = mount(
+    const { container, unmount } = render(
       <ToggleField ref={ref} uncheckedLabel="Check this" />
     );
     expect(ref.current.innerRef).toBeDefined();
-    expect(component.getDOMNode()).toBe(ref.current.innerRef.current);
+    expect(container.querySelector('.junipero.toggle'))
+      .toBe(ref.current.innerRef.current);
+    unmount();
   });
 
   it('should correctly fire onChange event', () => {
-    const onChange = sinon.spy();
-    const component = mount(<ToggleField checked={true} onChange={onChange} />);
-    component.find('input').simulate('change', { target: { checked: true } });
-    expect(onChange.withArgs(sinon.match({ checked: true })).called)
-      .toBe(true);
+    const onChange = jest.fn();
+    const { container, unmount } = render(
+      <ToggleField checked={true} onChange={onChange} />
+    );
+    fireEvent.click(container.querySelector('input'));
+    expect(onChange)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ checked: false }));
+    unmount();
   });
 
-  it('should fire onChange event even if no target is present in event', () => {
-    const onChange = sinon.spy();
-    const component = shallow(<ToggleField onChange={onChange} />);
-    component.find('input').simulate('change', { event: {} });
-    expect(onChange.withArgs(sinon.match({ checked: false })).called)
-      .toBe(true);
+  it('should toggle focused state on focus', async () => {
+    const { container, unmount } = render(<ToggleField />);
+    await act(async () => { container.querySelector('label').focus(); });
+    expect(container.querySelectorAll('.junipero.toggle.focused').length)
+      .toBe(1);
+    await act(async () => { container.querySelector('label').blur(); });
+    expect(container.querySelectorAll('.junipero.toggle.focused').length)
+      .toBe(0);
+    unmount();
   });
 
-  it('should toggle focused state on focus', () => {
-    const component = mount(<ToggleField />);
-    component.find('label').simulate('focus');
-    expect(component.find('.junipero.toggle.focused').length).toBe(1);
-    component.find('label').simulate('blur');
-    expect(component.find('.junipero.toggle.focused').length).toBe(0);
-  });
-
-  it('should toggle checked state on enter or space hit when focused', () => {
-    const map = {};
-
-    document.addEventListener = (event, cb) => { map[event] = cb; };
-
-    const component = mount(<ToggleField globalEventsTarget={document} />);
-    component.find('label').simulate('focus');
-    expect(component.find('.junipero.toggle.focused').length).toBe(1);
-    expect(map.keypress).toBeDefined();
-    act(() => map.keypress({ key: 'Enter' }));
-    component.update();
-    expect(component.find('.junipero.toggle.checked').length).toBe(1);
-    act(() => map.keypress({ key: ' ' }));
-    component.update();
-    expect(component.find('.junipero.toggle.checked').length).toBe(0);
-    component.find('label').simulate('blur');
+  it('should toggle checked state on enter or space hit when ' +
+    'focused', async () => {
+    const { container, unmount } = render(<ToggleField />);
+    await act(async () => { container.querySelector('label').focus(); });
+    expect(container.querySelectorAll('.junipero.toggle.focused').length)
+      .toBe(1);
+    fireEvent.keyPress(document.body, { key: 'Enter', charCode: 13 });
+    expect(container.querySelectorAll('.junipero.toggle.checked').length)
+      .toBe(1);
+    fireEvent.keyPress(document.body, { key: ' ', charCode: 32 });
+    expect(container.querySelectorAll('.junipero.toggle.checked').length)
+      .toBe(0);
+    unmount();
   });
 
   it('should not toggle toggle checked state on enter or space hit ' +
     'and toggle is not focused', () => {
-    const map = {};
-
-    document.addEventListener = (event, cb) => { map[event] = cb; };
-
-    const component = mount(<ToggleField globalEventsTarget={document} />);
-    expect(component.find('.junipero.toggle.focused').length).toBe(0);
-    expect(map.keypress).toBeDefined();
-    act(() => map.keypress({ key: 'Enter' }));
-    component.update();
-    expect(component.find('.junipero.toggle.checked').length).toBe(0);
-    act(() => map.keypress({ key: ' ' }));
-    component.update();
-    expect(component.find('.junipero.toggle.checked').length).toBe(0);
+    const { container, unmount } = render(<ToggleField />);
+    expect(container.querySelectorAll('.junipero.toggle.focused').length)
+      .toBe(0);
+    fireEvent.keyPress(document.body, { key: 'Enter', charCode: 13 });
+    expect(container.querySelectorAll('.junipero.toggle.checked').length)
+      .toBe(0);
+    fireEvent.keyPress(document.body, { key: ' ', charCode: 32 });
+    expect(container.querySelectorAll('.junipero.toggle.checked').length)
+      .toBe(0);
+    unmount();
   });
-
 });

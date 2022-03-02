@@ -6,7 +6,7 @@ module.exports = {
       browserslistEnv: process.env.BROWSERSLIST_ENV,
     }],
     ['@babel/preset-react', {
-      runtime: 'classic',
+      runtime: 'automatic',
     }],
   ],
   plugins: [

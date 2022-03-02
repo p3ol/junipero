@@ -1,45 +1,56 @@
-import React, { createRef } from 'react';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
+import { createRef } from 'react';
+import { render } from '@testing-library/react';
 
 import BaseField from './';
 
 describe('<BaseField />', () => {
 
   it('should render', () => {
-    const component = shallow(<BaseField />);
-    expect(component.find('.junipero.base').length).toBe(1);
-    component.find('.base').simulate('focus');
-    component.find('.base').simulate('blur');
+    const { container, unmount } = render(<BaseField />);
+    expect(container.querySelectorAll('.junipero.base').length).toBe(1);
+    unmount();
   });
 
   it('should provide access to inner ref', () => {
     const ref = createRef();
-    const component = mount(<BaseField ref={ref} />);
-    expect(component.find('.junipero.base').getDOMNode())
+    const { container, unmount } = render(<BaseField ref={ref} />);
+    expect(container.querySelector('.junipero.base'))
       .toBe(ref.current.innerRef.current);
+    unmount();
   });
 
   it('should render with a placeholder or a label', () => {
-    const component = mount(
+    const { container, rerender, unmount } = render(
       <BaseField placeholder="Placeholder" label="Label" />
     );
-    expect(component.find('.placeholder').length).toBe(1);
-    expect(component.find('.label').length).toBe(1);
-    component.setProps({ value: 'a', empty: false });
-    expect(component.find('.placeholder').length).toBe(0);
+
+    expect(container.querySelectorAll('.placeholder').length).toBe(1);
+    expect(container.querySelectorAll('.label').length).toBe(1);
+
+    rerender(
+      <BaseField
+        placeholder="Placeholder"
+        label="Label"
+        value="a"
+        empty={false}
+      />
+    );
+
+    expect(container.querySelectorAll('.placeholder').length).toBe(0);
+    unmount();
   });
 
   it('should fire focus and blur handlers', () => {
-    const onFocus = sinon.spy();
-    const onBlur = sinon.spy();
-    const component = mount(
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
+    const { container, unmount } = render(
       <BaseField onFocus={onFocus} onBlur={onBlur} />
     );
-    component.find('.base').simulate('focus');
-    expect(onFocus.called).toBe(true);
-    component.find('.base').simulate('blur');
-    expect(onBlur.called).toBe(true);
+    container.querySelector('.base').focus();
+    expect(onFocus).toHaveBeenCalled();
+    container.querySelector('.base').blur();
+    expect(onBlur).toHaveBeenCalled();
+    unmount();
   });
 
 });

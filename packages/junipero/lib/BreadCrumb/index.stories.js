@@ -1,5 +1,3 @@
-import React from 'react';
-
 import BreadCrumb from './index';
 import BreadCrumbItem from '../BreadCrumbItem';
 

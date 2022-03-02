@@ -1,4 +1,6 @@
-import React, {
+import {
+  Children,
+  cloneElement,
   forwardRef,
   useEffect,
   useState,
@@ -169,8 +171,8 @@ const Tooltip = forwardRef(({
           { ...getHandlers() }
           children={children}
         />
-      ) : React.cloneElement(
-        React.Children.only(children),
+      ) : cloneElement(
+        Children.only(children),
         { ...rest, ref: setInnerRef_, ...getHandlers() }
       ) }
 

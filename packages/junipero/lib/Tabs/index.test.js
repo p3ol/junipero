@@ -1,77 +1,89 @@
-import React, { createRef } from 'react';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
+import { Component, createRef } from 'react';
+import { render, fireEvent } from '@testing-library/react';
 import { omit } from '@poool/junipero-utils';
 
 import Tabs from './';
 import Tab from '../Tab';
 
 describe('<Tabs />', () => {
-
   it('should render', () => {
-    const component = mount(
+    const { container, unmount } = render(
       <Tabs />
     );
-    expect(component.find('.junipero.tabs').length).toBe(1);
+    expect(container.querySelectorAll('.junipero.tabs').length).toBe(1);
+    unmount();
   });
 
   it('should provide some imperative handles', () => {
     const ref = createRef();
-    const component = mount(
+    const { container, unmount } = render(
       <Tabs ref={ref}>
         <Tab title="One">One</Tab>
       </Tabs>
     );
     expect(ref.current.innerRef).toBeDefined();
-    expect(component.getDOMNode()).toBe(ref.current.innerRef.current);
+    expect(container.querySelector('.junipero.tabs'))
+      .toBe(ref.current.innerRef.current);
+    unmount();
   });
 
   it('should fire onChange event when changing tab', () => {
-    const onChange = sinon.spy();
-    const component = mount(
+    const onChange = jest.fn();
+    const { container, unmount } = render(
       <Tabs onChange={onChange}>
         <Tab>One</Tab>
         <Tab>Two</Tab>
       </Tabs>
     );
-    component.find('li.title').at(1).find('a').simulate('click');
-    expect(onChange.calledWith(1)).toBe(true);
+    fireEvent.click(container.querySelectorAll('li.title a')[1]);
+    expect(onChange).toHaveBeenCalledWith(1);
+    unmount();
   });
 
   it('should change internal active tab when changing prop', () => {
     const ref = createRef();
-    const component = mount(<Tabs ref={ref}><Tab>test</Tab></Tabs>);
-    component.setProps({ active: 1 });
+    const { rerender, unmount } = render(
+      <Tabs ref={ref}><Tab>test</Tab></Tabs>
+    );
+    expect(ref.current.activeTab).toBe(0);
+    rerender(
+      <Tabs active={1} ref={ref}><Tab>test</Tab></Tabs>
+    );
     expect(ref.current.activeTab).toBe(1);
+    unmount();
   });
 
   it('should change active tab when clicking on another tab title', () => {
     const ref = createRef();
-    const component = mount(
+    const { container, unmount } = render(
       <Tabs ref={ref}>
         <Tab>tab1</Tab>
         <Tab>tab2</Tab>
       </Tabs>
     );
-    component.find('li.title').at(1).find('a').simulate('click');
+    expect(ref.current.activeTab).toBe(0);
+    fireEvent.click(container.querySelectorAll('li.title a')[1]);
     expect(ref.current.activeTab).toBe(1);
+    unmount();
   });
 
   it('shouldn\'t change active tab if tab is disabled', () => {
     const ref = createRef();
-    const component = mount(
+    const { container, unmount } = render(
       <Tabs ref={ref}>
         <Tab>tab1</Tab>
         <Tab disabled={true}>tab2</Tab>
       </Tabs>
     );
-    component.find('li.title').at(1).find('a').simulate('click');
     expect(ref.current.activeTab).toBe(0);
+    fireEvent.click(container.querySelectorAll('li.title a')[1]);
+    expect(ref.current.activeTab).toBe(0);
+    unmount();
   });
 
   it('should be able to display tabs even when wrapped inside another ' +
     'component when using the filterTab prop', () => {
-    class Wrapper extends React.Component {
+    class Wrapper extends Component {
       static defaultProps = { mdxType: 'Tab' };
 
       render () {
@@ -79,29 +91,30 @@ describe('<Tabs />', () => {
       }
     }
 
-    const component = mount(
+    const { getByText, unmount } = render(
       <Tabs filterTab={c => c.props.mdxType === 'Tab'}>
         <Wrapper title="Tab 1">tab1</Wrapper>
         <Wrapper title="Tab 2">tab2</Wrapper>
       </Tabs>
     );
 
-    expect(component.find('li.title').at(0).text()).toBe('Tab 1');
-    expect(component.find('li.title').at(1).text()).toBe('Tab 2');
+    expect(getByText('Tab 1')).toBeTruthy();
+    expect(getByText('Tab 2')).toBeTruthy();
+    unmount();
   });
 
   it('should not be able to display tabs when wrapped inside another ' +
     'component if no filterTab prop is passed', () => {
     const Wrapper = props => <Tab { ...props } />;
 
-    const component = mount(
+    const { queryByText, unmount } = render(
       <Tabs>
         <Wrapper title="Tab 1">tab1</Wrapper>
         <Wrapper title="Tab 2">tab2</Wrapper>
       </Tabs>
     );
 
-    expect(component.find('li.title').length).toBe(0);
+    expect(queryByText('Tab 1')).toBeFalsy();
+    unmount();
   });
-
 });

@@ -1,7 +1,6 @@
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 import { Text, View } from 'react-native';
 import { render, waitFor, fireEvent } from '@testing-library/react-native';
-import sinon from 'sinon';
 
 import Button from './';
 
@@ -28,17 +27,17 @@ describe('<Button />', () => {
   });
 
   it('should fire onPress event by clicking the button', async () => {
-    const onPress = sinon.spy();
+    const onPress = jest.fn();
     const { getByTestId } = render(
       <Button testID="Button" onPress={onPress}>Click</Button>
     );
     await waitFor(() => getByTestId('Button'));
     fireEvent.press(getByTestId('Button'));
-    expect(onPress.called).toBe(true);
+    expect(onPress).toHaveBeenCalled();
   });
 
   it('should not be able to press if button is disabled', async () => {
-    const onPress = sinon.spy();
+    const onPress = jest.fn();
     const { getByTestId } = render(
       <Button testID="Button" disabled onPress={onPress}>Click</Button>
     );
@@ -46,7 +45,7 @@ describe('<Button />', () => {
     fireEvent.press(getByTestId('Button'));
     fireEvent(getByTestId('Button'), 'pressIn');
     fireEvent(getByTestId('Button'), 'pressOut');
-    expect(onPress.called).toBe(false);
+    expect(onPress).not.toHaveBeenCalled();
   });
 
   it('should render with the provided component as children', async () => {

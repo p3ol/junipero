@@ -1,27 +1,24 @@
-import React, { createRef } from 'react';
-import sinon from 'sinon';
-import { shallow, mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { createRef } from 'react';
+import { fireEvent, render, act } from '@testing-library/react';
 
-import { mountToBody } from '~test-utils';
 import CodeField from './index';
 
 describe('<CodeField />', () => {
-
   it('should render', () => {
-    const component = shallow(<CodeField />);
-    component.find('input:first-child')
-      .simulate('change', { target: { value: '1' } });
-    expect(component.find('.junipero.field.code').length).toBe(1);
+    const { container, unmount } = render(<CodeField />);
+    expect(container.querySelectorAll('.junipero.field.code').length).toBe(1);
+    unmount();
   });
 
   it('should provide some imperative handles', () => {
     const ref = createRef();
-    const component = mount(<CodeField value="12" ref={ref} />);
+    const { container, unmount } = render(<CodeField value="12" ref={ref} />);
+
     expect(ref.current.innerRef?.current).toBeDefined();
-    expect(component.getDOMNode()).toBe(ref.current.innerRef.current);
+    expect(container.querySelector('.junipero.field.code'))
+      .toBe(ref.current.innerRef.current);
     expect(ref.current.inputsRef?.current).toBeDefined();
-    expect(component.find('input').at(0).getDOMNode())
+    expect(container.querySelectorAll('input')[0])
       .toBe(ref.current.inputsRef.current[0]);
     expect(ref.current.internalValue).toBe('12');
     expect(ref.current.focus).toBeDefined();
@@ -29,153 +26,206 @@ describe('<CodeField />', () => {
     expect(ref.current.reset).toBeDefined();
     expect(ref.current.valid).toBeDefined();
     expect(ref.current.dirty).toBeDefined();
+
+    unmount();
   });
 
   it('should correctly fire onChange event', () => {
-    const onChange = sinon.spy();
-    const component = shallow(<CodeField onChange={onChange} />);
-    component.find('input:first-child')
-      .simulate('change', { target: { value: '1' } });
-    expect(onChange.withArgs(sinon.match({ value: '1' })).called).toBe(true);
+    const onChange = jest.fn();
+    const { container, unmount } = render(<CodeField onChange={onChange} />);
+
+    fireEvent.change(container.querySelectorAll('input')[0],
+      { target: { value: '1' } });
+    expect(onChange)
+      .toHaveBeenCalledWith(expect.objectContaining({ value: '1' }));
+
+    unmount();
   });
 
   it('should not fire onChange event if field is disabled', () => {
-    const onChange = sinon.spy();
-    const component = shallow(<CodeField disabled onChange={onChange} />);
-    component.find('input:first-child')
-      .simulate('change', { target: { value: '1' } });
-    expect(onChange.called).toBe(false);
+    const onChange = jest.fn();
+    const { container, unmount } = render(
+      <CodeField disabled onChange={onChange} />
+    );
+
+    fireEvent.change(container.querySelectorAll('input')[0],
+      { target: { value: '1' } });
+    expect(onChange).not.toHaveBeenCalled();
+    unmount();
   });
 
   it('should update state value when prop value changes', () => {
     const fieldRef = createRef();
-    const component = mount(<CodeField ref={fieldRef} />);
+    const { rerender, unmount } = render(<CodeField ref={fieldRef} />);
     expect(fieldRef.current?.internalValue).toBe('');
-    component.setProps({ value: '400' });
+    rerender(<CodeField value="400" ref={fieldRef} />);
     expect(fieldRef.current?.internalValue).toBe('400');
+    unmount();
   });
 
   it('should automatically focus field when autoFocus is enabled', () => {
-    const component = mountToBody(<CodeField autoFocus={true} />);
+    const { container, unmount } = render(<CodeField autoFocus={true} />);
     expect(document.activeElement)
-      .toBe(component.find('input:focus').at(0).getDOMNode());
-    component.detach();
+      .toBe(container.querySelectorAll('input')[0]);
+    unmount();
   });
 
   it('should automatically switch field focus when changing value', () => {
-    const component = mountToBody(<CodeField />);
-    expect(component.find('input:focus').length).toBe(0);
-    component.find('input:first-child')
-      .simulate('change', { target: { value: '1' } });
+    const { container, unmount } = render(<CodeField autoFocus={true} />);
     expect(document.activeElement)
-      .toBe(component.find('input').at(1).getDOMNode());
-    component.detach();
+      .toBe(container.querySelectorAll('input')[0]);
+    fireEvent.change(container.querySelectorAll('input')[0],
+      { target: { value: '1' } });
+    expect(document.activeElement)
+      .toBe(container.querySelectorAll('input')[1]);
+    unmount();
   });
 
   it('should allow navigating between inputs with arrow keys', () => {
-    const component = mountToBody(<CodeField />);
-    expect(component.find('input:focus').length).toBe(0);
-    component.find('input').at(0)
-      .simulate('keydown', { key: 'ArrowRight' });
+    const { container, unmount } = render(<CodeField autoFocus={true} />);
+
     expect(document.activeElement)
-      .toBe(component.find('input').at(1).getDOMNode());
-    component.find('input').at(1)
-      .simulate('keydown', { key: 'ArrowRight' });
+      .toBe(container.querySelectorAll('input')[0]);
+    fireEvent.keyDown(container.querySelectorAll('input')[0],
+      { key: 'ArrowRight' });
+
     expect(document.activeElement)
-      .toBe(component.find('input').at(2).getDOMNode());
-    component.find('input').at(2)
-      .simulate('keydown', { key: 'ArrowLeft' });
+      .toBe(container.querySelectorAll('input')[1]);
+    fireEvent.keyDown(container.querySelectorAll('input')[1],
+      { key: 'ArrowRight' });
+
     expect(document.activeElement)
-      .toBe(component.find('input').at(1).getDOMNode());
-    component.detach();
+      .toBe(container.querySelectorAll('input')[2]);
+    fireEvent.keyDown(container.querySelectorAll('input')[2],
+      { key: 'ArrowLeft' });
+
+    expect(document.activeElement)
+      .toBe(container.querySelectorAll('input')[1]);
+
+    unmount();
   });
 
   it('should erase chars & move selection when hitting backspace', () => {
     const fieldRef = createRef();
-    const component = mountToBody(<CodeField ref={fieldRef} value="224" />);
+    const { container, unmount } = render(
+      <CodeField ref={fieldRef} value="224" />
+    );
     expect(fieldRef.current?.internalValue).toBe('224');
-    component.find('input').at(3).simulate('keydown', { key: 'Backspace' });
+
+    fireEvent.keyDown(container.querySelectorAll('input')[3],
+      { key: 'Backspace' });
+
     expect(fieldRef.current?.internalValue).toBe('22');
     expect(document.activeElement)
-      .toBe(component.find('input').at(2).getDOMNode());
-    component.detach();
+      .toBe(container.querySelectorAll('input')[2]);
+
+    unmount();
   });
 
   it('should not allow to move selection if field is disabled', () => {
     document.activeElement?.blur();
-    const component = mountToBody(<CodeField disabled />);
-    component.find('input').at(0)
-      .simulate('keydown', { key: 'ArrowRight' });
+    const { container, unmount } = render(<CodeField disabled />);
+
+    fireEvent.keyDown(container.querySelectorAll('input')[0],
+      { key: 'ArrowRight' });
+
     expect(document.activeElement).toBe(document.body);
-    component.detach();
+
+    unmount();
   });
 
   it('should focus/blur wanted input when using forwarded methods', () => {
     document.activeElement?.blur();
+
     const ref = createRef();
-    const component = mountToBody(<CodeField ref={ref} />);
+    const { container, unmount } = render(<CodeField ref={ref} />);
+
     ref.current.focus();
     expect(document.activeElement)
-      .toBe(component.find('input').at(0).getDOMNode());
+      .toBe(container.querySelectorAll('input')[0]);
+
     ref.current.focus(4);
     expect(document.activeElement)
-      .toBe(component.find('input').at(4).getDOMNode());
+      .toBe(container.querySelectorAll('input')[4]);
+
     ref.current.blur(4);
     expect(document.activeElement).toBe(document.body);
-    component.detach();
+
+    unmount();
   });
 
-  it('should allow to reset field using forwarded method', () => {
+  it('should allow to reset field using forwarded method', async () => {
     const ref = createRef();
-    const onChange = sinon.spy();
-    const component = mount(
-      <CodeField ref={ref} value="12" onChange={onChange} />);
-    component.find('input').at(1)
-      .simulate('change', { target: { value: '1' } });
-    expect(onChange.withArgs(sinon.match({ value: '11' })).called).toBe(true);
+    const onChange = jest.fn();
+    const { container, unmount } = render(
+      <CodeField ref={ref} value="12" onChange={onChange} />
+    );
+
+    fireEvent.change(container.querySelectorAll('input')[1],
+      { target: { value: '1' } });
+    expect(onChange)
+      .toHaveBeenCalledWith(expect.objectContaining({ value: '11' }));
+    expect(ref.current.internalValue).toBe('11');
     expect(ref.current.dirty).toBe(true);
-    act(() => ref.current.reset());
-    expect(onChange.withArgs(sinon.match({ value: '12' })).called).toBe(false);
+
+    await act(async () => { ref.current.reset(); });
     expect(ref.current.internalValue).toBe('12');
     expect(ref.current.dirty).toBe(false);
+
+    unmount();
   });
 
   it('should set field as invalid if validation fails', () => {
     const ref = createRef();
-    const component = mount(
-      <CodeField ref={ref} validate={val => /^[0-9]+$/g.test(val)} />);
+    const { container, unmount } = render(
+      <CodeField ref={ref} validate={val => /^[0-9]+$/g.test(val)} />
+    );
+
     expect(ref.current.valid).toBe(false);
-    component.find('input').at(0)
-      .simulate('change', { target: { value: '1' } });
+
+    fireEvent.change(container.querySelectorAll('input')[0],
+      { target: { value: '1' } });
+
     expect(ref.current.internalValue).toBe('1');
     expect(ref.current.valid).toBe(true);
-    component.find('input').at(0)
-      .simulate('change', { target: { value: 'a' } });
+
+    fireEvent.change(container.querySelectorAll('input')[0],
+      { target: { value: 'a' } });
+
     expect(ref.current.internalValue).toBe('a');
     expect(ref.current.valid).toBe(false);
+
+    unmount();
   });
 
   it('should set field as invalid if field is required, dirty and ' +
     'empty', () => {
     const ref = createRef();
-    const component = mount(<CodeField ref={ref} required={true} />);
+    const { container, unmount } = render(
+      <CodeField ref={ref} required={true} />
+    );
     expect(ref.current.valid).toBe(false);
-    component.find('input').at(0)
-      .simulate('change', { target: { value: '1' } });
+
+    fireEvent.change(container.querySelectorAll('input')[0],
+      { target: { value: '1' } });
     expect(ref.current.internalValue).toBe('1');
     expect(ref.current.valid).toBe(true);
-    component.find('input').at(0)
-      .simulate('change', { target: { value: '' } });
+
+    fireEvent.change(container.querySelectorAll('input')[0],
+      { target: { value: '' } });
     expect(ref.current.internalValue).toBe('');
     expect(ref.current.valid).toBe(false);
+
+    unmount();
   });
 
-  it('should allow to reset field even if value prop is not defined', () => {
+  it('should allow to reset field even if value prop is not ' +
+    'defined', async () => {
     const ref = createRef();
-    mount(<CodeField ref={ref} />);
+    const { unmount } = render(<CodeField ref={ref} />);
     expect(ref.current.internalValue).toBe('');
-    act(() => ref.current.reset());
+    await act(async () => ref.current.reset());
     expect(ref.current.internalValue).toBe('');
+    unmount();
   });
-
 });

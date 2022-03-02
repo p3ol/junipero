@@ -1,4 +1,4 @@
-import React, {
+import {
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -153,6 +153,8 @@ const ColorField = forwardRef(({
       return;
     }
 
+    state.handleMoving = true;
+    state.handleType = type;
     dispatch({ handleMoving: true, handleType: type });
     onMouseMove_(e);
   };

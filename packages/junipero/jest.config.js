@@ -16,7 +16,6 @@ module.exports = {
   ],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    '<rootDir>/.ci/config/enzyme.js',
     '<rootDir>/.ci/config/popper.js',
   ],
 };
