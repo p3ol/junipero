@@ -150,7 +150,7 @@ export const withParsedFieldTitle = () => (
   <SelectField
     options={options}
     placeholder="Choose one item"
-    parseFieldTitle={(o, isFieldValue) => o && isFieldValue
+    parseTitle={(o, isFieldValue) => o && isFieldValue
       ? `Custom title: ${o}`
       : o
     }
