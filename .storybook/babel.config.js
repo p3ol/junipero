@@ -1,16 +1,15 @@
 module.exports = {
   presets: [
-    ['@babel/preset-env', {
+    ['@babel/env', {
       corejs: 3,
       useBuiltIns: 'usage',
-      browserslistEnv: process.env.BROWSERSLIST_ENV,
     }],
-    ['@babel/preset-react', {
+    ['@babel/react', {
       runtime: 'automatic',
     }],
   ],
   plugins: [
-    ['@babel/plugin-transform-runtime', {
+    ['@babel/transform-runtime', {
       corejs: 3,
     }],
   ],

@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import { Component, createRef } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { omit } from '@poool/junipero-utils';
 
@@ -83,7 +83,7 @@ describe('<Tabs />', () => {
 
   it('should be able to display tabs even when wrapped inside another ' +
     'component when using the filterTab prop', () => {
-    class Wrapper extends React.Component {
+    class Wrapper extends Component {
       static defaultProps = { mdxType: 'Tab' };
 
       render () {

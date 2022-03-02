@@ -1,4 +1,5 @@
-import React, {
+import {
+  Fragment,
   forwardRef,
   useEffect,
   useRef,
@@ -342,7 +343,7 @@ const DateField = forwardRef(({
                 .concat(getMonthDays(state.displayed))
                 .concat(getNextMonthDays(state.displayed))
                 .map((day, index) => (
-                  <React.Fragment key={index}>
+                  <Fragment key={index}>
                     <a
                       className={classNames('day', {
                         inactive: day.inactive,
@@ -358,7 +359,7 @@ const DateField = forwardRef(({
                     { (index + 1) % 7 === 0 && (
                       <div className="separator" />
                     )}
-                  </React.Fragment>
+                  </Fragment>
                 ))
               }
             </div>

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Badge from './index';
 
 export default { title: 'junipero/Badge' };

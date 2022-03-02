@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 import { fireEvent, render, act } from '@testing-library/react';
 
 import CodeField from './index';

@@ -1,4 +1,6 @@
-import React, {
+import {
+  Children,
+  cloneElement,
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -162,8 +164,8 @@ const Dropdown = forwardRef(({
       ref={innerRef}
     >
       <DropdownContext.Provider value={getContext()}>
-        { React.Children.map(children, child => filterToggle(child)
-          ? React.cloneElement(child, {
+        { Children.map(children, child => filterToggle(child)
+          ? cloneElement(child, {
             ref: ref_ => {
               toggleRef.current = ref_;
 
@@ -175,7 +177,7 @@ const Dropdown = forwardRef(({
             },
           })
           : filterMenu(child)
-            ? React.cloneElement(child, {
+            ? cloneElement(child, {
               ref: ref_ => {
                 menuRef.current = ref_;
 

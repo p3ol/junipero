@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react-native';
 
 import SelectField from './';
