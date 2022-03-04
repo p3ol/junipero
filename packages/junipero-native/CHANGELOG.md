@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.16](https://github.com/p3ol/junipero/compare/v2.0.0-rc.15...v2.0.0-rc.16) (2022-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency prop-types to v15.8.1 ([2beb6da](https://github.com/p3ol/junipero/commit/2beb6da327392c4faa0db2019c3a6061e37b40a5))
+* **junipero-native:** fix typo ([2fa4622](https://github.com/p3ol/junipero/commit/2fa462200ff99c8d413beb3cc037bd4eae2517ab))
+* **junipero-native:** simplify field title parsing dissociation ([5b64860](https://github.com/p3ol/junipero/commit/5b6486080b670513cc83f0944c0d83da0a565396))
+
+
+### Features
+
+* **junipero-native:** allow to dissociate field title parsing from options ([af685b1](https://github.com/p3ol/junipero/commit/af685b163958f0c987d40e6754c5a07c8f6d3be9))
+
+
+
+
+
 # [2.0.0-rc.15](https://github.com/p3ol/junipero/compare/v2.0.0-rc.14...v2.0.0-rc.15) (2021-10-20)
 
 **Note:** Version bump only for package @poool/junipero-native

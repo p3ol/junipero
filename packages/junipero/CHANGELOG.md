@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.16](https://github.com/p3ol/junipero/compare/v2.0.0-rc.15...v2.0.0-rc.16) (2022-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.19.0 ([b5403d2](https://github.com/p3ol/junipero/commit/b5403d26c502a30611dda9e9a7881eea823c03d0))
+* **deps:** update dependency core-js to v3.19.1 ([7661221](https://github.com/p3ol/junipero/commit/766122151224d335d3a605c1c971f8db109b3d28))
+* **deps:** update dependency core-js to v3.19.2 ([bfcb307](https://github.com/p3ol/junipero/commit/bfcb30748c87f008a4b78b8f7aa145db263ba86f))
+* **deps:** update dependency core-js to v3.19.3 ([8cdf3c2](https://github.com/p3ol/junipero/commit/8cdf3c2c7b12576b78fa7de059eca45d9f32bc98))
+* **deps:** update dependency core-js to v3.20.2 ([062c564](https://github.com/p3ol/junipero/commit/062c5644f33861dde1e8f9ed5e075459e2f4eb39))
+* **deps:** update dependency core-js to v3.20.3 ([24e6b07](https://github.com/p3ol/junipero/commit/24e6b07a49de9e70d5325373340eaf3363bd7fa6))
+* **deps:** update dependency core-js to v3.21.0 ([d65b3cd](https://github.com/p3ol/junipero/commit/d65b3cd8de8d0df01e140b1532ae410f22b35330))
+* **deps:** update dependency core-js to v3.21.1 ([70e0204](https://github.com/p3ol/junipero/commit/70e02043e41ff41c04023829a57ee808c11f76eb))
+* **deps:** update dependency prop-types to v15.8.1 ([2beb6da](https://github.com/p3ol/junipero/commit/2beb6da327392c4faa0db2019c3a6061e37b40a5))
+* **junipero:** fix wrong prop provided to selectfield story ([baaa7f2](https://github.com/p3ol/junipero/commit/baaa7f26f20d2bf2285823cfe0a9230208e19722))
+* **junipero:** simplify field title parsing dissociation ([0969ad9](https://github.com/p3ol/junipero/commit/0969ad9cf026ff96456fbb943ffa1f428bbf7e74))
+
+
+### Features
+
+* **junipero:** allow to dissociate field title parsing from options ([01cc0ed](https://github.com/p3ol/junipero/commit/01cc0edda3580b304ae40074e605c1f08c3c226e))
+
+
+
+
+
 # [2.0.0-rc.15](https://github.com/p3ol/junipero/compare/v2.0.0-rc.14...v2.0.0-rc.15) (2021-10-20)
 
 
