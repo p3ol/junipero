@@ -346,7 +346,7 @@ const TagsField = forwardRef(({
         onClick={onOptionClick_.bind(null, o)}
         tabIndex={-1}
       >
-        { parseTitle(o) }
+        { parseTitle(o, false) }
       </a>
     </DropdownItem>
   );
@@ -387,7 +387,7 @@ const TagsField = forwardRef(({
             )}
             onKeyDown={onTagKeyDown_.bind(null, i)}
           >
-            { parseTitle(tag) }
+            { parseTitle(tag, true) }
             <a
               tabIndex={-1}
               className="remove"

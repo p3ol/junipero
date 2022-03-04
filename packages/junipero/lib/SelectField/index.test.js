@@ -40,6 +40,27 @@ describe('<SelectField />', () => {
     unmount();
   });
 
+  it('should dissociate field title parsing from options parsing', async () => {
+    const ref = createRef();
+    const { container, getByText, unmount } = render(
+      <SelectField
+        ref={ref}
+        value="One"
+        options={options}
+        parseTitle={(o, isFieldValue) => o && isFieldValue
+          ? `Custom parsed title: ${o}`
+          : o
+        }
+      />
+    );
+    expect(ref.current.internalValue).toBe('One');
+    expect(getByText('Custom parsed title: One')).toBeTruthy();
+    await act(async () => { container.querySelector('.base').focus(); });
+    expect(ref.current.opened).toBe(true);
+    expect(getByText('One')).toBeTruthy();
+    unmount();
+  });
+
   it('should close menu when disabled prop changes', async () => {
     const ref = createRef();
     const { container, rerender, unmount } = render(

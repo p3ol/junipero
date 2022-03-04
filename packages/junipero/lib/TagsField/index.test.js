@@ -216,6 +216,24 @@ describe('<TagsField />', () => {
     unmount();
   });
 
+  it('should dissociate tags title parsing from options parsing', () => {
+    const ref = createRef();
+    const { container, getByText, unmount } = render(
+      <TagsField
+        ref={ref}
+        value={['One']}
+        parseTitle={(o, isFieldValue) => isFieldValue ? `Custom tag - ${o}` : o}
+      />
+    );
+    expect(getByText('Custom tag - One')).toBeTruthy();
+    fireEvent
+      .change(container.querySelector('input'), { target: { value: 'Two' } });
+    fireEvent.keyPress(container.querySelector('input'),
+      { key: 'Enter', charCode: 13 });
+    expect(getByText('Custom tag - Two')).toBeTruthy();
+    unmount();
+  });
+
   it('should not add a new tag when hitting any key except enter inside ' +
     'input', () => {
     const ref = createRef();

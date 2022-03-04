@@ -32,6 +32,28 @@ describe('<SelectField />', () => {
     expect(ref.current.selectedOption).toBe('One');
   });
 
+  it('should dissociate field title parsing from options parsing', async () => {
+    const ref = createRef();
+    const { getByTestId } = render(
+      <SelectField
+        ref={ref}
+        options={['One', 'Two']}
+        parseTitle={(o, isFieldValue) => o && isFieldValue
+          ? `Custom parsed title: ${o}`
+          : o
+        }
+      />
+    );
+    await waitFor(() => getByTestId('SelectField/Main'));
+    fireEvent.press(getByTestId('SelectField/Field'));
+    expect(ref.current.active).toBe(true);
+    fireEvent.press(getByTestId('One'));
+    expect(ref.current.selectedOption).toBe('One');
+    expect(
+      getByTestId('SelectField/Value').props.children
+    ).toBe('Custom parsed title: One');
+  });
+
   it('should display message if there is no options', async () => {
     const ref = createRef();
     const { getByTestId } = render(

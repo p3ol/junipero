@@ -101,3 +101,11 @@ export const withValidation = () => (
     onChange={action('change')}
   />
 );
+
+export const withParsedTagsTitle = () => (
+  <TagsField
+    value={['One']}
+    parseTitle={(o, isFieldValue) => isFieldValue ? `Custom tag - ${o}` : o}
+    onChange={action('change')}
+  />
+);

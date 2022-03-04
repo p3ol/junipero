@@ -87,3 +87,15 @@ export const withSearch = () => (
     onChange={action('change')}
   />
 );
+
+export const withParsedFieldTitle = () => (
+  <SelectField
+    options={options}
+    placeholder="Choose one item"
+    parseTitle={(o, isFieldValue) => o && isFieldValue
+      ? `Custom title: ${o}`
+      : o
+    }
+    onChange={action('change')}
+  />
+);
