@@ -390,9 +390,7 @@ SelectField.propTypes = {
   onFocus: PropTypes.func,
   onToggle: PropTypes.func,
   opened: PropTypes.bool,
-  dissociateFieldParsing: PropTypes.bool,
   parseTitle: PropTypes.func,
-  parseFieldTitle: PropTypes.func,
   parseValue: PropTypes.func,
   placeholder: PropTypes.oneOfType([
     PropTypes.string,
