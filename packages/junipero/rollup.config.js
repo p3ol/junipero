@@ -21,7 +21,9 @@ const components = fs.readdirSync('./lib', { withFileTypes: true })
   )
   .map(f => f.name);
 
-const defaultExternals = ['react', 'react-dom', 'prop-types', 'react-popper'];
+const defaultExternals = [
+  'react', 'react-dom', 'prop-types', 'react-popper', 'react/jsx-runtime',
+];
 const defaultGlobals = {
   react: 'React',
   'prop-types': 'PropTypes',
