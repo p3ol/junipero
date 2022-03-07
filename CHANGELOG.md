@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.17](https://github.com/p3ol/junipero/compare/v2.0.0-rc.16...v2.0.0-rc.17) (2022-03-07)
+
+
+### Bug Fixes
+
+* **lib:** add react/jsx-runtime to externals ([a9d7cc8](https://github.com/p3ol/junipero/commit/a9d7cc8dbac092aa9a18e6108bf67ed8ad1c5504))
+
+
+
+
+
 # [2.0.0-rc.16](https://github.com/p3ol/junipero/compare/v2.0.0-rc.15...v2.0.0-rc.16) (2022-03-04)
 
 
