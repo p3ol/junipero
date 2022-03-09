@@ -44,8 +44,10 @@ const DropdownToggle = forwardRef(({
 
 DropdownToggle.propTypes = {
   tag: PropTypes.oneOfType([
-    PropTypes.string,
     PropTypes.node,
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.object,
   ]),
   trigger: PropTypes.oneOf(['click', 'manual']),
   onClick: PropTypes.func,

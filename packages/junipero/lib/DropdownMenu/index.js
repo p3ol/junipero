@@ -61,8 +61,9 @@ DropdownMenu.propTypes = {
   ]),
   animate: PropTypes.func,
   tag: PropTypes.oneOfType([
-    PropTypes.string,
     PropTypes.node,
+    PropTypes.string,
+    PropTypes.func,
     PropTypes.object,
   ]),
 };
