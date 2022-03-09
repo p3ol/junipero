@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.18](https://github.com/p3ol/junipero/compare/v2.0.0-rc.17...v2.0.0-rc.18) (2022-03-09)
+
+
+### Bug Fixes
+
+* **lib:** fix missing prop types ([5873941](https://github.com/p3ol/junipero/commit/587394107560c99473bfe549384eb76b5b2d0ed6))
+
+
+
+
+
 # [2.0.0-rc.17](https://github.com/p3ol/junipero/compare/v2.0.0-rc.16...v2.0.0-rc.17) (2022-03-07)
 
 
