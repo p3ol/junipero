@@ -51,7 +51,7 @@
     "clean-css": "5.2.4",
     "clean-webpack-plugin": "4.0.0",
     "codecov": "3.8.3",
-    "css-loader": "6.6.0",
+    "css-loader": "6.7.1",
     "eslint": "8.10.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-babel": "5.3.1",
