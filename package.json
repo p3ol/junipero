@@ -45,7 +45,7 @@
     "@testing-library/react": "12.1.4",
     "@testing-library/react-native": "9.0.0",
     "auto-changelog": "2.4.0",
-    "autoprefixer": "10.4.3",
+    "autoprefixer": "10.4.4",
     "babel-jest": "27.5.1",
     "babel-loader": "8.2.3",
     "clean-css": "5.2.4",
