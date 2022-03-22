@@ -47,7 +47,7 @@
     "auto-changelog": "2.4.0",
     "autoprefixer": "10.4.4",
     "babel-jest": "27.5.1",
-    "babel-loader": "8.2.3",
+    "babel-loader": "8.2.4",
     "clean-css": "5.2.4",
     "clean-webpack-plugin": "4.0.0",
     "codecov": "3.8.3",
