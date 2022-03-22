@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.19](https://github.com/p3ol/junipero/compare/v2.0.0-rc.18...v2.0.0-rc.19) (2022-03-22)
+
+
+### Bug Fixes
+
+* **lib:** move text & title styles to reset ([ecb054f](https://github.com/p3ol/junipero/commit/ecb054f7e9406a9b0b59fb28bc7021c0b693f19d))
+
+
+### Features
+
+* **junipero:** add disabled state to togglefield component ([492c6a9](https://github.com/p3ol/junipero/commit/492c6a916b0a7bd6bea75ffa2fe1f292058c83f9))
+
+
+
+
+
 # [2.0.0-rc.18](https://github.com/p3ol/junipero/compare/v2.0.0-rc.17...v2.0.0-rc.18) (2022-03-09)
 
 
