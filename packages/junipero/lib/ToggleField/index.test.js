@@ -12,6 +12,17 @@ describe('<ToggleField />', () => {
     unmount();
   });
 
+  it('should be disabled', () => {
+    const onChange = jest.fn();
+    const { container, unmount } = render(
+      <ToggleField checkedLabel="Check this" disabled={true} />
+    );
+    expect(container.querySelector('.junipero.toggle.disabled')).toBeTruthy();
+    fireEvent.click(container.querySelector('input'));
+    expect(onChange).toHaveBeenCalledTimes(0);
+    unmount();
+  });
+
   it('should provide some imperative handles', () => {
     const ref = createRef();
     const { container, unmount } = render(
