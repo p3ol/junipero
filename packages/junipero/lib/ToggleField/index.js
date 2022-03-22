@@ -16,6 +16,7 @@ const ToggleField = forwardRef(({
   id,
   uncheckedLabel,
   value,
+  disabled,
   globalEventsTarget = global,
   animateLabel = label => label,
   onChange = () => {},
@@ -59,6 +60,10 @@ const ToggleField = forwardRef(({
   };
 
   const onChange_ = e => {
+    if (disabled) {
+      return;
+    }
+
     state.checked = e?.target?.checked ?? false;
     dispatch({ checked: state.checked });
     onChange({ value, checked: state.checked });
@@ -86,6 +91,7 @@ const ToggleField = forwardRef(({
           active: state.active,
           checked: state.checked,
           focused: state.focused,
+          disabled,
         },
         className
       )}
@@ -99,6 +105,7 @@ const ToggleField = forwardRef(({
         ref={inputRef}
         type="checkbox"
         value={value}
+        disabled={disabled}
         checked={state.checked}
         onChange={onChange_}
         tabIndex={-1}
@@ -130,6 +137,7 @@ ToggleField.propTypes = {
     PropTypes.node,
     PropTypes.object,
   ]),
+  disabled: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,

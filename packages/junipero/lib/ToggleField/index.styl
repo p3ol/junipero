@@ -26,6 +26,13 @@
         & + .label
           color: var(--main-color)
 
+  &.disabled
+    opacity: .5
+
+    &:focus
+      .inner
+        box-shadow: none
+
   .inner
     flex: 0 0 40px
     height: 20px
