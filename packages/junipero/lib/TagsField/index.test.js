@@ -167,8 +167,9 @@ describe('<TagsField />', () => {
   it('should remove a previously added tag when hitting backspace and ' +
     'input is empty', () => {
     const ref = createRef();
+    const onChange = jest.fn();
     const { container, unmount } = render(
-      <TagsField ref={ref} value={['One', 'Two']} />
+      <TagsField ref={ref} value={['One', 'Two']} onChange={onChange} />
     );
     expect(ref.current.internalValue.length).toBe(2);
     fireEvent.keyDown(container.querySelector('input'), { key: 'Backspace' });
@@ -176,6 +177,35 @@ describe('<TagsField />', () => {
     fireEvent
       .keyDown(container.querySelector('.tag:focus'), { key: 'Backspace' });
     expect(ref.current.internalValue.length).toBe(1);
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({
+      valid: true,
+      value: ['One'],
+    }));
+    unmount();
+  });
+
+  it('should left tagsfield invalid when removing the last tag and field ' +
+    'isnt required', () => {
+    const ref = createRef();
+    const onChange = jest.fn();
+    const { container, unmount } = render(
+      <TagsField
+        ref={ref}
+        value={['One']}
+        onChange={onChange}
+        required={true}
+      />
+    );
+    expect(ref.current.internalValue.length).toBe(1);
+    fireEvent.keyDown(container.querySelector('input'), { key: 'Backspace' });
+    expect(container.querySelector('.tag')).toBe(document.activeElement);
+    fireEvent
+      .keyDown(container.querySelector('.tag:focus'), { key: 'Backspace' });
+    expect(ref.current.internalValue.length).toBe(0);
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({
+      valid: false,
+      value: [],
+    }));
     unmount();
   });
 
@@ -426,11 +456,13 @@ describe('<TagsField />', () => {
     'dropdown', async () => {
     const ref = createRef();
     jest.useFakeTimers();
+    const onChange = jest.fn();
     const { container, unmount } = render(
       <TagsField
         ref={ref}
         value={[]}
         search={autoComplete}
+        onChange={onChange}
       />
     );
     await act(async () => { container.querySelector('input').focus(); });
@@ -443,6 +475,12 @@ describe('<TagsField />', () => {
     fireEvent.click(container.querySelector('.junipero.dropdown-item a'));
     expect(ref.current.internalValue.length).toBe(1);
     expect(ref.current.internalValue.pop()).toBe('Freeman');
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        valid: true,
+        value: ['Freeman'],
+      }),
+    );
     unmount();
     jest.useRealTimers();
   });
