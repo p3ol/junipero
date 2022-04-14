@@ -52,7 +52,7 @@ const TagsField = forwardRef(({
   const menuRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
     value: [...(value || [])],
-    valid: validate(value || []) && (value || []).every(t => validateTag(t)),
+    valid: validate(value || []) && (value || []).every(validateTag),
     availableOptions: options,
     inputValue: '',
     inputValid: true,
@@ -93,7 +93,7 @@ const TagsField = forwardRef(({
 
     dispatch({
       value: state.value,
-      valid: validate(state.value) && state.value.every(t => validateTag(t)),
+      valid: validate(state.value) && state.value.every(validateTag),
     });
   }, [value]);
 
@@ -247,8 +247,7 @@ const TagsField = forwardRef(({
       !onlyAllowOneOccurence ||
       !state.value.find(i => parseValue(i) === parseValue(o)));
 
-    state.valid = validate(state.value) &&
-      state.value.every(t => validateTag(t));
+    state.valid = validate(state.value) && state.value.every(validateTag);
 
     dispatch({
       value: state.value,
@@ -260,7 +259,7 @@ const TagsField = forwardRef(({
       dirty: true,
     });
     onChange({
-      value: state.value.map(i => parseValue(i)),
+      value: state.value.map(parseValue),
       valid: state.valid,
     });
 
@@ -283,8 +282,7 @@ const TagsField = forwardRef(({
       !onlyAllowOneOccurence ||
       !state.value.find(i => parseValue(i) === parseValue(o)));
 
-    state.valid = validate(state.value) &&
-      state.value.every(t => validateTag(t));
+    state.valid = validate(state.value) && state.value.every(validateTag);
 
     dispatch({
       value: state.value,
@@ -293,7 +291,7 @@ const TagsField = forwardRef(({
       dirty: true,
     });
     onChange({
-      value: state.value.map(i => parseValue(i)),
+      value: state.value.map(parseValue),
       valid: state.valid,
     });
   };
@@ -318,7 +316,7 @@ const TagsField = forwardRef(({
     dispatch({
       value: state.value,
       dirty: false,
-      valid: validate(state.value) && state.value.every(t => validateTag(t)),
+      valid: validate(state.value) && state.value.every(validateTag),
       inputValue: '',
       inputDirty: false,
       inputValid: true,
