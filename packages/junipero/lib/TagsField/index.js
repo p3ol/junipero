@@ -247,16 +247,22 @@ const TagsField = forwardRef(({
       !onlyAllowOneOccurence ||
       !state.value.find(i => parseValue(i) === parseValue(o)));
 
+    state.valid = validate(state.value) &&
+      state.value.every(t => validateTag(t));
+
     dispatch({
       value: state.value,
-      valid: validate(state.value) && state.value.every(t => validateTag(t)),
+      valid: state.valid,
       availableOptions: state.availableOptions,
       inputValue: '',
       inputDirty: false,
       inputValid: true,
       dirty: true,
     });
-    onChange({ value: state.value.map(i => parseValue(i)) });
+    onChange({
+      value: state.value.map(i => parseValue(i)),
+      valid: state.valid,
+    });
 
     if (state.searchResults) {
       dispatch({ searchResults: null, searching: false });
@@ -277,13 +283,19 @@ const TagsField = forwardRef(({
       !onlyAllowOneOccurence ||
       !state.value.find(i => parseValue(i) === parseValue(o)));
 
+    state.valid = validate(state.value) &&
+      state.value.every(t => validateTag(t));
+
     dispatch({
       value: state.value,
-      valid: validate(state.value) && state.value.every(t => validateTag(t)),
+      valid: state.valid,
       availableOptions: state.availableOptions,
       dirty: true,
     });
-    onChange({ value: state.value.map(i => parseValue(i)) });
+    onChange({
+      value: state.value.map(i => parseValue(i)),
+      valid: state.valid,
+    });
   };
 
   const focus = index => {
