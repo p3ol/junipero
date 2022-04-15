@@ -28,7 +28,7 @@
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "@percy/cli": "1.0.5",
-    "@percy/storybook": "4.1.0",
+    "@percy/storybook": "4.2.0",
     "@poool/eslint-config": "1.5.0",
     "@poool/eslint-config-react": "1.5.1",
     "@poool/eslint-config-react-native": "1.5.1",
