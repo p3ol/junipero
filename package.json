@@ -42,7 +42,7 @@
     "@storybook/builder-webpack5": "6.4.20",
     "@storybook/manager-webpack5": "6.4.20",
     "@storybook/react": "6.4.20",
-    "@testing-library/react": "12.1.4",
+    "@testing-library/react": "12.1.5",
     "@testing-library/react-native": "9.1.0",
     "auto-changelog": "2.4.0",
     "autoprefixer": "10.4.4",
