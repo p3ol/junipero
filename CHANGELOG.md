@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.20](https://github.com/p3ol/junipero/compare/v2.0.0-rc.19...v2.0.0-rc.20) (2022-04-15)
+
+
+### Bug Fixes
+
+* **lib:** fix modal not being displayed by default ([a0e5859](https://github.com/p3ol/junipero/commit/a0e5859d2cad6a6bdfe8e42c569039774c1c1dca))
+* **tags-field:** fix missing valid state on change event ([d09131f](https://github.com/p3ol/junipero/commit/d09131f9080ddc1e8209ad64ca5a9acc5ddc9b5c))
+
+
+
+
+
 # [2.0.0-rc.19](https://github.com/p3ol/junipero/compare/v2.0.0-rc.18...v2.0.0-rc.19) (2022-03-22)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.20](https://github.com/p3ol/junipero/compare/v2.0.0-rc.19...v2.0.0-rc.20) (2022-04-15)
+
+**Note:** Version bump only for package @poool/junipero-hooks
+
+
+
+
+
 # [2.0.0-rc.19](https://github.com/p3ol/junipero/compare/v2.0.0-rc.18...v2.0.0-rc.19) (2022-03-22)
 
 **Note:** Version bump only for package @poool/junipero-hooks
