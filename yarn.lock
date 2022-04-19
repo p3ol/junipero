@@ -4623,25 +4623,25 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.11.tgz#aeb16f50649a91af79dbe36574b66d0f9e4d9f71"
   integrity sha512-3NsZsJIA/22P3QUyrEDNA2D133H4j224twJrdipXN38dpnIOzAbUDtOwkcJ5pXmn75w7LSQDjA4tO9dm1XlqlA==
 
-"@poool/eslint-config-react-native@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react-native/-/eslint-config-react-native-1.5.1.tgz#4649d8059f21403afb387ab5741f462053720df7"
-  integrity sha512-OanugHYcom7b2KqAdGdITIKd4gjM7mao/gwx6MWfS7K5vmihGrGVuk5kWd9yx3YowjmxDM4VoZVj9IRxpnB3ZQ==
+"@poool/eslint-config-react-native@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react-native/-/eslint-config-react-native-1.5.2.tgz#41da0c48e94d3beea6c3263589cd3433754686ac"
+  integrity sha512-2ejgxAIfxjhsBINeIEzmCcWfSuan1sNLuSBqC19MU9Cm4f8OWQ/R2SkObHd8cDNuM1fgidjs8HmErVh16Sm6tQ==
 
-"@poool/eslint-config-react@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.5.1.tgz#081ca5402bd08e0beb755531d40901b5506029f0"
-  integrity sha512-BUleqUx/9LbnWlnlN2pXutf9Is/7kydjuuLZweY+fGFUsl5wrsGz7XjiGHosAR4WajPgRtFk2edMbv4y5mbyaw==
+"@poool/eslint-config-react@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config-react/-/eslint-config-react-1.5.2.tgz#8f3c194ac4f38b37a2c29cbcef72c17d863f7efb"
+  integrity sha512-CPSiJZUe2eX2BskS8RmHzZfvY7kZmRSzU/AY7h/rolCl+MFAXJpmCvIeNv31ribf/illfuDq/+R3j3V6YBlezA==
 
-"@poool/eslint-config@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-1.5.0.tgz#0498fb0a1925a027abb2e398db9ff9420b57d6b2"
-  integrity sha512-oWGb+k6Nk2/mY0993ui4pFCzW52y/rjMd0Gm4MXzVui7kUF+PRqjIpsvIPmW1QBoQVuQXVnsx/7MgZ+yiHk8Hg==
+"@poool/eslint-config@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-config/-/eslint-config-1.5.2.tgz#2c451298301dffe61d3642d2488b7414aba53a5c"
+  integrity sha512-/LZuzVwJu/GuYR5nz6q40DTUwW6j/LLIMW0ArpJVVFGMChc8C5cxlW2G0uo5HIYeSzOmWWVa5S0fTY0F2ZdhqA==
 
-"@poool/eslint-plugin@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@poool/eslint-plugin/-/eslint-plugin-1.5.0.tgz#3632e138c24cb495af73dc3494d899622618be03"
-  integrity sha512-RZo6PzIWHF7KWL+aT4qmp2OOM0LSb/eMeZKPVBwgjNpOs42ZQIg2fLeRM7wx1hrBpFkLO+LgF6XLsE9EgoiAEg==
+"@poool/eslint-plugin@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@poool/eslint-plugin/-/eslint-plugin-1.5.2.tgz#4bd6c9eaefb43d5e2522db9e33809bf418b05ac0"
+  integrity sha512-qwv0cS1Id4z8GP7OoRGUOI1o4sTGdNjRZ/ncTnPvcDFy9sFUAZkYkJG/GRZx+a2plruPbeVMhpf5gwdOD2hehA==
   dependencies:
     eslint-rule-composer "0.3.0"
 
