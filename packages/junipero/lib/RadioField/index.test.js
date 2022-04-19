@@ -65,7 +65,10 @@ describe('<RadioField />', () => {
     );
     fireEvent.click(container.querySelectorAll('input')[1]);
     expect(onChange)
-      .toHaveBeenLastCalledWith(expect.objectContaining({ value: 'Pear' }));
+      .toHaveBeenLastCalledWith(expect.objectContaining({
+        value: 'Pear',
+        valid: true,
+      }));
     unmount();
   });
 

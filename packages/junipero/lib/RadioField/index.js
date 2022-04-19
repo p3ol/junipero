@@ -40,6 +40,7 @@ const RadioField = forwardRef(({
     ) {
       dispatch({
         value: options?.find(o => parseValue(o) === parseValue(value)),
+        valid: true,
       });
     }
   }, [value, options]);
@@ -70,8 +71,8 @@ const RadioField = forwardRef(({
       return;
     }
 
-    dispatch({ value: option, dirty: true });
-    onChange({ value: parseValue(option) });
+    dispatch({ value: option, valid: true, dirty: true });
+    onChange({ value: parseValue(option), valid: true });
   };
 
   const onFocus_ = (option, index, e) => {
