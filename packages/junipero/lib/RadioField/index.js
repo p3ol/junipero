@@ -30,6 +30,7 @@ const RadioField = forwardRef(({
     focused: null,
     dirty: false,
     value,
+    valid: false,
   });
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const RadioField = forwardRef(({
     ) {
       dispatch({
         value: options?.find(o => parseValue(o) === parseValue(value)),
+        valid: true,
       });
     }
   }, [value, options]);
@@ -51,6 +53,7 @@ const RadioField = forwardRef(({
     dirty: state.dirty,
     internalValue: state.value,
     isJunipero: true,
+    valid: state.valid,
   }));
 
   const onKeyDown_ = (option, e) => {
@@ -70,8 +73,8 @@ const RadioField = forwardRef(({
       return;
     }
 
-    dispatch({ value: option, dirty: true });
-    onChange({ value: parseValue(option) });
+    dispatch({ value: option, valid: true, dirty: true });
+    onChange({ value: parseValue(option), valid: true });
   };
 
   const onFocus_ = (option, index, e) => {
