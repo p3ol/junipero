@@ -30,6 +30,7 @@ const RadioField = forwardRef(({
     focused: null,
     dirty: false,
     value,
+    valid: false,
   });
 
   useEffect(() => {
@@ -52,6 +53,7 @@ const RadioField = forwardRef(({
     dirty: state.dirty,
     internalValue: state.value,
     isJunipero: true,
+    valid: state.valid,
   }));
 
   const onKeyDown_ = (option, e) => {

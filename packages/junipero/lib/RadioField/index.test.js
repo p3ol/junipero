@@ -49,6 +49,7 @@ describe('<RadioField />', () => {
     );
     expect(ref.current.innerRefs.current.length).toBe(3);
     expect(ref.current.inputRefs.current.length).toBe(3);
+    expect(ref.current.valid).toBe(false);
     expect(container.querySelectorAll('input')[0])
       .toBe(ref.current.inputRefs.current[0]);
     unmount();
