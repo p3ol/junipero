@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero-native",
-  "version": "2.0.0-rc.20",
+  "version": "2.0.0-rc.21",
   "description": "🏔 Junipero Design System React Native components",
   "main": "dist/junipero-native.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -25,8 +25,8 @@
     "react-native": "^0.62.0 || ^0.67.0 || ^0.68.0"
   },
   "dependencies": {
-    "@poool/junipero-hooks": "^2.0.0-rc.20",
-    "@poool/junipero-utils": "^2.0.0-rc.20",
+    "@poool/junipero-hooks": "^2.0.0-rc.21",
+    "@poool/junipero-utils": "^2.0.0-rc.21",
     "prop-types": "15.8.1"
   },
   "scripts": {

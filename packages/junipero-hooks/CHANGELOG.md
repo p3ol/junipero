@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.21](https://github.com/p3ol/junipero/compare/v2.0.0-rc.20...v2.0.0-rc.21) (2022-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.22.0 ([2010860](https://github.com/p3ol/junipero/commit/20108604aaa92818a10392ef1a98699491c33aee))
+
+
+
+
+
 # [2.0.0-rc.20](https://github.com/p3ol/junipero/compare/v2.0.0-rc.19...v2.0.0-rc.20) (2022-04-15)
 
 **Note:** Version bump only for package @poool/junipero-hooks

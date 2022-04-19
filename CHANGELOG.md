@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.21](https://github.com/p3ol/junipero/compare/v2.0.0-rc.20...v2.0.0-rc.21) (2022-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.22.0 ([2010860](https://github.com/p3ol/junipero/commit/20108604aaa92818a10392ef1a98699491c33aee))
+* **junipero:** also provide missing valid state in imperative handles ([96c55e7](https://github.com/p3ol/junipero/commit/96c55e79ab7c45f23a16bd2f699fcfb6f8a7464d))
+* **junipero:** fix missing radiofield valid state ([ee29d48](https://github.com/p3ol/junipero/commit/ee29d48a2bdce45d1fe1bf5638610432f8352747))
+
+
+
+
+
 # [2.0.0-rc.20](https://github.com/p3ol/junipero/compare/v2.0.0-rc.19...v2.0.0-rc.20) (2022-04-15)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@poool/junipero-utils",
-  "version": "2.0.0-rc.20",
+  "version": "2.0.0-rc.21",
   "description": "🏔 Junipero Design System utils",
   "main": "dist/junipero-utils.cjs.js",
   "jsnext:main": "dist/esm/index.js",
