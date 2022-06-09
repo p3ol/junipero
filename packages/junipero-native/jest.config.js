@@ -4,7 +4,9 @@ module.exports = {
   displayName: 'junipero-native',
   clearMocks: true,
   rootDir: path.resolve(),
-  timers: 'real',
+  fakeTimers: {
+    enableGlobally: false,
+  },
   preset: 'react-native',
   moduleNameMapper: {
     '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',

@@ -4,7 +4,9 @@ module.exports = {
   displayName: 'junipero',
   clearMocks: true,
   rootDir: path.resolve(),
-  timers: 'real',
+  fakeTimers: {
+    enableGlobally: false,
+  },
   moduleNameMapper: {
     '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
     '^~test-utils$': '<rootDir>/.ci/config/utils.js',
