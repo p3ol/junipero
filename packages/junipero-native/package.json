@@ -22,7 +22,7 @@
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
-    "react-native": "^0.62.0 || ^0.67.0 || ^0.68.0"
+    "react-native": "^0.62.0 || ^0.67.0 || ^0.68.0 || ^0.69.0"
   },
   "dependencies": {
     "@poool/junipero-hooks": "^2.0.0-rc.21",
