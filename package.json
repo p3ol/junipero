@@ -65,7 +65,7 @@
     "html-webpack-plugin": "5.5.0",
     "jest": "28.1.2",
     "jest-environment-jsdom": "28.1.2",
-    "lerna": "5.1.6",
+    "lerna": "5.1.7",
     "metro-react-native-babel-preset": "0.71.2",
     "postcss": "8.4.14",
     "postcss-loader": "7.0.0",
