@@ -1,5 +1,5 @@
 import { createRef } from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import CheckboxField from './';
 
@@ -48,14 +48,20 @@ describe('<CheckboxField />', () => {
     unmount();
   });
 
-  it('should toggle checkbox focused state on focus', () => {
+  it('should toggle checkbox focused state on focus', async () => {
     const { container, unmount } = render(<CheckboxField />);
 
-    container.querySelector('label').focus();
+    await act(async () => {
+      container.querySelector('label').focus();
+    });
+
     expect(container.querySelectorAll('.junipero.checkbox.focused').length)
       .toBe(1);
 
-    container.querySelector('label').blur();
+    await act(async () => {
+      container.querySelector('label').blur();
+    });
+
     expect(container.querySelectorAll('.junipero.checkbox.focused').length)
       .toBe(0);
 
@@ -63,10 +69,13 @@ describe('<CheckboxField />', () => {
   });
 
   it('should toggle checkbox checked state on enter or space hit ' +
-    'when focused', () => {
+    'when focused', async () => {
     const { container, unmount } = render(<CheckboxField />);
 
-    container.querySelector('label').focus();
+    await act(async () => {
+      container.querySelector('label').focus();
+    });
+
     expect(container.querySelectorAll('.junipero.checkbox.focused').length)
       .toBe(1);
 
