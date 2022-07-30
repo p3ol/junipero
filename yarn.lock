@@ -17894,10 +17894,10 @@ react-test-renderer@18.2.0:
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
 
-react-transition-group@4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
-  integrity sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==
+react-transition-group@4.4.3:
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.3.tgz#bd2ef97e7c6a04ec9ab03bf9bb1fe424aa6e700f"
+  integrity sha512-ylc4S7Pi/2rR8j0Z+5WK23oTh4o4qDKIETL4Vzw4GAGa6EEFSIN8AbT3qdXFO8Wa6aYKe0bgKewSUqw+QP7BrA==
   dependencies:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"
