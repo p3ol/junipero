@@ -4937,7 +4937,7 @@
   dependencies:
     "@percy/cli-command" "1.7.2"
 
-"@percy/cli-command@1.7.2":
+"@percy/cli-command@1.7.2", "@percy/cli-command@^1.7.2":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@percy/cli-command/-/cli-command-1.7.2.tgz#93b4fab4a01b89bad5bda53bf1ea360d426a08d4"
   integrity sha512-roTWulBAidSX1ypH23FjVGnCX32YMsb6wUf3EFGNxnEdKYnMsOaH0zvDImJY6izz4NbP+XZ9HfGXu1oVPftoUw==
@@ -4945,15 +4945,6 @@
     "@percy/config" "1.7.2"
     "@percy/core" "1.7.2"
     "@percy/logger" "1.7.2"
-
-"@percy/cli-command@^1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@percy/cli-command/-/cli-command-1.6.3.tgz#e209cd4410cd8b6a0e130f48258173080bcdce96"
-  integrity sha512-WHICKTVdLW8vFm0emBkR/tV14XKWUfUEKw9UieSuEwIrQmMTPEaY0GxuRk3NrBMj6vkRuJW6yeLCGLVWFlRGlQ==
-  dependencies:
-    "@percy/config" "1.6.3"
-    "@percy/core" "1.6.3"
-    "@percy/logger" "1.6.3"
 
 "@percy/cli-config@1.7.2":
   version "1.7.2"
@@ -5002,14 +4993,6 @@
     "@percy/client" "1.7.2"
     "@percy/logger" "1.7.2"
 
-"@percy/client@1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@percy/client/-/client-1.6.3.tgz#7d75af3b92e3548fae70239cc16e4a832ae520e6"
-  integrity sha512-/gsfhikO3O36vWHH6TQ4QSVp/i1GkTt7lyPEn51jzKjV9rdQ8hmvxzMk2mleyYDAlZQBwyQaOZdMnhfbphLM2w==
-  dependencies:
-    "@percy/env" "1.6.3"
-    "@percy/logger" "1.6.3"
-
 "@percy/client@1.7.2":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@percy/client/-/client-1.7.2.tgz#124604c40e3b16c79f0a243a62f1f27d1ab37ab3"
@@ -5017,16 +5000,6 @@
   dependencies:
     "@percy/env" "1.7.2"
     "@percy/logger" "1.7.2"
-
-"@percy/config@1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@percy/config/-/config-1.6.3.tgz#381e2b1f64593b651c90aeca911979cae5867f3f"
-  integrity sha512-BKDykqRoBrjeUHhfYLuTrAnxFYTuOXHc6XKmHuui44buoF5ZaG/2Md5DQpqfGVQ0Jdzumoge/up7PGmxdve1SQ==
-  dependencies:
-    "@percy/logger" "1.6.3"
-    ajv "^8.6.2"
-    cosmiconfig "^7.0.0"
-    yaml "^2.0.0"
 
 "@percy/config@1.7.2":
   version "1.7.2"
@@ -5037,25 +5010,6 @@
     ajv "^8.6.2"
     cosmiconfig "^7.0.0"
     yaml "^2.0.0"
-
-"@percy/core@1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@percy/core/-/core-1.6.3.tgz#a22c12e09d1e43aa6e72494ce94acae7beb8923d"
-  integrity sha512-RwRh8UUARv2gtD32C0NNe6VbBAWhne6IUBN5nMJ2yw6Q7LZqf2oa8kiocxGlyXpMTjYDRZ/FbNT0PqFw5o52gw==
-  dependencies:
-    "@percy/client" "1.6.3"
-    "@percy/config" "1.6.3"
-    "@percy/dom" "1.6.3"
-    "@percy/logger" "1.6.3"
-    content-disposition "^0.5.4"
-    cross-spawn "^7.0.3"
-    extract-zip "^2.0.1"
-    fast-glob "^3.2.11"
-    micromatch "^4.0.4"
-    mime-types "^2.1.34"
-    path-to-regexp "^6.2.0"
-    rimraf "^3.0.2"
-    ws "^8.0.0"
 
 "@percy/core@1.7.2":
   version "1.7.2"
@@ -5076,44 +5030,29 @@
     rimraf "^3.0.2"
     ws "^8.0.0"
 
-"@percy/dom@1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@percy/dom/-/dom-1.6.3.tgz#cd2bf2569ba328f886ba9e026498a060fd980ffc"
-  integrity sha512-V4D/og0AOI1uFb5xtRYuypjmG6PuVwe+eMz10hFThRsxCiRGKlS7QnZUyNQkRwIO/k2r7LnboBpIUzBakSCgzA==
-
 "@percy/dom@1.7.2":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@percy/dom/-/dom-1.7.2.tgz#df12f2d6cd2389a01acd8354fac8496dbbf1e50f"
   integrity sha512-ipi7SF4nS+/UfHXYLeJTRp25rGvZhRwmGQv6WjAK1HGkl4OJaFJNPbWe0+SCG4zwSsCudeY4lxk5rk05Ev6b1A==
-
-"@percy/env@1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@percy/env/-/env-1.6.3.tgz#ab9ff1f3cd85d77be409206d6469fa580efe5164"
-  integrity sha512-YsGQa6i/8Ca+XblRFxAClIo18dEYrU/rZKTZEio4WJ59zjoTskOU3VTgH4a4LX7J3LRpy0+A3v8UiUI4y3Vf8g==
 
 "@percy/env@1.7.2":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@percy/env/-/env-1.7.2.tgz#99fd35eeabedcf3762af2efbba177c7bbc57309a"
   integrity sha512-exnZsBROCg17bNHqF7CEJVheGVnysZlChSiJHssLcdPGjg2+decefc26UZLA4PuEqgcmYWun5WyGLRPQo62oUQ==
 
-"@percy/logger@1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@percy/logger/-/logger-1.6.3.tgz#c13c64c20f9f842fe36266abbddfe9f07cfd2b6a"
-  integrity sha512-900DQ6KmDZVADuVdPARpZHvodALrswLOd/z4x2du484o/hyiNtO2nvO3rzyTCPVI+nreMT82yCy3JqnNwtJaSQ==
-
 "@percy/logger@1.7.2":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@percy/logger/-/logger-1.7.2.tgz#38b008459f5598d3a8f8708dc68a246473aac8a8"
   integrity sha512-GSbOqPpjM+UC/0pcm6oTi+KI4u/nbs8Awz0HtFcoxyaNRBptRFUh75zF7qI0zB/HRp8QlZ0z4DayCepfrqqO0A==
 
-"@percy/storybook@4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@percy/storybook/-/storybook-4.3.1.tgz#6acd8ebfa03e44e11e39fdd8cad11aa7e494b68d"
-  integrity sha512-o/xUlA2JydaTmVWSzvZzFPuNvVI9+T+FK+02uN8NaJ2dZ+QpAEwq+hlqWy8QMhAuia7MZ38bLr8MMHcItUytoA==
+"@percy/storybook@4.3.2":
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/@percy/storybook/-/storybook-4.3.2.tgz#d7bac47f34e92c15ae6b6fc6f1713b6badca13ae"
+  integrity sha512-m1KSYCYaL0pcNg8Eucfnz6gqm4dtIarN0q9Zk0YdyEvVNMnuUDQddAI/I2l/VpSuWRfZrLglA/9twVOji/7BzA==
   dependencies:
-    "@percy/cli-command" "^1.6.3"
-    "@storybook/router" "^6.5.0"
+    "@percy/cli-command" "^1.7.2"
     cross-spawn "^7.0.3"
+    qs "^6.11.0"
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.3":
   version "0.5.7"
@@ -6059,7 +5998,7 @@
     util-deprecate "^1.0.2"
     webpack ">=4.43.0 <6.0.0"
 
-"@storybook/router@6.5.9", "@storybook/router@^6.5.0":
+"@storybook/router@6.5.9":
   version "6.5.9"
   resolved "https://registry.yarnpkg.com/@storybook/router/-/router-6.5.9.tgz#4740248f8517425b2056273fb366ace8a17c65e8"
   integrity sha512-G2Xp/2r8vU2O34eelE+G5VbEEVFDeHcCURrVJEROh6dq2asFJAPbzslVXSeCqgOTNLSpRDJ2NcN5BckkNqmqJg==
@@ -17615,6 +17554,13 @@ qs@^6.10.0:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
   integrity sha512-M528Hph6wsSVOBiYUnGf+K/7w0hNshs/duGsNXPUCLH5XAqjEtiPGwNONLV0tBH8NoGb0mvD5JubnUTrujKDTg==
+  dependencies:
+    side-channel "^1.0.4"
+
+qs@^6.11.0:
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"
+  integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
   dependencies:
     side-channel "^1.0.4"
 
