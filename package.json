@@ -35,7 +35,7 @@
     "@poool/eslint-plugin": "2.0.0",
     "@popperjs/core": "2.11.5",
     "@rollup/plugin-babel": "5.3.1",
-    "@rollup/plugin-commonjs": "22.0.1",
+    "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@storybook/addon-actions": "6.5.10",
     "@storybook/addon-storysource": "6.5.10",
