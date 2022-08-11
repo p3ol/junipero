@@ -33,7 +33,7 @@
     "@poool/eslint-config-react": "2.0.0",
     "@poool/eslint-config-react-native": "2.0.0",
     "@poool/eslint-plugin": "2.0.0",
-    "@popperjs/core": "2.11.5",
+    "@popperjs/core": "2.11.6",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-node-resolve": "13.3.0",
