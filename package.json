@@ -72,7 +72,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.69.5",
-    "react-native-web": "0.18.7",
+    "react-native-web": "0.18.8",
     "react-popper": "2.3.0",
     "react-test-renderer": "18.2.0",
     "react-transition-group": "4.4.5",
