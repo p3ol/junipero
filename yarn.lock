@@ -3132,6 +3132,14 @@
     pirates "^4.0.5"
     source-map-support "^0.5.16"
 
+"@babel/runtime-corejs3@7.17.9":
+  version "7.17.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.17.9.tgz#3d02d0161f0fbf3ada8e88159375af97690f4055"
+  integrity sha512-WxYHHUWF2uZ7Hp1K+D1xQgbgkGUfA+5UPOegEXGt2Y5SMog/rYCVaifLZDbw8UkNXozEqqrZTy6bglL7xTaCOw==
+  dependencies:
+    core-js-pure "^3.20.2"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime-corejs3@7.19.1":
   version "7.19.1"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.19.1.tgz#f0cbbe7edda7c4109cd253bb1dee99aba4594ad9"
@@ -5342,6 +5350,14 @@
   integrity sha512-H0Y9HWRZ6HAZzuWBHKoOZ0nho7Wep1iNW1pPfmg1vw7o6WF04/W034Mi488T51UeHXzUnj0/DktDVyYTJXwS0g==
   dependencies:
     eslint-rule-composer "0.3.0"
+
+"@poool/junipero-utils@^2.0.0-rc.21":
+  version "2.0.0-rc.21"
+  resolved "https://registry.yarnpkg.com/@poool/junipero-utils/-/junipero-utils-2.0.0-rc.21.tgz#483924ccb1fad4aac2b80e03e226951ce66884f1"
+  integrity sha512-lN2YEEEtbOPm6eP7OjNIalChhynwbG4IU11hg5przagyKjENbZ+wqxpytCvTlPO2aKVKXnbacyw9uvyOlZrOgw==
+  dependencies:
+    "@babel/runtime-corejs3" "7.17.9"
+    core-js "3.22.0"
 
 "@popperjs/core@2.11.6":
   version "2.11.6"
@@ -9558,7 +9574,7 @@ core-js-compat@^3.9.0:
     browserslist "^4.16.3"
     semver "7.0.0"
 
-core-js-pure@^3.25.1:
+core-js-pure@^3.20.2, core-js-pure@^3.25.1:
   version "3.25.2"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.25.2.tgz#44a4fd873bdd4fecf6ca11512bcefedbe87e744a"
   integrity sha512-ItD7YpW1cUB4jaqFLZXe1AXkyqIxz6GqPnsDV4uF4hVcWh/WAGIqSqw5p0/WdsILM0Xht9s3Koyw05R3K6RtiA==
@@ -9567,6 +9583,11 @@ core-js-pure@^3.8.1:
   version "3.19.2"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.19.2.tgz#26b5bfb503178cff6e3e115bc2ba6c6419383680"
   integrity sha512-5LkcgQEy8pFeVnd/zomkUBSwnmIxuF1C8E9KrMAbOc8f34IBT9RGvTYeNDdp1PnvMJrrVhvk1hg/yVV5h/znlg==
+
+core-js@3.22.0:
+  version "3.22.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.22.0.tgz#b52007870c5e091517352e833b77f0b2d2b259f3"
+  integrity sha512-8h9jBweRjMiY+ORO7bdWSeWfHhLPO7whobj7Z2Bl0IDo00C228EdGgH7FE4jGumbEjzcFfkfW8bXgdkEDhnwHQ==
 
 core-js@3.25.2:
   version "3.25.2"

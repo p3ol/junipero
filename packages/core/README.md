@@ -2,10 +2,10 @@
 
 <div align="center">
 
-[![npm](https://img.shields.io/npm/v/@poool/junipero-utils.svg)](https://www.npmjs.com/package/@poool/junipero-utils)
+[![npm](https://img.shields.io/npm/v/@junipero/core.svg)](https://www.npmjs.com/package/@junipero/core)
 
 <br />
-<h3>junipero-utils</h3>
+<h3>@junipero/core</h3>
 <p>Simple utilities we commonly use inside Junipero packages</p>
 
 </div>
@@ -13,14 +13,13 @@
 ## Installation
 
 ```bash
-yarn add @poool/junipero-utils
+yarn add @junipero/core
 ```
 
 ## Usage
 
 ```javascript
-import React from 'react';
-import { classNames } from '@poool/junipero-utils';
+import { classNames } from '@junipero/core';
 
 export default ({ className, disabled }) => (
   <div className={classNames('text', { disabled }, className)} />

@@ -14,6 +14,7 @@ module.exports = {
     config.resolve.modules = ['node_modules', path.resolve('./node_modules')];
     config.resolve.alias = {
       'react-native': 'react-native-web',
+      '@junipero/core': path.resolve('./packages/core/lib'),
     };
 
     config.module.rules.push({

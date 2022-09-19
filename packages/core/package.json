@@ -1,23 +1,23 @@
 {
-  "name": "@poool/junipero-utils",
-  "version": "2.0.0-rc.21",
-  "description": "🏔 Junipero Design System utils",
-  "main": "dist/junipero-utils.cjs.js",
+  "name": "@junipero/core",
+  "version": "3.0.0-alpha.0",
+  "description": "🏔 Junipero Design System Core Utils",
+  "main": "dist/junipero-core.cjs.js",
   "jsnext:main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "esnext": "src/index.js",
-  "unpkg": "dist/junipero-utils.min.js",
-  "cdn": "dist/junipero-utils.min.js",
+  "unpkg": "dist/junipero-core.min.js",
+  "cdn": "dist/junipero-core.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
-    "directory": "packages/junipero-utils"
+    "directory": "packages/core"
   },
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
   "sideEffects": false,
   "engines": {
-    "node": ">= 12",
+    "node": ">= 14",
     "yarn": ">= 1"
   },
   "dependencies": {

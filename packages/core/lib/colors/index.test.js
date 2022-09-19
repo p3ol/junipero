@@ -13,10 +13,8 @@ import {
 
 describe('colors', () => {
   describe('hsva2hsla({ h, s, v, a })', () => {
-
     it('should transform simple HSVA values into HSLA', () => {
       const { h, s, l, a } = hsva2hsla({ h: 360, s: 0.5, v: 0.5, a: 1 });
-
       expect(h).toBe(360);
       expect(s.toFixed(2)).toBe('0.33');
       expect(l.toFixed(2)).toBe('0.38');
@@ -39,11 +37,9 @@ describe('colors', () => {
       expect(l).toBe(1);
       expect(a).toBe(1);
     });
-
   });
 
   describe('hsla2hsva({ h, s, l, a })', () => {
-
     it('should transform simple HSLA values into HSVA', () => {
       const { h, s, v, a } = hsla2hsva({ h: 360, s: 0.5, l: 0.5, a: 1 });
       expect(h).toBe(360);
@@ -59,11 +55,9 @@ describe('colors', () => {
       expect(v).toBe(0);
       expect(a).toBe(1);
     });
-
   });
 
   describe('hsva2rgba({ h, s, v, a })', () => {
-
     it('should transform simple HSVA values into RGBA', () => {
       const { r, g, b, a } = hsva2rgba({ h: 360, s: 0.5, v: 0.5, a: 1 });
       expect(r).toBe(0.5);
@@ -103,11 +97,9 @@ describe('colors', () => {
       expect(b).toBe(0);
       expect(a).toBe(0);
     });
-
   });
 
   describe('rgba2hsva({ r, g, b, a })', () => {
-
     it('should transform simple RGBA values into HSVA 1/4', () => {
       const { h, s, v, a } = rgba2hsva({ r: 0.3, g: 0.7, b: 0.4, a: 1 });
       expect(h * 360).toBe(135);
@@ -147,20 +139,16 @@ describe('colors', () => {
       expect(v.toFixed(2)).toBe('0.00');
       expect(a).toBe(0);
     });
-
   });
 
   describe('rgba2hex({ r, g, b, a })', () => {
-
     it('should transform simple RGBA values into an HEX string', () => {
       const hex = rgba2hex({ r: 77, g: 179, b: 102, a: 1 });
       expect(hex).toBe('#4db366');
     });
-
   });
 
   describe('denormalizeHSLA({ h, s, l, a })', () => {
-
     it('should denormalize HSLA 0-1 values', () => {
       const { h, s, l, a } = denormalizeHSLA({ h: 0.3, s: 0.2, l: 0.5, a: 1 });
       expect(h).toBe(108);
@@ -168,11 +156,9 @@ describe('colors', () => {
       expect(l).toBe(50);
       expect(a).toBe(1);
     });
-
   });
 
   describe('denormalizeHSVA({ h, s, v, a })', () => {
-
     it('should denormalize HSVA 0-1 values', () => {
       const { h, s, v, a } = denormalizeHSVA({ h: 0.3, s: 0.2, v: 0.5, a: 1 });
       expect(h).toBe(108);
@@ -180,11 +166,9 @@ describe('colors', () => {
       expect(v).toBe(50);
       expect(a).toBe(1);
     });
-
   });
 
   describe('denormalizeRGBA({ r, g, b, a })', () => {
-
     it('should denormalize RGBA 0-1 values', () => {
       const { r, g, b, a } = denormalizeRGBA({ r: 0.3, g: 0.2, b: 0.5, a: 1 });
       expect(r).toBe(77);
@@ -192,11 +176,9 @@ describe('colors', () => {
       expect(b).toBe(128);
       expect(a).toBe(1);
     });
-
   });
 
   describe('parseColor(color = "")', () => {
-
     it('should parse a rgb(77, 179, 102) color string into HSVA', () => {
       const { h, s, v, a } = denormalizeHSVA(parseColor('rgb(77, 179, 102)'));
       expect(h).toBe(135);
@@ -260,11 +242,9 @@ describe('colors', () => {
       const parsed = parseColor('cmyk(0, 0.267, 0.333, 0)');
       expect(parsed).toBe(null);
     });
-
   });
 
   describe('stringifyColor(color, format = "auto")', () => {
-
     it('should automatically stringify hsva values into an hex string', () => {
       const str = stringifyColor({ h: 0.375, s: 0.57, v: 0.7, a: 1 });
       expect(str).toBe('#4db366');
@@ -307,6 +287,5 @@ describe('colors', () => {
       const str = stringifyColor({ h: 0.375, s: 0.57, v: 0.7, a: 0.5 }, 'hex');
       expect(str).toBe('#4db366');
     });
-
   });
 });
