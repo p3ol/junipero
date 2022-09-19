@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![npm](https://img.shields.io/npm/v/@poool/junipero.svg)](https://www.npmjs.com/package/@poool/junipero)
+[![npm](https://img.shields.io/npm/v/@junipero/react.svg)](https://www.npmjs.com/package/@junipero/react)
 
 <br />
 <p>Simple and beautiful React components for the web</p>
@@ -12,14 +12,13 @@
 ## Installation
 
 ```bash
-yarn add @poool/junipero
+yarn add @junipero/react
 ```
 
 ## Usage
 
 ```javascript
-import React from 'react';
-import { TextField } from '@poool/junipero';
+import { TextField } from '@junipero/react';
 
 export default () => (
   <TextField />
@@ -29,13 +28,13 @@ export default () => (
 Don't forget to import styles, for example using `style-loader` and `webpack`:
 
 ```javascript
-import '@poool/junipero/dist/junipero.min.css';
+import '@junipero/react/dist/junipero-react.min.css';
 ```
 
 Or import them directly inside your own styles using `less`, `sass` or `stylus`:
 
 ```css
-@import "~@poool/junipero/dist/junipero.min.css";
+@import "~@junipero/react/dist/junipero-react.min.css";
 ```
 
 #### Dependencies
@@ -43,7 +42,6 @@ Or import them directly inside your own styles using `less`, `sass` or `stylus`:
 These libraries are not bundled with Junipero and required at runtime:
 - [react](https://www.npmjs.com/package/react)
 - [react-dom](https://www.npmjs.com/package/react-dom)
-- [prop-types](https://www.npmjs.com/package/prop-types)
 - [react-popper](https://www.npmjs.com/package/react-popper)
 - [@popperjs/core](https://www.npmjs.com/package/@popperjs/core)
 

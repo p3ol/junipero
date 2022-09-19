@@ -8,10 +8,9 @@ import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
 
-const isForIE = process.env.BROWSERSLIST_ENV === 'ie';
 const input = './lib/index.js';
-const output = `./dist${isForIE ? '/ie' : ''}`;
-const name = 'junipero';
+const output = './dist';
+const name = 'junipero-react';
 const formats = ['umd', 'cjs', 'esm'];
 
 const components = fs.readdirSync('./lib', { withFileTypes: true })
@@ -22,16 +21,16 @@ const components = fs.readdirSync('./lib', { withFileTypes: true })
   .map(f => f.name);
 
 const defaultExternals = [
-  'react', 'react-dom', 'prop-types', 'react-popper', 'react/jsx-runtime',
+  'react', 'react-dom', 'react-popper',
 ];
 const defaultGlobals = {
   react: 'React',
-  'prop-types': 'PropTypes',
   'react-dom': 'ReactDOM',
   'react-popper': 'ReactPopper',
 };
 
 const defaultPlugins = [
+  commonjs({ include: /node_modules/ }),
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
@@ -39,7 +38,6 @@ const defaultPlugins = [
   resolve({
     rootDir: path.resolve('../../'),
   }),
-  commonjs(),
   terser(),
 ];
 
@@ -66,7 +64,7 @@ export default [
         file: `${output}/${name}.${f}.js`,
       }),
       format: f,
-      name: 'junipero',
+      name: 'JuniperoReact',
       sourcemap: true,
       globals: defaultGlobals,
     },
@@ -95,7 +93,7 @@ export default [
         extract: true,
         sourceMap: true,
         plugins: [
-          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
+          autoprefixer(),
         ],
       }),
     ],
@@ -114,7 +112,7 @@ export default [
         extract: true,
         sourceMap: true,
         plugins: [
-          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
+          autoprefixer(),
         ],
       }),
     ],
@@ -133,7 +131,7 @@ export default [
         extract: true,
         sourceMap: true,
         plugins: [
-          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
+          autoprefixer(),
         ],
       }),
     ],

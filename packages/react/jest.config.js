@@ -1,20 +1,19 @@
 const path = require('path');
 
 module.exports = {
-  displayName: 'junipero',
+  displayName: '@junipero/react',
   clearMocks: true,
   rootDir: path.resolve(),
   fakeTimers: {
     enableGlobally: false,
   },
   moduleNameMapper: {
-    '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
     '^~test-utils$': '<rootDir>/.ci/config/utils.js',
   },
-  testMatch: ['<rootDir>/packages/junipero/lib/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/react/lib/**/*.test.js'],
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/old/',
   ],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
