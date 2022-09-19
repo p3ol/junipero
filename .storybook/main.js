@@ -42,6 +42,33 @@ module.exports = {
       ],
     });
 
+    config.module.rules.push({
+      test: /\.sass$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              sourceMap: true,
+              plugins: [autoprefixer],
+            },
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sassOptions: {
+              includePaths: [
+                path.resolve('./packages/theme/lib/utils'),
+              ],
+            },
+          },
+        },
+      ],
+    });
+
     return config;
   },
 };
