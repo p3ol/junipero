@@ -2,25 +2,24 @@
 
 <div align="center">
 
-[![npm](https://img.shields.io/npm/v/@poool/junipero-hooks.svg)](https://www.npmjs.com/package/@poool/junipero-hooks)
+[![npm](https://img.shields.io/npm/v/@junipero/hooks.svg)](https://www.npmjs.com/package/@junipero/hooks)
 
 <br />
-<h3>junipero-hooks</h3>
-<p>Custom React hooks we use inside Junipero packages</p>
+<h3>@junipero/hooks</h3>
+<p>Custom React hooks we use everywhere</p>
 
 </div>
 
 ## Installation
 
 ```bash
-yarn add @poool/junipero-hooks
+yarn add @junipero/hooks
 ```
 
 ## Usage
 
 ```javascript
-import React from 'react';
-import { useEventListener, useTimeout } from '@poool/junipero-hooks';
+import { useEventListener, useTimeout } from '@junipero/hooks';
 
 export default () => {
   useTimeout(() => {
@@ -42,7 +41,13 @@ export default () => {
 * `name` {`String`} Event name
 * `handler` {`Function`}
   * `event` {`Object`} Event data
-* `target` {`DOMNode`} Custom event target (default: `global`)
+* `target` {`DOMNode`} Custom event target (default: `globalThis`)
+
+#### `useInterval(handler: Function, time: Number, changes: Array)`
+
+* `handler` {`Function`} Interval callback
+* `time` {`Number`} Time in ms before next interval
+* `changes` {`Array`} Reset timer when any value changes (just like `useEffect`)
 
 #### `useTimeout(handler: Function, time: Number, changes: Array)`
 

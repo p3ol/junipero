@@ -1,6 +1,6 @@
 {
-  "name": "@poool/junipero-hooks",
-  "version": "2.0.0-rc.21",
+  "name": "@junipero/hooks",
+  "version": "3.0.0-alpha.0",
   "description": "🏔 Junipero Design System React hooks",
   "main": "dist/junipero-hooks.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -11,13 +11,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
-    "directory": "packages/junipero-hooks"
+    "directory": "packages/hooks"
   },
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
   "sideEffects": false,
   "engines": {
-    "node": ">= 12",
+    "node": ">= 14",
     "yarn": ">= 1"
   },
   "peerDependencies": {
@@ -26,9 +26,6 @@
   "dependencies": {
     "@babel/runtime-corejs3": "7.19.1",
     "core-js": "3.25.2"
-  },
-  "devDependencies": {
-    "@poool/junipero-utils": "^2.0.0-rc.21"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

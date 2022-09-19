@@ -5,9 +5,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
-const isForIE = process.env.BROWSERSLIST_ENV === 'ie';
 const input = './lib/index.js';
-const output = `./dist${isForIE ? '/ie' : ''}`;
+const output = './dist';
 const name = 'junipero-hooks';
 const formats = ['umd', 'cjs', 'esm'];
 
@@ -17,12 +16,12 @@ const defaultGlobals = {
 };
 
 const defaultPlugins = [
+  commonjs(),
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
   }),
   resolve(),
-  commonjs(),
   terser(),
 ];
 
