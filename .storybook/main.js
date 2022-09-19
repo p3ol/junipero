@@ -2,7 +2,9 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  stories: ['../packages/**/*.stories.js'],
+  stories: [
+    '../packages/*/lib/*/*.stories.js',
+  ],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-actions/register',
