@@ -19,13 +19,5 @@ module.exports = {
     // Common props are not checked anyway
     'react/prop-types': [2, { ignore: ['className', 'children'] }],
     'react/react-in-jsx-scope': 0,
-
-    // Directly assigning this.state is sometimes required in addition to
-    // setState
-    'react/no-direct-mutation-state': 0,
-
-    // this.state.opened ? this.close() : this.open()
-    // is a false positive
-    'babel/no-unused-expressions': 0,
   },
 };
