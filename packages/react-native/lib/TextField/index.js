@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
-import { mockState, exists } from '@poool/junipero-utils';
+import { mockState, exists } from '@junipero/core';
 
 import { applyStyles } from '../theme';
 import styles from './index.styles';

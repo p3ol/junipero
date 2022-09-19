@@ -5,8 +5,8 @@ import {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-import { mockState } from '@poool/junipero-utils';
-import { useTimeout } from '@poool/junipero-hooks';
+import { mockState } from '@junipero/core';
+import { useTimeout } from '@junipero/hooks';
 import { TouchableWithoutFeedback, Text, View } from 'react-native';
 
 import TextField from '../TextField';

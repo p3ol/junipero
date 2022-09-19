@@ -8,9 +8,9 @@ export {
   exists,
   isNull,
   isUndefined,
-} from '@poool/junipero-utils';
+} from '@junipero/core';
 
 export {
   useEventListener,
   useTimeout,
-} from '@poool/junipero-hooks';
+} from '@junipero/hooks';

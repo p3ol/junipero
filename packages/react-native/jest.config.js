@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  displayName: 'junipero-native',
+  displayName: '@junipero/react-native',
   clearMocks: true,
   rootDir: path.resolve(),
   fakeTimers: {
@@ -9,9 +9,9 @@ module.exports = {
   },
   preset: 'react-native',
   moduleNameMapper: {
-    '^@poool/junipero-(.+)$': '<rootDir>/packages/junipero-$1/lib/index.js',
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
   },
-  testMatch: ['<rootDir>/packages/junipero-native/lib/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/react-native/lib/**/*.test.js'],
   testPathIgnorePatterns: [
     'node_modules',
   ],

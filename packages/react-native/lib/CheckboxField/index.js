@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import PropTypes from 'prop-types';
-import { mockState } from '@poool/junipero-utils';
+import { mockState } from '@junipero/core';
 
 import { applyStyles } from '../theme';
 import styles from './index.styles';
