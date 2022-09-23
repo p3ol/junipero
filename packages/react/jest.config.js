@@ -9,14 +9,14 @@ module.exports = {
   },
   moduleNameMapper: {
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
-    '^~test-utils$': '<rootDir>/.ci/config/utils.js',
+    '^~test-utils$': '<rootDir>/packages/react/tests/utils.js',
   },
   testMatch: ['<rootDir>/packages/react/lib/**/*.test.js'],
   testPathIgnorePatterns: [
     '/node_modules/',
+    '/old/',
   ],
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: [
-    '<rootDir>/.ci/config/popper.js',
-  ],
+  setupFilesAfterEnv: [],
+  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };
