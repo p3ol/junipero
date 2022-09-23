@@ -2,20 +2,29 @@
   --main-color: var(--junipero-velvet)
   --border-color: var(--junipero-mischka)
   --placeholder-color: var(--junipero-slate)
+  --invalid-color: var(--junipero-grapefruit)
 
-  appearance: none
-  display: inline-block
-  padding: 8px 10px
-  border: none
-  border-radius: 4px
-  box-shadow: 0 0 0 2px var(--border-color)
-  transition: box-shadow .2s ease-in-out
+  display: inline-flex
 
-  &::placeholder
-    color: var(--placeholder-color)
-    opacity: 1
-    font-size: 16px
+  .field
+    appearance: none
+    display: block
+    padding: 10px
+    border: none
+    border-radius: 4px
+    box-shadow: 0 0 0 2px var(--border-color)
+    transition: box-shadow .2s ease-in-out
 
-  &:focus,
-  &:focus-within
-    --border-color: var(--junipero-velvet)
+    &::placeholder
+      color: var(--placeholder-color)
+      opacity: 1
+
+    &:focus,
+    &:focus-within
+      --border-color: var(--junipero-velvet)
+
+  &.invalid.dirty
+    .field
+      &:not(:focus),
+      &:not(:focus-within)
+        --border-color: var(--invalid-color)

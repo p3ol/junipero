@@ -1,21 +1,37 @@
 @use "colors" as colors
 
 .junipero
-  font-family: "DM Sans", sans-serif
-  font-size: 16px
-  line-height: 1.5
-  color: colors.$onyx
+  --junipero-font-family: "DM Sans", sans-serif
+  --junipero-font-size: 16px
+  --junipero-line-height: 1.5
+
+  // Colors
+  // - Primary
+  --junipero-velvet: #{colors.$velvet}
+  --junipero-grapefruit: #{colors.$grapefruit}
+
+  // - Text
+  --junipero-onyx: #{colors.$onyx}
+
+  // - Neutral
+  --junipero-mischka: #{colors.$mischka}
+  --junipero-slate: #{colors.$slate}
+
+  &, & input, & textarea
+    font-family: var(--junipero-font-family)
+    font-size: var(--junipero-font-size)
+    line-height: var(--junipero-line-height)
+    color: var(--junipero-onyx)
 
   &, & *, & *:before, & *:after
     outline: none
     box-sizing: border-box
 
-  // Primary
-  --junipero-velvet: #{colors.$velvet}
+  &.secondary
+    font-size: 0.875rem
 
-  // Text
-  --junipero-onyx: #{colors.$onyx}
+  &.info
+    font-size: 0.75rem
 
-  // Neutral
-  --junipero-mischka: #{colors.$mischka}
-  --junipero-slate: #{colors.$slate}
+  &.extra
+    font-size: 0.625rem

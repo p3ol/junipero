@@ -1,6 +1,9 @@
 import { action } from '@storybook/addon-actions';
 
+import Label from '../Label';
+import Abstract from '../Abstract';
 import TextField from './index';
+import FieldControl from '../FieldControl';
 
 export default { title: 'react/TextField' };
 
@@ -17,29 +20,23 @@ export const basicMultiline = () => (
   />
 );
 
-export const withLabel = () => (
-  <TextField
-    placeholder="Type your first name"
-    label="First name"
-    onChange={action('change')}
-  />
-);
-
-export const withForcedLabel = () => (
-  <TextField
-    placeholder="Type your first name"
-    label="First name"
-    forceLabel={true}
-    onChange={action('change')}
-  />
+export const withLabelAndAbstract = () => (
+  <FieldControl>
+    <Label className="info" htmlFor="firstname">First name</Label>
+    <TextField
+      id="firstname"
+      placeholder="Type your first name"
+      onChange={action('change')}
+      onValidate={() => false}
+    />
+    <Abstract className="info">
+      Here is a little help writing your name
+    </Abstract>
+  </FieldControl>
 );
 
 export const autoFocused = () => (
   <TextField autoFocus onChange={action('change')} />
-);
-
-export const withValue = () => (
-  <TextField value="test" onChange={action('change')} />
 );
 
 export const disabled = () => (
