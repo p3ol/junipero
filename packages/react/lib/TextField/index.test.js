@@ -1,4 +1,5 @@
-import { render } from '@testing-library/react';
+import { createRef } from 'react';
+import { render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { blur } from '~test-utils';
@@ -45,6 +46,50 @@ describe('<TextField />', () => {
     await user.type(input, 'John');
     await blur(input);
 
+    expect(container).toMatchSnapshot();
+    unmount();
+  });
+
+  it('should allow to reset the field', async () => {
+    const user = userEvent.setup();
+    const ref = createRef();
+    const onChange = jest.fn();
+    const { unmount, container } = render(
+      <TextField ref={ref} value="John" onChange={onChange} />);
+    const input = container.querySelector('input');
+
+    await user.clear(input);
+    await user.type(input, 'Jane');
+    await blur(input);
+
+    expect(container).toMatchSnapshot();
+    expect(onChange)
+      .toHaveBeenLastCalledWith(expect.objectContaining({ value: 'Jane' }));
+
+    await act(async () => { ref.current.reset(); });
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
+  it('should not allow to change value when disabled', async () => {
+    const user = userEvent.setup();
+    const onChange = jest.fn();
+    const { unmount, container } = render(
+      <TextField onChange={onChange} disabled />
+    );
+    const input = container.querySelector('input');
+    await user.type(input, 'Jane');
+    await blur(input);
+
+    expect(onChange).not.toHaveBeenCalled();
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
+  it('should render a textarea if rows is set to > 1', () => {
+    const { unmount, container } = render(<TextField rows={2} />);
     expect(container).toMatchSnapshot();
     unmount();
   });

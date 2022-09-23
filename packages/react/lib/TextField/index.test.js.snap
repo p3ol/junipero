@@ -27,6 +27,34 @@ exports[`<TextField /> should allow to be used with a FieldControl 1`] = `
 </div>
 `;
 
+exports[`<TextField /> should allow to reset the field 1`] = `
+<div>
+  <div
+    class="junipero text-field dirty valid"
+  >
+    <input
+      class="field"
+      type="text"
+      value="Jane"
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextField /> should allow to reset the field 2`] = `
+<div>
+  <div
+    class="junipero text-field pristine valid"
+  >
+    <input
+      class="field"
+      type="text"
+      value="John"
+    />
+  </div>
+</div>
+`;
+
 exports[`<TextField /> should be invalid if validation fails 1`] = `
 <div>
   <div
@@ -42,6 +70,21 @@ exports[`<TextField /> should be invalid if validation fails 1`] = `
 </div>
 `;
 
+exports[`<TextField /> should not allow to change value when disabled 1`] = `
+<div>
+  <div
+    class="junipero text-field pristine valid empty disabled"
+  >
+    <input
+      class="field"
+      disabled=""
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
 exports[`<TextField /> should render 1`] = `
 <div>
   <div
@@ -52,6 +95,19 @@ exports[`<TextField /> should render 1`] = `
       placeholder="Name"
       type="text"
       value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextField /> should render a textarea if rows is set to > 1 1`] = `
+<div>
+  <div
+    class="junipero text-field pristine valid empty"
+  >
+    <textarea
+      class="field"
+      rows="2"
     />
   </div>
 </div>

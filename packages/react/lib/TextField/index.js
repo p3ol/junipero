@@ -21,7 +21,7 @@ const TextField = forwardRef(({
   onBlur,
   onChange,
   onFocus,
-  onValidate = (val, { required } = {}) => !!val || !required,
+  onValidate = (val, { required }) => !!val || !required,
   ...rest
 }, ref) => {
   const innerRef = useRef();
@@ -60,6 +60,8 @@ const TextField = forwardRef(({
   }, [valid]);
 
   const onChange_ = e => {
+    /* html input disabled attribute will prevent onChange if present anyway */
+    /* istanbul ignore next: just in case */
     if (disabled) {
       return;
     }
