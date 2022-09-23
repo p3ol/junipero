@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tag /> should be deletable 1`] = `
+<div>
+  <span
+    class="junipero tag"
+  >
+    <span>
+      Item 1
+    </span>
+    <a
+      class="delete"
+    />
+  </span>
+  <span
+    class="junipero tag"
+  >
+    <span>
+      Item 2
+    </span>
+    <a
+      class="delete"
+    />
+  </span>
+  <span
+    class="junipero tag"
+  >
+    <span>
+      Item 3
+    </span>
+    <a
+      class="delete"
+    />
+  </span>
+</div>
+`;
+
+exports[`<Tag /> should be deletable 2`] = `
+<div>
+  <span
+    class="junipero tag"
+  >
+    <span>
+      Item 2
+    </span>
+    <a
+      class="delete"
+    />
+  </span>
+  <span
+    class="junipero tag"
+  >
+    <span>
+      Item 3
+    </span>
+    <a
+      class="delete"
+    />
+  </span>
+</div>
+`;
+
+exports[`<Tag /> should render 1`] = `
+<div>
+  <span
+    class="junipero tag"
+  >
+    New
+  </span>
+</div>
+`;
