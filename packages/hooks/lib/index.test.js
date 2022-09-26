@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { classNames } from '@poool/junipero-utils';
+import { classNames } from '@junipero/core';
 
 import { useEventListener, useTimeout, useInterval } from './';
 
@@ -10,7 +10,7 @@ const TestComponent = ({ target, onTimeout, onInterval }) => {
 
   useEventListener('click', () => {
     setClicked(true);
-  }, target);
+  }, { target });
 
   onInterval && useInterval(() => onInterval(), 500, []);
 
