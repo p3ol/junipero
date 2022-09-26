@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> should add value if provided 1`] = `
+<div>
+  <label
+    class="junipero field checkbox"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value="value"
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should not trigger event and change state if user click but checkbox is disabled 1`] = `
+<div>
+  <label
+    class="junipero field checkbox disabled"
+    tabindex="-1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should render 1`] = `
+<div>
+  <label
+    class="junipero field checkbox"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should set checked if provided 1`] = `
+<div>
+  <label
+    class="junipero field checkbox checked"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should set focused state on focus: focused 1`] = `
+<div>
+  <label
+    class="junipero field checkbox focused"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should set focused state on focus: not focused 1`] = `
+<div>
+  <label
+    class="junipero field checkbox"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should toggle active state on click: active 1`] = `
+<div>
+  <label
+    class="junipero field checkbox active"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should toggle active state on click: inactive 1`] = `
+<div>
+  <label
+    class="junipero field checkbox"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should toggle check if checkbox is clicked 1`] = `
+<div>
+  <label
+    class="junipero field checkbox checked focused"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should toggle check if checkbox is clicked: checked 1`] = `
+<div>
+  <label
+    class="junipero field checkbox checked focused"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> should toggle check if checkbox is clicked: unchecked 1`] = `
+<div>
+  <label
+    class="junipero field checkbox focused"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
