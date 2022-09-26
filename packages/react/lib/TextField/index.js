@@ -12,6 +12,7 @@ import { useFieldControl } from '../hooks';
 
 const TextField = forwardRef(({
   autoFocus,
+  children,
   className,
   valid,
   value,
@@ -121,6 +122,7 @@ const TextField = forwardRef(({
         onFocus={onFocus_}
         onBlur={onBlur_}
       />
+      { children }
     </div>
   );
 });
