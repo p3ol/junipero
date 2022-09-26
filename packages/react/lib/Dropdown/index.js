@@ -12,6 +12,7 @@ import {
   autoUpdate,
   flip,
   shift,
+  safePolygon,
   useFloating,
   useInteractions,
   useDismiss,
@@ -59,6 +60,7 @@ const Dropdown = forwardRef(({
     }),
     useHover(context, {
       enabled: trigger === 'hover',
+      handleClose: safePolygon(),
     }),
     useDismiss(context, {
       enabled: trigger === 'click',
