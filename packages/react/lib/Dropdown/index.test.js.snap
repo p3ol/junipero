@@ -13,7 +13,9 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
       <ul
         class="menu-inner"
       >
-        <li>
+        <li
+          class="dropdown-item"
+        >
           Item 1
         </li>
       </ul>
@@ -27,6 +29,76 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
     >
       Click me
     </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> should allow to use groups 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened"
+  >
+    <span
+      class="dropdown-toggle opened"
+    >
+      Click me
+    </span>
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="dropdown-group"
+        >
+          <div
+            class="junipero extra group-title"
+          >
+            Group 1
+          </div>
+          <div
+            class="options"
+          >
+            <li
+              class="dropdown-item"
+            >
+              Item 1
+            </li>
+            <li
+              class="dropdown-item"
+            >
+              Item 2
+            </li>
+          </div>
+        </div>
+        <div
+          class="dropdown-group"
+        >
+          <div
+            class="junipero extra group-title"
+          >
+            Group 2
+          </div>
+          <div
+            class="options"
+          >
+            <li
+              class="dropdown-item"
+            >
+              Item 3
+            </li>
+            <li
+              class="dropdown-item"
+            >
+              Item 4
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -49,7 +121,9 @@ exports[`<Dropdown /> should auto close when disabled prop changes 1`] = `
       <ul
         class="menu-inner"
       >
-        <li>
+        <li
+          class="dropdown-item"
+        >
           Item 1
         </li>
       </ul>
@@ -104,7 +178,9 @@ exports[`<Dropdown /> should render 2`] = `
       <ul
         class="menu-inner"
       >
-        <li>
+        <li
+          class="dropdown-item"
+        >
           Item 1
         </li>
       </ul>

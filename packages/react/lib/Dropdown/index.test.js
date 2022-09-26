@@ -2,6 +2,8 @@ import { fireEvent, render } from '@testing-library/react';
 
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
+import DropdownGroup from '../DropdownGroup';
+import DropdownItem from '../DropdownItem';
 import Dropdown from './index';
 
 describe('<Dropdown />', () => {
@@ -10,7 +12,7 @@ describe('<Dropdown />', () => {
       <Dropdown>
         <DropdownToggle><span>Click me</span></DropdownToggle>
         <DropdownMenu>
-          <li>Item 1</li>
+          <DropdownItem>Item 1</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
@@ -27,7 +29,7 @@ describe('<Dropdown />', () => {
       <Dropdown opened={true}>
         <DropdownToggle><span>Click me</span></DropdownToggle>
         <DropdownMenu>
-          <li>Item 1</li>
+          <DropdownItem>Item 1</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
@@ -38,7 +40,7 @@ describe('<Dropdown />', () => {
       <Dropdown disabled>
         <DropdownToggle><span>Click me</span></DropdownToggle>
         <DropdownMenu>
-          <li>Item 1</li>
+          <DropdownItem>Item 1</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
@@ -56,7 +58,7 @@ describe('<Dropdown />', () => {
         <Dropdown container="#menu-container" opened={true}>
           <DropdownToggle><span>Click me</span></DropdownToggle>
           <DropdownMenu>
-            <li>Item 1</li>
+            <DropdownItem>Item 1</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </>
@@ -65,4 +67,26 @@ describe('<Dropdown />', () => {
     expect(container).toMatchSnapshot();
     unmount();
   });
+
+  it('should allow to use groups', () => {
+    const { container, unmount } = render(
+      <Dropdown opened={true}>
+        <DropdownToggle><span>Click me</span></DropdownToggle>
+        <DropdownMenu>
+          <DropdownGroup title="Group 1">
+            <DropdownItem>Item 1</DropdownItem>
+            <DropdownItem>Item 2</DropdownItem>
+          </DropdownGroup>
+          <DropdownGroup title="Group 2">
+            <DropdownItem>Item 3</DropdownItem>
+            <DropdownItem>Item 4</DropdownItem>
+          </DropdownGroup>
+        </DropdownMenu>
+      </Dropdown>
+    );
+
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  })
 });

@@ -6,6 +6,7 @@
 .junipero.dropdown .menu-inner,
 .junipero.dropdown-menu .menu-inner
   --main-color: var(--junipero-velvet)
+  --secondary-color: var(--junipero-slate)
   --background-color: var(--junipero-seashell)
   --border-color: var(--junipero-mischka)
   --shadow-color: rgba(26, 26, 26, 0.1)
@@ -18,6 +19,16 @@
   list-style: none
   margin: 0
   min-width: 200px
+
+  .dropdown-group
+    margin-bottom: 10px
+
+    &:last-child
+      margin-bottom: 0
+
+    .group-title
+      padding: 5px 10px
+      color: var(--secondary-color)
 
   .dropdown-item > a
     display: block
