@@ -30,11 +30,15 @@
       padding: 5px 10px
       color: var(--secondary-color)
 
-  .dropdown-item > a
-    display: block
-    padding: 5px 10px
-    text-decoration: none
+  .dropdown-item
+    & > a
+      display: block
+      padding: 5px 10px
+      text-decoration: none
+      cursor: pointer
 
-    &:hover
-      background: var(--item-background)
-      color: var(--main-color)
+    &:hover,
+    &.active
+      & > a
+        background: var(--item-background)
+        color: var(--main-color)
