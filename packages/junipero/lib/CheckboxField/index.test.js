@@ -107,4 +107,27 @@ describe('<CheckboxField />', () => {
 
     unmount();
   });
+
+  it('should call onchange event on enter or space hit ' +
+    'when focused', async () => {
+    const onChangeMock = jest.fn();
+    const { container, unmount } = render(
+      <CheckboxField onChange={onChangeMock} />
+    );
+
+    await act(async () => {
+      container.querySelector('label').focus();
+    });
+
+    expect(container.querySelectorAll('.junipero.checkbox.focused').length)
+      .toBe(1);
+
+    fireEvent.keyPress(globalThis, { key: 'Enter' });
+    expect(onChangeMock).toHaveBeenCalled();
+
+    fireEvent.keyPress(globalThis, { key: ' ' });
+    expect(onChangeMock).toHaveBeenCalledTimes(2);
+
+    unmount();
+  });
 });
