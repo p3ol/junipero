@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
-import { FieldControlContext } from './contexts';
+import { FieldControlContext, DropdownContext } from './contexts';
 
 export const useFieldControl = () => useContext(FieldControlContext);
+export const useDropdown = () => useContext(DropdownContext);

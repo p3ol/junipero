@@ -1,0 +1,18 @@
+@use "vars" as vars
+
+.junipero.dropdown
+  display: inline-flex
+
+.junipero.dropdown .menu-inner,
+.junipero.dropdown-menu .menu-inner
+  --background-color: var(--junipero-seashell)
+  --border-color: var(--junipero-mischka)
+  --shadow-color: rgba(26, 26, 26, 0.1)
+
+  padding: 10px
+  border-radius: 4px
+  background: var(--background-color)
+  box-shadow: 0 0 0 2px var(--border-color), #{vars.$cardShadow}
+  list-style: none
+  margin: 0
+  min-width: 200px
