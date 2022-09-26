@@ -1,6 +1,10 @@
 import { useRef, useEffect } from 'react';
 
-export const useEventListener = (name, handler, target = globalThis) => {
+export const useEventListener = (
+  name,
+  handler,
+  { target = globalThis, enabled } = {}
+) => {
   const savedHandler = useRef();
 
   useEffect(() => {
@@ -10,7 +14,7 @@ export const useEventListener = (name, handler, target = globalThis) => {
   useEffect(() => {
     const isSupported = target && target.addEventListener;
 
-    if (!isSupported) {
+    if (!isSupported || enabled === false) {
       return () => {};
     }
 
@@ -20,7 +24,7 @@ export const useEventListener = (name, handler, target = globalThis) => {
     return () => {
       target.removeEventListener(name, eventListener);
     };
-  }, [name, target]);
+  }, [name, target, enabled]);
 };
 
 export const useInterval = (cb, time, changes = []) => {
