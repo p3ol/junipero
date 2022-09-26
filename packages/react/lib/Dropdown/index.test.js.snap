@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
+<div>
+  <div
+    id="menu-container"
+  >
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <li>
+          Item 1
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="junipero dropdown opened"
+  >
+    <span
+      class="dropdown-toggle opened"
+    >
+      Click me
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> should auto close when disabled prop changes 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened"
+  >
+    <span
+      class="dropdown-toggle opened"
+    >
+      Click me
+    </span>
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <li>
+          Item 1
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> should auto close when disabled prop changes 2`] = `
+<div>
+  <div
+    class="junipero dropdown disabled"
+  >
+    <span
+      class="dropdown-toggle"
+    >
+      Click me
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> should render 1`] = `
+<div>
+  <div
+    class="junipero dropdown"
+  >
+    <span
+      class="dropdown-toggle"
+    >
+      Click me
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Dropdown /> should render 2`] = `
+<div>
+  <div
+    class="junipero dropdown opened"
+  >
+    <span
+      class="dropdown-toggle opened"
+    >
+      Click me
+    </span>
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <li>
+          Item 1
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

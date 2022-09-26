@@ -1,5 +1,6 @@
 import { forwardRef, useRef, useImperativeHandle } from 'react';
-import { classNames } from '@junipero/core';
+import { classNames, ensureNode } from '@junipero/core';
+import { createPortal } from 'react-dom';
 
 import { useDropdown } from '../hooks';
 
@@ -16,6 +17,7 @@ const DropdownMenu = forwardRef(({
     strategy,
     opened,
     getFloatingProps,
+    container,
   } = useDropdown();
 
   useImperativeHandle(ref, () => ({
@@ -27,7 +29,7 @@ const DropdownMenu = forwardRef(({
     return null;
   }
 
-  return (
+  const content = (
     <div
       { ...rest }
       ref={floating}
@@ -45,6 +47,8 @@ const DropdownMenu = forwardRef(({
       </ul>
     </div>
   );
+
+  return container ? createPortal(content, ensureNode(container)) : content;
 });
 
 DropdownMenu.displayName = 'DropdownMenu';

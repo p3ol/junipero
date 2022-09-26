@@ -17,6 +17,8 @@ module.exports = {
     '/old/',
   ],
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: [],
+  setupFilesAfterEnv: [
+    '<rootDir>/packages/react/tests/setup.js',
+  ],
   snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };

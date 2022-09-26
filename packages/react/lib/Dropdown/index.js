@@ -4,6 +4,7 @@ import {
   useImperativeHandle,
   useRef,
   useReducer,
+  useEffect,
 } from 'react';
 import { classNames, mockState } from '@junipero/core';
 import {
@@ -23,6 +24,8 @@ import { DropdownContext } from '../contexts';
 
 const Dropdown = forwardRef(({
   className,
+  container,
+  disabled,
   floatingOptions,
   opened = false,
   placement = 'bottom-start',
@@ -50,7 +53,6 @@ const Dropdown = forwardRef(({
       shift(),
     ],
   });
-
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context, {
       enabled: trigger === 'click',
@@ -63,6 +65,12 @@ const Dropdown = forwardRef(({
     }),
   ]);
 
+  useEffect(() => {
+    if (disabled && state.opened) {
+      close();
+    }
+  }, [disabled]);
+
   useImperativeHandle(ref, () => ({
     opened: state.opened,
     toggle,
@@ -73,6 +81,10 @@ const Dropdown = forwardRef(({
   }));
 
   const toggle = () => {
+    if (disabled) {
+      return;
+    }
+
     if (state.opened) {
       close();
     } else {
@@ -81,18 +93,26 @@ const Dropdown = forwardRef(({
   };
 
   const open = () => {
+    if (disabled) {
+      return;
+    }
+
     dispatch({ opened: true });
     onToggle?.({ opened: true });
   };
 
   const close = () => {
+    if (disabled) {
+      return;
+    }
+
     dispatch({ opened: false });
     onToggle?.({ opened: false });
   };
 
   const getContext = useCallback(() => ({
     opened: state.opened,
-    trigger,
+    container,
     x,
     y,
     reference,
@@ -118,7 +138,10 @@ const Dropdown = forwardRef(({
         { ...rest }
         className={classNames(
           'junipero dropdown',
-          { opened: state.opened },
+          {
+            opened: state.opened,
+            disabled,
+          },
           className
         )}
         ref={innerRef}
@@ -129,6 +152,13 @@ const Dropdown = forwardRef(({
 
 Dropdown.displayName = 'Dropdown';
 Dropdown.propTypes = {
+  container: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.node,
+  ]),
+  disabled: PropTypes.bool,
   opened: PropTypes.bool,
   placement: PropTypes.string,
   trigger: PropTypes.oneOf(['click', 'hover', 'manual']),
