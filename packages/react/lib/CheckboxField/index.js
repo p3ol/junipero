@@ -42,14 +42,14 @@ const CheckboxField = forwardRef(({
   const onBlur_ = e => {
     if (!disabled) {
       dispatch({ focused: false });
-      onBlur(e);
+      onBlur?.(e);
     }
   };
 
   const onFocus_ = e => {
     if (!disabled) {
       dispatch({ focused: true });
-      onFocus(e);
+      onFocus?.(e);
     }
   };
 
@@ -68,8 +68,8 @@ const CheckboxField = forwardRef(({
         state.checked, { dirty: state.dirty, required }
       );
       dispatch({ checked: state.checked, valid });
-      onChange({ value, checked: state.checked });
-      updateControl({
+      onChange?.({ value, checked: state.checked });
+      updateControl?.({
         dirty: true,
         valid,
       });
@@ -86,9 +86,9 @@ const CheckboxField = forwardRef(({
       const checked = e?.target?.checked ?? false;
       const valid = onValidate?.(checked, { dirty: state.dirty, required });
       dispatch({ checked, valid });
-      onChange({ value, checked });
+      onChange?.({ value, checked });
 
-      updateControl({
+      updateControl?.({
         dirty: true,
         valid,
       });
