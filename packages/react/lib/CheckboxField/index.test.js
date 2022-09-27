@@ -1,30 +1,30 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Checkbox from '.';
+import CheckboxField from '.';
 
-describe('<Checkbox />', () => {
+describe('<CheckboxField />', () => {
   it('should render', () => {
-    const { unmount, container } = render(<Checkbox />);
+    const { unmount, container } = render(<CheckboxField />);
     expect(container).toMatchSnapshot();
     unmount();
   });
 
   it('should add value if provided', () => {
-    const { unmount, container } = render(<Checkbox value="value" />);
+    const { unmount, container } = render(<CheckboxField value="value" />);
     expect(container).toMatchSnapshot();
     unmount();
   });
 
   it('should set checked if provided', () => {
-    const { unmount, container } = render(<Checkbox checked={true} />);
+    const { unmount, container } = render(<CheckboxField checked={true} />);
     expect(container).toMatchSnapshot();
     unmount();
   });
 
   it('should toggle check if checkbox is clicked', async () => {
     const user = userEvent.setup();
-    const { unmount, container } = render(<Checkbox />);
+    const { unmount, container } = render(<CheckboxField />);
     const input = container.querySelector('input');
 
     await user.click(input);
@@ -41,7 +41,7 @@ describe('<Checkbox />', () => {
     const onChangeMock = jest.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
-      <Checkbox onChange={onChangeMock} />
+      <CheckboxField onChange={onChangeMock} />
     );
     const input = container.querySelector('input');
     await user.click(input);
@@ -55,7 +55,7 @@ describe('<Checkbox />', () => {
     const onChangeMock = jest.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
-      <Checkbox onChange={onChangeMock} disabled={true} />
+      <CheckboxField onChange={onChangeMock} disabled={true} />
     );
     const input = container.querySelector('input');
     await user.click(input);
@@ -70,7 +70,7 @@ describe('<Checkbox />', () => {
     const onChangeMock = jest.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
-      <Checkbox onChange={onChangeMock} />
+      <CheckboxField onChange={onChangeMock} />
     );
 
     await act(async () => {
@@ -90,7 +90,7 @@ describe('<Checkbox />', () => {
     const onChangeMock = jest.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
-      <Checkbox onChange={onChangeMock} />
+      <CheckboxField onChange={onChangeMock} />
     );
 
     await act(async () => {
@@ -106,7 +106,7 @@ describe('<Checkbox />', () => {
   });
 
   it('should toggle active state on click', async () => {
-    const { unmount, container } = render(<Checkbox />);
+    const { unmount, container } = render(<CheckboxField />);
 
     fireEvent.mouseDown(container.querySelector('label'));
 
@@ -118,7 +118,7 @@ describe('<Checkbox />', () => {
   });
 
   it('should set focused state on focus', async () => {
-    const { unmount, container } = render(<Checkbox />);
+    const { unmount, container } = render(<CheckboxField />);
 
     expect(container).toMatchSnapshot('not focused');
 

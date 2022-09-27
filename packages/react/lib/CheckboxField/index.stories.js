@@ -1,52 +1,60 @@
 import { action } from '@storybook/addon-actions';
 
-import Checkbox from '.';
+import CheckboxField from '.';
 
 export default { title: 'react/Checkbox' };
 
 export const basic = () => (
-  <Checkbox onChange={action('change')}>
+  <CheckboxField onChange={action('change')}>
     Check this
-  </Checkbox>
+  </CheckboxField>
 );
 
 export const disabled = () => (
-  <Checkbox disabled={true}>
+  <CheckboxField disabled={true}>
     Can&apos;t check this
-  </Checkbox>
+  </CheckboxField>
 );
 
 export const alreadyChecked = () => (
-  <Checkbox onChange={action('change')} checked={true}>
+  <CheckboxField onChange={action('change')} checked={true}>
     Uncheck this
-  </Checkbox>
+  </CheckboxField>
 );
 export const alreadyCheckedAndDisabled = () => (
-  <Checkbox onChange={action('change')} checked={true} disabled={true}>
+  <CheckboxField onChange={action('change')} checked={true} disabled={true}>
     Can&apos;t uncheck this
-  </Checkbox>
+  </CheckboxField>
 );
 
 export const withValue = () => (
-  <Checkbox value="agreement" onChange={action('change')}>
+  <CheckboxField value="agreement" onChange={action('change')}>
     Check this
-  </Checkbox>
+  </CheckboxField>
 );
 
 export const withAllEvents = () => (
-  <Checkbox
+  <CheckboxField
     value="agreement"
     onChange={action('change')}
     onFocus={action('focus')}
     onBlur={action('blur')}
   >
     Check this
-  </Checkbox>
+  </CheckboxField>
 );
 
 export const withChildrenInProps = () => (
-  <Checkbox
+  <CheckboxField
     value="agreement"
+    children={<p>this is given child</p>}
+  />
+);
+
+export const withRequiredField = () => (
+  <CheckboxField
+    value="agreement"
+    required={true}
     children={<p>this is given child</p>}
   />
 );

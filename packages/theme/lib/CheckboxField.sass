@@ -37,34 +37,44 @@
         &:after
           opacity: 1
 
-  &.focused
+  &:focus:not(.disabled, .checked)
     .check .inner
       background-color: #{colors.$alabaster}
       border-color: #{colors.$velvet}
 
-  &:hover
+  &:hover:not(.disabled, .checked)
     .check .inner
       background-color: #{colors.$concrete}
       border-color: #{colors.$mischka}
 
-  &.active
+  &:active:not(.disabled, .checked)
     .check .inner
       background-color: #{colors.$velvetDisabled}
       border-color: #{colors.$velvetDisabled}
 
-  &.checked,&.checked.disabled:hover
+  &.checked
     .check .inner
       background-color: #{colors.$velvet}
       border-color: #{colors.$velvet}
 
+  &.invalid
+    color: #{colors.$grapefruit}
+
+    .check .inner
+      background-color: #{colors.$alabaster}
+      border-color: #{colors.$grapefruit}
+      
+    &.checked
+      .check .inner
+        background-color: #{colors.$grapefruit}
+
+    &:focus:not(.disabled)
+      .check .inner
+        border-color: #{colors.$grapefruit}
+
   &.disabled
     opacity: .5
 
-    &:hover
-      .check .inner
-        background-color: #{colors.$alabaster}
-        border-color: #{colors.$mischka}
-  
   .content
     flex: 1 0 auto
     max-width: 100%

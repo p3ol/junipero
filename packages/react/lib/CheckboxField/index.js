@@ -3,34 +3,39 @@ import { classNames, mockState } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
 import PropTypes from 'prop-types';
 
-const Checkbox = forwardRef(({
+import { useFieldControl } from '../hooks';
+
+const CheckboxField = forwardRef(({
   children,
   checked = false,
+  valid = true,
   value,
   id,
-  globalEventsTarget = global,
+  globalEventsTarget,
   className,
   disabled = false,
-  onChange = () => {},
-  onFocus = () => {},
-  onBlur = () => {},
+  required = false,
+  onChange,
+  onFocus,
+  onBlur,
+  onValidate = (val, { required }) => val || !required,
   ...rest
 }, ref) => {
   const innerRef = useRef();
   const inputRef = useRef();
 
+  const { update: updateControl } = useFieldControl();
+
   useImperativeHandle(ref, () => ({
     innerRef,
     inputRef,
-    internalValue: state.checked,
-    focused: state.focused,
-    active: state.active,
+    checked: state.checked,
     isJunipero: true,
   }));
 
   const [state, dispatch] = useReducer(mockState, {
-    active: false,
     checked,
+    valid,
     focused: false,
   });
 
@@ -40,18 +45,6 @@ const Checkbox = forwardRef(({
       onBlur(e);
     }
   };
-
-  const onMouseDown_ = () => {
-    if (!disabled) {
-      dispatch({ active: true });
-    }
-  };
-
-  useEventListener('mouseup', () => {
-    if (!disabled) {
-      dispatch({ active: false });
-    }
-  }, globalEventsTarget);
 
   const onFocus_ = e => {
     if (!disabled) {
@@ -65,14 +58,21 @@ const Checkbox = forwardRef(({
     if (!disabled) {
       onKeyPress_(e);
     }
-  }, globalEventsTarget);
+  }, { target: globalEventsTarget });
 
   const onKeyPress_ = e => {
 
     if (state.focused && (e.key === 'Enter' || e.key === ' ')) {
       state.checked = !state.checked;
-      dispatch({ checked: state.checked });
+      const valid = onValidate?.(
+        state.checked, { dirty: state.dirty, required }
+      );
+      dispatch({ checked: state.checked, valid });
       onChange({ value, checked: state.checked });
+      updateControl({
+        dirty: true,
+        valid,
+      });
       e.preventDefault?.();
 
       return false;
@@ -84,8 +84,14 @@ const Checkbox = forwardRef(({
   const onChange_ = e => {
     if (!disabled) {
       const checked = e?.target?.checked ?? false;
-      dispatch({ checked });
+      const valid = onValidate?.(checked, { dirty: state.dirty, required });
+      dispatch({ checked, valid });
       onChange({ value, checked });
+
+      updateControl({
+        dirty: true,
+        valid,
+      });
     }
   };
 
@@ -98,14 +104,12 @@ const Checkbox = forwardRef(({
         'field',
         'checkbox',
         {
-          active: state.active,
           disabled,
           checked: state.checked,
-          focused: state.focused,
+          invalid: !state.valid,
         },
         className
       )}
-      onMouseDown={onMouseDown_}
       onFocus={onFocus_}
       onBlur={onBlur_}
       tabIndex={disabled ? -1 : 1}
@@ -128,24 +132,22 @@ const Checkbox = forwardRef(({
   );
 });
 
-Checkbox.displayName = 'Checkbox';
-Checkbox.propTypes = {
+CheckboxField.displayName = 'Checkbox';
+CheckboxField.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
+  value: PropTypes.any,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  required: PropTypes.bool,
+  onValidate: PropTypes.func,
+  valid: PropTypes.bool,
   globalEventsTarget: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.object,
   ]),
 };
 
-export default Checkbox;
+export default CheckboxField;
