@@ -28,6 +28,9 @@ const Dropdown = forwardRef(({
   container,
   disabled,
   floatingOptions,
+  clickOptions,
+  hoverOptions,
+  dismissOptions,
   opened = false,
   placement = 'bottom-start',
   trigger = 'click',
@@ -57,13 +60,16 @@ const Dropdown = forwardRef(({
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context, {
       enabled: trigger === 'click',
+      ...clickOptions || {},
     }),
     useHover(context, {
       enabled: trigger === 'hover',
       handleClose: safePolygon(),
+      ...hoverOptions || {},
     }),
     useDismiss(context, {
       enabled: trigger === 'click',
+      ...dismissOptions || {},
     }),
   ]);
 
@@ -154,6 +160,7 @@ const Dropdown = forwardRef(({
 
 Dropdown.displayName = 'Dropdown';
 Dropdown.propTypes = {
+  clickOptions: PropTypes.object,
   container: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
@@ -161,10 +168,12 @@ Dropdown.propTypes = {
     PropTypes.node,
   ]),
   disabled: PropTypes.bool,
+  dismissOptions: PropTypes.object,
+  floatingOptions: PropTypes.object,
+  hoverOptions: PropTypes.object,
   opened: PropTypes.bool,
   placement: PropTypes.string,
   trigger: PropTypes.oneOf(['click', 'hover', 'manual']),
-  floatingOptions: PropTypes.object,
   onToggle: PropTypes.func,
 };
 
