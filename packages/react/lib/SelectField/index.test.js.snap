@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectField /> should render 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <input
+        placeholder="Name"
+        size="4"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should render multiple values 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field pristine valid focused"
+  >
+    <div
+      class="field dropdown-toggle"
+    >
+      <span
+        class="junipero tag info"
+      >
+        <span>
+          Item 1
+        </span>
+        <a
+          class="delete"
+        />
+      </span>
+      <span
+        class="junipero tag info"
+      >
+        <span>
+          Item 2
+        </span>
+        <a
+          class="delete"
+        />
+      </span>
+      <span
+        class="junipero tag info"
+      >
+        <span>
+          Item 3
+        </span>
+        <a
+          class="delete"
+        />
+      </span>
+      <input
+        placeholder="Name"
+        size="4"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
