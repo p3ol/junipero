@@ -99,16 +99,6 @@ exports[`<SelectField /> should render multiple values 1`] = `
           class="delete"
         />
       </span>
-      <span
-        class="junipero tag info"
-      >
-        <span>
-          Item 3
-        </span>
-        <a
-          class="delete"
-        />
-      </span>
       <input
         placeholder="Name"
         size="4"
