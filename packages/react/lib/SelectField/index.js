@@ -1,5 +1,20 @@
-import { useReducer, useEffect, useRef, useLayoutEffect } from 'react';
-import { classNames, mockState, exists } from '@junipero/core';
+import {
+  forwardRef,
+  useReducer,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+  useImperativeHandle,
+  useMemo,
+} from 'react';
+import {
+  classNames,
+  mockState,
+  exists,
+  filterDeep,
+  findDeep,
+} from '@junipero/core';
+import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
@@ -11,21 +26,32 @@ import DropdownGroup from '../DropdownGroup';
 import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
 
-const SelectField = ({
+const SelectField = forwardRef(({
   className,
   options,
   placeholder,
   value,
   valid,
+  autoFocus = false,
+  clearable = true,
   disabled = false,
   multiple = false,
+  noOptionsLabel = 'No options',
+  searchMinCharacters = 2,
+  searchThreshold = 400,
   required = false,
   onChange,
+  parseItem = val => val,
   parseTitle = val => val?.toString?.(),
   parseValue = val => val,
-  onValidate = (val, { required }) => !!val || !required,
+  onValidate = (val, { required, multiple }) => (
+    (multiple && Array.isArray(val) && val.length > 0) ||
+    (!multiple && !!val) ||
+    !required
+  ),
+  onSearch,
   ...rest
-}) => {
+}, ref) => {
   const dropdownRef = useRef();
   const searchInputRef = useRef();
   const { update: updateControl } = useFieldControl();
@@ -33,13 +59,25 @@ const SelectField = ({
     value,
     valid: valid ?? false,
     dirty: false,
+    search: '',
+    searching: false,
+    searchResults: null,
   });
+
+  useImperativeHandle(ref, () => ({
+    innerRef: dropdownRef,
+    searchInputRef,
+    value: state.value,
+    valid: state.valid,
+    dirty: state.dirty,
+    isJunipero: true,
+  }));
 
   useEffect(() => {
     if (exists(value)) {
       dispatch({
-        value: findOption(options, value) || value,
-        valid: onValidate(parseValue(value), { required }),
+        value: findOptions(options, value) || value,
+        valid: onValidate(parseValue(value), { required, multiple }),
       });
     }
   }, [value, options]);
@@ -52,8 +90,21 @@ const SelectField = ({
     searchInputRef.current.size = searchInputRef.current.placeholder.length;
   }, [placeholder]);
 
-  const onChange_ = ({ close = true } = {}) => {
-    dispatch({ value: state.value, valid: state.valid, dirty: true });
+  useTimeout(() => {
+    if (state.search.length >= searchMinCharacters) {
+      onSearchResults();
+    } else if (state.searchResults) {
+      onClearSearchResults();
+    }
+  }, searchThreshold, [state.search]);
+
+  const onChange_ = ({ close = true, resetSearch = false } = {}) => {
+    dispatch({
+      value: state.value,
+      valid: state.valid,
+      dirty: true,
+      ...resetSearch && { search: '', searchResults: null },
+    });
     onChange?.({ value: parseValue(state.value), valid: state.valid });
     updateControl?.({ valid: state.valid, dirty: true });
     close && dropdownRef.current?.close?.();
@@ -72,8 +123,8 @@ const SelectField = ({
         : [].concat(state.value ?? [], option);
     }
 
-    state.valid = onValidate(parseValue(state.value), { required });
-    onChange_();
+    state.valid = onValidate(parseValue(state.value), { required, multiple });
+    onChange_({ resetSearch: !multiple });
   };
 
   const onRemoveOption = option => {
@@ -82,12 +133,16 @@ const SelectField = ({
     }
 
     state.value = state.value.filter(val => val !== option);
-    state.valid = onValidate(parseValue(state.value), { required });
+    state.valid = onValidate(parseValue(state.value), { required, multiple });
     onChange_({ close: false });
   };
 
   const onClear = e => {
     e.stopPropagation();
+
+    if (!clearable) {
+      return;
+    }
 
     if (multiple) {
       state.value = [];
@@ -95,12 +150,29 @@ const SelectField = ({
       state.value = value;
     }
 
-    state.valid = onValidate(parseValue(state.value), { required });
-    onChange_({ close: false });
+    state.valid = onValidate(parseValue(state.value), { required, multiple });
+    onChange_({ close: false, resetSearch: true });
   };
 
-  const onSearch = e => {
+  const onSearchInputChange = e => {
     dispatch({ search: e.target.value });
+  };
+
+  const onSearchResults = async () => {
+    let results;
+
+    if (onSearch) {
+      dispatch({ searching: true });
+      results = await onSearch(state.search);
+    } else {
+      results = filterOptions(state.search);
+    }
+
+    dispatch({ searchResults: results, searching: false });
+  };
+
+  const onClearSearchResults = () => {
+    dispatch({ searchResults: null });
   };
 
   const onFocusField = e => {
@@ -108,14 +180,24 @@ const SelectField = ({
     searchInputRef.current?.focus();
   };
 
-  const findOption = (stack = [], needle) => {
-    for (const option of stack) {
-      if (option.options) {
-        return findOption(option.options, needle);
-      } else if (parseValue(option) === parseValue(needle)) {
-        return option;
-      }
+  const filterOptions = val => {
+    if (!val) {
+      return options;
     }
+
+    const search = new RegExp(val, 'i');
+
+    return filterDeep(options, v =>
+      search.test(parseTitle(v)) || search.test(parseValue(v))
+    );
+  };
+
+  const findOptions = val => {
+    const isMultiple = multiple && Array.isArray(val);
+    const res = (isMultiple ? val : [val])
+      .map(v => findDeep(options, o => parseItem(o) === parseItem(v)) || v);
+
+    return isMultiple ? res : res[0];
   };
 
   const filterUsedOptions = opts => multiple && Array.isArray(state.value)
@@ -148,11 +230,24 @@ const SelectField = ({
   const hasTags = () =>
     multiple && Array.isArray(state.value) && state.value.length > 0;
 
+  const renderedOptions = useMemo(() => (
+    filterUsedOptions(
+      state.searchResults ? state.searchResults : options
+    ).map((o, i) => (
+      o?.options ? renderGroup(o, i) : renderOption(o, i)
+    ))
+  ), [state.searchResults, state.value, options]);
+
   return (
     <Dropdown
       { ...rest }
       ref={dropdownRef}
-      className={classNames('select-field', className)}
+      clickOptions={{ toggle: false, keyboardHandlers: false }}
+      className={classNames(
+        'select-field',
+        { searching: state.searching },
+        className
+      )}
     >
       <DropdownToggle>
         <div className="field" onClick={onFocusField}>
@@ -177,36 +272,55 @@ const SelectField = ({
               type="text"
               value={state.search}
               placeholder={placeholder}
-              onChange={onSearch}
+              onChange={onSearchInputChange}
               ref={searchInputRef}
+              autoFocus={autoFocus}
             />
           ) }
           <div className="icons">
-            { !!state.value && <Remove onClick={onClear} /> }
+            { !!state.value && clearable && <Remove onClick={onClear} /> }
             <Arrows />
           </div>
         </div>
       </DropdownToggle>
-      <DropdownMenu>
-        { filterUsedOptions(options).map((o, i) => (
-          o?.options ? renderGroup(o, i) : renderOption(o, i)
-        )) }
+      <DropdownMenu
+        className={classNames('select-menu', { searching: state.searching })}
+      >
+        <div className="content">
+          { renderedOptions.length > 0 && renderedOptions.some(o => o !== null)
+            ? renderedOptions
+            : (
+              <div className="no-options">{ noOptionsLabel }</div>
+            ) }
+        </div>
       </DropdownMenu>
     </Dropdown>
   );
-};
+});
 
 SelectField.displayName = 'SelectField';
 SelectField.propTypes = {
+  autoFocus: PropTypes.bool,
+  clearable: PropTypes.bool,
   disabled: PropTypes.bool,
   multiple: PropTypes.bool,
+  noOptionsLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+    PropTypes.func,
+    PropTypes.object,
+  ]),
   options: PropTypes.array,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  searchMinCharacters: PropTypes.number,
+  searchThreshold: PropTypes.number,
   valid: PropTypes.bool,
   value: PropTypes.any,
   onChange: PropTypes.func,
+  onSearch: PropTypes.func,
   onValidate: PropTypes.func,
+  parseItem: PropTypes.func,
   parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
 };
