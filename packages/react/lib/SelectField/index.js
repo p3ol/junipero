@@ -85,7 +85,7 @@ const SelectField = forwardRef(({
   useEffect(() => {
     if (exists(value)) {
       dispatch({
-        value: findOptions(options, value) || value,
+        value: findOptions(value) || value,
         valid: onValidate(parseValue(value), { required, multiple }),
       });
     }
@@ -239,15 +239,18 @@ const SelectField = forwardRef(({
 
   const findOptions = val => {
     const isMultiple = multiple && Array.isArray(val);
-    const res = (isMultiple ? val : [val])
-      .map(v => findDeep(options, o => parseItem(o) === parseItem(v)) || v);
+    const res = (isMultiple ? val : [val]).map(v =>
+      findDeep(options, o => parseItem(o) === parseItem(v), o => o.options) ||
+      v
+    );
 
     return isMultiple ? res : res[0];
   };
 
-  const filterUsedOptions = opts => multiple && Array.isArray(state.value)
-    ? opts.filter(opt => !state.value.includes(opt))
-    : opts;
+  const filterUsedOptions = (opts = []) =>
+    multiple && Array.isArray(state.value)
+      ? opts.filter(opt => !state.value.includes(opt))
+      : opts;
 
   const renderGroup = (group, i) => {
     const opts = filterUsedOptions(group.options);
@@ -289,6 +292,7 @@ const SelectField = forwardRef(({
   return (
     <Dropdown
       { ...rest }
+      opened={state.opened}
       ref={dropdownRef}
       clickOptions={{ toggle: false, keyboardHandlers: false }}
       className={classNames(

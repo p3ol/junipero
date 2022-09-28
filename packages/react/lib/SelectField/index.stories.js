@@ -16,6 +16,7 @@ export const multiple = () => (
   <SelectField
     placeholder="Type a name"
     multiple={true}
+    value={['Item 1', 'Item 2']}
     options={[{ title: 'Group 1', options: ['Item 1', 'Item 2'] }, 'Item 3']}
   />
 );
