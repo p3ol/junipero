@@ -48,6 +48,7 @@ const SelectField = forwardRef(({
   onBlur,
   onFocus,
   onKeyPress,
+  onKeyUp,
   onValidate = (val, { required, multiple }) => (
     (multiple && Array.isArray(val) && val.length > 0) ||
     (!multiple && !!val) ||
@@ -68,6 +69,7 @@ const SelectField = forwardRef(({
     search: '',
     searching: false,
     searchResults: null,
+    selectedItem: -1,
   });
 
   useImperativeHandle(ref, () => ({
@@ -78,6 +80,8 @@ const SelectField = forwardRef(({
     dirty: state.dirty,
     focused: state.focused,
     opened: state.opened,
+    focus,
+    blur,
     reset,
     isJunipero: true,
   }));
@@ -112,6 +116,7 @@ const SelectField = forwardRef(({
       value: state.value,
       valid: state.valid,
       dirty: true,
+      selectedItem: -1,
       ...resetSearch && { search: '', searchResults: null },
     });
     onChange?.({ value: parseValue(state.value), valid: state.valid });
@@ -207,11 +212,75 @@ const SelectField = forwardRef(({
   };
 
   const onKeyPress_ = e => {
-    if (e.key === 'Enter' && allowArbitraryItems) {
-      onSelectOption(state.search, { resetSearch: true });
+    if (disabled) {
+      return;
+    }
+
+    switch (e.key) {
+      case 'Enter':
+        if (allowArbitraryItems) {
+          onSelectOption(state.search, { resetSearch: true });
+        }
+
+        break;
     }
 
     onKeyPress?.(e);
+  };
+
+  const onKeyUp_ = e => {
+    if (disabled) {
+      return;
+    }
+
+    switch (e.key) {
+      case 'Backspace':
+        if (state.selectedItem >= 0) {
+          onRemoveOption(state.value[state.selectedItem]);
+        } else {
+          dispatch({ selectedItem: state.value.length - 1 });
+        }
+
+        break;
+
+      case 'ArrowLeft':
+        if (state.selectedItem > 0) {
+          dispatch({ selectedItem: state.selectedItem - 1 });
+        } else if (state.selectedItem === -1 && !state.search) {
+          dispatch({ selectedItem: state.value.length - 1 });
+        }
+
+        break;
+
+      case 'ArrowRight':
+        if (state.selectedItem < state.value.length - 1) {
+          dispatch({ selectedItem: state.selectedItem + 1 });
+        } else if (state.selectedItem !== -1) {
+          dispatch({ selectedItem: -1 });
+        }
+
+        break;
+    }
+
+    onKeyUp?.(e);
+  };
+
+  const focus = () => {
+    if (multiple) {
+      searchInputRef.current?.focus();
+    } else {
+      dispatch({ focused: false });
+      dropdownRef.current?.open();
+    }
+  };
+
+  const blur = () => {
+    if (multiple) {
+      searchInputRef.current?.blur();
+    } else {
+      dispatch({ focused: false });
+      dropdownRef.current?.close();
+    }
   };
 
   const reset = () => {
@@ -320,7 +389,10 @@ const SelectField = forwardRef(({
           { hasTags() ? state.value.map((o, i) => (
             <Tag
               key={i}
-              className="info"
+              className={classNames(
+                'info',
+                { selected: i === state.selectedItem }
+              )}
               onDelete={onRemoveOption.bind(null, o)}
             >
               { parseTitle(o) }
@@ -337,6 +409,7 @@ const SelectField = forwardRef(({
               onFocus={onFocus_}
               onBlur={onBlur_}
               onKeyPress={onKeyPress_}
+              onKeyUp={onKeyUp_}
             />
           ) }
           <div className="icons">
@@ -384,6 +457,7 @@ SelectField.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyPress: PropTypes.func,
+  onKeyUp: PropTypes.func,
   onSearch: PropTypes.func,
   onValidate: PropTypes.func,
   parseItem: PropTypes.func,
