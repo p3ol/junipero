@@ -1,20 +1,31 @@
 .junipero.select-field
+  --main-color: var(--junipero-velvet)
   --border-color: var(--junipero-mischka)
   --icons-color: var(--junipero-slate)
   --placeholder-color: var(--junipero-slate)
+  --invalid-color: var(--junipero-grapefruit)
 
   display: inline-flex
   width: 250px
 
   &:focus-within,
   &.opened
-    --border-color: var(--junipero-velvet)
+    --border-color: var(--main-color)
 
     .arrows
-      --icons-color: var(--junipero-velvet)
+      --icons-color: var(--main-color)
 
     .text-field
-      --border-color: var(--junipero-velvet)
+      --border-color: var(--main-color)
+
+  &.invalid.dirty:not(:focus-within):not(.opened):not(.focused)
+    --border-color: var(--invalid-color)
+
+    .arrows
+      --icons-color: var(--invalid-color)
+
+    .text-field
+      --border-color: var(--invalid-color)
 
   .field
     display: flex

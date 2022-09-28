@@ -1,3 +1,6 @@
+import FieldControl from '../FieldControl';
+import Label from '../Label';
+import Abstract from '../Abstract';
 import SelectField from './index';
 
 export default { title: 'react/SelectField' };
@@ -27,4 +30,33 @@ export const asyncSearch = () => (
       return ['Item 4', 'Item 5', 'Item 6'];
     }}
   />
+);
+
+export const withLabelAndAbstract = () => (
+  <FieldControl>
+    <Label className="info" htmlFor="itemname">Item name</Label>
+    <SelectField
+      placeholder="Type a name"
+      options={['Item 1', 'Item 2', 'Item 3']}
+      onValidate={v => v === 'Item 1'}
+    />
+    <Abstract className="info">
+      Here is a little help selecting a name
+    </Abstract>
+  </FieldControl>
+);
+
+export const multipleWithLabelAndAbstract = () => (
+  <FieldControl>
+    <Label className="info" htmlFor="itemname">Item name</Label>
+    <SelectField
+      placeholder="Type a name"
+      options={['Item 1', 'Item 2', 'Item 3']}
+      onValidate={v => v.includes('Item 1')}
+      multiple={true}
+    />
+    <Abstract className="info">
+      Here is a little help selecting a name
+    </Abstract>
+  </FieldControl>
 );

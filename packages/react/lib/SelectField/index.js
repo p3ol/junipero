@@ -44,6 +44,8 @@ const SelectField = forwardRef(({
   parseItem = val => val,
   parseTitle = val => val?.toString?.(),
   parseValue = val => val,
+  onBlur,
+  onFocus,
   onValidate = (val, { required, multiple }) => (
     (multiple && Array.isArray(val) && val.length > 0) ||
     (!multiple && !!val) ||
@@ -59,6 +61,8 @@ const SelectField = forwardRef(({
     value,
     valid: valid ?? false,
     dirty: false,
+    opened: !multiple ? autoFocus ?? false : false,
+    focused: autoFocus ?? false,
     search: '',
     searching: false,
     searchResults: null,
@@ -70,6 +74,9 @@ const SelectField = forwardRef(({
     value: state.value,
     valid: state.valid,
     dirty: state.dirty,
+    focused: state.focused,
+    opened: state.opened,
+    reset,
     isJunipero: true,
   }));
 
@@ -180,6 +187,34 @@ const SelectField = forwardRef(({
     searchInputRef.current?.focus();
   };
 
+  const onFocus_ = e => {
+    dispatch({ focused: true });
+    onFocus?.(e);
+  };
+
+  const onBlur_ = e => {
+    dispatch({ focused: false });
+    onBlur?.(e);
+  };
+
+  const onToggle_ = ({ opened }) => {
+    state.opened = opened;
+    dispatch({ opened });
+
+    updateControl?.({ focused: opened });
+  };
+
+  const reset = () => {
+    dispatch({
+      value: value ?? '',
+      valid: valid ?? false,
+      dirty: false,
+      search: '',
+      searchResults: null,
+    });
+    updateControl?.({ dirty: false, valid: valid ?? false });
+  };
+
   const filterOptions = val => {
     if (!val) {
       return options;
@@ -230,6 +265,9 @@ const SelectField = forwardRef(({
   const hasTags = () =>
     multiple && Array.isArray(state.value) && state.value.length > 0;
 
+  const isEmpty = () =>
+    !hasValue() && !hasTags();
+
   const renderedOptions = useMemo(() => (
     filterUsedOptions(
       state.searchResults ? state.searchResults : options
@@ -245,9 +283,16 @@ const SelectField = forwardRef(({
       clickOptions={{ toggle: false, keyboardHandlers: false }}
       className={classNames(
         'select-field',
-        { searching: state.searching },
+        state.dirty ? 'dirty' : 'pristine',
+        !state.valid && state.dirty ? 'invalid' : 'valid',
+        {
+          searching: state.searching,
+          empty: isEmpty(),
+          focused: state.focused,
+        },
         className
       )}
+      onToggle={onToggle_}
     >
       <DropdownToggle>
         <div className="field" onClick={onFocusField}>
@@ -275,6 +320,8 @@ const SelectField = forwardRef(({
               onChange={onSearchInputChange}
               ref={searchInputRef}
               autoFocus={autoFocus}
+              onFocus={onFocus_}
+              onBlur={onBlur_}
             />
           ) }
           <div className="icons">
