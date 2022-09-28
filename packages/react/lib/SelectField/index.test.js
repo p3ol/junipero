@@ -1,5 +1,5 @@
 import { createRef } from 'react';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { blur, reset } from '~test-utils';
