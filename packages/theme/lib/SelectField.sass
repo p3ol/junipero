@@ -1,0 +1,47 @@
+.junipero.select-field
+  --border-color: var(--junipero-mischka)
+  --icons-color: var(--junipero-slate)
+
+  display: inline-flex
+  width: 250px
+
+  &.opened
+    border-color: var(--junipero-)
+    .arrows
+      --icons-color: var(--junipero-velvet)
+
+    .text-field
+      --border-color: var(--junipero-velvet)
+
+  .field
+    display: flex
+    border-radius: 4px
+    box-shadow: 0 0 0 2px var(--border-color)
+    transition: box-shadow .2s ease-in-out
+    position: relative
+    padding: 10px 30px 10px 10px
+    flex-wrap: wrap
+    gap: 10px
+    width: 100%
+
+    input
+      border: none
+      outline: none
+      display: block
+      background: transparent
+      padding: 0
+
+    .value
+      padding: 10px
+      min-height: 36px
+
+    .icons
+      position: absolute
+      right: 0
+      display: flex
+      align-items: center
+      top: 15px
+      height: 13px
+
+      .icon
+        margin-right: 10px
