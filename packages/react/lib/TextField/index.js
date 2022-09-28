@@ -89,7 +89,7 @@ const TextField = forwardRef(({
 
   const reset = () => {
     dispatch({ value: value ?? '', valid: valid ?? false, dirty: false });
-    updateControl?.({ dirty: false, valid: state.valid });
+    updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
   const isEmpty = () =>
