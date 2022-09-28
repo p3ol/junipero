@@ -141,3 +141,53 @@ export const mergeDeep = (target, ...sources) =>
           : s
       ), target)
       : target;
+
+export const filterDeep = (arr = [], cb = () => true) => {
+  const res = [];
+
+  for (const v of arr) {
+    if (cb(v)) {
+      res.push(v);
+    } else if (isArray(v)) {
+      const r = filterDeep(v, cb);
+      res.push(r);
+    } else if (isObject(v) && !isDate(v)) {
+      res.push(Object.entries(v).reduce((o, [k, v]) => {
+        o[k] = isArray(v) ? filterDeep(v, cb) : v;
+
+        return o;
+      }, {}));
+    }
+  }
+
+  return res;
+};
+
+export const findDeep = (
+  arr = [],
+  cb = () => true,
+  depth = v => v,
+  multiple = false,
+) => {
+  const res = [];
+
+  for (const v of arr) {
+    const d = depth(v);
+
+    if (Array.isArray(d)) {
+      if (multiple) {
+        res.push(...findDeep(d, cb, depth, multiple));
+      } else {
+        return findDeep(d, cb, depth);
+      }
+    } else if (cb(v)) {
+      if (multiple) {
+        res.push(v);
+      } else {
+        return v;
+      }
+    }
+  }
+
+  return res;
+};

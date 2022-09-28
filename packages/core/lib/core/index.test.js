@@ -14,6 +14,8 @@ import {
   cloneDeep,
   fromPairs,
   mergeDeep,
+  filterDeep,
+  findDeep,
 } from './';
 
 describe('core', () => {
@@ -406,6 +408,38 @@ describe('core', () => {
         .toMatchObject([0, 1, { foo: 'bar' }]);
       expect(mergeDeep({ foo: [0, 1] }, { foo: [2, 3, { bar: 'stuff' }] }))
         .toMatchObject({ foo: [0, 1, 2, 3, { bar: 'stuff' }] });
+    });
+  });
+
+  describe('filterDeep(array, cb, hasDepth', () => {
+    it('should correctly filter things deep inside deep arrays', () => {
+      const arr = [0, 1, [2, 3, [4, 5, [6, 7, [8, 9]]]]];
+      expect(filterDeep(arr, v => v % 2 === 0, v => v))
+        .toMatchObject([0, [2, [4, [6, [8]]]]]);
+      const arr2 = [{ options: ['Item 1', 'Item 2', 'Bar'] }, 'Item 3', 'Foo'];
+      expect(filterDeep(arr2, v => /Item/.test(v), v => v.options, true))
+        .toMatchObject([{ options: ['Item 1', 'Item 2'] }, 'Item 3']);
+    });
+  });
+
+  describe('findDeep(array, cb, hasDepth)', () => {
+    it('should correctly find an element inside deep arrays', () => {
+      const arr = [0, 1, [2, 3, [4, 5, [6, 7, [8, 9]]]]];
+      expect(findDeep(arr, v => v === 7)).toBe(7);
+
+      const arr2 = [{ options: ['Item 1', 'Item 2', 'Bar'] }, 'Item 3', 'Foo'];
+      expect(findDeep(arr2, v => /Item/.test(v), v => v.options))
+        .toBe('Item 1');
+    });
+
+    it('should correctly find multiple elements inside deep arrays', () => {
+      const arr = [0, 1, [2, 3, [4, 5, [6, 7, [8, 9]]]]];
+      expect(findDeep(arr, v => v % 2 === 0, v => v, true))
+        .toMatchObject([0, 2, 4, 6, 8]);
+
+      const arr2 = [{ options: ['Item 1', 'Item 2', 'Bar'] }, 'Item 3', 'Foo'];
+      expect(findDeep(arr2, v => /Item/.test(v), v => v.options, true))
+        .toMatchObject(['Item 1', 'Item 2', 'Item 3']);
     });
   });
 });

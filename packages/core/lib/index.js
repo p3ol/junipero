@@ -17,6 +17,8 @@ export {
   cloneDeep,
   fromPairs,
   mergeDeep,
+  filterDeep,
+  findDeep,
 } from './core';
 
 export {
