@@ -32,6 +32,7 @@ const SelectField = forwardRef(({
   placeholder,
   value,
   valid,
+  allowArbitraryItems = false,
   autoFocus = false,
   clearable = true,
   disabled = false,
@@ -46,6 +47,7 @@ const SelectField = forwardRef(({
   parseValue = val => val,
   onBlur,
   onFocus,
+  onKeyPress,
   onValidate = (val, { required, multiple }) => (
     (multiple && Array.isArray(val) && val.length > 0) ||
     (!multiple && !!val) ||
@@ -117,7 +119,7 @@ const SelectField = forwardRef(({
     close && dropdownRef.current?.close?.();
   };
 
-  const onSelectOption = option => {
+  const onSelectOption = (option, changeOpts = {}) => {
     if (disabled) {
       return;
     }
@@ -131,7 +133,7 @@ const SelectField = forwardRef(({
     }
 
     state.valid = onValidate(parseValue(state.value), { required, multiple });
-    onChange_({ resetSearch: !multiple });
+    onChange_({ resetSearch: !multiple, ...changeOpts });
   };
 
   const onRemoveOption = option => {
@@ -202,6 +204,14 @@ const SelectField = forwardRef(({
     dispatch({ opened });
 
     updateControl?.({ focused: opened });
+  };
+
+  const onKeyPress_ = e => {
+    if (e.key === 'Enter' && allowArbitraryItems) {
+      onSelectOption(state.search, { resetSearch: true });
+    }
+
+    onKeyPress?.(e);
   };
 
   const reset = () => {
@@ -322,6 +332,7 @@ const SelectField = forwardRef(({
               autoFocus={autoFocus}
               onFocus={onFocus_}
               onBlur={onBlur_}
+              onKeyPress={onKeyPress_}
             />
           ) }
           <div className="icons">
@@ -347,6 +358,7 @@ const SelectField = forwardRef(({
 
 SelectField.displayName = 'SelectField';
 SelectField.propTypes = {
+  allowArbitraryItems: PropTypes.bool,
   autoFocus: PropTypes.bool,
   clearable: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -364,7 +376,10 @@ SelectField.propTypes = {
   searchThreshold: PropTypes.number,
   valid: PropTypes.bool,
   value: PropTypes.any,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyPress: PropTypes.func,
   onSearch: PropTypes.func,
   onValidate: PropTypes.func,
   parseItem: PropTypes.func,

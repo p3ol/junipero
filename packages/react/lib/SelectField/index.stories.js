@@ -60,3 +60,12 @@ export const multipleWithLabelAndAbstract = () => (
     </Abstract>
   </FieldControl>
 );
+
+export const withArbitraryValues = () => (
+  <SelectField
+    placeholder="Type a name"
+    options={['Item 1', 'Item 2', 'Item 3']}
+    allowArbitraryItems={true}
+    multiple={true}
+  />
+);
