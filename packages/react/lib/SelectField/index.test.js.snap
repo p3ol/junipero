@@ -1,5 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<SelectField /> should allow to reset the field 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field dirty valid"
+  >
+    <div
+      class="field dropdown-toggle"
+    >
+      <input
+        readonly=""
+        type="text"
+        value="David"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should allow to reset the field 2`] = `
+<div>
+  <div
+    class="junipero dropdown select-field pristine valid"
+  >
+    <div
+      class="field dropdown-toggle"
+    >
+      <input
+        readonly=""
+        type="text"
+        value="John"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<SelectField /> should be invalid if validation fails 1`] = `
 <div>
   <div
