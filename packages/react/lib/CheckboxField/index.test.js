@@ -146,7 +146,9 @@ describe('<CheckboxField />', () => {
     const customValidateMock = jest.fn().mockImplementation(
       (val, { dirty }) => !val && dirty
     );
-    const { unmount, container } = render(<CheckboxField onValidate={customValidateMock} required={true} />);
+    const { unmount, container } = render(
+      <CheckboxField onValidate={customValidateMock} required={true} />
+    );
     const input = container.querySelector('input');
 
     await user.click(input);
