@@ -43,10 +43,7 @@ const Dropdown = forwardRef(({
   });
   const { x, y, reference, floating, strategy, context } = useFloating({
     open: state.opened,
-    onOpenChange: o => {
-      dispatch({ opened: o });
-      onToggle?.({ opened: o });
-    },
+    onOpenChange: (...args) => onOpenChange(...args),
     placement,
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,
@@ -87,6 +84,15 @@ const Dropdown = forwardRef(({
     isJunipero: true,
     innerRef,
   }));
+
+  const onOpenChange = o => {
+    if (disabled && o) {
+      return;
+    }
+
+    dispatch({ opened: o });
+    onToggle?.({ opened: o });
+  };
 
   const toggle = () => {
     if (disabled) {
