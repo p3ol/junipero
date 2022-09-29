@@ -112,6 +112,10 @@ const SelectField = forwardRef(({
   }, searchThreshold, [state.search]);
 
   const onChange_ = ({ close = true, resetSearch = false } = {}) => {
+    if (disabled) {
+      return;
+    }
+
     dispatch({
       value: state.value,
       valid: state.valid,
@@ -205,6 +209,10 @@ const SelectField = forwardRef(({
   };
 
   const onToggle_ = ({ opened }) => {
+    if (disabled) {
+      return;
+    }
+
     state.opened = opened;
     dispatch({ opened });
 
@@ -363,6 +371,7 @@ const SelectField = forwardRef(({
       { ...rest }
       opened={state.opened}
       ref={dropdownRef}
+      disabled={disabled}
       clickOptions={{ toggle: false, keyboardHandlers: false }}
       className={classNames(
         'select-field',
