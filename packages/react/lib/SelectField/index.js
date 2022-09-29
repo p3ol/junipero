@@ -97,7 +97,7 @@ const SelectField = forwardRef(({
   }, [value, options]);
 
   useLayoutEffect(() => {
-    if (!searchInputRef.current) {
+    if (!searchInputRef.current || !multiple) {
       return;
     }
 
@@ -166,7 +166,7 @@ const SelectField = forwardRef(({
     if (multiple) {
       state.value = [];
     } else {
-      state.value = value;
+      state.value = undefined;
     }
 
     state.valid = onValidate(parseValue(state.value), { required, multiple });
@@ -425,7 +425,9 @@ const SelectField = forwardRef(({
           ) }
           <div className="icons">
             { state.searching && <Spinner className="small" /> }
-            { !!state.value && clearable && <Remove onClick={onClear} /> }
+            { !!state.value && clearable && (!isEmpty() || state.search) && (
+              <Remove onClick={onClear} />
+            ) }
             <Arrows />
           </div>
         </div>
