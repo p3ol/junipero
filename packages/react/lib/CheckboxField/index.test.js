@@ -138,4 +138,25 @@ describe('<CheckboxField />', () => {
     expect(container).toMatchSnapshot('invalid');
     unmount();
   });
+
+  it('should set invalid state following ' +
+  'custom onValidate function if provided', async () => {
+    const user = userEvent.setup();
+
+    const customValidateMock = jest.fn().mockImplementation(
+      (val, { dirty }) => !val && dirty
+    );
+    const { unmount, container } = render(<CheckboxField onValidate={customValidateMock} required={true} />);
+    const input = container.querySelector('input');
+
+    await user.click(input);
+    expect(container).toMatchSnapshot('invalid');
+    expect(customValidateMock).toHaveBeenCalledWith(
+      true, { dirty: true, required: true }
+    );
+
+    await user.click(input);
+    expect(container).toMatchSnapshot('valid');
+    unmount();
+  });
 });

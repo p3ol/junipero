@@ -6,15 +6,15 @@ import PropTypes from 'prop-types';
 import { useFieldControl } from '../hooks';
 
 const CheckboxField = forwardRef(({
-  children,
   checked = false,
   valid = true,
+  disabled = false,
+  required = false,
+  children,
   value,
   id,
   globalEventsTarget,
   className,
-  disabled = false,
-  required = false,
   onChange,
   onFocus,
   onBlur,
@@ -26,18 +26,19 @@ const CheckboxField = forwardRef(({
 
   const { update: updateControl } = useFieldControl();
 
+  const [state, dispatch] = useReducer(mockState, {
+    checked,
+    valid,
+    dirty: false,
+    focused: false,
+  });
+
   useImperativeHandle(ref, () => ({
     innerRef,
     inputRef,
     checked: state.checked,
     isJunipero: true,
   }));
-
-  const [state, dispatch] = useReducer(mockState, {
-    checked,
-    valid,
-    focused: false,
-  });
 
   const onBlur_ = e => {
     if (!disabled) {
@@ -64,13 +65,14 @@ const CheckboxField = forwardRef(({
 
     if (state.focused && (e.key === 'Enter' || e.key === ' ')) {
       state.checked = !state.checked;
+      state.dirty = true;
       const valid = onValidate?.(
         state.checked, { dirty: state.dirty, required }
       );
-      dispatch({ checked: state.checked, valid });
+      dispatch({ checked: state.checked, valid, dirty: state.dirty });
       onChange?.({ value, checked: state.checked });
       updateControl?.({
-        dirty: true,
+        dirty: state.dirty,
         valid,
       });
       e.preventDefault?.();
@@ -82,17 +84,20 @@ const CheckboxField = forwardRef(({
   };
 
   const onChange_ = e => {
-    if (!disabled) {
-      const checked = e?.target?.checked ?? false;
-      const valid = onValidate?.(checked, { dirty: state.dirty, required });
-      dispatch({ checked, valid });
-      onChange?.({ value, checked });
-
-      updateControl?.({
-        dirty: true,
-        valid,
-      });
+    if (disabled) {
+      return;
     }
+
+    const checked = e?.target?.checked ?? false;
+    state.dirty = true;
+    const valid = onValidate?.(checked, { dirty: state.dirty, required });
+    dispatch({ checked, valid, dirty: state.dirty });
+    onChange?.({ value, checked });
+
+    updateControl?.({
+      dirty: state.dirty,
+      valid,
+    });
   };
 
   return (
@@ -100,9 +105,8 @@ const CheckboxField = forwardRef(({
       htmlFor={id}
       ref={innerRef}
       className={classNames(
+        'checkbox-field',
         'junipero',
-        'field',
-        'checkbox',
         {
           disabled,
           checked: state.checked,
@@ -132,7 +136,7 @@ const CheckboxField = forwardRef(({
   );
 });
 
-CheckboxField.displayName = 'Checkbox';
+CheckboxField.displayName = 'CheckboxField';
 CheckboxField.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
