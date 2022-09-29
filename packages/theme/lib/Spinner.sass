@@ -1,0 +1,51 @@
+.junipero.spinner
+  --main-color: var(--junipero-slate)
+  --foreground-color: var(--junipero-seashell)
+
+  width: 20px
+  height: 20px
+  border-radius: 50%
+  display: inline-flex
+  animation: junipero-spinner-rotate .5s infinite linear
+  background: conic-gradient(from 90deg at 50% 50%, var(--main-color) 0deg, transparent 300deg)
+  position: relative
+
+  &::before
+    background: var(--foreground-color)
+    width: 70%
+    height: 70%
+    border-radius: 50%
+    content: ''
+    margin: auto
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 2
+
+  &.primary
+    --main-color: var(--junipero-velvet)
+    --foreground-color: var(--junipero-seashell)
+  
+  &.warning
+    --main-color: var(--junipero-sunglow)
+    --foreground-color: var(--junipero-seashell)
+  
+  &.danger
+    --main-color: var(--junipero-grapefruit)
+    --foreground-color: var(--junipero-seashell)
+  
+  &.success
+    --main-color: var(--junipero-lime)
+    --foreground-color: var(--junipero-seashell)
+
+  &.small
+    width: 12px
+    height: 12px
+
+@keyframes junipero-spinner-rotate
+  0%
+    transform: rotate(0)
+
+  100%
+    transform: rotate(-360deg)
