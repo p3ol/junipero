@@ -8,6 +8,13 @@
   display: inline-flex
   width: 250px
 
+  &.disabled
+    opacity: .5
+
+    .field
+      &, &.icon.remove, & .icons .icon.remove
+        cursor: default
+
   &:focus-within,
   &.opened
     --border-color: var(--main-color)

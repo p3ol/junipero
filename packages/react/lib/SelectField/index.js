@@ -158,7 +158,7 @@ const SelectField = forwardRef(({
   const onClear = e => {
     e.stopPropagation();
 
-    if (!clearable) {
+    if (!clearable || disabled) {
       return;
     }
 
@@ -415,6 +415,7 @@ const SelectField = forwardRef(({
               onChange={onSearchInputChange}
               ref={searchInputRef}
               autoFocus={autoFocus}
+              disabled={disabled}
               onFocus={onFocus_}
               onBlur={onBlur_}
               onKeyPress={onKeyPress_}

@@ -21,6 +21,16 @@ export const multiple = () => (
   />
 );
 
+export const disabled = () => (
+  <SelectField
+    placeholder="Type a name"
+    multiple={true}
+    value={['Item 1', 'Item 2']}
+    disabled={true}
+    options={[{ title: 'Group 1', options: ['Item 1', 'Item 2'] }, 'Item 3']}
+  />
+);
+
 export const asyncSearch = () => (
   <SelectField
     placeholder="Type a name"
