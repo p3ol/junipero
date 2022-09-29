@@ -2,7 +2,7 @@ import { createRef } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { focus, blur, reset, sleep } from '~test-utils';
+import { blur, reset, sleep } from '~test-utils';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
