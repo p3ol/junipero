@@ -8,6 +8,8 @@
   color: var(--text-color)
   display: inline-flex
   align-items: center
+  align-content: center
+  gap: 8px
 
   &.primary
     --background-color: var(--junipero-velvet)
@@ -25,27 +27,7 @@
     --background-color: var(--junipero-lime)
     --text-color: var(--junipero-seashell)
 
-  .delete
+  .remove
+    --icons-color: var(--text-color)
+
     cursor: pointer
-    position: relative
-    margin-left: 8px
-    width: 10px
-    height: 10px
-    display: inline-flex
-
-    &::before, &::after
-      width: 2px
-      height: 10px
-      border-radius: 2px
-      background: var(--text-color)
-      content: ""
-      display: block
-      position: absolute
-      top: 0
-      left: 50%
-
-    &::before
-      transform: rotate(45deg)
-
-    &::after
-      transform: rotate(-45deg)

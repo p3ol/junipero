@@ -1,8 +1,8 @@
 import { createRef } from 'react';
-import { render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { blur } from '~test-utils';
+import { blur, reset } from '~test-utils';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
@@ -55,7 +55,8 @@ describe('<TextField />', () => {
     const ref = createRef();
     const onChange = jest.fn();
     const { unmount, container } = render(
-      <TextField ref={ref} value="John" onChange={onChange} />);
+      <TextField ref={ref} value="John" onChange={onChange} />
+    );
     const input = container.querySelector('input');
 
     await user.clear(input);
@@ -66,7 +67,7 @@ describe('<TextField />', () => {
     expect(onChange)
       .toHaveBeenLastCalledWith(expect.objectContaining({ value: 'Jane' }));
 
-    await act(async () => { ref.current.reset(); });
+    await reset(ref.current);
     expect(container).toMatchSnapshot();
 
     unmount();
