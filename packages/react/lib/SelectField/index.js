@@ -25,6 +25,7 @@ import DropdownMenu from '../DropdownMenu';
 import DropdownGroup from '../DropdownGroup';
 import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
+import Spinner from '../Spinner';
 
 const SelectField = forwardRef(({
   className,
@@ -423,6 +424,7 @@ const SelectField = forwardRef(({
             />
           ) }
           <div className="icons">
+            { state.searching && <Spinner className="small" /> }
             { !!state.value && clearable && <Remove onClick={onClear} /> }
             <Arrows />
           </div>

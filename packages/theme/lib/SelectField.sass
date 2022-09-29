@@ -4,6 +4,7 @@
   --icons-color: var(--junipero-slate)
   --placeholder-color: var(--junipero-slate)
   --invalid-color: var(--junipero-grapefruit)
+  --spinner-color: var(--junipero-velvet)
 
   display: inline-flex
   width: 250px
@@ -64,14 +65,14 @@
 
     .icons
       position: absolute
-      right: 0
+      right: 10px
       display: flex
       align-items: center
       top: 15px
       height: 13px
+      gap: 10px
 
       .icon
-        margin-right: 10px
         cursor: default
 
         &.arrows
@@ -84,6 +85,9 @@
     padding: 0 10px
     text-align: center
     color: var(--secondary-color)
+
+  .spinner
+    --main-color: var(--spinner-color)
 
 .junipero.select-field.searching .menu-inner,
 .junipero.select-menu.searching .menu-inner
