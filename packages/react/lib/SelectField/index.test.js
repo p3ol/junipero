@@ -238,4 +238,45 @@ describe('<SelectField />', () => {
 
     unmount();
   });
+
+  it('should allow to delete items when hitting backspace', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        options={['Item 1', 'Item 2', 'Item 3']}
+        value={['Item 1', 'Item 2', 'Item 4']}
+        multiple
+        autoFocus
+      />
+    );
+
+    await user.click(container.querySelector('input'));
+
+    // Select item 4
+    await user.keyboard('{Backspace}');
+    expect(container).toMatchSnapshot();
+
+    // Remove item 4
+    await user.keyboard('{Backspace}');
+    expect(container).toMatchSnapshot();
+
+    // Move to item 2
+    await user.keyboard('{ArrowLeft}');
+    expect(container).toMatchSnapshot();
+
+    // Move to item 1
+    await user.keyboard('{ArrowLeft}');
+    expect(container).toMatchSnapshot();
+
+    // Move back to item 2
+    await user.keyboard('{ArrowRight}');
+    expect(container).toMatchSnapshot();
+
+    // Unselect any item
+    await user.keyboard('{ArrowRight}');
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
 });
