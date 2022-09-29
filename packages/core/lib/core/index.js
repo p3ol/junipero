@@ -189,5 +189,7 @@ export const findDeep = (
     }
   }
 
-  return res;
+  if (res.length && multiple) {
+    return res;
+  }
 };
