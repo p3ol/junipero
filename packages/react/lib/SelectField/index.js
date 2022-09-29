@@ -62,7 +62,7 @@ const SelectField = forwardRef(({
   const searchInputRef = useRef();
   const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer(mockState, {
-    value,
+    value: value ?? (multiple ? [] : null),
     valid: valid ?? false,
     dirty: false,
     opened: !multiple ? autoFocus ?? false : false,
@@ -89,9 +89,10 @@ const SelectField = forwardRef(({
 
   useEffect(() => {
     if (exists(value)) {
+      state.value = findOptions(value) || (value ?? (multiple ? [] : null));
       dispatch({
-        value: findOptions(value) || value,
-        valid: onValidate(parseValue(value), { required, multiple }),
+        value: state.value,
+        valid: onValidate(parseValue(state.value), { required, multiple }),
       });
     }
   }, [value, options]);

@@ -2,7 +2,7 @@ import { createRef } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { blur, reset, sleep } from '~test-utils';
+import { focus, blur, reset, sleep } from '~test-utils';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
@@ -189,6 +189,10 @@ describe('<SelectField />', () => {
 
     expect(container).toMatchSnapshot();
 
+    await user.clear(container.querySelector('input'));
+    await sleep(1);
+    expect(container).toMatchSnapshot();
+
     unmount();
   });
 
@@ -210,6 +214,26 @@ describe('<SelectField />', () => {
     expect(container).toMatchSnapshot();
 
     fireEvent.click(getByText('Item 4'));
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
+  it('should allow arbitrary values', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        options={['Item 1', 'Item 2', 'Item 3']}
+        allowArbitraryItems
+        autoFocus
+        multiple
+      />
+    );
+
+    const input = container.querySelector('input');
+    await user.type(input, 'Item 4{enter}');
+
     expect(container).toMatchSnapshot();
 
     unmount();
