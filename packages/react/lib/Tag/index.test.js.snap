@@ -8,9 +8,19 @@ exports[`<Tag /> should be deletable 1`] = `
     <span>
       Item 1
     </span>
-    <a
-      class="delete"
-    />
+    <svg
+      class="junipero icon remove"
+      height="10"
+      viewBox="0 0 9 10"
+      width="10"
+    >
+      <path
+        d="M8 1.5L1 8.5"
+      />
+      <path
+        d="M1 1.5L8 8.5"
+      />
+    </svg>
   </span>
   <span
     class="junipero tag"
@@ -18,9 +28,19 @@ exports[`<Tag /> should be deletable 1`] = `
     <span>
       Item 2
     </span>
-    <a
-      class="delete"
-    />
+    <svg
+      class="junipero icon remove"
+      height="10"
+      viewBox="0 0 9 10"
+      width="10"
+    >
+      <path
+        d="M8 1.5L1 8.5"
+      />
+      <path
+        d="M1 1.5L8 8.5"
+      />
+    </svg>
   </span>
   <span
     class="junipero tag"
@@ -28,9 +48,19 @@ exports[`<Tag /> should be deletable 1`] = `
     <span>
       Item 3
     </span>
-    <a
-      class="delete"
-    />
+    <svg
+      class="junipero icon remove"
+      height="10"
+      viewBox="0 0 9 10"
+      width="10"
+    >
+      <path
+        d="M8 1.5L1 8.5"
+      />
+      <path
+        d="M1 1.5L8 8.5"
+      />
+    </svg>
   </span>
 </div>
 `;
@@ -41,11 +71,41 @@ exports[`<Tag /> should be deletable 2`] = `
     class="junipero tag"
   >
     <span>
+      Item 1
+    </span>
+    <svg
+      class="junipero icon remove"
+      height="10"
+      viewBox="0 0 9 10"
+      width="10"
+    >
+      <path
+        d="M8 1.5L1 8.5"
+      />
+      <path
+        d="M1 1.5L8 8.5"
+      />
+    </svg>
+  </span>
+  <span
+    class="junipero tag"
+  >
+    <span>
       Item 2
     </span>
-    <a
-      class="delete"
-    />
+    <svg
+      class="junipero icon remove"
+      height="10"
+      viewBox="0 0 9 10"
+      width="10"
+    >
+      <path
+        d="M8 1.5L1 8.5"
+      />
+      <path
+        d="M1 1.5L8 8.5"
+      />
+    </svg>
   </span>
   <span
     class="junipero tag"
@@ -53,9 +113,19 @@ exports[`<Tag /> should be deletable 2`] = `
     <span>
       Item 3
     </span>
-    <a
-      class="delete"
-    />
+    <svg
+      class="junipero icon remove"
+      height="10"
+      viewBox="0 0 9 10"
+      width="10"
+    >
+      <path
+        d="M8 1.5L1 8.5"
+      />
+      <path
+        d="M1 1.5L8 8.5"
+      />
+    </svg>
   </span>
 </div>
 `;

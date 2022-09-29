@@ -2,6 +2,8 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
+import { Remove } from '../icons';
+
 const Tag = forwardRef(({
   className,
   children,
@@ -31,7 +33,7 @@ const Tag = forwardRef(({
     >
       { content }
       { onDelete && (
-        <a className="delete" onClick={onDelete_} />
+        <Remove onClick={onDelete_} />
       ) }
     </Comp>
   );
