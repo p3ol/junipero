@@ -12,6 +12,14 @@ export const basic = () => (
   />
 );
 
+export const autoFocused = () => (
+  <SelectField
+    autoFocus
+    placeholder="Type a name"
+    options={['Item 1', 'Item 2', 'Item 3']}
+  />
+);
+
 export const multiple = () => (
   <SelectField
     placeholder="Type a name"

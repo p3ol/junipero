@@ -44,5 +44,9 @@ export const disabled = () => (
 );
 
 export const withValidation = () => (
-  <TextField label="Age" placeholder="Age" validate={val => /^[0-9]+$/g.test(val)} />
+  <TextField
+    label="Age"
+    placeholder="Age"
+    onValidate={val => /^[0-9]+$/g.test(val)}
+  />
 );
