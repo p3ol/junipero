@@ -27,10 +27,16 @@ export const useEventListener = (
   }, [name, target, enabled]);
 };
 
-export const useInterval = (cb, time, changes = []) => {
+export const useInterval = (
+  cb, time, changes = [], { enabled = true } = {}
+) => {
   const returnedCallbackRef = useRef();
 
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
+
     const interval = setInterval(() => {
       returnedCallbackRef.current = cb();
     }, time);
@@ -42,10 +48,16 @@ export const useInterval = (cb, time, changes = []) => {
   }, changes);
 };
 
-export const useTimeout = (cb, time, changes = []) => {
+export const useTimeout = (
+  cb, time, changes = [], { enabled = true } = {}
+) => {
   const returnedCallbackRef = useRef();
 
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
+
     const timeout = setTimeout(() => {
       returnedCallbackRef.current = cb();
     }, time);
