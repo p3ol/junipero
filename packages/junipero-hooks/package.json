@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.19.1",
-    "core-js": "3.25.4"
+    "core-js": "3.25.5"
   },
   "devDependencies": {
     "@poool/junipero-utils": "^2.0.0-rc.21"
