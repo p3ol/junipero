@@ -1,0 +1,352 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxField /> should add value if provided 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value="value"
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should not trigger event and change state if user click but checkbox is disabled 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero disabled"
+    tabindex="-1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should render 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set checked if provided 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero checked"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set focused state on focus: focused 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set focused state on focus: not focused 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: invalid 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero checked invalid"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: valid 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: invalid 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero invalid"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: valid 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero checked"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle active state on click: active 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle active state on click: inactive 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle check if checkbox is clicked: checked 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero checked"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle check if checkbox is clicked: unchecked 1`] = `
+<div>
+  <label
+    class="checkbox-field junipero"
+    tabindex="1"
+  >
+    <div
+      class="check"
+    >
+      <input
+        tabindex="-1"
+        type="checkbox"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;

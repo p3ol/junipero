@@ -1,0 +1,80 @@
+@use "colors" as colors
+
+.junipero.checkbox-field
+  display: flex
+  align-items: center
+
+  .check 
+    flex: 0 0 auto
+    padding-right: 9px
+
+    .inner
+      width: 16px
+      height: 16px
+      border-radius: 4px
+      border: 2px solid #{colors.$mischka}
+      position: relative
+      background: #{colors.$alabaster}
+
+      &:after
+        content: ''
+        width: 5px
+        height: 9px
+        border-bottom: 2px solid #{colors.$seashell}
+        border-right: 2px solid#{colors.$seashell}
+        transform: translateX(-50%) translateY(-50%) rotate(45deg)
+        position: absolute
+        top: calc(50% - 2px)
+        left: 50%
+        opacity: 0
+        transition: opacity .1s ease-in-out
+    
+    input
+      display: none
+      
+      &:checked + .inner
+
+        &:after
+          opacity: 1
+
+  &:focus:not(.disabled, .checked)
+    .check .inner
+      background-color: #{colors.$alabaster}
+      border-color: #{colors.$velvet}
+
+  &:hover:not(.disabled, .checked)
+    .check .inner
+      background-color: #{colors.$concrete}
+      border-color: #{colors.$mischka}
+
+  &:active:not(.disabled, .checked)
+    .check .inner
+      background-color: #{colors.$velvetDisabled}
+      border-color: #{colors.$velvetDisabled}
+
+  &.checked
+    .check .inner
+      background-color: #{colors.$velvet}
+      border-color: #{colors.$velvet}
+
+  &.invalid
+    color: #{colors.$grapefruit}
+
+    .check .inner
+      background-color: #{colors.$alabaster}
+      border-color: #{colors.$grapefruit}
+      
+    &.checked
+      .check .inner
+        background-color: #{colors.$grapefruit}
+
+    &:focus:not(.disabled)
+      .check .inner
+        border-color: #{colors.$grapefruit}
+
+  &.disabled
+    opacity: .5
+
+  .content
+    flex: 1 0 auto
+    max-width: 100%
