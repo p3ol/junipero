@@ -39,6 +39,7 @@ const Tag = forwardRef(({
   );
 });
 
+Tag.displayName = 'Tag';
 Tag.propTypes = {
   tag: PropTypes.oneOfType([
     PropTypes.string,
