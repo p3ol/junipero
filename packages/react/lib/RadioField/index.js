@@ -16,7 +16,6 @@ const RadioField = forwardRef(({
   valid = true,
   options = [],
   className,
-  id,
   name,
   value,
   onChange,
@@ -30,9 +29,7 @@ const RadioField = forwardRef(({
   const inputRefs = useRef([]);
   const innerRefs = useRef([]);
   const wrapperRef = useRef();
-
   const { update: updateControl } = useFieldControl();
-
   const [state, dispatch] = useReducer(mockState, {
     dirty: false,
     value,
@@ -40,7 +37,6 @@ const RadioField = forwardRef(({
   });
 
   useEffect(() => {
-
     if (
       parseValue(value) !== state.value
     ) {
@@ -69,18 +65,16 @@ const RadioField = forwardRef(({
     state.value === option || state.value === parseValue(option);
 
   const onChange_ = option => {
-
     if (disabled || option.disabled) {
       /* istanbul ignore next: canoot be tested */
       return;
     }
 
-    const dirty = true;
     const valid = onValidate(parseValue(option), { dirty: true, required });
     dispatch({
       value: option,
       valid,
-      dirty,
+      dirty: true,
     });
 
     onChange?.({
@@ -89,7 +83,7 @@ const RadioField = forwardRef(({
     });
 
     updateControl?.({
-      dirty,
+      dirty: true,
       valid,
     });
   };
@@ -115,7 +109,6 @@ const RadioField = forwardRef(({
   return (
     <div
       { ...rest }
-      id={id}
       className={classNames(
         'junipero',
         'radio-field',
@@ -175,7 +168,6 @@ RadioField.propTypes = {
   parseDescription: PropTypes.func,
   parseTitle: PropTypes.func,
   value: PropTypes.any,
-  id: PropTypes.string,
   name: PropTypes.string,
 };
 
