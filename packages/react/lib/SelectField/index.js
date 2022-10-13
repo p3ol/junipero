@@ -347,7 +347,9 @@ const SelectField = forwardRef(({
 
   const renderOption = (item, i) => (
     <DropdownItem key={i}>
-      <a onClick={onSelectOption.bind(null, item)}>{ parseTitle(item) }</a>
+      <a onClick={onSelectOption.bind(null, item)}>
+        { parseTitle(item, { isOption: true }) }
+      </a>
     </DropdownItem>
   );
 
@@ -394,7 +396,7 @@ const SelectField = forwardRef(({
             <input
               type="text"
               readOnly={true}
-              value={parseTitle(state.value)}
+              value={parseTitle(state.value, { isValue: true })}
             />
           ) }
           { hasTags() ? state.value.map((o, i) => (
@@ -406,7 +408,7 @@ const SelectField = forwardRef(({
               )}
               onDelete={onRemoveOption.bind(null, o)}
             >
-              { parseTitle(o) }
+              { parseTitle(o, { isTag: true }) }
             </Tag>
           )) : null }
           { (multiple || !state.value) && (
