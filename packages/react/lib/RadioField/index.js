@@ -116,6 +116,7 @@ const RadioField = forwardRef(({
           disabled,
           invalid: !state.valid,
         },
+        state.dirty ? 'dirty' : 'pristine',
         className,
       )}
       ref={wrapperRef}
