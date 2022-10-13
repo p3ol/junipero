@@ -324,4 +324,79 @@ describe('<RadioField />', () => {
     unmount();
   });
 
+  it('should change value if value prop change accross the time', async () => {
+    let value = 'peach';
+    const options = [{
+      title: 'Peach',
+      value: 'peach',
+    }, {
+      title: 'Orange',
+      value: 'orange',
+    }, {
+      title: 'Banana',
+      value: 'banana',
+    }];
+    const { container, unmount, rerender } = render(
+      <RadioField
+        value={value}
+        options={options}
+      />
+    );
+
+    expect(container).toMatchSnapshot('peach checked');
+    value = 'orange';
+    rerender(
+      <RadioField
+        value={value}
+        options={options}
+      />
+    );
+
+    await waitFor(() => expect(container).toMatchSnapshot('orange checked'));
+
+    unmount();
+  });
+
+  it('should change options if ' +
+  'options props change accross the time', async () => {
+    let options = [{
+      title: 'Peach',
+      value: 'peach',
+    }, {
+      title: 'Orange',
+      value: 'orange',
+    }, {
+      title: 'Banana',
+      value: 'banana',
+    }];
+    const { container, unmount, rerender } = render(
+      <RadioField
+        options={options}
+      />
+    );
+
+    expect(container).toMatchSnapshot('fruits options');
+    options = [{
+      title: 'Facebook',
+      value: 'facebook',
+    }, {
+      title: 'Microsoft',
+      value: 'microsoft',
+    }, {
+      title: 'Apple',
+      value: 'apple',
+    }, {
+      title: 'Google',
+      value: 'google',
+    }];
+    rerender(
+      <RadioField
+        options={options}
+      />
+    );
+
+    await waitFor(() => expect(container).toMatchSnapshot('firm options'));
+
+    unmount();
+  });
 });

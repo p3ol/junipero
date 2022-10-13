@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { cloneDeep } from '@junipero/core';
 import { action } from '@storybook/addon-actions';
 
@@ -130,5 +131,61 @@ export const boxedWithOneDisabled = () => {
       value={withOneDisabled[2].value}
       onChange={action('change')}
     />
+  );
+};
+
+export const withValueChanging = () => {
+  const [value, setValue] = useState(withDescriptions[2].value);
+
+  const changeValue = () => {
+    setValue(withDescriptions[0].value);
+  };
+
+  return (
+    <>
+      <button onClick={changeValue}>change value</button>
+      <RadioField
+        options={withDescriptions}
+        className="boxed"
+        value={value}
+        onChange={e => setValue(e.value)}
+      />
+    </>
+  );
+};
+
+export const withOptionsChanging = () => {
+  const alternativeOptions = [
+    { title: 'Apple', value: 'apple', description: 'This is a description' },
+    { title: 'Google', value: 'google', description: 'This is a description' },
+    { title: 'Microsoft', value: 'microsoft', description: 'another' },
+    {
+      title: 'Facebook',
+      value: 'facebook',
+      description: 'This is a description',
+    },
+  ];
+  const [options, setOptions] = useState(withDescriptions);
+  const [currentOptions, setCurrentOptions] = useState('fruits');
+
+  const changeOptions = () => {
+    if (currentOptions === 'fruits') {
+      setOptions(alternativeOptions);
+      setCurrentOptions('firms');
+    } else {
+      setOptions(withDescriptions);
+      setCurrentOptions('fruits');
+    }
+  };
+
+  return (
+    <>
+      <button onClick={changeOptions}>change options</button>
+      <RadioField
+        options={options}
+        className="boxed"
+        onChange={action('change')}
+      />
+    </>
   );
 };

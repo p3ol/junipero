@@ -1,4 +1,10 @@
-import { forwardRef, useReducer, useRef, useImperativeHandle } from 'react';
+import {
+  forwardRef,
+  useReducer,
+  useRef,
+  useImperativeHandle,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import { classNames, mockState } from '@junipero/core';
 
@@ -25,11 +31,25 @@ const RadioField = forwardRef(({
   const innerRefs = useRef([]);
   const wrapperRef = useRef();
 
+  const { update: updateControl } = useFieldControl();
+
   const [state, dispatch] = useReducer(mockState, {
     dirty: false,
     value,
     valid,
   });
+
+  useEffect(() => {
+
+    if (
+      parseValue(value) !== state.value
+    ) {
+      dispatch({
+        value: options?.find(o => parseValue(o) === value),
+        valid: onValidate(value, { dirty: state.dirty, required }),
+      });
+    }
+  }, [value, options]);
 
   useImperativeHandle(ref, () => ({
     innerRefs,
@@ -39,8 +59,6 @@ const RadioField = forwardRef(({
     isJunipero: true,
     valid: state.valid,
   }));
-
-  const { update: updateControl } = useFieldControl();
 
   const isChecked = option =>
     state.value === option || state.value === parseValue(option);
