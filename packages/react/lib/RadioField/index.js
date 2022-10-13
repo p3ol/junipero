@@ -60,7 +60,7 @@ const RadioField = forwardRef(({
     innerRefs,
     inputRefs,
     dirty: state.dirty,
-    internalValue: state.value,
+    value: state.value,
     isJunipero: true,
     valid: state.valid,
   }));
