@@ -93,7 +93,9 @@ export const withLabelAndAbstract = () => {
         }
         onChange={action('change')}
       />
-      <Abstract className="info">You can choose between those 3 fruit</Abstract>
+      <Abstract className="info">
+        You can choose between those 3 fruits
+      </Abstract>
     </FieldControl>
   );
 };

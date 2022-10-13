@@ -5,20 +5,20 @@ import { classNames, mockState } from '@junipero/core';
 import { useFieldControl } from '../hooks';
 
 const RadioField = forwardRef(({
-  className,
   disabled = false,
   required = false,
-  id,
   valid = true,
-  name,
   options = [],
+  className,
+  id,
+  name,
   value,
-  parseValue = val => val?.value ?? val,
-  parseTitle = val => val?.title ?? val?.toString?.(),
-  parseDescription = val => val?.description || '',
   onChange,
   onValidate = (val, { required }) =>
     (val !== undefined && val !== null) || !required,
+  parseValue = val => val?.value ?? val,
+  parseTitle = val => val?.title ?? val?.toString?.(),
+  parseDescription = val => val?.description || '',
   ...rest
 }, ref) => {
   const inputRefs = useRef([]);
@@ -52,12 +52,12 @@ const RadioField = forwardRef(({
       return;
     }
 
+    const dirty = true;
     const valid = onValidate(parseValue(option), { dirty: true, required });
-
     dispatch({
       value: option,
       valid,
-      dirty: true,
+      dirty,
     });
 
     onChange?.({
@@ -66,7 +66,7 @@ const RadioField = forwardRef(({
     });
 
     updateControl?.({
-      dirty: state.dirty,
+      dirty,
       valid,
     });
   };
