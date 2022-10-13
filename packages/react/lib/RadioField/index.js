@@ -16,7 +16,7 @@ const RadioField = forwardRef(({
   parseValue = val => val?.value ?? val,
   parseTitle = val => val?.title ?? val?.toString?.(),
   parseDescription = val => val?.description || '',
-  onChange = () => {},
+  onChange,
   onValidate = (val, { required }) =>
     (val !== undefined && val !== null) || !required,
   ...rest
@@ -60,7 +60,7 @@ const RadioField = forwardRef(({
       dirty: true,
     });
 
-    onChange({
+    onChange?.({
       value: parseValue(option),
       valid,
     });
