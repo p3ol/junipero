@@ -203,7 +203,7 @@ describe('<RadioField />', () => {
     const user = userEvent.setup();
     const onChangeMock = jest.fn();
     const options = [1];
-    const { unmount, container, debug } = render(
+    const { unmount, container } = render(
       <RadioField
         parseValue={() => null}
         options={options}
@@ -211,7 +211,6 @@ describe('<RadioField />', () => {
         onChange={onChangeMock}
       />
     );
-    debug();
     user.click(container.querySelector('input'));
 
     await waitFor(() => expect(onChangeMock).toHaveBeenCalled());
@@ -224,7 +223,7 @@ describe('<RadioField />', () => {
     const user = userEvent.setup();
     const onChangeMock = jest.fn();
     const options = [1];
-    const { unmount, container, debug } = render(
+    const { unmount, container } = render(
       <RadioField
         parseValue={() => null}
         options={options}
@@ -232,7 +231,6 @@ describe('<RadioField />', () => {
         onChange={onChangeMock}
       />
     );
-    debug();
     user.click(container.querySelector('input'));
 
     await waitFor(() => expect(onChangeMock).toHaveBeenCalled());
