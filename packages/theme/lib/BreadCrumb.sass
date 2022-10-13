@@ -1,0 +1,30 @@
+.junipero.breadcrumb
+  --text-color: var(--junipero-tundora)
+  --main-color: var(--junipero-velvet)
+  --secondary-color: var(--junipero-mischka)
+
+  display: flex
+  align-items: center
+  gap: 8px
+
+  .item
+    display: inline-flex
+    gap: 8px
+    align-items: center
+    color: var(--text-color)
+
+    &::after
+      content: '/'
+      color: var(--secondary-color)
+      display: inline
+
+    &:last-child
+      color: var(--main-color)
+
+      &::after
+        display: none
+        content: ''
+
+  a.item
+    cursor: pointer
+    text-decoration: none
