@@ -52,12 +52,11 @@
 
       &:hover:not(.checked)
         .inner
-          border-color: var(--junipero-grapefruit-hover)
           background: var(--junipero-grapefruit-hover)
 
   &.boxed
     label
-      border: 1px solid var(--junipero-mischka)
+      border: 2px solid var(--junipero-mischka)
       padding: 15px 20px
       border-radius: 4px
       margin-bottom: 10px
@@ -65,6 +64,9 @@
       &:last-child
         margin-bottom: 0
 
+      &.checked
+        border-color: var(--junipero-velvet)
+
     &.invalid
       label
-        border: 1px solid var(--junipero-grapefruit)
+        border: 2px solid var(--junipero-grapefruit)
