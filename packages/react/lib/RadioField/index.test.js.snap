@@ -1,0 +1,1056 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioField /> should add box if boxed class has been passed to Radio 1`] = `
+<div>
+  <div
+    class="junipero radio-field boxed"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should check if provided value is in options 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should not display description if parseDescription return empty string 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class=""
+      tabindex="1"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="[object Object]"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should not set error state if field is not required with default validate function: valid 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should not trigger onChange if a radio if just this option is disabled: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        id="peach"
+        tabindex="-1"
+        type="radio"
+        value="peach"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+    <label
+      class="disabled"
+      tabindex="2"
+    >
+      <input
+        id="Orange"
+        tabindex="-1"
+        type="radio"
+        value="Orange"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should not trigger onChange if a radio if just this option is disabled: option 1 checked again 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        id="peach"
+        tabindex="-1"
+        type="radio"
+        value="peach"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+    <label
+      class="disabled"
+      tabindex="2"
+    >
+      <input
+        id="Orange"
+        tabindex="-1"
+        type="radio"
+        value="Orange"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should not trigger onChange if a radio is clicked but its disabled: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field disabled"
+  >
+    <label
+      class="checked disabled"
+      tabindex="-1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class="disabled"
+      tabindex="-1"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should not trigger onChange if a radio is clicked but its disabled: option 1 checked again 1`] = `
+<div>
+  <div
+    class="junipero radio-field disabled"
+  >
+    <label
+      class="checked disabled"
+      tabindex="-1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class="disabled"
+      tabindex="-1"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should render 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  />
+</div>
+`;
+
+exports[`<RadioField /> should render as many options as provided 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class=""
+      tabindex="1"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="3"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="3"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          3
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="4"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="5"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          5
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should set error state if field is required with default validate function: invalid 1`] = `
+<div>
+  <div
+    class="junipero radio-field invalid"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value=""
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should set error state if onValidate function fails: invalid 1`] = `
+<div>
+  <div
+    class="junipero radio-field invalid"
+  >
+    <label
+      class=""
+      tabindex="1"
+    >
+      <input
+        checked=""
+        id="peach"
+        tabindex="-1"
+        type="radio"
+        value="peach"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+    <label
+      class="checked"
+      tabindex="2"
+    >
+      <input
+        id="orange"
+        tabindex="-1"
+        type="radio"
+        value="orange"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should set error state if onValidate function fails: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        id="peach"
+        tabindex="-1"
+        type="radio"
+        value="peach"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        id="orange"
+        tabindex="-1"
+        type="radio"
+        value="orange"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should set error state if onValidate function fails: valid 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        id="peach"
+        tabindex="-1"
+        type="radio"
+        value="peach"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        id="orange"
+        tabindex="-1"
+        type="radio"
+        value="orange"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          [object Object]
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should toggle check if a radio is clicked: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should toggle check if a radio is clicked: option 2 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class=""
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class="checked"
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should trigger onChange when user hit enter and radio is focused: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should trigger onChange when user hit enter and radio is focused: option 2 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class=""
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class="checked"
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should trigger onChange when user hit space and radio is focused: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should trigger onChange when user hit space and radio is focused: option 2 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class=""
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class="checked"
+      tabindex="2"
+    >
+      <input
+        tabindex="-1"
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should use given parse title, description and value if function are provided 1`] = `
+<div>
+  <div
+    class="junipero radio-field"
+  >
+    <label
+      class="checked"
+      tabindex="1"
+    >
+      <input
+        checked=""
+        tabindex="-1"
+        type="radio"
+        value="peach"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          Delicious peach
+        </div>
+        <div
+          class="description"
+        >
+          this is a delicious peach
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
