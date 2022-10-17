@@ -3,6 +3,7 @@ import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
+import { Check } from '../icons';
 
 const CheckboxField = forwardRef(({
   checked = false,
@@ -19,12 +20,10 @@ const CheckboxField = forwardRef(({
 }, ref) => {
   const innerRef = useRef();
   const inputRef = useRef();
-
   const { update: updateControl } = useFieldControl();
-
   const [state, dispatch] = useReducer(mockState, {
-    checked,
-    valid,
+    checked: checked ?? false,
+    valid: valid ?? true,
     dirty: false,
   });
 
@@ -36,20 +35,14 @@ const CheckboxField = forwardRef(({
   }));
 
   const onKeyPress_ = e => {
-
     if (e.key === 'Enter' || e.key === ' ') {
-      state.checked = !state.checked;
-      state.dirty = true;
-      const valid = onValidate?.(
-        state.checked, { dirty: state.dirty, required }
-      );
-      dispatch({ checked: state.checked, valid, dirty: state.dirty });
-      onChange?.({ value, checked: state.checked });
-      updateControl?.({
-        dirty: state.dirty,
-        valid,
-      });
       e.preventDefault?.();
+
+      state.checked = !state.checked;
+      const valid = onValidate?.(state.checked, { dirty: true, required });
+      dispatch({ checked: state.checked, valid, dirty: true });
+      onChange?.({ value, checked: state.checked });
+      updateControl?.({ dirty: true, valid });
 
       return false;
     }
@@ -63,15 +56,10 @@ const CheckboxField = forwardRef(({
     }
 
     const checked = e?.target?.checked ?? false;
-    state.dirty = true;
-    const valid = onValidate?.(checked, { dirty: state.dirty, required });
-    dispatch({ checked, valid, dirty: state.dirty });
+    const valid = onValidate(checked, { dirty: true, required });
+    dispatch({ checked, valid, dirty: true });
     onChange?.({ value, checked });
-
-    updateControl?.({
-      dirty: state.dirty,
-      valid,
-    });
+    updateControl?.({ dirty: true, valid });
   };
 
   return (
@@ -80,29 +68,30 @@ const CheckboxField = forwardRef(({
       { ...rest }
       ref={innerRef}
       className={classNames(
-        'checkbox-field',
         'junipero',
+        'checkbox-field',
+        state.dirty ? 'dirty' : 'pristine',
+        !state.valid && state.dirty ? 'invalid' : 'valid',
         {
           disabled,
           checked: state.checked,
-          invalid: !state.valid,
         },
         className
       )}
       onKeyPress={onKeyPress_}
       tabIndex={disabled ? -1 : 1}
     >
-      <div className="check">
-        <input
-          id={id}
-          type="checkbox"
-          ref={inputRef}
-          value={value}
-          checked={state.checked}
-          onChange={onChange_}
-          tabIndex={-1}
-        />
-        <div className="inner" />
+      <input
+        id={id}
+        type="checkbox"
+        ref={inputRef}
+        value={value}
+        checked={state.checked}
+        onChange={onChange_}
+        tabIndex={-1}
+      />
+      <div className="inner">
+        <Check />
       </div>
       <div className="content">{children}</div>
     </label>
