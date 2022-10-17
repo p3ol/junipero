@@ -1,0 +1,778 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CodeField /> should allow navigating between inputs with arrow keys 1`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid focused"
+  >
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should allow navigating between inputs with arrow keys 2`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should allow navigating between inputs with arrow keys 3`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should allow navigating between inputs with arrow keys 4`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should automatically focus field when autoFocus is enabled 1`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid focused"
+  >
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should automatically switch field focus when changing value 1`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid focused"
+  >
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should automatically switch field focus when changing value 2`] = `
+<div>
+  <div
+    class="junipero code-field dirty valid empty focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="1"
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should correctly fire onChange event 1`] = `
+<div>
+  <div
+    class="junipero code-field dirty valid empty focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="1"
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should erase chars & move selection when hitting backspace 1`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid empty"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="2"
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="2"
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="4"
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should erase chars & move selection when hitting backspace 2`] = `
+<div>
+  <div
+    class="junipero code-field dirty valid empty focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="2"
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="2"
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should not allow to move selection if field is disabled 1`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid disabled"
+  >
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should not fire onChange event if field is disabled 1`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid disabled"
+  >
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      disabled=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should render 1`] = `
+<div>
+  <div
+    class="junipero code-field pristine valid"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should set field as invalid if validation fails 1`] = `
+<div>
+  <div
+    class="junipero code-field dirty valid empty focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="1"
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<CodeField /> should set field as invalid if validation fails 2`] = `
+<div>
+  <div
+    class="junipero code-field dirty invalid empty focused"
+  >
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value="a"
+    />
+    <input
+      class="active"
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+    <input
+      class=""
+      maxlength="1"
+      size="1"
+      type="tel"
+      value=""
+    />
+  </div>
+</div>
+`;
