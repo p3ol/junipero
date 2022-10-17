@@ -1,6 +1,6 @@
 import ToggleField from '.';
 
-export default { title: 'ToggleField' };
+export default { title: 'react/ToggleField' };
 export const basic = () => (
   <ToggleField />
 );
