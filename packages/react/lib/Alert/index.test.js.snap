@@ -26,7 +26,7 @@ exports[`<Alert /> should be auto dismissable 1`] = `
           </div>
         </div>
         <svg
-          class="junipero icon remove"
+          class="junipero icon remove close"
           height="10"
           viewBox="0 0 9 10"
           width="10"
@@ -75,7 +75,7 @@ exports[`<Alert /> should render 1`] = `
         </div>
       </div>
       <svg
-        class="junipero icon remove"
+        class="junipero icon remove close"
         height="10"
         viewBox="0 0 9 10"
         width="10"

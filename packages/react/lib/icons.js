@@ -1,7 +1,9 @@
-export const Arrows = props => (
+import { classNames } from '@junipero/core';
+
+export const Arrows = ({ className, ...rest }) => (
   <svg
-    { ...props }
-    className="junipero icon arrows"
+    { ...rest }
+    className={classNames('junipero icon arrows', className)}
     width="8"
     height="13"
     viewBox="0 0 8 13"
@@ -11,10 +13,10 @@ export const Arrows = props => (
   </svg>
 );
 
-export const Remove = props => (
+export const Remove = ({ className, ...rest }) => (
   <svg
-    { ...props }
-    className="junipero icon remove"
+    { ...rest }
+    className={classNames('junipero icon remove', className)}
     width="10"
     height="10"
     viewBox="0 0 9 10"
