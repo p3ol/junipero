@@ -46,6 +46,7 @@ const Toggle = forwardRef(({
 
   const onChange_ = () => {
     if (disabled) {
+      /* istanbul ignore next: canoot be tested */
       return;
     }
 

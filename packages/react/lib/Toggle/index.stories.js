@@ -1,32 +1,32 @@
 import { action } from '@storybook/addon-actions';
 import { useState } from 'react';
 
-import ToggleField from '.';
+import Toggle from '.';
 
-export default { title: 'react/ToggleField' };
+export default { title: 'react/Toggle' };
 export const basic = () => (
-  <ToggleField>Check that</ToggleField>
+  <Toggle>Check that</Toggle>
 );
 
 export const alreadyChecked = () => (
-  <ToggleField checked={true}>Uncheck this</ToggleField>
+  <Toggle checked={true}>Uncheck this</Toggle>
 );
 
 export const withOnChange = () => (
-  <ToggleField
+  <Toggle
     onChange={action('change')}
     value="agreement"
   >
     Check this
-  </ToggleField>
+  </Toggle>
 );
 
 export const disabled = () => (
-  <ToggleField disabled={true}>cannot check this</ToggleField>
+  <Toggle disabled={true}>cannot check this</Toggle>
 );
 
 export const disabledChecked = () => (
-  <ToggleField disabled={true} checked={true}>cannot uncheck this</ToggleField>
+  <Toggle disabled={true} checked={true}>cannot uncheck this</Toggle>
 );
 
 export const withValueChanging = () => {
@@ -39,13 +39,13 @@ export const withValueChanging = () => {
   return (
     <>
       <button onClick={changeValue}>change value</button>
-      <ToggleField
+      <Toggle
         className="boxed"
         checked={value}
         onChange={e => setValue(e.value)}
       >
         Display more
-      </ToggleField>
+      </Toggle>
     </>
   );
 };
