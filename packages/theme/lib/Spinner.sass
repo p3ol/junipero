@@ -1,5 +1,5 @@
 .junipero.spinner
-  --main-color: var(--junipero-slate)
+  --background-color: var(--junipero-slate)
   --foreground-color: var(--junipero-seashell)
 
   width: 20px
@@ -7,7 +7,7 @@
   border-radius: 50%
   display: inline-flex
   animation: junipero-spinner-rotate .5s infinite linear
-  background: conic-gradient(from 90deg at 50% 50%, var(--main-color) 0deg, transparent 300deg)
+  background: conic-gradient(from 90deg at 50% 50%, var(--background-color) 0deg, transparent 300deg)
   position: relative
 
   &::before
@@ -24,19 +24,19 @@
     z-index: 2
 
   &.primary
-    --main-color: var(--junipero-velvet)
+    --background-color: var(--junipero-velvet)
     --foreground-color: var(--junipero-seashell)
   
   &.warning
-    --main-color: var(--junipero-sunglow)
+    --background-color: var(--junipero-sunglow)
     --foreground-color: var(--junipero-seashell)
   
   &.danger
-    --main-color: var(--junipero-grapefruit)
+    --background-color: var(--junipero-grapefruit)
     --foreground-color: var(--junipero-seashell)
   
   &.success
-    --main-color: var(--junipero-lime)
+    --background-color: var(--junipero-lime)
     --foreground-color: var(--junipero-seashell)
 
   &.small

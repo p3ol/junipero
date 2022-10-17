@@ -1,74 +1,56 @@
 .junipero.checkbox-field
+  --icons-color: var(--junipero-seashell)
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --background-color: var(--junipero-alabaster)
+  --hover-color: var(--junipero-concrete)
+  --active-color: var(--junipero-velvet-background)
+  --invalid-color: var(--junipero-grapefruit)
+
   display: flex
   align-items: center
+  gap: 8px
 
-  .check 
-    flex: 0 0 auto
-    padding-right: 9px
+  input
+    display: none
 
-    .inner
-      width: 16px
-      height: 16px
-      border-radius: 4px
-      border: 2px solid var(--junipero-mischka)
-      position: relative
-      background: var(--junipero-alabaster)
+    &:checked
+      & + .inner
+        background: var(--main-color)
+        box-shadow: 0 0 0 2px var(--main-color)
 
-      &:after
-        content: ''
-        width: 5px
-        height: 9px
-        border-bottom: 2px solid var(--junipero-seashell)
-        border-right: 2px solid var(--junipero-seashell)
-        transform: translateX(-50%) translateY(-50%) rotate(45deg)
-        position: absolute
-        top: calc(50% - 2px)
-        left: 50%
-        opacity: 0
-        transition: opacity .1s ease-in-out
-    
-    input
-      display: none
-      
-      &:checked + .inner
-
-        &:after
+        .icon.check
           opacity: 1
 
-  &:focus:not(.disabled, .checked)
-    .check .inner
-      background-color: var(--junipero-alabaster)
-      border-color: var(--junipero-velvet)
+  .inner
+    width: 12px
+    height: 12px
+    border-radius: 2px
+    box-shadow: 0 0 0 2px var(--border-color)
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    background: var(--background-color)
 
-  &:hover:not(.disabled, .checked)
-    .check .inner
-      background-color: var(--junipero-concrete)
-      border-color: var(--junipero-mischka)
+    .icon.check
+      opacity: 0
 
-  &:active:not(.disabled, .checked)
-    .check .inner
-      background-color: var(--junipero-velvet-disabled)
-      border-color: var(--junipero-velvet-disabled)
+  &:hover
+    &:not(.disabled)
+      --background-color: var(--hover-color)
 
-  &.checked
-    .check .inner
-      background-color: var(--junipero-velvet)
-      border-color: var(--junipero-velvet)
+  &:focus,
+  &:focus-within
+    &:not(.disabled)
+      --border-color: var(--main-color)
 
-  &.invalid
-    color: var(--junipero-grapefruit)
+  &:active
+    &:not(.disabled)
+      --background-color: var(--active-color)
 
-    .check .inner
-      background-color: var(--junipero-alabaster)
-      border-color: var(--junipero-grapefruit)
-      
-    &.checked
-      .check .inner
-        background-color: var(--junipero-grapefruit)
-
-    &:focus:not(.disabled)
-      .check .inner
-        border-color: var(--junipero-grapefruit)
+  &.invalid.dirty
+    &:not(.disabled):not(:focus):not(:focus-within)
+      --border-color: var(--invalid-color)
 
   &.disabled
     opacity: .5

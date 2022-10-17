@@ -62,3 +62,17 @@ export const Time = ({ className, ...rest }) => (
     <path d="M13.4558 13L9 9.61266L9 4" />
   </svg>
 );
+
+export const Check = ({ className, ...rest }) => (
+  <svg
+    { ...rest }
+    className={classNames('junipero icon check', className)}
+    width="10"
+    height="7"
+    viewBox="0 0 10 7"
+  >
+    <path
+      d="M1.75259 3.49582L4.25675 6L8.24741 1"
+    />
+  </svg>
+);
