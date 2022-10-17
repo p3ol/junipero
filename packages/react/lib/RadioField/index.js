@@ -27,8 +27,8 @@ const RadioField = forwardRef(({
   ...rest
 }, ref) => {
   const inputRefs = useRef([]);
-  const innerRefs = useRef([]);
-  const wrapperRef = useRef();
+  const optionRefs = useRef([]);
+  const innerRef = useRef();
   const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer(mockState, {
     dirty: false,
@@ -53,8 +53,9 @@ const RadioField = forwardRef(({
   }, [value, options]);
 
   useImperativeHandle(ref, () => ({
-    innerRefs,
+    optionRefs,
     inputRefs,
+    innerRef,
     dirty: state.dirty,
     value: state.value,
     isJunipero: true,
@@ -114,17 +115,17 @@ const RadioField = forwardRef(({
         'radio-field',
         {
           disabled,
-          invalid: !state.valid,
         },
         state.dirty ? 'dirty' : 'pristine',
+        !state.valid && state.dirty ? 'invalid' : 'valid',
         className,
       )}
-      ref={wrapperRef}
+      ref={innerRef}
     >
       { options.map((option, index) => (
         <label
           key={index}
-          ref={el => { innerRefs.current[index] = el; }}
+          ref={el => { optionRefs.current[index] = el; }}
           className={classNames(
             {
               checked: isChecked(option),
