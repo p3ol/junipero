@@ -1,7 +1,8 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { classNames } from '@junipero/core';
+import PropTypes from 'prop-types';
 
-const Card = forwardRef(({ className, ...rest }, ref) => {
+const Card = forwardRef(({ className, tag: Tag = 'div', ...rest }, ref) => {
   const innerRef = useRef();
 
   useImperativeHandle(ref, () => ({
@@ -10,7 +11,7 @@ const Card = forwardRef(({ className, ...rest }, ref) => {
   }));
 
   return (
-    <div
+    <Tag
       { ...rest }
       className={classNames('junipero', 'card', className)}
       ref={innerRef}
@@ -19,6 +20,13 @@ const Card = forwardRef(({ className, ...rest }, ref) => {
 });
 
 Card.displayName = 'Card';
-Card.propTypes = {};
+Card.propTypes = {
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+};
 
 export default Card;
