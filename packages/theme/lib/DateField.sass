@@ -1,0 +1,175 @@
+.junipero.date-field,
+.junipero.calendar-menu
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --icons-color: var(--junipero-slate)
+  --placeholder-color: var(--junipero-slate)
+  --invalid-color: var(--junipero-grapefruit)
+  --text-color: var(--junipero-onyx)
+  --inactive-text-color: var(--junipero-mischka)
+  --selected-text-color: var(--junipero-seashell)
+  --hover-color: var(--junipero-concrete)
+  --secondary-text-color: var(--junipero-tundora)
+
+.junipero.date-field
+  display: inline-flex
+  width: 250px
+
+  &.disabled
+    opacity: .5
+
+    .field
+      &, & .icon.remove, & .icons .icon.remove
+        cursor: default
+  
+  &:focus-within,
+  &.opened
+    --border-color: var(--main-color)
+
+    .arrows
+      --icons-color: var(--main-color)
+
+  &.invalid.dirty:not(:focus-within):not(.opened):not(.focused)
+    --border-color: var(--invalid-color)
+
+    .arrows
+      --icons-color: var(--invalid-color)
+
+  .field
+    display: flex
+    border-radius: 4px
+    box-shadow: 0 0 0 2px var(--border-color)
+    transition: box-shadow .2s ease-in-out
+    position: relative
+    padding: 10px 30px 10px 10px
+    flex-wrap: wrap
+    gap: 10px
+    width: 100%
+    cursor: default
+
+    input
+      border: none
+      outline: none
+      display: block
+      background: transparent
+      padding: 0
+      width: calc(100% - 20px)
+      overflow: hidden
+      text-overflow: ellipsis
+      pointer-events: none
+
+      &::placeholder
+        color: var(--placeholder-color)
+        opacity: 1
+        user-select: none
+
+    .icons
+      position: absolute
+      right: 10px
+      display: flex
+      align-items: center
+      top: 15px
+      height: 13px
+      gap: 10px
+
+      .icon
+        cursor: default
+
+        &.arrows
+          transition: color .2s ease-in-out
+
+        &.remove
+          cursor: pointer
+
+.junipero.date-field .menu-inner,
+.junipero.calendar-menu .menu-inner
+  --icons-color: var(--secondary-text-color)
+
+  width: 280px
+  padding: 10px
+
+  .calendar-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 10px
+
+    .navigation
+      display: flex
+      align-items: center
+      gap: 15px
+
+      .icon
+        cursor: pointer
+
+        &:hover
+          --icons-color: var(--main-color)
+
+    .current-month
+      padding: 5px
+      user-select: none
+
+  .calendar-body
+    display: grid
+    grid-template-columns: repeat(7, 1fr)
+    gap: 8px
+
+    .week-day
+      text-align: center
+      color: var(--secondary-text-color)
+      user-select: none
+
+    .day
+      display: inline
+      text-align: center
+      padding: 5px 0
+      border-radius: 4px
+      text-decoration: none
+      cursor: pointer
+      user-select: none
+
+      &.inactive
+        color: var(--inactive-text-color)
+        opacity: .5
+
+      &.active
+        color: var(--selected-text-color)
+
+      &.disabled, &.inactive.disabled
+        opacity: .2
+        pointer-events: none
+
+  .day
+    color: var(--text-color)
+
+    &:hover
+      background: var(--hover-color)
+
+    &.active
+      background: var(--main-color)
+
+  .calendar-footer
+    margin-top: 20px
+    position: relative
+
+    .icon
+      --icons-color: var(--placeholder-color)
+
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      left: 10px
+      pointer-events: none
+
+    .time-field
+      appearance: none
+      background: var(--hover-color)
+      border: none
+      border-radius: 4px
+      padding: 5px 10px 5px 40px
+      width: 100%
+
+      &::placeholder
+        color: var(--placeholder-color)
+        opacity: 1
+        user-select: none
