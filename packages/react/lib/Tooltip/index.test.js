@@ -1,4 +1,4 @@
-import { act, render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import Tooltip from './';
 
