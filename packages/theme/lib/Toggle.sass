@@ -1,6 +1,10 @@
 .junipero.toggle-field
   display: flex
   outline: none
+  align-items: center
+
+  &.disabled
+    opacity: .5
 
   input
     display: none
@@ -28,6 +32,11 @@
       transition-property: left, transform
       transition-duration: .1s
       transition-timing-function: ease-in-out
+  
+  .label
+    flex-basis: 0
+    flex-grow: 1
+    margin-left: 10px
 
   &.checked
     .inner
@@ -37,7 +46,6 @@
         transform: translateX(-100%)
         left: 100%
 
-  &:focus
+  &:focus:not(.disabled)
     .inner
       box-shadow: 0 0 0 2px var(--junipero-velvet-hover)
-    

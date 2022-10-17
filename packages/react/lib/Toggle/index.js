@@ -1,23 +1,34 @@
-import { forwardRef, useImperativeHandle, useReducer, useRef } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useReducer,
+  useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 import { classNames, mockState } from '@junipero/core';
 
-const ToggleField = forwardRef(({
+const Toggle = forwardRef(({
   checked = false,
-  disabled,
+  disabled = false,
+  dirty = false,
   children,
-  valid,
   className,
   value,
+  onChange,
   ...rest
 }, ref) => {
   const innerRef = useRef();
   const inputRef = useRef();
+
   const [state, dispatch] = useReducer(mockState, {
     checked,
-    dirty: false,
-    valid,
+    dirty,
   });
+
+  useEffect(() => {
+    dispatch({ checked });
+  }, [checked]);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -25,10 +36,23 @@ const ToggleField = forwardRef(({
     isJunipero: true,
   }));
 
-  const onChange_ = e => {
-    console.log(e);
-    state.checked = e?.target?.checked ?? false;
-    dispatch({ checked: state.checked });
+  const onKeyPress = e => {
+    if (
+      e.key === 'Enter' || e.key === ' '
+    ) {
+      onChange_(e);
+    }
+  };
+
+  const onChange_ = () => {
+    if (disabled) {
+      return;
+    }
+
+    state.checked = !state.checked;
+
+    dispatch({ checked: state.checked, dirty: true });
+    onChange?.({ value, checked: state.checked });
   };
 
   return (
@@ -41,10 +65,10 @@ const ToggleField = forwardRef(({
           checked: state.checked,
         },
         state.dirty ? 'dirty' : 'pristine',
-        !state.valid && state.dirty ? 'invalid' : 'valid',
         className
       )}
       tabIndex={1}
+      onKeyPress={onKeyPress}
     >
       <input
         { ...rest }
@@ -66,12 +90,15 @@ const ToggleField = forwardRef(({
   );
 });
 
-ToggleField.displayName = 'ToggleField';
-ToggleField.propTypes = {
+Toggle.displayName = 'Toggle';
+Toggle.propTypes = {
   value: PropTypes.any,
   checked: PropTypes.bool,
   valid: PropTypes.bool,
   dirty: PropTypes.bool,
   disabled: PropTypes.bool,
+  required: PropTypes.bool,
+  onValidate: PropTypes.func,
+  onChange: PropTypes.func,
 };
-export default ToggleField;
+export default Toggle;
