@@ -198,46 +198,6 @@ describe('<RadioField />', () => {
     unmount();
   });
 
-  it('should set error state if field is required with ' +
-  'default validate function', async () => {
-    const user = userEvent.setup();
-    const onChangeMock = jest.fn();
-    const options = [1];
-    const { unmount, container } = render(
-      <RadioField
-        parseValue={() => null}
-        options={options}
-        required={true}
-        onChange={onChangeMock}
-      />
-    );
-    user.click(container.querySelector('input'));
-
-    await waitFor(() => expect(onChangeMock).toHaveBeenCalled());
-    expect(container).toMatchSnapshot('invalid');
-    unmount();
-  });
-
-  it('should not set error state if field is not required with ' +
-  'default validate function', async () => {
-    const user = userEvent.setup();
-    const onChangeMock = jest.fn();
-    const options = [1];
-    const { unmount, container } = render(
-      <RadioField
-        parseValue={() => null}
-        options={options}
-        required={false}
-        onChange={onChangeMock}
-      />
-    );
-    user.click(container.querySelector('input'));
-
-    await waitFor(() => expect(onChangeMock).toHaveBeenCalled());
-    expect(container).toMatchSnapshot('valid');
-    unmount();
-  });
-
   it('should use custom onValidate function if provided', async () => {
     const mockOnValidate = jest.fn().mockImplementation(() => true);
     const user = userEvent.setup();
@@ -276,7 +236,7 @@ describe('<RadioField />', () => {
       option => option.customTitle
     );
     const mockParseValue = jest.fn().mockImplementation(
-      option => option.cutomValue
+      option => option.cutomValue ?? option
     );
     const mockParseDescription = jest.fn().mockImplementation(
       option => option.customDescription
