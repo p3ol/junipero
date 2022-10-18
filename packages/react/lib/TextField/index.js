@@ -42,6 +42,8 @@ const TextField = forwardRef(({
     valid: state.valid,
     dirty: state.dirty,
     focused: state.focused,
+    focus,
+    blur,
     reset,
     isJunipero: true,
   }));
@@ -85,6 +87,14 @@ const TextField = forwardRef(({
     dispatch({ focused: false });
     updateControl?.({ focused: false });
     onBlur?.(e);
+  };
+
+  const focus = () => {
+    inputRef.current?.focus();
+  };
+
+  const blur = () => {
+    inputRef.current?.blur();
   };
 
   const reset = () => {
