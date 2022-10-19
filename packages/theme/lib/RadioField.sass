@@ -1,0 +1,76 @@
+.junipero.radio-field
+  label
+    display: flex
+    align-items: top
+
+    input
+      display: none
+
+    .inner
+      border: 2px solid var(--junipero-mischka)
+      background: var(--junipero-alabaster)
+      width: 16px
+      height: 16px
+      border-radius: 50%
+      margin-right: 10px
+      margin-top: 4px
+
+    &.checked
+      .inner
+        border: 5px solid var(--junipero-velvet)
+
+    &:focus:not(.disabled, .checked)
+      .inner
+        border-color: var(--junipero-velvet)
+
+    &:hover:not(.disabled, .checked)
+      .inner
+        background: var(--junipero-concrete)
+
+    &:active:not(.disabled, .checked)
+      .inner
+        border-color: var(--junipero-velvet-disabled)
+        background: var(--junipero-velvet-disabled)
+    
+    &.disabled
+      opacity: .5
+  
+    .description
+      font-size: 12px
+
+  &.invalid.dirty
+    label
+      .inner
+        background-color: var(--junipero-alabaster)
+        border-color: var(--junipero-grapefruit)
+        
+        &.checked
+          border: 5px solid var(--junipero-grapefruit)
+    
+      .label
+        color: var(--junipero-grapefruit)
+
+      &:hover:not(.checked)
+        .inner
+          background: var(--junipero-grapefruit-hover)
+
+      &:focus:not(.checked)
+        .inner
+          border-color: var(--junipero-grapefruit-active)
+
+  &.boxed
+    label
+      border: 2px solid var(--junipero-mischka)
+      padding: 15px 20px
+      border-radius: 4px
+      margin-bottom: 10px
+
+      &:last-child
+        margin-bottom: 0
+
+      &.checked
+        border-color: var(--junipero-velvet)
+
+    &.invalid.dirty
+      label
+        border: 2px solid var(--junipero-grapefruit)
