@@ -7,11 +7,13 @@ import { terser } from 'rollup-plugin-terser';
 
 const input = './lib/index.js';
 const output = './dist';
-const name = 'junipero-core';
+const name = 'junipero-hooks';
 const formats = ['umd', 'cjs', 'esm'];
 
-const defaultExternals = [];
-const defaultGlobals = {};
+const defaultExternals = ['react'];
+const defaultGlobals = {
+  react: 'React',
+};
 
 const defaultPlugins = [
   commonjs(),
@@ -40,14 +42,9 @@ export default formats.map(f => ({
     name,
     sourcemap: true,
     globals: defaultGlobals,
+    ...(f === 'esm' ? {
+      manualChunks: id =>
+        id.includes('node_modules') ? 'vendor' : path.parse(id).name,
+    } : {}),
   },
-  ...(f === 'esm' ? {
-    manualChunks: id => {
-      if (/packages\/core\/lib\/(\w+)\/index.js/.test(id)) {
-        return path.parse(id).dir.split('/').pop();
-      } else {
-        return id.includes('node_modules') ? 'vendor' : path.parse(id).name;
-      }
-    },
-  } : {}),
 }));

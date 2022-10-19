@@ -7,12 +7,13 @@ import autoprefixer from 'autoprefixer';
 const output = './dist';
 const name = 'junipero';
 
-const components = fs.readdirSync('./lib', { withFileTypes: true })
+const components = fs
+  .readdirSync(path.resolve('./lib'), { withFileTypes: true })
   .filter(f =>
-    f.isDirectory() &&
-    fs.existsSync(path.resolve('./lib', f.name + '.sass'))
+    !f.isDirectory() &&
+    fs.existsSync(path.resolve('./lib', f.name))
   )
-  .map(f => f.name);
+  .map(f => f.name.replace('.sass', ''));
 
 const onFileConflictWarn = (warning, warn) => {
   if (warning.code === 'FILE_NAME_CONFLICT') {
@@ -32,7 +33,7 @@ const defaultPlugins = [
     use: [
       ['sass', {
         includePaths: [
-          path.resolve(__dirname, './lib/utils'),
+          path.resolve('./lib/utils'),
         ],
       }],
     ],
@@ -66,16 +67,7 @@ export default [
   ...components.map(c => ({
     input: `./lib/${c}.sass`,
     plugins: [
-      postcss({
-        extensions: ['.sass'],
-        minimize: true,
-        inject: false,
-        extract: true,
-        sourceMap: true,
-        plugins: [
-          autoprefixer(),
-        ],
-      }),
+      ...defaultPlugins,
     ],
     output: {
       file: `${output}/css/${c}.min.css`,
