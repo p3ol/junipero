@@ -5,6 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import alias from '@rollup/plugin-alias';
+import dts from 'rollup-plugin-dts';
 
 const input = './lib/index.js';
 const output = './dist';
@@ -71,5 +72,9 @@ export default [
         },
       } : {}),
     },
-  })),
+  })), {
+    input: "./lib/index.d.ts",
+    output: [{ file: `dist/${name}.d.ts`, format: "es" }],
+    plugins: [dts()],
+  }
 ];
