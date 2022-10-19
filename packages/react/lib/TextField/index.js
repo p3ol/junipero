@@ -45,13 +45,14 @@ const TextField = forwardRef(({
     focus,
     blur,
     reset,
+    setDirty,
     isJunipero: true,
   }));
 
   useEffect(() => {
     if (exists(value)) {
       state.value = value;
-      state.valid = onValidate?.(state.value, { dirty: state.dirty, required });
+      state.valid = onValidate(state.value, { dirty: state.dirty, required });
       dispatch({ value: state.value, valid: state.valid });
       updateControl?.({ valid: state.valid, dirty: state.dirty });
     }
@@ -104,6 +105,12 @@ const TextField = forwardRef(({
 
   const isEmpty = () =>
     !exists(state.value) || state.value === '';
+
+  const setDirty = dirty => {
+    state.dirty = dirty;
+    dispatch({ dirty });
+    updateControl?.({ dirty });
+  };
 
   const Tag = rest.rows > 1 ? 'textarea' : 'input';
 
