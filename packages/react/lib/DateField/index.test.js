@@ -5,12 +5,14 @@ import DateField from './';
 describe('<DateField />', () => {
   it('should render', () => {
     const onToggle = jest.fn();
-    const { container, unmount, rerender } = render(
-      <DateField placeholder="Date of birth" onToggle={onToggle} />
+    const { container, unmount } = render(
+      <DateField
+        value={new Date(2019, 1, 1)}
+        placeholder="Date of birth"
+        onToggle={onToggle}
+      />
     );
     expect(container).toMatchSnapshot('default');
-    rerender(<DateField value={new Date(2019, 0, 1)} onToggle={onToggle} />);
-    expect(container).toMatchSnapshot('with value');
     fireEvent.click(container.querySelector('input'));
     expect(container).toMatchSnapshot('opened');
     expect(onToggle)
