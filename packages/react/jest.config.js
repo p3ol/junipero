@@ -9,7 +9,7 @@ module.exports = {
   },
   moduleNameMapper: {
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
-    '^~test-utils$': '<rootDir>/packages/react/tests/utils.js',
+    '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.js',
   },
   testMatch: ['<rootDir>/packages/react/lib/**/*.test.js'],
   testPathIgnorePatterns: [
