@@ -1,4 +1,4 @@
-export declare interface AlertProps {
+export declare interface AlertProps extends React.ComponentPropsWithRef<any> {
   className?: string;
   index?: any;
   title?: JSX.Element | string | Function;

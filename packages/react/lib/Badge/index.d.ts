@@ -1,4 +1,4 @@
-declare interface BadgeProps {
+declare interface BadgeProps extends React.ComponentPropsWithRef<any> {
   className?: String;
   tag?: String | JSX.Element;
   [key: string]: any;

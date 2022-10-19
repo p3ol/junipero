@@ -1,5 +1,5 @@
 import { AlertProps } from "../Alert";
-declare interface AlertsProps {
+declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
   classname?: String;
   animate?: (
     alert?: (props: AlertProps) => JSX.Element,
