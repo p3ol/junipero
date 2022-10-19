@@ -1,8 +1,7 @@
-declare interface AbstractProps {
+declare interface AbstractProps extends React.ComponentPropsWithoutRef<any> {
   className?: String;
-  [key: string]: any;
 }
 
-declare function Abstract(props: AbstractProps): JSX.Element;
+declare function Abstract(props: AbstractProps): React.ReactNode;
 
 export default Abstract;

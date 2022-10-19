@@ -1,10 +1,10 @@
 import { AlertObject } from "../Alert";
 
-declare interface AlertsControlProps {
-  alerts: Array<AlertObject>;
-  [key: string]: any;
+declare interface AlertsControlProps
+  extends React.ComponentPropsWithoutRef<any> {
+  alerts?: Array<AlertObject>;
 }
 
-declare function AlertsControl(props: AlertsControlProps): JSX.Element;
+declare function AlertsControl(props: AlertsControlProps): React.ReactNode;
 
 export default AlertsControl;
