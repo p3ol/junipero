@@ -46,20 +46,20 @@ export default formats.map(f => ({
     format: f,
     name,
     sourcemap: true,
+    ...(f === 'esm' ? {
+      manualChunks: id => {
+        if (/packages\/react-native\/lib\/(\w+)\/(.+)(\.styles\.js|\.js)/.test(id)) {
+          return path.parse(id).dir.split('/').pop();
+        } else if (
+          id.includes('node_modules') ||
+          /rollupPluginBabelHelpers/.test(id) ||
+          /packages\/(core|hooks)(\w+)/.test(id)
+        ) {
+          return 'vendor';
+        } else {
+          return path.parse(id).name;
+        }
+      },
+    } : {}),
   },
-  ...(f === 'esm' ? {
-    manualChunks: id => {
-      if (/packages\/react-native\/lib\/(\w+)\/(.+)(\.styles\.js|\.js)/.test(id)) {
-        return path.parse(id).dir.split('/').pop();
-      } else if (
-        id.includes('node_modules') ||
-        /rollupPluginBabelHelpers/.test(id) ||
-        /packages\/(core|hooks)(\w+)/.test(id)
-      ) {
-        return 'vendor';
-      } else {
-        return path.parse(id).name;
-      }
-    },
-  } : {}),
 }));
