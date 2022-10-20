@@ -4,6 +4,7 @@ import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import alias from '@rollup/plugin-alias';
 
 const input = './lib/index.js';
 const output = './dist';
@@ -23,6 +24,12 @@ const defaultPlugins = [
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
+  }),
+  alias({
+    entries: {
+      '@junipero/core': path.resolve('../core/lib'),
+      '@junipero/hooks': path.resolve('../hooks/lib'),
+    },
   }),
   resolve({
     rootDir: path.resolve('../../'),
