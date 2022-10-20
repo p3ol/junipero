@@ -1,6 +1,10 @@
-import { ElementType } from "react";
+import { ElementType, MutableRefObject } from "react";
 
-export declare interface AlertProps extends React.ComponentPropsWithRef<any> {
+export declare type AlertRef = {
+  innerRef: MutableRefObject<any>;
+  isJunipero: Boolean;
+};
+declare interface AlertProps extends React.ComponentPropsWithRef<any> {
   className?: string;
   index?: any;
   title?: React.ReactNode | string | Function;
@@ -9,6 +13,7 @@ export declare interface AlertProps extends React.ComponentPropsWithRef<any> {
   children?: string | React.ReactNode | Function;
   onDismiss?(index?: any): any;
   icon?: React.ReactNode | string | Function;
+  ref: MutableRefObject<AlertRef | undefined>;
 }
 
 export declare interface AlertObject {
@@ -21,6 +26,6 @@ export declare interface AlertObject {
   onDismiss?(index?: any): any;
 }
 
-declare function Alert(props: AlertProps): React.ReactNode;
+declare function Alert(props: AlertProps): JSX.Element;
 
 export default Alert;

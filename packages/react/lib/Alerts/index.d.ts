@@ -1,12 +1,20 @@
-import { AlertProps } from "../Alert";
+import { MutableRefObject } from "react";
+import { AlertObject, AlertProps } from "../Alert";
+
+export declare type AlertsRef = {
+  innerRef: MutableRefObject<any>;
+  alerts: Array<AlertObject>;
+  isJunipero: Boolean;
+};
 declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
   classname?: String;
+  ref?: MutableRefObject<AlertsRef | undefined>;
   animate?: (
     alert?: (props: AlertProps) => React.ReactNode,
     index?: any
-  ) => React.ReactNode;
+  ) => JSX.Element;
 }
 
-declare function Alerts(props: AlertsProps): React.ReactNode;
+declare function Alerts(props: AlertsProps): JSX.Element;
 
 export default Alerts;

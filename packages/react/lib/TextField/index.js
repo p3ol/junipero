@@ -38,7 +38,7 @@ const TextField = forwardRef(({
   useImperativeHandle(ref, () => ({
     innerRef,
     inputRef,
-    internalValue: state.value,
+    value: state.value,
     valid: state.valid,
     dirty: state.dirty,
     focused: state.focused,

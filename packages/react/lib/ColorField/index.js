@@ -253,7 +253,7 @@ const ColorField = forwardRef(({
       v: (100 - state.v) / 100,
       a: state.a / 100,
     }, format);
-    state.valid = onValidate?.(state.value, { required });
+    state.valid = onValidate?.(state.value, { required, dirty: true });
     textFieldRef.current?.setDirty(true);
 
     dispatch({

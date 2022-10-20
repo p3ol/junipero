@@ -177,7 +177,7 @@ const DateField = forwardRef(({
     }
 
     state.value = undefined;
-    state.valid = onValidate(parseValue(state.value), { required });
+    state.valid = onValidate(parseValue(state.value), { required, dirty: true });
     onChange_({ close: false });
   };
 
