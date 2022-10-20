@@ -22,7 +22,7 @@ declare interface CodeFieldProps {
   size?: number;
   onValidate?: (
     value: String,
-    { dirty, required }: { dirty: Boolean; required: Boolean }
+    { dirty, required }: { dirty?: Boolean; required?: Boolean }
   ) => Boolean;
   onChange?: (changeProps: { value?: String; valid: Boolean }) => void;
   onPaste?: (e: Event) => any;

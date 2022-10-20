@@ -6,10 +6,10 @@ export declare type ButtonRef = {
 };
 
 declare interface ButtonProps extends React.ComponentPropsWithRef<any> {
-  className: string;
-  disabled: Boolean;
-  tag: String | ElementType;
-  onClick: (e: Event) => any;
+  className: ?string;
+  disabled?: Boolean;
+  tag?: String | ElementType;
+  onClick?: (e: Event) => any;
   ref?: MutableRefObject<ButtonRef | undefined>;
 }
 

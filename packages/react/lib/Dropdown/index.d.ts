@@ -14,8 +14,8 @@ export declare type DropdownRef = {
 };
 
 declare interface DropdownProps extends React.ComponentPropsWithRef<any> {
-  className: Sstring;
-  container: String | React.ReactNode;
+  className?: Sstring;
+  container?: String | React.ReactNode;
   floatingOptions?: Object;
   clickOptions?: clickProps;
   hoverOptions?: hoverProps;

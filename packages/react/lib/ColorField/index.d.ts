@@ -40,7 +40,7 @@ declare interface ColorFieldProps extends React.ComponentPropsWithRef {
   onToggle?: ({ opened }: { opened: Boolean }) => void;
   onValidate?: (
     value: String,
-    { dirty, required }: { dirty: Boolean; required: Boolean }
+    { dirty, required }: { dirty?: Boolean; required?: Boolean }
   ) => Boolean;
   ref?: MutableRefObject<ColorFieldRef | undefined>;
 }

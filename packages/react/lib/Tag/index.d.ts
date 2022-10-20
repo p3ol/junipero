@@ -11,8 +11,8 @@ export declare type TagRef = {
 declare interface TagProps extends ComponentPropsWithRef<any> {
   className?: String;
   children?: React.ReactNode;
-  onDelete: () => void;
-  tag: String | ElementType;
+  onDelete?: () => void;
+  tag?: String | ElementType;
   ref?: MutableRefObject<TagRef | undefined>;
 }
 

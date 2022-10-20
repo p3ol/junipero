@@ -16,9 +16,9 @@ export declare type TextFieldRef = {
 
 declare interface TextFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: Boolean;
-  children: React.ReactNode;
-  className: String;
-  valid: Boolean;
+  children?: React.ReactNode;
+  className?: String;
+  valid?: Boolean;
   value?: String;
   disabled: Boolean;
   required?: Boolean;

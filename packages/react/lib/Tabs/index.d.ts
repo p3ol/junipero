@@ -9,10 +9,10 @@ export declare type TabsRef = {
 declare interface TabsProps extends React.ComponentPropsWithRef<any> {
   className?: String;
   children?: React.ReactNode;
-  active: number;
-  disabled: Boolean;
-  filterTab: (child: React.ReactNode) => Boolean;
-  onToggle: (index: number) => void;
+  active?: number;
+  disabled?: Boolean;
+  filterTab?: (child: React.ReactNode) => Boolean;
+  onToggle?: (index: number) => void;
   ref?: MutableRefObject<TabsRef | undefined>;
 }
 

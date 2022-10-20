@@ -1,5 +1,5 @@
 import { MutableRefObject } from "react";
-import { AlertObject, AlertProps } from "../Alert";
+import { AlertObject } from "../Alert";
 
 export declare type AlertsRef = {
   innerRef: MutableRefObject<any>;
@@ -10,7 +10,7 @@ declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
   classname?: String;
   ref?: MutableRefObject<AlertsRef | undefined>;
   animate?: (
-    alert?: (props: AlertProps) => React.ReactNode,
+    alert?: (props: AlertObject) => React.ReactNode,
     index?: any
   ) => JSX.Element;
 }

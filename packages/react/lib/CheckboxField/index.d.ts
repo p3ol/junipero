@@ -19,7 +19,7 @@ declare interface CheckboxFieldProps extends React.ComponentPropsWithRef<any> {
   onChange?: (changeEvent: { value: any; checked: Boolean }) => void;
   onValidate?: (
     value: any,
-    { dirty, required }: { dirty: Boolean; required: Boolean }
+    { dirty, required }: { dirty?: Boolean; required?: Boolean }
   ) => Boolean;
   ref?: MutableRefObject<CheckboxFieldRef | undefined>;
 }
