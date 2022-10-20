@@ -1,5 +1,5 @@
 import { createRef } from 'react';
-import { fireEvent, render, act } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 import CodeField from './index';
 
