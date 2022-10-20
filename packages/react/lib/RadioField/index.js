@@ -38,11 +38,11 @@ const RadioField = forwardRef(({
 
   useEffect(() => {
     if (
-      parseValue(value) !== state.value
+      value !== state.value
     ) {
       const valid = onValidate(value, { dirty: state.dirty, required });
       dispatch({
-        value: options?.find(o => parseValue(o) === value),
+        value: options?.find(o => parseValue(o) === parseValue(value)),
         valid,
       });
       updateControl?.({
@@ -62,8 +62,7 @@ const RadioField = forwardRef(({
     valid: state.valid,
   }));
 
-  const isChecked = option =>
-    state.value === option || state.value === parseValue(option);
+  const isChecked = option => parseValue(option) === parseValue(state.value);
 
   const onChange_ = option => {
     if (disabled || option.disabled) {
@@ -72,21 +71,12 @@ const RadioField = forwardRef(({
     }
 
     const valid = onValidate(parseValue(option), { dirty: true, required });
-    dispatch({
-      value: option,
-      valid,
-      dirty: true,
+    dispatch({ value: option, valid, dirty: true });
+
+    onChange?.({ value: parseValue(option), valid,
     });
 
-    onChange?.({
-      value: parseValue(option),
-      valid,
-    });
-
-    updateControl?.({
-      dirty: true,
-      valid,
-    });
+    updateControl?.({ dirty: true, valid });
   };
 
   const onKeyDown = (option, e) => {
@@ -113,9 +103,7 @@ const RadioField = forwardRef(({
       className={classNames(
         'junipero',
         'radio-field',
-        {
-          disabled,
-        },
+        { disabled },
         state.dirty ? 'dirty' : 'pristine',
         !state.valid && state.dirty ? 'invalid' : 'valid',
         className,
@@ -126,12 +114,10 @@ const RadioField = forwardRef(({
         <label
           key={index}
           ref={el => { optionRefs.current[index] = el; }}
-          className={classNames(
-            {
-              checked: isChecked(option),
-              disabled: disabled || option.disabled,
-            },
-          )}
+          className={classNames({
+            checked: isChecked(option),
+            disabled: disabled || option.disabled,
+          })}
           onKeyDown={onKeyDown.bind(null, option)}
           tabIndex={disabled ? -1 : index + 1}
         >
@@ -140,7 +126,7 @@ const RadioField = forwardRef(({
             name={name}
             ref={el => { inputRefs.current[index] = el; }}
             type="radio"
-            value={parseValue(option)}
+            value={option}
             checked={isChecked(option)}
             onChange={onChange_.bind(null, option)}
             tabIndex={-1}
@@ -158,6 +144,7 @@ const RadioField = forwardRef(({
   );
 });
 
+RadioField.displayName = 'RadioField';
 RadioField.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,

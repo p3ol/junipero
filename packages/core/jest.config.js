@@ -12,4 +12,5 @@ module.exports = {
     '/node_modules/',
   ],
   testEnvironment: 'jsdom',
+  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };

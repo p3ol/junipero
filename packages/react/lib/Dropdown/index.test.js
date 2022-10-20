@@ -88,5 +88,5 @@ describe('<Dropdown />', () => {
     expect(container).toMatchSnapshot();
 
     unmount();
-  })
+  });
 });

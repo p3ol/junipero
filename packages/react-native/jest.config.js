@@ -24,4 +24,5 @@ module.exports = {
   setupFilesAfterEnv: [
     '<rootDir>/.ci/config/react-native.js',
   ],
+  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };

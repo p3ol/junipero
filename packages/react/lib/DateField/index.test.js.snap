@@ -1655,13 +1655,13 @@ exports[`<DateField /> should render: default 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      title=""
+      title="Friday, February 1, 2019 12:00:00 AM"
     >
       <input
         placeholder="Date of birth"
         readonly=""
         type="text"
-        value=""
+        value="Friday, February 1, 2019 12:00:00 AM"
       />
       <div
         class="icons"
@@ -1692,12 +1692,13 @@ exports[`<DateField /> should render: opened 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      title="Tuesday, January 1, 2019 12:00:00 AM"
+      title="Friday, February 1, 2019 12:00:00 AM"
     >
       <input
+        placeholder="Date of birth"
         readonly=""
         type="text"
-        value="Tuesday, January 1, 2019 12:00:00 AM"
+        value="Friday, February 1, 2019 12:00:00 AM"
       />
       <div
         class="icons"
@@ -1735,9 +1736,9 @@ exports[`<DateField /> should render: opened 1`] = `
               class="current-month"
             >
               <strong>
-                October
+                February
               </strong>
-               2022
+               2019
             </div>
             <div
               class="navigation"
@@ -1806,18 +1807,6 @@ exports[`<DateField /> should render: opened 1`] = `
               class="day junipero info inactive"
               href="#"
             >
-              26
-            </a>
-            <a
-              class="day junipero info inactive"
-              href="#"
-            >
-              27
-            </a>
-            <a
-              class="day junipero info inactive"
-              href="#"
-            >
               28
             </a>
             <a
@@ -1833,7 +1822,13 @@ exports[`<DateField /> should render: opened 1`] = `
               30
             </a>
             <a
-              class="day junipero info"
+              class="day junipero info inactive"
+              href="#"
+            >
+              31
+            </a>
+            <a
+              class="day junipero info active"
               href="#"
             >
               1
@@ -1929,7 +1924,7 @@ exports[`<DateField /> should render: opened 1`] = `
               16
             </a>
             <a
-              class="day junipero info active"
+              class="day junipero info"
               href="#"
             >
               17
@@ -2001,24 +1996,6 @@ exports[`<DateField /> should render: opened 1`] = `
               28
             </a>
             <a
-              class="day junipero info"
-              href="#"
-            >
-              29
-            </a>
-            <a
-              class="day junipero info"
-              href="#"
-            >
-              30
-            </a>
-            <a
-              class="day junipero info"
-              href="#"
-            >
-              31
-            </a>
-            <a
               class="day junipero info inactive"
               href="#"
             >
@@ -2054,6 +2031,30 @@ exports[`<DateField /> should render: opened 1`] = `
             >
               6
             </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              10
+            </a>
           </div>
           <div
             class="calendar-footer"
@@ -2083,42 +2084,6 @@ exports[`<DateField /> should render: opened 1`] = `
           </div>
         </div>
       </ul>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<DateField /> should render: with value 1`] = `
-<div>
-  <div
-    class="junipero dropdown date-field pristine valid empty"
-  >
-    <div
-      class="field dropdown-toggle"
-      title="Tuesday, January 1, 2019 12:00:00 AM"
-    >
-      <input
-        readonly=""
-        type="text"
-        value="Tuesday, January 1, 2019 12:00:00 AM"
-      />
-      <div
-        class="icons"
-      >
-        <svg
-          class="junipero icon arrows"
-          height="13"
-          viewBox="0 0 8 13"
-          width="8"
-        >
-          <path
-            d="M1 4.5L4 1.5L7 4.5"
-          />
-          <path
-            d="M1 8.5L4 11.5L7 8.5"
-          />
-        </svg>
-      </div>
     </div>
   </div>
 </div>

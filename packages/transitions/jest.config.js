@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  displayName: '@junipero/react',
+  displayName: '@junipero/transitions',
   clearMocks: true,
   rootDir: path.resolve(),
   fakeTimers: {
@@ -11,14 +11,10 @@ module.exports = {
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
     '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.js',
   },
-  testMatch: ['<rootDir>/packages/react/lib/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/transitions/lib/*.test.js'],
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/old/',
   ],
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: [
-    '<rootDir>/packages/react/tests/setup.js',
-  ],
   snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };

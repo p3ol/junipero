@@ -1,34 +1,33 @@
-.junipero.text-field
+.junipero.code-field
   --main-color: var(--junipero-velvet)
   --border-color: var(--junipero-mischka)
-  --placeholder-color: var(--junipero-slate)
   --invalid-color: var(--junipero-grapefruit)
 
   display: inline-flex
+  align-items: center
+  gap: 10px
 
   &.disabled
     opacity: .5
     cursor: default
 
-  .field
+  input
     appearance: none
-    display: block
+    display: inline-flex
+    width: auto
     padding: 10px
     border: none
     border-radius: 4px
     box-shadow: 0 0 0 2px var(--border-color)
     transition: box-shadow .2s ease-in-out
-
-    &::placeholder
-      color: var(--placeholder-color)
-      opacity: 1
+    text-align: center
 
     &:focus,
     &:focus-within
-      --border-color: var(--main-color)
+      --border-color: var(--junipero-velvet)
 
-  &.invalid.dirty
-    .field
+  &.invalid.dirty:not(.focused)
+    input
       &:not(:focus),
       &:not(:focus-within)
         --border-color: var(--invalid-color)

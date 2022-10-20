@@ -67,7 +67,7 @@ exports[`<RadioField /> should change options if options props change accross th
         id="facebook"
         tabindex="-1"
         type="radio"
-        value="facebook"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -90,7 +90,7 @@ exports[`<RadioField /> should change options if options props change accross th
         id="microsoft"
         tabindex="-1"
         type="radio"
-        value="microsoft"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -113,7 +113,7 @@ exports[`<RadioField /> should change options if options props change accross th
         id="apple"
         tabindex="-1"
         type="radio"
-        value="apple"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -136,7 +136,7 @@ exports[`<RadioField /> should change options if options props change accross th
         id="google"
         tabindex="-1"
         type="radio"
-        value="google"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -168,7 +168,7 @@ exports[`<RadioField /> should change options if options props change accross th
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -191,7 +191,7 @@ exports[`<RadioField /> should change options if options props change accross th
         id="orange"
         tabindex="-1"
         type="radio"
-        value="orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -214,7 +214,7 @@ exports[`<RadioField /> should change options if options props change accross th
         id="banana"
         tabindex="-1"
         type="radio"
-        value="banana"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -247,7 +247,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -270,7 +270,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
         id="orange"
         tabindex="-1"
         type="radio"
-        value="orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -293,7 +293,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
         id="banana"
         tabindex="-1"
         type="radio"
-        value="banana"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -326,7 +326,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -349,7 +349,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
         id="orange"
         tabindex="-1"
         type="radio"
-        value="orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -372,7 +372,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
         id="banana"
         tabindex="-1"
         type="radio"
-        value="banana"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -476,37 +476,6 @@ exports[`<RadioField /> should not display description if parseDescription retur
 </div>
 `;
 
-exports[`<RadioField /> should not set error state if field is not required with default validate function: valid 1`] = `
-<div>
-  <div
-    class="junipero radio-field dirty valid"
-  >
-    <label
-      class="checked"
-      tabindex="1"
-    >
-      <input
-        tabindex="-1"
-        type="radio"
-        value=""
-      />
-      <div
-        class="inner"
-      />
-      <div
-        class="label"
-      >
-        <div
-          class="title"
-        >
-          1
-        </div>
-      </div>
-    </label>
-  </div>
-</div>
-`;
-
 exports[`<RadioField /> should not trigger onChange if a radio if just this option is disabled: option 1 checked 1`] = `
 <div>
   <div
@@ -521,7 +490,7 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -544,7 +513,7 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
         id="Orange"
         tabindex="-1"
         type="radio"
-        value="Orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -577,7 +546,7 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -600,7 +569,7 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
         id="Orange"
         tabindex="-1"
         type="radio"
-        value="Orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -832,37 +801,6 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
 </div>
 `;
 
-exports[`<RadioField /> should set error state if field is required with default validate function: invalid 1`] = `
-<div>
-  <div
-    class="junipero radio-field dirty invalid"
-  >
-    <label
-      class="checked"
-      tabindex="1"
-    >
-      <input
-        tabindex="-1"
-        type="radio"
-        value=""
-      />
-      <div
-        class="inner"
-      />
-      <div
-        class="label"
-      >
-        <div
-          class="title"
-        >
-          1
-        </div>
-      </div>
-    </label>
-  </div>
-</div>
-`;
-
 exports[`<RadioField /> should set error state if onValidate function fails: invalid 1`] = `
 <div>
   <div
@@ -877,7 +815,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: inv
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -900,7 +838,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: inv
         id="orange"
         tabindex="-1"
         type="radio"
-        value="orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -933,7 +871,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: opt
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -956,7 +894,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: opt
         id="orange"
         tabindex="-1"
         type="radio"
-        value="orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -989,7 +927,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: val
         id="peach"
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -1012,7 +950,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: val
         id="orange"
         tabindex="-1"
         type="radio"
-        value="orange"
+        value="[object Object]"
       />
       <div
         class="inner"
@@ -1368,7 +1306,7 @@ exports[`<RadioField /> should use given parse title, description and value if f
         checked=""
         tabindex="-1"
         type="radio"
-        value="peach"
+        value="[object Object]"
       />
       <div
         class="inner"

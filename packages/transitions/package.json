@@ -1,17 +1,17 @@
 {
-  "name": "@junipero/hooks",
+  "name": "@junipero/transitions",
   "version": "3.0.0-alpha.0",
-  "description": "🏔 Junipero Design System React hooks",
-  "main": "dist/junipero-hooks.cjs.js",
+  "description": "🏔 Junipero Design System React Transitions",
+  "main": "dist/junipero-transitions.cjs.js",
   "jsnext:main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "esnext": "src/index.js",
-  "unpkg": "dist/junipero-hooks.min.js",
-  "cdn": "dist/junipero-hooks.min.js",
+  "unpkg": "dist/junipero-transitions.min.js",
+  "cdn": "dist/junipero-transitions.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
-    "directory": "packages/hooks"
+    "directory": "packages/transitions"
   },
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
@@ -21,7 +21,8 @@
     "yarn": ">= 1"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-transition-group": "^4.0.0"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.19.6",
