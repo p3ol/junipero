@@ -1,12 +1,12 @@
 import { ElementType, MutableRefObject } from "react";
 
 export declare type ButtonRef = {
-  innerRef: MutableRef<any>;
+  innerRef: MutableRefObject<any>;
   isJunipero: Boolean;
 };
 
 declare interface ButtonProps extends React.ComponentPropsWithRef<any> {
-  className: ?string;
+  className?: string;
   disabled?: Boolean;
   tag?: String | ElementType;
   onClick?: (e: Event) => any;

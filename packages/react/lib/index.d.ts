@@ -28,6 +28,7 @@ import Tabs, { TabsRef } from "./Tabs";
 import Tag, { TagRef } from "./Tag";
 import TextField, { TextFieldRef } from "./TextField";
 import Tooltip, { TooltipRef } from "./Tooltip";
+import { useAlerts, useDropdown, useFieldControl } from "./hooks";
 
 export {
   Abstract,
@@ -86,3 +87,5 @@ export {
   TextFieldRef,
   TooltipRef,
 };
+
+export { useAlerts, useDropdown, useFieldControl };
