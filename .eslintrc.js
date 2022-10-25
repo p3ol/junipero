@@ -1,5 +1,4 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
   extends: ['@poool/eslint-config-react'],
   overrides: [{
     files: ['packages/**/*.test.js'],
@@ -9,6 +8,9 @@ module.exports = {
   }, {
     files: ['packages/junipero-native'],
     extends: ['@poool/eslint-config-react-native'],
+  }, {
+    files: ['packages/**/*.{ts,tsx}'],
+    parser: '@typescript-eslint/parser',
   }],
   rules: {
     // regex cannot be concatenated
