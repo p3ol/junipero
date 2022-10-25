@@ -47,14 +47,14 @@ describe('<Toggle />', () => {
         label
       </Toggle>
     );
-    expect(container).toMatchSnapshot('unChecked and pristine');
+    expect(container).toMatchSnapshot('unChecked');
     const input = container.querySelector('input');
     user.click(input);
     await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith(
       { value: 'my_value', checked: true }
     ));
 
-    expect(container).toMatchSnapshot('checked and dirty');
+    expect(container).toMatchSnapshot('checked');
     unmount();
   });
 
@@ -70,7 +70,7 @@ describe('<Toggle />', () => {
         label
       </Toggle>
     );
-    expect(container).toMatchSnapshot('unChecked and pristine');
+    expect(container).toMatchSnapshot('unChecked');
     await act(async () => {
       container.querySelector('label').focus();
     });
@@ -79,13 +79,13 @@ describe('<Toggle />', () => {
       { value: 'my_value', checked: true }
     ));
 
-    expect(container).toMatchSnapshot('checked and dirty');
+    expect(container).toMatchSnapshot('checked');
     user.keyboard('{Enter}');
     await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith(
       { value: 'my_value', checked: false }
     ));
 
-    expect(container).toMatchSnapshot('unchecked and dirty');
+    expect(container).toMatchSnapshot('unchecked');
 
     unmount();
   });
@@ -102,11 +102,11 @@ describe('<Toggle />', () => {
         label
       </Toggle>
     );
-    expect(container).toMatchSnapshot('unChecked and pristine');
+    expect(container).toMatchSnapshot('unChecked');
     const input = container.querySelector('input');
     user.click(input);
     expect(onChangeMock).not.toHaveBeenCalled();
-    expect(container).toMatchSnapshot('unchecked and pristine');
+    expect(container).toMatchSnapshot('unchecked');
     unmount();
   });
 });

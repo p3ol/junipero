@@ -11,7 +11,7 @@ import { classNames, mockState } from '@junipero/core';
 const Toggle = forwardRef(({
   checked = false,
   disabled = false,
-  dirty = false,
+  tabIndex = 1,
   children,
   className,
   value,
@@ -20,10 +20,8 @@ const Toggle = forwardRef(({
 }, ref) => {
   const innerRef = useRef();
   const inputRef = useRef();
-
   const [state, dispatch] = useReducer(mockState, {
     checked,
-    dirty,
   });
 
   useEffect(() => {
@@ -33,13 +31,12 @@ const Toggle = forwardRef(({
   useImperativeHandle(ref, () => ({
     innerRef,
     inputRef,
+    checked: state.checked,
     isJunipero: true,
   }));
 
   const onKeyPress = e => {
-    if (
-      e.key === 'Enter' || e.key === ' '
-    ) {
+    if (e.key === 'Enter' || e.key === ' ') {
       onChange_(e);
     }
   };
@@ -52,7 +49,7 @@ const Toggle = forwardRef(({
 
     state.checked = !state.checked;
 
-    dispatch({ checked: state.checked, dirty: true });
+    dispatch({ checked: state.checked });
     onChange?.({ value, checked: state.checked });
   };
 
@@ -61,14 +58,14 @@ const Toggle = forwardRef(({
       ref={innerRef}
       className={classNames(
         'junipero',
-        'toggle-field', {
+        'toggle-field',
+        {
           disabled,
           checked: state.checked,
         },
-        state.dirty ? 'dirty' : 'pristine',
         className
       )}
-      tabIndex={1}
+      tabIndex={tabIndex}
       onKeyPress={onKeyPress}
     >
       <input
@@ -95,11 +92,8 @@ Toggle.displayName = 'Toggle';
 Toggle.propTypes = {
   value: PropTypes.any,
   checked: PropTypes.bool,
-  valid: PropTypes.bool,
-  dirty: PropTypes.bool,
+  tabIndex: PropTypes.number,
   disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  onValidate: PropTypes.func,
   onChange: PropTypes.func,
 };
 export default Toggle;
