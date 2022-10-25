@@ -23,6 +23,7 @@ const Alert = forwardRef(({
 
   useTimeout(() => {
     dismiss?.(index);
+    onDismiss?.();
   }, lifespan || 5000, [], { enabled: !!lifespan });
 
   useImperativeHandle(ref, () => ({
