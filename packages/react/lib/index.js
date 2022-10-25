@@ -31,6 +31,15 @@ export { default as FieldControl } from './FieldControl';
 export { default as SelectField } from './SelectField';
 export { default as TextField } from './TextField';
 
+// Logos
+export {
+  PooolLogo,
+  AccessLogo,
+  SubscribeLogo,
+  ConnectLogo,
+  EngageLogo,
+} from './Logo';
+
 // Core
 export {
   classNames,
