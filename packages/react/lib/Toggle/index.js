@@ -96,4 +96,5 @@ Toggle.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
 };
+
 export default Toggle;
