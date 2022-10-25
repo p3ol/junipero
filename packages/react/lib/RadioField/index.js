@@ -73,8 +73,7 @@ const RadioField = forwardRef(({
     const valid = onValidate(parseValue(option), { dirty: true, required });
     dispatch({ value: option, valid, dirty: true });
 
-    onChange?.({ value: parseValue(option), valid,
-    });
+    onChange?.({ value: parseValue(option), valid });
 
     updateControl?.({ dirty: true, valid });
   };

@@ -1,4 +1,5 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   extends: ['@poool/eslint-config-react'],
   overrides: [{
     files: ['packages/**/*.test.js'],
