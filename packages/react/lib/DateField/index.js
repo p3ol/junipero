@@ -85,7 +85,7 @@ const DateField = forwardRef(({
     if (exists(value)) {
       dispatch({
         value,
-        valid: onValidate(parseValue(value), { required }),
+        valid: onValidate(parseValue(value), { required, dirty: true }),
       });
     }
   }, [value]);
@@ -99,7 +99,7 @@ const DateField = forwardRef(({
 
     state.value = new Date(date);
     applyTime();
-    state.valid = onValidate(parseValue(state.value), { required });
+    state.valid = onValidate(parseValue(state.value), { required, dirty: true });
     state.selected = new Date(date);
     state.displayed = new Date(date);
     onChange_();
@@ -165,7 +165,7 @@ const DateField = forwardRef(({
 
   const onTimeBlur = () => {
     applyTime();
-    state.valid = onValidate(parseValue(state.value), { required });
+    state.valid = onValidate(parseValue(state.value), { required, dirty: true });
     onChange_({ close: false });
   };
 
