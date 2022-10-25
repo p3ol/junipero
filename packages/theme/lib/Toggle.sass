@@ -1,0 +1,51 @@
+.junipero.toggle-field
+  display: flex
+  outline: none
+  align-items: center
+
+  &.disabled
+    opacity: .5
+
+  input
+    display: none
+
+  .inner
+    flex: 0 0 40px
+    height: 20px
+    border-radius: 20px
+    position: relative
+    transition-property: box-shadow, background
+    transition-duration: .1s
+    transition-timing-function: ease-in-out
+    padding: 2px
+    cursor: pointer
+    background: var(--junipero-concrete)
+
+    .handle
+      background: var(--junipero-seashell)
+      width: 16px
+      height: 16px
+      border-radius: 100%
+      position: relative
+      left: 0
+      top: 0
+      transition-property: left, transform
+      transition-duration: .1s
+      transition-timing-function: ease-in-out
+  
+  .label
+    flex-basis: 0
+    flex-grow: 1
+    margin-left: 10px
+
+  &.checked
+    .inner
+      background-color: var(--junipero-velvet)
+
+      .handle
+        transform: translateX(-100%)
+        left: 100%
+
+  &:focus:not(.disabled)
+    .inner
+      box-shadow: 0 0 0 2px var(--junipero-velvet-hover)
