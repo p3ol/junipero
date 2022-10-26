@@ -1,5 +1,6 @@
-import { MutableRefObject } from "react";
-import { AlertObject } from "../Alert";
+import { MutableRefObject } from 'react';
+
+import { AlertObject } from '../Alert';
 
 export declare type AlertsControlRef = {
   alerts: Array<AlertObject>;

@@ -1,8 +1,14 @@
-import { Placement } from "@floating-ui/react-dom-interactions";
-import { Props as clickProps } from "@floating-ui/react-dom-interactions/src/hooks/useClick";
-import { Props as dismissProps } from "@floating-ui/react-dom-interactions/src/hooks/useDismiss";
-import { Props as hoverProps } from "@floating-ui/react-dom-interactions/src/hooks/useHover";
-import React, { MutableRefObject } from "react";
+import { Placement } from '@floating-ui/react-dom-interactions';
+import {
+  Props as clickProps,
+} from '@floating-ui/react-dom-interactions/src/hooks/useClick';
+import {
+  Props as dismissProps,
+} from '@floating-ui/react-dom-interactions/src/hooks/useDismiss';
+import {
+  Props as hoverProps,
+} from '@floating-ui/react-dom-interactions/src/hooks/useHover';
+import React, { MutableRefObject } from 'react';
 
 export declare type TooltipRef = {
   onpened: Boolean;

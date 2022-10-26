@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject } from 'react';
 
 export declare type DropdownMenuRef = {
   innerRef: MutableRefObject<any>;

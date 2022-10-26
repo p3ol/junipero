@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 declare interface LabelProps extends React.ComponentPropsWithoutRef<any> {
   className?: String;

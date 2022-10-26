@@ -1,6 +1,6 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 
 import { Remove } from '../icons';
 
