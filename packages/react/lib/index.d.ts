@@ -21,6 +21,12 @@ import Droppable, { DroppableRef } from './Droppable';
 import FieldControl from './FieldControl';
 import { useAlerts, useDropdown, useFieldControl } from './hooks';
 import Label from './Label';
+import {
+  PooolLogo,
+  AccessLogo,
+  SubscribeLogo,
+  ConnectLogo, EngageLogo,
+} from './Logo';
 import RadioField, { RadioFieldRef } from './RadioField';
 import SelectField, { SelectFieldRef } from './SelectField';
 import Spinner from './Spinner';
@@ -28,6 +34,7 @@ import Tab, { TabRef } from './Tab';
 import Tabs, { TabsRef } from './Tabs';
 import Tag, { TagRef } from './Tag';
 import TextField, { TextFieldRef } from './TextField';
+import Toggle, { ToggleRef } from './Toggle';
 import Tooltip, { TooltipRef } from './Tooltip';
 
 export {
@@ -53,6 +60,11 @@ export {
   Droppable,
   FieldControl,
   Label,
+  PooolLogo,
+  AccessLogo,
+  SubscribeLogo,
+  ConnectLogo,
+  EngageLogo,
   RadioField,
   SelectField,
   Spinner,
@@ -60,6 +72,7 @@ export {
   Tabs,
   Tag,
   TextField,
+  Toggle,
   Tooltip,
 };
 
@@ -85,6 +98,7 @@ export {
   TabsRef,
   TagRef,
   TextFieldRef,
+  ToggleRef,
   TooltipRef,
 };
 
