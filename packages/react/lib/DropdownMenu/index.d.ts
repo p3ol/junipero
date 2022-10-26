@@ -6,6 +6,7 @@ export declare type DropdownMenuRef = {
 };
 
 declare interface DropdownMenuProps extends React.ComponentPropsWithRef<any> {
+  animate: (menu: JSX.Element, opts: { opened: Boolean }) => JSX.Element;
   children?: React.ReactNode;
   className?: String;
   ref?: MutableRefObject<DropdownMenuRef | undefined>;

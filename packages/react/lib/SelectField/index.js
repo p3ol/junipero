@@ -28,6 +28,7 @@ import Tag from '../Tag';
 import Spinner from '../Spinner';
 
 const SelectField = forwardRef(({
+  animateMenu,
   className,
   options,
   placeholder,
@@ -436,6 +437,7 @@ const SelectField = forwardRef(({
         </div>
       </DropdownToggle>
       <DropdownMenu
+        animate={animateMenu}
         className={classNames('select-menu', { searching: state.searching })}
       >
         <div className="content">
@@ -452,6 +454,7 @@ const SelectField = forwardRef(({
 
 SelectField.displayName = 'SelectField';
 SelectField.propTypes = {
+  animateMenu: PropTypes.func,
   allowArbitraryItems: PropTypes.bool,
   autoFocus: PropTypes.bool,
   clearable: PropTypes.bool,

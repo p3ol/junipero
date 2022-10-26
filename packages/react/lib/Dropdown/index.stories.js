@@ -1,3 +1,5 @@
+import { slideInDownMenu } from '@junipero/transitions';
+
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import DropdownGroup from '../DropdownGroup';
@@ -35,6 +37,15 @@ export const withGroups = () => (
       <DropdownGroup title="Another group">
         <DropdownItem><a>Item 2</a></DropdownItem>
       </DropdownGroup>
+    </DropdownMenu>
+  </Dropdown>
+);
+
+export const animated = () => (
+  <Dropdown>
+    <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
+    <DropdownMenu animate={slideInDownMenu}>
+      <DropdownItem><a>Item 1</a></DropdownItem>
     </DropdownMenu>
   </Dropdown>
 );

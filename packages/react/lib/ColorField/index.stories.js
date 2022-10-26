@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { slideInDownMenu } from '@junipero/transitions';
 
 import FieldControl from '../FieldControl';
 import Label from '../Label';
@@ -35,4 +36,8 @@ export const autoFocused = () => (
 
 export const alwaysOpened = () => (
   <ColorField autoFocus={true} trigger="manual" onChange={action('change')} />
+);
+
+export const animated = () => (
+  <ColorField animateMenu={slideInDownMenu} />
 );

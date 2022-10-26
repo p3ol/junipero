@@ -1,10 +1,12 @@
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 import { classNames, ensureNode } from '@junipero/core';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 import { useDropdown } from '../hooks';
 
 const DropdownMenu = forwardRef(({
+  animate,
   children,
   className,
   ...rest
@@ -25,9 +27,15 @@ const DropdownMenu = forwardRef(({
     isJunipero: true,
   }));
 
-  if (!opened) {
+  if (!opened && !animate) {
     return null;
   }
+
+  const menu = (
+    <ul className="menu-inner">
+      { children }
+    </ul>
+  );
 
   const content = (
     <div
@@ -42,9 +50,7 @@ const DropdownMenu = forwardRef(({
       className={classNames('junipero dropdown-menu', className)}
       { ...getFloatingProps() }
     >
-      <ul className="menu-inner">
-        { children }
-      </ul>
+      { animate ? animate(menu, { opened }) : menu }
     </div>
   );
 
@@ -52,5 +58,8 @@ const DropdownMenu = forwardRef(({
 });
 
 DropdownMenu.displayName = 'DropdownMenu';
+DropdownMenu.propTypes = {
+  animate: PropTypes.func,
+};
 
 export default DropdownMenu;

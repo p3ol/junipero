@@ -22,7 +22,7 @@ export declare type TooltipRef = {
 declare interface TooltipProps extends React.ComponentPropsWithRef<any> {
   animate?: (
     tooltipInner: React.ReactNode,
-    options: { opnend?: Boolean }
+    options: { opened?: Boolean }
   ) => void;
   apparition?: String;
   children?: React.ReactNode;

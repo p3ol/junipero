@@ -23,6 +23,7 @@ import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 
 const DateField = forwardRef(({
+  animateMenu,
   className,
   max,
   min,
@@ -368,7 +369,7 @@ const DateField = forwardRef(({
           </div>
         </div>
       </DropdownToggle>
-      <DropdownMenu className="calendar-menu">
+      <DropdownMenu animate={animateMenu} className="calendar-menu">
         <div className="content">
           <div className="calendar-header">
             <div className="current-month">
@@ -429,6 +430,7 @@ const DateField = forwardRef(({
 
 DateField.displayName = 'DateField';
 DateField.propTypes = {
+  animateMenu: PropTypes.func,
   autoFocus: PropTypes.bool,
   clearable: PropTypes.bool,
   disabled: PropTypes.bool,

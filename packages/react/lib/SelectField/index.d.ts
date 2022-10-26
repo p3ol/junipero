@@ -15,6 +15,7 @@ export declare type SelectFieldRef = {
 };
 
 declare interface SelectFieldProps extends React.ComponentPropsWithRef<any> {
+  animateMenu: (menu: JSX.Element, opts: { opened: Boolean }) => JSX.Element;
   className?: String;
   options?: Array<any>;
   placeholder?: String;

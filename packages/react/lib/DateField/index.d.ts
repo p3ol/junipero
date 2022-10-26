@@ -16,6 +16,7 @@ export declare type DateFieldRef = {
 };
 
 declare interface DateFieldProps extends React.ComponentPropsWithRef<any> {
+  animateMenu: (menu: JSX.Element, opts: { opened: Boolean }) => JSX.Element;
   className?: String;
   min?: Date;
   max?: Date;

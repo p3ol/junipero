@@ -24,6 +24,7 @@ import TextField from '../TextField';
 import FieldControl from '../FieldControl';
 
 const ColorField = forwardRef(({
+  animateMenu,
   className,
   dismissOptions,
   globalEventsTarget,
@@ -357,7 +358,7 @@ const ColorField = forwardRef(({
           />
         </div>
       </DropdownToggle>
-      <DropdownMenu className="color-menu">
+      <DropdownMenu animate={animateMenu} className="color-menu">
         <div className="color-wheel">
           <div
             className="lightness"
@@ -443,6 +444,7 @@ const ColorField = forwardRef(({
 
 ColorField.displayName = 'ColorField';
 ColorField.propTypes = {
+  animateMenu: PropTypes.func,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   dismissOptions: PropTypes.object,

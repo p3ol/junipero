@@ -22,6 +22,7 @@ export declare type ColorFieldRef = {
 };
 
 declare interface ColorFieldProps extends React.ComponentPropsWithRef<any> {
+  animateMenu: (menu: JSX.Element, opts: { opened: Boolean }) => JSX.Element;
   className?: String;
   dismissOptions?: dismissProps;
   globalEventsTarget: EventTarget;

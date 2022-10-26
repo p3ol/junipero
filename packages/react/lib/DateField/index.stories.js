@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { slideInDownMenu } from '@junipero/transitions';
 
 import FieldControl from '../FieldControl';
 import Label from '../Label';
@@ -54,4 +55,8 @@ export const alwaysOpened = () => (
     placeholder="Date of birth"
     onChange={action('change')}
   />
+);
+
+export const animated = () => (
+  <DateField animateMenu={slideInDownMenu} />
 );

@@ -1,3 +1,5 @@
+import { slideInDownMenu } from '@junipero/transitions';
+
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
@@ -87,4 +89,8 @@ export const withArbitraryValues = () => (
     allowArbitraryItems={true}
     multiple={true}
   />
+);
+
+export const animated = () => (
+  <SelectField animateMenu={slideInDownMenu} />
 );

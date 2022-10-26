@@ -4,9 +4,10 @@ export const animateMenu = (
   name,
   { time = 100, ...opts } = {}
 ) =>
-  (menu, { opened }) => (
+  (menu, { opened } = {}) => (
     <CSSTransition
       in={opened}
+      appear={true}
       mountOnEnter={true}
       unmountOnExit={true}
       timeout={time}
@@ -16,14 +17,14 @@ export const animateMenu = (
     />
   );
 
-export const slideInUpMenu = animateMenu('slide-in-up-menu');
-export const slideInDownMenu = animateMenu('slide-in-down-menu');
+export const slideInUpMenu = animateMenu('jp-slide-in-up-menu');
+export const slideInDownMenu = animateMenu('jp-slide-in-down-menu');
 
 export const animateModal = (
   name,
   { time = 300, ...opts } = {}
 ) =>
-  (modal, { opened }) => (
+  (modal, { opened } = {}) => (
     <CSSTransition
       in={opened}
       mountOnEnter={true}
