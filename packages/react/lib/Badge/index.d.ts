@@ -1,4 +1,4 @@
-import { ElementType, MutableRefObject } from "react";
+import { ElementType, MutableRefObject } from 'react';
 
 export declare type BadgeRef = {
   isJunipero: Boolean;

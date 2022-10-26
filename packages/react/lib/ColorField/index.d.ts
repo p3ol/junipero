@@ -1,5 +1,7 @@
-import { Props as dismissProps } from "@floating-ui/react-dom-interactions/src/hooks/useDismiss";
-import React, { MutableRefObject } from "react";
+import {
+  Props as dismissProps,
+} from '@floating-ui/react-dom-interactions/src/hooks/useDismiss';
+import React, { MutableRefObject } from 'react';
 
 export declare type ColorFieldRef = {
   innerRef: MutableRefObject<any>;
@@ -19,7 +21,7 @@ export declare type ColorFieldRef = {
   isJunipero: Boolean;
 };
 
-declare interface ColorFieldProps extends React.ComponentPropsWithRef {
+declare interface ColorFieldProps extends React.ComponentPropsWithRef<any> {
   className?: String;
   dismissOptions?: dismissProps;
   globalEventsTarget: EventTarget;
@@ -27,12 +29,12 @@ declare interface ColorFieldProps extends React.ComponentPropsWithRef {
   name?: String;
   placeholder?: String;
   tabIndex?: number;
-  trigger?: "click" | "hover" | "manual" | "focus";
+  trigger?: 'click' | 'hover' | 'manual' | 'focus';
   vamlid?: Boolean;
   value?: String;
   autoFocus?: Boolean;
   disabled?: Boolean;
-  format: "auto" | "hex" | "rgb" | "rgba" | "hsla";
+  format: 'auto' | 'hex' | 'rgb' | 'rgba' | 'hsla';
   required: Boolean;
   onFocus?: (e: Event) => any;
   onBlur?: (e: Event) => any;

@@ -1,4 +1,4 @@
-import React, { ElementType, MutableRefObject } from "react";
+import React, { ElementType, MutableRefObject } from 'react';
 
 export declare type TabRef = {
   innerRef: MutableRefObject<any>;

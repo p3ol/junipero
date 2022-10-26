@@ -99,7 +99,8 @@ const DateField = forwardRef(({
 
     state.value = new Date(date);
     applyTime();
-    state.valid = onValidate(parseValue(state.value), { required, dirty: true });
+    state.valid =
+      onValidate(parseValue(state.value), { required, dirty: true });
     state.selected = new Date(date);
     state.displayed = new Date(date);
     onChange_();
@@ -165,7 +166,8 @@ const DateField = forwardRef(({
 
   const onTimeBlur = () => {
     applyTime();
-    state.valid = onValidate(parseValue(state.value), { required, dirty: true });
+    state.valid =
+      onValidate(parseValue(state.value), { required, dirty: true });
     onChange_({ close: false });
   };
 
@@ -177,7 +179,8 @@ const DateField = forwardRef(({
     }
 
     state.value = undefined;
-    state.valid = onValidate(parseValue(state.value), { required, dirty: true });
+    state.valid =
+      onValidate(parseValue(state.value), { required, dirty: true });
     onChange_({ close: false });
   };
 

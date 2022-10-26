@@ -1,4 +1,4 @@
-import React, { MutableRefObject } from "react";
+import React, { MutableRefObject } from 'react';
 
 export declare type RadioFieldRef = {
   optionRefs: Array<MutableRefObject<any>>;

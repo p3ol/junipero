@@ -1,5 +1,6 @@
-import { MutableRefObject } from "react";
-import { FixedArray } from "../utils";
+import { MutableRefObject } from 'react';
+
+import { FixedArray } from '../utils';
 
 export declare type DateFieldRef = {
   innerRef: MutableRefObject<any>;
@@ -20,7 +21,7 @@ declare interface DateFieldProps extends React.ComponentPropsWithRef<any> {
   max?: Date;
   opened?: Boolean;
   placeholder?: String;
-  trigger?: "click" | "hover" | "manual";
+  trigger?: 'click' | 'hover' | 'manual';
   value?: Date;
   valid?: Boolean;
   autoFocus?: Boolean;

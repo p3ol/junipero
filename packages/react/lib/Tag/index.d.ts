@@ -2,7 +2,7 @@ import React, {
   ComponentPropsWithRef,
   ElementType,
   MutableRefObject,
-} from "react";
+} from 'react';
 
 export declare type TagRef = {
   isJunipero: Boolean;

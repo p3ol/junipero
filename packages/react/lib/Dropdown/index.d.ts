@@ -1,8 +1,14 @@
-import { Placement } from "@floating-ui/react-dom-interactions";
-import { Props as clickProps } from "@floating-ui/react-dom-interactions/src/hooks/useClick";
-import { Props as dismissProps } from "@floating-ui/react-dom-interactions/src/hooks/useDismiss";
-import { Props as hoverProps } from "@floating-ui/react-dom-interactions/src/hooks/useHover";
-import React, { MutableRefObject } from "react";
+import { Placement } from '@floating-ui/react-dom-interactions';
+import {
+  Props as clickProps,
+} from '@floating-ui/react-dom-interactions/src/hooks/useClick';
+import {
+  Props as dismissProps,
+} from '@floating-ui/react-dom-interactions/src/hooks/useDismiss';
+import {
+  Props as hoverProps,
+} from '@floating-ui/react-dom-interactions/src/hooks/useHover';
+import React, { MutableRefObject } from 'react';
 
 export declare type DropdownRef = {
   opened: Boolean;
@@ -14,7 +20,7 @@ export declare type DropdownRef = {
 };
 
 declare interface DropdownProps extends React.ComponentPropsWithRef<any> {
-  className?: Sstring;
+  className?: String;
   container?: String | React.ReactNode;
   floatingOptions?: Object;
   clickOptions?: clickProps;
@@ -22,7 +28,7 @@ declare interface DropdownProps extends React.ComponentPropsWithRef<any> {
   dismissOptions?: dismissProps;
   openend?: Boolean;
   placement?: Placement;
-  trigger?: "click" | "hover" | "manual";
+  trigger?: 'click' | 'hover' | 'manual';
   onToggle?: (props: { opened: Boolean }) => void;
   ref?: MutableRefObject<DropdownRef | undefined>;
 }

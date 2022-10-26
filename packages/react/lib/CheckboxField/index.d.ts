@@ -1,8 +1,8 @@
-import React, { MutableRefObject } from "react";
+import React, { MutableRefObject } from 'react';
 
 export declare type CheckboxFieldRef = {
   innerRef: MutableRefObject<any>;
-  inputRef: MutableObjectRef<any>;
+  inputRef: MutableRefObject<any>;
   checked: Boolean;
   isJunipero: Boolean;
 };

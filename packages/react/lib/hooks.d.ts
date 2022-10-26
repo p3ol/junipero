@@ -1,5 +1,6 @@
-import { UseFloatingReturn } from "@floating-ui/react-dom-interactions";
-import { AlertObject } from "./Alert";
+import { UseFloatingReturn } from '@floating-ui/react-dom-interactions';
+
+import { AlertObject } from './Alert';
 
 declare interface AlertsContext {
   alerts: Array<AlertObject>;
@@ -9,13 +10,13 @@ declare interface AlertsContext {
 
 declare type DropdownContext = Pick<
   UseFloatingReturn,
-  "x",
-  "y",
-  "container",
-  "reference",
-  "strategy"
+  'x'|
+  'y'|
+  'reference'|
+  'strategy'
 > & {
   opened: boolean;
+  container?: String | React.ReactNode;
   toggle: () => void;
   open: () => void;
   close: () => void;
