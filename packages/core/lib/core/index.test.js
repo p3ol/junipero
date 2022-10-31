@@ -299,7 +299,7 @@ describe('core', () => {
   describe('omitBy()', () => {
     it('should allow to omit some pairs from an object', () => {
       const foo = { bar: 1, test: 10, thing: 3, stuff: 14 };
-      expect(omitBy(foo, (k, v) => v > 5))
+      expect(omitBy(foo, v => v < 5))
         .toMatchObject({ test: 10, stuff: 14 });
     });
 

@@ -88,7 +88,7 @@ export const set = (obj = {}, path = '', value, customizer = val => val) => {
 export const omitBy = (obj = {}, cb) => Object
   .entries(obj)
   .filter(([k, v]) => !cb(v, k))
-  .reduce((res, [k, v]) => ({ ...res, [k]: v }), {});
+  .reduce((res, [k, v]) => Object.assign({}, res, { [k]: v }), {});
 
 export const omit = (obj = {}, keys = []) =>
   omitBy(obj || {}, (value, key) => keys.includes(key));
