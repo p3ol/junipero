@@ -27,61 +27,7 @@ exports[`<Toggle /> should handle change event with space and enter when focused
 </div>
 `;
 
-exports[`<Toggle /> should handle change event with space and enter when focused: checked and dirty 1`] = `
-<div>
-  <label
-    class="junipero toggle-field checked"
-    tabindex="1"
-  >
-    <input
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
 exports[`<Toggle /> should handle change event with space and enter when focused: unChecked 1`] = `
-<div>
-  <label
-    class="junipero toggle-field"
-    tabindex="1"
-  >
-    <input
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
-exports[`<Toggle /> should handle change event with space and enter when focused: unChecked and pristine 1`] = `
 <div>
   <label
     class="junipero toggle-field"
@@ -135,33 +81,6 @@ exports[`<Toggle /> should handle change event with space and enter when focused
 </div>
 `;
 
-exports[`<Toggle /> should handle change event with space and enter when focused: unchecked and dirty 1`] = `
-<div>
-  <label
-    class="junipero toggle-field"
-    tabindex="1"
-  >
-    <input
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
 exports[`<Toggle /> should handle change event: checked 1`] = `
 <div>
   <label
@@ -189,61 +108,7 @@ exports[`<Toggle /> should handle change event: checked 1`] = `
 </div>
 `;
 
-exports[`<Toggle /> should handle change event: checked and dirty 1`] = `
-<div>
-  <label
-    class="junipero toggle-field checked"
-    tabindex="1"
-  >
-    <input
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
 exports[`<Toggle /> should handle change event: unChecked 1`] = `
-<div>
-  <label
-    class="junipero toggle-field"
-    tabindex="1"
-  >
-    <input
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
-exports[`<Toggle /> should handle change event: unChecked and pristine 1`] = `
 <div>
   <label
     class="junipero toggle-field"
@@ -298,63 +163,7 @@ exports[`<Toggle /> should not handle change if toggle is disabled: unChecked 1`
 </div>
 `;
 
-exports[`<Toggle /> should not handle change if toggle is disabled: unChecked and pristine 1`] = `
-<div>
-  <label
-    class="junipero toggle-field disabled"
-    tabindex="1"
-  >
-    <input
-      disabled=""
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
 exports[`<Toggle /> should not handle change if toggle is disabled: unchecked 1`] = `
-<div>
-  <label
-    class="junipero toggle-field disabled"
-    tabindex="1"
-  >
-    <input
-      disabled=""
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
-exports[`<Toggle /> should not handle change if toggle is disabled: unchecked and pristine 1`] = `
 <div>
   <label
     class="junipero toggle-field disabled"
