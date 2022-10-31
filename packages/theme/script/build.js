@@ -48,7 +48,7 @@ const compile = async ({ input, output }) => {
     .readdirSync(path.resolve('./lib'), { withFileTypes: true })
     .filter(f =>
       !f.isDirectory() &&
-      !/index|icon|reset/.test(f.name) &&
+      !/index/.test(f.name) &&
       fs.existsSync(path.resolve('./lib', f.name))
     )
     .map(f => f.name.replace('.sass', ''));
@@ -64,11 +64,5 @@ const compile = async ({ input, output }) => {
   await compile({
     input: path.resolve('./lib/index.sass'),
     output: path.resolve('./dist/junipero.min.css'),
-  });
-
-  // reset
-  await compile({
-    input: path.resolve('./lib/reset.sass'),
-    output: path.resolve('./dist/reset.min.css'),
   });
 })();
