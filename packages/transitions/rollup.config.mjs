@@ -17,7 +17,7 @@ const defaultGlobals = {
 };
 
 const defaultPlugins = [
-  commonjs(),
+  commonjs({ include: /node_modules/ }),
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
