@@ -1,12 +1,11 @@
-import { fireEvent, render, renderHook } from '@testing-library/react';
-import { act } from 'react-test-renderer';
+import { act, fireEvent, render, renderHook } from '@testing-library/react';
 
+import { useDropdown } from '../hooks';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import DropdownGroup from '../DropdownGroup';
 import DropdownItem from '../DropdownItem';
 import Dropdown from './index';
-import { useDropdown } from '../hooks';
 
 describe('<Dropdown />', () => {
   it('should render', () => {

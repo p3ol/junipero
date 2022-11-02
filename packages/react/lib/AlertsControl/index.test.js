@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 
-import AlertsControl from '.';
 import { useAlerts } from '../hooks';
+import AlertsControl from '.';
 
 describe('useAlerts()', () => {
   it('should render hook', () => {

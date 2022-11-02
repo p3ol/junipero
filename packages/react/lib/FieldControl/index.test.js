@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react';
 
-import FieldControl from '.';
 import { useFieldControl } from '../hooks';
+import FieldControl from '.';
 
 describe('useFieldControl()', () => {
   it('should render field control hook', () => {
