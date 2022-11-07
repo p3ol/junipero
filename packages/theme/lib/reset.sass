@@ -1,9 +1,13 @@
 @use "colors" as colors
 
-.junipero
+*
+  // Text
   --junipero-font-family: "DM Sans", sans-serif
   --junipero-font-size: 16px
   --junipero-line-height: 1.5
+
+  // Titles
+  --junipero-titles-font-family: "Visby CF", Helvetica, sans-serif
 
   // Colors
   // - Primary
@@ -41,6 +45,7 @@
   --junipero-sunglow-hover: #{colors.$sunglowHover}
   --junipero-sunglow-active: #{colors.$sunglowActive}
 
+.junipero
   &, & input, & textarea
     font-family: var(--junipero-font-family)
     font-size: var(--junipero-font-size)
@@ -50,12 +55,3 @@
   &, & *, & *:before, & *:after
     outline: none
     box-sizing: border-box
-
-  &.secondary
-    font-size: 0.875rem
-
-  &.info
-    font-size: 0.75rem
-
-  &.extra
-    font-size: 0.625rem
