@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.2](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2022-11-07)
+
+### Bug Fixes
+
+- **theme:** add missing titles styles ([19cf0a2](https://github.com/p3ol/junipero/commit/19cf0a24681fa68e7fabd79361f8fa94a534b2f7))
+
 # [3.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v3.0.0-alpha.1) (2022-10-31)
 
 ### Bug Fixes
