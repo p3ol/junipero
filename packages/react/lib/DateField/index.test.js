@@ -1,4 +1,5 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import DateField from './';
 
@@ -61,6 +62,97 @@ describe('<DateField />', () => {
     fireEvent.click(getByText('15'));
     expect(container).toMatchSnapshot();
 
+    unmount();
+  });
+
+  it('should switch to next month when right arrow is clicked', async () => {
+    const user = userEvent.setup();
+    const currentDay = new Date(2019, 0, 15);
+    const { container, getByText, unmount } = render(
+      <DateField autoFocus={true} value={currentDay} />
+    );
+    getByText('January');
+    const nextMonthButton = container.querySelector('.arrow-right');
+    user.click(nextMonthButton);
+    await waitFor(() => expect(getByText('February')));
+
+    unmount();
+  });
+
+  it('should switch to previous month when left arrow is clicked', async () => {
+    const user = userEvent.setup();
+    const currentDay = new Date(2019, 11, 15);
+    const { container, getByText, unmount } = render(
+      <DateField autoFocus={true} value={currentDay} />
+    );
+    getByText('December');
+    const nextMonthButton = container.querySelector('.arrow-left');
+    user.click(nextMonthButton);
+    await waitFor(() => expect(getByText('November')));
+
+    unmount();
+  });
+
+  it('should switch to next month when right arrow is clicked ' +
+  'even if the 31th day is selected', async () => {
+    const user = userEvent.setup();
+    const currentDay = new Date(2019, 0, 31);
+    const { container, getByText, unmount } = render(
+      <DateField autoFocus={true} value={currentDay} />
+    );
+    getByText('January');
+    const nextMonthButton = container.querySelector('.arrow-right');
+    user.click(nextMonthButton);
+    await waitFor(() => expect(getByText('February')));
+
+    unmount();
+  });
+
+  it('should switch to previous month when left arrow is clicked ' +
+  'even if the 31th day is selected', async () => {
+    const user = userEvent.setup();
+    const currentDay = new Date(2019, 11, 31);
+    const { container, getByText, unmount } = render(
+      <DateField autoFocus={true} value={currentDay} />
+    );
+    getByText('December');
+    const nextMonthButton = container.querySelector('.arrow-left');
+    user.click(nextMonthButton);
+    await waitFor(() => expect(getByText('November')));
+
+    unmount();
+  });
+
+  it('should correctly display current month dates', async () => {
+    const currentDay = new Date(2019, 0, 15);
+    const { getAllByText, unmount } = render(
+      <DateField autoFocus={true} value={currentDay} />
+    );
+    await waitFor(() => expect(getAllByText('31').length).toEqual(2));
+    unmount();
+  });
+
+  it('should correctly display current month dates', async () => {
+    const currentDay = new Date(2019, 0, 15);
+    const { debug, unmount, container } = render(
+      <DateField autoFocus={true} value={currentDay} />
+    );
+    expect(
+      container.querySelectorAll('.day:not(.inactive)').length
+    ).toEqual(31);
+    debug();
+    unmount();
+  });
+
+  it('should correctly display current month dates ' +
+  'even if the 31th day is selected', async () => {
+    const currentDay = new Date(2019, 0, 31);
+    const { unmount, container } = render(
+      <DateField autoFocus={true} value={currentDay} />
+    );
+    expect(
+      container.querySelectorAll('.day:not(.inactive)').length
+    ).toEqual(31);
     unmount();
   });
 });
