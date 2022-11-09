@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.22](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v2.0.0-rc.22) (2022-11-09)
+
+
+### Bug Fixes
+
+* **checkbox:** fire onChange event when toggle checkbox using keyboard ([5c37e70](https://github.com/p3ol/junipero/commit/5c37e700766d5a392ec6814f286bbc55b4f60a4e))
+* **deps:** update dependency core-js to v3.22.1 ([15b3585](https://github.com/p3ol/junipero/commit/15b3585346a13ca23ac1cb5339789133327318cb))
+* **deps:** update dependency core-js to v3.22.2 ([9834135](https://github.com/p3ol/junipero/commit/983413567af8fce65f675e87619eecc91bfca0e7))
+* **deps:** update dependency core-js to v3.22.3 ([ee4637a](https://github.com/p3ol/junipero/commit/ee4637ae23952c73891bcee749a98895fa164055))
+* **deps:** update dependency core-js to v3.22.4 ([692f0c9](https://github.com/p3ol/junipero/commit/692f0c94eaae1c78731a0889d10142c048554a2d))
+* **deps:** update dependency core-js to v3.22.5 ([c2bfc7b](https://github.com/p3ol/junipero/commit/c2bfc7b58f4d6f4916b5d3a83e3aeaca2bf90b3c))
+* **deps:** update dependency core-js to v3.22.7 ([b06926c](https://github.com/p3ol/junipero/commit/b06926cd9c78ac994f86930814043aebd74ed13a))
+* **deps:** update dependency core-js to v3.22.8 ([e349d55](https://github.com/p3ol/junipero/commit/e349d55b80fa46a7cb32579327aaf3fdc3ea321d))
+* **deps:** update dependency core-js to v3.23.1 ([2631fdb](https://github.com/p3ol/junipero/commit/2631fdb3a0a982c88a218caf29159d292f6cfcc1))
+* **deps:** update dependency core-js to v3.23.2 ([ce85914](https://github.com/p3ol/junipero/commit/ce8591455091f496c18098b3cc9c4dd5094801a9))
+* **deps:** update dependency core-js to v3.23.3 ([db31caa](https://github.com/p3ol/junipero/commit/db31caae18293c2d88babb8a234a520f186b07f0))
+* **deps:** update dependency core-js to v3.23.4 ([1cd3267](https://github.com/p3ol/junipero/commit/1cd326730469e4a9df80cb61b483be85a7d74640))
+* **deps:** update dependency core-js to v3.23.5 ([5fea72c](https://github.com/p3ol/junipero/commit/5fea72ce8cc0b6c8debdbf61f9cc6ac155b14093))
+* **deps:** update dependency core-js to v3.24.0 ([f899889](https://github.com/p3ol/junipero/commit/f8998890c99ae82eb63d2b42db99b2e12841cf7e))
+* **deps:** update dependency core-js to v3.24.1 ([00f9701](https://github.com/p3ol/junipero/commit/00f970136675b9a9f85b73e2ab3737a2216f03bb))
+* **deps:** update dependency core-js to v3.25.1 ([8513001](https://github.com/p3ol/junipero/commit/8513001138f9699563d7e3698ca2d5651fb39d4f))
+* **deps:** update dependency core-js to v3.25.2 ([4932aee](https://github.com/p3ol/junipero/commit/4932aeee508af10ff2407b5216daf38111dca767))
+* **deps:** update dependency core-js to v3.25.3 ([e594f6f](https://github.com/p3ol/junipero/commit/e594f6f9d2387c9731a9b2fd7ba35466a8b2b6a7))
+* **deps:** update dependency core-js to v3.25.4 ([ed26e18](https://github.com/p3ol/junipero/commit/ed26e18ded5b0186bbd1dbdc2c1119f49f2b5d82))
+* **deps:** update dependency core-js to v3.25.5 ([b126f0b](https://github.com/p3ol/junipero/commit/b126f0b8e450c234c929d953f876c1211ad2473b))
+* **junipero:** move fonts definition to standalone css export ([5301976](https://github.com/p3ol/junipero/commit/5301976f000f2db3109f2043b018765acd1825c9))
+
+
+
+
+
 # [2.0.0-rc.21](https://github.com/p3ol/junipero/compare/v2.0.0-rc.20...v2.0.0-rc.21) (2022-04-19)
 
 
