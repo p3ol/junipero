@@ -30,6 +30,7 @@ declare interface DropdownProps extends React.ComponentPropsWithRef<any> {
   placement?: Placement;
   trigger?: 'click' | 'hover' | 'manual';
   onToggle?: (props: { opened: Boolean }) => void;
+  disabled?: Boolean;
   ref?: MutableRefObject<DropdownRef | undefined>;
 }
 
