@@ -51,6 +51,19 @@ const onFileConflictWarn = (warning, warn) => {
   warn(warning);
 };
 
+const defaultStylePlugins = () => [
+  postcss({
+    extensions: ['.styl'],
+    minimize: true,
+    inject: false,
+    extract: true,
+    sourceMap: true,
+    plugins: [
+      autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
+    ],
+  }),
+];
+
 export default [
   ...formats.map(f => ({
     input,
@@ -87,18 +100,7 @@ export default [
   })),
   {
     input: './lib/index.styl',
-    plugins: [
-      postcss({
-        extensions: ['.styl'],
-        minimize: true,
-        inject: false,
-        extract: true,
-        sourceMap: true,
-        plugins: [
-          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
-        ],
-      }),
-    ],
+    plugins: defaultStylePlugins(),
     output: {
       file: `${output}/${name}.min.css`,
     },
@@ -106,37 +108,23 @@ export default [
   },
   {
     input: './lib/reset.styl',
-    plugins: [
-      postcss({
-        extensions: ['.styl'],
-        minimize: true,
-        inject: false,
-        extract: true,
-        sourceMap: true,
-        plugins: [
-          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
-        ],
-      }),
-    ],
+    plugins: defaultStylePlugins(),
     output: {
       file: `${output}/css/index.min.css`,
     },
     onwarn: onFileConflictWarn,
   },
+  {
+    input: './lib/fonts.styl',
+    plugins: defaultStylePlugins(),
+    output: {
+      file: `${output}/css/fonts.min.css`,
+    },
+    onwarn: onFileConflictWarn,
+  },
   ...components.map(c => ({
     input: `./lib/${c}/index.styl`,
-    plugins: [
-      postcss({
-        extensions: ['.styl'],
-        minimize: true,
-        inject: false,
-        extract: true,
-        sourceMap: true,
-        plugins: [
-          autoprefixer({ env: process.env.BROWSERSLIST_ENV }),
-        ],
-      }),
-    ],
+    plugins: defaultStylePlugins(),
     output: {
       file: `${output}/css/${c}.min.css`,
     },
