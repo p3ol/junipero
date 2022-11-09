@@ -73,8 +73,8 @@ export default [
       } : {}),
     },
   })), {
-    input: "./lib/index.d.ts",
-    output: [{ file: `dist/${name}.d.ts`, format: "es" }],
+    input: './lib/index.d.ts',
+    output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
     plugins: [dts()],
-  }
+  },
 ];
