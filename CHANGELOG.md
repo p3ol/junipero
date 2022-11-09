@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.23](https://github.com/p3ol/junipero/compare/v2.0.0-rc.22...v2.0.0-rc.23) (2022-11-09)
+
+
+### Bug Fixes
+
+* **junipero:** non existing color var ([58da7e9](https://github.com/p3ol/junipero/commit/58da7e903fae02c7b45d851f47849f066d7a926e))
+
+
+
+
+
 # [2.0.0-rc.22](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v2.0.0-rc.22) (2022-11-09)
 
 
