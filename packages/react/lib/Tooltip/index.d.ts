@@ -28,7 +28,7 @@ declare interface TooltipProps extends React.ComponentPropsWithRef<any> {
   children?: React.ReactNode;
   className?: String;
   clickOptions?: clickProps;
-  container?: React.ReactNode;
+  container?: Node | String;
   disabled?: Boolean;
   dismissOptions?: dismissProps;
   floatingOptions?: Object;

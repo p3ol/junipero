@@ -29,7 +29,7 @@ declare interface DateFieldProps extends React.ComponentPropsWithRef<any> {
   clearable?: Boolean;
   disabled?: Boolean;
   monthNames?: FixedArray<String, 12>;
-  required?: false;
+  required?: Boolean;
   timePlaceholder?: String;
   weekDaysName?: FixedArray<String, 7>;
   onChange?: (props: { parsedValue: any; valid: Boolean }) => void;
