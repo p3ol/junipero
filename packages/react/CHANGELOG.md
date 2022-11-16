@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.4](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.3...v3.0.0-alpha.4) (2022-11-16)
+
+
+### Bug Fixes
+
+* **theme:** fix tooltip styling & transitions ([c93cb7b](https://github.com/p3ol/junipero/commit/c93cb7b9aa34a8206203970157b09657db198554))
+
+
+
+
+
 # [3.0.0-alpha.3](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-11-16)
 
 
