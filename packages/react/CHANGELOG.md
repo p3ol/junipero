@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.3](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-11-16)
+
+
+### Bug Fixes
+
+* **lint:** fix lint problems under rollup config file ([8340fed](https://github.com/p3ol/junipero/commit/8340fed39431d74925116d1148608443d2b99e21))
+
+
+### Features
+
+* **junipero-react:** add toggle and logo types and repair some types ([f025af4](https://github.com/p3ol/junipero/commit/f025af4dfd184ae379e77312f1595e63673d054d))
+* reorder imports and pin dependancy ([b186117](https://github.com/p3ol/junipero/commit/b18611725f3f013d62546caff18bb13ec3c73d1d))
+
+
+
+
+
 # [3.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v3.0.0-alpha.1) (2022-10-31)
 
 ### Bug Fixes
