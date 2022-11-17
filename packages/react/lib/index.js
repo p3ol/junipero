@@ -29,6 +29,7 @@ export { default as CodeField } from './CodeField';
 export { default as ColorField } from './ColorField';
 export { default as DateField } from './DateField';
 export { default as FieldControl } from './FieldControl';
+export { default as RadioField } from './RadioField';
 export { default as SelectField } from './SelectField';
 export { default as TextField } from './TextField';
 
