@@ -36,7 +36,7 @@ export const animateModal = (
     />
   );
 
-export const slideInUpModal = animateModal('slide-in-up-modal', { time: 300 });
-export const slideInLeftModal = animateModal('slide-in-left-modal');
-export const appearBounceModal = animateModal('appear-bounce-modal',
+export const slideInUpModal = animateModal('jp-slide-in-up-modal');
+export const slideInLeftModal = animateModal('jp-slide-in-left-modal');
+export const appearBounceModal = animateModal('jp-appear-bounce-modal',
   { time: 200, appear: true });

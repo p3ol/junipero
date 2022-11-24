@@ -39,3 +39,121 @@
       opacity: 0
       transform: translate3d(0, -10px, 0)
       transition: opacity .1s ease-out, transform .1s ease-out
+
+.jp-slide-in-left-modal
+  &-enter
+    &.junipero.modal .wrapper
+      background: rgba(var(--junipero-onyx), 0)
+      transition: background .3s ease-in-out
+
+      .content
+        transform: translate3d(100%, 0, 0)
+        transition: transform .3s ease-in-out
+
+    &-active
+      &.junipero.modal .wrapper
+        background: rgba(var(--junipero-onyx), 0.9)
+
+        .content
+          transform: translate3d(0, 0, 0)
+
+  &-exit
+    &.junipero.modal .wrapper
+      background: rgba(var(--junipero-onyx), 0.9)
+      transition: background .3s ease-out
+
+      .content
+        transform: translate3d(0, 0, 0)
+        transition: transform .3s ease-in-out
+
+    &-active
+      &.junipero.modal .wrapper
+        background: rgba(var(--junipero-onyx), 0)
+
+        .content
+          transform: translate3d(100%, 0, 0)
+
+.jp-appear-bounce-modal
+  &-enter, &-appear
+    &.junipero.modal .wrapper
+      background: rgba(var(--junipero-onyx), 0)
+      transition: background .2s ease-out
+
+    &-active
+      &.junipero.modal .wrapper
+        background: rgba(var(--junipero-onyx), 0.9)
+
+        .content
+          & :local
+            animation: jp-appear-elastic .2s ease-in-out
+
+  &-exit
+    &.junipero.modal .wrapper
+      background: rgba(var(--junipero-onyx), 0.9)
+      transition: background .2s ease-out
+
+    &-active
+      &.junipero.modal .wrapper
+        background: rgba(var(--junipero-onyx), 0)
+
+        .content
+          & :local
+            animation: jp-disappear-elastic .2s ease-in-out
+
+.jp-slide-in-up-modal
+  &-enter
+    &.junipero.modal .wrapper
+      background: rgba(var(--junipero-onyx), 0)
+
+      .content
+        opacity: 0
+        transform: translate3d(0, 20px, 0)
+
+    &-active
+      &.junipero.modal .wrapper
+        background: rgba(var(--junipero-onyx), 0.9)
+        transition: background 150ms ease-in-out
+
+        .content
+          opacity: 1
+          transform: translate3d(0, 0, 0)
+          transition: transform 200ms ease-in-out 150ms, opacity 200ms ease-in-out 150ms
+
+  &-exit
+    &.junipero.modal .wrapper
+      background: rgba(var(--junipero-onyx), 0.9)
+
+      .content
+        opacity: 1
+        transform: translate3d(0, 0, 0)
+
+    &-active
+      &.junipero.modal .wrapper
+        background: rgba(var(--junipero-onyx), 0)
+        transition: background 150ms ease-in-out 200ms
+
+        .content
+          opacity: 0
+          transform: translate3d(0, 20px, 0)
+          transition: transform 200ms ease-in-out, opacity 200ms ease-in-out
+
+@keyframes jp-appear-elastic
+  0%
+    opacity: 0
+    transform: scale3d(0.98, 0.98, 0.98)
+
+  50%
+    transform: scale3d(1.05, 1.05, 1.05)
+
+  100%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
+@keyframes jp-disappear-elastic
+  0%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
+  100%
+    opacity: 0
+    transform: scale3d(0.95, 0.95, 0.95)
