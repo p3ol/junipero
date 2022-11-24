@@ -41,4 +41,25 @@ describe('<BreadCrumb />', () => {
 
     unmount();
   });
+
+  it('should allow to conditionnaly add items inside fragments', () => {
+    const { container, getByText, unmount } = render(
+      <BreadCrumb maxItems={3}>
+        <BreadCrumbItem>One</BreadCrumbItem>
+        <BreadCrumbItem>Two</BreadCrumbItem>
+        <>
+          <BreadCrumbItem>Three</BreadCrumbItem>
+          <BreadCrumbItem>Four</BreadCrumbItem>
+        </>
+      </BreadCrumb>
+    );
+
+    expect(container).toMatchSnapshot();
+
+    fireEvent.click(getByText('...'));
+
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
 });

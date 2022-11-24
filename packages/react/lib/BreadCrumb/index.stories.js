@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import BreadCrumb from './index';
 import BreadCrumbItem from '../BreadCrumbItem';
 
@@ -26,3 +28,23 @@ export const withLinks = () => (
     <BreadCrumbItem>Three</BreadCrumbItem>
   </BreadCrumb>
 );
+
+export const withConditionalItems = () => {
+  const [enabled, setEnabled] = useState(false);
+
+  return (
+    <>
+      <p><button onClick={() => setEnabled(v => !v)}>Toggle</button></p>
+      <BreadCrumb maxItems={3}>
+        <BreadCrumbItem>One</BreadCrumbItem>
+        <BreadCrumbItem>Two</BreadCrumbItem>
+        { enabled && (
+          <>
+            <BreadCrumbItem>Three</BreadCrumbItem>
+            <BreadCrumbItem>Four</BreadCrumbItem>
+          </>
+        ) }
+      </BreadCrumb>
+    </>
+  );
+}

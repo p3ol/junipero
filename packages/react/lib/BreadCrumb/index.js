@@ -1,6 +1,7 @@
 import {
   Children,
   forwardRef,
+  Fragment,
   useImperativeHandle,
   useReducer,
   useRef,
@@ -27,15 +28,19 @@ const BreadCrumb = forwardRef(({
     isJunipero: true,
   }));
 
-  const items = Children.toArray(children).filter(filterItem);
-  const before = items.slice(0, Math.ceil(maxItems / 2));
-  const after = items.slice(-Math.floor(maxItems / 2));
-
   const open = e => {
     e.preventDefault();
 
     dispatch({ opened: true });
   };
+
+  const items = Children
+    .toArray(children)
+    .map(child => child.type === Fragment ? child.props.children : child)
+    .flat()
+    .filter(filterItem);
+  const before = items.slice(0, Math.ceil(maxItems / 2));
+  const after = items.slice(-Math.floor(maxItems / 2));
 
   return (
     <div

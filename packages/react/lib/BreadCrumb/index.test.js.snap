@@ -1,5 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<BreadCrumb /> should allow to conditionnaly add items inside fragments 1`] = `
+<div>
+  <div
+    class="junipero breadcrumb collapsed"
+  >
+    <span
+      class="item"
+    >
+      One
+    </span>
+    <span
+      class="item"
+    >
+      Two
+    </span>
+    <a
+      class="item"
+    >
+      ...
+    </a>
+    <span
+      class="item"
+    >
+      Four
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<BreadCrumb /> should allow to conditionnaly add items inside fragments 2`] = `
+<div>
+  <div
+    class="junipero breadcrumb opened"
+  >
+    <span
+      class="item"
+    >
+      One
+    </span>
+    <span
+      class="item"
+    >
+      Two
+    </span>
+    <span
+      class="item"
+    >
+      Three
+    </span>
+    <span
+      class="item"
+    >
+      Four
+    </span>
+  </div>
+</div>
+`;
+
 exports[`<BreadCrumb /> should render 1`] = `
 <div>
   <div
