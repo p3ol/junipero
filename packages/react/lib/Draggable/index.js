@@ -1,13 +1,14 @@
 import { Children, cloneElement, forwardRef, useState } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
+import PropTypes from 'prop-types';
 
 const Draggable = forwardRef(({
   className,
   children,
+  dragImage,
   disabled = false,
   data = {},
-  dragImage,
   dragImageOffset = { x: 0, y: 0 },
   onDrag,
   onBeforeDragStart,
@@ -90,7 +91,14 @@ const Draggable = forwardRef(({
 
 Draggable.displayName = 'Draggable';
 Draggable.propTypes = {
-
+  disabled: PropTypes.bool,
+  data: PropTypes.object,
+  dragImage: PropTypes.object,
+  dragImageOffset: PropTypes.object,
+  onDrag: PropTypes.func,
+  onBeforeDragStart: PropTypes.func,
+  onDragStart: PropTypes.func,
+  onDragEnd: PropTypes.func,
 };
 
 export default Draggable;

@@ -1,5 +1,6 @@
 import { Children, cloneElement, forwardRef, useState, useEffect } from 'react';
 import { classNames } from '@junipero/core';
+import PropTypes from 'prop-types';
 
 const Droppable = forwardRef(({
   className,
@@ -98,7 +99,10 @@ const Droppable = forwardRef(({
 
 Droppable.displayName = 'Droppable';
 Droppable.propTypes = {
-
+  disabled: PropTypes.bool,
+  onDrop: PropTypes.func,
+  onDragOver: PropTypes.func,
+  onDragLeave: PropTypes.func,
 };
 
 export default Droppable;
