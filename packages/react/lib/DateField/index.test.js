@@ -134,13 +134,12 @@ describe('<DateField />', () => {
 
   it('should correctly display current month dates', async () => {
     const currentDay = new Date(2019, 0, 15);
-    const { debug, unmount, container } = render(
+    const { unmount, container } = render(
       <DateField autoFocus={true} value={currentDay} />
     );
     expect(
       container.querySelectorAll('.day:not(.inactive)').length
     ).toEqual(31);
-    debug();
     unmount();
   });
 
