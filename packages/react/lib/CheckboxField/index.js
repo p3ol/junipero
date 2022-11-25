@@ -1,4 +1,10 @@
-import { forwardRef, useImperativeHandle, useReducer, useRef } from 'react';
+import {
+  useEffect,
+  useImperativeHandle,
+  useReducer,
+  useRef,
+  forwardRef,
+} from 'react';
 import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
@@ -13,6 +19,7 @@ const CheckboxField = forwardRef(({
   children,
   value,
   id,
+  name,
   className,
   onChange,
   onValidate = (val, { required }) => val || !required,
@@ -26,6 +33,14 @@ const CheckboxField = forwardRef(({
     valid: valid ?? true,
     dirty: false,
   });
+
+  useEffect(() => {
+    const valid = onValidate(checked ?? false, {
+      dirty: state.dirty, required,
+    });
+    dispatch({ checked: checked ?? false, valid });
+    updateControl?.({ dirty: state.dirty, valid });
+  }, [checked]);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -83,9 +98,10 @@ const CheckboxField = forwardRef(({
     >
       <input
         id={id}
+        name={name}
         type="checkbox"
         ref={inputRef}
-        value={value}
+        value={checked ? value : ''}
         checked={state.checked}
         onChange={onChange_}
         tabIndex={-1}
@@ -103,6 +119,7 @@ CheckboxField.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string,
+  name: PropTypes.string,
   value: PropTypes.any,
   onChange: PropTypes.func,
   required: PropTypes.bool,

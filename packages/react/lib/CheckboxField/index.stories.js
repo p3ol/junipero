@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import CheckboxField from '.';
@@ -76,3 +77,22 @@ export const withLabelAndAbstract = () => (
     </Abstract>
   </FieldControl>
 );
+
+export const controlled = () => {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setChecked(c => !c)}>Toggle</button>
+      <CheckboxField
+        checked={checked}
+        onChange={field => {
+          setChecked(field.checked);
+          action('change')(field);
+        }}
+      >
+        Check this
+      </CheckboxField>
+    </>
+  );
+};

@@ -9,7 +9,7 @@ exports[`<CheckboxField /> should add value if provided 1`] = `
     <input
       tabindex="-1"
       type="checkbox"
-      value="value"
+      value=""
     />
     <div
       class="inner"
@@ -28,6 +28,80 @@ exports[`<CheckboxField /> should add value if provided 1`] = `
     <div
       class="content"
     />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should allow to render a controller checkbox: checked 1`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <label
+    class="junipero checkbox-field pristine valid checked"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value="test"
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    >
+      Check this
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should allow to render a controller checkbox: unchecked 1`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    >
+      Check this
+    </div>
   </label>
 </div>
 `;

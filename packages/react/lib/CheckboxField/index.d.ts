@@ -15,6 +15,7 @@ declare interface CheckboxFieldProps extends React.ComponentPropsWithRef<any> {
   children?: React.ReactNode;
   value?: any;
   id?: String;
+  name?: String;
   className?: String;
   onChange?: (changeEvent: { value: any; checked: Boolean }) => void;
   onValidate?: (

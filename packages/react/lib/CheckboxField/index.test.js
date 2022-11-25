@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -159,6 +160,40 @@ describe('<CheckboxField />', () => {
 
     await user.click(input);
     expect(container).toMatchSnapshot('valid');
+    unmount();
+  });
+
+  it('should allow to render a controller checkbox', async () => {
+    const user = userEvent.setup();
+    const handler = jest.fn();
+
+    const ControlledField = () => {
+      const [checked, setChecked] = useState(false);
+
+      return (
+        <>
+          <button onClick={() => setChecked(c => !c)}>Toggle</button>
+          <CheckboxField
+            checked={checked}
+            value="test"
+            onChange={field => {
+              setChecked(field.checked);
+              handler(field);
+            }}
+          >
+            Check this
+          </CheckboxField>
+        </>
+      );
+    };
+
+    const { unmount, container } = render(<ControlledField />);
+    expect(container).toMatchSnapshot('unchecked');
+
+    await user.click(container.querySelector('button'));
+    expect(container).toMatchSnapshot('checked');
+    expect(handler).not.toHaveBeenCalled();
+
     unmount();
   });
 });
