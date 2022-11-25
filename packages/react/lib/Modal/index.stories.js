@@ -12,7 +12,9 @@ export const basic = () => {
 
   return (
     <>
-      <Button onClick={() => modalRef.current?.open()}>Open me</Button>
+      <Button className="primary" onClick={() => modalRef.current?.open()}>
+        Open me
+      </Button>
       <Modal ref={modalRef} onToggle={action('toggle')}>Test</Modal>
     </>
   );
@@ -23,7 +25,9 @@ export const animated = () => {
 
   return (
     <>
-      <Button onClick={() => modalRef.current?.open()}>Open me</Button>
+      <Button className="primary" onClick={() => modalRef.current?.open()}>
+        Open me
+      </Button>
       <Modal ref={modalRef} animate={appearBounceModal}>
         Test
       </Modal>
@@ -36,7 +40,9 @@ export const panel = () => {
 
   return (
     <>
-      <Button onClick={() => modalRef.current?.open()}>Open me</Button>
+      <Button className="primary" onClick={() => modalRef.current?.open()}>
+        Open me
+      </Button>
       <Modal
         className="panel"
         ref={modalRef}
@@ -54,7 +60,9 @@ export const nonClosablePanel = () => {
 
   return (
     <>
-      <Button onClick={() => modalRef.current?.open()}>Open me</Button>
+      <Button className="primary" onClick={() => modalRef.current?.open()}>
+        Open me
+      </Button>
       <Modal
         closable={false}
         className="panel"

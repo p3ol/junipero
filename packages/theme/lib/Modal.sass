@@ -1,5 +1,10 @@
+@use "vars" as vars
+
 .junipero.modal
-  --background-color: rgba(var(--junipero-onyx), .9)
+  --background-color: var(--junipero-backdrop)
+  --transition-background-exit: var(--junipero-backdrop-invisible)
+  --transition-background-enter: var(--junipero-backdrop)
+  --shadow-color: var(--junipero-shadow)
 
   position: fixed
   top: 0
@@ -29,9 +34,10 @@
       position: relative
       z-index: 3
       border: none
-      border-radius: 4px
+      border-radius: 10px
       margin: 0 auto
       padding: 20px
+      box-shadow: #{vars.$cardShadow}
 
       & > a.close
         display: inline-block
