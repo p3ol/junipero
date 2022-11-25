@@ -17,6 +17,12 @@ describe('dates', () => {
       expect(addMonths(new Date(2020, 10, 1), 29).getFullYear()).toBe(2023);
       expect(addMonths(new Date(2020, 10, 1), 29).getMonth()).toBe(3);
     });
+
+    it('should change date if next month has ' +
+    'less days than current', () => {
+      expect(addMonths(new Date(2022, 0, 31), 1).getDate()).toBe(28);
+      expect(addMonths(new Date(2022, 0, 31), 1).getMonth()).toBe(1);
+    });
   });
 
   describe('subMonths(date, amount)', () => {
@@ -31,6 +37,12 @@ describe('dates', () => {
     it('should sub one or several years if months go over 12', () => {
       expect(subMonths(new Date(2020, 10, 1), 29).getFullYear()).toBe(2018);
       expect(subMonths(new Date(2020, 10, 1), 29).getMonth()).toBe(5);
+    });
+
+    it('should change date if next month has ' +
+    'less days than current', () => {
+      expect(subMonths(new Date(2022, 2, 31), 1).getDate()).toBe(28);
+      expect(subMonths(new Date(2022, 2, 31), 1).getMonth()).toBe(1);
     });
   });
 });

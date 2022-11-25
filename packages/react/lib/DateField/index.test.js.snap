@@ -121,7 +121,7 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
               class="day junipero info inactive"
               href="#"
             >
-              30
+              31
             </a>
             <a
               class="day junipero info active"

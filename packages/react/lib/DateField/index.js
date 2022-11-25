@@ -244,6 +244,16 @@ const DateField = forwardRef(({
       state.displayed.setFullYear(state.displayed.getFullYear() - 1);
     }
 
+    const maxDaysPreviousMonth = getDaysInMonth(
+      new Date(
+        state.displayed.getFullYear(),
+        state.displayed.getMonth() === 0 ? 11 : state.displayed.getMonth() - 1,
+      )
+    );
+    state.displayed.setDate(
+      Math.min(maxDaysPreviousMonth, state.displayed.getDate())
+    );
+
     state.displayed.setMonth(
       state.displayed.getMonth() === 0 ? 11 : state.displayed.getMonth() - 1
     );
@@ -257,6 +267,16 @@ const DateField = forwardRef(({
     if (state.displayed.getMonth() === 11) {
       state.displayed.setFullYear(state.displayed.getFullYear() + 1);
     }
+
+    const maxDaysPreviousMonth = getDaysInMonth(
+      new Date(
+        state.displayed.getFullYear(),
+        state.displayed.getMonth() === 11 ? 0 : state.displayed.getMonth() + 1,
+      )
+    );
+    state.displayed.setDate(
+      Math.min(maxDaysPreviousMonth, state.displayed.getDate())
+    );
 
     state.displayed.setMonth(
       state.displayed.getMonth() === 11 ? 0 : state.displayed.getMonth() + 1
