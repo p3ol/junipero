@@ -7,7 +7,7 @@
   --spinner-color: var(--junipero-velvet)
 
   display: inline-flex
-  width: 250px
+  min-width: 250px
 
   &.disabled
     opacity: .5
@@ -34,6 +34,10 @@
 
     .text-field
       --border-color: var(--invalid-color)
+
+  &.:not(.empty)
+    .field
+      padding: 10px 50px 10px 10px
 
   .field
     display: flex
@@ -88,6 +92,11 @@
 
   .spinner
     --main-color: var(--spinner-color)
+
+.junipero.selectfield .menu-inner,
+.junipero.select-menu .menu-inner
+  max-height: 250px
+  overflow-y: scroll
 
 .junipero.select-field.searching .menu-inner,
 .junipero.select-menu.searching .menu-inner
