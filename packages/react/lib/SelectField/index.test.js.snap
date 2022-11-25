@@ -30,7 +30,7 @@ exports[`<SelectField /> should allow arbitrary values 1`] = `
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -262,7 +262,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -311,7 +311,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
     >
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -407,7 +407,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -517,7 +517,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -627,7 +627,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 3`]
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -737,7 +737,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 4`]
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -847,7 +847,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -957,7 +957,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -1012,6 +1012,41 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
           </li>
         </div>
       </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should allow to render without a placeholder 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field pristine valid empty"
+  >
+    <div
+      class="field dropdown-toggle"
+    >
+      <input
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </div>
@@ -1123,7 +1158,7 @@ exports[`<SelectField /> should allow to search for an existing value 1`] = `
     >
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value="Item 3"
       />
@@ -1180,7 +1215,7 @@ exports[`<SelectField /> should allow to search for an existing value 2`] = `
     >
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -1251,7 +1286,7 @@ exports[`<SelectField /> should allow to search for an external value 1`] = `
     >
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value="Item"
       />
@@ -1452,7 +1487,7 @@ exports[`<SelectField /> should render 1`] = `
     >
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -1563,7 +1598,7 @@ exports[`<SelectField /> should render multiple values 1`] = `
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -1632,7 +1667,7 @@ exports[`<SelectField /> should render multiple values 2`] = `
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />
@@ -1721,7 +1756,7 @@ exports[`<SelectField /> should render multiple values 3`] = `
       </span>
       <input
         placeholder="Name"
-        size="4"
+        size="10"
         type="text"
         value=""
       />

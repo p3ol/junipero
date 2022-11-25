@@ -21,6 +21,16 @@ describe('<SelectField />', () => {
     unmount();
   });
 
+  it('should allow to render without a placeholder', () => {
+    // Render may fail as we use placeholder length to set size of input
+    // which shouldn't be 0 (and can be if placeholder is not provided)
+    const { unmount, container } = render(
+      <SelectField options={['Item 1', 'Item 2', 'Item 3']} />
+    );
+    expect(container).toMatchSnapshot();
+    unmount();
+  });
+
   it('should allow to clear a single value', () => {
     const { unmount, container } = render(
       <SelectField

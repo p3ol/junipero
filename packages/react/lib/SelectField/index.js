@@ -103,7 +103,8 @@ const SelectField = forwardRef(({
       return;
     }
 
-    searchInputRef.current.size = searchInputRef.current.placeholder.length;
+    searchInputRef.current.size = Math
+      .max(10, searchInputRef.current.placeholder.length);
   }, [placeholder]);
 
   useTimeout(() => {
