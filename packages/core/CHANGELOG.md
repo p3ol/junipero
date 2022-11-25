@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* **date-field:** fix month jumping because of out of range day in month ([7b1c0ad](https://github.com/p3ol/junipero/commit/7b1c0ad92ffe1ae14bd7ed7e5d4688b09d300ce4))
+
+
+
+
+
 # [3.0.0-alpha.3](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-11-16)
 
 **Note:** Version bump only for package @junipero/core

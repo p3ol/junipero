@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* **theme:** card shadow ([ce76463](https://github.com/p3ol/junipero/commit/ce76463e8c3dfe8b83737a67067d982dacae1e5f))
+* **theme:** transition colors ([6c44bcf](https://github.com/p3ol/junipero/commit/6c44bcf5eaf032b892ba136b5295255ff377fa7f))
+
+
+### Features
+
+* **react:** add modal component ([a613495](https://github.com/p3ol/junipero/commit/a613495f22b79de8520be647dcdfbebad048a7c4))
+* **react:** better modal ([6d1e7fd](https://github.com/p3ol/junipero/commit/6d1e7fdcb59ed4d432ff08895a157a2f617fb4ae))
+
+
+
+
+
 # [3.0.0-alpha.4](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.3...v3.0.0-alpha.4) (2022-11-16)
 
 

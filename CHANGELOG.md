@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* **date-field:** fix month jumping because of out of range day in month ([7b1c0ad](https://github.com/p3ol/junipero/commit/7b1c0ad92ffe1ae14bd7ed7e5d4688b09d300ce4))
+* **theme:** card shadow ([ce76463](https://github.com/p3ol/junipero/commit/ce76463e8c3dfe8b83737a67067d982dacae1e5f))
+* **theme:** transition colors ([6c44bcf](https://github.com/p3ol/junipero/commit/6c44bcf5eaf032b892ba136b5295255ff377fa7f))
+
+
+### Features
+
+* **react:** add modal component ([a613495](https://github.com/p3ol/junipero/commit/a613495f22b79de8520be647dcdfbebad048a7c4))
+* **react:** allow to conditionnaly add breadcrumb items using fragments ([0dc3f66](https://github.com/p3ol/junipero/commit/0dc3f6682999dd4474df5085dd7cf4f2fc07081a))
+* **react:** better modal ([6d1e7fd](https://github.com/p3ol/junipero/commit/6d1e7fdcb59ed4d432ff08895a157a2f617fb4ae))
+
+
+
+
+
 # [3.0.0-alpha.5](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.4...v3.0.0-alpha.5) (2022-11-17)
 
 
