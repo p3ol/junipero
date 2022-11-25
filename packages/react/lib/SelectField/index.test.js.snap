@@ -187,6 +187,7 @@ exports[`<SelectField /> should allow to clear a single value 2`] = `
     >
       <input
         placeholder="Name"
+        size="10"
         type="text"
         value=""
       />

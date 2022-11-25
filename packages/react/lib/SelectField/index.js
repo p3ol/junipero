@@ -72,6 +72,7 @@ const SelectField = forwardRef(({
     searching: false,
     searchResults: null,
     selectedItem: -1,
+    placeholderSize: Math.max(10, placeholder?.length ?? 0),
   });
 
   useImperativeHandle(ref, () => ({
@@ -99,12 +100,7 @@ const SelectField = forwardRef(({
   }, [value, options]);
 
   useLayoutEffect(() => {
-    if (!searchInputRef.current) {
-      return;
-    }
-
-    searchInputRef.current.size = Math
-      .max(10, searchInputRef.current.placeholder.length);
+    dispatch({ placeholderSize: Math.max(10, placeholder?.length ?? 0) });
   }, [placeholder]);
 
   useTimeout(() => {
@@ -427,6 +423,7 @@ const SelectField = forwardRef(({
               onBlur={onBlur_}
               onKeyPress={onKeyPress_}
               onKeyUp={onKeyUp_}
+              size={state.placeholderSize}
             />
           ) }
           <div className="icons">
