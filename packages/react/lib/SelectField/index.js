@@ -99,7 +99,7 @@ const SelectField = forwardRef(({
   }, [value, options]);
 
   useLayoutEffect(() => {
-    if (!searchInputRef.current || !multiple) {
+    if (!searchInputRef.current) {
       return;
     }
 
@@ -386,6 +386,7 @@ const SelectField = forwardRef(({
           searching: state.searching,
           empty: isEmpty(),
           focused: state.focused,
+          multiple,
         },
         className
       )}
