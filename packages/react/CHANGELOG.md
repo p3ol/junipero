@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.7...v3.0.0-alpha.8) (2022-11-25)
+
+
+### Bug Fixes
+
+* **react:** allow to render selectfield even without placeholder ([cb01709](https://github.com/p3ol/junipero/commit/cb017095bffe0226a776baf61501955711e30576))
+
+
+
+
+
 # [3.0.0-alpha.7](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.6...v3.0.0-alpha.7) (2022-11-25)
 
 
