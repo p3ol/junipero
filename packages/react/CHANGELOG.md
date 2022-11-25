@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.7](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.6...v3.0.0-alpha.7) (2022-11-25)
+
+
+### Bug Fixes
+
+* **react:** add missing modal export ([8df5a58](https://github.com/p3ol/junipero/commit/8df5a58456a1444ded6a309f3079bb3e09c5a100))
+* **react:** also increase multiple search input size ([f8dd224](https://github.com/p3ol/junipero/commit/f8dd224f7ccec378f9af6a33634bae97e6bc3720))
+* **react:** tooltip types typo ([5dd665d](https://github.com/p3ol/junipero/commit/5dd665daed6147dc0c0a4967758fa12a8519f748))
+
+
+### Features
+
+* **react:** modal types ([0667299](https://github.com/p3ol/junipero/commit/0667299fbe95a5953c89c7e5894db582a46bad62))
+
+
+
+
+
 # [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
 
 

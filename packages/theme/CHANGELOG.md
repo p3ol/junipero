@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.7](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.6...v3.0.0-alpha.7) (2022-11-25)
+
+
+### Bug Fixes
+
+* **theme:** fix selectfield menu size ([c54fc60](https://github.com/p3ol/junipero/commit/c54fc60a54915d549d3aa880aeccb92aee5c0ecd))
+
+
+
+
+
 # [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
 
 
