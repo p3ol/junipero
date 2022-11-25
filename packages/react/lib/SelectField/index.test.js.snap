@@ -3,7 +3,7 @@
 exports[`<SelectField /> should allow arbitrary values 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid focused"
+    class="junipero dropdown select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -215,7 +215,7 @@ exports[`<SelectField /> should allow to clear a single value 2`] = `
 exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field pristine valid focused"
+    class="junipero dropdown select-field pristine valid focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -304,7 +304,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
 exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid empty focused"
+    class="junipero dropdown select-field dirty valid empty focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -340,7 +340,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
 exports[`<SelectField /> should allow to delete items when hitting backspace 1`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field pristine valid focused"
+    class="junipero dropdown opened select-field pristine valid focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -470,7 +470,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 2`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused"
+    class="junipero dropdown opened select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -580,7 +580,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 3`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused"
+    class="junipero dropdown opened select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -690,7 +690,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 3`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 4`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused"
+    class="junipero dropdown opened select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -800,7 +800,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 4`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 5`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused"
+    class="junipero dropdown opened select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -910,7 +910,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 6`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused"
+    class="junipero dropdown opened select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -1123,6 +1123,7 @@ exports[`<SelectField /> should allow to search for an existing value 1`] = `
     >
       <input
         placeholder="Name"
+        size="4"
         type="text"
         value="Item 3"
       />
@@ -1179,6 +1180,7 @@ exports[`<SelectField /> should allow to search for an existing value 2`] = `
     >
       <input
         placeholder="Name"
+        size="4"
         type="text"
         value=""
       />
@@ -1249,6 +1251,7 @@ exports[`<SelectField /> should allow to search for an external value 1`] = `
     >
       <input
         placeholder="Name"
+        size="4"
         type="text"
         value="Item"
       />
@@ -1449,6 +1452,7 @@ exports[`<SelectField /> should render 1`] = `
     >
       <input
         placeholder="Name"
+        size="4"
         type="text"
         value=""
       />
@@ -1512,7 +1516,7 @@ exports[`<SelectField /> should render 1`] = `
 exports[`<SelectField /> should render multiple values 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field pristine valid focused"
+    class="junipero dropdown select-field pristine valid focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -1601,7 +1605,7 @@ exports[`<SelectField /> should render multiple values 1`] = `
 exports[`<SelectField /> should render multiple values 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid focused"
+    class="junipero dropdown select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -1670,7 +1674,7 @@ exports[`<SelectField /> should render multiple values 2`] = `
 exports[`<SelectField /> should render multiple values 3`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid focused"
+    class="junipero dropdown select-field dirty valid focused multiple"
   >
     <div
       class="field dropdown-toggle"
