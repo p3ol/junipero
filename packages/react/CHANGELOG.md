@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.9](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.8...v3.0.0-alpha.9) (2022-11-25)
+
+
+### Bug Fixes
+
+* **react:** handle post layout placeholder changes ([2555e11](https://github.com/p3ol/junipero/commit/2555e11623fe2c23cfea2067640b648420c2d177))
+
+
+
+
+
 # [3.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.7...v3.0.0-alpha.8) (2022-11-25)
 
 
