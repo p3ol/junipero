@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { slideInDownMenu } from '@junipero/transitions';
+import { action } from '@storybook/addon-actions';
 
 import FieldControl from '../FieldControl';
 import Label from '../Label';
@@ -11,8 +13,24 @@ export const basic = () => (
   <SelectField
     placeholder="Type a name"
     options={['Item 1', 'Item 2', 'Item 3']}
+    onChange={action('onChange')}
   />
 );
+
+export const controlled = () => {
+  const [value, setValue] = useState('Item 1');
+
+  return (
+    <SelectField
+      value={value}
+      placeholder="Type a name"
+      options={['Item 1', 'Item 2', { title: 'Item 3', value: 'item-3' }]}
+      parseTitle={o => o.title || o}
+      parseValue={o => o.value || o}
+      onChange={field => setValue(field.value)}
+    />
+  );
+};
 
 export const autoFocused = () => (
   <SelectField

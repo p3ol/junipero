@@ -44,7 +44,6 @@ const SelectField = forwardRef(({
   searchThreshold = 400,
   required = false,
   onChange,
-  parseItem = val => val,
   parseTitle = val => val?.toString?.(),
   parseValue = val => val,
   onBlur,
@@ -317,7 +316,7 @@ const SelectField = forwardRef(({
   const findOptions = val => {
     const isMultiple = multiple && Array.isArray(val);
     const res = (isMultiple ? val : [val]).map(v =>
-      findDeep(options, o => parseItem(o) === parseItem(v), o => o.options) ||
+      findDeep(options, o => parseValue(o) === parseValue(v), o => o.options) ||
       v
     );
 
@@ -479,7 +478,6 @@ SelectField.propTypes = {
   onKeyUp: PropTypes.func,
   onSearch: PropTypes.func,
   onValidate: PropTypes.func,
-  parseItem: PropTypes.func,
   parseTitle: PropTypes.func,
   parseValue: PropTypes.func,
 };

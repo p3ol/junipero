@@ -1,4 +1,4 @@
-import { createRef } from 'react';
+import { createRef, useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -285,6 +285,43 @@ describe('<SelectField />', () => {
 
     // Unselect any item
     await user.keyboard('{ArrowRight}');
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
+  it('should allow to use object options and display custom titles on a ' +
+    'controlled field', async () => {
+    const user = userEvent.setup();
+
+    const ControlledField = () => {
+      const [value, setValue] = useState('Item 1');
+
+      return (
+        <>
+          <p>Value: { value }</p>
+          <SelectField
+            value={value}
+            placeholder="Type a name"
+            options={[
+              'Item 1',
+              'Item 2',
+              { title: 'Item 3', value: 'item-3' },
+            ]}
+            parseTitle={o => o.title || o}
+            parseValue={o => o.value || o}
+            onChange={field => setValue(field.value)}
+          />
+        </>
+      );
+    };
+
+    const { unmount, container, getByText } = render(<ControlledField />);
+
+    const input = container.querySelector('input');
+    await user.click(input);
+    await user.click(getByText('Item 3'));
+
     expect(container).toMatchSnapshot();
 
     unmount();

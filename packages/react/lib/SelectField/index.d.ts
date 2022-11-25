@@ -31,7 +31,6 @@ declare interface SelectFieldProps extends React.ComponentPropsWithRef<any> {
   searchThreshold?: number;
   required?: Boolean;
   onChange?: (props: { value: any; valid: Boolean }) => void;
-  parseItem?: (option: any) => any;
   parseTitle?: (option: any) => String;
   parseValue?: (option: any) => any;
   onBlur?: (event: Event) => void;
