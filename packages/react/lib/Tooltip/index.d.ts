@@ -11,7 +11,7 @@ import {
 import React, { MutableRefObject } from 'react';
 
 export declare type TooltipRef = {
-  onpened: Boolean;
+  opened: Boolean;
   innerRef: MutableRefObject<any>;
   handleRef: MutableRefObject<any>;
   open: () => void;
