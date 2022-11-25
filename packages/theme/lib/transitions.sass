@@ -43,67 +43,65 @@
 .jp-slide-in-left-modal
   &-enter
     &.junipero.modal .wrapper
-      background: rgba(var(--junipero-onyx), 0)
-      transition: background .3s ease-in-out
+      background: var(--transition-background-exit)
 
       .content
         transform: translate3d(100%, 0, 0)
-        transition: transform .3s ease-in-out
 
     &-active
       &.junipero.modal .wrapper
-        background: rgba(var(--junipero-onyx), 0.9)
+        transition: background .3s ease-in-out
+        background: var(--transition-background-enter)
 
         .content
+          transition: transform .3s ease-in-out
           transform: translate3d(0, 0, 0)
 
   &-exit
     &.junipero.modal .wrapper
-      background: rgba(var(--junipero-onyx), 0.9)
-      transition: background .3s ease-out
+      background: var(--transition-background-enter)
 
       .content
         transform: translate3d(0, 0, 0)
-        transition: transform .3s ease-in-out
 
     &-active
       &.junipero.modal .wrapper
-        background: rgba(var(--junipero-onyx), 0)
+        transition: background .3s ease-out
+        background: var(--transition-background-exit)
 
         .content
+          transition: transform .3s ease-in-out
           transform: translate3d(100%, 0, 0)
 
 .jp-appear-bounce-modal
   &-enter, &-appear
     &.junipero.modal .wrapper
-      background: rgba(var(--junipero-onyx), 0)
-      transition: background .2s ease-out
+      background: var(--transition-background-exit)
 
     &-active
       &.junipero.modal .wrapper
-        background: rgba(var(--junipero-onyx), 0.9)
+        transition: background .2s ease-out
+        background: var(--transition-background-enter)
 
         .content
-          & :local
-            animation: jp-appear-elastic .2s ease-in-out
+          animation: jp-appear-elastic .2s ease-in-out
 
   &-exit
     &.junipero.modal .wrapper
-      background: rgba(var(--junipero-onyx), 0.9)
-      transition: background .2s ease-out
+      background: var(--transition-background-enter)
 
     &-active
       &.junipero.modal .wrapper
-        background: rgba(var(--junipero-onyx), 0)
+        transition: background .2s ease-out
+        background: var(--transition-background-exit)
 
         .content
-          & :local
-            animation: jp-disappear-elastic .2s ease-in-out
+          animation: jp-disappear-elastic .2s ease-in-out
 
 .jp-slide-in-up-modal
   &-enter
     &.junipero.modal .wrapper
-      background: rgba(var(--junipero-onyx), 0)
+      background: var(--transition-background-exit)
 
       .content
         opacity: 0
@@ -111,7 +109,7 @@
 
     &-active
       &.junipero.modal .wrapper
-        background: rgba(var(--junipero-onyx), 0.9)
+        background: var(--transition-background-enter)
         transition: background 150ms ease-in-out
 
         .content
@@ -121,7 +119,7 @@
 
   &-exit
     &.junipero.modal .wrapper
-      background: rgba(var(--junipero-onyx), 0.9)
+      background: var(--transition-background-enter)
 
       .content
         opacity: 1
@@ -129,7 +127,7 @@
 
     &-active
       &.junipero.modal .wrapper
-        background: rgba(var(--junipero-onyx), 0)
+        background: var(--transition-background-exit)
         transition: background 150ms ease-in-out 200ms
 
         .content
