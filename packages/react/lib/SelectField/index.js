@@ -474,6 +474,7 @@ SelectField.propTypes = {
   options: PropTypes.array,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  searchable: PropTypes.bool,
   searchMinCharacters: PropTypes.number,
   searchThreshold: PropTypes.number,
   valid: PropTypes.bool,

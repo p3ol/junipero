@@ -27,6 +27,7 @@ declare interface SelectFieldProps extends React.ComponentPropsWithRef<any> {
   disabled?: Boolean;
   multiple?: Boolean;
   noOptionsLabel?: String;
+  searchable?: Boolean;
   searchMinCharacters?: number;
   searchThreshold?: number;
   required?: Boolean;
