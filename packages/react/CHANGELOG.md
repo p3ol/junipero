@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.11...v3.0.0-alpha.12) (2022-11-28)
+
+
+### Bug Fixes
+
+* **react:** allow selectfield to not be searchable ([6a07901](https://github.com/p3ol/junipero/commit/6a079012d879fc58dee242908770e41a14a4bd11))
+* **react:** missing prop validation ([112f6be](https://github.com/p3ol/junipero/commit/112f6be75365f8e04fac6403bfa56cc7c11e06cb))
+
+
+
+
+
 # [3.0.0-alpha.10](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.9...v3.0.0-alpha.10) (2022-11-25)
 
 
