@@ -3,7 +3,7 @@
 exports[`<SelectField /> should allow arbitrary values 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid focused multiple"
+    class="junipero dropdown select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -78,7 +78,7 @@ exports[`<SelectField /> should allow to be used with a FieldControl 1`] = `
     Name
   </label>
   <div
-    class="junipero dropdown select-field dirty invalid"
+    class="junipero dropdown select-field dirty invalid searchable"
     id="name"
   >
     <div
@@ -132,7 +132,7 @@ exports[`<SelectField /> should allow to be used with a FieldControl 1`] = `
 exports[`<SelectField /> should allow to clear a single value 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field pristine valid"
+    class="junipero dropdown select-field pristine valid searchable"
   >
     <div
       class="field dropdown-toggle"
@@ -180,7 +180,7 @@ exports[`<SelectField /> should allow to clear a single value 1`] = `
 exports[`<SelectField /> should allow to clear a single value 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid empty"
+    class="junipero dropdown select-field dirty valid searchable empty"
   >
     <div
       class="field dropdown-toggle"
@@ -216,7 +216,7 @@ exports[`<SelectField /> should allow to clear a single value 2`] = `
 exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field pristine valid focused multiple"
+    class="junipero dropdown select-field pristine valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -305,7 +305,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
 exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid empty focused multiple"
+    class="junipero dropdown select-field dirty valid searchable empty focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -341,7 +341,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
 exports[`<SelectField /> should allow to delete items when hitting backspace 1`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field pristine valid focused multiple"
+    class="junipero dropdown opened select-field pristine valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -471,7 +471,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 2`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused multiple"
+    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -581,7 +581,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 3`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused multiple"
+    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -691,7 +691,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 3`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 4`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused multiple"
+    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -801,7 +801,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 4`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 5`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused multiple"
+    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -911,7 +911,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
 exports[`<SelectField /> should allow to delete items when hitting backspace 6`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field dirty valid focused multiple"
+    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle opened"
@@ -1021,7 +1021,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
 exports[`<SelectField /> should allow to render without a placeholder 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field pristine valid empty"
+    class="junipero dropdown select-field pristine valid searchable empty"
   >
     <div
       class="field dropdown-toggle"
@@ -1056,7 +1056,7 @@ exports[`<SelectField /> should allow to render without a placeholder 1`] = `
 exports[`<SelectField /> should allow to reset the field 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid"
+    class="junipero dropdown select-field dirty valid searchable"
   >
     <div
       class="field dropdown-toggle"
@@ -1104,7 +1104,7 @@ exports[`<SelectField /> should allow to reset the field 1`] = `
 exports[`<SelectField /> should allow to reset the field 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field pristine valid"
+    class="junipero dropdown select-field pristine valid searchable"
   >
     <div
       class="field dropdown-toggle"
@@ -1152,7 +1152,7 @@ exports[`<SelectField /> should allow to reset the field 2`] = `
 exports[`<SelectField /> should allow to search for an existing value 1`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field pristine valid empty focused"
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
   >
     <div
       class="field dropdown-toggle opened"
@@ -1209,7 +1209,7 @@ exports[`<SelectField /> should allow to search for an existing value 1`] = `
 exports[`<SelectField /> should allow to search for an existing value 2`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field pristine valid empty focused"
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
   >
     <div
       class="field dropdown-toggle opened"
@@ -1280,7 +1280,7 @@ exports[`<SelectField /> should allow to search for an existing value 2`] = `
 exports[`<SelectField /> should allow to search for an external value 1`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field pristine valid empty focused"
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
   >
     <div
       class="field dropdown-toggle opened"
@@ -1337,7 +1337,7 @@ exports[`<SelectField /> should allow to search for an external value 1`] = `
 exports[`<SelectField /> should allow to search for an external value 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid focused"
+    class="junipero dropdown select-field dirty valid searchable focused"
   >
     <div
       class="field dropdown-toggle"
@@ -1389,7 +1389,7 @@ exports[`<SelectField /> should allow to use object options and display custom t
     item-3
   </p>
   <div
-    class="junipero dropdown select-field dirty valid"
+    class="junipero dropdown select-field dirty valid searchable"
   >
     <div
       class="field dropdown-toggle"
@@ -1437,7 +1437,7 @@ exports[`<SelectField /> should allow to use object options and display custom t
 exports[`<SelectField /> should be invalid if validation fails 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty invalid"
+    class="junipero dropdown select-field dirty invalid searchable"
   >
     <div
       class="field dropdown-toggle"
@@ -1485,7 +1485,7 @@ exports[`<SelectField /> should be invalid if validation fails 1`] = `
 exports[`<SelectField /> should not allow to change value when disabled 1`] = `
 <div>
   <div
-    class="junipero dropdown disabled select-field pristine valid"
+    class="junipero dropdown disabled select-field pristine valid searchable"
   >
     <div
       class="field dropdown-toggle"
@@ -1533,7 +1533,7 @@ exports[`<SelectField /> should not allow to change value when disabled 1`] = `
 exports[`<SelectField /> should render 1`] = `
 <div>
   <div
-    class="junipero dropdown opened select-field pristine valid empty focused"
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
   >
     <div
       class="field dropdown-toggle opened"
@@ -1604,7 +1604,7 @@ exports[`<SelectField /> should render 1`] = `
 exports[`<SelectField /> should render multiple values 1`] = `
 <div>
   <div
-    class="junipero dropdown select-field pristine valid focused multiple"
+    class="junipero dropdown select-field pristine valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -1693,7 +1693,7 @@ exports[`<SelectField /> should render multiple values 1`] = `
 exports[`<SelectField /> should render multiple values 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid focused multiple"
+    class="junipero dropdown select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle"
@@ -1762,7 +1762,7 @@ exports[`<SelectField /> should render multiple values 2`] = `
 exports[`<SelectField /> should render multiple values 3`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid focused multiple"
+    class="junipero dropdown select-field dirty valid searchable focused multiple"
   >
     <div
       class="field dropdown-toggle"

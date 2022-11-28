@@ -25,12 +25,20 @@ export const controlled = () => {
       value={value}
       placeholder="Type a name"
       options={['Item 1', 'Item 2', { title: 'Item 3', value: 'item-3' }]}
-      parseTitle={o => o.title || o}
-      parseValue={o => o.value || o}
+      parseTitle={o => o?.title || o}
+      parseValue={o => o?.value || o}
       onChange={field => setValue(field.value)}
     />
   );
 };
+
+export const notSearchable = () => (
+  <SelectField
+    searchable={false}
+    placeholder="Type a name"
+    options={['Item 1', 'Item 2', 'Item 3']}
+  />
+);
 
 export const autoFocused = () => (
   <SelectField

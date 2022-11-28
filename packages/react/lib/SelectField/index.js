@@ -40,6 +40,7 @@ const SelectField = forwardRef(({
   disabled = false,
   multiple = false,
   noOptionsLabel = 'No options',
+  searchable = true,
   searchMinCharacters = 2,
   searchThreshold = 400,
   required = false,
@@ -168,10 +169,15 @@ const SelectField = forwardRef(({
     }
 
     state.valid = onValidate(parseValue(state.value), { required, multiple });
+
     onChange_({ close: false, resetSearch: true });
   };
 
   const onSearchInputChange = e => {
+    if (!searchable || disabled) {
+      return;
+    }
+
     dispatch({ search: e.target.value });
   };
 
@@ -181,7 +187,7 @@ const SelectField = forwardRef(({
     if (onSearch) {
       dispatch({ searching: true });
       results = await onSearch(state.search);
-    } else {
+    } else if (searchable) {
       results = filterOptions(state.search);
     }
 
@@ -245,7 +251,7 @@ const SelectField = forwardRef(({
         if (state.selectedItem >= 0) {
           onRemoveOption(state.value[state.selectedItem]);
         } else {
-          dispatch({ selectedItem: state.value.length - 1 });
+          dispatch({ selectedItem: (state.value?.length ?? 0) - 1 });
         }
 
         break;
@@ -254,13 +260,13 @@ const SelectField = forwardRef(({
         if (state.selectedItem > 0) {
           dispatch({ selectedItem: state.selectedItem - 1 });
         } else if (state.selectedItem === -1 && !state.search) {
-          dispatch({ selectedItem: state.value.length - 1 });
+          dispatch({ selectedItem: (state.value?.length ?? 0) - 1 });
         }
 
         break;
 
       case 'ArrowRight':
-        if (state.selectedItem < state.value.length - 1) {
+        if (state.selectedItem < (state.value?.length ?? 0) - 1) {
           dispatch({ selectedItem: state.selectedItem + 1 });
         } else if (state.selectedItem !== -1) {
           dispatch({ selectedItem: -1 });
@@ -379,6 +385,7 @@ const SelectField = forwardRef(({
         state.dirty ? 'dirty' : 'pristine',
         !state.valid && state.dirty ? 'invalid' : 'valid',
         {
+          searchable,
           searching: state.searching,
           empty: isEmpty(),
           focused: state.focused,
@@ -417,7 +424,7 @@ const SelectField = forwardRef(({
               onChange={onSearchInputChange}
               ref={searchInputRef}
               autoFocus={autoFocus}
-              disabled={disabled}
+              disabled={disabled || !searchable}
               onFocus={onFocus_}
               onBlur={onBlur_}
               onKeyPress={onKeyPress_}
