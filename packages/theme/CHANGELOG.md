@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.11](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.10...v3.0.0-alpha.11) (2022-11-28)
+
+
+### Bug Fixes
+
+* **theme:** also style non-anchor dropdown links ([58548b8](https://github.com/p3ol/junipero/commit/58548b80d3d9978c47b398b0c77b2a0e848af36d))
+
+
+
+
+
 # [3.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.7...v3.0.0-alpha.8) (2022-11-25)
 
 
