@@ -7,10 +7,10 @@ const TouchableZone = forwardRef(({
   className,
   children,
   tag: Tag = 'a',
-  ...res
+  ...rest
 }, ref) => (
   <Tag
-    { ...res }
+    { ...rest }
     ref={ref}
     className={classNames('junipero touchable-zone', className)}
   >
