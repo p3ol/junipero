@@ -371,7 +371,7 @@ const SelectField = forwardRef(({
     ).map((o, i) => (
       o?.options ? renderGroup(o, i) : renderOption(o, i)
     ))
-  ), [state.searchResults, state.value, options]);
+  ), [state.searchResults, state.value, options, onChange]);
 
   return (
     <Dropdown

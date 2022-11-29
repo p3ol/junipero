@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 import { slideInDownMenu } from '@junipero/transitions';
 import { action } from '@storybook/addon-actions';
 
 import FieldControl from '../FieldControl';
+import TextField from '../TextField';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import SelectField from './index';
+import { cloneDeep, mockState, set } from '../../../core/lib/core';
 
 export default { title: 'react/SelectField' };
 
@@ -120,3 +122,43 @@ export const withArbitraryValues = () => (
 export const animated = () => (
   <SelectField animateMenu={slideInDownMenu} />
 );
+
+const options = [1, 2, 3];
+
+export const edgeCase = () => {
+  const [state, dispatch] = useReducer(mockState, {
+    form: {},
+  });
+
+  useEffect(() => {
+    const newForm = cloneDeep({ name: 'Test ' });
+    dispatch({ form: newForm });
+  }, []);
+
+  const onChange = (name, field) => {
+    set(state.form, name, field.checked ?? field.value);
+    dispatch({ form: state.form, dirty: true });
+  };
+
+  return (
+    <>
+      <FieldControl>
+        <Label className="info">
+          Test
+        </Label>
+        <TextField
+          value={state.form.name || ''}
+          onChange={onChange.bind(null, 'name')}
+          placeholder="Test"
+          data-testid="FormName"
+        />
+      </FieldControl>
+      <SelectField
+        value={state.form.config?.test || 1}
+        options={options}
+        onChange={onChange.bind(null, 'config.test')}
+      />
+      <div>{JSON.stringify(state)}</div>
+    </>
+  );
+};
