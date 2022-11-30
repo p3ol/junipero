@@ -1,11 +1,13 @@
-import { createRef, useState } from 'react';
+import { createRef, useEffect, useReducer, useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { blur, reset, sleep } from '~test-utils';
+import { cloneDeep, mockState, set } from '../../../core/lib/core';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
+import TextField from '../TextField';
 import SelectField from './index';
 
 describe('<SelectField />', () => {
@@ -320,6 +322,59 @@ describe('<SelectField />', () => {
 
     const input = container.querySelector('input');
     await user.click(input);
+    await user.click(getByText('Item 3'));
+
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
+  it('should correctly update state values', async () => {
+    const user = userEvent.setup();
+    const options = ['Item 1', 'Item 2', 'Item 3'];
+
+    const Form = () => {
+      const [state, dispatch] = useReducer(mockState, {
+        form: {},
+      });
+
+      useEffect(() => {
+        const newForm = cloneDeep({ name: 'Test' });
+        dispatch({ form: newForm });
+      }, []);
+
+      const onChange = (name, field) => {
+        set(state.form, name, field.checked ?? field.value);
+        dispatch({ form: state.form, dirty: true });
+      };
+
+      return (
+        <>
+          <FieldControl>
+            <Label className="info">
+              Test
+            </Label>
+            <TextField
+              id="textfield"
+              value={state.form.name || ''}
+              onChange={onChange.bind(null, 'name')}
+              placeholder="Test"
+            />
+          </FieldControl>
+          <SelectField
+            id="selectfield"
+            value={state.form.config?.test || 1}
+            options={options}
+            onChange={onChange.bind(null, 'config.test')}
+          />
+        </>
+      );
+    };
+
+    const { container, getByText, unmount } = render(<Form />);
+
+    await user.type(container.querySelector('#textfield'), '123');
+    await user.click(container.querySelector('#selectfield input'));
     await user.click(getByText('Item 3'));
 
     expect(container).toMatchSnapshot();
