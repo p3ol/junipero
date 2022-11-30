@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import TouchableZone from '.';
 
-describe('<TouchableZone />', () => {
+describe('<TouchableZone />', () => {
   it('should display', () => {
     const { container, unmount } = render(<TouchableZone />);
     expect(container.querySelector('.touchable-zone')).toBeTruthy();
