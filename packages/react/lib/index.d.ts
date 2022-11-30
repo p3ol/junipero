@@ -36,6 +36,7 @@ import Tag, { TagRef } from './Tag';
 import TextField, { TextFieldRef } from './TextField';
 import Toggle, { ToggleRef } from './Toggle';
 import Tooltip, { TooltipRef } from './Tooltip';
+import TouchableZone from './TouchableZone';
 
 export {
   Abstract,
@@ -74,6 +75,7 @@ export {
   TextField,
   Toggle,
   Tooltip,
+  TouchableZone,
 };
 
 export {

@@ -1,0 +1,22 @@
+.junipero.touchable-zone
+  --background-color: var(--junipero-concrete)
+  --text-color: var(--junipero-slate)
+  --hover-color: var(--junipero-alabaster)
+  --active-color: var(--junipero-concrete)
+
+  cursor: pointer
+  border-radius: 4px
+  background-color: var(--background-color)
+  color: var(--text-color)
+  display: inline-flex
+  width: 350px
+  height: 130px
+  user-select: none
+  align-items: center
+  justify-content: center
+
+  &:hover
+    background-color: var(--hover-color)
+
+    &:active
+      background-color: var(--active-color)

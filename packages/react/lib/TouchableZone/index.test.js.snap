@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TouchableZone /> should display 1`] = `
+<div>
+  <a
+    class="junipero touchable-zone"
+  />
+</div>
+`;
+
+exports[`<TouchableZone /> should render children 1`] = `
+<div>
+  <a
+    class="junipero touchable-zone"
+  >
+    <div
+      class="subContent"
+    >
+      sub content
+    </div>
+  </a>
+</div>
+`;
