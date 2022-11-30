@@ -23,6 +23,7 @@ export { default as Tabs } from './Tabs';
 export { default as Tag } from './Tag';
 export { default as Toggle } from './Toggle';
 export { default as Tooltip } from './Tooltip';
+export { default as TouchableZone } from './TouchableZone';
 
 // Forms
 export { default as CheckboxField } from './CheckboxField';

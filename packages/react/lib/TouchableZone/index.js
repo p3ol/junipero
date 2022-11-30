@@ -1,4 +1,3 @@
-
 import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from '@junipero/core';
@@ -14,7 +13,7 @@ const TouchableZone = forwardRef(({
     ref={ref}
     className={classNames('junipero touchable-zone', className)}
   >
-    <span className="content">{ children }</span>
+    { children }
   </Tag>
 ));
 
