@@ -1482,7 +1482,7 @@ exports[`<SelectField /> should be invalid if validation fails 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should correctly update onChange method with latest state 1`] = `
+exports[`<SelectField /> should correctly update state values 1`] = `
 <div>
   <label
     class="junipero label info"
