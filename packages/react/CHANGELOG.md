@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.12...v3.0.0-alpha.13) (2022-11-30)
+
+
+### Bug Fixes
+
+* **react:** add onChange in deps array ([7f1b68d](https://github.com/p3ol/junipero/commit/7f1b68d726956795a4e58ce3e6f71d1ca8295d7f))
+
+
+### Features
+
+* **refactor-v3:** create touchable zone component under @junipero/react ([0b4e93a](https://github.com/p3ol/junipero/commit/0b4e93ac20936788266fcc580aa5e53c142868c4))
+* **refactor-v3:** reword res into rest ([544f4d5](https://github.com/p3ol/junipero/commit/544f4d5adeb0234786f75d00df8fd8158bd2abdf))
+* **touchable:** add export and remove useless code ([7eb1fa2](https://github.com/p3ol/junipero/commit/7eb1fa25b24eceabfb7c777c9933d2a92d506a9d))
+
+
+
+
+
 # [3.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.11...v3.0.0-alpha.12) (2022-11-28)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.12...v3.0.0-alpha.13) (2022-11-30)
+
+
+### Bug Fixes
+
+* **theme:** prevent radiofield checkbox shrink ([a5ab152](https://github.com/p3ol/junipero/commit/a5ab1527e917f5348edfa1247eec5c0dd0bfc65b))
+
+
+### Features
+
+* **refactor-v3:** create touchable zone component under @junipero/react ([0b4e93a](https://github.com/p3ol/junipero/commit/0b4e93ac20936788266fcc580aa5e53c142868c4))
+* **touchable:** add export and remove useless code ([7eb1fa2](https://github.com/p3ol/junipero/commit/7eb1fa25b24eceabfb7c777c9933d2a92d506a9d))
+
+
+
+
+
 # [3.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.11...v3.0.0-alpha.12) (2022-11-28)
 
 
