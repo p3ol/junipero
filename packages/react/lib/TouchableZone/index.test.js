@@ -7,6 +7,7 @@ describe('<TouchableZone />', () => {
   it('should display', () => {
     const { container, unmount } = render(<TouchableZone />);
     expect(container.querySelector('.touchable-zone')).toBeTruthy();
+    expect(container).toMatchSnapshot();
     unmount();
   });
 
@@ -31,7 +32,7 @@ describe('<TouchableZone />', () => {
         </div>
       </TouchableZone>
     );
-    expect(container.querySelector('.subContent')).toBeTruthy();
+    expect(container).toMatchSnapshot();
     unmount();
   });
 });
