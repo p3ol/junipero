@@ -8,7 +8,7 @@ import {
   useEffect,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { ensureNode, classNames, mockState } from '@junipero/core';
+import { ensureNode, classNames, mockState, omit } from '@junipero/core';
 import {
   useFloating,
   useInteractions,
@@ -52,11 +52,15 @@ const Tooltip = forwardRef(({
     placement,
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,
-    ...floatingOptions || {},
+    ...omit(floatingOptions || {}, ['boundary', 'middleware']),
     middleware: floatingOptions?.middleware || [
       offset(10),
-      flip(),
-      shift(),
+      flip({
+        boundary: floatingOptions?.boundary,
+      }),
+      shift({
+        boundary: floatingOptions?.boundary,
+      }),
     ],
   });
 
