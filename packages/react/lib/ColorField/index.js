@@ -160,7 +160,7 @@ const ColorField = forwardRef(({
 
   const onToggle_ = ({ opened }) => {
     dispatch({ opened });
-    updateControl({ focused: opened });
+    updateControl?.({ focused: opened });
     onToggle?.({ opened });
   };
 
