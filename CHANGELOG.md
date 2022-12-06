@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.14](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.13...v3.0.0-alpha.14) (2022-12-06)
+
+
+### Bug Fixes
+
+* **react:** fix color field non-existing field control ([60e216b](https://github.com/p3ol/junipero/commit/60e216bb91cc9a03a719a9bb7d52fd53c80587ca))
+* **react:** fix tooltip floating options ([c5c416e](https://github.com/p3ol/junipero/commit/c5c416e4bef1cf3f10eebee44c6be309b119fcb0))
+
+
+
+
+
 # [3.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.12...v3.0.0-alpha.13) (2022-11-30)
 
 
