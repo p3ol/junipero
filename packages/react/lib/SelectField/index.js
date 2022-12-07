@@ -28,6 +28,8 @@ import Tag from '../Tag';
 import Spinner from '../Spinner';
 
 const SelectField = forwardRef(({
+  toggleClick = false,
+  keyboardHandler = false,
   animateMenu,
   className,
   options,
@@ -379,7 +381,7 @@ const SelectField = forwardRef(({
       opened={state.opened}
       ref={dropdownRef}
       disabled={disabled}
-      clickOptions={{ toggle: false, keyboardHandlers: false }}
+      clickOptions={{ toggle: toggleClick, keyboardHandlers: keyboardHandler }}
       className={classNames(
         'select-field',
         state.dirty ? 'dirty' : 'pristine',
@@ -463,7 +465,9 @@ SelectField.propTypes = {
   allowArbitraryItems: PropTypes.bool,
   autoFocus: PropTypes.bool,
   clearable: PropTypes.bool,
+  toggleClick: PropTypes.bool,
   disabled: PropTypes.bool,
+  keyboardHandler: PropTypes.bool,
   multiple: PropTypes.bool,
   noOptionsLabel: PropTypes.oneOfType([
     PropTypes.string,

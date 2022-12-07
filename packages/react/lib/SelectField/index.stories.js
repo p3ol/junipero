@@ -117,6 +117,16 @@ export const withArbitraryValues = () => (
   />
 );
 
+export const withClickOptionsAndKeyboardHandler = () => (
+  <SelectField
+    toggleClick={true}
+    keyboardHandler={true}
+    placeholder="Type a name"
+    options={['Item 1', 'Item 2', 'Item 3']}
+    onChange={action('onChange')}
+  />
+);
+
 export const animated = () => (
   <SelectField animateMenu={slideInDownMenu} />
 );
