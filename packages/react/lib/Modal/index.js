@@ -88,7 +88,7 @@ const Modal = forwardRef(({
     onToggle?.({ opened: state.opened });
   };
 
-  const wrapper = (
+  const Wrapper = ({ transitionState }) => (
     <div
       { ...rest }
       ref={innerRef}
@@ -118,14 +118,20 @@ const Modal = forwardRef(({
               <Remove />
             </a>
           ) }
-          { children }
+          {(!transitionState || ['entered', 'exiting'].find(
+            state => state === transitionState)
+          ) &&
+            children
+          }
         </div>
       </div>
     </div>
   );
-
+  Wrapper.propTypes = {
+    transitionState: PropTypes.string,
+  };
   const content = animate
-    ? animate(wrapper, { opened: state.opened }) : wrapper;
+    ? animate(Wrapper, { opened: state.opened }) : <Wrapper />;
 
   return state.opened || animate || apparition === 'css'
     ? container ? createPortal(content, ensureNode(container)) : content

@@ -24,16 +24,17 @@ export const animateModal = (
   name,
   { time = 300, ...opts } = {}
 ) =>
-  (modal, { opened } = {}) => (
+  (Modal, { opened } = {}) => (
     <CSSTransition
       in={opened}
       mountOnEnter={true}
       unmountOnExit={true}
       timeout={time}
       classNames={name}
-      children={modal}
       { ...opts }
-    />
+    >
+      {state => (<Modal transitionState={state} />)}
+    </CSSTransition>
   );
 
 export const slideInUpModal = animateModal('jp-slide-in-up-modal');
