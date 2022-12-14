@@ -1912,3 +1912,288 @@ exports[`<SelectField /> should render multiple values 3`] = `
   </div>
 </div>
 `;
+
+exports[`<SelectField /> should toggle on click if enabled: closed 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle"
+    >
+      <input
+        placeholder="Name"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should toggle on click if enabled: opened 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <input
+        placeholder="Name"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      style="position: fixed; top: 10px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should toggle on keyboard if enabled: back opened 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <input
+        placeholder="Name"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      style="position: fixed; top: 10px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should toggle on keyboard if enabled: closed 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle"
+    >
+      <input
+        placeholder="Name"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should toggle on keyboard if enabled: opened 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <input
+        placeholder="Name"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      style="position: fixed; top: 10px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

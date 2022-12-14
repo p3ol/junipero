@@ -381,4 +381,41 @@ describe('<SelectField />', () => {
 
     unmount();
   });
+
+  it('should toggle on click if enabled', async () => {
+    const user = userEvent.setup();
+    const { unmount, container, debug } = render(
+      <SelectField
+        placeholder="Name"
+        toggleClick={true}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    debug();
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('opened');
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('closed');
+    unmount();
+  });
+
+  it('should toggle on keyboard if enabled', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        toggleClick={true}
+        keyboardHandler={true}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.click(container.querySelector('.dropdown-toggle'));
+    container.querySelector('.dropdown-toggle').focus();
+    expect(container).toMatchSnapshot('opened');
+    await user.keyboard('{Enter}');
+    expect(container).toMatchSnapshot('closed');
+    await user.keyboard('{Enter}');
+    expect(container).toMatchSnapshot('back opened');
+    unmount();
+  });
 });
