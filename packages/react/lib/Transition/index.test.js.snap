@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Transition /> should render correctly 1`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+</div>
+`;
+
+exports[`<Transition /> should render correctly 2`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <div
+    class="transition-enter"
+  >
+    Animated text
+  </div>
+</div>
+`;

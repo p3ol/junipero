@@ -34,6 +34,7 @@ import Tab, { TabRef } from './Tab';
 import Tabs, { TabsRef } from './Tabs';
 import Tag, { TagRef } from './Tag';
 import TextField, { TextFieldRef } from './TextField';
+import Transition from './Transition';
 import Toggle, { ToggleRef } from './Toggle';
 import Tooltip, { TooltipRef } from './Tooltip';
 import TouchableZone from './TouchableZone';
@@ -73,6 +74,7 @@ export {
   Tabs,
   Tag,
   TextField,
+  Transition,
   Toggle,
   Tooltip,
   TouchableZone,

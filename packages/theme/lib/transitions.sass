@@ -22,14 +22,16 @@
       transition-duration: 100ms
 
 .jp-slide-in-down-menu
-  &-enter
+  &-enter, &-appear
     opacity: 0
     transform: translate3d(0, -10px, 0)
 
     &-active
       opacity: 1
       transform: translate3d(0, 0, 0)
-      transition: opacity .1s ease-out, transform .1s ease-out
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
 
   &-exit
     opacity: 1
@@ -38,7 +40,9 @@
     &-active
       opacity: 0
       transform: translate3d(0, -10px, 0)
-      transition: opacity .1s ease-out, transform .1s ease-out
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
 
 .jp-slide-in-left-modal
   &-enter
@@ -77,6 +81,9 @@
   &-enter, &-appear
     &.junipero.modal .wrapper
       background: var(--transition-background-exit)
+
+      .content
+        opacity: 0
 
     &-active
       &.junipero.modal .wrapper

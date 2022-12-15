@@ -17,6 +17,7 @@ module.exports = {
     config.resolve.alias = {
       'react-native': 'react-native-web',
       '@junipero/core': path.resolve('./packages/core/lib'),
+      '@junipero/react': path.resolve('./packages/react/lib'),
       '@junipero/hooks': path.resolve('./packages/hooks/lib'),
       '@junipero/transitions': path.resolve('./packages/transitions/lib'),
     };

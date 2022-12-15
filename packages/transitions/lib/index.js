@@ -1,17 +1,16 @@
-import { CSSTransition } from 'react-transition-group';
+import { Transition } from '@junipero/react';
 
 export const animateMenu = (
   name,
   { time = 100, ...opts } = {}
 ) =>
   (menu, { opened } = {}) => (
-    <CSSTransition
+    <Transition
       in={opened}
-      appear={true}
       mountOnEnter={true}
       unmountOnExit={true}
       timeout={time}
-      classNames={name}
+      name={name}
       children={menu}
       { ...opts }
     />
@@ -25,12 +24,12 @@ export const animateModal = (
   { time = 300, ...opts } = {}
 ) =>
   (modal, { opened } = {}) => (
-    <CSSTransition
+    <Transition
       in={opened}
       mountOnEnter={true}
       unmountOnExit={true}
       timeout={time}
-      classNames={name}
+      name={name}
       children={modal}
       { ...opts }
     />
@@ -39,4 +38,4 @@ export const animateModal = (
 export const slideInUpModal = animateModal('jp-slide-in-up-modal');
 export const slideInLeftModal = animateModal('jp-slide-in-left-modal');
 export const appearBounceModal = animateModal('jp-appear-bounce-modal',
-  { time: 200, appear: true });
+  { time: 200 });

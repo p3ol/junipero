@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 
 export const useEventListener = (
   name,
@@ -28,11 +28,11 @@ export const useEventListener = (
 };
 
 export const useInterval = (
-  cb, time, changes = [], { enabled = true } = {}
+  cb, time, changes = [], { enabled = true, layoutEffect = false } = {}
 ) => {
   const returnedCallbackRef = useRef();
 
-  useEffect(() => {
+  (layoutEffect ? useLayoutEffect : useEffect)(() => {
     if (!enabled) {
       return;
     }
@@ -49,11 +49,11 @@ export const useInterval = (
 };
 
 export const useTimeout = (
-  cb, time, changes = [], { enabled = true } = {}
+  cb, time, changes = [], { enabled = true, layoutEffect = false } = {}
 ) => {
   const returnedCallbackRef = useRef();
 
-  useEffect(() => {
+  (layoutEffect ? useLayoutEffect : useEffect)(() => {
     if (!enabled) {
       return;
     }
@@ -68,3 +68,23 @@ export const useTimeout = (
     };
   }, changes);
 };
+
+const useAfterMount = (cb, changes = [], { layoutEffect = false } = {}) => {
+  const mounted = useRef(false);
+
+  (layoutEffect ? useLayoutEffect : useEffect)(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+
+      return;
+    }
+
+    return cb();
+  }, changes);
+};
+
+export const useEffectAfterMount = (cb, changes = []) =>
+  useAfterMount(cb, changes);
+
+export const useLayoutEffectAfterMount = (cb, changes = []) =>
+  useAfterMount(cb, changes, { layoutEffect: true });
