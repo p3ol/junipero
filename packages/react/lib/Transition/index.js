@@ -1,4 +1,4 @@
-import { Children, useState, useCallback, cloneElement } from 'react';
+import { Children, useState, useRef, useCallback, cloneElement } from 'react';
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
@@ -20,10 +20,16 @@ const Transition = ({
   unmountOnExit = false,
   ...rest
 }) => {
+  const previousIn = useRef(inProp);
   const [status, setStatus] = useState(inProp ? ENTER : UNMOUNTED);
   const [step, setStep] = useState(inProp ? STARTING : IDLE);
 
   useLayoutEffectAfterMount(() => {
+    if (inProp === previousIn.current) {
+      return;
+    }
+
+    previousIn.current = inProp;
     setStatus(inProp ? ENTER : EXIT);
     setStep(STARTING);
   }, [inProp]);
@@ -42,14 +48,14 @@ const Transition = ({
 
   useTimeout(() => {
     if (step !== IDLE) {
-      setStatus(UNMOUNTED);
+      unmountOnExit && setStatus(UNMOUNTED);
       setStep(DONE);
     }
   }, timeout?.exit ?? timeout, [status, step], {
     enabled: status === EXIT,
   });
 
-  const getClassName = useCallback(() => (
+  const getClassName = useCallback(() => status === UNMOUNTED ? '' : (
     name + '-' + status + (![IDLE, STARTING].includes(step) ? '-' + step : '')
   ), [status, step]);
 
@@ -64,7 +70,7 @@ const Transition = ({
 
 Transition.displayName = 'Transition';
 Transition.propTypes = {
-  in: PropTypes.bool,
+  in: PropTypes.bool.isRequired,
   name: PropTypes.string,
   timeout: PropTypes.oneOfType([
     PropTypes.number,
