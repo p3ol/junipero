@@ -24,6 +24,7 @@ export { default as Tag } from './Tag';
 export { default as Toggle } from './Toggle';
 export { default as Tooltip } from './Tooltip';
 export { default as TouchableZone } from './TouchableZone';
+export { default as Transition } from './Transition';
 
 // Forms
 export { default as CheckboxField } from './CheckboxField';
@@ -74,6 +75,8 @@ export {
   useEventListener,
   useInterval,
   useTimeout,
+  useEffectAfterMount,
+  useLayoutEffectAfterMount,
 } from '@junipero/hooks';
 
 export {
