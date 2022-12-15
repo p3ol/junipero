@@ -2,7 +2,13 @@ import { useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { classNames } from '@junipero/core';
 
-import { useEventListener, useTimeout, useInterval } from './';
+import {
+  useEventListener,
+  useTimeout,
+  useInterval,
+  useEffectAfterMount,
+  useLayoutEffectAfterMount,
+} from './';
 
 /* eslint-disable react/prop-types */
 const TestComponent = ({ target, onTimeout, onInterval }) => {
@@ -62,5 +68,45 @@ describe('useTimeout(listener, time, changes)', () => {
     unmount();
     jest.clearAllTimers();
     jest.useRealTimers();
+  });
+});
+
+/* eslint-disable react/prop-types */
+const EffectsTestComponent = ({ enabled, onEffect, onLayoutEffect }) => {
+  onEffect && useEffectAfterMount(() => {
+    onEffect();
+  }, [enabled]);
+
+  onLayoutEffect && useLayoutEffectAfterMount(() => {
+    onLayoutEffect();
+  }, [enabled]);
+
+  return null;
+};
+/* eslint-enable react/prop-types */
+
+describe('useEffectAfterMount(cb, changes)', () => {
+  it('should execute task after mount', () => {
+    const onEffect = jest.fn();
+    const { unmount, rerender } = render(
+      <EffectsTestComponent enabled={false} onEffect={onEffect} />
+    );
+    rerender(<EffectsTestComponent enabled={true} onEffect={onEffect} />);
+    expect(onEffect).toHaveBeenCalledTimes(1);
+    unmount();
+  });
+});
+
+describe('useLayoutEffectAfterMount(cb, changes)', () => {
+  it('should execute task after mount', () => {
+    const onLayoutEffect = jest.fn();
+    const { unmount, rerender } = render(
+      <EffectsTestComponent enabled={false} onLayoutEffect={onLayoutEffect} />
+    );
+    rerender(
+      <EffectsTestComponent enabled={true} onLayoutEffect={onLayoutEffect} />
+    );
+    expect(onLayoutEffect).toHaveBeenCalledTimes(1);
+    unmount();
   });
 });
