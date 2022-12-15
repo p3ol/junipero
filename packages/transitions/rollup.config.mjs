@@ -4,16 +4,16 @@ import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import alias from '@rollup/plugin-alias';
 
 const input = './lib/index.js';
 const output = './dist';
 const name = 'junipero-transitions';
 const formats = ['umd', 'cjs', 'esm'];
 
-const defaultExternals = ['react', 'react-transition-group'];
+const defaultExternals = ['react'];
 const defaultGlobals = {
   react: 'React',
-  'react-transition-group': 'ReactTransitionGroup',
 };
 
 const defaultPlugins = [
@@ -21,6 +21,13 @@ const defaultPlugins = [
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
+  }),
+  alias({
+    entries: {
+      '@junipero/react': path.resolve('../react/lib'),
+      '@junipero/hooks': path.resolve('../hooks/lib'),
+      '@junipero/core': path.resolve('../core/lib'),
+    },
   }),
   resolve(),
   terser(),
