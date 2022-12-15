@@ -11,9 +11,13 @@ const output = './dist';
 const name = 'junipero-transitions';
 const formats = ['umd', 'cjs', 'esm'];
 
-const defaultExternals = ['react'];
+const defaultExternals = [
+  'react',
+  '@junipero/react',
+];
 const defaultGlobals = {
   react: 'React',
+  '@junipero/react': 'JuniperoReact',
 };
 
 const defaultPlugins = [
