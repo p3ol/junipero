@@ -14,7 +14,7 @@ exports[`<Transition /> should render correctly 2`] = `
     Toggle
   </button>
   <div
-    class="undefined-enter"
+    class="transition-enter"
   >
     Animated text
   </div>
