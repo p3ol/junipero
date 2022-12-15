@@ -6,18 +6,18 @@ export declare function useEventListener(
 export declare function useInterval(
   cb: Function,
   time: Number,
+  options: { enabled?: boolean, layoutEffect?: boolean },
   changes?: Array<any>,
-  options: { enabled?: boolean, layoutEffect?: boolean }
   ): void;
 
 export declare function useTimeout(
   cb: Function,
   time: Number,
+  options: { enabled?: boolean, layoutEffect?: boolean },
   changes?: Array<any>,
-  options: { enabled?: boolean, layoutEffect?: boolean }
 ): void;
 
-export declare function UseEffectAfterMount(
+export declare function useEffectAfterMount(
   cb: Function,
   changes: Array<any>
 ): void;
@@ -25,5 +25,4 @@ export declare function UseEffectAfterMount(
 export declare function useLayoutEffectAfterMount(
   cb: Function,
   changes: Array<any>,
-  options: { layoutEffect?: Boolean }
 ): void;

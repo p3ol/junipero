@@ -2,9 +2,9 @@ import React from 'react';
 
 declare interface TransitionProps extends React.ComponentPropsWithRef<any> {
   children?: string | React.ReactNode | Function;
-  in?: Boolean;
+  in: Boolean;
   name?: String;
-  timeout?: Number;
+  timeout?: Number | { enter: Number, exit: Number };
   mounterOnEnter?: Boolean;
   unmountOnExit?: Boolean;
 }
