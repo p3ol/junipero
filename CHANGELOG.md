@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
+
+
+### Bug Fixes
+
+* **react:** multiple first renders running all animations at once ([b18dcdf](https://github.com/p3ol/junipero/commit/b18dcdf138c4286ed1e28f8dfa64d60e3d6179a7))
+* **theme:** allow transition delays ([3562a7a](https://github.com/p3ol/junipero/commit/3562a7a64e6f80bb74b4979807c80de666258fb0))
+* **theme:** bouncing modal pre-enter state ([e75fbff](https://github.com/p3ol/junipero/commit/e75fbffbe0a0f09ed5605ca5f055c0ee8aa03deb))
+* **transition:** fix some types issues ([42436aa](https://github.com/p3ol/junipero/commit/42436aa7ee2b6e4b8cffccf842b0eaa1532a3644))
+* **transitions:** fix build incorporating react package ([b325042](https://github.com/p3ol/junipero/commit/b3250425724711a6f02bf567d2e6ea9eac764d04))
+
+
+### Features
+
+* **hooks:** add after mount effects hooks ([9735822](https://github.com/p3ol/junipero/commit/9735822d4c86525c3098a618091da62ae433a0c9))
+* **react:** add new Transition component ([a6b34d2](https://github.com/p3ol/junipero/commit/a6b34d2f7d054369c295abed1a9189995b5f9d0a))
+* **select-field:** add toggle and keyboard handler options on select fields ([6c7c1d2](https://github.com/p3ol/junipero/commit/6c7c1d2b61f40908320687e9c1c989400ee3f19a))
+* **transition:** add typescript definition for Transition component and hooks ([1b44bd4](https://github.com/p3ol/junipero/commit/1b44bd4a88f0d3a42f5c0221b5b97baf3ced31b6))
+* **transitions:** replace react transition group with built-in transition ([d35a698](https://github.com/p3ol/junipero/commit/d35a698f890800221bec438e0a4532e6b2769faa))
+
+
+
+
+
 # [3.0.0-alpha.14](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.13...v3.0.0-alpha.14) (2022-12-06)
 
 

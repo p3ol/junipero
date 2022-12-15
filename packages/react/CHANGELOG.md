@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
+
+
+### Bug Fixes
+
+* **react:** multiple first renders running all animations at once ([b18dcdf](https://github.com/p3ol/junipero/commit/b18dcdf138c4286ed1e28f8dfa64d60e3d6179a7))
+* **transition:** fix some types issues ([42436aa](https://github.com/p3ol/junipero/commit/42436aa7ee2b6e4b8cffccf842b0eaa1532a3644))
+
+
+### Features
+
+* **react:** add new Transition component ([a6b34d2](https://github.com/p3ol/junipero/commit/a6b34d2f7d054369c295abed1a9189995b5f9d0a))
+* **select-field:** add toggle and keyboard handler options on select fields ([6c7c1d2](https://github.com/p3ol/junipero/commit/6c7c1d2b61f40908320687e9c1c989400ee3f19a))
+* **transition:** add typescript definition for Transition component and hooks ([1b44bd4](https://github.com/p3ol/junipero/commit/1b44bd4a88f0d3a42f5c0221b5b97baf3ced31b6))
+
+
+
+
+
 # [3.0.0-alpha.14](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.13...v3.0.0-alpha.14) (2022-12-06)
 
 

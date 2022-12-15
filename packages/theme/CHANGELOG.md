@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
+
+
+### Bug Fixes
+
+* **theme:** allow transition delays ([3562a7a](https://github.com/p3ol/junipero/commit/3562a7a64e6f80bb74b4979807c80de666258fb0))
+* **theme:** bouncing modal pre-enter state ([e75fbff](https://github.com/p3ol/junipero/commit/e75fbffbe0a0f09ed5605ca5f055c0ee8aa03deb))
+
+
+
+
+
 # [3.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.12...v3.0.0-alpha.13) (2022-11-30)
 
 

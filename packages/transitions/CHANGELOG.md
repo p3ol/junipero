@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
+
+
+### Bug Fixes
+
+* **transitions:** fix build incorporating react package ([b325042](https://github.com/p3ol/junipero/commit/b3250425724711a6f02bf567d2e6ea9eac764d04))
+
+
+### Features
+
+* **transitions:** replace react transition group with built-in transition ([d35a698](https://github.com/p3ol/junipero/commit/d35a698f890800221bec438e0a4532e6b2769faa))
+
+
+
+
+
 # [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
 
 

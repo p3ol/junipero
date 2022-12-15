@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
+
+
+### Bug Fixes
+
+* **transition:** fix some types issues ([42436aa](https://github.com/p3ol/junipero/commit/42436aa7ee2b6e4b8cffccf842b0eaa1532a3644))
+
+
+### Features
+
+* **hooks:** add after mount effects hooks ([9735822](https://github.com/p3ol/junipero/commit/9735822d4c86525c3098a618091da62ae433a0c9))
+* **transition:** add typescript definition for Transition component and hooks ([1b44bd4](https://github.com/p3ol/junipero/commit/1b44bd4a88f0d3a42f5c0221b5b97baf3ced31b6))
+
+
+
+
+
 # [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
 
 **Note:** Version bump only for package @junipero/hooks
