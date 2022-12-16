@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.15...v3.0.0-alpha.16) (2022-12-16)
+
+
+### Bug Fixes
+
+* **react:** allow default icons from alerts store ([da4d30f](https://github.com/p3ol/junipero/commit/da4d30f74d97eec35df98be9ed10d11d15a9173b))
+
+
+
+
+
 # [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
 
 

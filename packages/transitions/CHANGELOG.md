@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.15...v3.0.0-alpha.16) (2022-12-16)
+
+
+### Bug Fixes
+
+* **transitions:** add missing key prop for transition groups ([b587632](https://github.com/p3ol/junipero/commit/b587632047f592078821e1be0f23bb7166265d83))
+
+
+
+
+
 # [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
 
 
