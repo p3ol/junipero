@@ -2,9 +2,9 @@ import { Transition } from '@junipero/react';
 
 export const animateMenu = (
   name,
-  { time = 100, ...opts } = {}
+  { time = 100, key, ...opts } = {}
 ) =>
-  (menu, { opened } = {}) => (
+  (menu, { opened, key: k, ...props } = {}) => (
     <Transition
       in={opened}
       mountOnEnter={true}
@@ -13,6 +13,8 @@ export const animateMenu = (
       name={name}
       children={menu}
       { ...opts }
+      { ...props }
+      key={k ?? key}
     />
   );
 
@@ -21,9 +23,9 @@ export const slideInDownMenu = animateMenu('jp-slide-in-down-menu');
 
 export const animateModal = (
   name,
-  { time = 300, ...opts } = {}
+  { time = 300, key, ...opts } = {}
 ) =>
-  (modal, { opened } = {}) => (
+  (modal, { opened, key: k, ...props } = {}) => (
     <Transition
       in={opened}
       mountOnEnter={true}
@@ -32,6 +34,8 @@ export const animateModal = (
       name={name}
       children={modal}
       { ...opts }
+      { ...props }
+      key={k ?? key}
     />
   );
 
