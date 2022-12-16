@@ -1,4 +1,4 @@
-import { Fragment, forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
