@@ -5,7 +5,12 @@ import PropTypes from 'prop-types';
 import { useAlerts } from '../hooks';
 import Alert from '../Alert';
 
-const Alerts = forwardRef(({ className, animate, ...rest }, ref) => {
+const Alerts = forwardRef(({
+  className,
+  animate,
+  icons,
+  ...rest
+}, ref) => {
   const innerRef = useRef();
   const { alerts } = useAlerts();
 
@@ -27,7 +32,7 @@ const Alerts = forwardRef(({ className, animate, ...rest }, ref) => {
         <Alert
           key={index}
           index={index}
-          icon={alert.icon}
+          icon={alert.icon ?? icons?.[alert.type] ?? icons?.default}
           title={alert.title}
           lifespan={alert.duration ?? alert.lifespan}
           onDismiss={alert.onDismiss}
@@ -43,6 +48,7 @@ const Alerts = forwardRef(({ className, animate, ...rest }, ref) => {
 Alerts.displayName = 'Alerts';
 Alerts.propTypes = {
   animate: PropTypes.func,
+  icons: PropTypes.object,
 };
 
 export default Alerts;

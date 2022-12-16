@@ -14,6 +14,7 @@ declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
     alert?: (props: AlertObject) => React.ReactNode,
     index?: any
   ) => JSX.Element;
+  icons?: Object;
 }
 
 declare function Alerts(props: AlertsProps): JSX.Element;
