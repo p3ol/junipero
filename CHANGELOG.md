@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.17](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.16...v3.0.0-alpha.17) (2022-12-16)
+
+
+### Bug Fixes
+
+* **react:** manage alerts with unique ids ([21550ee](https://github.com/p3ol/junipero/commit/21550eeca46f7fa4133d714e606c1e9ea73ba070))
+
+
+
+
+
 # [3.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.15...v3.0.0-alpha.16) (2022-12-16)
 
 
