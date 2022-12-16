@@ -2,40 +2,42 @@ import {
   forwardRef,
   useCallback,
   useImperativeHandle,
-  useReducer,
+  useState,
 } from 'react';
-import { mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { AlertsContext } from '../contexts';
 
-const AlertsControl = forwardRef(({ alerts, ...rest }, ref) => {
-  const [state, dispatch] = useReducer(mockState, {
-    alerts: alerts ?? [],
-  });
+const AlertsControl = forwardRef(({
+  alerts: alertsProp,
+  generateId,
+  ...rest
+}, ref) => {
+  const [alerts, setAlerts] = useState(alertsProp || []);
 
   useImperativeHandle(ref, () => ({
-    alerts: state.alerts,
+    alerts,
     add,
     dismiss,
     isJunipero: true,
   }));
 
   const add = alert => {
-    state.alerts.push(alert);
-    dispatch({ alerts: state.alerts });
+    alert.id = alert.id ||
+      generateId ? generateId(alert) : Math.random().toString(36);
+
+    setAlerts(a => [].concat(a).concat(alert));
   };
 
-  const dismiss = index => {
-    state.alerts.splice(index, 1);
-    dispatch({ alerts: state.alerts });
+  const dismiss = alert => {
+    setAlerts(a => a.filter(a => a !== alert));
   };
 
   const getContext = useCallback(() => ({
-    alerts: state.alerts,
+    alerts,
     add,
     dismiss,
-  }), [state.alerts]);
+  }), [alerts]);
 
   return (
     <AlertsContext.Provider { ...rest } value={getContext()} />
@@ -45,6 +47,7 @@ const AlertsControl = forwardRef(({ alerts, ...rest }, ref) => {
 AlertsControl.displayName = 'AlertsControl';
 AlertsControl.propTypes = {
   alerts: PropTypes.array,
+  generateId: PropTypes.func,
 };
 
 export default AlertsControl;

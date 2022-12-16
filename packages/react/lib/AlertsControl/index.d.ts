@@ -11,6 +11,7 @@ export declare type AlertsControlRef = {
 declare interface AlertsControlProps
   extends React.ComponentPropsWithoutRef<any> {
   alerts?: Array<AlertObject>;
+  generateId: (alert: AlertObject) => string|number;
   ref?: MutableRefObject<AlertsControlRef | undefined>;
 }
 

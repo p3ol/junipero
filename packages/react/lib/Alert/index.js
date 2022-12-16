@@ -3,13 +3,12 @@ import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';
 
-import { useAlerts } from '../hooks';
 import { Remove } from '../icons';
 import Card from '../Card';
 
 const Alert = forwardRef(({
+  animate,
   className,
-  index,
   icon,
   title,
   lifespan,
@@ -19,10 +18,8 @@ const Alert = forwardRef(({
   ...rest
 }, ref) => {
   const innerRef = useRef();
-  const { dismiss } = useAlerts();
 
   useTimeout(() => {
-    dismiss?.(index);
     onDismiss?.();
   }, lifespan || 5000, [], { enabled: !!lifespan });
 
@@ -33,11 +30,10 @@ const Alert = forwardRef(({
 
   const onClose_ = e => {
     e.preventDefault();
-    dismiss?.(index);
     onDismiss?.();
   };
 
-  return (
+  const content = (
     <Tag
       { ...rest }
       ref={ref}
@@ -56,10 +52,13 @@ const Alert = forwardRef(({
       </Card>
     </Tag>
   );
+
+  return animate ? animate(content, { enabled: true }) : content;
 });
 
 Alert.displayName = 'Alert';
 Alert.propTypes = {
+  animate: PropTypes.func,
   index: PropTypes.any,
   icon: PropTypes.oneOfType([
     PropTypes.node,

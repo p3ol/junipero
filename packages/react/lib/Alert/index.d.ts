@@ -5,6 +5,10 @@ export declare type AlertRef = {
   isJunipero: Boolean;
 };
 declare interface AlertProps extends React.ComponentPropsWithRef<any> {
+  animate?: (
+    alert: JSX.Element,
+    opts: { enabled: Boolean, index: Number }
+  ) => JSX.Element;
   className?: string;
   index?: any;
   title?: React.ReactNode | string | Function;

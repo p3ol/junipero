@@ -10,9 +10,9 @@ export declare type AlertsRef = {
 declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
   classname?: String;
   ref?: MutableRefObject<AlertsRef | undefined>;
-  animate?: (
-    alert?: (props: AlertObject) => React.ReactNode,
-    index?: any
+  animateAlert?: (
+    alert: JSX.Element,
+    opts: { enabled: Boolean, index: Number }
   ) => JSX.Element;
   icons?: Object;
 }

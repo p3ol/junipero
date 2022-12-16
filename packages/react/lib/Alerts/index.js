@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { Fragment, forwardRef, useImperativeHandle, useRef } from 'react';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
@@ -7,12 +7,12 @@ import Alert from '../Alert';
 
 const Alerts = forwardRef(({
   className,
-  animate,
+  animateAlert,
   icons,
   ...rest
 }, ref) => {
   const innerRef = useRef();
-  const { alerts } = useAlerts();
+  const { alerts, dismiss } = useAlerts();
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -20,7 +20,10 @@ const Alerts = forwardRef(({
     isJunipero: true,
   }));
 
-  const anim = animate || (a => a);
+  const onDismiss = (alert, index) => {
+    dismiss?.(alert, index);
+    alert?.onDismiss?.(alert, index);
+  };
 
   return (
     <div
@@ -28,26 +31,26 @@ const Alerts = forwardRef(({
       ref={innerRef}
       className={classNames('junipero', 'alerts', className)}
     >
-      { alerts?.map((alert, index) => anim((
+      { alerts?.map((alert, index) => (
         <Alert
-          key={index}
-          index={index}
+          key={alert.id ?? index}
+          animate={animateAlert}
           icon={alert.icon ?? icons?.[alert.type] ?? icons?.default}
           title={alert.title}
           lifespan={alert.duration ?? alert.lifespan}
-          onDismiss={alert.onDismiss}
+          onDismiss={onDismiss.bind(null, alert, index)}
           className={alert.type}
         >
           { alert.content }
         </Alert>
-      ), index)) }
+      )) }
     </div>
   );
 });
 
 Alerts.displayName = 'Alerts';
 Alerts.propTypes = {
-  animate: PropTypes.func,
+  animateAlert: PropTypes.func,
   icons: PropTypes.object,
 };
 
