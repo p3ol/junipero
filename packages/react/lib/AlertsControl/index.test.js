@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 
 import { useAlerts } from '../hooks';
 import AlertsControl from '.';
@@ -16,35 +16,31 @@ describe('useAlerts()', () => {
     expect(result.current.alerts).toHaveLength(0);
   });
 
-  it('should be able to add alert', () => {
+  it('should be able to add an alert', async () => {
     const customAlert = {
       content: <div>coucou</div>,
       duration: 3000,
-      index: 1,
     };
-    const { result } = renderHook(
-      () => useAlerts(), { wrapper: AlertsControl }
-    );
+    const { result } = renderHook(() =>
+      useAlerts(), { wrapper: AlertsControl });
     expect(result.current.alerts).toHaveLength(0);
-    result.current.add(customAlert);
+    await act(async () => { result.current.add(customAlert); });
     expect(result.current.alerts).toHaveLength(1);
     expect(result.current.alerts[0]).toEqual(customAlert);
   });
 
-  it('should be able to dismiss alert', () => {
+  it('should be able to dismiss an alert', async () => {
     const customAlert = {
       content: <div>coucou</div>,
       duration: 3000,
-      index: 1,
     };
-    const { result } = renderHook(
-      () => useAlerts(), { wrapper: AlertsControl }
-    );
+    const { result } = renderHook(() =>
+      useAlerts(), { wrapper: AlertsControl });
     expect(result.current.alerts).toHaveLength(0);
-    result.current.add(customAlert);
+    await act(async () => { result.current.add(customAlert); });
     expect(result.current.alerts).toHaveLength(1);
     expect(result.current.alerts[0]).toEqual(customAlert);
-    result.current.dismiss(0);
+    await act(async () => { result.current.dismiss(customAlert); });
     expect(result.current.alerts).toHaveLength(0);
   });
 
