@@ -17,6 +17,7 @@ export { default as DropdownToggle } from './DropdownToggle';
 export { default as Droppable } from './Droppable';
 export { default as Label } from './Label';
 export { default as Modal } from './Modal';
+export { default as Slider } from './Slider';
 export { default as Spinner } from './Spinner';
 export { default as Tab } from './Tab';
 export { default as Tabs } from './Tabs';

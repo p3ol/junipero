@@ -29,6 +29,7 @@ import {
 } from './Logo';
 import RadioField, { RadioFieldRef } from './RadioField';
 import SelectField, { SelectFieldRef } from './SelectField';
+import Slider, { SliderRef } from './Slider';
 import Spinner from './Spinner';
 import Tab, { TabRef } from './Tab';
 import Tabs, { TabsRef } from './Tabs';
@@ -69,6 +70,7 @@ export {
   EngageLogo,
   RadioField,
   SelectField,
+  Slider,
   Spinner,
   Tab,
   Tabs,
@@ -97,6 +99,7 @@ export {
   DropdownMenuRef,
   DroppableRef,
   RadioFieldRef,
+  SliderRef,
   SelectFieldRef,
   TabRef,
   TabsRef,

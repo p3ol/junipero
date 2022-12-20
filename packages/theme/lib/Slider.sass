@@ -1,0 +1,61 @@
+@use "colors" as colors
+
+$height: 8px
+
+.junipero.slider
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --background-color: var(--junipero-concrete)
+  --active-color: var(--junipero-velvet-active)
+
+  display: inline-flex
+  width: auto
+  min-width: 250px
+  position: relative
+  padding: 0 8px
+
+  .slide:after, .fill
+    height: $height
+    display: block
+    position: absolute
+    left: 0
+    top: calc(50% - #{$height / 2})
+    border-radius: 2px
+
+  .slide
+    width: calc(100% - 16px)
+    position: absolute
+    height: 16px
+    overflow: visible
+    left: 8px
+    top: 0
+
+    &:after
+      content: ''
+      width: 100%
+      background: var(--background-color)
+      z-index: 1
+
+  .fill
+    height: $height
+    background: var(--main-color)
+    z-index: 2
+    max-width: 100%
+
+  .handle
+    width: 16px
+    height: 16px
+    background: colors.$seashell
+    box-shadow: 0 0 0 2px var(--border-color)
+    transition: box-shadow .2s ease-in-out
+    border-radius: 4px
+    position: relative
+    z-index: 3
+    left: -8px
+    cursor: grab
+
+    &.moving
+      cursor: grabbing
+
+    &:focus
+      --border-color: var(--main-color)
