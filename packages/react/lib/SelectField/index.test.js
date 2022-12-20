@@ -384,14 +384,13 @@ describe('<SelectField />', () => {
 
   it('should toggle on click if enabled', async () => {
     const user = userEvent.setup();
-    const { unmount, container, debug } = render(
+    const { unmount, container } = render(
       <SelectField
         placeholder="Name"
         toggleClick={true}
         options={['Item 1', 'Item 2', 'Item 3']}
       />
     );
-    debug();
     await user.click(container.querySelector('.dropdown-toggle'));
     expect(container).toMatchSnapshot('opened');
     await user.click(container.querySelector('.dropdown-toggle'));
