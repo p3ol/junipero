@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.18](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.17...v3.0.0-alpha.18) (2022-12-21)
+
+
+### Features
+
+* add list component ([835528f](https://github.com/p3ol/junipero/commit/835528f02b49177b066e933a147b151604552d4d))
+* add slider component ([17bc568](https://github.com/p3ol/junipero/commit/17bc5687638115b1d8b4c4be847e89a321236a67))
+
+
+
+
+
 # [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
 
 
