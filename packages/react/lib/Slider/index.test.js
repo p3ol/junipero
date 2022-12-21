@@ -136,7 +136,7 @@ describe('<Slider />', () => {
       />
     );
     fireEvent.mouseDown(container.querySelector('.handle'), { button: 0 });
-    expect(ref.current.moving).toBe(true);
+    expect(ref.current.moving).toBe(false);
 
     const moveEvent = createEvent
       .mouseMove(container.querySelector('.handle'));
