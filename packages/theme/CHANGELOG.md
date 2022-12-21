@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.19](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.18...v3.0.0-alpha.19) (2022-12-21)
+
+
+### Bug Fixes
+
+* **theme:** allow lists inside cards ([61b1671](https://github.com/p3ol/junipero/commit/61b1671249ca281bf46acb5e6a915d9bf407ffd5))
+
+
+
+
+
 # [3.0.0-alpha.18](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.17...v3.0.0-alpha.18) (2022-12-21)
 
 
