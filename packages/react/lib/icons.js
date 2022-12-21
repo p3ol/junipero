@@ -50,6 +50,30 @@ export const ArrowRight = ({ className, ...rest }) => (
   </svg>
 );
 
+export const ArrowDown = ({ className, ...rest }) => (
+  <svg
+    { ...rest }
+    className={classNames('junipero icon arrow-bottom', className)}
+    width="8"
+    height="5"
+    viewBox="0 0 8 5"
+  >
+    <path d="M1 1L4 4L7 1" />
+  </svg>
+);
+
+export const ArrowUp = ({ className, ...rest }) => (
+  <svg
+    { ...rest }
+    className={classNames('junipero icon arrow-up', className)}
+    width="8"
+    height="5"
+    viewBox="0 0 8 5"
+  >
+    <path d="M1 4L4 1L7 4" />
+  </svg>
+);
+
 export const Time = ({ className, ...rest }) => (
   <svg
     { ...rest }
