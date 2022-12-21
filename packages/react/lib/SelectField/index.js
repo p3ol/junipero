@@ -55,7 +55,7 @@ const SelectField = forwardRef(({
   onKeyUp,
   onValidate = (val, { required, multiple }) => (
     (multiple && Array.isArray(val) && val.length > 0) ||
-    (!multiple && !!val) ||
+    (!multiple && exists(val) && val !== '') ||
     !required
   ),
   onSearch,
