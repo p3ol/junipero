@@ -4,6 +4,7 @@ import List from './';
 import ListColumn from '../ListColumn';
 import ListItem from '../ListItem';
 import ListCell from '../ListCell';
+import Card from '../Card';
 
 export default { title: 'react/List' };
 
@@ -59,3 +60,12 @@ export const orderable = () => {
     </List>
   );
 };
+
+export const insideCard = () => (
+  <Card className="with-list">
+    <List columns={['name', 'age']}>
+      <ListItem item={['John', 25]} />
+      <ListItem item={['Jane', 30]} />
+    </List>
+  </Card>
+);
