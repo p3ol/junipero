@@ -15,9 +15,15 @@ const ListColumn = forwardRef(({
     isJunipero: true,
   }));
 
-  useEffect(() => (
-    registerColumn({ id, title: children, ...rest })
-  ), []);
+  useEffect(() => {
+    if (!registerColumn) {
+      console?.warn?.('ListColumn must be used inside a List component');
+
+      return;
+    }
+
+    registerColumn({ id, title: children, ...rest });
+  }, []);
 
   return null;
 });

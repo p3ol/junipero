@@ -75,7 +75,7 @@ const List = forwardRef(({
       <th {...props} key={id ?? index}>
         { orderable ? (
           <a href="#" onClick={onOrder_.bind(null, id)}>
-            <span>{ title }</span>
+            <span className="junipero secondary">{ title }</span>
             { state.active === id && state.asc === true ? (
               <ArrowUp />
             ) : state.active === id && state.asc === false ? (
