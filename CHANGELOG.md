@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.21](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.20...v3.0.0-alpha.21) (2022-12-21)
+
+
+### Bug Fixes
+
+* **react:** select field validation value truth-ness ([2836a11](https://github.com/p3ol/junipero/commit/2836a116cff28eee7f420b270d3284089ad452e4))
+* **theme:** select & date field sizes ([ce0d561](https://github.com/p3ol/junipero/commit/ce0d561926f766c294b017c68798fa3ec6bb5fbb))
+
+
+
+
+
 # [3.0.0-alpha.20](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.19...v3.0.0-alpha.20) (2022-12-21)
 
 
