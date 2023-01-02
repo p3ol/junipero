@@ -1,0 +1,71 @@
+.junipero.calendar
+  --main-color: var(--junipero-velvet)
+  --icons-color: var(--junipero-slate)
+  --text-color: var(--junipero-onyx)
+  --inactive-text-color: var(--junipero-mischka)
+  --selected-text-color: var(--junipero-seashell)
+  --hover-color: var(--junipero-concrete)
+  --secondary-text-color: var(--junipero-tundora)
+
+  display: block
+  min-width: 250px
+
+  .calendar-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 10px
+
+    .navigation
+      display: flex
+      align-items: center
+      gap: 15px
+
+      .icon
+        cursor: pointer
+
+        &:hover
+          --icons-color: var(--main-color)
+
+    .current-month
+      padding: 5px
+      user-select: none
+
+  .calendar-body
+    display: grid
+    grid-template-columns: repeat(7, 1fr)
+    gap: 8px
+
+    .week-day
+      text-align: center
+      color: var(--secondary-text-color)
+      user-select: none
+
+    .day
+      display: inline
+      text-align: center
+      padding: 5px 0
+      border-radius: 4px
+      text-decoration: none
+      cursor: pointer
+      user-select: none
+
+      &.inactive
+        color: var(--inactive-text-color)
+        opacity: .5
+
+      &.active
+        color: var(--selected-text-color)
+
+      &.disabled, &.inactive.disabled
+        opacity: .2
+        pointer-events: none
+
+  .day
+    color: var(--text-color)
+
+    &:hover
+      background: var(--hover-color)
+
+    &.active
+      background: var(--main-color)
