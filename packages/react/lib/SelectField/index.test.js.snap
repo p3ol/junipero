@@ -180,7 +180,7 @@ exports[`<SelectField /> should allow to clear a single value 1`] = `
 exports[`<SelectField /> should allow to clear a single value 2`] = `
 <div>
   <div
-    class="junipero dropdown select-field dirty valid searchable empty"
+    class="junipero dropdown select-field dirty valid searchable empty focused"
   >
     <div
       class="field dropdown-toggle"

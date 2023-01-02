@@ -105,6 +105,12 @@ const SelectField = forwardRef(({
     dispatch({ placeholderSize: Math.max(10, placeholder?.length ?? 0) });
   }, [placeholder]);
 
+  useEffect(() => {
+    if ((multiple || !state.value) && state.dirty && searchable) {
+      searchInputRef.current?.focus?.();
+    }
+  }, [state.value]);
+
   useTimeout(() => {
     if (state.search.length >= searchMinCharacters) {
       onSearchResults();
