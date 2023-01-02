@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.21...v3.0.0-alpha.22) (2023-01-02)
+
+
+### Features
+
+* **theme:** standalone calendar ([5e12abb](https://github.com/p3ol/junipero/commit/5e12abb359776a8a686619ca9aa7e289df68552b))
+
+
+
+
+
 # [3.0.0-alpha.21](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.20...v3.0.0-alpha.21) (2022-12-21)
 
 

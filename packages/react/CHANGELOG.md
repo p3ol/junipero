@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.21...v3.0.0-alpha.22) (2023-01-02)
+
+
+### Bug Fixes
+
+* **react:** don't fire datefield onchange when time has not changed ([41e0115](https://github.com/p3ol/junipero/commit/41e011585a23219f6c9b74902ce6f39e57a5ff01))
+
+
+### Features
+
+* **react:** standalone calendar ([284ff40](https://github.com/p3ol/junipero/commit/284ff40f0d0d1a88a63f90c7867d7641545ebd33))
+
+
+
+
+
 # [3.0.0-alpha.21](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.20...v3.0.0-alpha.21) (2022-12-21)
 
 
