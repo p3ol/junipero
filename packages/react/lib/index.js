@@ -7,6 +7,7 @@ export { default as Badge } from './Badge';
 export { default as BreadCrumb } from './BreadCrumb';
 export { default as BreadCrumbItem } from './BreadCrumbItem';
 export { default as Button } from './Button';
+export { default as Calendar } from './Calendar';
 export { default as Card } from './Card';
 export { default as Draggable } from './Draggable';
 export { default as Dropdown } from './Dropdown';

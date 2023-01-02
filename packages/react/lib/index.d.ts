@@ -6,6 +6,7 @@ import Badge, { BadgeRef } from './Badge';
 import BreadCrumb, { BreadCrumbRef } from './BreadCrumb';
 import BreadCrumbItem, { BreadCrumbItemRef } from './BreadCrumbItem';
 import Button, { ButtonRef } from './Button';
+import Calendar, { CalendarRef } from './Calendar';
 import Card, { CardRef } from './Card';
 import CheckboxField, { CheckboxFieldRef } from './CheckboxField';
 import CodeField, { CodeFieldRef } from './CodeField';
@@ -53,6 +54,7 @@ export {
   BreadCrumb,
   BreadCrumbItem,
   Button,
+  Calendar,
   Card,
   CheckboxField,
   CodeField,
@@ -98,6 +100,7 @@ export {
   BreadCrumbRef,
   BreadCrumbItemRef,
   ButtonRef,
+  CalendarRef,
   CardRef,
   CheckboxFieldRef,
   CodeFieldRef,

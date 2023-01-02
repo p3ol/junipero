@@ -9,18 +9,15 @@ import {
   classNames,
   mockState,
   exists,
-  startOfMonth,
-  subMonths,
-  addMonths,
-  getDaysInMonth,
 } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
-import { ArrowLeft, ArrowRight, Arrows, Remove, Time } from '../icons';
+import { Arrows, Remove, Time } from '../icons';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
+import Calendar from '../Calendar';
 
 const DateField = forwardRef(({
   animateMenu,
@@ -93,9 +90,7 @@ const DateField = forwardRef(({
     }
   }, [value]);
 
-  const onSelectDate = (date, e) => {
-    e.preventDefault();
-
+  const onSelectDate = date => {
     if (disabled || isDayDisabled(date)) {
       return;
     }
@@ -105,7 +100,6 @@ const DateField = forwardRef(({
     state.valid =
       onValidate(parseValue(state.value), { required, dirty: true });
     state.selected = new Date(date);
-    state.displayed = new Date(date);
     onChange_();
   };
 
@@ -118,7 +112,6 @@ const DateField = forwardRef(({
       value: state.value,
       valid: state.valid,
       selected: state.selected,
-      displayed: state.displayed,
       timeDirty: state.timeDirty,
       dirty: true,
     });
@@ -243,54 +236,6 @@ const DateField = forwardRef(({
     updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
-  const onPreviousMonthClick = e => {
-    e?.preventDefault();
-
-    if (state.displayed.getMonth() === 0) {
-      state.displayed.setFullYear(state.displayed.getFullYear() - 1);
-    }
-
-    const maxDaysPreviousMonth = getDaysInMonth(
-      new Date(
-        state.displayed.getFullYear(),
-        state.displayed.getMonth() === 0 ? 11 : state.displayed.getMonth() - 1,
-      )
-    );
-    state.displayed.setDate(
-      Math.min(maxDaysPreviousMonth, state.displayed.getDate())
-    );
-
-    state.displayed.setMonth(
-      state.displayed.getMonth() === 0 ? 11 : state.displayed.getMonth() - 1
-    );
-
-    dispatch({ displayed: state.displayed });
-  };
-
-  const onNextMonthClick = e => {
-    e?.preventDefault();
-
-    if (state.displayed.getMonth() === 11) {
-      state.displayed.setFullYear(state.displayed.getFullYear() + 1);
-    }
-
-    const maxDaysPreviousMonth = getDaysInMonth(
-      new Date(
-        state.displayed.getFullYear(),
-        state.displayed.getMonth() === 11 ? 0 : state.displayed.getMonth() + 1,
-      )
-    );
-    state.displayed.setDate(
-      Math.min(maxDaysPreviousMonth, state.displayed.getDate())
-    );
-
-    state.displayed.setMonth(
-      state.displayed.getMonth() === 11 ? 0 : state.displayed.getMonth() + 1
-    );
-
-    dispatch({ displayed: state.displayed });
-  };
-
   const isBeforeMinDate = date => {
     if (!min) {
       return false;
@@ -309,47 +254,6 @@ const DateField = forwardRef(({
 
   const isDayDisabled = date =>
     isBeforeMinDate(date) || isAfterMaxDate(date);
-
-  const isDaySelected = date =>
-    date.getFullYear() === state.selected.getFullYear() &&
-    date.getMonth() === state.selected.getMonth() &&
-    date.getDate() === state.selected.getDate();
-
-  const getMonthName = month =>
-    monthNames[month];
-
-  const getWeekDayOfMonth = date => {
-    const weekDay = date.getDay();
-
-    return weekDay === 0 ? 7 : weekDay;
-  };
-
-  const getMonthDays = (date, props = {}) => Array
-    .from({ length: getDaysInMonth(date) }, (v, k) => ({
-      date: new Date(date.getFullYear(), date.getMonth(), k + 1),
-      ...props,
-    }));
-
-  const getPreviousMonthDays = date => {
-    const previousDate = startOfMonth(subMonths(date, 1));
-    const selectedWeekDay = getWeekDayOfMonth(startOfMonth(date));
-    const selectedDaysCount = getDaysInMonth(previousDate);
-
-    return getMonthDays(previousDate, { inactive: true })
-      .slice(selectedDaysCount - (selectedWeekDay - 1));
-  };
-
-  const getNextMonthDays = date => {
-    const nextDate = startOfMonth(addMonths(date, 1));
-    const daysCount = getDaysInMonth(date);
-    const weekDay = getWeekDayOfMonth(startOfMonth(date)) - 1;
-
-    return Array
-      .from({ length: 42 - daysCount - weekDay }, (v, k) => ({
-        date: new Date(nextDate.getFullYear(), nextDate.getMonth(), k + 1),
-        inactive: true,
-      }));
-  };
 
   const isEmpty = () =>
     !exists(state.value) || !state.dirty;
@@ -396,61 +300,29 @@ const DateField = forwardRef(({
         </div>
       </DropdownToggle>
       <DropdownMenu animate={animateMenu} className="calendar-menu">
-        <div className="content">
-          <div className="calendar-header">
-            <div className="current-month">
-              <strong>{ getMonthName(state.displayed.getMonth()) }</strong>
-              { ' ' + state.displayed.getFullYear() }
-            </div>
-            <div className="navigation">
-              <ArrowLeft onClick={onPreviousMonthClick} />
-              <ArrowRight onClick={onNextMonthClick} />
-            </div>
+        <Calendar
+          active={state.selected}
+          onSelect={onSelectDate}
+          min={min}
+          max={max}
+          monthNames={monthNames}
+          weekDaysNames={weekDaysNames}
+          disabled={disabled}
+        />
+
+        { time && (
+          <div className="time-field">
+            <Time />
+            <input
+              ref={timeInputRef}
+              type="text"
+              placeholder={timePlaceholder}
+              value={state.time}
+              onChange={onTimeChange}
+              onBlur={onTimeBlur}
+            />
           </div>
-
-          <div className="calendar-body">
-            { weekDaysNames.map((day, index) => (
-              <span key={index} className="week-day junipero info">
-                { day }
-              </span>
-            )) }
-
-            { []
-              .concat(getPreviousMonthDays(state.displayed))
-              .concat(getMonthDays(state.displayed))
-              .concat(getNextMonthDays(state.displayed))
-              .map((day, index) => (
-                <a
-                  key={index}
-                  className={classNames('day junipero info', {
-                    inactive: day.inactive,
-                    active: !day.inactive && isDaySelected(day.date),
-                    disabled: isDayDisabled(day.date),
-                  })}
-                  href="#"
-                  onClick={onSelectDate.bind(null, day.date)}
-                >
-                  { day.date.getDate() }
-                </a>
-              ))
-            }
-          </div>
-
-          { time && (
-            <div className="calendar-footer">
-              <Time />
-              <input
-                ref={timeInputRef}
-                className="time-field"
-                type="text"
-                placeholder={timePlaceholder}
-                value={state.time}
-                onChange={onTimeChange}
-                onBlur={onTimeBlur}
-              />
-            </div>
-          ) }
-        </div>
+        ) }
       </DropdownMenu>
     </Dropdown>
   );

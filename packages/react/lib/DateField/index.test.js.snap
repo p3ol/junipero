@@ -41,7 +41,7 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
         class="menu-inner"
       >
         <div
-          class="content"
+          class="junipero calendar"
         >
           <div
             class="calendar-header"
@@ -370,32 +370,31 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
               10
             </a>
           </div>
-          <div
-            class="calendar-footer"
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
           >
-            <svg
-              class="junipero icon time"
-              height="19"
-              viewBox="0 0 19 19"
-              width="19"
-            >
-              <circle
-                cx="9.5"
-                cy="9.5"
-                r="8.5"
-                stroke-width="2"
-              />
-              <path
-                d="M13.4558 13L9 9.61266L9 4"
-              />
-            </svg>
-            <input
-              class="time-field"
-              placeholder="00:00:00"
-              type="text"
-              value=""
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
             />
-          </div>
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value=""
+          />
         </div>
       </ul>
     </div>
@@ -410,12 +409,12 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
   >
     <div
       class="field dropdown-toggle opened"
-      title="Saturday, December 1, 2018 12:00:00 AM"
+      title="Tuesday, January 1, 2019 12:00:00 AM"
     >
       <input
         readonly=""
         type="text"
-        value="Saturday, December 1, 2018 12:00:00 AM"
+        value="Tuesday, January 1, 2019 12:00:00 AM"
       />
       <div
         class="icons"
@@ -444,7 +443,7 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
         class="menu-inner"
       >
         <div
-          class="content"
+          class="junipero calendar"
         >
           <div
             class="calendar-header"
@@ -551,7 +550,7 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
               30
             </a>
             <a
-              class="day junipero info active"
+              class="day junipero info"
               href="#"
             >
               1
@@ -773,32 +772,31 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
               6
             </a>
           </div>
-          <div
-            class="calendar-footer"
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
           >
-            <svg
-              class="junipero icon time"
-              height="19"
-              viewBox="0 0 19 19"
-              width="19"
-            >
-              <circle
-                cx="9.5"
-                cy="9.5"
-                r="8.5"
-                stroke-width="2"
-              />
-              <path
-                d="M13.4558 13L9 9.61266L9 4"
-              />
-            </svg>
-            <input
-              class="time-field"
-              placeholder="00:00:00"
-              type="text"
-              value=""
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
             />
-          </div>
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value=""
+          />
         </div>
       </ul>
     </div>
@@ -847,7 +845,7 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
         class="menu-inner"
       >
         <div
-          class="content"
+          class="junipero calendar"
         >
           <div
             class="calendar-header"
@@ -1176,32 +1174,31 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
               5
             </a>
           </div>
-          <div
-            class="calendar-footer"
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
           >
-            <svg
-              class="junipero icon time"
-              height="19"
-              viewBox="0 0 19 19"
-              width="19"
-            >
-              <circle
-                cx="9.5"
-                cy="9.5"
-                r="8.5"
-                stroke-width="2"
-              />
-              <path
-                d="M13.4558 13L9 9.61266L9 4"
-              />
-            </svg>
-            <input
-              class="time-field"
-              placeholder="00:00:00"
-              type="text"
-              value=""
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
             />
-          </div>
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value=""
+          />
         </div>
       </ul>
     </div>
@@ -1250,7 +1247,7 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
         class="menu-inner"
       >
         <div
-          class="content"
+          class="junipero calendar"
         >
           <div
             class="calendar-header"
@@ -1579,32 +1576,31 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
               5
             </a>
           </div>
-          <div
-            class="calendar-footer"
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
           >
-            <svg
-              class="junipero icon time"
-              height="19"
-              viewBox="0 0 19 19"
-              width="19"
-            >
-              <circle
-                cx="9.5"
-                cy="9.5"
-                r="8.5"
-                stroke-width="2"
-              />
-              <path
-                d="M13.4558 13L9 9.61266L9 4"
-              />
-            </svg>
-            <input
-              class="time-field"
-              placeholder="00:00:00"
-              type="text"
-              value=""
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
             />
-          </div>
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value=""
+          />
         </div>
       </ul>
     </div>
@@ -1727,7 +1723,7 @@ exports[`<DateField /> should render: opened 1`] = `
         class="menu-inner"
       >
         <div
-          class="content"
+          class="junipero calendar"
         >
           <div
             class="calendar-header"
@@ -2056,32 +2052,31 @@ exports[`<DateField /> should render: opened 1`] = `
               10
             </a>
           </div>
-          <div
-            class="calendar-footer"
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
           >
-            <svg
-              class="junipero icon time"
-              height="19"
-              viewBox="0 0 19 19"
-              width="19"
-            >
-              <circle
-                cx="9.5"
-                cy="9.5"
-                r="8.5"
-                stroke-width="2"
-              />
-              <path
-                d="M13.4558 13L9 9.61266L9 4"
-              />
-            </svg>
-            <input
-              class="time-field"
-              placeholder="00:00:00"
-              type="text"
-              value=""
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
             />
-          </div>
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value=""
+          />
         </div>
       </ul>
     </div>
