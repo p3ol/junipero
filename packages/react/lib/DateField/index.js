@@ -38,18 +38,19 @@ const DateField = forwardRef(({
   monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'],
   required = false,
+  time = true,
   timePlaceholder = '00:00:00',
   weekDaysNames = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
   onChange,
   onFocus,
   onBlur,
   onToggle,
-  parseTitle = val => val ? val.toLocaleDateString('en-US', {
+  parseTitle = (val, { time }) => val ? val.toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-  }) + ' ' + val?.toLocaleTimeString('en-US') : '',
+  }) + ' ' + (time ? val?.toLocaleTimeString('en-US') : '') : '',
   parseValue = val => val,
   parseTime,
   onValidate = (val, { required }) => !!val || !required,
@@ -67,6 +68,7 @@ const DateField = forwardRef(({
     opened: (autoFocus || opened) ?? false,
     focused: autoFocus ?? false,
     time: '',
+    timeDirty: false,
   });
 
   useImperativeHandle(ref, () => ({
@@ -117,6 +119,7 @@ const DateField = forwardRef(({
       valid: state.valid,
       selected: state.selected,
       displayed: state.displayed,
+      timeDirty: state.timeDirty,
       dirty: true,
     });
     onChange?.({ value: parseValue(state.value), valid: state.valid });
@@ -133,42 +136,45 @@ const DateField = forwardRef(({
       (val.match(/:/g) || []).length < 2
       ? val.slice(0, -1) + ':' + val.slice(-1) : val;
 
-    dispatch({ time: state.time });
+    dispatch({ time: state.time, timeDirty: true });
   };
 
   const applyTime = () => {
-    let time;
-
-    if (!state.time && !state.value) {
+    if (!time || !state.value) {
       return;
     }
 
+    let timeValue;
+
     if (!parseTime) {
       const matches = state.time.split(':').map(v => parseInt(v, 10) || 0);
-      time = matches.slice(0, 3);
+      timeValue = matches.slice(0, 3);
     } else {
-      time = parseTime(state.time) || [];
+      timeValue = parseTime(state.time) || [];
     }
-
-    state.value = state.value ?? new Date();
 
     if (/[ap]m/i.test(state.time)) {
       state.value.setHours(
-        Math.min(23, time[0] ?? 0) +
-        (time[0] < 12 && /pm/i.test(state.time) ? 12 : 0)
+        Math.min(23, timeValue[0] ?? 0) +
+        (timeValue[0] < 12 && /pm/i.test(state.time) ? 12 : 0)
       );
     } else {
-      state.value.setHours(Math.min(23, time[0] ?? 0));
+      state.value.setHours(Math.min(23, timeValue[0] ?? 0));
     }
 
-    state.value.setMinutes(Math.min(60, time[1] ?? 0));
-    state.value.setSeconds(Math.min(60, time[2] ?? 0));
+    state.value.setMinutes(Math.min(60, timeValue[1] ?? 0));
+    state.value.setSeconds(Math.min(60, timeValue[2] ?? 0));
   };
 
   const onTimeBlur = () => {
+    if (!time) {
+      return;
+    }
+
     applyTime();
     state.valid =
       onValidate(parseValue(state.value), { required, dirty: true });
+    state.timeDirty = false;
     onChange_({ close: false });
   };
 
@@ -180,6 +186,7 @@ const DateField = forwardRef(({
     }
 
     state.value = undefined;
+    state.time = '';
     state.valid =
       onValidate(parseValue(state.value), { required, dirty: true });
     onChange_({ close: false });
@@ -207,12 +214,11 @@ const DateField = forwardRef(({
       dispatch({
         opened,
         focused: opened,
-        time: '',
         displayed: new Date(state.selected),
       });
     } else {
       dispatch({ opened, focused: opened });
-      onTimeBlur();
+      state.timeDirty && onTimeBlur();
     }
 
     updateControl?.({ focused: opened });
@@ -371,13 +377,13 @@ const DateField = forwardRef(({
       <DropdownToggle>
         <div
           className="field"
-          title={parseTitle(state.value, { isValue: true })}
+          title={parseTitle(state.value, { isValue: true, time })}
         >
           <input
             type="text"
             readOnly={true}
             placeholder={placeholder}
-            value={parseTitle(state.value, { isValue: true })}
+            value={parseTitle(state.value, { isValue: true, time })}
             onFocus={onFocus_}
             onBlur={onBlur_}
           />
@@ -430,18 +436,20 @@ const DateField = forwardRef(({
             }
           </div>
 
-          <div className="calendar-footer">
-            <Time />
-            <input
-              ref={timeInputRef}
-              className="time-field"
-              type="text"
-              placeholder={timePlaceholder}
-              value={state.time}
-              onChange={onTimeChange}
-              onBlur={onTimeBlur}
-            />
-          </div>
+          { time && (
+            <div className="calendar-footer">
+              <Time />
+              <input
+                ref={timeInputRef}
+                className="time-field"
+                type="text"
+                placeholder={timePlaceholder}
+                value={state.time}
+                onChange={onTimeChange}
+                onBlur={onTimeBlur}
+              />
+            </div>
+          ) }
         </div>
       </DropdownMenu>
     </Dropdown>
@@ -470,6 +478,7 @@ DateField.propTypes = {
   parseValue: PropTypes.func,
   weekDaysNames: PropTypes.array,
   onToggle: PropTypes.func,
+  time: PropTypes.bool,
   timePlaceholder: PropTypes.string,
   parseTime: PropTypes.func,
   trigger: PropTypes.oneOf(['click', 'hover', 'manual']),

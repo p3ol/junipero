@@ -60,3 +60,7 @@ export const alwaysOpened = () => (
 export const animated = () => (
   <DateField animateMenu={slideInDownMenu} />
 );
+
+export const dateOnly = () => (
+  <DateField time={false} onChange={action('change')} />
+);
