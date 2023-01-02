@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.22...v3.0.0-alpha.23) (2023-01-02)
+
+
+### Bug Fixes
+
+* **react:** focus search field on clear ([d8e5b24](https://github.com/p3ol/junipero/commit/d8e5b2444ef303b17c51c654fb3737f3ea130c26))
+
+
+
+
+
 # [3.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.21...v3.0.0-alpha.22) (2023-01-02)
 
 

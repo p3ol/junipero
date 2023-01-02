@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.22...v3.0.0-alpha.23) (2023-01-02)
+
+
+### Bug Fixes
+
+* **theme:** fix slider math ([ae9a348](https://github.com/p3ol/junipero/commit/ae9a348c167f10f4b6a81cdc518b3171bd957d65))
+
+
+
+
+
 # [3.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.21...v3.0.0-alpha.22) (2023-01-02)
 
 
