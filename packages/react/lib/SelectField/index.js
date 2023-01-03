@@ -109,11 +109,18 @@ const SelectField = forwardRef(({
     dispatch({ placeholderSize: Math.max(10, placeholder?.length ?? 0) });
   }, [placeholder]);
 
-  useEffect(() => {
+  useTimeout(() => {
     if ((multiple || !state.value) && state.dirty && searchable) {
       searchInputRef.current?.focus?.();
+      dispatch({ refocus: false });
     }
-  }, [state.value]);
+  }, 1, [
+    state.refocus,
+    state.value,
+    state.dirty,
+    searchable,
+    multiple,
+  ], { enabled: state.refocus });
 
   useTimeout(() => {
     if (state.search.length >= searchMinCharacters) {
@@ -123,7 +130,7 @@ const SelectField = forwardRef(({
     }
   }, searchThreshold, [state.search]);
 
-  const onChange_ = ({ close = true, resetSearch = false } = {}) => {
+  const onChange_ = ({ close = true, resetSearch, refocus } = {}) => {
     if (disabled) {
       return;
     }
@@ -134,6 +141,7 @@ const SelectField = forwardRef(({
       dirty: true,
       selectedItem: -1,
       ...resetSearch && { search: '', searchResults: null },
+      ...refocus && { refocus: true },
     });
     onChange?.({ value: parseValue(state.value), valid: state.valid });
     updateControl?.({ valid: state.valid, dirty: true });
@@ -182,7 +190,7 @@ const SelectField = forwardRef(({
 
     state.valid = onValidate(parseValue(state.value), { required, multiple });
 
-    onChange_({ close: false, resetSearch: true });
+    onChange_({ close: false, resetSearch: true, refocus: true });
   };
 
   const onSearchInputChange = e => {
