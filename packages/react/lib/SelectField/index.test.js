@@ -1,5 +1,5 @@
 import { createRef, useEffect, useReducer, useState } from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { blur, reset, sleep } from '~test-utils';
@@ -33,7 +33,8 @@ describe('<SelectField />', () => {
     unmount();
   });
 
-  it('should allow to clear a single value', () => {
+  it('should allow to clear a single value', async () => {
+    const user = userEvent.setup();
     const { unmount, container } = render(
       <SelectField
         placeholder="Name"
@@ -43,7 +44,8 @@ describe('<SelectField />', () => {
     );
     expect(container).toMatchSnapshot();
 
-    fireEvent.click(container.querySelector('.icons .remove'));
+    // Waiting for refocus timeout before generating snapshot
+    await user.click(container.querySelector('.icons .remove'));
     expect(container).toMatchSnapshot();
 
     unmount();
