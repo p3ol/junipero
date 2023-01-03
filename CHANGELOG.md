@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.25](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.24...v3.0.0-alpha.25) (2023-01-03)
+
+
+### Bug Fixes
+
+* **react:** only refocus selectfield on clear ([5d1edf2](https://github.com/p3ol/junipero/commit/5d1edf267b7c9c8662f65c23b654e6898f3d0fd4))
+
+
+
+
+
 # [3.0.0-alpha.24](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.23...v3.0.0-alpha.24) (2023-01-03)
 
 
