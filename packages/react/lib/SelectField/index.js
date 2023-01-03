@@ -94,12 +94,15 @@ const SelectField = forwardRef(({
 
   useEffect(() => {
     if (exists(value)) {
-      state.value = findOptions(value) || (value ?? (multiple ? [] : null));
-      dispatch({
-        value: state.value,
-        valid: onValidate(parseValue(state.value), { required, multiple }),
-      });
+      state.value = findOptions(value) || value;
+    } else {
+      state.value = multiple ? [] : null;
     }
+
+    dispatch({
+      value: state.value,
+      valid: onValidate(parseValue(state.value), { required, multiple }),
+    });
   }, [value, options]);
 
   useLayoutEffect(() => {
