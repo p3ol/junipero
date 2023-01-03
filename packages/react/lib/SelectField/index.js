@@ -41,6 +41,7 @@ const SelectField = forwardRef(({
   clearable = true,
   disabled = false,
   multiple = false,
+  noOptionsEnabled = true,
   noOptionsLabel = 'No options',
   searchable = true,
   searchMinCharacters = 2,
@@ -381,6 +382,10 @@ const SelectField = forwardRef(({
     ))
   ), [state.searchResults, state.value, options, onChange]);
 
+  const hasOptions = useMemo(() => (
+    renderedOptions.length > 0 && renderedOptions.some(o => o !== null)
+  ), [renderedOptions]);
+
   return (
     <Dropdown
       { ...rest }
@@ -449,18 +454,18 @@ const SelectField = forwardRef(({
           </div>
         </div>
       </DropdownToggle>
-      <DropdownMenu
-        animate={animateMenu}
-        className={classNames('select-menu', { searching: state.searching })}
-      >
-        <div className="content">
-          { renderedOptions.length > 0 && renderedOptions.some(o => o !== null)
-            ? renderedOptions
-            : (
+      { (hasOptions || noOptionsEnabled || state.searchResults) && (
+        <DropdownMenu
+          animate={animateMenu}
+          className={classNames('select-menu', { searching: state.searching })}
+        >
+          <div className="content">
+            { hasOptions ? renderedOptions : (
               <div className="no-options">{ noOptionsLabel }</div>
             ) }
-        </div>
-      </DropdownMenu>
+          </div>
+        </DropdownMenu>
+      ) }
     </Dropdown>
   );
 });
@@ -475,6 +480,7 @@ SelectField.propTypes = {
   disabled: PropTypes.bool,
   keyboardHandler: PropTypes.bool,
   multiple: PropTypes.bool,
+  noOptionsEnabled: PropTypes.bool,
   noOptionsLabel: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,

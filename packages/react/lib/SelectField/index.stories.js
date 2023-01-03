@@ -130,3 +130,11 @@ export const withClickOptionsAndKeyboardHandler = () => (
 export const animated = () => (
   <SelectField animateMenu={slideInDownMenu} />
 );
+
+export const noEmpty = () => (
+  <SelectField
+    placeholder="Type a name"
+    noOptionsEnabled={false}
+    animateMenu={slideInDownMenu}
+  />
+);
