@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.24](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.23...v3.0.0-alpha.24) (2023-01-03)
+
+
+### Bug Fixes
+
+* **react:** allow to reset select value from outside ([141764c](https://github.com/p3ol/junipero/commit/141764c630b879287dd0d469a3140c54b86647d4))
+* **react:** disable no options on select ([c9249b4](https://github.com/p3ol/junipero/commit/c9249b48b94a98fcbc900538fc5868f001aa1781))
+
+
+
+
+
 # [3.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.22...v3.0.0-alpha.23) (2023-01-02)
 
 
