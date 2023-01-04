@@ -1,0 +1,23 @@
+@use "colors" as colors
+
+.junipero.field-addon
+  --main-color: var(--junipero-velvet)
+  --background-color: var(--junipero-mischka)
+  --text-color: var(--junipero-slate)
+  --focus-text-color: var(--junipero-seashell)
+
+  display: flex
+  align-items: center
+  background: var(--background-color)
+  color: var(--text-color)
+  border-radius: 4px
+  padding: 0 10px
+  transition-property: background, color, box-shadow
+  transition-duration: 0.2s
+  transition-timing-function: ease-in-out
+  box-shadow: 0 0 0 2px var(--background-color)
+
+  &.focused
+    background: var(--main-color)
+    color: var(--focus-text-color)
+    box-shadow: 0 0 0 2px var(--main-color)

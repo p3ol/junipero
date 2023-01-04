@@ -19,7 +19,9 @@ import DropdownItem from './DropdownItem';
 import DropdownMenu, { DropdownMenuRef } from './DropdownMenu';
 import DropdownToggle from './DropdownToggle';
 import Droppable, { DroppableRef } from './Droppable';
+import FieldAddon, { FieldAddonRef } from './FieldAddon';
 import FieldControl from './FieldControl';
+import FieldGroup, { FieldGroupRef } from './FieldGroup';
 import { useAlerts, useDropdown, useFieldControl } from './hooks';
 import Label from './Label';
 import List, { ListRef } from './List';
@@ -67,7 +69,9 @@ export {
   DropdownMenu,
   DropdownToggle,
   Droppable,
+  FieldAddon,
   FieldControl,
+  FieldGroup,
   Label,
   List,
   ListCell,
@@ -109,6 +113,8 @@ export {
   DropdownRef,
   DropdownMenuRef,
   DroppableRef,
+  FieldAddonRef,
+  FieldGroupRef,
   ListRef,
   ListCellRef,
   ListColumnRef,
