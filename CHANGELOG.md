@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.26](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.25...v3.0.0-alpha.26) (2023-01-04)
+
+
+### Features
+
+* **react:** add new fieldaddon & fieldgroup components ([90c5a43](https://github.com/p3ol/junipero/commit/90c5a434946a41a0e73a6b5242c508182d261380))
+
+
+
+
+
 # [3.0.0-alpha.25](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.24...v3.0.0-alpha.25) (2023-01-03)
 
 
