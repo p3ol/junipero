@@ -425,7 +425,8 @@ const SelectField = forwardRef(({
             <input
               type="text"
               readOnly={true}
-              value={parseTitle(state.value, { isValue: true })}
+              value={parseTitle(state.value, { isValue: true }) ?? ''}
+              onChange={() => {}}
             />
           ) }
           { hasTags() ? state.value.map((o, i) => (
