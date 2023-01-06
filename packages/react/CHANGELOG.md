@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.27](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.26...v3.0.0-alpha.27) (2023-01-06)
+
+
+### Bug Fixes
+
+* **react:** selectfield display input going uncontrolled ([d66d2ea](https://github.com/p3ol/junipero/commit/d66d2ea18667dfa9d7ecb62d55015884346c0f94))
+
+
+### Features
+
+* **react:** re-export core types ([cbe6e7b](https://github.com/p3ol/junipero/commit/cbe6e7be632f117fed0071493ae0a80a4b69dc3b))
+
+
+
+
+
 # [3.0.0-alpha.26](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.25...v3.0.0-alpha.26) (2023-01-04)
 
 
