@@ -8,6 +8,7 @@
   "esnext": "src/index.js",
   "unpkg": "dist/junipero-core.min.js",
   "cdn": "dist/junipero-core.min.js",
+  "types": "dist/junipero-core.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
