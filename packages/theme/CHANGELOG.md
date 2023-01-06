@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.28](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.27...v3.0.0-alpha.28) (2023-01-06)
+
+
+### Bug Fixes
+
+* **theme:** wrong code field layout ([87ce362](https://github.com/p3ol/junipero/commit/87ce362d4b47dffe82fb1ecd9cde8b9866c66cf2))
+
+
+
+
+
 # [3.0.0-alpha.26](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.25...v3.0.0-alpha.26) (2023-01-04)
 
 

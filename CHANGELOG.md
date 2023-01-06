@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.28](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.27...v3.0.0-alpha.28) (2023-01-06)
+
+
+### Bug Fixes
+
+* **hooks:** fix missing types path ([1edde8f](https://github.com/p3ol/junipero/commit/1edde8fa3541fe88f315a7ae9bd7d34212f37fe6))
+* **react:** re-export hooks types ([4ce54a5](https://github.com/p3ol/junipero/commit/4ce54a5f66561ca00401087a79c51c6f38bfccfb))
+* **theme:** wrong code field layout ([87ce362](https://github.com/p3ol/junipero/commit/87ce362d4b47dffe82fb1ecd9cde8b9866c66cf2))
+
+
+
+
+
 # [3.0.0-alpha.27](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.26...v3.0.0-alpha.27) (2023-01-06)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.28](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.27...v3.0.0-alpha.28) (2023-01-06)
+
+
+### Bug Fixes
+
+* **hooks:** fix missing types path ([1edde8f](https://github.com/p3ol/junipero/commit/1edde8fa3541fe88f315a7ae9bd7d34212f37fe6))
+
+
+
+
+
 # [3.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.15...v3.0.0-alpha.16) (2022-12-16)
 
 

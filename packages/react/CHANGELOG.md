@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.28](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.27...v3.0.0-alpha.28) (2023-01-06)
+
+
+### Bug Fixes
+
+* **react:** re-export hooks types ([4ce54a5](https://github.com/p3ol/junipero/commit/4ce54a5f66561ca00401087a79c51c6f38bfccfb))
+
+
+
+
+
 # [3.0.0-alpha.27](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.26...v3.0.0-alpha.27) (2023-01-06)
 
 
