@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.29](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.28...v3.0.0-alpha.29) (2023-01-20)
+
+
+### Bug Fixes
+
+* **react:** fix alerts disapparition ([c772837](https://github.com/p3ol/junipero/commit/c77283703dab68398d5c4dc3696add5edcfb81d4))
+* **react:** wrongly passed props ([d5a434c](https://github.com/p3ol/junipero/commit/d5a434c88cb3c3511dfa93cb1aeb486f0043f468))
+* **theme:** add missing background colors ([ac135ca](https://github.com/p3ol/junipero/commit/ac135ca70031d5483ab13d93543a93fc51d7e6fb))
+
+
+### Features
+
+* **react:** add new toast component ([e979191](https://github.com/p3ol/junipero/commit/e97919146206e92fc5729f4ac099e40d34951407))
+
+
+
+
+
 # [3.0.0-alpha.28](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.27...v3.0.0-alpha.28) (2023-01-06)
 
 
