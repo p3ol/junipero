@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.27](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.26...v3.0.0-alpha.27) (2023-01-06)
+
+
+### Features
+
+* **core:** add core types ([a202d33](https://github.com/p3ol/junipero/commit/a202d338ad28c7ab9a25527fc6a214ca03df03dd))
+
+
+
+
+
 # [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
 
 

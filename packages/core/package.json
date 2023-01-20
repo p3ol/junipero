@@ -1,6 +1,6 @@
 {
   "name": "@junipero/core",
-  "version": "3.0.0-alpha.6",
+  "version": "3.0.0-alpha.27",
   "description": "🏔 Junipero Design System Core Utils",
   "main": "dist/junipero-core.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -8,6 +8,7 @@
   "esnext": "src/index.js",
   "unpkg": "dist/junipero-core.min.js",
   "cdn": "dist/junipero-core.min.js",
+  "types": "dist/junipero-core.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
