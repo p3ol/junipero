@@ -7,6 +7,7 @@ export declare type AlertsRef = {
   alerts: Array<AlertObject>;
   isJunipero: Boolean;
 };
+
 declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
   classname?: String;
   ref?: MutableRefObject<AlertsRef | undefined>;
@@ -14,6 +15,7 @@ declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
     alert: JSX.Element,
     opts: { enabled: Boolean, index: Number }
   ) => JSX.Element;
+  animationTimeout?: number;
   icons?: Object;
 }
 

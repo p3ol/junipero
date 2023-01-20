@@ -7,10 +7,11 @@ export declare type AlertRef = {
 declare interface AlertProps extends React.ComponentPropsWithRef<any> {
   animate?: (
     alert: JSX.Element,
-    opts: { enabled: Boolean, index: Number }
+    opts: { opened: Boolean, index: Number }
   ) => JSX.Element;
+  animationTimeout?: number;
   className?: string;
-  index?: any;
+  index?: string|number;
   title?: React.ReactNode | string | Function;
   lifespan?: number;
   tag?: String | ElementType;
@@ -27,6 +28,11 @@ export declare interface AlertObject {
   content: string | React.ReactNode | Function;
   duration?: number;
   lifespan?: number;
+  animate?: (
+    alert: JSX.Element,
+    opts: { opened: Boolean, index: Number }
+  ) => JSX.Element;
+  animationTimeout?: number;
   onDismiss?: (index?: any) => any;
 }
 

@@ -26,11 +26,7 @@ const Comp = () => {
           Add alert
         </button>
       </p>
-      <Alerts
-        animateAlert={(alert, index) =>
-          slideInDownMenu(alert, { in: true, key: index })
-        }
-      />
+      <Alerts animateAlert={slideInDownMenu} />
     </>
   );
 };

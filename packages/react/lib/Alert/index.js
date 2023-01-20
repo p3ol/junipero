@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useState, useImperativeHandle, useRef } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';
@@ -7,30 +7,38 @@ import { Remove } from '../icons';
 import Card from '../Card';
 
 const Alert = forwardRef(({
+  index,
+  animationTimeout = 100,
+  tag: Tag = 'div',
+  lifespan = 0,
   animate,
   className,
   icon,
   title,
-  lifespan,
-  tag: Tag = 'div',
   children,
   onDismiss,
+  onClick,
   ...rest
 }, ref) => {
   const innerRef = useRef();
+  const [enabled, setEnabled] = useState(true);
 
   useTimeout(() => {
-    onDismiss?.();
-  }, lifespan || 5000, [], { enabled: !!lifespan });
+    setEnabled(false);
+  }, lifespan + animationTimeout, [lifespan], { enabled: lifespan > 0 });
+
+  useTimeout(() => {
+    onDismiss?.(index);
+  }, animationTimeout, [enabled], { enabled: !enabled });
 
   useImperativeHandle(ref, () => ({
     innerRef,
     isJunipero: true,
   }));
 
-  const onClose_ = e => {
-    e.preventDefault();
-    onDismiss?.();
+  const onClick_ = e => {
+    onClick?.(e);
+    setEnabled(false);
   };
 
   const content = (
@@ -38,7 +46,7 @@ const Alert = forwardRef(({
       { ...rest }
       ref={ref}
       className={classNames('junipero', 'alert', className)}
-      onClick={onClose_}
+      onClick={onClick_}
     >
       <Card>
         { icon && (
@@ -53,13 +61,17 @@ const Alert = forwardRef(({
     </Tag>
   );
 
-  return animate ? animate(content, { enabled: true }) : content;
+  return animate ? animate(content, { opened: enabled, index }) : content;
 });
 
 Alert.displayName = 'Alert';
 Alert.propTypes = {
   animate: PropTypes.func,
-  index: PropTypes.any,
+  animationTimeout: PropTypes.number,
+  index: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   icon: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.string,
@@ -80,6 +92,7 @@ Alert.propTypes = {
     PropTypes.object,
   ]),
   onDismiss: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 export default Alert;

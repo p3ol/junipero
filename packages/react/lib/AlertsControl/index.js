@@ -26,7 +26,7 @@ const AlertsControl = forwardRef(({
     alert.id = alert.id ||
       generateId ? generateId(alert) : Math.random().toString(36);
 
-    setAlerts(a => [].concat(a).concat(alert));
+    setAlerts(a => a.concat(alert));
   };
 
   const dismiss = alert => {

@@ -8,6 +8,7 @@ import Alert from '../Alert';
 const Alerts = forwardRef(({
   className,
   animateAlert,
+  animationTimeout,
   icons,
   ...rest
 }, ref) => {
@@ -33,10 +34,12 @@ const Alerts = forwardRef(({
     >
       { alerts?.map((alert, index) => (
         <Alert
+          { ...alert }
           key={alert.id ?? index}
-          animate={animateAlert}
+          index={alert.id ?? index}
+          animate={alert.animate ?? animateAlert}
+          animationTimeout={alert.animationTimeout ?? animationTimeout}
           icon={alert.icon ?? icons?.[alert.type] ?? icons?.default}
-          title={alert.title}
           lifespan={alert.duration ?? alert.lifespan}
           onDismiss={onDismiss.bind(null, alert, index)}
           className={alert.type}
@@ -51,6 +54,7 @@ const Alerts = forwardRef(({
 Alerts.displayName = 'Alerts';
 Alerts.propTypes = {
   animateAlert: PropTypes.func,
+  animationTimeout: PropTypes.number,
   icons: PropTypes.object,
 };
 
