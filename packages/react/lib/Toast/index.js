@@ -4,11 +4,11 @@ import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';
 
 const Toast = forwardRef(({
-  index,
   tag: Tag = 'div',
   animationTimeout = 100,
   pausable = true,
   lifespan = 0,
+  index,
   animate,
   children,
   className,
@@ -18,8 +18,9 @@ const Toast = forwardRef(({
   onMouseLeave,
   ...rest
 }, ref) => {
+  const timeout = animate ? animationTimeout : 0;
   const innerRef = useRef();
-  const startTimeRef = useRef(Date.now() + animationTimeout);
+  const startTimeRef = useRef(Date.now() + timeout);
   const [remaining, setRemaining] = useState(lifespan);
   const [enabled, setEnabled] = useState(true);
   const [paused, setPaused] = useState(false);
@@ -38,7 +39,7 @@ const Toast = forwardRef(({
 
   useTimeout(() => {
     onDismiss?.(index);
-  }, animationTimeout, [enabled], { enabled: !enabled && !paused });
+  }, timeout, [enabled], { enabled: !enabled && !paused });
 
   const onClick_ = e => {
     onClick?.(e);

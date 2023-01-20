@@ -1,5 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { classNames } from '@junipero/core';
+import { classNames, omit } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useAlerts } from '../hooks';
@@ -34,7 +34,10 @@ const Alerts = forwardRef(({
     >
       { alerts?.map((alert, index) => (
         <Alert
-          { ...alert }
+          { ...omit(alert, [
+            'id', 'type', 'content', 'duration', 'lifespan', 'icon', 'animate',
+            'animationTimeout', 'onDismiss',
+          ]) }
           key={alert.id ?? index}
           index={alert.id ?? index}
           animate={alert.animate ?? animateAlert}

@@ -1,5 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { classNames } from '@junipero/core';
+import { classNames, omit } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useToasts } from '../hooks';
@@ -33,7 +33,10 @@ const Toasts = forwardRef(({
     >
       { toasts?.map((toast, index) => (
         <Toast
-          { ...toast }
+          { ...omit(toast, [
+            'id', 'content', 'lifespan', 'animate', 'animationTimeout',
+            'onDismiss',
+          ]) }
           key={toast.id ?? index}
           index={toast.id ?? index}
           animate={toast.animate ?? animateToast}

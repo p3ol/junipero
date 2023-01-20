@@ -1,23 +1,23 @@
 import { render, act } from '@testing-library/react';
 
-import AlertsControl from '../AlertsControl';
-import Alerts from '../Alerts';
-import Alert from './index';
+import ToastsControl from '../ToastsControl';
+import Toasts from '../Toasts';
+import Toast from './index';
 
-describe('<Alert />', () => {
+describe('<Toast />', () => {
   it('should render', () => {
-    const { container, unmount } = render(<Alert title="Title">Content</Alert>);
+    const { container, unmount } = render(<Toast>Content</Toast>);
     expect(container).toMatchSnapshot();
     unmount();
   });
 
   it('should be auto dismissable', async () => {
     jest.useFakeTimers();
-    const alert = { id: 1, title: 'Title', content: 'Content', lifespan: 100 };
+    const toast = { id: 1, content: 'Content', lifespan: 100 };
     const { container, unmount } = render(
-      <AlertsControl alerts={[alert]}>
-        <Alerts />
-      </AlertsControl>
+      <ToastsControl toasts={[toast]}>
+        <Toasts />
+      </ToastsControl>
     );
     expect(container).toMatchSnapshot();
 

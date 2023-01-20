@@ -1,62 +1,62 @@
 import { renderHook, act } from '@testing-library/react';
 
-import { useAlerts } from '../hooks';
-import AlertsControl from '.';
+import { useToasts } from '../hooks';
+import ToastsControl from '.';
 
-describe('useAlerts()', () => {
+describe('useToasts()', () => {
   it('should render hook', () => {
     const { result } = renderHook(
-      () => useAlerts(), { wrapper: AlertsControl }
+      () => useToasts(), { wrapper: ToastsControl }
     );
     expect(
       Object.keys(result.current)
     ).toEqual(expect.arrayContaining(
-      ['alerts', 'add', 'dismiss'])
+      ['toasts', 'add', 'dismiss'])
     );
-    expect(result.current.alerts).toHaveLength(0);
+    expect(result.current.toasts).toHaveLength(0);
   });
 
-  it('should be able to add an alert', async () => {
-    const customAlert = {
+  it('should be able to add a toast', async () => {
+    const customToast = {
       content: <div>coucou</div>,
-      duration: 3000,
+      lifespan: 3000,
     };
     const { result } = renderHook(() =>
-      useAlerts(), { wrapper: AlertsControl });
-    expect(result.current.alerts).toHaveLength(0);
-    await act(async () => { result.current.add(customAlert); });
-    expect(result.current.alerts).toHaveLength(1);
-    expect(result.current.alerts[0]).toEqual(customAlert);
+      useToasts(), { wrapper: ToastsControl });
+    expect(result.current.toasts).toHaveLength(0);
+    await act(async () => { result.current.add(customToast); });
+    expect(result.current.toasts).toHaveLength(1);
+    expect(result.current.toasts[0]).toEqual(customToast);
   });
 
   it('should be able to dismiss an alert', async () => {
-    const customAlert = {
+    const customToast = {
       content: <div>coucou</div>,
-      duration: 3000,
+      lifespan: 3000,
     };
     const { result } = renderHook(() =>
-      useAlerts(), { wrapper: AlertsControl });
-    expect(result.current.alerts).toHaveLength(0);
-    await act(async () => { result.current.add(customAlert); });
-    expect(result.current.alerts).toHaveLength(1);
-    expect(result.current.alerts[0]).toEqual(customAlert);
-    await act(async () => { result.current.dismiss(customAlert); });
-    expect(result.current.alerts).toHaveLength(0);
+      useToasts(), { wrapper: ToastsControl });
+    expect(result.current.toasts).toHaveLength(0);
+    await act(async () => { result.current.add(customToast); });
+    expect(result.current.toasts).toHaveLength(1);
+    expect(result.current.toasts[0]).toEqual(customToast);
+    await act(async () => { result.current.dismiss(customToast); });
+    expect(result.current.toasts).toHaveLength(0);
   });
 
   it('should set first state from props', () => {
     const wrapper = ({ children }) => (
-      <AlertsControl
-        alerts={[{ content: '1' }, { content: '2' }, { content: '3' }]}
+      <ToastsControl
+        toasts={[{ content: '1' }, { content: '2' }, { content: '3' }]}
       >
-        {children}
-      </AlertsControl>
+        { children }
+      </ToastsControl>
     );
-    const { result } = renderHook(() => useAlerts(), { wrapper });
-    expect(result.current.alerts).toHaveLength(3);
+    const { result } = renderHook(() => useToasts(), { wrapper });
+    expect(result.current.toasts).toHaveLength(3);
 
-    expect(result.current.alerts[0].content).toEqual('1');
-    expect(result.current.alerts[1].content).toEqual('2');
-    expect(result.current.alerts[2].content).toEqual('3');
+    expect(result.current.toasts[0].content).toEqual('1');
+    expect(result.current.toasts[1].content).toEqual('2');
+    expect(result.current.toasts[2].content).toEqual('3');
   });
 });

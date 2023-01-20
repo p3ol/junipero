@@ -7,10 +7,10 @@ import { Remove } from '../icons';
 import Card from '../Card';
 
 const Alert = forwardRef(({
-  index,
   animationTimeout = 100,
   tag: Tag = 'div',
   lifespan = 0,
+  index,
   animate,
   className,
   icon,
@@ -22,14 +22,15 @@ const Alert = forwardRef(({
 }, ref) => {
   const innerRef = useRef();
   const [enabled, setEnabled] = useState(true);
+  const timeout = animate ? animationTimeout : 0;
 
   useTimeout(() => {
     setEnabled(false);
-  }, lifespan + animationTimeout, [lifespan], { enabled: lifespan > 0 });
+  }, lifespan + timeout, [lifespan], { enabled: lifespan > 0 });
 
   useTimeout(() => {
     onDismiss?.(index);
-  }, animationTimeout, [enabled], { enabled: !enabled });
+  }, timeout, [enabled], { enabled: !enabled });
 
   useImperativeHandle(ref, () => ({
     innerRef,
