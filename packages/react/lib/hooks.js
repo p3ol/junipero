@@ -5,9 +5,11 @@ import {
   DropdownContext,
   FieldControlContext,
   ListContext,
+  ToastsContext,
 } from './contexts';
 
 export const useFieldControl = () => useContext(FieldControlContext);
 export const useDropdown = () => useContext(DropdownContext);
 export const useAlerts = () => useContext(AlertsContext);
 export const useList = () => useContext(ListContext);
+export const useToasts = () => useContext(ToastsContext);

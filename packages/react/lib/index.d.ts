@@ -42,10 +42,13 @@ import Tab, { TabRef } from './Tab';
 import Tabs, { TabsRef } from './Tabs';
 import Tag, { TagRef } from './Tag';
 import TextField, { TextFieldRef } from './TextField';
-import Transition from './Transition';
+import Toast, { ToastRef } from './Toast';
+import Toasts, { ToastsRef } from './Toasts';
+import ToastsControl, { ToastsControlRef } from './ToastsControl';
 import Toggle, { ToggleRef } from './Toggle';
 import Tooltip, { TooltipRef } from './Tooltip';
 import TouchableZone from './TouchableZone';
+import Transition from './Transition';
 
 export {
   Abstract,
@@ -90,10 +93,13 @@ export {
   Tabs,
   Tag,
   TextField,
-  Transition,
+  Toast,
+  Toasts,
+  ToastsControl,
   Toggle,
   Tooltip,
   TouchableZone,
+  Transition,
 };
 
 export {
@@ -126,6 +132,9 @@ export {
   TabsRef,
   TagRef,
   TextFieldRef,
+  ToastRef,
+  ToastsRef,
+  ToastsControlRef,
   ToggleRef,
   TooltipRef,
 };

@@ -27,6 +27,9 @@ export { default as Spinner } from './Spinner';
 export { default as Tab } from './Tab';
 export { default as Tabs } from './Tabs';
 export { default as Tag } from './Tag';
+export { default as Toast } from './Toast';
+export { default as Toasts } from './Toasts';
+export { default as ToastsControl } from './ToastsControl';
 export { default as Toggle } from './Toggle';
 export { default as Tooltip } from './Tooltip';
 export { default as TouchableZone } from './TouchableZone';
@@ -89,4 +92,5 @@ export {
 
 export {
   useAlerts,
+  useToasts,
 } from './hooks';

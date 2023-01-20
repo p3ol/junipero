@@ -1,11 +1,18 @@
 import { UseFloatingReturn } from '@floating-ui/react-dom-interactions';
 
 import { AlertObject } from './Alert';
+import { ToastObject } from './Toast';
 
 declare interface AlertsContext {
   alerts: Array<AlertObject>;
   add: (alert: AlertObject) => void;
   dismiss: (index: number) => void;
+}
+
+declare interface ToastContext {
+  toasts: Array<ToastObject>;
+  add: (toast: ToastObject) => void;
+  dismiss: (toast: ToastObject, index: string|number) => void;
 }
 
 declare type DropdownContext = Pick<
@@ -41,8 +48,10 @@ declare interface FieldControlContext {
 
 declare function useAlerts(): AlertsContext;
 
+declare function useToasts(): ToastContext;
+
 declare function useDropdown(): DropdownContext;
 
 declare function useFieldControl(): FieldControlContext;
 
-export { useAlerts, useDropdown, useFieldControl };
+export { useAlerts, useToasts, useDropdown, useFieldControl };
