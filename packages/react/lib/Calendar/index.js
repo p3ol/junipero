@@ -21,7 +21,7 @@ import { ArrowLeft, ArrowRight } from '../icons';
 
 const Calendar = forwardRef(({
   className,
-  active = new Date(),
+  active,
   max,
   min,
   disabled = false,
@@ -33,7 +33,7 @@ const Calendar = forwardRef(({
 }, ref) => {
   const innerRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
-    value: active,
+    value: active ?? new Date(),
   });
 
   useImperativeHandle(ref, () => ({
@@ -131,10 +131,13 @@ const Calendar = forwardRef(({
   const isDayDisabled = date =>
     isBeforeMinDate(date) || isAfterMaxDate(date);
 
-  const isDaySelected = date =>
-    date.getFullYear() === active.getFullYear() &&
-    date.getMonth() === active.getMonth() &&
-    date.getDate() === active.getDate();
+  const isDaySelected = date => {
+    const current = active ?? new Date();
+
+    return date.getFullYear() === current.getFullYear() &&
+      date.getMonth() === current.getMonth() &&
+      date.getDate() === current.getDate();
+  };
 
   const getMonthName = month =>
     monthNames[month];
