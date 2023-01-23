@@ -19,7 +19,7 @@ import {
   flip,
   shift,
   autoUpdate,
-} from '@floating-ui/react-dom-interactions';
+} from '@floating-ui/react';
 import PropTypes from 'prop-types';
 
 const Tooltip = forwardRef(({

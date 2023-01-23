@@ -1,6 +1,6 @@
 import {
   Props as dismissProps,
-} from '@floating-ui/react-dom-interactions/src/hooks/useDismiss';
+} from '@floating-ui/react/src/hooks/useDismiss';
 import React, { MutableRefObject } from 'react';
 
 export declare type ColorFieldRef = {

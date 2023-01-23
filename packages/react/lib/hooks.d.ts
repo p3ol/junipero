@@ -1,4 +1,4 @@
-import { UseFloatingReturn } from '@floating-ui/react-dom-interactions';
+import { UseFloatingReturn } from '@floating-ui/react';
 
 import { AlertObject } from './Alert';
 import { ToastObject } from './Toast';

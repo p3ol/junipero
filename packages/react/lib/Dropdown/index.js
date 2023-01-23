@@ -18,7 +18,7 @@ import {
   useDismiss,
   useClick,
   useHover,
-} from '@floating-ui/react-dom-interactions';
+} from '@floating-ui/react';
 import PropTypes from 'prop-types';
 
 import { DropdownContext } from '../contexts';
