@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.30](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.29...v3.0.0-alpha.30) (2023-01-23)
+
+
+### Bug Fixes
+
+* **react:** fix infinite calendar renders ([5da2310](https://github.com/p3ol/junipero/commit/5da2310b551f85a6da99442a64c92f543c30b253))
+* update floating ui to latest ([ff93dc4](https://github.com/p3ol/junipero/commit/ff93dc4b5d4234e10f3b259904827091c5530757))
+
+
+
+
+
 # [3.0.0-alpha.29](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.28...v3.0.0-alpha.29) (2023-01-20)
 
 
