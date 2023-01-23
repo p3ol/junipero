@@ -1,22 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Transition /> should render correctly 1`] = `
-<div>
-  <button>
-    Toggle
-  </button>
-</div>
-`;
-
-exports[`<Transition /> should render correctly 2`] = `
+exports[`<Transition /> should render correctly: Active 1`] = `
 <div>
   <button>
     Toggle
   </button>
   <div
-    class="transition-enter"
+    class="transition-enter-active"
   >
     Animated text
   </div>
+</div>
+`;
+
+exports[`<Transition /> should render correctly: Done 1`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <div
+    class="transition-enter-done"
+  >
+    Animated text
+  </div>
+</div>
+`;
+
+exports[`<Transition /> should render correctly: Idle 1`] = `
+<div>
+  <button>
+    Toggle
+  </button>
 </div>
 `;
