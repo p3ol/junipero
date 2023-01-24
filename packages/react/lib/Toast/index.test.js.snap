@@ -7,7 +7,6 @@ exports[`<Toast /> should be auto dismissable 1`] = `
   >
     <div
       class="junipero toast"
-      index="1"
     >
       Content
       <div

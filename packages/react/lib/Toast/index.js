@@ -70,7 +70,6 @@ const Toast = forwardRef(({
 
   const content = (
     <Tag
-      index={index}
       ref={innerRef}
       className={classNames('junipero toast', className)}
       onClick={onClick_}
