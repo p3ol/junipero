@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.31](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.30...v3.0.0-alpha.31) (2023-01-24)
+
+
+### Bug Fixes
+
+* **react:** remove unwanted prop ([a034810](https://github.com/p3ol/junipero/commit/a0348100e5e562732be4b8bf7f3408077ce4d994))
+
+
+
+
+
 # [3.0.0-alpha.30](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.29...v3.0.0-alpha.30) (2023-01-23)
 
 
