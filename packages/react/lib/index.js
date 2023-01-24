@@ -79,6 +79,9 @@ export {
   ensureNode,
   findDeep,
   filterDeep,
+  ensureMinMax,
+  getFloatPrecision,
+  formatThousand,
 } from '@junipero/core';
 
 // Hooks
