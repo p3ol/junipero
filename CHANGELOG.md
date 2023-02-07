@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.35](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.34...v3.0.0-alpha.35) (2023-02-07)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** import typo ([c8ad9b2](https://github.com/p3ol/junipero/commit/c8ad9b233c0abb774efb00d92eeb55bc6b0e10c6))
+
+
+
+
+
 # [3.0.0-alpha.34](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.33...v3.0.0-alpha.34) (2023-02-07)
 
 
