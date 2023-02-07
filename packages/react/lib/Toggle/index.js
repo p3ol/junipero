@@ -5,8 +5,8 @@ import {
   useReducer,
   useRef,
 } from 'react';
-import PropTypes from 'prop-types';
 import { classNames, mockState } from '@junipero/core';
+import PropTypes from 'prop-types';
 
 const Toggle = forwardRef(({
   checked = false,
@@ -81,9 +81,11 @@ const Toggle = forwardRef(({
       <div className="inner">
         <div className="handle" />
       </div>
-      <div className="label">
-        {children}
-      </div>
+      { children && (
+        <div className="label">
+          {children}
+        </div>
+      ) }
     </label>
   );
 });

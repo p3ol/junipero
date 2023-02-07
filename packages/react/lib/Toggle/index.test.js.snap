@@ -209,9 +209,6 @@ exports[`<Toggle /> should render 1`] = `
         class="handle"
       />
     </div>
-    <div
-      class="label"
-    />
   </label>
 </div>
 `;
