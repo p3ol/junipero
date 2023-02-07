@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.38](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.37...v3.0.0-alpha.38) (2023-02-07)
+
+
+### Bug Fixes
+
+* **react:** only show toggle label when children exists ([7a4f669](https://github.com/p3ol/junipero/commit/7a4f6698c351dd63ccc53663558ff85ac8bcf59c))
+* **react:** remove toggle deprecated onkeypress event ([b8794d3](https://github.com/p3ol/junipero/commit/b8794d38ab1a899b8ca6d1f637b4e251832b2ba3))
+
+
+
+
+
 # [3.0.0-alpha.32](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.31...v3.0.0-alpha.32) (2023-01-24)
 
 
