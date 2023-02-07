@@ -18,7 +18,11 @@
   "peerDependencies": {
     "tailwindcss": "^3.0.0"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "true",
+    "clean": "true",
+    "lint": "true"
+  },
   "publishConfig": {
     "access": "public"
   }
