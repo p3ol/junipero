@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.36](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.35...v3.0.0-alpha.36) (2023-02-07)
+
+
+### Bug Fixes
+
+* **theme:** toggle overflow ([76c9bad](https://github.com/p3ol/junipero/commit/76c9bad91dda4c72999393a01dd02b3f40b58fe8))
+
+
+
+
+
 # [3.0.0-alpha.29](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.28...v3.0.0-alpha.29) (2023-01-20)
 
 
