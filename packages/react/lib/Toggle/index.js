@@ -35,7 +35,7 @@ const Toggle = forwardRef(({
     isJunipero: true,
   }));
 
-  const onKeyPress = e => {
+  const onKeyDown = e => {
     if (e.key === 'Enter' || e.key === ' ') {
       onChange_(e);
     }
@@ -66,7 +66,7 @@ const Toggle = forwardRef(({
         className
       )}
       tabIndex={tabIndex}
-      onKeyPress={onKeyPress}
+      onKeyDown={onKeyDown}
     >
       <input
         { ...rest }
