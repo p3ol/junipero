@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.37](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.36...v3.0.0-alpha.37) (2023-02-07)
+
+
+### Bug Fixes
+
+* **theme:** replace margin with gap ([1f128c7](https://github.com/p3ol/junipero/commit/1f128c7247926eb1ecf045f878cd32eb5b469085))
+
+
+
+
+
 # [3.0.0-alpha.36](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.35...v3.0.0-alpha.36) (2023-02-07)
 
 
