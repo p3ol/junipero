@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.41](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.40...v3.0.0-alpha.41) (2023-02-08)
+
+
+### Bug Fixes
+
+* **theme:** allow toggle colors override ([161989c](https://github.com/p3ol/junipero/commit/161989ccd933be6a11681186a8f9ca3ba932caa5))
+
+
+
+
+
 # [3.0.0-alpha.37](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.36...v3.0.0-alpha.37) (2023-02-07)
 
 
