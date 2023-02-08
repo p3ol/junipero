@@ -25,8 +25,8 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.20.1",
-    "core-js": "3.26.1"
+    "@babel/runtime-corejs3": "7.20.13",
+    "core-js": "3.27.2"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",
