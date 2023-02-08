@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.40](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.39...v3.0.0-alpha.40) (2023-02-08)
+
+
+### Bug Fixes
+
+* upgrade runtime & corejs ([9c21012](https://github.com/p3ol/junipero/commit/9c210126903eb29f3aea46188f741e6c90f3918b))
+
+
+
+
+
 # [3.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.15...v3.0.0-alpha.16) (2022-12-16)
 
 
