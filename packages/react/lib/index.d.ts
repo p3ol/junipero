@@ -79,9 +79,11 @@ export { default as ListColumn, ListColumnRef } from './ListColumn';
 export { default as ListItem, ListItemRef } from './ListItem';
 export {
   PooolLogo,
+  PooolCompactLogo,
   AccessLogo,
   SubscribeLogo,
-  ConnectLogo, EngageLogo,
+  ConnectLogo,
+  EngageLogo,
 } from './Logo';
 export { default as RadioField, RadioFieldRef } from './RadioField';
 export { default as SelectField, SelectFieldRef } from './SelectField';
