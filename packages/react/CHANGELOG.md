@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.39](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.38...v3.0.0-alpha.39) (2023-02-08)
+
+
+### Features
+
+* **react:** add poool compact logo ([1ccc636](https://github.com/p3ol/junipero/commit/1ccc636b52289fcfef50d80cb88df7e28f1b7b1d))
+
+
+
+
+
 # [3.0.0-alpha.38](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.37...v3.0.0-alpha.38) (2023-02-07)
 
 
