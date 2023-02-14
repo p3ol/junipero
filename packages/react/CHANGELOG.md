@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.43](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.42...v3.0.0-alpha.43) (2023-02-14)
+
+
+### Bug Fixes
+
+* **react:** pass list column props ([06956d4](https://github.com/p3ol/junipero/commit/06956d47a184e4bfd538d24033585cd3107b3edc))
+
+
+
+
+
 # [3.0.0-alpha.42](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.41...v3.0.0-alpha.42) (2023-02-14)
 
 
