@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.42](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.41...v3.0.0-alpha.42) (2023-02-14)
+
+
+### Bug Fixes
+
+* **react:** better manage list columns ([33d1251](https://github.com/p3ol/junipero/commit/33d1251a59bdcf73adb827cd9301e5c5a299295a))
+
+
+
+
+
 # [3.0.0-alpha.40](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.39...v3.0.0-alpha.40) (2023-02-08)
 
 

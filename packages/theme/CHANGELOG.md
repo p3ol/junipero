@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.42](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.41...v3.0.0-alpha.42) (2023-02-14)
+
+
+### Bug Fixes
+
+* **theme:** selectfield menu z index inside field group ([3d1ebf0](https://github.com/p3ol/junipero/commit/3d1ebf00bc7475ad6641c35492b453a320b6c383))
+
+
+
+
+
 # [3.0.0-alpha.41](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.40...v3.0.0-alpha.41) (2023-02-08)
 
 
