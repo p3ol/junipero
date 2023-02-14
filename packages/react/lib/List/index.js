@@ -84,7 +84,7 @@ const List = forwardRef(({
       .map(child => child.type === Fragment ? child.props.children : child)
       .flat()
       .filter(filterColumn)
-      .map(c => ({ id: c.props.id, title: c.props.children }));
+      .map(c => ({ ...c.props, title: c.props.children }));
 
   return (
     <ListContext.Provider value={getContext()}>
