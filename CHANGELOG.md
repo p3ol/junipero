@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.44](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.43...v3.0.0-alpha.44) (2023-02-14)
+
+
+### Bug Fixes
+
+* **react:** revert last list columns fix and replace with layout effect ([cfe5fe8](https://github.com/p3ol/junipero/commit/cfe5fe8af87c1b970d05cc3711af58d63cf0b08c))
+
+
+
+
+
 # [3.0.0-alpha.43](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.42...v3.0.0-alpha.43) (2023-02-14)
 
 
