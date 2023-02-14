@@ -1,6 +1,4 @@
 import {
-  Fragment,
-  Children,
   forwardRef,
   useImperativeHandle,
   useRef,
@@ -13,19 +11,19 @@ import PropTypes from 'prop-types';
 
 import { ListContext } from '../contexts';
 import { ArrowDown, ArrowUp } from '../icons';
-import ListColumn from '../ListColumn';
 
 const List = forwardRef(({
   className,
   children,
-  columns,
+  columns = [],
   onOrder,
-  filterColumn = child => child.type === ListColumn,
   ...rest
 }, ref) => {
+  const listRef = useRef([]);
   const innerRef = useRef();
   const orderable = useMemo(() => !!onOrder, [onOrder]);
   const [state, dispatch] = useReducer(mockState, {
+    columns,
     active: null,
     asc: null,
   });
@@ -33,6 +31,7 @@ const List = forwardRef(({
   useImperativeHandle(ref, () => ({
     innerRef,
     orderable,
+    columns: state.columns,
     active: state.active,
     asc: state.asc,
     isJunipero: true,
@@ -47,11 +46,22 @@ const List = forwardRef(({
     onOrder?.({ column, asc });
   };
 
+  const registerColumn = column => {
+    if (listRef.current.find(it => it.id === column.id)) {
+      return;
+    }
+
+    listRef.current.push(column);
+    dispatch({ columns: listRef.current });
+  };
+
   const getContext = useCallback(() => ({
     active: state.active,
     asc: state.asc,
     orderable,
+    registerColumn,
   }), [
+    state.columns,
     state.active,
     state.asc,
     orderable,
@@ -77,15 +87,6 @@ const List = forwardRef(({
     );
   };
 
-  const columnsToRender = columns
-    ? columns
-    : Children
-      .toArray(children)
-      .map(child => child.type === Fragment ? child.props.children : child)
-      .flat()
-      .filter(filterColumn)
-      .map(c => ({ ...c.props, title: c.props.children }));
-
   return (
     <ListContext.Provider value={getContext()}>
       <table
@@ -94,7 +95,7 @@ const List = forwardRef(({
         ref={innerRef}
       >
         <thead>
-          <tr>{ columnsToRender.map(renderColumn) }</tr>
+          <tr>{ state.columns.map(renderColumn) }</tr>
         </thead>
         <tbody>
           { children }
@@ -119,7 +120,6 @@ List.propTypes = {
       ]),
     }),
   ])),
-  filterColumn: PropTypes.func,
   onOrder: PropTypes.func,
 };
 
