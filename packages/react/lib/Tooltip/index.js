@@ -150,6 +150,7 @@ const Tooltip = forwardRef(({
 
   const tooltip = (
     <div
+      { ...rest }
       className={classNames(
         'junipero',
         'tooltip',
@@ -167,8 +168,7 @@ const Tooltip = forwardRef(({
     >
       { animate
         ? animate(tooltipInner, { opened: state.opened })
-        : tooltipInner
-      }
+        : tooltipInner }
     </div>
   );
 
@@ -184,7 +184,7 @@ const Tooltip = forwardRef(({
       ) : cloneElement(Children.only(children), {
         ...getReferenceProps(),
         ref: setReference,
-      })}
+      }) }
 
       {
         state.opened || animate || apparition === 'css'
