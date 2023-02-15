@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.45](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.44...v3.0.0-alpha.45) (2023-02-15)
+
+
+### Bug Fixes
+
+* **react:** fix not passed rest props to tooltip ([4fb1e25](https://github.com/p3ol/junipero/commit/4fb1e252747a173e841e77c206655d58d48bab3f))
+
+
+
+
+
 # [3.0.0-alpha.44](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.43...v3.0.0-alpha.44) (2023-02-14)
 
 
