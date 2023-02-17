@@ -55,6 +55,7 @@ export {
   SubscribeLogo,
   ConnectLogo,
   EngageLogo,
+  FlowLogo,
 } from './Logo';
 
 // Core

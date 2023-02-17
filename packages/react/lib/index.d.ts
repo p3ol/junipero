@@ -84,6 +84,7 @@ export {
   SubscribeLogo,
   ConnectLogo,
   EngageLogo,
+  FlowLogo,
 } from './Logo';
 export { default as RadioField, RadioFieldRef } from './RadioField';
 export { default as SelectField, SelectFieldRef } from './SelectField';
