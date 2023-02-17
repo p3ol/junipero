@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.46](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.45...v3.0.0-alpha.46) (2023-02-17)
+
+
+### Bug Fixes
+
+* **theme:** field group radius ([69bbeba](https://github.com/p3ol/junipero/commit/69bbebaa76c744672b6583571fcbad95b1c38488))
+
+
+
+
+
 # [3.0.0-alpha.42](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.41...v3.0.0-alpha.42) (2023-02-14)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.46](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.45...v3.0.0-alpha.46) (2023-02-17)
+
+
+### Bug Fixes
+
+* **react:** add missing types & exports ([527ea39](https://github.com/p3ol/junipero/commit/527ea3928b7693f83f0ceb45b8e7e496640803e6))
+* **react:** fix flow logo dimensions ([1bed127](https://github.com/p3ol/junipero/commit/1bed1275b64662ec0ab027259ee52cb19d6760db))
+* **theme:** field group radius ([69bbeba](https://github.com/p3ol/junipero/commit/69bbebaa76c744672b6583571fcbad95b1c38488))
+
+
+### Features
+
+* **lib:** add flow logo ([852b758](https://github.com/p3ol/junipero/commit/852b758b18013dfbefa2b2ed1f8796ccd8d3fffc))
+
+
+
+
+
 # [3.0.0-alpha.45](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.44...v3.0.0-alpha.45) (2023-02-15)
 
 
