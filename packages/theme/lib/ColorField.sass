@@ -1,5 +1,7 @@
 .junipero.color-field
   --main-color: var(--junipero-velvet)
+  --pigment-background-color: var(--junipero-mischka)
+  --pigment-border-color: var(--junipero-seashell)
 
   &.moving
     .text-field input
@@ -30,8 +32,8 @@
       width: 12px
       height: 12px
       border-radius: 50%
-      background: var(--junipero-mischka)
-      box-shadow: 0 0 0 2px var(--junipero-seashell), 0 2px 7px 1px rgb(0 0 0 / 15%)
+      background: var(--pigment-background-color)
+      box-shadow: 0 0 0 2px var(--pigment-border-color), 0 2px 7px 1px rgb(0 0 0 / 15%)
       transform: translateY(-50%)
 
 .junipero.color-field .menu-inner,
@@ -111,3 +113,7 @@
           position: relative
           left: -4px
           box-shadow: 0 2px 7px 1px rgb(0 0 0 / 15%)
+
+// Dark mode
+.dark .junipero.color-field
+  --pigment-border-color: var(--junipero-dark-velvet-foreground)

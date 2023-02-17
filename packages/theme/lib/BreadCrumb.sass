@@ -1,21 +1,22 @@
 .junipero.breadcrumb
-  --text-color: var(--junipero-tundora)
   --main-color: var(--junipero-velvet)
-  --secondary-color: var(--junipero-mischka)
+  --separator-color: var(--junipero-mischka)
 
   display: flex
   align-items: center
   gap: 8px
 
+  a.item
+    color: inherit
+
   .item
     display: inline-flex
     gap: 8px
     align-items: center
-    color: var(--text-color)
 
     &::after
       content: '/'
-      color: var(--secondary-color)
+      color: var(--separator-color)
       display: inline
 
     &:last-child
@@ -28,3 +29,7 @@
   a.item
     cursor: pointer
     text-decoration: none
+
+// Dark mode
+.dark .junipero.breadcrumb
+  --separator-color: var(--junipero-nevada)

@@ -8,6 +8,7 @@ $height: 8px
   --border-color: var(--junipero-mischka)
   --background-color: var(--junipero-concrete)
   --active-color: var(--junipero-velvet-active)
+  --handle-color: var(--junipero-seashell)
 
   display: inline-flex
   width: auto
@@ -46,7 +47,7 @@ $height: 8px
   .handle
     width: 16px
     height: 16px
-    background: colors.$seashell
+    background: var(--handle-color)
     box-shadow: 0 0 0 2px var(--border-color)
     transition: box-shadow .2s ease-in-out
     border-radius: 4px
@@ -60,3 +61,10 @@ $height: 8px
 
     &:focus
       --border-color: var(--main-color)
+
+// Dark mode
+.dark .junipero.slider
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-dark-velvet-foreground)
+  --background-color: var(--junipero-dark-velvet-background)
+  --active-color: var(--junipero-velvet-active)
