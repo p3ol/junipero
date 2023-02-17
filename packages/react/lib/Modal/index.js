@@ -60,6 +60,16 @@ const Modal = forwardRef(({
     close();
   };
 
+  const onCloseClick = e => {
+    e.preventDefault();
+
+    if (disabled || !closable) {
+      return;
+    }
+
+    close();
+  };
+
   const open = () => {
     if (disabled) {
       return;
@@ -113,7 +123,7 @@ const Modal = forwardRef(({
               href="#"
               ref={closeButtonRef}
               className="close"
-              onClick={onBackdropClick}
+              onClick={onCloseClick}
             >
               <Remove />
             </a>
