@@ -45,6 +45,25 @@
   --junipero-sunglow-hover: #{colors.$sunglowHover}
   --junipero-sunglow-active: #{colors.$sunglowActive}
 
+  // - Dark mode
+  --junipero-dark-velvet-disabled: #{colors.$darkVelvetDisabled}
+  --junipero-dark-velvet-background: #{colors.$darkVelvetBackground}
+  --junipero-dark-velvet-foreground: #{colors.$darkVelvetForeground}
+
+  --junipero-dark-lime-disabled: #{colors.$darkLimeDisabled}
+  --junipero-dark-lime-background: #{colors.$darkLimeBackground}
+  --junipero-dark-lime-foreground: #{colors.$darkLimeForeground}
+
+  --junipero-dark-grapefruit-disabled: #{colors.$darkGrapefruitDisabled}
+  --junipero-dark-grapefruit-background: #{colors.$darkGrapefruitBackground}
+  --junipero-dark-grapefruit-foreground: #{colors.$darkGrapefruitForeground}
+
+  --junipero-dark-sunglow-disabled: #{colors.$darkSunglowDisabled}
+  --junipero-dark-sunglow-background: #{colors.$darkSunglowBackground}
+  --junipero-dark-sunglow-foreground: #{colors.$darkSunglowForeground}
+
+  --junipero-nevada: #{colors.$nevada}
+
   // Alphas and shadows
   --junipero-backdrop: #{rgba(colors.$concrete, 0.7)}
   --junipero-backdrop-invisible: #{rgba(colors.$concrete, 0)}
@@ -60,3 +79,7 @@
   &, & *, & *:before, & *:after
     outline: none
     box-sizing: border-box
+
+.dark .junipero
+  &, & input, & textarea
+    color: var(--junipero-seashell)
