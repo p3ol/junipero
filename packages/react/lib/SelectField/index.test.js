@@ -294,6 +294,34 @@ describe('<SelectField />', () => {
     unmount();
   });
 
+  it('should not remove field previous values while hitting ' +
+    'backspace, if search isnt empty', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        options={['Item 1', 'Item 2']}
+        value={['Item 1']}
+        multiple={true}
+      />
+    );
+
+    await user.click(container.querySelector('input'));
+
+    await user.type(container.querySelector('input'), 'Item');
+    // Cannot use .useFakeTimers() as user.type uses timers :/
+    await sleep(1);
+    expect(container).toMatchSnapshot();
+
+    // Remove 'Item' written text without removing previous values
+    await Promise.all(
+      Array.from({ length: 4 }).map(() => user.keyboard('{BackSpace}'))
+    );
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
   it('should allow to use object options and display custom titles on a ' +
     'controlled field', async () => {
     const user = userEvent.setup();
