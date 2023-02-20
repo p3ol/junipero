@@ -37,6 +37,9 @@ const compile = async ({ input, output }) => {
     prefixedCss + `\n/*# sourceMappingURL=${output.split('/').pop()}.map */`,
   );
 
+  sourceMap.sources = sourceMap.sources
+    .map(s => s.replace(/file:\/{3}(?:.+)\/(.+)\.sass/, '$1.sass'));
+
   await fse.outputFile(
     output + '.map',
     JSON.stringify(sourceMap) || '',
