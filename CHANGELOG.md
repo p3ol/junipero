@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.50](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.49...v3.0.0-alpha.50) (2023-02-20)
+
+
+### Bug Fixes
+
+* **theme:** better color contrast with new gondola color ([098a153](https://github.com/p3ol/junipero/commit/098a15315c8ab89ae7004acdd107d0fe9d034a3b))
+
+
+### Features
+
+* **tailwind-plugin:** add gondola color ([79f8fae](https://github.com/p3ol/junipero/commit/79f8fae652b5e8317e1a466673cff3c8e99ded1d))
+
+
+
+
+
 # [3.0.0-alpha.49](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.48...v3.0.0-alpha.49) (2023-02-20)
 
 

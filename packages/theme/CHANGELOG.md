@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.50](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.49...v3.0.0-alpha.50) (2023-02-20)
+
+
+### Bug Fixes
+
+* **theme:** better color contrast with new gondola color ([098a153](https://github.com/p3ol/junipero/commit/098a15315c8ab89ae7004acdd107d0fe9d034a3b))
+
+
+
+
+
 # [3.0.0-alpha.47](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.46...v3.0.0-alpha.47) (2023-02-20)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.50](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.49...v3.0.0-alpha.50) (2023-02-20)
+
+**Note:** Version bump only for package @junipero/react
+
+
+
+
+
 # [3.0.0-alpha.49](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.48...v3.0.0-alpha.49) (2023-02-20)
 
 
