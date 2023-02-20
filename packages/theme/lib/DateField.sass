@@ -23,7 +23,8 @@
   
   &:focus-within,
   &.opened
-    --border-color: var(--main-color)
+    .field
+      box-shadow: 0 0 0 2px var(--main-color)
 
     .arrows
       --icons-color: var(--main-color)
@@ -122,5 +123,5 @@
     --icons-color: var(--junipero-dark-velvet-foreground)
     --placeholder-color: var(--junipero-nevada)
     --text-color: var(--junipero-seashell)
-    --time-background-color: var(--junipero-dark-velvet-disabled)
+    --time-background-color: var(--junipero-dark-velvet-background)
     --time-placeholder-color: var(--junipero-concrete)
