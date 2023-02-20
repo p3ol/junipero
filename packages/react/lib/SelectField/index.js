@@ -268,6 +268,10 @@ const SelectField = forwardRef(({
 
     switch (e.key) {
       case 'Backspace':
+        if (state.search) {
+          return;
+        }
+
         if (state.selectedItem >= 0) {
           onRemoveOption(state.value[state.selectedItem]);
         } else {
