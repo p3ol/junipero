@@ -43,6 +43,25 @@ module.exports = plugin(() => {}, {
       concrete: '#F3F3F3',
       mischka: '#DFE1E6',
       slate: '#6B778C',
+
+      // Dark mode
+      'dark-velvet-disabled': '#424078',
+      'dark-velvet-background': '#2A284B',
+      'dark-velvet-foreground': '#3C3886',
+
+      'dark-lime-disabled': '#51725A',
+      'dark-lime-background': '#47604E',
+      'dark-lime-foreground': '#51845F',
+
+      'dark-grapefruit-disabled': '#8D5454',
+      'dark-grapefruit-background': '#5E4343',
+      'dark-grapefruit-foreground': '#A45C5C',
+
+      'dark-sunglow-disabled': '#756333',
+      'dark-sunglow-background': '#4D4634',
+      'dark-sunglow-foreground': '#B2974B',
+
+      nevada: '#646873',
     },
   },
 });
