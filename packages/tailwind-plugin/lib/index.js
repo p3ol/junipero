@@ -62,6 +62,7 @@ module.exports = plugin(() => {}, {
       'dark-sunglow-foreground': '#B2974B',
 
       nevada: '#646873',
+      gondola: '#1E1E1E',
     },
   },
 });
