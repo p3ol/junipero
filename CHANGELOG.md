@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.51](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.50...v3.0.0-alpha.51) (2023-02-20)
+
+
+### Bug Fixes
+
+* **lib:** fix backspace removing previous values before search ([7da8413](https://github.com/p3ol/junipero/commit/7da8413db4486f698166be4017ee9eb981bfaedb))
+
+
+
+
+
 # [3.0.0-alpha.50](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.49...v3.0.0-alpha.50) (2023-02-20)
 
 
