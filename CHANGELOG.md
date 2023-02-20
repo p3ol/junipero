@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.47](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.46...v3.0.0-alpha.47) (2023-02-20)
+
+
+### Bug Fixes
+
+* **react:** correctly handle modal close event ([89a4be3](https://github.com/p3ol/junipero/commit/89a4be3bb89cac1988b06555424b531f05e563bb))
+
+
+### Features
+
+* add dark mode colors ([c53f685](https://github.com/p3ol/junipero/commit/c53f685c5a695abf4392b0d2c50e990d9ea5bf7f))
+* **theme:** add new dark mode colors ([9df18c5](https://github.com/p3ol/junipero/commit/9df18c591164dcbde6225667e3227a4cd5eeb70c))
+
+
+
+
+
 # [3.0.0-alpha.46](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.45...v3.0.0-alpha.46) (2023-02-17)
 
 
