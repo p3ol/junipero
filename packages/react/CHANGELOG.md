@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.49](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.48...v3.0.0-alpha.49) (2023-02-20)
+
+
+### Bug Fixes
+
+* **react:** isolate text from logos ([f2f1994](https://github.com/p3ol/junipero/commit/f2f199481e4a6361a0ed88a69dee67a01d5761ce))
+
+
+
+
+
 # [3.0.0-alpha.47](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.46...v3.0.0-alpha.47) (2023-02-20)
 
 
