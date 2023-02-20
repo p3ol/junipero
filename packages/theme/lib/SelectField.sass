@@ -100,7 +100,7 @@
     color: var(--secondary-color)
 
   .spinner
-    --main-color: var(--spinner-color)
+    --background-color: var(--spinner-color)
 
 .junipero.selectfield .menu-inner,
 .junipero.select-menu .menu-inner
@@ -113,3 +113,12 @@
 
   .content
     opacity: 0.5
+
+// Dark mode
+.dark .junipero.select-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-dark-velvet-foreground)
+  --icons-color: var(--junipero-dark-velvet-foreground)
+  --placeholder-color: var(--junipero-nevada)
+  --invalid-color: var(--junipero-grapefruit)
+  --spinner-color: var(--junipero-velvet)

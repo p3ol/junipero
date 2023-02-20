@@ -2,6 +2,9 @@
 
 .junipero.modal
   --background-color: var(--junipero-backdrop)
+  --foreground-color: var(--junipero-seashell)
+  --icons-color: var(--junipero-onyx)
+  --border-color: transparent
   --transition-background-exit: var(--junipero-backdrop-invisible)
   --transition-background-enter: var(--junipero-backdrop)
   --shadow-color: var(--junipero-shadow)
@@ -29,7 +32,7 @@
     & > .content
       width: 700px
       max-width: 100%
-      background: var(--junipero-seashell)
+      background: var(--foreground-color)
       min-height: 500px
       position: relative
       z-index: 3
@@ -37,31 +40,14 @@
       border-radius: 10px
       margin: 0 auto
       padding: 20px
-      box-shadow: #{vars.$cardShadow}
+      box-shadow: #{vars.$cardShadowWithBorder}
 
       & > a.close
-        display: inline-block
-        width: 15px
-        height: 15px
+        display: flex
         position: absolute
         cursor: pointer
         top: 10px
         right: 10px
-
-        &:before, &:after
-          content: ''
-          height: 100%
-          position: absolute
-          width: 2px
-          background: var(--junipero-onyx)
-          left: calc(50% - 1px)
-          top: 0
-
-        &:before
-          transform: rotate(45deg)
-
-        &:after
-          transform: rotate(-45deg)
 
   &.panel
     & > .wrapper
@@ -74,3 +60,13 @@
         overflow: auto
         margin: 0
         border-radius: 0
+
+// Dark mode
+.dark .junipero.modal
+  --background-color: var(--junipero-dark-backdrop)
+  --transition-background-exit: var(--junipero-dark-backdrop-invisible)
+  --transition-background-enter: var(--junipero-dark-backdrop)
+  --shadow-color: transparent
+  --foreground-color: var(--junipero-onyx)
+  --border-color: var(--junipero-dark-velvet-foreground)
+  --icons-color: var(--junipero-seashell)

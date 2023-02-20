@@ -1,4 +1,11 @@
 .junipero.radio-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --background-color: var(--junipero-alabaster)
+  --hover-color: var(--junipero-concrete)
+  --active-color: var(--junipero-velvet-background)
+  --invalid-color: var(--junipero-grapefruit)
+
   label
     display: flex
     align-items: top
@@ -7,8 +14,8 @@
       display: none
 
     .inner
-      border: 2px solid var(--junipero-mischka)
-      background: var(--junipero-alabaster)
+      border: 2px solid var(--border-color)
+      background: var(--background-color)
       width: 16px
       height: 16px
       border-radius: 50%
@@ -18,20 +25,22 @@
 
     &.checked
       .inner
-        border: 5px solid var(--junipero-velvet)
+        --border-color: var(--main-color)
+        --background-color: var(--junipero-seashell)
+        border-width: 5px
 
-    &:focus:not(.disabled, .checked)
+    &:focus:not(.disabled):not(.checked),
+    &:focus-within:not(.disabled):not(.checked)
       .inner
-        border-color: var(--junipero-velvet)
+        --border-color: var(--main-color)
 
     &:hover:not(.disabled, .checked)
       .inner
-        background: var(--junipero-concrete)
+        --background-color: var(--hover-color)
 
     &:active:not(.disabled, .checked)
       .inner
-        border-color: var(--junipero-velvet-disabled)
-        background: var(--junipero-velvet-disabled)
+        --border-color: var(--active-color)
     
     &.disabled
       opacity: .5
@@ -40,24 +49,25 @@
       font-size: 12px
 
   &.invalid.dirty
+    --main-color: var(--invalid-color)
+
     label
       .inner
-        background-color: var(--junipero-alabaster)
-        border-color: var(--junipero-grapefruit)
-        
+        --border-color: var(--invalid-color)
+
         &.checked
-          border: 5px solid var(--junipero-grapefruit)
-    
+          --border-color: var(--invalid-color)
+
       .label
         color: var(--junipero-grapefruit)
 
       &:hover:not(.checked)
         .inner
-          background: var(--junipero-grapefruit-hover)
+          background: var(--hover-color)
 
       &:focus:not(.checked)
         .inner
-          border-color: var(--junipero-grapefruit-active)
+          border-color: var(--invalid-color)
 
   &.boxed
     label
@@ -75,3 +85,11 @@
     &.invalid.dirty
       label
         border: 2px solid var(--junipero-grapefruit)
+
+// Dark mode
+.dark .junipero.radio-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-dark-velvet-foreground)
+  --background-color: var(--junipero-dark-velvet-background)
+  --hover-color: var(--junipero-dark-velvet-disabled)
+  --active-color: var(--junipero-dark-velvet-disabled)

@@ -1,5 +1,3 @@
-@use "colors" as colors
-
 .junipero.field-addon
   --main-color: var(--junipero-velvet)
   --background-color: var(--junipero-mischka)
@@ -21,3 +19,9 @@
     background: var(--main-color)
     color: var(--focus-text-color)
     box-shadow: 0 0 0 2px var(--main-color)
+
+// Dark mode
+.dark .junipero.field-addon
+  --background-color: var(--junipero-dark-velvet-foreground)
+  --text-color: var(--junipero-seashell)
+  --focus-text-color: var(--junipero-seashell)
