@@ -6,10 +6,9 @@
   --placeholder-color: var(--junipero-slate)
   --invalid-color: var(--junipero-grapefruit)
   --text-color: var(--junipero-onyx)
-  --inactive-text-color: var(--junipero-mischka)
-  --selected-text-color: var(--junipero-seashell)
-  --hover-color: var(--junipero-concrete)
   --secondary-text-color: var(--junipero-tundora)
+  --time-background-color: var(--junipero-concrete)
+  --time-placeholder-color: var(--junipero-slate)
 
 .junipero.date-field
   display: inline-flex
@@ -93,7 +92,7 @@
     position: relative
 
     .icon
-      --icons-color: var(--placeholder-color)
+      --icons-color: var(--time-placeholder-color)
 
       position: absolute
       top: 50%
@@ -103,13 +102,25 @@
 
     input
       appearance: none
-      background: var(--hover-color)
+      background: var(--time-background-color)
       border: none
       border-radius: 4px
       padding: 5px 10px 5px 40px
       width: 100%
 
       &::placeholder
-        color: var(--placeholder-color)
+        color: var(--time-placeholder-color)
         opacity: 1
         user-select: none
+
+// Dark mode
+.dark
+  .junipero.date-field,
+  .junipero.calendar-menu
+    --main-color: var(--junipero-velvet)
+    --border-color: var(--junipero-dark-velvet-foreground)
+    --icons-color: var(--junipero-dark-velvet-foreground)
+    --placeholder-color: var(--junipero-nevada)
+    --text-color: var(--junipero-seashell)
+    --time-background-color: var(--junipero-dark-velvet-disabled)
+    --time-placeholder-color: var(--junipero-concrete)

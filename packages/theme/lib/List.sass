@@ -16,7 +16,7 @@
   th
     font-weight: normal
 
-    &, & a
+    &, & a, & a .junipero
       color: var(--column-color)
 
     a
@@ -24,3 +24,9 @@
       display: flex
       align-items: center
       gap: 4px
+
+// Dark mode
+.dark .junipero.list
+  --column-color: var(--junipero-velvet)
+  --icons-color: var(--junipero-velvet)
+  --border-color: var(--junipero-dark-velvet-disabled)

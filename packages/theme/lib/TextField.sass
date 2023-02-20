@@ -3,6 +3,9 @@
   --border-color: var(--junipero-mischka)
   --placeholder-color: var(--junipero-slate)
   --invalid-color: var(--junipero-grapefruit)
+  --background-color: var(--junipero-seashell)
+  --autofill-background-color: rgb(232, 240, 254)
+  --autofill-text-color: var(--junipero-onyx)
 
   display: inline-flex
 
@@ -19,10 +22,16 @@
     flex: 1
     box-shadow: 0 0 0 2px var(--border-color)
     transition: box-shadow .2s ease-in-out
+    background: var(--background-color)
 
     &::placeholder
       color: var(--placeholder-color)
       opacity: 1
+
+    &:-webkit-autofill
+      caret-color: var(--autofill-text-color)
+      -webkit-text-fill-color: var(--autofill-text-color)
+      box-shadow: 0 0 0px 1000px var(--autofill-background-color) inset, 0 0 0 2px var(--border-color)
 
     &:focus,
     &:focus-within
@@ -33,3 +42,12 @@
       &:not(:focus),
       &:not(:focus-within)
         --border-color: var(--invalid-color)
+
+// Dark mode
+.dark .junipero.text-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-dark-velvet-foreground)
+  --placeholder-color: var(--junipero-nevada)
+  --background-color: var(--junipero-onyx)
+  --autofill-background-color: var(--junipero-dark-velvet-background)
+  --autofill-text-color: var(--junipero-seashell)

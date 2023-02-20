@@ -4,8 +4,8 @@
   --text-color: var(--junipero-onyx)
   --inactive-text-color: var(--junipero-mischka)
   --selected-text-color: var(--junipero-seashell)
-  --hover-color: var(--junipero-concrete)
-  --secondary-text-color: var(--junipero-tundora)
+  --hover-color: var(--junipero-velvet-background)
+  --secondary-text-color: var(--junipero-slate)
 
   display: block
   min-width: 250px
@@ -69,3 +69,13 @@
 
     &.active
       background: var(--main-color)
+
+// Dark mode
+.dark .junipero.calendar
+  --main-color: var(--junipero-velvet)
+  --icons-color: var(--junipero-seashell)
+  --text-color: var(--junipero-seashell)
+  --inactive-text-color: var(--junipero-concrete)
+  --selected-text-color: var(--junipero-seashell)
+  --hover-color: var(--junipero-dark-velvet-foreground)
+  --secondary-text-color: var(--junipero-velvet)
