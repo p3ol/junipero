@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.53](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.52...v3.0.0-alpha.53) (2023-02-22)
+
+
+### Features
+
+* **theme:** move dark mode styles to standalones ([45c3183](https://github.com/p3ol/junipero/commit/45c318324997ca60bb696a560be4ba2df7f30f2e))
+
+
+
+
+
 # [3.0.0-alpha.52](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.51...v3.0.0-alpha.52) (2023-02-22)
 
 
