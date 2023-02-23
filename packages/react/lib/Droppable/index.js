@@ -26,7 +26,7 @@ const Droppable = forwardRef(({
       return;
     }
 
-    setStack(stack + 1);
+    setStack(s => s + 1);
     setDragging(true);
   };
 
@@ -35,7 +35,7 @@ const Droppable = forwardRef(({
       return;
     }
 
-    setStack(stack - 1);
+    setStack(s => s - 1);
     setDraggingPos(null);
     onDragLeave?.(e);
   };
