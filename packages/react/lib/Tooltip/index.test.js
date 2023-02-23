@@ -1,4 +1,5 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
+import { slideInDownMenu } from '@junipero/transitions';
 
 import Tooltip from './';
 
@@ -64,6 +65,49 @@ describe('<Tooltip />', () => {
     fireEvent.mouseEnter(container.querySelector('span'));
     expect(target).toMatchSnapshot();
     unmountContainer();
+    unmount();
+  });
+
+  it('should allow to animate tooltip', () => {
+    jest.useFakeTimers();
+    const { container, unmount } = render(
+      <Tooltip text="Bar" animate={slideInDownMenu}>
+        Foo
+      </Tooltip>
+    );
+
+    expect(container).toMatchSnapshot('Enter: Tooltip not in dom');
+    fireEvent.mouseEnter(container.querySelector('span'));
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Enter: Tooltip in dom');
+
+    fireEvent.mouseLeave(container.querySelector('span'));
+    expect(container).toMatchSnapshot('Exit: Tooltip in dom');
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Exit: Tooltip not in dom');
+
+    jest.useRealTimers();
+    unmount();
+  });
+
+  it('should keep animated tooltip in dom if apparition is css', () => {
+    jest.useFakeTimers();
+    const { container, unmount } = render(
+      <Tooltip text="Bar" animate={slideInDownMenu} apparition="css">
+        Foo
+      </Tooltip>
+    );
+
+    expect(container).toMatchSnapshot('Enter: Tooltip already in dom');
+    fireEvent.mouseEnter(container.querySelector('span'));
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Enter: Tooltip still in dom');
+
+    fireEvent.mouseLeave(container.querySelector('span'));
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Exit: Tooltip still in dom');
+
+    jest.useRealTimers();
     unmount();
   });
 });

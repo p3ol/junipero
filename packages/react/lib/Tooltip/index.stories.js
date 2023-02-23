@@ -22,3 +22,14 @@ export const animated = () => (
     Hover me
   </Tooltip>
 );
+
+export const animatedButStillInDom = () => (
+  <Tooltip
+    text="Text"
+    animate={slideInDownMenu}
+    onToggle={action('toggle')}
+    apparition="css"
+  >
+    Hover me
+  </Tooltip>
+);

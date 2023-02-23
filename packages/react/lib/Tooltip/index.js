@@ -44,6 +44,7 @@ const Tooltip = forwardRef(({
   const innerRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
     opened: opened ?? false,
+    visible: opened ?? false,
   });
 
   const { x, y, reference, floating, strategy, context } = useFloating({
@@ -98,7 +99,7 @@ const Tooltip = forwardRef(({
       return;
     }
 
-    dispatch({ opened: o });
+    dispatch({ opened: o, visible: true });
     onToggle?.({ opened: o });
   };
 
@@ -119,7 +120,7 @@ const Tooltip = forwardRef(({
       return;
     }
 
-    dispatch({ opened: true });
+    dispatch({ opened: true, visible: true });
     onToggle?.({ opened: true });
   };
 
@@ -140,6 +141,10 @@ const Tooltip = forwardRef(({
   const setFloatingRef = r => {
     innerRef.current = r;
     floating(r);
+  };
+
+  const onAnimationExit = () => {
+    dispatch({ visible: false });
   };
 
   const tooltipInner = (
@@ -167,8 +172,12 @@ const Tooltip = forwardRef(({
       ref={setFloatingRef}
     >
       { animate
-        ? animate(tooltipInner, { opened: state.opened })
-        : tooltipInner }
+        ? animate(tooltipInner, {
+          opened: state.opened,
+          onExited: onAnimationExit,
+        })
+        : tooltipInner
+      }
     </div>
   );
 
@@ -186,12 +195,11 @@ const Tooltip = forwardRef(({
         ref: setReference,
       }) }
 
-      {
-        state.opened || animate || apparition === 'css'
-          ? container
-            ? createPortal(tooltip, ensureNode(container))
-            : tooltip
-          : null
+      { state.opened || (animate && state.visible) || apparition === 'css'
+        ? container
+          ? createPortal(tooltip, ensureNode(container))
+          : tooltip
+        : null
       }
     </>
   );
