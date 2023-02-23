@@ -13,6 +13,19 @@ exports[`<Transition /> should render correctly: Active 1`] = `
 </div>
 `;
 
+exports[`<Transition /> should render correctly: Active 2`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <div
+    class="transition-exit-active"
+  >
+    Animated text
+  </div>
+</div>
+`;
+
 exports[`<Transition /> should render correctly: Done 1`] = `
 <div>
   <button>
@@ -20,6 +33,19 @@ exports[`<Transition /> should render correctly: Done 1`] = `
   </button>
   <div
     class="transition-enter-done"
+  >
+    Animated text
+  </div>
+</div>
+`;
+
+exports[`<Transition /> should render correctly: Done 2`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <div
+    class="transition-exit-done"
   >
     Animated text
   </div>

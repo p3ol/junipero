@@ -18,6 +18,12 @@ const Transition = ({
   timeout = 100,
   mountOnEnter = true,
   unmountOnExit = false,
+  onEnter,
+  onEntering,
+  onEntered,
+  onExit,
+  onExiting,
+  onExited,
   ...rest
 }) => {
   const previousIn = useRef(inProp);
@@ -31,16 +37,19 @@ const Transition = ({
 
     previousIn.current = inProp;
     setStatus(inProp ? ENTER : EXIT);
+    inProp ? onEnter?.() : onExit?.();
     setStep(STARTING);
   }, [inProp]);
 
   useTimeout(() => {
     setStep(ACTIVE);
-  }, 0, [step], { enabled: step === STARTING });
+    status === ENTER ? onEntering?.() : onExiting?.();
+  }, 0, [step, status], { enabled: step === STARTING });
 
   useTimeout(() => {
     if (step !== IDLE) {
       setStep(DONE);
+      onEntered?.();
     }
   }, timeout?.enter ?? timeout, [status, step], {
     enabled: status === ENTER,
@@ -50,6 +59,7 @@ const Transition = ({
     if (step !== IDLE) {
       unmountOnExit && setStatus(UNMOUNTED);
       setStep(DONE);
+      onExited?.();
     }
   }, timeout?.exit ?? timeout, [status, step], {
     enabled: status === EXIT,
@@ -81,6 +91,12 @@ Transition.propTypes = {
   ]),
   mountOnEnter: PropTypes.bool,
   unmountOnExit: PropTypes.bool,
+  onEnter: PropTypes.func,
+  onEntering: PropTypes.func,
+  onEntered: PropTypes.func,
+  onExit: PropTypes.func,
+  onExiting: PropTypes.func,
+  onExited: PropTypes.func,
 };
 
 export default Transition;
