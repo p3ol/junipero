@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.54](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.53...v3.0.0-alpha.54) (2023-02-23)
+
+
+### Features
+
+* **react:** add callbacks to Transition ([8e3a0f7](https://github.com/p3ol/junipero/commit/8e3a0f79bb95992c5f79e8e4e3f50313a3ffde8a))
+* **react:** allow to dissociate modal content and wrapper on animate ([4c96670](https://github.com/p3ol/junipero/commit/4c966703a48118e552c3f16bec89f696a71b7481))
+* **react:** remove dropdown menu from dom when animated ([a50b57c](https://github.com/p3ol/junipero/commit/a50b57cba997f9d7851c83deaca35a9eeeadc236))
+* **react:** remove tooltip from dom when animated ([fc09c25](https://github.com/p3ol/junipero/commit/fc09c253bdef273eef719b7ad60823d70ea7980e))
+
+
+
+
+
 # [3.0.0-alpha.52](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.51...v3.0.0-alpha.52) (2023-02-22)
 
 

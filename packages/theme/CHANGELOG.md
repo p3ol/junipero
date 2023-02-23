@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.54](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.53...v3.0.0-alpha.54) (2023-02-23)
+
+**Note:** Version bump only for package @junipero/theme
+
+
+
+
+
 # [3.0.0-alpha.53](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.52...v3.0.0-alpha.53) (2023-02-22)
 
 
