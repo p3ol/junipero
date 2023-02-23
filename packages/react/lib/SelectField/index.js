@@ -28,7 +28,7 @@ import Tag from '../Tag';
 import Spinner from '../Spinner';
 
 const SelectField = forwardRef(({
-  toggleClick = false,
+  toggleClick,
   keyboardHandler = false,
   animateMenu,
   className,
@@ -407,7 +407,10 @@ const SelectField = forwardRef(({
       opened={state.opened}
       ref={dropdownRef}
       disabled={disabled}
-      clickOptions={{ toggle: toggleClick, keyboardHandlers: keyboardHandler }}
+      clickOptions={{
+        toggle: toggleClick ?? !searchable,
+        keyboardHandlers: keyboardHandler,
+      }}
       className={classNames(
         'select-field',
         state.dirty ? 'dirty' : 'pristine',

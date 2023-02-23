@@ -428,6 +428,54 @@ describe('<SelectField />', () => {
     unmount();
   });
 
+  it('should toggle on click if not searchable', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        searchable={false}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('opened');
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('closed');
+    unmount();
+  });
+
+  it('should not toggle on click if disabled', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        toggleClick={false}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('opened');
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('still opened');
+    unmount();
+  });
+
+  it('should not toggle on click if searchable', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        searchable={true}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('opened');
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('still opened');
+    unmount();
+  });
+
   it('should toggle on keyboard if enabled', async () => {
     const user = userEvent.setup();
     const { unmount, container } = render(
@@ -447,4 +495,5 @@ describe('<SelectField />', () => {
     expect(container).toMatchSnapshot('back opened');
     unmount();
   });
+
 });
