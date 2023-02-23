@@ -29,6 +29,7 @@ const Modal = forwardRef(({
   const closeButtonRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
     opened: opened ?? false,
+    visible: opened ?? false,
   });
 
   useImperativeHandle(ref, () => ({
@@ -75,7 +76,7 @@ const Modal = forwardRef(({
       return;
     }
 
-    dispatch({ opened: true });
+    dispatch({ opened: true, visible: true });
     onToggle?.({ opened: true });
   };
 
@@ -93,9 +94,15 @@ const Modal = forwardRef(({
       return;
     }
 
-    state.opened = !state.opened;
-    dispatch({ opened: state.opened });
-    onToggle?.({ opened: state.opened });
+    if (state.opened) {
+      close();
+    } else {
+      open();
+    }
+  };
+
+  const onAnimationExit = () => {
+    dispatch({ visible: false });
   };
 
   const wrapper = (
@@ -135,9 +142,12 @@ const Modal = forwardRef(({
   );
 
   const content = animate
-    ? animate(wrapper, { opened: state.opened }) : wrapper;
+    ? animate(wrapper, {
+      opened: state.opened,
+      onExited: onAnimationExit,
+    }) : wrapper;
 
-  return state.opened || animate || apparition === 'css'
+  return state.opened || (animate && state.visible) || apparition === 'css'
     ? container ? createPortal(content, ensureNode(container)) : content
     : null;
 });

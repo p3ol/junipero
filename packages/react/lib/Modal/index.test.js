@@ -1,5 +1,6 @@
 import { createRef } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
+import { appearBounceModal } from '@junipero/transitions';
 
 import Modal from './';
 
@@ -74,6 +75,29 @@ describe('<Modal />', () => {
     expect(container).toMatchSnapshot();
     fireEvent.click(container.querySelector('.wrapper'));
     expect(container).toMatchSnapshot();
+    unmount();
+  });
+
+  it('should allow to animate modal', async () => {
+    jest.useFakeTimers();
+    const ref = createRef();
+    const { container, unmount } = render(
+      <div className="container">
+        <Modal animate={appearBounceModal} ref={ref} />
+      </div>
+    );
+    act(() => {
+      ref.current.open();
+      jest.advanceTimersByTime(100);
+    });
+    expect(container).toMatchSnapshot('opened');
+    act(() => {
+      ref.current.close();
+      jest.advanceTimersByTime(100);
+    });
+    expect(container).toMatchSnapshot('closed');
+
+    jest.useRealTimers();
     unmount();
   });
 });

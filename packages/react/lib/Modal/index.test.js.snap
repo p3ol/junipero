@@ -1,5 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Modal /> should allow to animate modal: closed 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="junipero modal jp-appear-bounce-modal-exit"
+    >
+      <div
+        class="wrapper"
+        tabindex="0"
+      >
+        <div
+          class="content"
+        >
+          <a
+            class="close"
+            href="#"
+          >
+            <svg
+              class="junipero icon remove"
+              height="10"
+              viewBox="0 0 9 10"
+              width="10"
+            >
+              <path
+                d="M8 1.5L1 8.5"
+              />
+              <path
+                d="M1 1.5L8 8.5"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Modal /> should allow to animate modal: opened 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="junipero modal opened jp-appear-bounce-modal-enter"
+    >
+      <div
+        class="wrapper"
+        tabindex="0"
+      >
+        <div
+          class="content"
+        >
+          <a
+            class="close"
+            href="#"
+          >
+            <svg
+              class="junipero icon remove"
+              height="10"
+              viewBox="0 0 9 10"
+              width="10"
+            >
+              <path
+                d="M8 1.5L1 8.5"
+              />
+              <path
+                d="M1 1.5L8 8.5"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Modal /> should close modal when clicking on backdrop: closed 1`] = `
 <div>
   <div
