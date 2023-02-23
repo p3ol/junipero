@@ -1,4 +1,5 @@
 import { act, fireEvent, render, renderHook } from '@testing-library/react';
+import { slideInDownMenu } from '@junipero/transitions';
 
 import { useDropdown } from '../hooks';
 import DropdownToggle from '../DropdownToggle';
@@ -188,5 +189,57 @@ describe('useDropdwon()', () => {
     act(() => result.current.open());
     expect(result.current.opened).toBeFalsy();
     expect(toggleMock).not.toHaveBeenCalled();
+  });
+
+  it('should allow to animate dropdown', () => {
+    jest.useFakeTimers();
+    const { getByText, container, unmount } = render(
+      <Dropdown>
+        <DropdownToggle><span>Click me</span></DropdownToggle>
+        <DropdownMenu animate={slideInDownMenu}>
+          <DropdownItem>Item 1</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    );
+    expect(container).toMatchSnapshot('Enter: Not in dom');
+
+    // Enter
+    fireEvent.click(getByText('Click me'));
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Enter: In dom');
+
+    // Exit
+    fireEvent.click(getByText('Click me'));
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Exit: Not in dom');
+
+    jest.useRealTimers();
+    unmount();
+  });
+
+  it('should keep the menu in dom when animated and apparition is css', () => {
+    jest.useFakeTimers();
+    const { getByText, container, unmount } = render(
+      <Dropdown>
+        <DropdownToggle><span>Click me</span></DropdownToggle>
+        <DropdownMenu animate={slideInDownMenu} apparition="css">
+          <DropdownItem>Item 1</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    );
+    expect(container).toMatchSnapshot('Enter: Already in dom');
+
+    // Enter
+    fireEvent.click(getByText('Click me'));
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Enter: Still in dom');
+
+    // Exit
+    fireEvent.click(getByText('Click me'));
+    act(() => { jest.advanceTimersByTime(100); });
+    expect(container).toMatchSnapshot('Exit: Still in dom');
+
+    jest.useRealTimers();
+    unmount();
   });
 });

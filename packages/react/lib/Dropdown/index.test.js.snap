@@ -188,3 +188,127 @@ exports[`<Dropdown /> should render 2`] = `
   </div>
 </div>
 `;
+
+exports[`useDropdwon() should allow to animate dropdown: Enter: In dom 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened"
+  >
+    <span
+      class="dropdown-toggle opened"
+    >
+      Click me
+    </span>
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner jp-slide-in-down-menu-enter-done"
+      >
+        <li
+          class="dropdown-item"
+        >
+          Item 1
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`useDropdwon() should allow to animate dropdown: Enter: Not in dom 1`] = `
+<div>
+  <div
+    class="junipero dropdown"
+  >
+    <span
+      class="dropdown-toggle"
+    >
+      Click me
+    </span>
+  </div>
+</div>
+`;
+
+exports[`useDropdwon() should allow to animate dropdown: Exit: Not in dom 1`] = `
+<div>
+  <div
+    class="junipero dropdown"
+  >
+    <span
+      class="dropdown-toggle"
+    >
+      Click me
+    </span>
+  </div>
+</div>
+`;
+
+exports[`useDropdwon() should keep the menu in dom when animated and apparition is css: Enter: Already in dom 1`] = `
+<div>
+  <div
+    class="junipero dropdown"
+  >
+    <span
+      class="dropdown-toggle"
+    >
+      Click me
+    </span>
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    />
+  </div>
+</div>
+`;
+
+exports[`useDropdwon() should keep the menu in dom when animated and apparition is css: Enter: Still in dom 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened"
+  >
+    <span
+      class="dropdown-toggle opened"
+    >
+      Click me
+    </span>
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner jp-slide-in-down-menu-enter-done"
+      >
+        <li
+          class="dropdown-item"
+        >
+          Item 1
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`useDropdwon() should keep the menu in dom when animated and apparition is css: Exit: Still in dom 1`] = `
+<div>
+  <div
+    class="junipero dropdown"
+  >
+    <span
+      class="dropdown-toggle"
+    >
+      Click me
+    </span>
+    <div
+      class="junipero dropdown-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    />
+  </div>
+</div>
+`;

@@ -49,3 +49,12 @@ export const animated = () => (
     </DropdownMenu>
   </Dropdown>
 );
+
+export const animatedButStillInDom = () => (
+  <Dropdown>
+    <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
+    <DropdownMenu animate={slideInDownMenu} apparition="css">
+      <DropdownItem><a>Item 1</a></DropdownItem>
+    </DropdownMenu>
+  </Dropdown>
+);

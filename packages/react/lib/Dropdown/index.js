@@ -39,7 +39,8 @@ const Dropdown = forwardRef(({
 }, ref) => {
   const innerRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
-    opened,
+    opened: opened ?? false,
+    visible: opened ?? false,
   });
   const { x, y, reference, floating, strategy, context } = useFloating({
     open: state.opened,
@@ -90,7 +91,7 @@ const Dropdown = forwardRef(({
       return;
     }
 
-    dispatch({ opened: o });
+    dispatch({ opened: o, visible: true });
     onToggle?.({ opened: o });
   };
 
@@ -111,7 +112,7 @@ const Dropdown = forwardRef(({
       return;
     }
 
-    dispatch({ opened: true });
+    dispatch({ opened: true, visible: true });
     onToggle?.({ opened: true });
   };
 
@@ -124,8 +125,13 @@ const Dropdown = forwardRef(({
     onToggle?.({ opened: false });
   };
 
+  const onAnimationExit = () => {
+    dispatch({ visible: false });
+  };
+
   const getContext = useCallback(() => ({
     opened: state.opened,
+    visible: state.visible,
     container,
     x,
     y,
@@ -137,8 +143,10 @@ const Dropdown = forwardRef(({
     close,
     getReferenceProps,
     getFloatingProps,
+    onAnimationExit,
   }), [
     state.opened,
+    state.visible,
     x,
     y,
     reference,

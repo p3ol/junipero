@@ -7,6 +7,7 @@ import { useDropdown } from '../hooks';
 
 const DropdownMenu = forwardRef(({
   animate,
+  apparition,
   children,
   className,
   ...rest
@@ -18,8 +19,10 @@ const DropdownMenu = forwardRef(({
     floating,
     strategy,
     opened,
-    getFloatingProps,
+    visible,
     container,
+    getFloatingProps,
+    onAnimationExit,
   } = useDropdown();
 
   useImperativeHandle(ref, () => ({
@@ -50,16 +53,22 @@ const DropdownMenu = forwardRef(({
       className={classNames('junipero dropdown-menu', className)}
       { ...getFloatingProps() }
     >
-      { animate ? animate(menu, { opened }) : menu }
+      { animate ? animate(menu, {
+        opened,
+        onExited: onAnimationExit,
+      }) : menu }
     </div>
   );
 
-  return container ? createPortal(content, ensureNode(container)) : content;
+  return opened || (animate && visible) || apparition === 'css'
+    ? container ? createPortal(content, ensureNode(container)) : content
+    : null;
 });
 
 DropdownMenu.displayName = 'DropdownMenu';
 DropdownMenu.propTypes = {
   animate: PropTypes.func,
+  apparition: PropTypes.string,
 };
 
 export default DropdownMenu;
