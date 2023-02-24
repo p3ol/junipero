@@ -1,6 +1,7 @@
 .junipero.select-field
   --main-color: var(--junipero-velvet)
   --border-color: var(--junipero-mischka)
+  --focus-border-color: var(--junipero-velvet)
   --icons-color: var(--junipero-slate)
   --placeholder-color: var(--junipero-slate)
   --invalid-color: var(--junipero-grapefruit)
@@ -18,13 +19,11 @@
 
   &:focus-within,
   &.opened
-    --border-color: var(--main-color)
-
     .arrows
       --icons-color: var(--main-color)
 
-    .text-field
-      --border-color: var(--main-color)
+    .field
+      box-shadow: 0 0 0 2px var(--focus-border-color)
 
   &.invalid.dirty:not(:focus-within):not(.opened):not(.focused)
     --border-color: var(--invalid-color)
