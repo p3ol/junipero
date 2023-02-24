@@ -211,6 +211,7 @@ const SelectField = forwardRef(({
       results = filterOptions(state.search);
     }
 
+    dropdownRef.current?.open();
     dispatch({ searchResults: results, searching: false });
   };
 
