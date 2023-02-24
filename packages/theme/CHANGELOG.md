@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.55](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.54...v3.0.0-alpha.55) (2023-02-24)
+
+
+### Bug Fixes
+
+* **theme:** dark mode selectfield focus ([3e6d08b](https://github.com/p3ol/junipero/commit/3e6d08b2ffa855f37a236206ccfea632d233f5cb))
+* **theme:** prevent alert close icon from shrinking ([bafd105](https://github.com/p3ol/junipero/commit/bafd1058e631ac497270a71b27d9602bfd54c321))
+
+
+
+
+
 # [3.0.0-alpha.54](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.53...v3.0.0-alpha.54) (2023-02-23)
 
 **Note:** Version bump only for package @junipero/theme

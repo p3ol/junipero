@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.55](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.54...v3.0.0-alpha.55) (2023-02-24)
+
+
+### Bug Fixes
+
+* **react:** reopen options menu when closed and searching ([b41989c](https://github.com/p3ol/junipero/commit/b41989ce2f5dd82a14a79542e129937f12dec947))
+* **select-field:** enable toggle field for non searchable select fields ([07bbdb8](https://github.com/p3ol/junipero/commit/07bbdb885e3e6d30904a4cece67ba71a6f479366))
+
+
+
+
+
 # [3.0.0-alpha.54](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.53...v3.0.0-alpha.54) (2023-02-23)
 
 
