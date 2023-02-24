@@ -103,3 +103,14 @@ export { default as TouchableZone } from './TouchableZone';
 export { default as Transition } from './Transition';
 
 export { useAlerts, useToasts, useDropdown, useFieldControl } from './hooks';
+
+export {
+  Arrows,
+  Remove,
+  ArrowLeft,
+  ArrowRight,
+  ArrowDown,
+  ArrowUp,
+  Time,
+  Check,
+} from './icons';

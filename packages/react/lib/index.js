@@ -99,3 +99,15 @@ export {
   useAlerts,
   useToasts,
 } from './hooks';
+
+// Icons
+export {
+  Arrows,
+  Remove,
+  ArrowLeft,
+  ArrowRight,
+  ArrowDown,
+  ArrowUp,
+  Time,
+  Check,
+} from './icons';
