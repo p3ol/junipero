@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.56](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.55...v3.0.0-alpha.56) (2023-02-24)
+
+
+### Features
+
+* **react:** export basic svg icons ([64971d7](https://github.com/p3ol/junipero/commit/64971d7e82c65b2c0ecf66f574a6d486661091a3))
+
+
+
+
+
 # [3.0.0-alpha.55](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.54...v3.0.0-alpha.55) (2023-02-24)
 
 
