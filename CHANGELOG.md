@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.57](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.56...v3.0.0-alpha.57) (2023-03-03)
+
+
+### Bug Fixes
+
+* **theme:** allow to separate submit button in field group ([4d8f849](https://github.com/p3ol/junipero/commit/4d8f849a072ab50c48cf9501d323671f488b939d))
+
+
+
+
+
 # [3.0.0-alpha.56](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.55...v3.0.0-alpha.56) (2023-02-24)
 
 
