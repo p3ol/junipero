@@ -58,3 +58,14 @@ export const withSelectFieldSuffix = () => (
     </FieldGroup>
   </FieldControl>
 );
+
+export const withMultipleElements = () => (
+  <FieldGroup>
+    <FieldAddon>€</FieldAddon>
+    <TextField />
+    <FieldAddon>@</FieldAddon>
+    <TextField />
+    <FieldAddon className="last">seconds</FieldAddon>
+    <Button className="primary submit">Update</Button>
+  </FieldGroup>
+);
