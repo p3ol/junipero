@@ -56,6 +56,7 @@ export {
   ConnectLogo,
   EngageLogo,
   FlowLogo,
+  JuniperoLogo,
 } from './Logo';
 
 // Core
