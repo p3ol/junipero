@@ -1,6 +1,6 @@
 {
   "name": "@junipero/hooks",
-  "version": "3.0.0-alpha.40",
+  "version": "3.0.0-beta.0",
   "description": "🏔 Junipero Design System React hooks",
   "main": "dist/junipero-hooks.cjs.js",
   "jsnext:main": "dist/esm/index.js",

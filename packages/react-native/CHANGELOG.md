@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.0](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.57...v3.0.0-beta.0) (2023-03-07)
+
+**Note:** Version bump only for package @junipero/react-native
+
+
+
+
+
 # [3.0.0-alpha.40](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.39...v3.0.0-alpha.40) (2023-02-08)
 
 **Note:** Version bump only for package @junipero/react-native

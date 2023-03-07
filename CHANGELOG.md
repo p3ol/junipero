@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.0](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.57...v3.0.0-beta.0) (2023-03-07)
+
+
+### Bug Fixes
+
+* force upgrade transitive deps ([d7d724d](https://github.com/p3ol/junipero/commit/d7d724de042f93a9bc0d3e4b3aa385d9f4c1ffe7))
+* **react:** pass props to logos ([3647c18](https://github.com/p3ol/junipero/commit/3647c18b7ccbbecb1975cbd56bd399cf7f7ff820))
+* upgrade dependencies ([10ac6e3](https://github.com/p3ol/junipero/commit/10ac6e352e05363a45650d858c663bea6973107a))
+
+
+### Features
+
+* add junipero logo ([469603a](https://github.com/p3ol/junipero/commit/469603a781cb905fa16af3584768a0c6135163dc))
+
+
+
+# [2.0.0-rc.23](https://github.com/p3ol/junipero/compare/v2.0.0-rc.22...v2.0.0-rc.23) (2022-11-09)
+
+
+### Bug Fixes
+
+* **junipero:** non existing color var ([58da7e9](https://github.com/p3ol/junipero/commit/58da7e903fae02c7b45d851f47849f066d7a926e))
+
+
+
+# [2.0.0-rc.22](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.2...v2.0.0-rc.22) (2022-11-09)
+
+
+### Bug Fixes
+
+* **checkbox:** fire onChange event when toggle checkbox using keyboard ([5c37e70](https://github.com/p3ol/junipero/commit/5c37e700766d5a392ec6814f286bbc55b4f60a4e))
+* **deps:** update dependency core-js to v3.25.3 ([e594f6f](https://github.com/p3ol/junipero/commit/e594f6f9d2387c9731a9b2fd7ba35466a8b2b6a7))
+* **deps:** update dependency core-js to v3.25.4 ([ed26e18](https://github.com/p3ol/junipero/commit/ed26e18ded5b0186bbd1dbdc2c1119f49f2b5d82))
+* **deps:** update dependency core-js to v3.25.5 ([b126f0b](https://github.com/p3ol/junipero/commit/b126f0b8e450c234c929d953f876c1211ad2473b))
+* **junipero:** move fonts definition to standalone css export ([5301976](https://github.com/p3ol/junipero/commit/5301976f000f2db3109f2043b018765acd1825c9))
+
+
+
+
+
 # [3.0.0-alpha.57](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.56...v3.0.0-alpha.57) (2023-03-03)
 
 
