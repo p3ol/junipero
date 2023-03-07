@@ -4,6 +4,8 @@ import {
   AccessLogo,
   ConnectLogo,
   EngageLogo,
+  FlowLogo,
+  JuniperoLogo,
   PooolLogo,
   SubscribeLogo,
 } from './index';
@@ -17,6 +19,8 @@ describe('Logos', () => {
         <SubscribeLogo />
         <ConnectLogo />
         <EngageLogo />
+        <FlowLogo />
+        <JuniperoLogo />
       </>
     );
     expect(container).toMatchSnapshot();
