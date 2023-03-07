@@ -1,0 +1,37 @@
+{
+  "name": "@junipero/react-native",
+  "version": "3.0.0-alpha.40",
+  "description": "🏔 Junipero Design System React Native components",
+  "main": "dist/junipero-react-native.cjs.js",
+  "jsnext:main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "src/index.js",
+  "unpkg": "dist/junipero-react-native.min.js",
+  "cdn": "dist/junipero-react-native.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/react-native"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 14",
+    "yarn": ">= 1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-native": "^0.62.0 || ^0.67.0 || ^0.68.0 || ^0.69.0 || ^0.70.0"
+  },
+  "dependencies": {
+    "prop-types": "15.8.1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build": "yarn clean && rollup -c"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,164 @@
+.jp-slide-in-up-menu
+  &-enter
+    opacity: 0
+    transform: translate3d(0, 10px, 0)
+
+    &-active
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
+  &-exit
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+    &-active
+      opacity: 0
+      transform: translate3d(0, 10px, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
+.jp-slide-in-down-menu
+  &-enter, &-appear
+    opacity: 0
+    transform: translate3d(0, -10px, 0)
+
+    &-active
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
+  &-exit
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+    &-active
+      opacity: 0
+      transform: translate3d(0, -10px, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
+.jp-slide-in-left-modal
+  &-enter
+    &.junipero.modal .wrapper
+      background: var(--transition-background-exit)
+
+      .content
+        transform: translate3d(100%, 0, 0)
+
+    &-active
+      &.junipero.modal .wrapper
+        transition: background .3s ease-in-out
+        background: var(--transition-background-enter)
+
+        .content
+          transition: transform .3s ease-in-out
+          transform: translate3d(0, 0, 0)
+
+  &-exit
+    &.junipero.modal .wrapper
+      background: var(--transition-background-enter)
+
+      .content
+        transform: translate3d(0, 0, 0)
+
+    &-active
+      &.junipero.modal .wrapper
+        transition: background .3s ease-out
+        background: var(--transition-background-exit)
+
+        .content
+          transition: transform .3s ease-in-out
+          transform: translate3d(100%, 0, 0)
+
+.jp-appear-bounce-modal
+  &-enter, &-appear
+    &.junipero.modal .wrapper
+      background: var(--transition-background-exit)
+
+      .content
+        opacity: 0
+
+    &-active
+      &.junipero.modal .wrapper
+        transition: background .2s ease-out
+        background: var(--transition-background-enter)
+
+        .content
+          animation: jp-appear-elastic .2s ease-in-out
+
+  &-exit
+    &.junipero.modal .wrapper
+      background: var(--transition-background-enter)
+
+    &-active
+      &.junipero.modal .wrapper
+        transition: background .2s ease-out
+        background: var(--transition-background-exit)
+
+        .content
+          animation: jp-disappear-elastic .2s ease-in-out
+
+.jp-slide-in-up-modal
+  &-enter
+    &.junipero.modal .wrapper
+      background: var(--transition-background-exit)
+
+      .content
+        opacity: 0
+        transform: translate3d(0, 20px, 0)
+
+    &-active
+      &.junipero.modal .wrapper
+        background: var(--transition-background-enter)
+        transition: background 150ms ease-in-out
+
+        .content
+          opacity: 1
+          transform: translate3d(0, 0, 0)
+          transition: transform 200ms ease-in-out 150ms, opacity 200ms ease-in-out 150ms
+
+  &-exit
+    &.junipero.modal .wrapper
+      background: var(--transition-background-enter)
+
+      .content
+        opacity: 1
+        transform: translate3d(0, 0, 0)
+
+    &-active
+      &.junipero.modal .wrapper
+        background: var(--transition-background-exit)
+        transition: background 150ms ease-in-out 200ms
+
+        .content
+          opacity: 0
+          transform: translate3d(0, 20px, 0)
+          transition: transform 200ms ease-in-out, opacity 200ms ease-in-out
+
+@keyframes jp-appear-elastic
+  0%
+    opacity: 0
+    transform: scale3d(0.98, 0.98, 0.98)
+
+  50%
+    transform: scale3d(1.05, 1.05, 1.05)
+
+  100%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
+@keyframes jp-disappear-elastic
+  0%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
+  100%
+    opacity: 0
+    transform: scale3d(0.95, 0.95, 0.95)

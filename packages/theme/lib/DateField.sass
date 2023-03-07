@@ -1,0 +1,115 @@
+.junipero.date-field,
+.junipero.calendar-menu
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --icons-color: var(--junipero-slate)
+  --placeholder-color: var(--junipero-slate)
+  --invalid-color: var(--junipero-grapefruit)
+  --text-color: var(--junipero-onyx)
+  --secondary-text-color: var(--junipero-tundora)
+  --time-background-color: var(--junipero-concrete)
+  --time-placeholder-color: var(--junipero-slate)
+
+.junipero.date-field
+  display: inline-flex
+  min-width: 250px
+
+  &.disabled
+    opacity: .5
+
+    .field
+      &, & .icon.remove, & .icons .icon.remove
+        cursor: default
+  
+  &:focus-within,
+  &.opened
+    .field
+      box-shadow: 0 0 0 2px var(--main-color)
+
+    .arrows
+      --icons-color: var(--main-color)
+
+  &.invalid.dirty:not(:focus-within):not(.opened):not(.focused)
+    --border-color: var(--invalid-color)
+
+    .arrows
+      --icons-color: var(--invalid-color)
+
+  .field
+    display: flex
+    border-radius: 4px
+    box-shadow: 0 0 0 2px var(--border-color)
+    transition: box-shadow .2s ease-in-out
+    position: relative
+    padding: 10px 30px 10px 10px
+    flex-wrap: wrap
+    gap: 10px
+    width: 100%
+    cursor: default
+
+    input
+      border: none
+      outline: none
+      display: block
+      background: transparent
+      padding: 0
+      width: calc(100% - 20px)
+      overflow: hidden
+      text-overflow: ellipsis
+      pointer-events: none
+
+      &::placeholder
+        color: var(--placeholder-color)
+        opacity: 1
+        user-select: none
+
+    .icons
+      position: absolute
+      right: 10px
+      display: flex
+      align-items: center
+      top: 15px
+      height: 13px
+      gap: 10px
+
+      .icon
+        cursor: default
+
+        &.arrows
+          transition: color .2s ease-in-out
+
+        &.remove
+          cursor: pointer
+
+.junipero.date-field .menu-inner,
+.junipero.calendar-menu .menu-inner
+  --icons-color: var(--secondary-text-color)
+
+  width: 280px
+  padding: 10px
+
+  .time-field
+    margin-top: 20px
+    position: relative
+
+    .icon
+      --icons-color: var(--time-placeholder-color)
+
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      left: 10px
+      pointer-events: none
+
+    input
+      appearance: none
+      background: var(--time-background-color)
+      border: none
+      border-radius: 4px
+      padding: 5px 10px 5px 40px
+      width: 100%
+
+      &::placeholder
+        color: var(--time-placeholder-color)
+        opacity: 1
+        user-select: none

@@ -1,0 +1,60 @@
+.junipero.checkbox-field
+  --icons-color: var(--junipero-seashell)
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --background-color: var(--junipero-alabaster)
+  --hover-color: var(--junipero-concrete)
+  --active-color: var(--junipero-velvet-background)
+  --invalid-color: var(--junipero-grapefruit)
+
+  display: flex
+  align-items: center
+  gap: 8px
+
+  input
+    display: none
+
+    &:checked
+      & + .inner
+        background: var(--main-color)
+        box-shadow: 0 0 0 2px var(--main-color)
+
+        .icon.check
+          opacity: 1
+
+  .inner
+    width: 12px
+    height: 12px
+    border-radius: 2px
+    box-shadow: 0 0 0 2px var(--border-color)
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    background: var(--background-color)
+
+    .icon.check
+      opacity: 0
+
+  &:hover
+    &:not(.disabled)
+      --background-color: var(--hover-color)
+
+  &:focus,
+  &:focus-within
+    &:not(.disabled)
+      --border-color: var(--main-color)
+
+  &:active
+    &:not(.disabled)
+      --background-color: var(--active-color)
+
+  &.invalid.dirty
+    &:not(.disabled):not(:focus):not(:focus-within)
+      --border-color: var(--invalid-color)
+
+  &.disabled
+    opacity: .5
+
+  .content
+    flex: 1 0 auto
+    max-width: 100%

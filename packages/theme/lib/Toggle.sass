@@ -1,0 +1,56 @@
+.junipero.toggle-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-velvet-hover)
+  --background-color: var(--junipero-concrete)
+  --handle-color: var(--junipero-seashell)
+
+  display: flex
+  outline: none
+  align-items: center
+  gap: 10px
+
+  &.disabled
+    opacity: .5
+
+  input
+    display: none
+
+  .inner
+    width: 40px
+    height: 20px
+    border-radius: 20px
+    position: relative
+    transition-property: box-shadow, background
+    transition-duration: .1s
+    transition-timing-function: ease-in-out
+    padding: 2px
+    cursor: pointer
+    background: var(--background-color)
+
+    .handle
+      background: var(--handle-color)
+      width: 16px
+      height: 16px
+      border-radius: 100%
+      position: relative
+      left: 0
+      top: 0
+      transition-property: left, transform
+      transition-duration: .1s
+      transition-timing-function: ease-in-out
+  
+  .label
+    flex-basis: 0
+    flex-grow: 1
+
+  &.checked
+    .inner
+      background-color: var(--main-color)
+
+      .handle
+        transform: translateX(-100%)
+        left: 100%
+
+  &:focus:not(.disabled)
+    .inner
+      box-shadow: 0 0 0 2px var(--border-color)

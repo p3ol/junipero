@@ -1,0 +1,26 @@
+.junipero.list
+  --column-color: var(--junipero-slate)
+  --icons-color: var(--junipero-slate)
+  --border-color: var(--junipero-mischka)
+
+  border-spacing: 0
+
+  tr:last-child td
+    border: none
+
+  th, td
+    padding: 10px 20px
+    text-align: left
+    border-bottom: 1px solid var(--border-color)
+
+  th
+    font-weight: normal
+
+    &, & a, & a .junipero
+      color: var(--column-color)
+
+    a
+      text-decoration: none
+      display: flex
+      align-items: center
+      gap: 4px

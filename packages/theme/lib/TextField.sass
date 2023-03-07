@@ -1,0 +1,44 @@
+.junipero.text-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --placeholder-color: var(--junipero-slate)
+  --invalid-color: var(--junipero-grapefruit)
+  --background-color: var(--junipero-seashell)
+  --autofill-background-color: rgb(232, 240, 254)
+  --autofill-text-color: var(--junipero-onyx)
+
+  display: inline-flex
+
+  &.disabled
+    opacity: .5
+    cursor: default
+
+  .field
+    appearance: none
+    display: block
+    padding: 10px
+    border: none
+    border-radius: 4px
+    flex: 1
+    box-shadow: 0 0 0 2px var(--border-color)
+    transition: box-shadow .2s ease-in-out
+    background: var(--background-color)
+
+    &::placeholder
+      color: var(--placeholder-color)
+      opacity: 1
+
+    &:-webkit-autofill
+      caret-color: var(--autofill-text-color)
+      -webkit-text-fill-color: var(--autofill-text-color)
+      box-shadow: 0 0 0px 1000px var(--autofill-background-color) inset, 0 0 0 2px var(--border-color)
+
+    &:focus,
+    &:focus-within
+      --border-color: var(--main-color)
+
+  &.invalid.dirty
+    .field
+      &:not(:focus),
+      &:not(:focus-within)
+        --border-color: var(--invalid-color)

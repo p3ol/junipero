@@ -1,0 +1,57 @@
+.junipero.field-group
+  display: flex
+  align-items: stretch
+  width: fit-content
+  gap: 2px
+
+  .junipero.select-field .field
+    position: relative
+    z-index: 2
+
+  .junipero.text-field,
+  .junipero.select-field,
+  .junipero.button
+    position: relative
+    z-index: 2
+
+    &:not(.last) + .junipero.button:not(.submit):disabled
+      margin-left: 2px
+
+    &:not(:first-child):not(.submit):not(.first)
+      &.button, .field
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+
+    &:not(:last-child):not(.submit):not(.last)
+      &.button, .field
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+
+  .junipero.field-addon
+    position: relative
+    z-index: 1
+
+    &:not(.last) + .junipero.button:not(.submit):disabled
+      margin-left: 2px
+
+    &:not(:first-child):not(.first)
+      border-top-left-radius: 0
+      border-bottom-left-radius: 0
+
+    &:not(:last-child):not(.last)
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+
+  .junipero.button
+    box-shadow: 0 0 0 2px var(--main-color)
+
+    &.submit
+      margin-left: 10px
+
+    &:hover
+      &:not(:disabled):not(.disabled)
+        box-shadow: 0 0 0 2px var(--hover-color)
+
+    &:active
+      &:not(:disabled):not(.disabled)
+        box-shadow: 0 0 0 2px var(--active-color)

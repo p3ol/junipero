@@ -1,0 +1,33 @@
+.junipero.tag
+  --background-color: var(--junipero-concrete)
+  --text-color: var(--junipero-onyx)
+
+  padding: 2px 6px
+  border-radius: 4px
+  background: var(--background-color)
+  color: var(--text-color)
+  display: inline-flex
+  align-items: center
+  align-content: center
+  gap: 8px
+
+  &.primary
+    --background-color: var(--junipero-velvet)
+    --text-color: var(--junipero-seashell)
+
+  &.danger
+    --background-color: var(--junipero-grapefruit)
+    --text-color: var(--junipero-seashell)
+
+  &.warning
+    --background-color: var(--junipero-sunglow)
+    --text-color: var(--junipero-seashell)
+
+  &.success
+    --background-color: var(--junipero-lime)
+    --text-color: var(--junipero-seashell)
+
+  .remove
+    --icons-color: var(--text-color)
+
+    cursor: pointer
