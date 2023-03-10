@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.3](https://github.com/p3ol/junipero/compare/v3.0.0-beta.2...v3.0.0-beta.3) (2023-03-10)
+
+
+### Bug Fixes
+
+* **theme:** fix global text color overriding everything ([6c6b87f](https://github.com/p3ol/junipero/commit/6c6b87f102527df0885a76d6a157ca4c1a27c623))
+
+
+
+
+
 # [3.0.0-beta.2](https://github.com/p3ol/junipero/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2023-03-10)
 
 **Note:** Version bump only for package junipero
