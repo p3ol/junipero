@@ -46,7 +46,7 @@ export const COLORS = {
   'dark-velvet-foreground': '#3C3886',
 
   'dark-lime-disabled': '#51725A',
-  'dark-lime-background': '#47604E',
+  'dark-lime-background': '#202d24',
   'dark-lime-foreground': '#51845F',
 
   'dark-grapefruit-disabled': '#8D5454',
