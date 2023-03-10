@@ -22,6 +22,7 @@
     "yarn": ">= 1"
   },
   "peerDependencies": {
+    "@junipero/core": "^3.0.0-beta.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
