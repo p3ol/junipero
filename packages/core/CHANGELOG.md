@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.1](https://github.com/p3ol/junipero/compare/v3.0.0-beta.0...v3.0.0-beta.1) (2023-03-10)
+
+
+### Features
+
+* **core:** export colors ([b6e8b68](https://github.com/p3ol/junipero/commit/b6e8b68aa6362647c65811c1fe92e0ce8baa9c4b))
+
+
+
+
+
 # [3.0.0-beta.0](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.57...v3.0.0-beta.0) (2023-03-07)
 
 

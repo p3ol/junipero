@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.1](https://github.com/p3ol/junipero/compare/v3.0.0-beta.0...v3.0.0-beta.1) (2023-03-10)
+
+
+### Features
+
+* **core:** export colors ([b6e8b68](https://github.com/p3ol/junipero/commit/b6e8b68aa6362647c65811c1fe92e0ce8baa9c4b))
+* **react:** re-export colors ([8a83618](https://github.com/p3ol/junipero/commit/8a836186e87d14a4e9b85a59379d60f3b247e7f7))
+* **tailwind-plugin:** use colors from core ([40e8442](https://github.com/p3ol/junipero/commit/40e8442659c7129bfbfb6be2d5aa96b2dc8dd517))
+
+
+
+
+
 # [3.0.0-beta.0](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.57...v3.0.0-beta.0) (2023-03-07)
 
 
