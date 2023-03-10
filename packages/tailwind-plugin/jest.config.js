@@ -7,6 +7,9 @@ module.exports = {
   fakeTimers: {
     enableGlobally: false,
   },
+  moduleNameMapper: {
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
+  },
   testMatch: ['<rootDir>/packages/tailwind-plugin/lib/*.test.js'],
   testPathIgnorePatterns: [
     '/node_modules/',
