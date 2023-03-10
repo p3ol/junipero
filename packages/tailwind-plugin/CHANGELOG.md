@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.4](https://github.com/p3ol/junipero/compare/v3.0.0-beta.3...v3.0.0-beta.4) (2023-03-10)
+
+
+### Bug Fixes
+
+* **tainwild-plugin:** wrong dep ([5d1906b](https://github.com/p3ol/junipero/commit/5d1906b05e4c83e54224db818dd1e93e5db4cb97))
+
+
+
+
+
 # [3.0.0-beta.2](https://github.com/p3ol/junipero/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2023-03-10)
 
 **Note:** Version bump only for package @junipero/tailwind-plugin
