@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** move core from deps to peer deps ([5f0d498](https://github.com/p3ol/junipero/commit/5f0d498e2952c996965735b215689339fe87ff77))
+
+
+
+
+
 # [3.0.0-beta.4](https://github.com/p3ol/junipero/compare/v3.0.0-beta.3...v3.0.0-beta.4) (2023-03-10)
 
 

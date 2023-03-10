@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
+
+
+### Bug Fixes
+
+* **core:** adjust lime background on dark mode ([b16d09d](https://github.com/p3ol/junipero/commit/b16d09d60043211fe3923c0853b848e989b6fc21))
+* **react:** add core as peer dep ([d692206](https://github.com/p3ol/junipero/commit/d6922062451edd642389f806a6be91c8628b9c4d))
+* **tailwind-plugin:** move core from deps to peer deps ([5f0d498](https://github.com/p3ol/junipero/commit/5f0d498e2952c996965735b215689339fe87ff77))
+* **theme:** adjust lime background on dark mode ([c3d8537](https://github.com/p3ol/junipero/commit/c3d85375aeb991ab73c6f158a2543fefd0fa2c18))
+
+
+
+
+
 # [3.0.0-beta.4](https://github.com/p3ol/junipero/compare/v3.0.0-beta.3...v3.0.0-beta.4) (2023-03-10)
 
 

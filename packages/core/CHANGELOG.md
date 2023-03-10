@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
+
+
+### Bug Fixes
+
+* **core:** adjust lime background on dark mode ([b16d09d](https://github.com/p3ol/junipero/commit/b16d09d60043211fe3923c0853b848e989b6fc21))
+
+
+
+
+
 # [3.0.0-beta.1](https://github.com/p3ol/junipero/compare/v3.0.0-beta.0...v3.0.0-beta.1) (2023-03-10)
 
 
