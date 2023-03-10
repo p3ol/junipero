@@ -18,6 +18,9 @@
   "peerDependencies": {
     "tailwindcss": "^3.0.0"
   },
+  "dependencies": {
+    "@junipero/core": "^3.0.0-beta.1"
+  },
   "scripts": {
     "build": "true",
     "clean": "true",
