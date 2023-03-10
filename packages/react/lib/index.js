@@ -61,6 +61,7 @@ export {
 
 // Core
 export {
+  COLORS,
   classNames,
   addClass,
   removeClass,

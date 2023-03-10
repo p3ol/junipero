@@ -1,4 +1,5 @@
 export {
+  COLORS,
   ensureNode,
   classNames,
   addClass,
