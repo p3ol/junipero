@@ -26,6 +26,7 @@ export {
 } from './dom';
 
 export {
+  COLORS,
   hsva2hsla,
   hsla2hsva,
   hsva2rgba,
