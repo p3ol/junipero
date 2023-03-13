@@ -1,6 +1,17 @@
-export const COLORS: object;
+declare interface COLORS {
+  [key: string]: {
+    DEFAULT?: string,
+    hover?: string,
+    active?: string,
+    disabled?: string,
+    background?: string,
+  } | string
+}
 
-export const COLOR_PARSERS: Array<object>;
+export type COLOR_PARSERS = Array<{
+  parse: RegExp | string,
+  regex: Function
+}>;
 
 export function hsva2hsla({ h, s, v, a }: {
   h: number;
