@@ -1,11 +1,11 @@
 export declare interface COLORS {
   [key: string]: {
-    DEFAULT?: string,
-    hover?: string,
-    active?: string,
-    disabled?: string,
-    background?: string,
-  } | string
+    DEFAULT?: string;
+    hover?: string;
+    active?: string;
+    disabled?: string;
+    background?: string;
+  } | string;
 }
 
 export type COLOR_PARSERS = Array<{
@@ -19,8 +19,8 @@ export type COLOR_PARSERS = Array<{
     s: number;
     l: number;
     a: number;
-  }),
-  regex: RegExp,
+  });
+  regex: RegExp;
 }>;
 
 export function hsva2hsla({ h, s, v, a }: {

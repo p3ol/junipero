@@ -7,14 +7,14 @@ export declare function useInterval(
   cb: Function,
   time: number,
   changes?: Array<any>,
-  options?: { enabled?: boolean, layoutEffect?: boolean },
+  options?: { enabled?: boolean; layoutEffect?: boolean },
   ): void;
 
 export declare function useTimeout(
   cb: Function,
   time: number,
   changes?: Array<any>,
-  options?: { enabled?: boolean, layoutEffect?: boolean },
+  options?: { enabled?: boolean; layoutEffect?: boolean },
 ): void;
 
 export declare function useEffectAfterMount(

@@ -5,7 +5,7 @@ declare interface TransitionProps extends ComponentPropsWithRef<any> {
   in: boolean;
   mounterOnEnter?: boolean;
   name?: string;
-  timeout?: number | { enter: number, exit: number };
+  timeout?: number | { enter: number; exit: number };
   unmountOnExit?: boolean;
   onEnter?(): void;
   onEntering?(): void;

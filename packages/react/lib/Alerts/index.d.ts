@@ -20,7 +20,7 @@ declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
   };
   animateAlert?(
     alert: ReactNode | JSX.Element,
-    opts: { opened: boolean, index: string | number }
+    opts: { opened: boolean; index: string | number }
   ): ReactNode | JSX.Element;
   ref?: MutableRefObject<AlertsRef | undefined>;
 }

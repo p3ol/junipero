@@ -30,7 +30,7 @@ declare interface ToastProps extends ComponentPropsWithRef<any> {
   tag?: string | ElementType;
   animate?(
     alert: ReactNode | JSX.Element,
-    opts: { opened: boolean, index: string|number }
+    opts: { opened: boolean; index: string | number }
   ): JSX.Element;
   onDismiss?(index?: string | number): any;
   ref?: MutableRefObject<ToastRef | undefined>;
