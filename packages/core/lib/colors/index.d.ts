@@ -1,6 +1,6 @@
-export const COLORS: Object;
+export const COLORS: object;
 
-export const COLOR_PARSERS: Array<Object>;
+export const COLOR_PARSERS: Array<object>;
 
 export function hsva2hsla({ h, s, v, a }: {
   h: number;

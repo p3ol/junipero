@@ -1,1 +1,1 @@
-export function ensureNode(selectorOrNode: Node|String): Node|String;
+export function ensureNode(selectorOrNode: Node|string): Node|string;
