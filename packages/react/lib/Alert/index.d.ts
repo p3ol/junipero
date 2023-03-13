@@ -16,7 +16,7 @@ declare interface AlertProps extends React.ComponentPropsWithRef<any> {
   title?: ReactNode | JSX.Element;
   animate?(
     alert: ReactNode | JSX.Element,
-    opts: { opened: boolean, index: number }
+    opts: { opened: boolean, index: string | number }
   ): ReactNode | JSX.Element;
   onDismiss?(index?: string | number): void;
   ref?: MutableRefObject<AlertRef | undefined>;
@@ -32,7 +32,7 @@ export declare interface AlertObject {
   lifespan?: number;
   animate?(
     alert: ReactNode | JSX.Element,
-    opts: { opened: boolean, index: number }
+    opts: { opened: boolean, index: string | number }
   ): ReactNode | JSX.Element;
   onDismiss?(index?: string | number): void;
 }
