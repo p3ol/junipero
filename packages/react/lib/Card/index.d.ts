@@ -1,11 +1,16 @@
-import { ReactNode, ElementType, MutableRefObject } from 'react';
+import {
+  ReactNode,
+  ElementType,
+  MutableRefObject,
+  ComponentPropsWithRef,
+} from 'react';
 
 export declare type CardRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
 
-declare interface CardProps extends React.ComponentPropsWithRef<any> {
+declare interface CardProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   tag?: string | ElementType;

@@ -1,11 +1,16 @@
-import { ReactNode, ElementType, MutableRefObject } from 'react';
+import {
+  ReactNode,
+  ElementType,
+  MutableRefObject,
+  ComponentPropsWithRef,
+} from 'react';
 
 export declare type AlertRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
 
-declare interface AlertProps extends React.ComponentPropsWithRef<any> {
+declare interface AlertProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
   children?: ReactNode | JSX.Element;
   className?: string;

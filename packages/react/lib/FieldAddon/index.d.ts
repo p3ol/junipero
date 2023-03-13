@@ -9,6 +9,7 @@ export declare type FieldAddonRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
+
 declare interface FieldAddonProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;

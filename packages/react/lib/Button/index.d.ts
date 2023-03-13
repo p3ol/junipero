@@ -1,11 +1,16 @@
-import { ReactNode, ElementType, MutableRefObject } from 'react';
+import {
+  ReactNode,
+  ElementType,
+  MutableRefObject,
+  ComponentPropsWithRef,
+} from 'react';
 
 export declare type ButtonRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
 
-declare interface ButtonProps extends React.ComponentPropsWithRef<any> {
+declare interface ButtonProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
   disabled?: boolean;

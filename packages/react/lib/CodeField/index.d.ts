@@ -1,4 +1,4 @@
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 
 export declare type CodeFieldRef = {
   dirty: boolean;
@@ -12,7 +12,7 @@ export declare type CodeFieldRef = {
   inputsRef: Array<MutableRefObject<any>>;
 };
 
-declare interface CodeFieldProps {
+declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   disabled?: boolean;
   className?: string;

@@ -1,7 +1,5 @@
-import {
-  Props as DismissProps,
-} from '@floating-ui/react/src/hooks/useDismiss';
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
+import { UseDismissProps } from '@floating-ui/react';
 
 export declare type ColorFieldRef = {
   dirty: boolean;
@@ -21,11 +19,11 @@ export declare type ColorFieldRef = {
   textFieldRef: MutableRefObject<any>;
 };
 
-declare interface ColorFieldProps extends React.ComponentPropsWithRef<any> {
+declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   className?: string;
   disabled?: boolean;
-  dismissOptions?: DismissProps;
+  dismissOptions?: UseDismissProps;
   format?: 'auto' | 'hex' | 'rgb' | 'rgba' | 'hsla';
   globalEventsTarget: EventTarget;
   id?: string;
@@ -36,7 +34,7 @@ declare interface ColorFieldProps extends React.ComponentPropsWithRef<any> {
   trigger?: 'click' | 'hover' | 'manual' | 'focus';
   valid?: boolean;
   value?: string;
-  animateMenu(
+  animateMenu?(
     menu: ReactNode | JSX.Element,
     opts: { opened: boolean }
   ): ReactNode | JSX.Element;

@@ -1,4 +1,4 @@
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 
 import { FixedArray } from '../utils';
 
@@ -8,7 +8,7 @@ export declare type CalendarRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface CalendarProps extends React.ComponentPropsWithRef<any> {
+declare interface CalendarProps extends ComponentPropsWithRef<any> {
   active?: Date;
   className?: string;
   disabled?: boolean;

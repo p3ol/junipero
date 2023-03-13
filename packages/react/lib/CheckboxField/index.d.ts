@@ -1,4 +1,4 @@
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 
 export declare type CheckboxFieldRef = {
   checked: boolean;
@@ -7,7 +7,7 @@ export declare type CheckboxFieldRef = {
   inputRef: MutableRefObject<any>;
 };
 
-declare interface CheckboxFieldProps extends React.ComponentPropsWithRef<any> {
+declare interface CheckboxFieldProps extends ComponentPropsWithRef<any> {
   checked?: boolean;
   children?: ReactNode | JSX.Element;
   className?: string;

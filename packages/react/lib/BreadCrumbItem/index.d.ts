@@ -1,15 +1,20 @@
-import { ReactNode, ElementType, MutableRefObject } from 'react';
+import {
+  ReactNode,
+  ElementType,
+  MutableRefObject,
+  ComponentPropsWithRef,
+} from 'react';
 
 export declare type BreadCrumbItemRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
 
-declare interface BreadCrumbItemProps extends React.ComponentPropsWithRef<any> {
+declare interface BreadCrumbItemProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
   tag?: string | ElementType;
-  animate?(rendered: ReactNode | JSX.Element): ReactNode | JSX.Element;
+  animate?(item: ReactNode | JSX.Element): ReactNode | JSX.Element;
   ref?: MutableRefObject<BreadCrumbItemRef | undefined>;
 }
 

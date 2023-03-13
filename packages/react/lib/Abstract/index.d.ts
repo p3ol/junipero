@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode, ComponentPropsWithoutRef } from 'react';
 
-declare interface AbstractProps extends React.ComponentPropsWithoutRef<any> {
+declare interface AbstractProps extends ComponentPropsWithoutRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
 }

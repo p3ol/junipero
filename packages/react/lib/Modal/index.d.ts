@@ -1,4 +1,4 @@
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 
 export declare type ModalRef = {
   isJunipero: boolean;
@@ -12,7 +12,7 @@ export declare type ModalRef = {
   wrapperRef: MutableRefObject<any>;
 };
 
-declare interface ModalProps extends React.ComponentPropsWithRef<any> {
+declare interface ModalProps extends ComponentPropsWithRef<any> {
   apparition?: string;
   children?: ReactNode | JSX.Element;
   className?: string;

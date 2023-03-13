@@ -1,14 +1,10 @@
-import { Placement } from '@floating-ui/react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 import {
-  Props as ClickProps,
-} from '@floating-ui/react/src/hooks/useClick';
-import {
-  Props as DismissProps,
-} from '@floating-ui/react/src/hooks/useDismiss';
-import {
-  Props as HoverProps,
-} from '@floating-ui/react/src/hooks/useHover';
-import { ReactNode, MutableRefObject } from 'react';
+  Placement,
+  UseClickProps,
+  UseDismissProps,
+  UseHoverProps,
+} from '@floating-ui/react';
 
 export declare type DropdownRef = {
   isJunipero: boolean;
@@ -19,14 +15,14 @@ export declare type DropdownRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface DropdownProps extends React.ComponentPropsWithRef<any> {
-  clickOptions?: ClickProps;
+declare interface DropdownProps extends ComponentPropsWithRef<any> {
+  clickOptions?: UseClickProps;
   className?: string;
   container?: Element | DocumentFragment;
   disabled?: boolean;
-  dismissOptions?: DismissProps;
+  dismissOptions?: UseDismissProps;
   floatingOptions?: object;
-  hoverOptions?: HoverProps;
+  hoverOptions?: UseHoverProps;
   openend?: boolean;
   placement?: Placement;
   trigger?: 'click' | 'hover' | 'manual';

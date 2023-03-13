@@ -1,4 +1,4 @@
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 
 import { FixedArray } from '../utils';
 
@@ -15,7 +15,7 @@ export declare type DateFieldRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface DateFieldProps extends React.ComponentPropsWithRef<any> {
+declare interface DateFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   className?: string;
   clearable?: boolean;
