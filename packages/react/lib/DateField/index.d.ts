@@ -32,10 +32,10 @@ declare interface DateFieldProps extends React.ComponentPropsWithRef<any> {
   valid?: boolean;
   value?: Date;
   weekDaysName?: FixedArray<string, 7>;
-  animateMenu?: (
+  animateMenu?(
     menu: ReactNode | JSX.Element,
     opts: { opened: boolean }
-  ) => ReactNode | JSX.Element;
+  ): ReactNode | JSX.Element;
   onBlur?(e: Event): void;
   onChange?(props: { value: Date; valid: boolean }): void;
   onFocus?(e: Event): void;
