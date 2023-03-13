@@ -9,8 +9,18 @@ declare interface COLORS {
 }
 
 export type COLOR_PARSERS = Array<{
-  parse: RegExp | string,
-  regex: Function
+  parse: ((r: string, g: string, b: string, a?: string) => {
+    r: number;
+    g: number;
+    b: number;
+    a: number;
+  }) | ((h: string, s: string, l: string, a?: string) => {
+    h: number;
+    s: number;
+    l: number;
+    a: number;
+  }),
+  regex: RegExp,
 }>;
 
 export function hsva2hsla({ h, s, v, a }: {
