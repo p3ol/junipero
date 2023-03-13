@@ -1,30 +1,31 @@
-import React, { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject } from 'react';
 
 export declare type CheckboxFieldRef = {
+  checked: boolean;
+  isJunipero: boolean;
   innerRef: MutableRefObject<any>;
   inputRef: MutableRefObject<any>;
-  checked: Boolean;
-  isJunipero: Boolean;
 };
 
 declare interface CheckboxFieldProps extends React.ComponentPropsWithRef<any> {
-  checked?: Boolean;
-  valid?: Boolean;
-  disabled?: Boolean;
-  required?: Boolean;
-  children?: React.ReactNode;
+  checked?: boolean;
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  disabled?: boolean;
+  id?: string;
+  name?: string;
+  required?: boolean;
+  valid?: boolean;
   value?: any;
-  id?: String;
-  name?: String;
-  className?: String;
-  onChange?: (changeEvent: { value: any; checked: Boolean }) => void;
-  onValidate?: (
+  onChange?(changeEvent: { value: any; checked: boolean }): void;
+  onValidate?(
     value: any,
-    { dirty, required }: { dirty?: Boolean; required?: Boolean }
-  ) => Boolean;
+    { dirty, required }: { dirty?: boolean; required?: boolean }
+  ): boolean;
   ref?: MutableRefObject<CheckboxFieldRef | undefined>;
 }
 
-declare function CheckboxField(props: CheckboxFieldProps): JSX.Element;
+declare function CheckboxField(props: CheckboxFieldProps):
+  ReactNode | JSX.Element;
 
 export default CheckboxField;

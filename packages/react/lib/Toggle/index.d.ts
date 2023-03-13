@@ -1,23 +1,23 @@
-import React, { MutableRefObject } from 'react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
 export declare type ToggleRef = {
+  checked: boolean,
+  isJunipero: boolean,
   innerRef: MutableRefObject<any>,
   inputRef: MutableRefObject<any>,
-  checked: Boolean,
-  isJunipero: Boolean,
 };
 
-declare interface ToggleProps extends React.ComponentPropsWithRef<any> {
-  checked?: Boolean,
-  disabled?: Boolean,
+declare interface ToggleProps extends ComponentPropsWithRef<any> {
+  checked?: boolean,
+  children?: ReactNode | JSX.Element,
+  className?: string,
+  disabled?: boolean,
   tabIndex?: number,
-  children?: React.ReactNode,
-  className?: String,
   value?: any,
-  onChange?: (props: {value?: any, checked?: Boolean}) => void,
+  onChange?(field: { value: any, checked: boolean }): void,
   ref?: MutableRefObject<ToggleRef | undefined>
 }
 
-declare function Toggle(props: ToggleProps): JSX.Element;
+declare function Toggle(props: ToggleProps): ReactNode | JSX.Element;
 
 export default Toggle;

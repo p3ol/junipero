@@ -1,7 +1,9 @@
-declare interface SpinnerProps extends React.ComponentPropsWithoutRef<any> {
-  className?: String;
+import { ReactNode, ComponentPropsWithoutRef } from 'react';
+
+declare interface SpinnerProps extends ComponentPropsWithoutRef<any> {
+  className?: string;
 }
 
-declare function Spinner(props: SpinnerProps): JSX.Element;
+declare function Spinner(props: SpinnerProps): ReactNode | JSX.Element;
 
 export default Spinner;

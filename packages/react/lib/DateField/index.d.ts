@@ -1,52 +1,55 @@
-import { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject } from 'react';
 
 import { FixedArray } from '../utils';
 
 export declare type DateFieldRef = {
-  innerRef: MutableRefObject<any>;
+  dirty: boolean;
+  focused: boolean;
+  isJunipero: boolean;
+  opened: boolean;
+  valid: boolean;
   value: Date;
-  valid: Boolean;
-  dirty: Boolean;
-  focused: Boolean;
-  opened: Boolean;
-  focus: () => void;
-  blur: () => void;
-  reset: () => void;
-  isJunipero: Boolean;
+  blur(): void;
+  focus(): void;
+  reset(): void;
+  innerRef: MutableRefObject<any>;
 };
 
 declare interface DateFieldProps extends React.ComponentPropsWithRef<any> {
-  animateMenu: (menu: JSX.Element, opts: { opened: Boolean }) => JSX.Element;
-  className?: String;
-  min?: Date;
+  autoFocus?: boolean;
+  className?: string;
+  clearable?: boolean;
+  disabled?: boolean;
   max?: Date;
-  opened?: Boolean;
-  placeholder?: String;
+  min?: Date;
+  monthNames?: FixedArray<string, 12>;
+  opened?: boolean;
+  placeholder?: string;
+  required?: boolean;
+  time?: boolean;
+  timePlaceholder?: string;
   trigger?: 'click' | 'hover' | 'manual';
+  valid?: boolean;
   value?: Date;
-  valid?: Boolean;
-  autoFocus?: Boolean;
-  clearable?: Boolean;
-  disabled?: Boolean;
-  monthNames?: FixedArray<String, 12>;
-  required?: Boolean;
-  time?: Boolean;
-  timePlaceholder?: String;
-  weekDaysName?: FixedArray<String, 7>;
-  onChange?: (props: { parsedValue: any; valid: Boolean }) => void;
-  onFocus?: (e: Event) => any;
-  onBlur?: (e: Event) => any;
-  onToggle?: (props: { opened: Boolean }) => void;
-  parseTitle?: (val: Date) => String;
-  parseValue?: (value: Date, options: { required?: Boolean }) => any;
-  parseTime?: (time: String) => FixedArray<number, 3>;
-  onValidate?: (
+  weekDaysName?: FixedArray<string, 7>;
+  animateMenu?: (
+    menu: ReactNode | JSX.Element,
+    opts: { opened: boolean }
+  ) => ReactNode | JSX.Element;
+  onBlur?(e: Event): void;
+  onChange?(props: { value: Date; valid: boolean }): void;
+  onFocus?(e: Event): void;
+  onToggle?(props: { opened: boolean }): void;
+  onValidate?(
     value: Date,
-    options: { required?: Boolean; dirty?: Boolean }
-  ) => Boolean;
+    options: { required?: boolean; dirty?: boolean }
+  ): boolean;
+  parseTime?(time: string): FixedArray<number, 3>;
+  parseTitle?(value: Date): string;
+  parseValue?(value: Date, options: { required?: boolean }): Date;
   ref?: MutableRefObject<DateFieldRef | undefined>;
 }
 
-declare function DateField(props: DateFieldProps): JSX.Element;
+declare function DateField(props: DateFieldProps): ReactNode | JSX.Element;
 
 export default DateField;

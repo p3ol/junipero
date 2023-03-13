@@ -1,36 +1,36 @@
-import { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject } from 'react';
 
 export declare type CodeFieldRef = {
+  dirty: boolean;
+  isJunipero: boolean;
+  valid: boolean;
+  value: string;
+  focus(index: number): void;
+  blur(index: number): void;
+  reset(): void;
   innerRef: MutableRefObject<any>;
   inputsRef: Array<MutableRefObject<any>>;
-  value: String;
-  dirty: Boolean;
-  valid: Boolean;
-  focus: (index: number) => void;
-  blur: (index: number) => void;
-  reset: () => void;
-  isJunipero: Boolean;
 };
 
 declare interface CodeFieldProps {
-  className?: String;
-  value?: String;
-  valid?: Boolean;
-  autoFocus?: Boolean;
-  disabled?: Boolean;
-  required?: Boolean;
+  autoFocus?: boolean;
+  disabled?: boolean;
+  className?: string;
+  required?: boolean;
   size?: number;
-  onValidate?: (
-    value: String,
-    { dirty, required }: { dirty?: Boolean; required?: Boolean }
-  ) => Boolean;
-  onChange?: (changeProps: { value?: String; valid: Boolean }) => void;
-  onPaste?: (e: Event) => any;
-  onFocus?: (e: Event) => any;
-  onBlur?: (e: Event) => any;
+  valid?: boolean;
+  value?: string;
+  onValidate?(
+    value: string,
+    { dirty, required }: { dirty?: boolean; required?: boolean }
+  ): boolean;
+  onChange?(changeProps: { value?: string; valid: boolean }): void;
+  onPaste?(e: Event): void;
+  onFocus?(e: Event): void;
+  onBlur?(e: Event): void;
   ref?: MutableRefObject<CodeFieldRef | undefined>;
 }
 
-declare function CodeField(props: CodeFieldProps): JSX.Element;
+declare function CodeField(props: CodeFieldProps): ReactNode | JSX.Element;
 
 export default CodeField;

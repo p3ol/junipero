@@ -1,33 +1,33 @@
-import React, { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject } from 'react';
 
 export declare type ModalRef = {
-  opened: Boolean;
-  innerRef: MutableRefObject<any>;
-  contentRef: MutableRefObject<any>;
-  wrapperRef: MutableRefObject<any>;
+  isJunipero: boolean;
+  opened: boolean;
+  close(): void;
+  open(): void;
+  toggle(): void;
   closeButtonRef: MutableRefObject<any>;
-  open: () => void;
-  close: () => void;
-  toggle: () => void;
-  isJunipero: Boolean;
+  contentRef: MutableRefObject<any>;
+  innerRef: MutableRefObject<any>;
+  wrapperRef: MutableRefObject<any>;
 };
 
 declare interface ModalProps extends React.ComponentPropsWithRef<any> {
-  animate?: (
-    modal: React.ReactNode,
-    options: { opened?: Boolean }
-  ) => void;
-  apparition?: String;
-  children?: React.ReactNode;
-  className?: String;
-  container?: Node | String;
-  disabled?: Boolean;
-  opened?: Boolean;
-  closable?: Boolean;
-  onToggle?: (props: { opened?: Boolean }) => void;
+  apparition?: string;
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  container?: Element | DocumentFragment;
+  disabled?: boolean;
+  opened?: boolean;
+  closable?: boolean;
+  animate?(
+    modal: ReactNode | JSX.Element,
+    options: { opened: boolean }
+  ): void;
+  onToggle?(props: { opened: boolean }): void;
   ref?: MutableRefObject<ModalRef | undefined>;
 }
 
-declare function Modal(props: ModalProps): JSX.Element;
+declare function Modal(props: ModalProps): ReactNode | JSX.Element;
 
 export default Modal;

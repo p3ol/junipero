@@ -1,14 +1,20 @@
-import React from 'react';
+import { ReactNode, ComponentPropsWithRef } from 'react';
 
-declare interface TransitionProps extends React.ComponentPropsWithRef<any> {
-  children?: string | React.ReactNode | Function;
-  in: Boolean;
-  name?: String;
-  timeout?: Number | { enter: Number, exit: Number };
-  mounterOnEnter?: Boolean;
-  unmountOnExit?: Boolean;
+declare interface TransitionProps extends ComponentPropsWithRef<any> {
+  children?: ReactNode | JSX.Element;
+  in: boolean;
+  mounterOnEnter?: boolean;
+  name?: string;
+  timeout?: number | { enter: number, exit: number };
+  unmountOnExit?: boolean;
+  onEnter?(): void;
+  onEntering?(): void;
+  onEntered?(): void;
+  onExit?(): void;
+  onExiting?(): void;
+  onExited?(): void;
 }
 
-declare function Transition(props: TransitionProps): JSX.Element;
+declare function Transition(props: TransitionProps): ReactNode | JSX.Element;
 
 export default Transition;

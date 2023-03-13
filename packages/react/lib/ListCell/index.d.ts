@@ -1,14 +1,14 @@
-import { ComponentPropsWithRef, MutableRefObject } from 'react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
 export declare type ListCellRef = {
-  innerRef: MutableRefObject<any>;
   isJunipero: boolean;
+  innerRef: MutableRefObject<any>;
 };
 
 declare interface ListCellProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<ListCellRef | undefined>;
 }
 
-declare function ListCell(props: ListCellProps): JSX.Element;
+declare function ListCell(props: ListCellProps): ReactNode | JSX.Element;
 
 export default ListCell;

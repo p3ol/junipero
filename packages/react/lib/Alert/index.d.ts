@@ -1,41 +1,42 @@
-import { ElementType, MutableRefObject } from 'react';
+import { ReactNode, ElementType, MutableRefObject } from 'react';
 
 export declare type AlertRef = {
+  isJunipero: boolean;
   innerRef: MutableRefObject<any>;
-  isJunipero: Boolean;
 };
+
 declare interface AlertProps extends React.ComponentPropsWithRef<any> {
-  animate?: (
-    alert: JSX.Element,
-    opts: { opened: Boolean, index: Number }
-  ) => JSX.Element;
   animationTimeout?: number;
+  children?: ReactNode | JSX.Element;
   className?: string;
-  index?: string|number;
-  title?: React.ReactNode | string | Function;
+  icon?: ReactNode | JSX.Element;
+  index?: string | number;
   lifespan?: number;
-  tag?: String | ElementType;
-  children?: string | React.ReactNode | Function;
-  onDismiss?(index?: any): any;
-  icon?: React.ReactNode | string | Function;
+  tag?: string | ElementType;
+  title?: ReactNode | JSX.Element;
+  animate?(
+    alert: ReactNode | JSX.Element,
+    opts: { opened: boolean, index: number }
+  ): ReactNode | JSX.Element;
+  onDismiss?(index?: string | number): void;
   ref?: MutableRefObject<AlertRef | undefined>;
 }
 
 export declare interface AlertObject {
-  icon?: React.ReactNode | Function;
-  index?: any;
-  title?: React.ReactNode | string | Function;
-  content: string | React.ReactNode | Function;
+  animationTimeout?: number;
+  content: ReactNode | JSX.Element;
+  icon?: ReactNode | JSX.Element;
+  index?: string | number;
+  title?: ReactNode | JSX.Element;
   duration?: number;
   lifespan?: number;
-  animate?: (
-    alert: JSX.Element,
-    opts: { opened: Boolean, index: Number }
-  ) => JSX.Element;
-  animationTimeout?: number;
-  onDismiss?: (index?: any) => any;
+  animate?(
+    alert: ReactNode | JSX.Element,
+    opts: { opened: boolean, index: number }
+  ): ReactNode | JSX.Element;
+  onDismiss?(index?: string | number): void;
 }
 
-declare function Alert(props: AlertProps): JSX.Element;
+declare function Alert(props: AlertProps): ReactNode | JSX.Element;
 
 export default Alert;

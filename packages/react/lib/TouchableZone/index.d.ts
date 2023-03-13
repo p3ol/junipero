@@ -1,11 +1,12 @@
-import React, { ElementType } from 'react';
+import { ReactNode, ComponentPropsWithRef, ElementType } from 'react';
 
-declare interface TouchableZoneProps extends React.ComponentPropsWithRef<any> {
-  tag?: String | ElementType;
-  children?: React.ReactNode
-  className?: String
+declare interface TouchableZoneProps extends ComponentPropsWithRef<any> {
+  children?: ReactNode | JSX.Element;
+  className?: string
+  tag?: string | ElementType;
 }
 
-declare function TouchableZone(props: TouchableZoneProps): JSX.Element;
+declare function TouchableZone(props: TouchableZoneProps):
+  ReactNode | JSX.Element;
 
 export default TouchableZone;

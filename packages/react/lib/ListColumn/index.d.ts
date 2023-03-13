@@ -1,15 +1,16 @@
-import { ComponentPropsWithRef, MutableRefObject } from 'react';
+import { ComponentPropsWithRef, MutableRefObject, ReactNode } from 'react';
 
 export declare type ListColumnRef = {
-  id: string|number;
+  id: string | number;
   isJunipero: boolean;
 };
 
 declare interface ListColumnProps extends ComponentPropsWithRef<any> {
-  id?: string|number;
+  id: string | number;
+  children?: ReactNode | JSX.Element;
   ref?: MutableRefObject<ListColumnRef | undefined>;
 }
 
-declare function ListColumn(props: ListColumnProps): JSX.Element;
+declare function ListColumn(props: ListColumnProps): ReactNode | JSX.Element;
 
 export default ListColumn;

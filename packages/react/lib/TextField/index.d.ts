@@ -1,38 +1,40 @@
-import React, { ComponentPropsWithRef, MutableRefObject } from 'react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
 export declare type TextFieldRef = {
+  dirty: boolean;
+  focused: boolean;
+  isJunipero: boolean;
+  valid: boolean;
+  value: string;
+  blur(): void;
+  focus(): void;
+  reset(): void;
+  setDirty(dirty: boolean): void;
   innerRef: MutableRefObject<any>;
   inputRef: MutableRefObject<any>;
-  value: String;
-  valid: Boolean;
-  dirty: Boolean;
-  focused: Boolean;
-  focus: () => void;
-  blur: () => void;
-  reset: () => void;
-  setDirty: (dirty: Boolean) => void;
-  isJunipero: Boolean;
 };
 
 declare interface TextFieldProps extends ComponentPropsWithRef<any> {
-  autoFocus?: Boolean;
-  children?: React.ReactNode;
-  className?: String;
-  valid?: Boolean;
-  value?: String;
-  disabled: Boolean;
-  required?: Boolean;
-  type?: String;
-  onBlur?: (event: Event) => void;
-  onFocus?: (event: Event) => void;
-  onChange?: (props: { value: String; valid: Boolean; dirty: Boolean }) => void;
-  onValidate?: (
-    val: String,
-    options: { required?: Boolean; dirty?: Boolean }
-  ) => Boolean;
+  autoFocus?: boolean;
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  disabled?: boolean;
+  required?: boolean;
+  type?: string;
+  valid?: boolean;
+  value?: string | number;
+  onBlur?(event: Event): void;
+  onChange?(
+    field: { value: string | number; valid: boolean; dirty: boolean }
+  ): void;
+  onFocus?(event: Event): void;
+  onValidate?(
+    val: string | number,
+    flags: { required: boolean; dirty: boolean }
+  ): boolean;
   ref?: MutableRefObject<TextFieldRef | undefined>;
 }
 
-declare function TextField(props: TextFieldProps): JSX.Element;
+declare function TextField(props: TextFieldProps): ReactNode | JSX.Element;
 
 export default TextField;

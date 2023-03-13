@@ -1,20 +1,22 @@
-import { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject } from 'react';
 
 import { AlertObject } from '../Alert';
 
 export declare type AlertsControlRef = {
   alerts: Array<AlertObject>;
-  add: (alert: AlertObject) => void;
-  dismiss: (index: number) => void;
-  isJunipero: Boolean;
+  isJunipero: boolean;
+  add(alert: AlertObject): void;
+  dismiss(index: number): void;
 };
+
 declare interface AlertsControlProps
   extends React.ComponentPropsWithoutRef<any> {
   alerts?: Array<AlertObject>;
-  generateId: (alert: AlertObject) => string|number;
+  generateId(alert: AlertObject): string | number;
   ref?: MutableRefObject<AlertsControlRef | undefined>;
 }
 
-declare function AlertsControl(props: AlertsControlProps): JSX.Element;
+declare function AlertsControl(props: AlertsControlProps):
+  ReactNode | JSX.Element;
 
 export default AlertsControl;

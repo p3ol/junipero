@@ -1,36 +1,41 @@
-import { ElementType, MutableRefObject } from 'react';
+import {
+  ReactNode,
+  ComponentPropsWithRef,
+  ElementType,
+  MutableRefObject,
+} from 'react';
 
 export declare type ToastRef = {
-  innerRef: MutableRefObject<any>;
   enabled: boolean;
+  isJunipero: boolean;
   paused: boolean;
   remaining: number;
-  isJunipero: boolean;
+  innerRef: MutableRefObject<any>;
 };
 
 export declare interface ToastObject {
-  index?: string|number;
-  content?: string | React.ReactNode | Function;
+  content: ReactNode | JSX.Element;
   duration?: number;
+  index: string | number;
   lifespan?: number;
-  onDismiss?: (index?: string|number) => any;
+  onDismiss?(index?: string | number): any;
 }
 
-declare interface ToastProps extends React.ComponentPropsWithRef<any> {
-  animate?: (
-    alert: JSX.Element,
-    opts: { opened: boolean, index: string|number }
-  ) => JSX.Element;
+declare interface ToastProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
+  children?: ReactNode | JSX.Element;
   className?: string;
-  index?: string|number;
+  index?: string | number;
   lifespan?: number;
-  tag?: String | ElementType;
-  children?: string | React.ReactNode | Function;
-  onDismiss?(index?: string|number): any;
+  tag?: string | ElementType;
+  animate?(
+    alert: ReactNode | JSX.Element,
+    opts: { opened: boolean, index: string|number }
+  ): JSX.Element;
+  onDismiss?(index?: string | number): any;
   ref?: MutableRefObject<ToastRef | undefined>;
 }
 
-declare function Toast(props: ToastProps): JSX.Element;
+declare function Toast(props: ToastProps): ReactNode | JSX.Element;
 
 export default Toast;

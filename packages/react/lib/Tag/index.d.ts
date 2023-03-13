@@ -1,21 +1,22 @@
-import React, {
+import {
+  ReactNode,
   ComponentPropsWithRef,
   ElementType,
   MutableRefObject,
 } from 'react';
 
 export declare type TagRef = {
-  isJunipero: Boolean;
+  isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
 declare interface TagProps extends ComponentPropsWithRef<any> {
-  className?: String;
-  children?: React.ReactNode;
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  tag?: string | ElementType;
   onDelete?: () => void;
-  tag?: String | ElementType;
   ref?: MutableRefObject<TagRef | undefined>;
 }
 
-declare function Tag(props: TagProps): JSX.Element;
+declare function Tag(props: TagProps): ReactNode | JSX.Element;
 
 export default Tag;

@@ -1,8 +1,11 @@
-declare interface DropdownItemProps
-  extends React.ComponentsPropsWithoutRef<any> {
-  className?: String;
+import { ReactNode, ComponentPropsWithoutRef } from 'react';
+
+declare interface DropdownItemProps extends ComponentPropsWithoutRef<any> {
+  children?: ReactNode | JSX.Element;
+  className?: string;
 }
 
-declare function DropdownItem(props: DropdownItemProps): JSX.Element;
+declare function DropdownItem(props: DropdownItemProps):
+  ReactNode | JSX.Element;
 
 export default DropdownItem;

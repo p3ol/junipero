@@ -1,15 +1,16 @@
-import { ComponentPropsWithRef, MutableRefObject } from 'react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
 export declare type ListItemRef = {
-  innerRef: MutableRefObject<any>;
   isJunipero: boolean;
+  innerRef: MutableRefObject<any>;
 };
 
 declare interface ListItemProps extends ComponentPropsWithRef<any> {
   item?: Array<any>;
+  children?: ReactNode | JSX.Element;
   ref?: MutableRefObject<ListItemRef | undefined>;
 }
 
-declare function ListItem(props: ListItemProps): JSX.Element;
+declare function ListItem(props: ListItemProps): ReactNode | JSX.Element;
 
 export default ListItem;

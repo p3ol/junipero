@@ -1,54 +1,57 @@
-import { MutableRefObject } from 'react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
 export declare type SelectFieldRef = {
+  dirty: boolean;
+  focused: boolean;
+  isJunipero: boolean;
+  opened: boolean;
+  value: any;
+  valid: boolean;
+  blur(): void;
+  focus(): void;
+  reset(): void;
   innerRef: MutableRefObject<any>;
   searchInputRef: MutableRefObject<any>;
-  value: any;
-  valid: Boolean;
-  dirty: Boolean;
-  focused: Boolean;
-  opened: Boolean;
-  focus: () => void;
-  blur: () => void;
-  reset: () => void;
-  isJunipero: Boolean;
 };
 
-declare interface SelectFieldProps extends React.ComponentPropsWithRef<any> {
-  animateMenu: (menu: JSX.Element, opts: { opened: Boolean }) => JSX.Element;
-  className?: String;
+declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
+  allowArbitraryItems?: boolean;
+  autoFocus?: boolean;
+  className?: string;
+  clearable?: boolean;
+  disabled?: boolean;
+  keyboardHandler?: boolean;
+  multiple?: boolean;
+  noOptionsEnabled?: boolean;
+  noOptionsLabel?: ReactNode | JSX.Element;
   options?: Array<any>;
-  placeholder?: String;
-  valid?: Boolean;
-  value?: any;
-  allowArbitraryItems?: Boolean;
-  autoFocus?: Boolean;
-  clearable?: Boolean;
-  disabled?: Boolean;
-  toggleClick?: Boolean;
-  keyboardHandler?: Boolean;
-  multiple?: Boolean;
-  noOptionsEnabled?: Boolean;
-  noOptionsLabel?: String;
-  searchable?: Boolean;
+  placeholder?: string;
+  required?: boolean;
+  searchable?: boolean;
   searchMinCharacters?: number;
   searchThreshold?: number;
-  required?: Boolean;
-  onChange?: (props: { value: any; valid: Boolean }) => void;
-  parseTitle?: (option: any) => String;
-  parseValue?: (option: any) => any;
-  onBlur?: (event: Event) => void;
-  onFocus?: (event: Event) => void;
-  onKeyPress?: (event: Event) => void;
-  onKeyUp?: (event: Event) => void;
-  onValidate?: (
+  toggleClick?: boolean;
+  valid?: boolean;
+  value?: any;
+  animateMenu?(
+    menu: ReactNode | JSX.Element,
+    opts: { opened: boolean }
+  ): ReactNode | JSX.Element;
+  onChange?(props: { value: any; valid: boolean }): void;
+  onBlur?(event: Event): void;
+  onFocus?(event: Event): void;
+  onKeyPress?(event: Event): void;
+  onKeyUp?(event: Event): void;
+  onValidate?(
     value: any,
-    props: { required?: Boolean; multiple?: Boolean }
-  ) => Boolean;
-  onSearch?: (search: String) => Promise<Array<any>>;
+    flags: { required: boolean; multiple: boolean }
+  ): boolean;
+  onSearch?(search: string): Promise<Array<any>>;
+  parseTitle?(option: any): string;
+  parseValue?(option: any): any;
   ref?: MutableRefObject<SelectFieldRef | undefined>;
 }
 
-declare function SelectField(props: SelectFieldProps): JSX.Element;
+declare function SelectField(props: SelectFieldProps): ReactNode | JSX.Element;
 
 export default SelectField;
