@@ -11,7 +11,13 @@ export declare type AlertsRef = {
 declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
   animationTimeout?: number;
   className?: string;
-  icons?: object;
+  icons?: {
+    danger?: ReactNode | JSX.Element;
+    default?: ReactNode | JSX.Element;
+    primary?: ReactNode | JSX.Element;
+    success?: ReactNode | JSX.Element;
+    warning?: ReactNode | JSX.Element;
+  };
   animateAlert?(
     alert: ReactNode | JSX.Element,
     opts: { enabled: boolean, index: number }
