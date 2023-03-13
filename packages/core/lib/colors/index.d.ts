@@ -1,4 +1,4 @@
-declare interface COLORS {
+export declare interface COLORS {
   [key: string]: {
     DEFAULT?: string,
     hover?: string,
