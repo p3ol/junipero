@@ -1,18 +1,18 @@
 export declare function useEventListener(
   name: string,
   handler: Function,
-  options?: { target?: any, enabled?: Boolean }): void;
+  options?: { target?: any, enabled?: boolean }): void;
 
 export declare function useInterval(
   cb: Function,
-  time: Number,
+  time: number,
   changes?: Array<any>,
   options?: { enabled?: boolean, layoutEffect?: boolean },
   ): void;
 
 export declare function useTimeout(
   cb: Function,
-  time: Number,
+  time: number,
   changes?: Array<any>,
   options?: { enabled?: boolean, layoutEffect?: boolean },
 ): void;
