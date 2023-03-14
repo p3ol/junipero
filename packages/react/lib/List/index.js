@@ -82,7 +82,9 @@ const List = forwardRef(({
               <ArrowDown />
             ) : null }
           </a>
-        ) : title }
+        ) : (
+          <span className="junipero secondary">{ title }</span>
+        ) }
       </th>
     );
   };
