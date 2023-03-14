@@ -211,10 +211,18 @@ exports[`<List /> should render using children 1`] = `
     <thead>
       <tr>
         <th>
-          Name
+          <span
+            class="junipero secondary"
+          >
+            Name
+          </span>
         </th>
         <th>
-          Age
+          <span
+            class="junipero secondary"
+          >
+            Age
+          </span>
         </th>
       </tr>
     </thead>
@@ -248,10 +256,18 @@ exports[`<List /> should render using props 1`] = `
     <thead>
       <tr>
         <th>
-          name
+          <span
+            class="junipero secondary"
+          >
+            name
+          </span>
         </th>
         <th>
-          age
+          <span
+            class="junipero secondary"
+          >
+            age
+          </span>
         </th>
       </tr>
     </thead>
