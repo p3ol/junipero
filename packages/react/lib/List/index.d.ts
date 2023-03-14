@@ -1,8 +1,10 @@
 import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
+import { ListColumnObject } from '../ListColumn';
+
 export declare type ListRef = {
   orderable: boolean;
-  columns: Array<any>;
+  columns: Array<string | ListColumnObject>;
   active: string | number;
   asc: boolean | null;
   isJunipero: boolean;
@@ -10,7 +12,7 @@ export declare type ListRef = {
 };
 
 declare interface ListProps extends ComponentPropsWithRef<any> {
-  columns?: Array<any>;
+  columns?: Array<string | ListColumnObject>;
   onOrder?(order: { column: string | number; asc: boolean | null }): void;
   ref?: MutableRefObject<ListRef | undefined>;
 }

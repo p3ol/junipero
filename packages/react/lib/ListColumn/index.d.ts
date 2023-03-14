@@ -1,5 +1,10 @@
 import { ComponentPropsWithRef, MutableRefObject, ReactNode } from 'react';
 
+export declare interface ListColumnObject {
+  id: string | number;
+  title: ReactNode | JSX.Element;
+}
+
 export declare type ListColumnRef = {
   id: string | number;
   isJunipero: boolean;

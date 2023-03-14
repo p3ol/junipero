@@ -6,7 +6,7 @@ export declare type ListItemRef = {
 };
 
 declare interface ListItemProps extends ComponentPropsWithRef<any> {
-  item?: Array<any>;
+  item?: Array<ReactNode | JSX.Element>;
   children?: ReactNode | JSX.Element;
   ref?: MutableRefObject<ListItemRef | undefined>;
 }
