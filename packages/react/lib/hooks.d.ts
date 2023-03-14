@@ -23,7 +23,7 @@ declare type DropdownContext = Pick<
   'strategy'
 > & {
   opened: boolean;
-  container?: Element | DocumentFragment;
+  container?: string | Element | DocumentFragment;
   close(): void;
   getReferenceProps: (
     userProps?: React.HTMLProps<Element> | undefined

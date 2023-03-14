@@ -18,7 +18,7 @@ export declare type DropdownRef = {
 declare interface DropdownProps extends ComponentPropsWithRef<any> {
   clickOptions?: UseClickProps;
   className?: string;
-  container?: Element | DocumentFragment;
+  container?: string | Element | DocumentFragment;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
   floatingOptions?: object;
