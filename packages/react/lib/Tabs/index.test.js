@@ -38,4 +38,22 @@ describe('<Tabs />', () => {
     expect(container).toMatchSnapshot();
     unmount();
   });
+
+  it('should allow to render tabs from prop', () => {
+    const onToggle = jest.fn();
+    const { container, getByText, unmount } = render(
+      <Tabs
+        tabs={[
+          { title: 'Tab 1', content: 'One' },
+          { title: 'Tab 2', content: 'Two' },
+        ]}
+        onToggle={onToggle}
+      />
+    );
+    expect(container).toMatchSnapshot('First tab');
+    fireEvent.click(getByText('Tab 2'));
+    expect(onToggle).toHaveBeenCalledWith(1);
+    expect(container).toMatchSnapshot('Second tab');
+    unmount();
+  });
 });

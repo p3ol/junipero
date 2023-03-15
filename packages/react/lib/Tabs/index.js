@@ -5,6 +5,7 @@ import {
   useImperativeHandle,
   useRef,
   useState,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from '@junipero/core';
@@ -15,6 +16,7 @@ const Tabs = forwardRef(({
   className,
   children,
   active,
+  tabs,
   disabled = false,
   filterTab = child => child.type === Tab,
   onToggle,
@@ -24,9 +26,10 @@ const Tabs = forwardRef(({
   const [activeTab, setActiveTab] = useState(active);
 
   useImperativeHandle(ref, () => ({
-    innerRef,
+    tabs,
     activeTab,
     isJunipero: true,
+    innerRef,
   }));
 
   useEffect(() => {
@@ -44,7 +47,11 @@ const Tabs = forwardRef(({
     onToggle?.(index);
   };
 
-  const tabs = Children.toArray(children).filter(filterTab);
+  const availableTabs = useMemo(() => (
+    tabs
+      ? tabs.map((t, i) => <Tab key={i} title={t.title}>{ t.content }</Tab>)
+      : Children.toArray(children).filter(filterTab)
+  ), [tabs, children]);
 
   return (
     <div
@@ -57,7 +64,7 @@ const Tabs = forwardRef(({
       )}
     >
       <ul className="titles">
-        { tabs.map((tab, index) => (
+        { availableTabs.map((tab, index) => (
           <li
             key={index}
             className={classNames(
@@ -76,7 +83,7 @@ const Tabs = forwardRef(({
       </ul>
 
       <div className="content">
-        { tabs[activeTab] }
+        { availableTabs[activeTab] }
       </div>
     </div>
   );
@@ -85,6 +92,10 @@ const Tabs = forwardRef(({
 Tabs.displayName = 'Tabs';
 Tabs.propTypes = {
   active: PropTypes.number,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.any,
+    content: PropTypes.any,
+  })),
   disabled: PropTypes.bool,
   onToggle: PropTypes.func,
   filterTab: PropTypes.func,

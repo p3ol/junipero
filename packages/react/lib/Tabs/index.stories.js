@@ -11,3 +11,13 @@ export const basic = () => (
     <Tab title="Title Two">Content Two</Tab>
   </Tabs>
 );
+
+export const withTabsProp = () => (
+  <Tabs
+    tabs={[
+      { title: 'Title One', content: 'Content One' },
+      { title: 'Title Two', content: 'Content Two' },
+    ]}
+    onToggle={action('change')}
+  />
+);
