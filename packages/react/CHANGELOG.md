@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
+
+
+### Bug Fixes
+
+* **react:** alert animate args ([3b97888](https://github.com/p3ol/junipero/commit/3b97888b59c93bbba4067d47853c20676e8b0fdf))
+* **react:** allow to render breadcrumb items from prop ([ec301be](https://github.com/p3ol/junipero/commit/ec301be3f166592ecfc6745e899817a09281cca2))
+* **react:** allow to render tabs from prop ([243055d](https://github.com/p3ol/junipero/commit/243055d15ff3660cbabab703eb4f9858630495ec))
+* **react:** better alerts icons typing ([7091a4a](https://github.com/p3ol/junipero/commit/7091a4a014ecc6ca9442d08c7e280ff3444f412a))
+* **react:** better types ([52889c1](https://github.com/p3ol/junipero/commit/52889c161ee96681bd48293ab8b61a76d65ee035))
+* **react:** list column not being secondary when not orderable ([84bbf0b](https://github.com/p3ol/junipero/commit/84bbf0bc38652ed1ab3e3dae5a911a1c0cd3af28))
+* **react:** missing container type ([74aa285](https://github.com/p3ol/junipero/commit/74aa2852d65d02d45f2acfcba088ec16f3eb11ea))
+* **react:** various remaining type mistakes ([3dd73d7](https://github.com/p3ol/junipero/commit/3dd73d78740f7e9d5e3057dbd88a7fdd33dc0d01))
+* **text-field:** add onWheel listener to prevent value from changing on wheel ([ca1410f](https://github.com/p3ol/junipero/commit/ca1410f6c0675390c66d4e7139c2a2054b1670cf))
+* **text-field:** move onWheel type with other dom event listeners ([c07b6c2](https://github.com/p3ol/junipero/commit/c07b6c29cb410cfaafdc538bd0370ed4fadc5049))
+* **text-field:** use onWheel props instead of moving rest spread operator bottom ([c37e989](https://github.com/p3ol/junipero/commit/c37e989467a6ed5608b7247b619a84c2a66d82b6))
+* **typing:** use ; instead of , ininterfaces ([bbf9d4a](https://github.com/p3ol/junipero/commit/bbf9d4a2b4a9421515ea5aaba3997dc99b91501c))
+
+
+
+
+
 # [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
 
 

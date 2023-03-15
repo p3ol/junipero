@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
+
+
+### Bug Fixes
+
+* **hooks:** better types ([9181449](https://github.com/p3ol/junipero/commit/9181449db48ffc033f99e4ca983a9e805946af22))
+* **typing:** use ; instead of , ininterfaces ([bbf9d4a](https://github.com/p3ol/junipero/commit/bbf9d4a2b4a9421515ea5aaba3997dc99b91501c))
+* **typing:** use ; instead of , on interfaces ([2cd5282](https://github.com/p3ol/junipero/commit/2cd5282eec0f3f76a91a6678bb744c1855a56b4c))
+
+
+
+
+
 # [3.0.0-beta.0](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.57...v3.0.0-beta.0) (2023-03-07)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
+
+
+### Features
+
+* **theme:** add icons using cdn ([0b83b50](https://github.com/p3ol/junipero/commit/0b83b5009746a9407fbfd455c75f2d4531045227))
+
+
+
+
+
 # [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
 
 

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
+
+
+### Bug Fixes
+
+* **core:** better types ([ed7f654](https://github.com/p3ol/junipero/commit/ed7f654bde67229a4f58004d04c63f17dad3942e))
+* **core:** color typings ([8e0071f](https://github.com/p3ol/junipero/commit/8e0071f36eb57577cbc197c04cb508a8415641a8))
+* **core:** missing type export ([3efe827](https://github.com/p3ol/junipero/commit/3efe827a69cb85beaa3d03e7f3d36f1ded5eed4c))
+* **core:** only pass color values to color parsers ([e22545a](https://github.com/p3ol/junipero/commit/e22545a8b3acb18ae8af523d022d2ffa3d947b48))
+* **typing:** use ; instead of , ininterfaces ([bbf9d4a](https://github.com/p3ol/junipero/commit/bbf9d4a2b4a9421515ea5aaba3997dc99b91501c))
+
+
+
+
+
 # [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
 
 
