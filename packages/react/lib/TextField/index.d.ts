@@ -32,6 +32,7 @@ declare interface TextFieldProps extends ComponentPropsWithRef<any> {
     val: string | number,
     flags: { required: boolean; dirty: boolean }
   ): boolean;
+  onWheel?(event: Event): void;
   ref?: MutableRefObject<TextFieldRef | undefined>;
 }
 
