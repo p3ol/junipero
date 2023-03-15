@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   stories: [
     '../packages/*/lib/*/*.stories.js',
+    '../packages/*/lib/*.stories.js',
   ],
   addons: [
     '@storybook/addon-storysource',
