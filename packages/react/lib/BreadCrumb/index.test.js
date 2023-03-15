@@ -62,4 +62,28 @@ describe('<BreadCrumb />', () => {
 
     unmount();
   });
+
+  it('should allow to render from items prop', () => {
+    const { container, unmount } = render(
+      <BreadCrumb items={['One', 'Two', 'Three']} />
+    );
+
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
+  it('should allow to render from items prop with maxItems', () => {
+    const { container, getByText, unmount } = render(
+      <BreadCrumb items={['One', 'Two', 'Three', 'Four']} maxItems={3} />
+    );
+
+    expect(container).toMatchSnapshot('Collapsed');
+
+    fireEvent.click(getByText('...'));
+
+    expect(container).toMatchSnapshot('Opened');
+
+    unmount();
+  });
 });

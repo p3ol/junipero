@@ -5,6 +5,11 @@ import {
   MutableRefObject,
 } from 'react';
 
+export declare interface TabObject {
+  title: ReactNode | JSX.Element;
+  content: ReactNode | JSX.Element;
+}
+
 export declare type TabRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;

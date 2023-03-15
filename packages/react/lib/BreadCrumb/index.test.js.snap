@@ -58,6 +58,88 @@ exports[`<BreadCrumb /> should allow to conditionnaly add items inside fragments
 </div>
 `;
 
+exports[`<BreadCrumb /> should allow to render from items prop 1`] = `
+<div>
+  <div
+    class="junipero breadcrumb"
+  >
+    <span
+      class="item"
+    >
+      One
+    </span>
+    <span
+      class="item"
+    >
+      Two
+    </span>
+    <span
+      class="item"
+    >
+      Three
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<BreadCrumb /> should allow to render from items prop with maxItems: Collapsed 1`] = `
+<div>
+  <div
+    class="junipero breadcrumb collapsed"
+  >
+    <span
+      class="item"
+    >
+      One
+    </span>
+    <span
+      class="item"
+    >
+      Two
+    </span>
+    <a
+      class="item"
+    >
+      ...
+    </a>
+    <span
+      class="item"
+    >
+      Four
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<BreadCrumb /> should allow to render from items prop with maxItems: Opened 1`] = `
+<div>
+  <div
+    class="junipero breadcrumb opened"
+  >
+    <span
+      class="item"
+    >
+      One
+    </span>
+    <span
+      class="item"
+    >
+      Two
+    </span>
+    <span
+      class="item"
+    >
+      Three
+    </span>
+    <span
+      class="item"
+    >
+      Four
+    </span>
+  </div>
+</div>
+`;
+
 exports[`<BreadCrumb /> should render 1`] = `
 <div>
   <div

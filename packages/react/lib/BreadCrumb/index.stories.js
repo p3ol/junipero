@@ -48,3 +48,11 @@ export const withConditionalItems = () => {
     </>
   );
 };
+
+export const withItemsProp = () => (
+  <BreadCrumb items={['One', 'Two', 'Three']} />
+);
+
+export const withItemsPropCollapsed = () => (
+  <BreadCrumb items={['One', 'Two', 'Three']} maxItems={2} />
+);
