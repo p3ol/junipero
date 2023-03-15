@@ -127,7 +127,6 @@ const TextField = forwardRef(({
       )}
     >
       <Tag
-        { ...rest }
         autoFocus={autoFocus}
         className="field"
         ref={inputRef}
@@ -138,6 +137,8 @@ const TextField = forwardRef(({
         onChange={onChange_}
         onFocus={onFocus_}
         onBlur={onBlur_}
+        onWheel={() => inputRef.current?.blur()}
+        { ...rest }
       />
       { children }
     </div>

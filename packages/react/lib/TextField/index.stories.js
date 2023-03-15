@@ -50,3 +50,22 @@ export const withValidation = () => (
     onValidate={val => /^[0-9]+$/g.test(val)}
   />
 );
+
+export const typeNumber = () => (
+  <TextField
+    className="field noscroll"
+    label="Age"
+    placeholder="Age"
+    type="number"
+  />
+);
+
+export const withOnWheelOverrided = () => (
+  <TextField
+    className="field noscroll"
+    label="Age"
+    placeholder="Age"
+    type="number"
+    onWheel={action('wheel')}
+  />
+);

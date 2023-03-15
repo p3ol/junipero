@@ -1,5 +1,5 @@
 import { createRef } from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { blur, reset } from '~test-utils';
@@ -92,6 +92,38 @@ describe('<TextField />', () => {
   it('should render a textarea if rows is set to > 1', () => {
     const { unmount, container } = render(<TextField rows={2} />);
     expect(container).toMatchSnapshot();
+    unmount();
+  });
+
+  it('should blur on scroll', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(<TextField type="number" />);
+
+    const input = container.querySelector('input');
+    await user.click(input);
+    expect(container).toMatchSnapshot('focused');
+    fireEvent.wheel(container.querySelector('.junipero.text-field input'), {
+      deltaY: 30,
+    });
+    expect(container).toMatchSnapshot('unfocused');
+    unmount();
+  });
+
+  it('should do the given action on scroll if onWheel is set', async () => {
+    const user = userEvent.setup();
+    const customWheel = jest.fn();
+    const { unmount, container } = render(
+      <TextField type="number" onWheel={customWheel} />
+    );
+
+    const input = container.querySelector('input');
+    await user.click(input);
+    expect(container).toMatchSnapshot('focused');
+    fireEvent.wheel(container.querySelector('.junipero.text-field input'), {
+      deltaY: 30,
+    });
+    expect(customWheel).toHaveBeenCalled();
+    expect(container).toMatchSnapshot('always focused');
     unmount();
   });
 });
