@@ -69,7 +69,7 @@ export { default as DropdownGroup } from './DropdownGroup';
 export { default as DropdownItem } from './DropdownItem';
 export { default as DropdownMenu, DropdownMenuRef } from './DropdownMenu';
 export { default as DropdownToggle } from './DropdownToggle';
-export { default as Droppable, DroppableRef } from './Droppable';
+export { default as Droppable } from './Droppable';
 export { default as FieldAddon, FieldAddonRef } from './FieldAddon';
 export { default as FieldControl } from './FieldControl';
 export { default as FieldGroup, FieldGroupRef } from './FieldGroup';

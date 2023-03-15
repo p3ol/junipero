@@ -1,46 +1,42 @@
-import { Placement } from '@floating-ui/react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 import {
-  Props as clickProps,
-} from '@floating-ui/react/src/hooks/useClick';
-import {
-  Props as dismissProps,
-} from '@floating-ui/react/src/hooks/useDismiss';
-import {
-  Props as hoverProps,
-} from '@floating-ui/react/src/hooks/useHover';
-import React, { MutableRefObject } from 'react';
+  Placement,
+  UseClickProps,
+  UseDismissProps,
+  UseHoverProps,
+} from '@floating-ui/react';
 
 export declare type TooltipRef = {
-  opened: Boolean;
+  opened: boolean;
+  open(): void;
+  close(): void;
+  toggle(): void;
   innerRef: MutableRefObject<any>;
   handleRef: MutableRefObject<any>;
-  open: () => void;
-  close: () => void;
-  toggle: () => void;
 };
 
-declare interface TooltipProps extends React.ComponentPropsWithRef<any> {
-  animate?: (
-    tooltipInner: React.ReactNode,
-    options: { opened?: Boolean }
-  ) => void;
-  apparition?: String;
-  children?: React.ReactNode;
-  className?: String;
-  clickOptions?: clickProps;
-  container?: Node | String;
-  disabled?: Boolean;
-  dismissOptions?: dismissProps;
-  floatingOptions?: Object;
-  hoverOptions?: hoverProps;
-  opened?: Boolean;
-  text?: String;
+declare interface TooltipProps extends ComponentPropsWithRef<any> {
+  apparition?: string;
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  clickOptions?: UseClickProps;
+  container?: string | Element | DocumentFragment;
+  disabled?: boolean;
+  dismissOptions?: UseDismissProps;
+  floatingOptions?: object;
+  hoverOptions?: UseHoverProps;
+  opened?: boolean;
+  text?: string;
   placement?: Placement;
-  trigger?: String;
-  onToggle?: (props: { opened?: Boolean }) => void;
+  trigger?: string;
+  animate?(
+    tooltipInner: ReactNode | JSX.Element,
+    opts: { opened: boolean }
+  ): void;
+  onToggle?(props: { opened: boolean }): void;
   ref?: MutableRefObject<TooltipRef | undefined>;
 }
 
-declare function Tooltip(props: TooltipProps): JSX.Element;
+declare function Tooltip(props: TooltipProps): ReactNode | JSX.Element;
 
 export default Tooltip;

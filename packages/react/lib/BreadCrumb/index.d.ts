@@ -1,18 +1,18 @@
-import { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 
 export declare type BreadCrumbRef = {
+  isJunipero: boolean;
   innerRef: MutableRefObject<any>;
-  isJunipero: Boolean;
 };
 
-declare interface BreadCrumbProps extends React.ComponentPropsWithRef<any> {
+declare interface BreadCrumbProps extends ComponentPropsWithRef<any> {
+  children?: ReactNode | JSX.Element;
   className?: string;
-  children?: React.ReactNode;
   maxItems?: number;
-  filterItem?: (children: React.ReactNode) => boolean;
+  filterItem?(children: ReactNode | JSX.Element): boolean;
   ref?: MutableRefObject<BreadCrumbRef | undefined>;
 }
 
-declare function BreadCrumb(props: BreadCrumbProps): JSX.Element;
+declare function BreadCrumb(props: BreadCrumbProps): ReactNode | JSX.Element;
 
 export default BreadCrumb;

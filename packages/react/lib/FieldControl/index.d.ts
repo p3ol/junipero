@@ -1,7 +1,7 @@
-import React from 'react';
+import { ReactNode, ComponentPropsWithRef } from 'react';
 
 declare function FieldControl(
-  props: React.ComponentPropsWithRef<any>
-): JSX.Element;
+  props: ComponentPropsWithRef<any>
+): ReactNode | JSX.Element;
 
 export default FieldControl;

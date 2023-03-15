@@ -5,14 +5,14 @@ import { ToastObject } from './Toast';
 
 declare interface AlertsContext {
   alerts: Array<AlertObject>;
-  add: (alert: AlertObject) => void;
-  dismiss: (index: number) => void;
+  add(alert: AlertObject): void;
+  dismiss(index: number): void;
 }
 
 declare interface ToastContext {
   toasts: Array<ToastObject>;
-  add: (toast: ToastObject) => void;
-  dismiss: (toast: ToastObject, index: string|number) => void;
+  add(toast: ToastObject): void;
+  dismiss(toast: ToastObject, index: string | number): void;
 }
 
 declare type DropdownContext = Pick<
@@ -23,27 +23,27 @@ declare type DropdownContext = Pick<
   'strategy'
 > & {
   opened: boolean;
-  container?: String | React.ReactNode;
-  toggle: () => void;
-  open: () => void;
-  close: () => void;
+  container?: string | Element | DocumentFragment;
+  close(): void;
   getReferenceProps: (
     userProps?: React.HTMLProps<Element> | undefined
   ) => Record<string, unknown>;
   getFloatingProps: (
     userProps?: React.HTMLProps<HTMLElement> | undefined
   ) => Record<string, unknown>;
+  open(): void;
+  toggle(): void;
 };
 
 declare interface FieldControlContext {
-  valid: Boolean;
-  dirty: Boolean;
-  focused: Boolean;
-  update: (props: {
-    valid?: Boolean;
-    dirty?: Boolean;
-    focused?: Boolean;
-  }) => void;
+  dirty: boolean;
+  focused: boolean;
+  valid: boolean;
+  update(props: {
+    valid?: boolean;
+    dirty?: boolean;
+    focused?: boolean;
+  }): void;
 }
 
 declare function useAlerts(): AlertsContext;

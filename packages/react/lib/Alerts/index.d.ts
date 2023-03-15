@@ -1,24 +1,30 @@
-import { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
 
 import { AlertObject } from '../Alert';
 
 export declare type AlertsRef = {
-  innerRef: MutableRefObject<any>;
   alerts: Array<AlertObject>;
-  isJunipero: Boolean;
+  isJunipero: boolean;
+  innerRef: MutableRefObject<any>;
 };
 
-declare interface AlertsProps extends React.ComponentPropsWithRef<any> {
-  classname?: String;
-  ref?: MutableRefObject<AlertsRef | undefined>;
-  animateAlert?: (
-    alert: JSX.Element,
-    opts: { enabled: Boolean, index: Number }
-  ) => JSX.Element;
+declare interface AlertsProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
-  icons?: Object;
+  className?: string;
+  icons?: {
+    danger?: ReactNode | JSX.Element;
+    default?: ReactNode | JSX.Element;
+    primary?: ReactNode | JSX.Element;
+    success?: ReactNode | JSX.Element;
+    warning?: ReactNode | JSX.Element;
+  };
+  animateAlert?(
+    alert: ReactNode | JSX.Element,
+    opts: { opened: boolean; index: string | number }
+  ): ReactNode | JSX.Element;
+  ref?: MutableRefObject<AlertsRef | undefined>;
 }
 
-declare function Alerts(props: AlertsProps): JSX.Element;
+declare function Alerts(props: AlertsProps): ReactNode | JSX.Element;
 
 export default Alerts;

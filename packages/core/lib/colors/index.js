@@ -62,16 +62,16 @@ export const COLORS = {
 };
 
 const COLOR_PARSERS = [{
-  regex: /(rgb)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*%?,\s*(\d{1,3})\s*%?(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
-  parse: ([_useless, _alsoUseless, r, g, b, a]) => ({
+  regex: /(?:rgb)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*%?,\s*(\d{1,3})\s*%?(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
+  parse: (r, g, b, a) => ({
     r: parseInt(r, 10) / 255,
     g: parseInt(g, 10) / 255,
     b: parseInt(b, 10) / 255,
     a: isNaN(parseFloat(a)) ? 1 : parseFloat(a),
   }),
 }, {
-  regex: /(hsl)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
-  parse: ([_useless, _alsoUseless, h, s, l, a]) => ({
+  regex: /(?:hsl)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
+  parse: (h, s, l, a) => ({
     h: parseInt(h, 10) / 360,
     s: parseInt(s, 10) / 100,
     l: parseInt(l, 10) / 100,
@@ -79,7 +79,7 @@ const COLOR_PARSERS = [{
   }),
 }, {
   regex: /#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})$/,
-  parse: ([_useless, r, g, b]) => ({
+  parse: (r, g, b) => ({
     r: parseInt(r, 16) / 255,
     g: parseInt(g, 16) / 255,
     b: parseInt(b, 16) / 255,
@@ -87,7 +87,7 @@ const COLOR_PARSERS = [{
   }),
 }, {
   regex: /#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])$/,
-  parse: ([_useless, r, g, b]) => ({
+  parse: (r, g, b) => ({
     r: parseInt(r + r, 16) / 255,
     g: parseInt(g + g, 16) / 255,
     b: parseInt(b + b, 16) / 255,
@@ -245,7 +245,7 @@ export const parseColor = (color = '') => {
 
   for (const parser of COLOR_PARSERS) {
     const match = parser.regex.exec(color);
-    const parsed = match && parser.parse(match);
+    const parsed = match && parser.parse(...match.slice(1));
 
     if (parsed) {
       /* istanbul ignore else: ignored unrecognized format */

@@ -1,36 +1,38 @@
-import React, { ComponentPropsWithRef, MutableRefObject } from 'react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
 export declare type SliderRef = {
-  innerRef: MutableRefObject<any>;
-  fillRef: MutableRefObject<any>;
-  slideRef: MutableRefObject<any>;
-  handleRef: MutableRefObject<any>;
-  tooltipRef: MutableRefObject<any>;
-  value: Number;
-  moving: Boolean;
-  precision: Number;
+  isJunipero: boolean;
+  moving: boolean;
+  precision: number;
+  value: number;
   reset: () => void;
-  isJunipero: Boolean;
+  fillRef: MutableRefObject<any>;
+  handleRef: MutableRefObject<any>;
+  innerRef: MutableRefObject<any>;
+  slideRef: MutableRefObject<any>;
+  tooltipRef: MutableRefObject<any>;
 };
 
 declare interface SliderProps extends ComponentPropsWithRef<any> {
-  children?: React.ReactNode;
-  className?: String;
-  value?: Number;
-  max?: Number;
-  min?: Number;
-  maxValue?: Number;
-  minValue?: Number;
-  step?: Number;
-  tooltipEnabled?: Boolean;
-  disabled: Boolean;
-  onMove?: (value: Number) => void;
-  parseTitle?: (value: Number) => React.ReactNode;
-  animateTooltip?: (tooltip: JSX.Element, opts: { opened: Boolean }) =>
-    JSX.Element;
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  disabled: boolean;
+  max?: number;
+  min?: number;
+  maxValue?: number;
+  minValue?: number;
+  step?: number;
+  tooltipEnabled?: boolean;
+  value?: number;
+  animateTooltip?(
+    tooltip: ReactNode | JSX.Element,
+    opts: { opened: boolean }
+  ): ReactNode | JSX.Element;
+  onMove?(value: number): void;
+  parseTitle?(value: number): ReactNode | JSX.Element;
   ref?: MutableRefObject<SliderRef | undefined>;
 }
 
-declare function Slider(props: SliderProps): JSX.Element;
+declare function Slider(props: SliderProps): ReactNode | JSX.Element;
 
 export default Slider;

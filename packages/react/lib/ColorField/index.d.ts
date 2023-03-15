@@ -1,53 +1,54 @@
-import {
-  Props as dismissProps,
-} from '@floating-ui/react/src/hooks/useDismiss';
-import React, { MutableRefObject } from 'react';
+import { ReactNode, MutableRefObject, ComponentPropsWithRef } from 'react';
+import { UseDismissProps } from '@floating-ui/react';
 
 export declare type ColorFieldRef = {
+  dirty: boolean;
+  isJunipero: boolean;
+  valid: boolean;
+  value: string;
+  blur(): void;
+  close(): void;
+  focus(): void;
+  open(): void;
+  reset(): void;
+  toggle(): void;
+  colorAlphaRef: MutableRefObject<any>;
+  colorHueRef: MutableRefObject<any>;
+  colorLightnessRef: MutableRefObject<any>;
   innerRef: MutableRefObject<any>;
   textFieldRef: MutableRefObject<any>;
-  colorLightnessRef: MutableRefObject<any>;
-  colorHueRef: MutableRefObject<any>;
-  colorAlphaRef: MutableRefObject<any>;
-  valid: Boolean;
-  value: String;
-  dirty: Boolean;
-  open: () => void;
-  close: () => void;
-  toggle: () => void;
-  focus: () => void;
-  blur: () => void;
-  reset: () => void;
-  isJunipero: Boolean;
 };
 
-declare interface ColorFieldProps extends React.ComponentPropsWithRef<any> {
-  animateMenu: (menu: JSX.Element, opts: { opened: Boolean }) => JSX.Element;
-  className?: String;
-  dismissOptions?: dismissProps;
+declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
+  autoFocus?: boolean;
+  className?: string;
+  disabled?: boolean;
+  dismissOptions?: UseDismissProps;
+  format?: 'auto' | 'hex' | 'rgb' | 'rgba' | 'hsla';
   globalEventsTarget: EventTarget;
-  id?: String;
-  name?: String;
-  placeholder?: String;
+  id?: string;
+  name?: string;
+  placeholder?: string;
+  required?: boolean;
   tabIndex?: number;
   trigger?: 'click' | 'hover' | 'manual' | 'focus';
-  vamlid?: Boolean;
-  value?: String;
-  autoFocus?: Boolean;
-  disabled?: Boolean;
-  format: 'auto' | 'hex' | 'rgb' | 'rgba' | 'hsla';
-  required: Boolean;
-  onFocus?: (e: Event) => any;
-  onBlur?: (e: Event) => any;
-  onChange?: (props: { value: String; valid: Boolean }) => void;
-  onToggle?: ({ opened }: { opened: Boolean }) => void;
-  onValidate?: (
-    value: String,
-    { dirty, required }: { dirty?: Boolean; required?: Boolean }
-  ) => Boolean;
+  valid?: boolean;
+  value?: string;
+  animateMenu?(
+    menu: ReactNode | JSX.Element,
+    opts: { opened: boolean }
+  ): ReactNode | JSX.Element;
+  onBlur?(e: Event): void;
+  onChange?(props: { value: string; valid: boolean }): void;
+  onFocus?(e: Event): void;
+  onToggle?({ opened }: { opened: boolean }): void;
+  onValidate?(
+    value: string,
+    { dirty, required }: { dirty?: boolean; required?: boolean }
+  ): boolean;
   ref?: MutableRefObject<ColorFieldRef | undefined>;
 }
 
-declare function ColorField(props: ColorFieldProps): JSX.Element;
+declare function ColorField(props: ColorFieldProps): ReactNode | JSX.Element;
 
 export default ColorField;

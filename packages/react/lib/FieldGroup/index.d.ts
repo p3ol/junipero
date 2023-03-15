@@ -1,20 +1,22 @@
-import React, {
+import {
+  ReactNode,
   ComponentPropsWithRef,
   ElementType,
   MutableRefObject,
 } from 'react';
 
 export declare type FieldGroupRef = {
-  isJunipero: Boolean;
+  isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
+
 declare interface FieldGroupProps extends ComponentPropsWithRef<any> {
-  className?: String;
-  children?: React.ReactNode;
-  tag?: String | ElementType;
+  className?: string;
+  children?: ReactNode | JSX.Element;
+  tag?: string | ElementType;
   ref?: MutableRefObject<FieldGroupRef | undefined>;
 }
 
-declare function FieldGroup(props: FieldGroupProps): JSX.Element;
+declare function FieldGroup(props: FieldGroupProps): ReactNode | JSX.Element;
 
 export default FieldGroup;

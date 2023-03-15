@@ -1,21 +1,21 @@
-import React, { MutableRefObject } from 'react';
+import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
 
 export declare type TabsRef = {
-  innerRef: MutableRefObject<any>;
   activeTab: number;
-  isJunipero: Boolean;
+  isJunipero: boolean;
+  innerRef: MutableRefObject<any>;
 };
 
-declare interface TabsProps extends React.ComponentPropsWithRef<any> {
-  className?: String;
-  children?: React.ReactNode;
+declare interface TabsProps extends ComponentPropsWithRef<any> {
   active?: number;
-  disabled?: Boolean;
-  filterTab?: (child: React.ReactNode) => Boolean;
-  onToggle?: (index: number) => void;
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  disabled?: boolean;
+  filterTab?(child: ReactNode | JSX.Element): boolean;
+  onToggle?(index: number): void;
   ref?: MutableRefObject<TabsRef | undefined>;
 }
 
-declare function Tabs(props: TabsProps): JSX.Element;
+declare function Tabs(props: TabsProps): ReactNode | JSX.Element;
 
 export default Tabs;
