@@ -20,7 +20,14 @@ const icons = [
 ];
 
 export const all = () => (
-  <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '8px' }}>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: '8px',
+    }}
+  >
     { icons.map(icon => (
       <i key={icon} className="junipero-icons">{ icon }</i>
     )) }
