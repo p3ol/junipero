@@ -28,6 +28,7 @@ declare interface TextFieldProps extends ComponentPropsWithRef<any> {
     field: { value: string | number; valid: boolean; dirty: boolean }
   ): void;
   onFocus?(event: Event): void;
+  onWheel?(event: Event): void;
   onValidate?(
     val: string | number,
     flags: { required: boolean; dirty: boolean }

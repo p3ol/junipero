@@ -22,6 +22,7 @@ const TextField = forwardRef(({
   onBlur,
   onChange,
   onFocus,
+  onWheel,
   onValidate = (val, { required }) => !!val || !required,
   ...rest
 }, ref) => {
@@ -138,6 +139,7 @@ const TextField = forwardRef(({
         onChange={onChange_}
         onFocus={onFocus_}
         onBlur={onBlur_}
+        onWheel={onWheel ?? (() => inputRef.current?.blur())}
       />
       { children }
     </div>
@@ -158,6 +160,7 @@ TextField.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onWheel: PropTypes.func,
   onValidate: PropTypes.func,
 };
 

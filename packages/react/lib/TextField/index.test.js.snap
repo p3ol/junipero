@@ -70,6 +70,62 @@ exports[`<TextField /> should be invalid if validation fails 1`] = `
 </div>
 `;
 
+exports[`<TextField /> should blur on scroll: focused 1`] = `
+<div>
+  <div
+    class="junipero text-field pristine valid empty focused"
+  >
+    <input
+      class="field"
+      type="number"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextField /> should blur on scroll: unfocused 1`] = `
+<div>
+  <div
+    class="junipero text-field pristine valid empty"
+  >
+    <input
+      class="field"
+      type="number"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextField /> should do the given action on scroll if onWheel is set: always focused 1`] = `
+<div>
+  <div
+    class="junipero text-field pristine valid empty focused"
+  >
+    <input
+      class="field"
+      type="number"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextField /> should do the given action on scroll if onWheel is set: focused 1`] = `
+<div>
+  <div
+    class="junipero text-field pristine valid empty focused"
+  >
+    <input
+      class="field"
+      type="number"
+      value=""
+    />
+  </div>
+</div>
+`;
+
 exports[`<TextField /> should not allow to change value when disabled 1`] = `
 <div>
   <div
