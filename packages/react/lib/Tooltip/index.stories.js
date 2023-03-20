@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { slideInDownMenu } from '@junipero/transitions';
 
@@ -33,3 +34,36 @@ export const animatedButStillInDom = () => (
     Hover me
   </Tooltip>
 );
+
+export const manuallyUpdate = () => {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const tooltipRef = useRef();
+
+  const handleMouseMove = e => {
+    setPos({ x: e.pageX, y: e.pageY });
+    tooltipRef.current.update();
+  };
+
+  return (
+    <div
+      style={{ width: 800, height: 800 }}
+      onMouseMove={handleMouseMove}
+    >
+      <Tooltip
+        ref={tooltipRef}
+        text="Text"
+        opened={true}
+      >
+        <svg
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: '100%',
+            background: 'red',
+          }}
+          transform={`translate(${pos.x}, ${pos.y})`}
+        />
+      </Tooltip>
+    </div>
+  );
+};

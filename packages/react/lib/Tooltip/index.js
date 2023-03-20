@@ -47,7 +47,7 @@ const Tooltip = forwardRef(({
     visible: opened ?? false,
   });
 
-  const { x, y, reference, floating, strategy, context } = useFloating({
+  const { x, y, reference, floating, strategy, context, update } = useFloating({
     open: state.opened,
     onOpenChange: (...args) => onOpenChange(...args),
     placement,
@@ -91,6 +91,7 @@ const Tooltip = forwardRef(({
     open,
     close,
     toggle,
+    update,
     isJunipero: true,
   }));
 
