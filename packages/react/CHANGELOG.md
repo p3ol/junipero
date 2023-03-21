@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.7](https://github.com/p3ol/junipero/compare/v3.0.0-beta.6...v3.0.0-beta.7) (2023-03-21)
+
+
+### Features
+
+* **react:** add missing types ([aa71187](https://github.com/p3ol/junipero/commit/aa71187142bd9980f34ac2da52bc3e209cfd48c3))
+* **react:** forward floating update method ([4350adf](https://github.com/p3ol/junipero/commit/4350adf7412a915b8732a5cbcac1eeb8246775c1))
+
+
+
+
+
 # [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
 
 
