@@ -11,6 +11,7 @@ export declare type TooltipRef = {
   open(): void;
   close(): void;
   toggle(): void;
+  update(): void;
   innerRef: MutableRefObject<any>;
   handleRef: MutableRefObject<any>;
 };
