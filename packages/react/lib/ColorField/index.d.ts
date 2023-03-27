@@ -28,6 +28,7 @@ declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
   globalEventsTarget: EventTarget;
   id?: string;
   name?: string;
+  opened?: boolean;
   placeholder?: string;
   required?: boolean;
   tabIndex?: number;

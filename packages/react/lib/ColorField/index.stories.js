@@ -35,7 +35,7 @@ export const autoFocused = () => (
 );
 
 export const alwaysOpened = () => (
-  <ColorField autoFocus={true} trigger="manual" onChange={action('change')} />
+  <ColorField opened={true} trigger="manual" onChange={action('change')} />
 );
 
 export const animated = () => (
