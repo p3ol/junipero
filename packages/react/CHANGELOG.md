@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.8](https://github.com/p3ol/junipero/compare/v3.0.0-beta.7...v3.0.0-beta.8) (2023-03-27)
+
+
+### Bug Fixes
+
+* **react:** color field not being able to be always opened ([d535f46](https://github.com/p3ol/junipero/commit/d535f4691a6a947e57f1800b8d1345078c6fe011))
+
+
+
+
+
 # [3.0.0-beta.7](https://github.com/p3ol/junipero/compare/v3.0.0-beta.6...v3.0.0-beta.7) (2023-03-21)
 
 
