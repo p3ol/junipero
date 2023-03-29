@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.9](https://github.com/p3ol/junipero/compare/v3.0.0-beta.8...v3.0.0-beta.9) (2023-03-29)
+
+
+### Features
+
+* **theme:** update icons ([465633e](https://github.com/p3ol/junipero/commit/465633e2ce02aeee7a97a828301c3059a174ba44))
+
+
+
+
+
 # [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
 
 
