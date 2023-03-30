@@ -47,7 +47,8 @@ export const removeClass = (elmt, cls) => {
   }
 };
 
-export const mockState = (state, action) => ({ ...state, ...action });
+export const mockState = (state, action) => typeof action === 'function'
+  ? action(state) : ({ ...state, ...action });
 
 export const isUndefined = v => typeof v === 'undefined';
 
