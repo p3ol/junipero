@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.10](https://github.com/p3ol/junipero/compare/v3.0.0-beta.9...v3.0.0-beta.10) (2023-03-30)
+
+
+### Features
+
+* **core:** allow to use a callback inside mockState ([359287e](https://github.com/p3ol/junipero/commit/359287eed94b8b8e123f7e26595600981c4559bf))
+
+
+
+
+
 # [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
 
 
