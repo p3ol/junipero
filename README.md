@@ -12,6 +12,12 @@
 <p>A collection of lightweight and beautifully designed React/React Native components</p>
 </div>
 
+-----------
+
+# ⚠ v2 has been in pre-release for 2 years and v3 is now ready for production, so v2 will be released as a major for maintenance purposes only. If you're using v1, please don't upgrade to v2 and wait for v3 to be released. v2 docs are available at https://v2.junipero.design
+
+-----------
+
 ## Packages
 
 | Name | Description | |
