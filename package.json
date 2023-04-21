@@ -12,8 +12,8 @@
     "lint": "./node_modules/.bin/eslint .",
     "clean": "./node_modules/.bin/lerna exec --parallel -- yarn clean",
     "build": "./node_modules/.bin/lerna exec -- yarn build",
-    "serve": "./node_modules/.bin/start-storybook",
-    "presnapshot": "./node_modules/.bin/build-storybook -c .storybook",
+    "serve": "./node_modules/.bin/storybook dev",
+    "presnapshot": "./node_modules/.bin/storybook build",
     "snapshot": "./node_modules/.bin/percy storybook --config=./percy.config.js ./storybook-static"
   },
   "devDependencies": {
@@ -35,12 +35,11 @@
     "@rollup/plugin-commonjs": "24.1.0",
     "@rollup/plugin-node-resolve": "15.0.2",
     "@rollup/plugin-terser": "0.4.1",
-    "@storybook/addon-actions": "6.5.16",
-    "@storybook/addon-storysource": "6.5.16",
-    "@storybook/builder-webpack5": "6.5.16",
-    "@storybook/manager-webpack5": "6.5.16",
-    "@storybook/react": "6.5.16",
-    "@storybook/theming": "6.5.16",
+    "@storybook/addon-actions": "7.0.6",
+    "@storybook/addon-storysource": "7.0.6",
+    "@storybook/react": "7.0.6",
+    "@storybook/react-webpack5": "7.0.6",
+    "@storybook/theming": "7.0.6",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
     "@testing-library/react-native": "11.5.3",
@@ -81,7 +80,8 @@
     "rollup-plugin-peer-deps-external": "2.2.4",
     "sass": "1.62.0",
     "sass-loader": "13.2.2",
-    "storybook-dark-mode": "2.1.1",
+    "storybook": "7.0.6",
+    "storybook-dark-mode": "3.0.0",
     "style-loader": "3.3.2",
     "stylus": "0.59.0",
     "stylus-loader": "7.1.0",
@@ -94,7 +94,6 @@
     "webpack-dev-server": "4.13.3",
     "webpack-merge": "5.8.0"
   },
-  "dependencies": {},
   "resolutions": {
     "inline-style-prefixer": "6.0.1"
   }
