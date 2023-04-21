@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.11](https://github.com/p3ol/junipero/compare/v3.0.0-beta.10...v3.0.0-beta.11) (2023-04-21)
+
+**Note:** Version bump only for package @junipero/tailwind-plugin
+
+
+
+
+
 # [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
 
 
