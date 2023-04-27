@@ -14,10 +14,15 @@ export declare type ToastRef = {
 };
 
 export declare interface ToastObject {
+  animationTimeout?: number;
   content: ReactNode | JSX.Element;
   duration?: number;
   index: string | number;
   lifespan?: number;
+  animate?(
+    alert: ReactNode | JSX.Element,
+    opts: { opened: boolean; index: string | number }
+  ): JSX.Element;
   onDismiss?(index?: string | number): any;
 }
 
