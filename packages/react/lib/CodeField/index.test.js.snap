@@ -47,6 +47,10 @@ exports[`<CodeField /> should allow navigating between inputs with arrow keys 1`
       type="tel"
       value=""
     />
+    <input
+      type="hidden"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -96,6 +100,10 @@ exports[`<CodeField /> should allow navigating between inputs with arrow keys 2`
       maxlength="1"
       size="1"
       type="tel"
+      value=""
+    />
+    <input
+      type="hidden"
       value=""
     />
   </div>
@@ -149,6 +157,10 @@ exports[`<CodeField /> should allow navigating between inputs with arrow keys 3`
       type="tel"
       value=""
     />
+    <input
+      type="hidden"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -198,6 +210,10 @@ exports[`<CodeField /> should allow navigating between inputs with arrow keys 4`
       maxlength="1"
       size="1"
       type="tel"
+      value=""
+    />
+    <input
+      type="hidden"
       value=""
     />
   </div>
@@ -251,6 +267,10 @@ exports[`<CodeField /> should automatically focus field when autoFocus is enable
       type="tel"
       value=""
     />
+    <input
+      type="hidden"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -300,6 +320,10 @@ exports[`<CodeField /> should automatically switch field focus when changing val
       maxlength="1"
       size="1"
       type="tel"
+      value=""
+    />
+    <input
+      type="hidden"
       value=""
     />
   </div>
@@ -353,6 +377,10 @@ exports[`<CodeField /> should automatically switch field focus when changing val
       type="tel"
       value=""
     />
+    <input
+      type="hidden"
+      value="1"
+    />
   </div>
 </div>
 `;
@@ -403,6 +431,10 @@ exports[`<CodeField /> should correctly fire onChange event 1`] = `
       size="1"
       type="tel"
       value=""
+    />
+    <input
+      type="hidden"
+      value="1"
     />
   </div>
 </div>
@@ -455,6 +487,10 @@ exports[`<CodeField /> should erase chars & move selection when hitting backspac
       type="tel"
       value=""
     />
+    <input
+      type="hidden"
+      value="224"
+    />
   </div>
 </div>
 `;
@@ -505,6 +541,10 @@ exports[`<CodeField /> should erase chars & move selection when hitting backspac
       size="1"
       type="tel"
       value=""
+    />
+    <input
+      type="hidden"
+      value="22"
     />
   </div>
 </div>
@@ -561,6 +601,10 @@ exports[`<CodeField /> should not allow to move selection if field is disabled 1
       maxlength="1"
       size="1"
       type="tel"
+      value=""
+    />
+    <input
+      type="hidden"
       value=""
     />
   </div>
@@ -620,6 +664,10 @@ exports[`<CodeField /> should not fire onChange event if field is disabled 1`] =
       type="tel"
       value=""
     />
+    <input
+      type="hidden"
+      value=""
+    />
   </div>
 </div>
 `;
@@ -669,6 +717,10 @@ exports[`<CodeField /> should render 1`] = `
       maxlength="1"
       size="1"
       type="tel"
+      value=""
+    />
+    <input
+      type="hidden"
       value=""
     />
   </div>
@@ -722,6 +774,10 @@ exports[`<CodeField /> should set field as invalid if validation fails 1`] = `
       type="tel"
       value=""
     />
+    <input
+      type="hidden"
+      value="1"
+    />
   </div>
 </div>
 `;
@@ -772,6 +828,10 @@ exports[`<CodeField /> should set field as invalid if validation fails 2`] = `
       size="1"
       type="tel"
       value=""
+    />
+    <input
+      type="hidden"
+      value="a"
     />
   </div>
 </div>

@@ -1,5 +1,8 @@
 import { action } from '@storybook/addon-actions';
 
+import Label from '../Label';
+import Abstract from '../Abstract';
+import FieldControl from '../FieldControl';
 import CodeField from './index';
 
 export default { title: 'react/CodeField' };
@@ -22,4 +25,19 @@ export const disabled = () => (
 
 export const withValidation = () => (
   <CodeField onValidate={val => /^[0-9]+$/g.test(val)} />
+);
+
+export const withLabelAndAbstract = () => (
+  <FieldControl>
+    <Label className="info" htmlFor="code">One-time code</Label>
+    <CodeField
+      id="code"
+      name="code"
+      onChange={action('change')}
+      onValidate={v => v.length === 6}
+    />
+    <Abstract className="info">
+      Here is a little help writing your name
+    </Abstract>
+  </FieldControl>
 );

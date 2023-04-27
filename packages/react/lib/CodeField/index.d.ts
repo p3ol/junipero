@@ -16,6 +16,8 @@ declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   disabled?: boolean;
   className?: string;
+  id?: string;
+  name?: string;
   required?: boolean;
   size?: number;
   valid?: boolean;

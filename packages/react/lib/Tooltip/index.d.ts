@@ -4,6 +4,7 @@ import {
   UseClickProps,
   UseDismissProps,
   UseHoverProps,
+  UseFloatingProps,
 } from '@floating-ui/react';
 
 export declare type TooltipRef = {
@@ -14,6 +15,7 @@ export declare type TooltipRef = {
   update(): void;
   innerRef: MutableRefObject<any>;
   handleRef: MutableRefObject<any>;
+  isJunipero: boolean;
 };
 
 declare interface TooltipProps extends ComponentPropsWithRef<any> {
@@ -24,7 +26,7 @@ declare interface TooltipProps extends ComponentPropsWithRef<any> {
   container?: string | Element | DocumentFragment;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
-  floatingOptions?: object;
+  floatingOptions?: UseFloatingProps;
   hoverOptions?: UseHoverProps;
   opened?: boolean;
   text?: string;

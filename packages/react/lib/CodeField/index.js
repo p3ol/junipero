@@ -9,8 +9,12 @@ import {
 import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
+import { useFieldControl } from '../hooks';
+
 const CodeField = forwardRef(({
   className,
+  id,
+  name,
   value,
   valid,
   autoFocus = false,
@@ -26,6 +30,7 @@ const CodeField = forwardRef(({
 }, ref) => {
   const innerRef = useRef();
   const inputsRef = useRef([]);
+  const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer(mockState, {
     valid: valid ?? false,
     values: value?.split('').slice(0, size) || [],
@@ -47,12 +52,17 @@ const CodeField = forwardRef(({
 
   useEffect(() => {
     if (value) {
-      dispatch({
-        values: value.split('').slice(0, size),
-        valid: onValidate(value, { dirty: state.dirty, required }),
-      });
+      state.values = value.split('').slice(0, size);
+      state.valid = onValidate(value, { dirty: state.dirty, required });
+      dispatch({ values: state.values, valid: state.valid });
+      updateControl?.({ valid: state.valid, dirty: state.dirty });
     }
   }, [value]);
+
+  useEffect(() => {
+    dispatch({ valid: valid ?? false });
+    updateControl?.({ valid: state.valid });
+  }, [valid]);
 
   const focus = (index = 0) => {
     inputsRef.current[index]?.focus();
@@ -80,6 +90,7 @@ const CodeField = forwardRef(({
       { dirty: state.dirty, required }) || false;
     dispatch({ values: state.values, dirty: true, valid: state.valid });
     onChange?.({ value: state.values.join(''), valid: state.valid });
+    updateControl?.({ dirty: true, valid: state.valid });
 
     if (state.values[index]) {
       focus(index + 1);
@@ -148,11 +159,13 @@ const CodeField = forwardRef(({
 
   const onFocus_ = (index, e) => {
     dispatch({ active: index });
+    updateControl?.({ focused: true });
     onFocus?.(e);
   };
 
   const onBlur_ = (index, e) => {
     dispatch({ active: -1 });
+    updateControl?.({ focused: false });
     onBlur?.(e);
   };
 
@@ -193,6 +206,12 @@ const CodeField = forwardRef(({
           onPaste={onPaste_}
         />
       )) }
+      <input
+        type="hidden"
+        name={name}
+        id={id}
+        value={state.values?.join?.('') || ''}
+      />
     </div>
   );
 });
@@ -201,6 +220,8 @@ CodeField.displayName = 'CodeField';
 CodeField.propTypes = {
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
+  id: PropTypes.string,
+  name: PropTypes.string,
   required: PropTypes.bool,
   size: PropTypes.number,
   valid: PropTypes.bool,
