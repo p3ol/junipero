@@ -20,7 +20,7 @@ const RadioField = forwardRef(({
   value,
   onChange,
   onValidate = (val, { required }) =>
-    (val !== undefined && val !== null) || !required,
+    (typeof val !== 'undefined' && val !== null) || !required,
   parseValue = val => val?.value ?? val,
   parseTitle = val => val?.title ?? val?.toString?.(),
   parseDescription = val => val?.description || '',
