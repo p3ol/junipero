@@ -2,8 +2,8 @@ import { action } from '@storybook/addon-actions';
 
 import Label from '../Label';
 import Abstract from '../Abstract';
-import TextField from './index';
 import FieldControl from '../FieldControl';
+import TextField from './index';
 
 export default { title: 'react/TextField' };
 
