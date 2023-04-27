@@ -12,7 +12,12 @@ export declare type DateFieldRef = {
   blur(): void;
   focus(): void;
   reset(): void;
+  open(): void;
+  close(): void;
+  toggle(): void;
   innerRef: MutableRefObject<any>;
+  inputRef: MutableRefObject<any>;
+  timeInputRef: MutableRefObject<any>;
 };
 
 declare interface DateFieldProps extends ComponentPropsWithRef<any> {
@@ -20,9 +25,11 @@ declare interface DateFieldProps extends ComponentPropsWithRef<any> {
   className?: string;
   clearable?: boolean;
   disabled?: boolean;
+  id?: string;
   max?: Date;
   min?: Date;
   monthNames?: FixedArray<string, 12>;
+  name?: string;
   opened?: boolean;
   placeholder?: string;
   required?: boolean;

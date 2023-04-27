@@ -22,8 +22,10 @@ import Calendar from '../Calendar';
 const DateField = forwardRef(({
   animateMenu,
   className,
+  id,
   max,
   min,
+  name,
   opened,
   placeholder,
   trigger,
@@ -55,6 +57,7 @@ const DateField = forwardRef(({
 }, ref) => {
   const dropdownRef = useRef();
   const timeInputRef = useRef();
+  const inputRef = useRef();
   const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer(mockState, {
     value: value ?? null,
@@ -70,11 +73,16 @@ const DateField = forwardRef(({
 
   useImperativeHandle(ref, () => ({
     innerRef: dropdownRef,
+    inputRef,
+    timeInputRef,
     value: state.value,
     valid: state.valid,
     dirty: state.dirty,
     focused: state.focused,
     opened: state.opened,
+    open,
+    close,
+    toggle,
     focus,
     blur,
     reset,
@@ -223,6 +231,38 @@ const DateField = forwardRef(({
     dropdownRef.current?.open();
   };
 
+  const open = () => {
+    if (disabled) {
+      return;
+    }
+
+    dispatch({
+      opened: true,
+      focused: true,
+      displayed: new Date(state.selected),
+    });
+  };
+
+  const close = () => {
+    if (disabled) {
+      return;
+    }
+
+    dispatch({ opened: false, focused: false });
+  };
+
+  const toggle = () => {
+    if (disabled) {
+      return;
+    }
+
+    if (state.opened) {
+      close();
+    } else {
+      open();
+    }
+  };
+
   const blur = () => {
     dispatch({ focused: false });
   };
@@ -284,6 +324,9 @@ const DateField = forwardRef(({
           title={parseTitle(state.value, { isValue: true, time })}
         >
           <input
+            ref={inputRef}
+            id={id}
+            name={name}
             type="text"
             readOnly={true}
             placeholder={placeholder}
@@ -334,6 +377,8 @@ DateField.propTypes = {
   autoFocus: PropTypes.bool,
   clearable: PropTypes.bool,
   disabled: PropTypes.bool,
+  id: PropTypes.string,
+  name: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   value: PropTypes.instanceOf(Date),
