@@ -121,11 +121,11 @@ const RadioField = forwardRef(({
           tabIndex={disabled ? -1 : index + 1}
         >
           <input
-            id={option.id || option.value}
+            id={option.id}
             name={name}
             ref={el => { inputRefs.current[index] = el; }}
             type="radio"
-            value={option}
+            value={parseValue(option)}
             checked={isChecked(option)}
             onChange={onChange_.bind(null, option)}
             tabIndex={-1}
