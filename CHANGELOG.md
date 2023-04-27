@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.12](https://github.com/p3ol/junipero/compare/v3.0.0-beta.11...v3.0.0-beta.12) (2023-04-27)
+
+
+### Bug Fixes
+
+* **react:** fix missing code field control updates ([d4a31fb](https://github.com/p3ol/junipero/commit/d4a31fbb6471a651d9fc43be642fb1ca494294d7))
+* **react:** fix toast not being dismissable when not animated ([59f3eef](https://github.com/p3ol/junipero/commit/59f3eef82d01a533a20623f0670214c306e4857b))
+* **react:** fix types ([3f428cf](https://github.com/p3ol/junipero/commit/3f428cf90c203c5473b7cf87f2542e3cac3560f6))
+* **react:** fix various types ([bdafee9](https://github.com/p3ol/junipero/commit/bdafee9b88c7b952a757b400d205d6f945d8b610))
+* **react:** missing datefield props ([5c6ee64](https://github.com/p3ol/junipero/commit/5c6ee642b4b872b041429cb53e2bdb03075fc281))
+* **react:** missing ref ([38215b4](https://github.com/p3ol/junipero/commit/38215b4fe6622a370fb38415b4350424db8fa0f6))
+* **react:** radio field behavior ([bd439b9](https://github.com/p3ol/junipero/commit/bd439b9873cc6f1f24bd05901028e7a81426938f))
+* **react:** undefined check ([cbc20d7](https://github.com/p3ol/junipero/commit/cbc20d722522a269766607de6f214b5267a102aa))
+* **theme:** add missing date field background ([b06cd7b](https://github.com/p3ol/junipero/commit/b06cd7b451b51e4f0552485472feadb8201563fa))
+* **theme:** missing radio field boxed background ([3ad4ded](https://github.com/p3ol/junipero/commit/3ad4ded56b571ecd51d25eb90a96ae93b84e3375))
+* **theme:** missing select field background ([c5683b6](https://github.com/p3ol/junipero/commit/c5683b6e33035d56474c6713fb8cf8da3570730a))
+* **theme:** remove color from icons ([66920a7](https://github.com/p3ol/junipero/commit/66920a7779248dac9b48c7a196716d8415effdfc))
+
+
+
+
+
 # [3.0.0-beta.11](https://github.com/p3ol/junipero/compare/v3.0.0-beta.10...v3.0.0-beta.11) (2023-04-21)
 
 **Note:** Version bump only for package junipero

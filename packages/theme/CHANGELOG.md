@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.12](https://github.com/p3ol/junipero/compare/v3.0.0-beta.11...v3.0.0-beta.12) (2023-04-27)
+
+
+### Bug Fixes
+
+* **theme:** add missing date field background ([b06cd7b](https://github.com/p3ol/junipero/commit/b06cd7b451b51e4f0552485472feadb8201563fa))
+* **theme:** missing radio field boxed background ([3ad4ded](https://github.com/p3ol/junipero/commit/3ad4ded56b571ecd51d25eb90a96ae93b84e3375))
+* **theme:** missing select field background ([c5683b6](https://github.com/p3ol/junipero/commit/c5683b6e33035d56474c6713fb8cf8da3570730a))
+* **theme:** remove color from icons ([66920a7](https://github.com/p3ol/junipero/commit/66920a7779248dac9b48c7a196716d8415effdfc))
+
+
+
+
+
 # [3.0.0-beta.11](https://github.com/p3ol/junipero/compare/v3.0.0-beta.10...v3.0.0-beta.11) (2023-04-21)
 
 **Note:** Version bump only for package @junipero/theme
