@@ -44,6 +44,10 @@ const Toast = forwardRef(({
   const onClick_ = e => {
     onClick?.(e);
     setEnabled(false);
+
+    if (!animate) {
+      onDismiss?.(index);
+    }
   };
 
   const onMouseEnter_ = e => {

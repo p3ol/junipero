@@ -29,7 +29,7 @@ describe('useToasts()', () => {
     expect(result.current.toasts[0]).toEqual(customToast);
   });
 
-  it('should be able to dismiss an alert', async () => {
+  it('should be able to dismiss a toast', async () => {
     const customToast = {
       content: <div>coucou</div>,
       lifespan: 3000,
