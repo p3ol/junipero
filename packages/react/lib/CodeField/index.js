@@ -30,6 +30,7 @@ const CodeField = forwardRef(({
 }, ref) => {
   const innerRef = useRef();
   const inputsRef = useRef([]);
+  const inputRef = useRef();
   const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer(mockState, {
     valid: valid ?? false,
@@ -39,14 +40,15 @@ const CodeField = forwardRef(({
   });
 
   useImperativeHandle(ref, () => ({
-    innerRef,
-    inputsRef,
     value: state.values?.join(''),
     dirty: state.dirty,
     valid: state.valid,
     focus,
     blur,
     reset,
+    innerRef,
+    inputsRef,
+    inputRef,
     isJunipero: true,
   }));
 
@@ -78,6 +80,7 @@ const CodeField = forwardRef(({
       values: value?.split('').slice(0, size) || [],
       valid: valid ?? false,
     });
+    updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
   const onChange_ = (index, e) => {
@@ -207,6 +210,7 @@ const CodeField = forwardRef(({
         />
       )) }
       <input
+        ref={inputRef}
         type="hidden"
         name={name}
         id={id}

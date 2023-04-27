@@ -34,7 +34,7 @@ export const withLabelAndAbstract = () => (
       id="code"
       name="code"
       onChange={action('change')}
-      onValidate={v => v.length === 6}
+      required
     />
     <Abstract className="info">
       Here is a little help writing your name
