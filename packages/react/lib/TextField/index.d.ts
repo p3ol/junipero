@@ -5,7 +5,7 @@ export declare type TextFieldRef = {
   focused: boolean;
   isJunipero: boolean;
   valid: boolean;
-  value: string;
+  value: string | number;
   blur(): void;
   focus(): void;
   reset(): void;
