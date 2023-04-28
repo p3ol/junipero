@@ -57,6 +57,9 @@ export const typeNumber = () => (
     label="Age"
     placeholder="Age"
     type="number"
+    min={1}
+    value={14}
+    onChange={action('change')}
   />
 );
 
