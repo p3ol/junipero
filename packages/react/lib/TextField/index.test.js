@@ -165,5 +165,4 @@ describe('<TextField />', () => {
     expect(container).toMatchSnapshot('always focused');
     unmount();
   });
-
 });
