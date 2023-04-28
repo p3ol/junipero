@@ -11,8 +11,6 @@ import PropTypes from 'prop-types';
 import { useFieldControl } from '../hooks';
 
 const TextField = forwardRef(({
-  min,
-  max,
   autoFocus,
   children,
   className,
@@ -146,8 +144,6 @@ const TextField = forwardRef(({
     >
       <Tag
         { ...rest }
-        min={min}
-        max={max}
         autoFocus={autoFocus}
         className="field"
         ref={inputRef}
