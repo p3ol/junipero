@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.13](https://github.com/p3ol/junipero/compare/v3.0.0-beta.12...v3.0.0-beta.13) (2023-04-28)
+
+
+### Bug Fixes
+
+* **react:** various types ([48f2d43](https://github.com/p3ol/junipero/commit/48f2d43f5428f6b04abcd79ed76216747c883841))
+* **text-field:** add min and max and number parsing ([645e61a](https://github.com/p3ol/junipero/commit/645e61a87f7d705da8c0accf70a53e8db20e2332))
+* **text-field:** add min on number story ([5adbd93](https://github.com/p3ol/junipero/commit/5adbd9333a16d10055c9aed3310ff91a3b44e053))
+* **text-field:** remove min and max validation from junipero ([c37fbfa](https://github.com/p3ol/junipero/commit/c37fbfa149506fcbd80acf18193c12921b30587c))
+* **text-field:** remove useless props ([0c69b04](https://github.com/p3ol/junipero/commit/0c69b04415a2ff35d10b0ebbad393915fd92be68))
+* **text-field:** typo ([c991867](https://github.com/p3ol/junipero/commit/c991867e969408530a40ee2e025e65d0b0a06b60))
+
+
+
+
+
 # [3.0.0-beta.12](https://github.com/p3ol/junipero/compare/v3.0.0-beta.11...v3.0.0-beta.12) (2023-04-27)
 
 
