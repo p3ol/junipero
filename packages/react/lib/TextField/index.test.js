@@ -45,28 +45,10 @@ describe('<TextField />', () => {
     const input = container.querySelector('input');
     await user.type(input, '3');
     await blur(input);
-    
+
     expect(onChangeMock).toHaveBeenCalledWith(
       expect.objectContaining({ value: 3 })
     );
-
-    unmount();
-  });
-  
-  it('should be invalid if number is out of range', async () => {
-    const user = userEvent.setup();
-    const { unmount, container } = render(
-      <TextField
-        type="number"
-        min={1}
-      />
-    );
-
-    const input = container.querySelector('input');
-    await user.type(input, '-1');
-    await blur(input);
-
-    expect(container).toMatchSnapshot();
 
     unmount();
   });

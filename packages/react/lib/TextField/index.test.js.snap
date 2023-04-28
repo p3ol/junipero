@@ -55,21 +55,6 @@ exports[`<TextField /> should allow to reset the field 2`] = `
 </div>
 `;
 
-exports[`<TextField /> should be invalid if number is out of range 1`] = `
-<div>
-  <div
-    class="junipero text-field dirty invalid"
-  >
-    <input
-      class="field"
-      min="1"
-      type="number"
-      value="-1"
-    />
-  </div>
-</div>
-`;
-
 exports[`<TextField /> should be invalid if validation fails 1`] = `
 <div>
   <div

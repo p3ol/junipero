@@ -66,35 +66,29 @@ const TextField = forwardRef(({
     updateControl?.({ valid: state.valid });
   }, [valid]);
 
-  const parseValue = (value) => {
+  const parseValue = value => {
     const value_ = value.replace(',', '.');
     const parsedValue = parseFloat(value_);
 
     return !isNaN(parsedValue) ? parsedValue : value_;
-  }
+  };
+
   const onChange_ = e => {
     /* html input disabled attribute will prevent onChange if present anyway */
     /* istanbul ignore next: just in case */
     if (disabled) {
       return;
     }
-    let innerValid = true;
-    if(type === 'number') {
-      value = parseValue(e?.target?.value);
 
-      if(
-        typeof value === 'number' &&
-        ((max && value > max) || (min && value < min))
-      ) {
-        innerValid = false
-      } 
+    if (type === 'number') {
+      value = parseValue(e?.target?.value);
     } else {
       value = e?.target?.value;
     }
 
-    state.value = value
+    state.value = value;
     state.dirty = true;
-    state.valid = innerValid && onValidate(
+    state.valid = onValidate(
       state.value, { dirty: state.dirty, required }
     );
     dispatch({ value: state.value, dirty: state.dirty });
