@@ -11,6 +11,8 @@ import PropTypes from 'prop-types';
 import { useFieldControl } from '../hooks';
 
 const TextField = forwardRef(({
+  min,
+  max,
   autoFocus,
   children,
   className,
@@ -64,16 +66,37 @@ const TextField = forwardRef(({
     updateControl?.({ valid: state.valid });
   }, [valid]);
 
+  const parseValue = (value) => {
+    const value_ = value.replace(',', '.');
+    const parsedValue = parseFloat(value_);
+
+    return !isNaN(parsedValue) ? parsedValue : value_;
+  }
   const onChange_ = e => {
     /* html input disabled attribute will prevent onChange if present anyway */
     /* istanbul ignore next: just in case */
     if (disabled) {
       return;
     }
+    let innerValid = true;
+    if(type === 'number') {
+      value = parseValue(e?.target?.value);
 
-    state.value = e?.target?.value || '';
+      if(
+        typeof value === 'number' &&
+        ((max && value > max) || (min && value < min))
+      ) {
+        innerValid = false
+      } 
+    } else {
+      value = e?.target?.value;
+    }
+
+    state.value = value
     state.dirty = true;
-    state.valid = onValidate(state.value, { dirty: state.dirty, required });
+    state.valid = innerValid && onValidate(
+      state.value, { dirty: state.dirty, required }
+    );
     dispatch({ value: state.value, dirty: state.dirty });
     onChange?.({ value: state.value, valid: state.valid, dirty: state.dirty });
     updateControl?.({ dirty: true, valid: state.valid });
@@ -129,6 +152,8 @@ const TextField = forwardRef(({
     >
       <Tag
         { ...rest }
+        min={min}
+        max={max}
         autoFocus={autoFocus}
         className="field"
         ref={inputRef}
@@ -148,6 +173,8 @@ const TextField = forwardRef(({
 
 TextField.displayName = 'TextField';
 TextField.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
