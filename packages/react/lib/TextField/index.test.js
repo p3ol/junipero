@@ -31,6 +31,45 @@ describe('<TextField />', () => {
 
     unmount();
   });
+  it('should return number if type is number', async () => {
+    const onChangeMock = jest.fn();
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <TextField
+        type="number"
+        min={1}
+        onChange={onChangeMock}
+      />
+    );
+
+    const input = container.querySelector('input');
+    await user.type(input, '3');
+    await blur(input);
+    
+    expect(onChangeMock).toHaveBeenCalledWith(
+      expect.objectContaining({ value: 3 })
+    );
+
+    unmount();
+  });
+  
+  it('should be invalid if number is out of range', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <TextField
+        type="number"
+        min={1}
+      />
+    );
+
+    const input = container.querySelector('input');
+    await user.type(input, '-1');
+    await blur(input);
+
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
 
   it('should allow to be used with a FieldControl', async () => {
     const user = userEvent.setup();
@@ -126,4 +165,5 @@ describe('<TextField />', () => {
     expect(container).toMatchSnapshot('always focused');
     unmount();
   });
+
 });
