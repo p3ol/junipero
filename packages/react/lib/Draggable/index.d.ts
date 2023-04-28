@@ -5,7 +5,7 @@ declare interface DraggableProps extends ComponentPropsWithRef<any> {
   className?: string;
   data?: any;
   disabled?: boolean;
-  dragImage?: any;
+  dragImage?: Element;
   dragImageOffset?: { x: number; y: number };
   onDrag?(e: Event): void;
   onBeforeDragStart?(e: Event): void;

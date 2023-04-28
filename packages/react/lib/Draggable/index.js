@@ -92,7 +92,12 @@ const Draggable = forwardRef(({
 Draggable.displayName = 'Draggable';
 Draggable.propTypes = {
   disabled: PropTypes.bool,
-  data: PropTypes.object,
+  data: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   dragImage: PropTypes.object,
   dragImageOffset: PropTypes.object,
   onDrag: PropTypes.func,
