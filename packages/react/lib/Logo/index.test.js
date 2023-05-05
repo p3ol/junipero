@@ -6,6 +6,11 @@ import {
   EngageLogo,
   FlowLogo,
   JuniperoLogo,
+  PooolCompactCutoutLogo,
+  PooolCompactLogo,
+  PooolCutoutIconLogo,
+  PooolCutoutLogo,
+  PooolIconLogo,
   PooolLogo,
   SubscribeLogo,
 } from './index';
@@ -15,6 +20,11 @@ describe('Logos', () => {
     const { container, unmount } = render(
       <>
         <PooolLogo />
+        <PooolIconLogo />
+        <PooolCutoutLogo />
+        <PooolCutoutIconLogo />
+        <PooolCompactLogo />
+        <PooolCompactCutoutLogo />
         <AccessLogo />
         <SubscribeLogo />
         <ConnectLogo />

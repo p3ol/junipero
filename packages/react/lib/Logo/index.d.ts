@@ -4,7 +4,23 @@ export function PooolLogo(
   props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
+export function PooolIconLogo(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
+
+export function PooolCutoutLogo(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
+
+export function PooolCutoutIconLogo(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
+
 export function PooolCompactLogo(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
+
+export function PooolCompactCutoutLogo(
   props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 

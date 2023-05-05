@@ -80,7 +80,11 @@ export { default as ListColumn, ListColumnRef } from './ListColumn';
 export { default as ListItem, ListItemRef } from './ListItem';
 export {
   PooolLogo,
+  PooolIconLogo,
+  PooolCutoutLogo,
+  PooolCutoutIconLogo,
   PooolCompactLogo,
+  PooolCompactCutoutLogo,
   AccessLogo,
   SubscribeLogo,
   ConnectLogo,

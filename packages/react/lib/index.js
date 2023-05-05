@@ -50,7 +50,11 @@ export { default as TextField } from './TextField';
 // Logos
 export {
   PooolLogo,
+  PooolIconLogo,
+  PooolCutoutLogo,
+  PooolCutoutIconLogo,
   PooolCompactLogo,
+  PooolCompactCutoutLogo,
   AccessLogo,
   SubscribeLogo,
   ConnectLogo,
