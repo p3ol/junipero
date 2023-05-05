@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.14](https://github.com/p3ol/junipero/compare/v3.0.0-beta.13...v3.0.0-beta.14) (2023-05-05)
+
+
+### Features
+
+* add more svg logos ([38019d6](https://github.com/p3ol/junipero/commit/38019d6aff12e29b42fd6856f9e654389e692c1c))
+
+
+
+
+
 # [3.0.0-beta.13](https://github.com/p3ol/junipero/compare/v3.0.0-beta.12...v3.0.0-beta.13) (2023-04-28)
 
 
