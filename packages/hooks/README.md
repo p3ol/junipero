@@ -1,10 +1,14 @@
-![junipero](https://storage.googleapis.com/junipero-cdn/images/logo-github.png)
-
 <div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.junipero.design/v3/logo/junipero-logo-dark.svg" />
+  <img src="https://cdn.junipero.design/v3/logo/junipero-logo.svg" height="50" />
+</picture>
+
+<br />
 
 [![npm](https://img.shields.io/npm/v/@junipero/hooks.svg)](https://www.npmjs.com/package/@junipero/hooks)
 
-<br />
 <h3>@junipero/hooks</h3>
 <p>Custom React hooks we use everywhere</p>
 
@@ -36,24 +40,7 @@ export default () => {
 
 ## Documentation
 
-#### `useEventListener(name: String, handler: Function, target: DOMNode)`
-
-* `name` {`String`} Event name
-* `handler` {`Function`}
-  * `event` {`Object`} Event data
-* `target` {`DOMNode`} Custom event target (default: `globalThis`)
-
-#### `useInterval(handler: Function, time: Number, changes: Array)`
-
-* `handler` {`Function`} Interval callback
-* `time` {`Number`} Time in ms before next interval
-* `changes` {`Array`} Reset timer when any value changes (just like `useEffect`)
-
-#### `useTimeout(handler: Function, time: Number, changes: Array)`
-
-* `handler` {`Function`} Timeout callback
-* `time` {`Number`} Time in ms before timeout
-* `changes` {`Array`} Reset timer when any value changes (just like `useEffect`)
+https://beta.junipero.design/components/use-event-listener
 
 ## Contributing
 

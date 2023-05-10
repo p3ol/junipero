@@ -1,58 +1,54 @@
-![junipero](https://storage.googleapis.com/junipero-cdn/images/logo-github.png)
-
 <div align="center">
 
-[![npm](https://img.shields.io/npm/v/@junipero/react.svg)](https://www.npmjs.com/package/@junipero/react)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.junipero.design/v3/logo/junipero-logo-dark.svg" />
+  <img src="https://cdn.junipero.design/v3/logo/junipero-logo.svg" height="50" />
+</picture>
 
 <br />
-<p>Simple and beautiful React components for the web</p>
+
+[![npm](https://img.shields.io/npm/v/@junipero/theme.svg)](https://www.npmjs.com/package/@junipero/theme)
+
+<h3>@junipero/theme</h3>
+<p>Theme base for Junipero</p>
 
 </div>
 
 ## Installation
 
 ```bash
-yarn add @junipero/react
+yarn add @junipero/theme
 ```
 
 ## Usage
 
 ```javascript
-import { TextField } from '@junipero/react';
-
-export default () => (
-  <TextField />
-);
+import '@junipero/theme/dist/junipero.min.css';
 ```
 
-Don't forget to import styles, for example using `style-loader` and `webpack`:
-
-```javascript
-import '@junipero/react/dist/junipero-react.min.css';
-```
-
-Or import them directly inside your own styles using `less`, `sass` or `stylus`:
+If you need to tree-shake some unneeded styles, you can import every component/utility manually instead:
 
 ```css
-@import "~@junipero/react/dist/junipero-react.min.css";
+@import "@junipero/theme/dist/css/reset.min.css";
+@import "@junipero/theme/dist/css/icons.min.css";
+@import "@junipero/theme/dist/css/texts.min.css";
+@import "@junipero/theme/dist/css/transitions.min.css";
+@import "@junipero/theme/dist/css/Label.min.css";
+@import "@junipero/theme/dist/css/Abstract.min.css";
+@import "@junipero/theme/dist/css/TextField.min.css";
+/* ...and so on */
 ```
 
-#### Dependencies
+The full list is available inside the `dist/css` folder.
 
-These libraries are not bundled with Junipero and required at runtime:
-- [react](https://www.npmjs.com/package/react)
-- [react-dom](https://www.npmjs.com/package/react-dom)
-- [react-popper](https://www.npmjs.com/package/react-popper)
-- [@popperjs/core](https://www.npmjs.com/package/@popperjs/core)
+## [Documentation](https://beta.junipero.design/foundations)
 
-## [Documentation](https://junipero.design)
-
-https://junipero.design
+https://beta.junipero.design/foundations
 
 ## Contributing
 
-Please check the [CONTRIBUTING.md](https://github.com/p3ol/junipero/blob/master/CONTRIBUTING.md) doc for contribution guidelines.
+Please check the [CONTRIBUTING.md](https://github.com/p3ol/junipero/tree/master/CONTRIBUTING.md) doc for contribution guidelines.
 
 ## License
 
-This software is licensed under [MIT](https://github.com/p3ol/junipero/blob/master/LICENSE).
+This software is licensed under [MIT](https://github.com/p3ol/junipero/tree/master/LICENSE).
