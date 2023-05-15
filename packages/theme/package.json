@@ -1,0 +1,27 @@
+{
+  "name": "@junipero/theme",
+  "version": "3.0.0-beta.12",
+  "description": "🏔 Junipero Design System Common Theme",
+  "main": "dist/junipero.min.css",
+  "cdn": "dist/junipero.min.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/theme"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 14",
+    "yarn": ">= 1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build": "yarn clean && node script/build.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "9f2118c8b2ca34cc763f50c814e092c4779822bd"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@junipero/react",
+  "version": "3.0.0-beta.14",
+  "description": "🏔 Junipero Design System React components",
+  "main": "dist/junipero-react.cjs.js",
+  "jsnext:main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "src/index.js",
+  "unpkg": "dist/junipero-react.min.js",
+  "cdn": "dist/junipero-react.min.js",
+  "types": "dist/junipero-react.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/react"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 14",
+    "yarn": ">= 1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "7.21.5",
+    "@floating-ui/react": "0.24.1",
+    "core-js": "3.30.2",
+    "prop-types": "15.8.1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build": "yarn clean && rollup -c",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "9f2118c8b2ca34cc763f50c814e092c4779822bd"
+}

@@ -1,0 +1,91 @@
+@use "colors" as colors
+
+*
+  // Text
+  --junipero-font-family: "DM Sans", sans-serif
+  --junipero-font-size: 16px
+  --junipero-line-height: 1.5
+
+  // Titles
+  --junipero-titles-font-family: "Visby CF", Helvetica, sans-serif
+
+  // Colors
+  // - Primary
+  --junipero-velvet: #{colors.$velvet}
+  --junipero-grapefruit: #{colors.$grapefruit}
+  --junipero-sunglow: #{colors.$sunglow}
+  --junipero-lime: #{colors.$lime}
+
+  // - Text
+  --junipero-onyx: #{colors.$onyx}
+  --junipero-tundora: #{colors.$tundora}
+
+  // - Neutral
+  --junipero-mischka: #{colors.$mischka}
+  --junipero-slate: #{colors.$slate}
+  --junipero-seashell: #{colors.$seashell}
+  --junipero-concrete: #{colors.$concrete}
+  --junipero-alabaster: #{colors.$alabaster}
+
+  // - interface
+  --junipero-velvet-disabled: #{colors.$velvetDisabled}
+  --junipero-velvet-background: #{colors.$velvetBackground}
+  --junipero-velvet-hover: #{colors.$velvetHover}
+  --junipero-velvet-active: #{colors.$velvetActive}
+
+  --junipero-lime-disabled: #{colors.$limeDisabled}
+  --junipero-lime-background: #{colors.$limeBackground}
+  --junipero-lime-hover: #{colors.$limeHover}
+  --junipero-lime-active: #{colors.$limeActive}
+
+  --junipero-grapefruit-disabled: #{colors.$grapefruitDisabled}
+  --junipero-grapefruit-background: #{colors.$grapefruitBackground}
+  --junipero-grapefruit-hover: #{colors.$grapefruitHover}
+  --junipero-grapefruit-active: #{colors.$grapefruitActive}
+
+  --junipero-sunglow-disabled: #{colors.$sunglowDisabled}
+  --junipero-sunglow-background: #{colors.$sunglowBackground}
+  --junipero-sunglow-hover: #{colors.$sunglowHover}
+  --junipero-sunglow-active: #{colors.$sunglowActive}
+
+  // - Dark mode
+  --junipero-dark-velvet-disabled: #{colors.$darkVelvetDisabled}
+  --junipero-dark-velvet-background: #{colors.$darkVelvetBackground}
+  --junipero-dark-velvet-foreground: #{colors.$darkVelvetForeground}
+
+  --junipero-dark-lime-disabled: #{colors.$darkLimeDisabled}
+  --junipero-dark-lime-background: #{colors.$darkLimeBackground}
+  --junipero-dark-lime-foreground: #{colors.$darkLimeForeground}
+
+  --junipero-dark-grapefruit-disabled: #{colors.$darkGrapefruitDisabled}
+  --junipero-dark-grapefruit-background: #{colors.$darkGrapefruitBackground}
+  --junipero-dark-grapefruit-foreground: #{colors.$darkGrapefruitForeground}
+
+  --junipero-dark-sunglow-disabled: #{colors.$darkSunglowDisabled}
+  --junipero-dark-sunglow-background: #{colors.$darkSunglowBackground}
+  --junipero-dark-sunglow-foreground: #{colors.$darkSunglowForeground}
+
+  --junipero-nevada: #{colors.$nevada}
+  --junipero-gondola: #{colors.$gondola}
+
+  // Alphas and shadows
+  --junipero-backdrop: #{rgba(colors.$concrete, 0.7)}
+  --junipero-backdrop-invisible: #{rgba(colors.$concrete, 0)}
+  --junipero-shadow: #{rgba(colors.$onyx, 0.1)}
+
+  --junipero-dark-backdrop: #{rgba(colors.$onyx, 0.7)}
+  --junipero-dark-backdrop-invisible: #{rgba(colors.$onyx, 0)}
+  --junipero-dark-shadow: transparent
+
+.junipero
+  --text-color: var(--junipero-onyx)
+
+  &, & input, & textarea
+    font-family: var(--junipero-font-family)
+    font-size: var(--junipero-font-size)
+    line-height: var(--junipero-line-height)
+    color: var(--text-color)
+
+  &, & *, & *:before, & *:after
+    outline: none
+    box-sizing: border-box

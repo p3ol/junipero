@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> should allow to reorder content 1`] = `
+<div>
+  <table
+    class="junipero list"
+  >
+    <thead>
+      <tr>
+        <th>
+          <a
+            href="#"
+          >
+            <span
+              class="junipero secondary"
+            >
+              Name
+            </span>
+          </a>
+        </th>
+        <th>
+          <a
+            href="#"
+          >
+            <span
+              class="junipero secondary"
+            >
+              Age
+            </span>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          John
+        </td>
+        <td>
+          25
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jane
+        </td>
+        <td>
+          30
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jack
+        </td>
+        <td>
+          20
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`<List /> should allow to reorder content 2`] = `
+<div>
+  <table
+    class="junipero list"
+  >
+    <thead>
+      <tr>
+        <th>
+          <a
+            href="#"
+          >
+            <span
+              class="junipero secondary"
+            >
+              Name
+            </span>
+            <svg
+              class="junipero icon arrow-bottom"
+              height="5"
+              viewBox="0 0 8 5"
+              width="8"
+            >
+              <path
+                d="M1 1L4 4L7 1"
+              />
+            </svg>
+          </a>
+        </th>
+        <th>
+          <a
+            href="#"
+          >
+            <span
+              class="junipero secondary"
+            >
+              Age
+            </span>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          John
+        </td>
+        <td>
+          25
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jane
+        </td>
+        <td>
+          30
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jack
+        </td>
+        <td>
+          20
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`<List /> should allow to reorder content 3`] = `
+<div>
+  <table
+    class="junipero list"
+  >
+    <thead>
+      <tr>
+        <th>
+          <a
+            href="#"
+          >
+            <span
+              class="junipero secondary"
+            >
+              Name
+            </span>
+            <svg
+              class="junipero icon arrow-up"
+              height="5"
+              viewBox="0 0 8 5"
+              width="8"
+            >
+              <path
+                d="M1 4L4 1L7 4"
+              />
+            </svg>
+          </a>
+        </th>
+        <th>
+          <a
+            href="#"
+          >
+            <span
+              class="junipero secondary"
+            >
+              Age
+            </span>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Jack
+        </td>
+        <td>
+          20
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jane
+        </td>
+        <td>
+          30
+        </td>
+      </tr>
+      <tr>
+        <td>
+          John
+        </td>
+        <td>
+          25
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`<List /> should render using children 1`] = `
+<div>
+  <table
+    class="junipero list"
+  >
+    <thead>
+      <tr>
+        <th>
+          <span
+            class="junipero secondary"
+          >
+            Name
+          </span>
+        </th>
+        <th>
+          <span
+            class="junipero secondary"
+          >
+            Age
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          John
+        </td>
+        <td>
+          25
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jane
+        </td>
+        <td>
+          30
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`<List /> should render using props 1`] = `
+<div>
+  <table
+    class="junipero list"
+  >
+    <thead>
+      <tr>
+        <th>
+          <span
+            class="junipero secondary"
+          >
+            name
+          </span>
+        </th>
+        <th>
+          <span
+            class="junipero secondary"
+          >
+            age
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          John
+        </td>
+        <td>
+          25
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jane
+        </td>
+        <td>
+          30
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

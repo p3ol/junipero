@@ -1,0 +1,31 @@
+.junipero.toast
+  --background-color: var(--junipero-onyx)
+  --text-color: var(--junipero-seashell)
+  --countdown-color: var(--junipero-velvet)
+
+  background: var(--background-color)
+  border-radius: 8px
+  padding: 5px 20px
+  display: inline-flex
+  color: var(--text-color)
+  cursor: pointer
+  position: relative
+  width: fit-content
+  overflow: hidden
+  pointer-events: all
+
+  .countdown
+    display: block
+    width: 100%
+    height: 2px
+    background: var(--countdown-color)
+    position: absolute
+    bottom: 0
+    left: 0
+    animation: jp-toast-countdown 3s linear forwards
+
+@keyframes jp-toast-countdown
+  from
+    width: 100%
+  to
+    width: 0px

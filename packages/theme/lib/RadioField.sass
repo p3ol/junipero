@@ -1,0 +1,89 @@
+.junipero.radio-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --background-color: var(--junipero-alabaster)
+  --hover-color: var(--junipero-concrete)
+  --active-color: var(--junipero-velvet-background)
+  --invalid-color: var(--junipero-grapefruit)
+  --boxed-border-color: var(--junipero-mischka)
+
+  label
+    display: flex
+    align-items: top
+
+    input
+      display: none
+
+    .inner
+      border: 2px solid var(--border-color)
+      background: var(--background-color)
+      width: 16px
+      height: 16px
+      border-radius: 50%
+      margin-right: 10px
+      margin-top: 4px
+      flex-shrink: 0
+
+    &.checked
+      .inner
+        --border-color: var(--main-color)
+        --background-color: var(--junipero-seashell)
+        border-width: 5px
+
+    &:focus:not(.disabled):not(.checked),
+    &:focus-within:not(.disabled):not(.checked)
+      .inner
+        --border-color: var(--main-color)
+
+    &:hover:not(.disabled, .checked)
+      .inner
+        --background-color: var(--hover-color)
+
+    &:active:not(.disabled, .checked)
+      .inner
+        --border-color: var(--active-color)
+    
+    &.disabled
+      opacity: .5
+  
+    .description
+      font-size: 12px
+
+  &.invalid.dirty
+    --main-color: var(--invalid-color)
+
+    label
+      .inner
+        --border-color: var(--invalid-color)
+
+        &.checked
+          --border-color: var(--invalid-color)
+
+      .label
+        color: var(--junipero-grapefruit)
+
+      &:hover:not(.checked)
+        .inner
+          background: var(--hover-color)
+
+      &:focus:not(.checked)
+        .inner
+          border-color: var(--invalid-color)
+
+  &.boxed
+    label
+      border: 2px solid var(--boxed-border-color)
+      padding: 15px 20px
+      border-radius: 4px
+      margin-bottom: 10px
+      background: var(--background-color)
+
+      &:last-child
+        margin-bottom: 0
+
+      &.checked
+        border-color: var(--junipero-velvet)
+
+    &.invalid.dirty
+      label
+        border: 2px solid var(--junipero-grapefruit)

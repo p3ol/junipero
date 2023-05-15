@@ -1,0 +1,72 @@
+.junipero.button
+  --main-color: var(--junipero-mischka)
+  --text-color: var(--junipero-onyx)
+  --border-color: var(--junipero-velvet)
+  --hover-color: var(--junipero-concrete)
+  --active-color: var(--junipero-mischka)
+
+  display: inline-flex
+  gap: 8px
+  align-items: center
+  justify-content: center
+  padding: 8px 20px
+  border-radius: 4px
+  background: var(--main-color)
+  color: var(--text-color)
+  border: none
+  outline: none
+  text-decoration: none
+  transition: box-shadow .1s ease-in-out, background .1s ease-in-out
+
+  &:focus,
+  &:focus-within
+    &:not(:disabled):not(.disabled)
+      box-shadow: 0 0 0 2px var(--border-color)
+
+  &:hover
+    &:not(:disabled):not(.disabled)
+      background: var(--hover-color)
+
+  &:active
+    &:not(:disabled):not(.disabled)
+      background: var(--active-color)
+
+  &:disabled, &.disabled
+    opacity: .5
+    pointer-events: none
+
+  &.subtle
+    --main-color: transparent
+
+  &.primary
+    --main-color: var(--junipero-velvet)
+    --text-color: var(--junipero-seashell)
+    --border-color: var(--junipero-velvet-hover)
+    --hover-color: var(--junipero-velvet-hover)
+    --active-color: var(--junipero-velvet-active)
+
+  &.warning
+    --main-color: var(--junipero-sunglow)
+    --text-color: var(--junipero-seashell)
+    --border-color: var(--junipero-sunglow-hover)
+    --hover-color: var(--junipero-sunglow-hover)
+    --active-color: var(--junipero-sunglow-active)
+
+  &.danger
+    --main-color: var(--junipero-grapefruit)
+    --text-color: var(--junipero-seashell)
+    --border-color: var(--junipero-grapefruit-hover)
+    --hover-color: var(--junipero-grapefruit-hover)
+    --active-color: var(--junipero-grapefruit-active)
+
+  &.success
+    --main-color: var(--junipero-lime)
+    --text-color: var(--junipero-seashell)
+    --border-color: var(--junipero-lime-hover)
+    --hover-color: var(--junipero-lime-hover)
+    --active-color: var(--junipero-lime-active)
+
+  &:not(.subtle)
+    .junipero.spinner
+      --foreground-color: var(--main-color)
+      --background-color: var(--text-color)

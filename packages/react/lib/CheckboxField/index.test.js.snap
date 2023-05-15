@@ -1,0 +1,524 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxField /> should add value if provided 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should allow to render a controller checkbox: checked 1`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <label
+    class="junipero checkbox-field pristine valid checked"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value="test"
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    >
+      Check this
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should allow to render a controller checkbox: unchecked 1`] = `
+<div>
+  <button>
+    Toggle
+  </button>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    >
+      Check this
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should not trigger event and change state if user click but checkbox is disabled 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid disabled"
+    tabindex="-1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should render 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set checked if provided 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid checked"
+    tabindex="1"
+  >
+    <input
+      checked=""
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set focused state on focus: focused 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set focused state on focus: not focused 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: invalid 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field dirty invalid checked"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: valid 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field dirty valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: invalid 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field dirty invalid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: valid 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field dirty valid checked"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle active state on click: active 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle active state on click: inactive 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field pristine valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle check if checkbox is clicked: checked 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field dirty valid checked"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> should toggle check if checkbox is clicked: unchecked 1`] = `
+<div>
+  <label
+    class="junipero checkbox-field dirty valid"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
+    >
+      <svg
+        class="junipero icon check"
+        height="7"
+        viewBox="0 0 10 7"
+        width="10"
+      >
+        <path
+          d="M1.75259 3.49582L4.25675 6L8.24741 1"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    />
+  </label>
+</div>
+`;

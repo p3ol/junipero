@@ -1,0 +1,116 @@
+.junipero.select-field
+  --main-color: var(--junipero-velvet)
+  --border-color: var(--junipero-mischka)
+  --focus-border-color: var(--junipero-velvet)
+  --icons-color: var(--junipero-slate)
+  --placeholder-color: var(--junipero-slate)
+  --invalid-color: var(--junipero-grapefruit)
+  --spinner-color: var(--junipero-velvet)
+  --background-color: var(--junipero-seashell)
+
+  display: inline-flex
+  min-width: 250px
+
+  &.disabled
+    opacity: .5
+
+    .field
+      &, & input, & .icon.remove, & .icons .icon.remove
+        cursor: default
+
+  &:focus-within,
+  &.opened
+    .arrows
+      --icons-color: var(--main-color)
+
+    .field
+      box-shadow: 0 0 0 2px var(--focus-border-color)
+
+  &.invalid.dirty:not(:focus-within):not(.opened):not(.focused)
+    --border-color: var(--invalid-color)
+
+    .arrows
+      --icons-color: var(--invalid-color)
+
+    .text-field
+      --border-color: var(--invalid-color)
+
+  &.multiple:not(.empty)
+    .field
+      padding: 10px 50px 10px 10px
+
+  &.searchable.empty
+    .field
+      cursor: text
+
+      input
+        cursor: text
+
+  .field
+    display: flex
+    border-radius: 4px
+    box-shadow: 0 0 0 2px var(--border-color)
+    background: var(--background-color)
+    transition: box-shadow .2s ease-in-out
+    position: relative
+    padding: 10px 30px 10px 10px
+    flex-wrap: wrap
+    gap: 10px
+    width: 100%
+    cursor: default
+
+    input
+      border: none
+      outline: none
+      display: block
+      background: transparent
+      padding: 0
+      cursor: default
+      flex: 1
+
+      &::placeholder
+        color: var(--placeholder-color)
+        opacity: 1
+        user-select: none
+
+    .tag.selected
+      --background-color: var(--main-color)
+      --text-color: var(--junipero-seashell)
+
+    .icons
+      position: absolute
+      right: 10px
+      display: flex
+      align-items: center
+      top: 15px
+      height: 13px
+      gap: 10px
+
+      .icon
+        cursor: default
+
+        &.arrows
+          transition: color .2s ease-in-out
+
+        &.remove
+          cursor: pointer
+
+  .no-options
+    padding: 0 10px
+    text-align: center
+    color: var(--secondary-color)
+
+  .spinner
+    --background-color: var(--spinner-color)
+
+.junipero.selectfield .menu-inner,
+.junipero.select-menu .menu-inner
+  max-height: 250px
+  overflow-y: scroll
+
+.junipero.select-field.searching .menu-inner,
+.junipero.select-menu.searching .menu-inner
+  pointer-events: none
+
+  .content
+    opacity: 0.5

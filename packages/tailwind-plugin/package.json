@@ -1,0 +1,30 @@
+{
+  "name": "@junipero/tailwind-plugin",
+  "version": "3.0.0-beta.11",
+  "description": "🏔 Junipero Design System Tailwind Plugin",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/tailwind-plugin"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": "16 || 18",
+    "yarn": "1"
+  },
+  "peerDependencies": {
+    "@junipero/core": "^3.0.0-beta.1",
+    "tailwindcss": "^3.0.0"
+  },
+  "scripts": {
+    "build": "true",
+    "clean": "true",
+    "lint": "true"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

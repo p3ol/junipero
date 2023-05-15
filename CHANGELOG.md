@@ -3,13 +3,1096 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
+# [3.0.0-beta.14](https://github.com/p3ol/junipero/compare/v3.0.0-beta.13...v3.0.0-beta.14) (2023-05-05)
+
+
+### Features
+
+* add more svg logos ([38019d6](https://github.com/p3ol/junipero/commit/38019d6aff12e29b42fd6856f9e654389e692c1c))
+
+
+
+
+
+# [3.0.0-beta.13](https://github.com/p3ol/junipero/compare/v3.0.0-beta.12...v3.0.0-beta.13) (2023-04-28)
+
+
+### Bug Fixes
+
+* **react:** various types ([48f2d43](https://github.com/p3ol/junipero/commit/48f2d43f5428f6b04abcd79ed76216747c883841))
+* **text-field:** add min and max and number parsing ([645e61a](https://github.com/p3ol/junipero/commit/645e61a87f7d705da8c0accf70a53e8db20e2332))
+* **text-field:** add min on number story ([5adbd93](https://github.com/p3ol/junipero/commit/5adbd9333a16d10055c9aed3310ff91a3b44e053))
+* **text-field:** remove min and max validation from junipero ([c37fbfa](https://github.com/p3ol/junipero/commit/c37fbfa149506fcbd80acf18193c12921b30587c))
+* **text-field:** remove useless props ([0c69b04](https://github.com/p3ol/junipero/commit/0c69b04415a2ff35d10b0ebbad393915fd92be68))
+* **text-field:** typo ([c991867](https://github.com/p3ol/junipero/commit/c991867e969408530a40ee2e025e65d0b0a06b60))
+
+
+
+
+
+# [3.0.0-beta.12](https://github.com/p3ol/junipero/compare/v3.0.0-beta.11...v3.0.0-beta.12) (2023-04-27)
+
+
+### Bug Fixes
+
+* **react:** fix missing code field control updates ([d4a31fb](https://github.com/p3ol/junipero/commit/d4a31fbb6471a651d9fc43be642fb1ca494294d7))
+* **react:** fix toast not being dismissable when not animated ([59f3eef](https://github.com/p3ol/junipero/commit/59f3eef82d01a533a20623f0670214c306e4857b))
+* **react:** fix types ([3f428cf](https://github.com/p3ol/junipero/commit/3f428cf90c203c5473b7cf87f2542e3cac3560f6))
+* **react:** fix various types ([bdafee9](https://github.com/p3ol/junipero/commit/bdafee9b88c7b952a757b400d205d6f945d8b610))
+* **react:** missing datefield props ([5c6ee64](https://github.com/p3ol/junipero/commit/5c6ee642b4b872b041429cb53e2bdb03075fc281))
+* **react:** missing ref ([38215b4](https://github.com/p3ol/junipero/commit/38215b4fe6622a370fb38415b4350424db8fa0f6))
+* **react:** radio field behavior ([bd439b9](https://github.com/p3ol/junipero/commit/bd439b9873cc6f1f24bd05901028e7a81426938f))
+* **react:** undefined check ([cbc20d7](https://github.com/p3ol/junipero/commit/cbc20d722522a269766607de6f214b5267a102aa))
+* **theme:** add missing date field background ([b06cd7b](https://github.com/p3ol/junipero/commit/b06cd7b451b51e4f0552485472feadb8201563fa))
+* **theme:** missing radio field boxed background ([3ad4ded](https://github.com/p3ol/junipero/commit/3ad4ded56b571ecd51d25eb90a96ae93b84e3375))
+* **theme:** missing select field background ([c5683b6](https://github.com/p3ol/junipero/commit/c5683b6e33035d56474c6713fb8cf8da3570730a))
+* **theme:** remove color from icons ([66920a7](https://github.com/p3ol/junipero/commit/66920a7779248dac9b48c7a196716d8415effdfc))
+
+
+
+
+
+# [3.0.0-beta.11](https://github.com/p3ol/junipero/compare/v3.0.0-beta.10...v3.0.0-beta.11) (2023-04-21)
 
 **Note:** Version bump only for package junipero
 
 
 
 
+
+# [3.0.0-beta.10](https://github.com/p3ol/junipero/compare/v3.0.0-beta.9...v3.0.0-beta.10) (2023-03-30)
+
+
+### Bug Fixes
+
+* **theme:** fix icons cache ([38d36ce](https://github.com/p3ol/junipero/commit/38d36ce2aa7b17b9dfa5f0f3944a188a0d2fcab1))
+
+
+### Features
+
+* **core:** allow to use a callback inside mockState ([359287e](https://github.com/p3ol/junipero/commit/359287eed94b8b8e123f7e26595600981c4559bf))
+
+
+
+
+
+# [3.0.0-beta.9](https://github.com/p3ol/junipero/compare/v3.0.0-beta.8...v3.0.0-beta.9) (2023-03-29)
+
+
+### Features
+
+* **theme:** update icons ([465633e](https://github.com/p3ol/junipero/commit/465633e2ce02aeee7a97a828301c3059a174ba44))
+
+
+
+
+
+# [3.0.0-beta.8](https://github.com/p3ol/junipero/compare/v3.0.0-beta.7...v3.0.0-beta.8) (2023-03-27)
+
+
+### Bug Fixes
+
+* **react:** color field not being able to be always opened ([d535f46](https://github.com/p3ol/junipero/commit/d535f4691a6a947e57f1800b8d1345078c6fe011))
+
+
+
+
+
+# [3.0.0-beta.7](https://github.com/p3ol/junipero/compare/v3.0.0-beta.6...v3.0.0-beta.7) (2023-03-21)
+
+
+### Features
+
+* **react:** add missing types ([aa71187](https://github.com/p3ol/junipero/commit/aa71187142bd9980f34ac2da52bc3e209cfd48c3))
+* **react:** forward floating update method ([4350adf](https://github.com/p3ol/junipero/commit/4350adf7412a915b8732a5cbcac1eeb8246775c1))
+
+
+
+
+
+# [3.0.0-beta.6](https://github.com/p3ol/junipero/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2023-03-15)
+
+
+### Bug Fixes
+
+* **core:** better types ([ed7f654](https://github.com/p3ol/junipero/commit/ed7f654bde67229a4f58004d04c63f17dad3942e))
+* **core:** color typings ([8e0071f](https://github.com/p3ol/junipero/commit/8e0071f36eb57577cbc197c04cb508a8415641a8))
+* **core:** missing type export ([3efe827](https://github.com/p3ol/junipero/commit/3efe827a69cb85beaa3d03e7f3d36f1ded5eed4c))
+* **core:** only pass color values to color parsers ([e22545a](https://github.com/p3ol/junipero/commit/e22545a8b3acb18ae8af523d022d2ffa3d947b48))
+* **hooks:** better types ([9181449](https://github.com/p3ol/junipero/commit/9181449db48ffc033f99e4ca983a9e805946af22))
+* **react:** alert animate args ([3b97888](https://github.com/p3ol/junipero/commit/3b97888b59c93bbba4067d47853c20676e8b0fdf))
+* **react:** allow to render breadcrumb items from prop ([ec301be](https://github.com/p3ol/junipero/commit/ec301be3f166592ecfc6745e899817a09281cca2))
+* **react:** allow to render tabs from prop ([243055d](https://github.com/p3ol/junipero/commit/243055d15ff3660cbabab703eb4f9858630495ec))
+* **react:** better alerts icons typing ([7091a4a](https://github.com/p3ol/junipero/commit/7091a4a014ecc6ca9442d08c7e280ff3444f412a))
+* **react:** better types ([52889c1](https://github.com/p3ol/junipero/commit/52889c161ee96681bd48293ab8b61a76d65ee035))
+* **react:** list column not being secondary when not orderable ([84bbf0b](https://github.com/p3ol/junipero/commit/84bbf0bc38652ed1ab3e3dae5a911a1c0cd3af28))
+* **react:** missing container type ([74aa285](https://github.com/p3ol/junipero/commit/74aa2852d65d02d45f2acfcba088ec16f3eb11ea))
+* **react:** various remaining type mistakes ([3dd73d7](https://github.com/p3ol/junipero/commit/3dd73d78740f7e9d5e3057dbd88a7fdd33dc0d01))
+* **text-field:** add onWheel listener to prevent value from changing on wheel ([ca1410f](https://github.com/p3ol/junipero/commit/ca1410f6c0675390c66d4e7139c2a2054b1670cf))
+* **text-field:** move onWheel type with other dom event listeners ([c07b6c2](https://github.com/p3ol/junipero/commit/c07b6c29cb410cfaafdc538bd0370ed4fadc5049))
+* **text-field:** use onWheel props instead of moving rest spread operator bottom ([c37e989](https://github.com/p3ol/junipero/commit/c37e989467a6ed5608b7247b619a84c2a66d82b6))
+* **typing:** use ; instead of , ininterfaces ([bbf9d4a](https://github.com/p3ol/junipero/commit/bbf9d4a2b4a9421515ea5aaba3997dc99b91501c))
+* **typing:** use ; instead of , on interfaces ([2cd5282](https://github.com/p3ol/junipero/commit/2cd5282eec0f3f76a91a6678bb744c1855a56b4c))
+
+
+### Features
+
+* **theme:** add icons using cdn ([0b83b50](https://github.com/p3ol/junipero/commit/0b83b5009746a9407fbfd455c75f2d4531045227))
+
+
+
+
+
+# [3.0.0-beta.5](https://github.com/p3ol/junipero/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2023-03-10)
+
+
+### Bug Fixes
+
+* **core:** adjust lime background on dark mode ([b16d09d](https://github.com/p3ol/junipero/commit/b16d09d60043211fe3923c0853b848e989b6fc21))
+* **react:** add core as peer dep ([d692206](https://github.com/p3ol/junipero/commit/d6922062451edd642389f806a6be91c8628b9c4d))
+* **tailwind-plugin:** move core from deps to peer deps ([5f0d498](https://github.com/p3ol/junipero/commit/5f0d498e2952c996965735b215689339fe87ff77))
+* **theme:** adjust lime background on dark mode ([c3d8537](https://github.com/p3ol/junipero/commit/c3d85375aeb991ab73c6f158a2543fefd0fa2c18))
+
+
+
+
+
+# [3.0.0-beta.4](https://github.com/p3ol/junipero/compare/v3.0.0-beta.3...v3.0.0-beta.4) (2023-03-10)
+
+
+### Bug Fixes
+
+* **tainwild-plugin:** wrong dep ([5d1906b](https://github.com/p3ol/junipero/commit/5d1906b05e4c83e54224db818dd1e93e5db4cb97))
+
+
+
+
+
+# [3.0.0-beta.3](https://github.com/p3ol/junipero/compare/v3.0.0-beta.2...v3.0.0-beta.3) (2023-03-10)
+
+
+### Bug Fixes
+
+* **theme:** fix global text color overriding everything ([6c6b87f](https://github.com/p3ol/junipero/commit/6c6b87f102527df0885a76d6a157ca4c1a27c623))
+
+
+
+
+
+# [3.0.0-beta.2](https://github.com/p3ol/junipero/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2023-03-10)
+
+**Note:** Version bump only for package junipero
+
+
+
+
+
+# [3.0.0-beta.1](https://github.com/p3ol/junipero/compare/v3.0.0-beta.0...v3.0.0-beta.1) (2023-03-10)
+
+
+### Features
+
+* **core:** export colors ([b6e8b68](https://github.com/p3ol/junipero/commit/b6e8b68aa6362647c65811c1fe92e0ce8baa9c4b))
+* **react:** re-export colors ([8a83618](https://github.com/p3ol/junipero/commit/8a836186e87d14a4e9b85a59379d60f3b247e7f7))
+* **tailwind-plugin:** use colors from core ([40e8442](https://github.com/p3ol/junipero/commit/40e8442659c7129bfbfb6be2d5aa96b2dc8dd517))
+
+
+
+
+
+# [3.0.0-beta.0](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.57...v3.0.0-beta.0) (2023-03-07)
+
+
+### Bug Fixes
+
+* force upgrade transitive deps ([d7d724d](https://github.com/p3ol/junipero/commit/d7d724de042f93a9bc0d3e4b3aa385d9f4c1ffe7))
+* **react:** pass props to logos ([3647c18](https://github.com/p3ol/junipero/commit/3647c18b7ccbbecb1975cbd56bd399cf7f7ff820))
+* upgrade dependencies ([10ac6e3](https://github.com/p3ol/junipero/commit/10ac6e352e05363a45650d858c663bea6973107a))
+
+
+### Features
+
+* add junipero logo ([469603a](https://github.com/p3ol/junipero/commit/469603a781cb905fa16af3584768a0c6135163dc))
+
+
+
+# [2.0.0-rc.23](https://github.com/p3ol/junipero/compare/v2.0.0-rc.22...v2.0.0-rc.23) (2022-11-09)
+
+
+### Bug Fixes
+
+* **junipero:** non existing color var ([58da7e9](https://github.com/p3ol/junipero/commit/58da7e903fae02c7b45d851f47849f066d7a926e))
+
+
+
+# [2.0.0-rc.22](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.2...v2.0.0-rc.22) (2022-11-09)
+
+
+### Bug Fixes
+
+* **checkbox:** fire onChange event when toggle checkbox using keyboard ([5c37e70](https://github.com/p3ol/junipero/commit/5c37e700766d5a392ec6814f286bbc55b4f60a4e))
+* **deps:** update dependency core-js to v3.25.3 ([e594f6f](https://github.com/p3ol/junipero/commit/e594f6f9d2387c9731a9b2fd7ba35466a8b2b6a7))
+* **deps:** update dependency core-js to v3.25.4 ([ed26e18](https://github.com/p3ol/junipero/commit/ed26e18ded5b0186bbd1dbdc2c1119f49f2b5d82))
+* **deps:** update dependency core-js to v3.25.5 ([b126f0b](https://github.com/p3ol/junipero/commit/b126f0b8e450c234c929d953f876c1211ad2473b))
+* **junipero:** move fonts definition to standalone css export ([5301976](https://github.com/p3ol/junipero/commit/5301976f000f2db3109f2043b018765acd1825c9))
+
+
+
+
+
+# [3.0.0-alpha.57](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.56...v3.0.0-alpha.57) (2023-03-03)
+
+
+### Bug Fixes
+
+* **theme:** allow to separate submit button in field group ([4d8f849](https://github.com/p3ol/junipero/commit/4d8f849a072ab50c48cf9501d323671f488b939d))
+
+
+
+
+
+# [3.0.0-alpha.56](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.55...v3.0.0-alpha.56) (2023-02-24)
+
+
+### Features
+
+* **react:** export basic svg icons ([64971d7](https://github.com/p3ol/junipero/commit/64971d7e82c65b2c0ecf66f574a6d486661091a3))
+
+
+
+
+
+# [3.0.0-alpha.55](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.54...v3.0.0-alpha.55) (2023-02-24)
+
+
+### Bug Fixes
+
+* **react:** reopen options menu when closed and searching ([b41989c](https://github.com/p3ol/junipero/commit/b41989ce2f5dd82a14a79542e129937f12dec947))
+* **select-field:** enable toggle field for non searchable select fields ([07bbdb8](https://github.com/p3ol/junipero/commit/07bbdb885e3e6d30904a4cece67ba71a6f479366))
+* **theme:** dark mode selectfield focus ([3e6d08b](https://github.com/p3ol/junipero/commit/3e6d08b2ffa855f37a236206ccfea632d233f5cb))
+* **theme:** prevent alert close icon from shrinking ([bafd105](https://github.com/p3ol/junipero/commit/bafd1058e631ac497270a71b27d9602bfd54c321))
+
+
+
+
+
+# [3.0.0-alpha.54](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.53...v3.0.0-alpha.54) (2023-02-23)
+
+
+### Features
+
+* **react:** add callbacks to Transition ([8e3a0f7](https://github.com/p3ol/junipero/commit/8e3a0f79bb95992c5f79e8e4e3f50313a3ffde8a))
+* **react:** allow to dissociate modal content and wrapper on animate ([4c96670](https://github.com/p3ol/junipero/commit/4c966703a48118e552c3f16bec89f696a71b7481))
+* **react:** remove dropdown menu from dom when animated ([a50b57c](https://github.com/p3ol/junipero/commit/a50b57cba997f9d7851c83deaca35a9eeeadc236))
+* **react:** remove tooltip from dom when animated ([fc09c25](https://github.com/p3ol/junipero/commit/fc09c253bdef273eef719b7ad60823d70ea7980e))
+
+
+
+
+
+# [3.0.0-alpha.53](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.52...v3.0.0-alpha.53) (2023-02-22)
+
+
+### Features
+
+* **theme:** move dark mode styles to standalones ([45c3183](https://github.com/p3ol/junipero/commit/45c318324997ca60bb696a560be4ba2df7f30f2e))
+
+
+
+
+
+# [3.0.0-alpha.52](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.51...v3.0.0-alpha.52) (2023-02-22)
+
+
+### Bug Fixes
+
+* **react:** fix wrong droppable stack update value ([035736d](https://github.com/p3ol/junipero/commit/035736d335399a1f56bb0a62214c4ec47b23893a))
+
+
+
+
+
+# [3.0.0-alpha.51](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.50...v3.0.0-alpha.51) (2023-02-20)
+
+
+### Bug Fixes
+
+* **lib:** fix backspace removing previous values before search ([7da8413](https://github.com/p3ol/junipero/commit/7da8413db4486f698166be4017ee9eb981bfaedb))
+
+
+
+
+
+# [3.0.0-alpha.50](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.49...v3.0.0-alpha.50) (2023-02-20)
+
+
+### Bug Fixes
+
+* **theme:** better color contrast with new gondola color ([098a153](https://github.com/p3ol/junipero/commit/098a15315c8ab89ae7004acdd107d0fe9d034a3b))
+
+
+### Features
+
+* **tailwind-plugin:** add gondola color ([79f8fae](https://github.com/p3ol/junipero/commit/79f8fae652b5e8317e1a466673cff3c8e99ded1d))
+
+
+
+
+
+# [3.0.0-alpha.49](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.48...v3.0.0-alpha.49) (2023-02-20)
+
+
+### Bug Fixes
+
+* **react:** isolate text from logos ([f2f1994](https://github.com/p3ol/junipero/commit/f2f199481e4a6361a0ed88a69dee67a01d5761ce))
+
+
+
+
+
+# [3.0.0-alpha.48](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.47...v3.0.0-alpha.48) (2023-02-20)
+
+
+### Features
+
+* **tailwind-plugin:** add dark mode colors ([b558a79](https://github.com/p3ol/junipero/commit/b558a795c4adc616a97c3c62107cb3b125a8faae))
+
+
+
+
+
+# [3.0.0-alpha.47](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.46...v3.0.0-alpha.47) (2023-02-20)
+
+
+### Bug Fixes
+
+* **react:** correctly handle modal close event ([89a4be3](https://github.com/p3ol/junipero/commit/89a4be3bb89cac1988b06555424b531f05e563bb))
+
+
+### Features
+
+* add dark mode colors ([c53f685](https://github.com/p3ol/junipero/commit/c53f685c5a695abf4392b0d2c50e990d9ea5bf7f))
+* **theme:** add new dark mode colors ([9df18c5](https://github.com/p3ol/junipero/commit/9df18c591164dcbde6225667e3227a4cd5eeb70c))
+
+
+
+
+
+# [3.0.0-alpha.46](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.45...v3.0.0-alpha.46) (2023-02-17)
+
+
+### Bug Fixes
+
+* **react:** add missing types & exports ([527ea39](https://github.com/p3ol/junipero/commit/527ea3928b7693f83f0ceb45b8e7e496640803e6))
+* **react:** fix flow logo dimensions ([1bed127](https://github.com/p3ol/junipero/commit/1bed1275b64662ec0ab027259ee52cb19d6760db))
+* **theme:** field group radius ([69bbeba](https://github.com/p3ol/junipero/commit/69bbebaa76c744672b6583571fcbad95b1c38488))
+
+
+### Features
+
+* **lib:** add flow logo ([852b758](https://github.com/p3ol/junipero/commit/852b758b18013dfbefa2b2ed1f8796ccd8d3fffc))
+
+
+
+
+
+# [3.0.0-alpha.45](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.44...v3.0.0-alpha.45) (2023-02-15)
+
+
+### Bug Fixes
+
+* **react:** fix not passed rest props to tooltip ([4fb1e25](https://github.com/p3ol/junipero/commit/4fb1e252747a173e841e77c206655d58d48bab3f))
+
+
+
+
+
+# [3.0.0-alpha.44](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.43...v3.0.0-alpha.44) (2023-02-14)
+
+
+### Bug Fixes
+
+* **react:** revert last list columns fix and replace with layout effect ([cfe5fe8](https://github.com/p3ol/junipero/commit/cfe5fe8af87c1b970d05cc3711af58d63cf0b08c))
+
+
+
+
+
+# [3.0.0-alpha.43](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.42...v3.0.0-alpha.43) (2023-02-14)
+
+
+### Bug Fixes
+
+* **react:** pass list column props ([06956d4](https://github.com/p3ol/junipero/commit/06956d47a184e4bfd538d24033585cd3107b3edc))
+
+
+
+
+
+# [3.0.0-alpha.42](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.41...v3.0.0-alpha.42) (2023-02-14)
+
+
+### Bug Fixes
+
+* **react:** better manage list columns ([33d1251](https://github.com/p3ol/junipero/commit/33d1251a59bdcf73adb827cd9301e5c5a299295a))
+* **theme:** selectfield menu z index inside field group ([3d1ebf0](https://github.com/p3ol/junipero/commit/3d1ebf00bc7475ad6641c35492b453a320b6c383))
+
+
+
+
+
+# [3.0.0-alpha.41](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.40...v3.0.0-alpha.41) (2023-02-08)
+
+
+### Bug Fixes
+
+* **theme:** allow toggle colors override ([161989c](https://github.com/p3ol/junipero/commit/161989ccd933be6a11681186a8f9ca3ba932caa5))
+
+
+
+
+
+# [3.0.0-alpha.40](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.39...v3.0.0-alpha.40) (2023-02-08)
+
+
+### Bug Fixes
+
+* **react:** update floating ui ([0454946](https://github.com/p3ol/junipero/commit/04549463397b298e3207444e49c062a1a9061a98))
+* upgrade runtime & corejs ([9c21012](https://github.com/p3ol/junipero/commit/9c210126903eb29f3aea46188f741e6c90f3918b))
+
+
+
+
+
+# [3.0.0-alpha.39](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.38...v3.0.0-alpha.39) (2023-02-08)
+
+
+### Features
+
+* **react:** add poool compact logo ([1ccc636](https://github.com/p3ol/junipero/commit/1ccc636b52289fcfef50d80cb88df7e28f1b7b1d))
+
+
+
+
+
+# [3.0.0-alpha.38](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.37...v3.0.0-alpha.38) (2023-02-07)
+
+
+### Bug Fixes
+
+* **react:** only show toggle label when children exists ([7a4f669](https://github.com/p3ol/junipero/commit/7a4f6698c351dd63ccc53663558ff85ac8bcf59c))
+* **react:** remove toggle deprecated onkeypress event ([b8794d3](https://github.com/p3ol/junipero/commit/b8794d38ab1a899b8ca6d1f637b4e251832b2ba3))
+
+
+
+
+
+# [3.0.0-alpha.37](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.36...v3.0.0-alpha.37) (2023-02-07)
+
+
+### Bug Fixes
+
+* **theme:** replace margin with gap ([1f128c7](https://github.com/p3ol/junipero/commit/1f128c7247926eb1ecf045f878cd32eb5b469085))
+
+
+
+
+
+# [3.0.0-alpha.36](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.35...v3.0.0-alpha.36) (2023-02-07)
+
+
+### Bug Fixes
+
+* **theme:** toggle overflow ([76c9bad](https://github.com/p3ol/junipero/commit/76c9bad91dda4c72999393a01dd02b3f40b58fe8))
+
+
+
+
+
+# [3.0.0-alpha.35](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.34...v3.0.0-alpha.35) (2023-02-07)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** import typo ([c8ad9b2](https://github.com/p3ol/junipero/commit/c8ad9b233c0abb774efb00d92eeb55bc6b0e10c6))
+
+
+
+
+
+# [3.0.0-alpha.34](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.33...v3.0.0-alpha.34) (2023-02-07)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** disable prepack ([f958a64](https://github.com/p3ol/junipero/commit/f958a64017f2c5ab095901ecee7e7dd9579c091a))
+
+
+
+
+
+# [3.0.0-alpha.33](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.32...v3.0.0-alpha.33) (2023-02-07)
+
+
+### Features
+
+* add tailwind plugin ([e9968b2](https://github.com/p3ol/junipero/commit/e9968b226cd7588f885c8f5736f3772f890000c7))
+
+
+
+
+
+# [3.0.0-alpha.32](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.31...v3.0.0-alpha.32) (2023-01-24)
+
+
+### Bug Fixes
+
+* **react:** fix missing re-exports from core ([f423772](https://github.com/p3ol/junipero/commit/f423772f50afef95bc5d53da85f1113f83a0362a))
+
+
+
+
+
+# [3.0.0-alpha.31](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.30...v3.0.0-alpha.31) (2023-01-24)
+
+
+### Bug Fixes
+
+* **react:** remove unwanted prop ([a034810](https://github.com/p3ol/junipero/commit/a0348100e5e562732be4b8bf7f3408077ce4d994))
+
+
+
+
+
+# [3.0.0-alpha.30](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.29...v3.0.0-alpha.30) (2023-01-23)
+
+
+### Bug Fixes
+
+* **react:** fix infinite calendar renders ([5da2310](https://github.com/p3ol/junipero/commit/5da2310b551f85a6da99442a64c92f543c30b253))
+* update floating ui to latest ([ff93dc4](https://github.com/p3ol/junipero/commit/ff93dc4b5d4234e10f3b259904827091c5530757))
+
+
+
+
+
+# [3.0.0-alpha.29](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.28...v3.0.0-alpha.29) (2023-01-20)
+
+
+### Bug Fixes
+
+* **react:** fix alerts disapparition ([c772837](https://github.com/p3ol/junipero/commit/c77283703dab68398d5c4dc3696add5edcfb81d4))
+* **react:** wrongly passed props ([d5a434c](https://github.com/p3ol/junipero/commit/d5a434c88cb3c3511dfa93cb1aeb486f0043f468))
+* **theme:** add missing background colors ([ac135ca](https://github.com/p3ol/junipero/commit/ac135ca70031d5483ab13d93543a93fc51d7e6fb))
+
+
+### Features
+
+* **react:** add new toast component ([e979191](https://github.com/p3ol/junipero/commit/e97919146206e92fc5729f4ac099e40d34951407))
+
+
+
+
+
+# [3.0.0-alpha.28](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.27...v3.0.0-alpha.28) (2023-01-06)
+
+
+### Bug Fixes
+
+* **hooks:** fix missing types path ([1edde8f](https://github.com/p3ol/junipero/commit/1edde8fa3541fe88f315a7ae9bd7d34212f37fe6))
+* **react:** re-export hooks types ([4ce54a5](https://github.com/p3ol/junipero/commit/4ce54a5f66561ca00401087a79c51c6f38bfccfb))
+* **theme:** wrong code field layout ([87ce362](https://github.com/p3ol/junipero/commit/87ce362d4b47dffe82fb1ecd9cde8b9866c66cf2))
+
+
+
+
+
+# [3.0.0-alpha.27](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.26...v3.0.0-alpha.27) (2023-01-06)
+
+
+### Bug Fixes
+
+* **react:** selectfield display input going uncontrolled ([d66d2ea](https://github.com/p3ol/junipero/commit/d66d2ea18667dfa9d7ecb62d55015884346c0f94))
+
+
+### Features
+
+* **core:** add core types ([a202d33](https://github.com/p3ol/junipero/commit/a202d338ad28c7ab9a25527fc6a214ca03df03dd))
+* **react:** re-export core types ([cbe6e7b](https://github.com/p3ol/junipero/commit/cbe6e7be632f117fed0071493ae0a80a4b69dc3b))
+
+
+
+
+
+# [3.0.0-alpha.26](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.25...v3.0.0-alpha.26) (2023-01-04)
+
+
+### Features
+
+* **react:** add new fieldaddon & fieldgroup components ([90c5a43](https://github.com/p3ol/junipero/commit/90c5a434946a41a0e73a6b5242c508182d261380))
+
+
+
+
+
+# [3.0.0-alpha.25](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.24...v3.0.0-alpha.25) (2023-01-03)
+
+
+### Bug Fixes
+
+* **react:** only refocus selectfield on clear ([5d1edf2](https://github.com/p3ol/junipero/commit/5d1edf267b7c9c8662f65c23b654e6898f3d0fd4))
+
+
+
+
+
+# [3.0.0-alpha.24](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.23...v3.0.0-alpha.24) (2023-01-03)
+
+
+### Bug Fixes
+
+* **react:** allow to reset select value from outside ([141764c](https://github.com/p3ol/junipero/commit/141764c630b879287dd0d469a3140c54b86647d4))
+* **react:** disable no options on select ([c9249b4](https://github.com/p3ol/junipero/commit/c9249b48b94a98fcbc900538fc5868f001aa1781))
+
+
+
+
+
+# [3.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.22...v3.0.0-alpha.23) (2023-01-02)
+
+
+### Bug Fixes
+
+* **react:** focus search field on clear ([d8e5b24](https://github.com/p3ol/junipero/commit/d8e5b2444ef303b17c51c654fb3737f3ea130c26))
+* **theme:** fix slider math ([ae9a348](https://github.com/p3ol/junipero/commit/ae9a348c167f10f4b6a81cdc518b3171bd957d65))
+
+
+
+
+
+# [3.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.21...v3.0.0-alpha.22) (2023-01-02)
+
+
+### Bug Fixes
+
+* **react:** don't fire datefield onchange when time has not changed ([41e0115](https://github.com/p3ol/junipero/commit/41e011585a23219f6c9b74902ce6f39e57a5ff01))
+
+
+### Features
+
+* **react:** standalone calendar ([284ff40](https://github.com/p3ol/junipero/commit/284ff40f0d0d1a88a63f90c7867d7641545ebd33))
+* **theme:** standalone calendar ([5e12abb](https://github.com/p3ol/junipero/commit/5e12abb359776a8a686619ca9aa7e289df68552b))
+
+
+
+
+
+# [3.0.0-alpha.21](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.20...v3.0.0-alpha.21) (2022-12-21)
+
+
+### Bug Fixes
+
+* **react:** select field validation value truth-ness ([2836a11](https://github.com/p3ol/junipero/commit/2836a116cff28eee7f420b270d3284089ad452e4))
+* **theme:** select & date field sizes ([ce0d561](https://github.com/p3ol/junipero/commit/ce0d561926f766c294b017c68798fa3ec6bb5fbb))
+
+
+
+
+
+# [3.0.0-alpha.20](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.19...v3.0.0-alpha.20) (2022-12-21)
+
+
+### Bug Fixes
+
+* **react:** list column outside list ([ac1a3a2](https://github.com/p3ol/junipero/commit/ac1a3a29e72a255337504dccc1fc16ff1a581a5f))
+
+
+
+
+
+# [3.0.0-alpha.19](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.18...v3.0.0-alpha.19) (2022-12-21)
+
+
+### Bug Fixes
+
+* **theme:** allow lists inside cards ([61b1671](https://github.com/p3ol/junipero/commit/61b1671249ca281bf46acb5e6a915d9bf407ffd5))
+
+
+
+
+
+# [3.0.0-alpha.18](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.17...v3.0.0-alpha.18) (2022-12-21)
+
+
+### Features
+
+* add list component ([835528f](https://github.com/p3ol/junipero/commit/835528f02b49177b066e933a147b151604552d4d))
+* add slider component ([17bc568](https://github.com/p3ol/junipero/commit/17bc5687638115b1d8b4c4be847e89a321236a67))
+
+
+
+
+
+# [3.0.0-alpha.17](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.16...v3.0.0-alpha.17) (2022-12-16)
+
+
+### Bug Fixes
+
+* **react:** manage alerts with unique ids ([21550ee](https://github.com/p3ol/junipero/commit/21550eeca46f7fa4133d714e606c1e9ea73ba070))
+
+
+
+
+
+# [3.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.15...v3.0.0-alpha.16) (2022-12-16)
+
+
+### Bug Fixes
+
+* **hooks:** fix hooks types function parameter order ([034cf10](https://github.com/p3ol/junipero/commit/034cf107cb702a65381b20f082aaf7b76f5deff1))
+* **react:** allow default icons from alerts store ([da4d30f](https://github.com/p3ol/junipero/commit/da4d30f74d97eec35df98be9ed10d11d15a9173b))
+* **transitions:** add missing key prop for transition groups ([b587632](https://github.com/p3ol/junipero/commit/b587632047f592078821e1be0f23bb7166265d83))
+
+
+
+
+
+# [3.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.14...v3.0.0-alpha.15) (2022-12-15)
+
+
+### Bug Fixes
+
+* **react:** multiple first renders running all animations at once ([b18dcdf](https://github.com/p3ol/junipero/commit/b18dcdf138c4286ed1e28f8dfa64d60e3d6179a7))
+* **theme:** allow transition delays ([3562a7a](https://github.com/p3ol/junipero/commit/3562a7a64e6f80bb74b4979807c80de666258fb0))
+* **theme:** bouncing modal pre-enter state ([e75fbff](https://github.com/p3ol/junipero/commit/e75fbffbe0a0f09ed5605ca5f055c0ee8aa03deb))
+* **transition:** fix some types issues ([42436aa](https://github.com/p3ol/junipero/commit/42436aa7ee2b6e4b8cffccf842b0eaa1532a3644))
+* **transitions:** fix build incorporating react package ([b325042](https://github.com/p3ol/junipero/commit/b3250425724711a6f02bf567d2e6ea9eac764d04))
+
+
+### Features
+
+* **hooks:** add after mount effects hooks ([9735822](https://github.com/p3ol/junipero/commit/9735822d4c86525c3098a618091da62ae433a0c9))
+* **react:** add new Transition component ([a6b34d2](https://github.com/p3ol/junipero/commit/a6b34d2f7d054369c295abed1a9189995b5f9d0a))
+* **select-field:** add toggle and keyboard handler options on select fields ([6c7c1d2](https://github.com/p3ol/junipero/commit/6c7c1d2b61f40908320687e9c1c989400ee3f19a))
+* **transition:** add typescript definition for Transition component and hooks ([1b44bd4](https://github.com/p3ol/junipero/commit/1b44bd4a88f0d3a42f5c0221b5b97baf3ced31b6))
+* **transitions:** replace react transition group with built-in transition ([d35a698](https://github.com/p3ol/junipero/commit/d35a698f890800221bec438e0a4532e6b2769faa))
+
+
+
+
+
+# [3.0.0-alpha.14](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.13...v3.0.0-alpha.14) (2022-12-06)
+
+
+### Bug Fixes
+
+* **react:** fix color field non-existing field control ([60e216b](https://github.com/p3ol/junipero/commit/60e216bb91cc9a03a719a9bb7d52fd53c80587ca))
+* **react:** fix tooltip floating options ([c5c416e](https://github.com/p3ol/junipero/commit/c5c416e4bef1cf3f10eebee44c6be309b119fcb0))
+
+
+
+
+
+# [3.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.12...v3.0.0-alpha.13) (2022-11-30)
+
+
+### Bug Fixes
+
+* **react:** add onChange in deps array ([7f1b68d](https://github.com/p3ol/junipero/commit/7f1b68d726956795a4e58ce3e6f71d1ca8295d7f))
+* **theme:** prevent radiofield checkbox shrink ([a5ab152](https://github.com/p3ol/junipero/commit/a5ab1527e917f5348edfa1247eec5c0dd0bfc65b))
+
+
+### Features
+
+* **refactor-v3:** create touchable zone component under @junipero/react ([0b4e93a](https://github.com/p3ol/junipero/commit/0b4e93ac20936788266fcc580aa5e53c142868c4))
+* **refactor-v3:** reword res into rest ([544f4d5](https://github.com/p3ol/junipero/commit/544f4d5adeb0234786f75d00df8fd8158bd2abdf))
+* **touchable:** add export and remove useless code ([7eb1fa2](https://github.com/p3ol/junipero/commit/7eb1fa25b24eceabfb7c777c9933d2a92d506a9d))
+
+
+
+
+
+# [3.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.11...v3.0.0-alpha.12) (2022-11-28)
+
+
+### Bug Fixes
+
+* **react:** allow selectfield to not be searchable ([6a07901](https://github.com/p3ol/junipero/commit/6a079012d879fc58dee242908770e41a14a4bd11))
+* **react:** missing prop validation ([112f6be](https://github.com/p3ol/junipero/commit/112f6be75365f8e04fac6403bfa56cc7c11e06cb))
+* **theme:** allow selectfield to not be searchable ([aa7fa9e](https://github.com/p3ol/junipero/commit/aa7fa9e7009d2aa739855cc43b421d5d2c4298ac))
+
+
+
+
+
+# [3.0.0-alpha.11](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.10...v3.0.0-alpha.11) (2022-11-28)
+
+
+### Bug Fixes
+
+* **theme:** also style non-anchor dropdown links ([58548b8](https://github.com/p3ol/junipero/commit/58548b80d3d9978c47b398b0c77b2a0e848af36d))
+
+
+
+
+
+# [3.0.0-alpha.10](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.9...v3.0.0-alpha.10) (2022-11-25)
+
+
+### Bug Fixes
+
+* **react:** correctly handle controlled selectfields ([26dede1](https://github.com/p3ol/junipero/commit/26dede1636126a36e2cf815423ff085a477ad91c))
+* **react:** handle controlled checkboxes ([358f10b](https://github.com/p3ol/junipero/commit/358f10b79c30d5a2ac5c07375e9cae507a35a9f8))
+
+
+
+
+
+# [3.0.0-alpha.9](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.8...v3.0.0-alpha.9) (2022-11-25)
+
+
+### Bug Fixes
+
+* **react:** handle post layout placeholder changes ([2555e11](https://github.com/p3ol/junipero/commit/2555e11623fe2c23cfea2067640b648420c2d177))
+
+
+
+
+
+# [3.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.7...v3.0.0-alpha.8) (2022-11-25)
+
+
+### Bug Fixes
+
+* **react:** allow to render selectfield even without placeholder ([cb01709](https://github.com/p3ol/junipero/commit/cb017095bffe0226a776baf61501955711e30576))
+* **theme:** missing class ([2337de8](https://github.com/p3ol/junipero/commit/2337de8875ed71cb8e23058a42ec3074c317d62c))
+
+
+
+
+
+# [3.0.0-alpha.7](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.6...v3.0.0-alpha.7) (2022-11-25)
+
+
+### Bug Fixes
+
+* **react:** add missing modal export ([8df5a58](https://github.com/p3ol/junipero/commit/8df5a58456a1444ded6a309f3079bb3e09c5a100))
+* **react:** also increase multiple search input size ([f8dd224](https://github.com/p3ol/junipero/commit/f8dd224f7ccec378f9af6a33634bae97e6bc3720))
+* **react:** tooltip types typo ([5dd665d](https://github.com/p3ol/junipero/commit/5dd665daed6147dc0c0a4967758fa12a8519f748))
+* **theme:** fix selectfield menu size ([c54fc60](https://github.com/p3ol/junipero/commit/c54fc60a54915d549d3aa880aeccb92aee5c0ecd))
+
+
+### Features
+
+* **react:** modal types ([0667299](https://github.com/p3ol/junipero/commit/0667299fbe95a5953c89c7e5894db582a46bad62))
+
+
+
+
+
+# [3.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* **date-field:** fix month jumping because of out of range day in month ([7b1c0ad](https://github.com/p3ol/junipero/commit/7b1c0ad92ffe1ae14bd7ed7e5d4688b09d300ce4))
+* **theme:** card shadow ([ce76463](https://github.com/p3ol/junipero/commit/ce76463e8c3dfe8b83737a67067d982dacae1e5f))
+* **theme:** transition colors ([6c44bcf](https://github.com/p3ol/junipero/commit/6c44bcf5eaf032b892ba136b5295255ff377fa7f))
+
+
+### Features
+
+* **react:** add modal component ([a613495](https://github.com/p3ol/junipero/commit/a613495f22b79de8520be647dcdfbebad048a7c4))
+* **react:** allow to conditionnaly add breadcrumb items using fragments ([0dc3f66](https://github.com/p3ol/junipero/commit/0dc3f6682999dd4474df5085dd7cf4f2fc07081a))
+* **react:** better modal ([6d1e7fd](https://github.com/p3ol/junipero/commit/6d1e7fdcb59ed4d432ff08895a157a2f617fb4ae))
+
+
+
+
+
+# [3.0.0-alpha.5](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.4...v3.0.0-alpha.5) (2022-11-17)
+
+
+### Features
+
+* add radioField export ([4e8059e](https://github.com/p3ol/junipero/commit/4e8059eb76e5f5cd26b4f603e5db58edd7a829a6))
+
+
+
+
+
+# [3.0.0-alpha.4](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.3...v3.0.0-alpha.4) (2022-11-16)
+
+
+### Bug Fixes
+
+* **theme:** fix tooltip styling & transitions ([c93cb7b](https://github.com/p3ol/junipero/commit/c93cb7b9aa34a8206203970157b09657db198554))
+* **theme:** simpler dropdown item with icon ([2c580f4](https://github.com/p3ol/junipero/commit/2c580f41a9b9f17e7548d9a6177044f00bebddf4))
+
+
+
+
+
+# [3.0.0-alpha.3](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-11-16)
+
+
+### Bug Fixes
+
+* **lint:** fix lint problems under rollup config file ([8340fed](https://github.com/p3ol/junipero/commit/8340fed39431d74925116d1148608443d2b99e21))
+* **theme:** fix some fields not filling parent ([90d15b8](https://github.com/p3ol/junipero/commit/90d15b83481341d36680d09a4aee946f1717d7fd))
+
+
+### Features
+
+* **junipero-react:** add toggle and logo types and repair some types ([f025af4](https://github.com/p3ol/junipero/commit/f025af4dfd184ae379e77312f1595e63673d054d))
+* reorder imports and pin dependancy ([b186117](https://github.com/p3ol/junipero/commit/b18611725f3f013d62546caff18bb13ec3c73d1d))
+
+
+
+
+
+# [3.0.0-alpha.2](https://github.com/p3ol/junipero/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2022-11-07)
+
+### Bug Fixes
+
+- **theme:** add missing titles styles ([19cf0a2](https://github.com/p3ol/junipero/commit/19cf0a24681fa68e7fabd79361f8fa94a534b2f7))
+
+# [3.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v3.0.0-alpha.1) (2022-10-31)
+
+### Bug Fixes
+
+- **alert:** add onDismiss event when alert is autoclosed after delay ([20dbf40](https://github.com/p3ol/junipero/commit/20dbf40caf7415f90ba889af1fcf251d3e13a1a5))
+- **core:** don't return a default value on findDeep empty result ([d413753](https://github.com/p3ol/junipero/commit/d4137530a8f64fb90766c54caf3fbefa3f583b88))
+- **core:** long running omitBy issue ([a3c32d6](https://github.com/p3ol/junipero/commit/a3c32d6d748b55ac15f07030aaf4bcd130424748))
+- **deps:** update dependency core-js to v3.22.1 ([15b3585](https://github.com/p3ol/junipero/commit/15b3585346a13ca23ac1cb5339789133327318cb))
+- **deps:** update dependency core-js to v3.22.2 ([9834135](https://github.com/p3ol/junipero/commit/983413567af8fce65f675e87619eecc91bfca0e7))
+- **deps:** update dependency core-js to v3.22.3 ([ee4637a](https://github.com/p3ol/junipero/commit/ee4637ae23952c73891bcee749a98895fa164055))
+- **deps:** update dependency core-js to v3.22.4 ([692f0c9](https://github.com/p3ol/junipero/commit/692f0c94eaae1c78731a0889d10142c048554a2d))
+- **deps:** update dependency core-js to v3.22.5 ([c2bfc7b](https://github.com/p3ol/junipero/commit/c2bfc7b58f4d6f4916b5d3a83e3aeaca2bf90b3c))
+- **deps:** update dependency core-js to v3.22.7 ([b06926c](https://github.com/p3ol/junipero/commit/b06926cd9c78ac994f86930814043aebd74ed13a))
+- **deps:** update dependency core-js to v3.22.8 ([e349d55](https://github.com/p3ol/junipero/commit/e349d55b80fa46a7cb32579327aaf3fdc3ea321d))
+- **deps:** update dependency core-js to v3.23.1 ([2631fdb](https://github.com/p3ol/junipero/commit/2631fdb3a0a982c88a218caf29159d292f6cfcc1))
+- **deps:** update dependency core-js to v3.23.2 ([ce85914](https://github.com/p3ol/junipero/commit/ce8591455091f496c18098b3cc9c4dd5094801a9))
+- **deps:** update dependency core-js to v3.23.3 ([db31caa](https://github.com/p3ol/junipero/commit/db31caae18293c2d88babb8a234a520f186b07f0))
+- **deps:** update dependency core-js to v3.23.4 ([1cd3267](https://github.com/p3ol/junipero/commit/1cd326730469e4a9df80cb61b483be85a7d74640))
+- **deps:** update dependency core-js to v3.23.5 ([5fea72c](https://github.com/p3ol/junipero/commit/5fea72ce8cc0b6c8debdbf61f9cc6ac155b14093))
+- **deps:** update dependency core-js to v3.24.0 ([f899889](https://github.com/p3ol/junipero/commit/f8998890c99ae82eb63d2b42db99b2e12841cf7e))
+- **deps:** update dependency core-js to v3.24.1 ([00f9701](https://github.com/p3ol/junipero/commit/00f970136675b9a9f85b73e2ab3737a2216f03bb))
+- **deps:** update dependency core-js to v3.25.1 ([8513001](https://github.com/p3ol/junipero/commit/8513001138f9699563d7e3698ca2d5651fb39d4f))
+- **deps:** update dependency core-js to v3.25.2 ([4932aee](https://github.com/p3ol/junipero/commit/4932aeee508af10ff2407b5216daf38111dca767))
+- **react:** add missing card tag prop ([b6b1f67](https://github.com/p3ol/junipero/commit/b6b1f6746dc5fa05e854b323d1949de45a74ed69))
+- **react:** add missing disabled styles to textfield ([725f3fb](https://github.com/p3ol/junipero/commit/725f3fbe099a5c0e0df3ca0f604e7ce3f03e2c9c))
+- **react:** add missing export ([3e74411](https://github.com/p3ol/junipero/commit/3e744110e0a8727d225179d419fd4de987c227b1))
+- **react:** add missing tag display name ([12c39a2](https://github.com/p3ol/junipero/commit/12c39a2e1bd56b1214fcc818c96873146e7580d5))
+- **react:** allow different title parsing for select field value ([3e9823f](https://github.com/p3ol/junipero/commit/3e9823f8e2c7ac9c61ccbd09ea468d2fa9614b18))
+- **react:** allow passing options to floating ui middlewares ([0c273fe](https://github.com/p3ol/junipero/commit/0c273feb65cb7505a19b5f90149a76aeac7dadeb))
+- **react:** allow to append children to textfield ([c0117a6](https://github.com/p3ol/junipero/commit/c0117a6738096a2e66c01736012eba327ca641e7))
+- **react:** allow to set textfield dirty from outside ([934e598](https://github.com/p3ol/junipero/commit/934e5989a81e9bf90431f6b2a05f7a1d4e6a4740))
+- **react:** correctly change selectfield value when value prop changes ([afadfb1](https://github.com/p3ol/junipero/commit/afadfb1d469cb526821eafb58332eb0640e761e4))
+- **react:** correctly handle select field disabled state ([579dc2c](https://github.com/p3ol/junipero/commit/579dc2c221d8672fa56d546eba562f1f0cac2386))
+- **react:** css selector ([f62497f](https://github.com/p3ol/junipero/commit/f62497f86551e4ba0fe441b19b3d392d72a782d6))
+- **react:** disallow closing dropdown between ref & floating ([effc6c8](https://github.com/p3ol/junipero/commit/effc6c8e2106a7e1299c8c085cf0d31ee4994952))
+- **react:** dispatch real textfield valid state to field control ([c318ea0](https://github.com/p3ol/junipero/commit/c318ea006c424f3e4d06d3cadeb511d8cca964ab))
+- **react:** fix dropdown disabled state not closing upstream ([2b18843](https://github.com/p3ol/junipero/commit/2b18843d34e72a3f895ef2ab3b49a286e41c0a83))
+- **react:** fix icons classnames ([ae8257a](https://github.com/p3ol/junipero/commit/ae8257ac66dcf229cdc5f41fda9d359701c30a51))
+- **react:** fix missing textfield helpers ([5baeb38](https://github.com/p3ol/junipero/commit/5baeb3894057fb113e069b19b5996c0132d3cd3a))
+- **react:** global exports ([f0a19b6](https://github.com/p3ol/junipero/commit/f0a19b6d4db0b7c0a83a64d1afa57ed868a0aa36))
+- **react:** missing exports ([0577799](https://github.com/p3ol/junipero/commit/05777995afce195e27a8bfd5dd97547b87049d3e))
+- **react:** parse selectfield value prop correctly ([4e3135f](https://github.com/p3ol/junipero/commit/4e3135f2a8a83480d245d5756391635fa8532b56))
+- **react:** prevent clearing selectfield when disabled ([16025a7](https://github.com/p3ol/junipero/commit/16025a785ff743cb6bfe9ff544136ac9afe904e4))
+- **react:** single value not cleared correctly ([cc86eff](https://github.com/p3ol/junipero/commit/cc86efff52b5cb131369a5a7e8089f921c80fb14))
+- **react:** textfield focused border color ([9dea88f](https://github.com/p3ol/junipero/commit/9dea88fce60ec1a1c6ed4877758b81d7a026b4f6))
+- **react:** use checkbox icon ([d970983](https://github.com/p3ol/junipero/commit/d970983b263bd02473c4426e5b162f9e2d97aa7a))
+- **react:** use remove icon on tag component ([351d74f](https://github.com/p3ol/junipero/commit/351d74f0f1674b291ebebf2dd390b27dfcee0398))
+- rollup 3 compat ([3d6fc22](https://github.com/p3ol/junipero/commit/3d6fc22bb5a1cf0866291c90d44f3d9be946df0f))
+- **theme:** overlapping main color variable ([23c9deb](https://github.com/p3ol/junipero/commit/23c9deb6fc0d343b76a91123f8e5c8a8236d359d))
+- **typescript-eslint:** fix lint problems ([209b04a](https://github.com/p3ol/junipero/commit/209b04ae33b6d1f4a476f296f8b8c0b4f8dce948))
+
+### Features
+
+- add transitions ([08202d7](https://github.com/p3ol/junipero/commit/08202d7812a3d16d6478394b344e801c33b5ecd2))
+- change JSX.Element into React.ReactNode and use React.ComponentProps ([6ffabb8](https://github.com/p3ol/junipero/commit/6ffabb861589b2f7011910f105a9dc9c1aa48680))
+- **checkbox-field:** add dirty state and fix some lint problems ([f7e1351](https://github.com/p3ol/junipero/commit/f7e1351b93014ad48dd6a5bc8222778a0c723781))
+- **checkbox-field:** remove onBlur and onFocus Ãhandler and move ...rest on label ([a8152f2](https://github.com/p3ol/junipero/commit/a8152f272a304a8eac3468d581d644163e486754))
+- **checkbox:** add style to checkbox ([a59ad1f](https://github.com/p3ol/junipero/commit/a59ad1f427146f6cf021270de9e4b658d717b50f))
+- **checkbox:** make some improvements on checkbox field ([d4c4cfc](https://github.com/p3ol/junipero/commit/d4c4cfcf4368fa1abc7cdb2775bd38fa26c2a8df))
+- **checkox:** add junipro v3 checkbox component ([6239a85](https://github.com/p3ol/junipero/commit/6239a857a14c73ba358ce42d8a0cdba51cf18e15))
+- **core:** add filterDeep & findDeep array helpers ([4dbf63c](https://github.com/p3ol/junipero/commit/4dbf63cd5d061219ac3ca17ea4d3c3f557c6d420))
+- **date-field:** add dirty field for onValidate function ([b2ef12a](https://github.com/p3ol/junipero/commit/b2ef12a59a4072d43ae006f0eaa0e2d0a6ca9c4c))
+- **hooks:** allow to conditionally enable or disable timers ([d8fe8c3](https://github.com/p3ol/junipero/commit/d8fe8c3aec9b347340ad89e794f45aa05786c9a5))
+- **radio-button:** add border color on boxed checked ([affa144](https://github.com/p3ol/junipero/commit/affa1445a4a2ef7056319d1b8cba745c17be723f))
+- **radio-button:** add border color on boxed checked ([b298f96](https://github.com/p3ol/junipero/commit/b298f968452459e1f115070e2d108208ef404657))
+- **radio-button:** add dirty class for invalid state ([15872e3](https://github.com/p3ol/junipero/commit/15872e30841bd3830bd0643cc1ea98dd0fda259c))
+- **radio-button:** add dirty class for invalid state ([4379b1a](https://github.com/p3ol/junipero/commit/4379b1a5102fdd4159aeae35a0b5a695bd19c2ad))
+- **radio-button:** add focus invaid color ([e33f063](https://github.com/p3ol/junipero/commit/e33f06300187da6e94d71ec7417f8076167f0086))
+- **radio-button:** add focus invaid color ([5053a24](https://github.com/p3ol/junipero/commit/5053a24fa54885d5c089fef2e8f6b295a50c6cca))
+- **radio-button:** enhabnce radio button component, add test ([e4073ed](https://github.com/p3ol/junipero/commit/e4073edab847f28cdb43f96c49a7688eb3aac307))
+- **radio-button:** enhabnce radio button component, add test ([8ce417d](https://github.com/p3ol/junipero/commit/8ce417df0dc15ee3e54525cda5ac9872a44d1793))
+- **radio-button:** remove some line breaks ([2dbf480](https://github.com/p3ol/junipero/commit/2dbf480ba28c83728e12491d969cae8e5cf8f689))
+- **radio-button:** remove some line breaks ([a3f84ae](https://github.com/p3ol/junipero/commit/a3f84aeb4d828893d43979f1b25e168e5d1d15df))
+- **radio-button:** wip add radio button on junipero v3 ([b059d7e](https://github.com/p3ol/junipero/commit/b059d7ee05647991779312d7352f196e05ff5b76))
+- **radio-button:** wip add radio button on junipero v3 ([afdd502](https://github.com/p3ol/junipero/commit/afdd50211d98f066953eebd1410c8561c2b99e50))
+- **radio-field:** add dirty/pristine classes and use it ([7187b21](https://github.com/p3ol/junipero/commit/7187b219828c46826426ecd4838f62d95575b995))
+- **radio-field:** add dirty/pristine classes and use it ([2748cb9](https://github.com/p3ol/junipero/commit/2748cb95576d500502d6dc0cb98b1f9198b0e653))
+- **radio-field:** add useEffect on value and options ([98fd799](https://github.com/p3ol/junipero/commit/98fd799d95735802e788098784b004992b9a14bd))
+- **radio-field:** add useEffect on value and options ([d28844c](https://github.com/p3ol/junipero/commit/d28844c1ca4bd0e5ceffa1d513de7e28bfd92d55))
+- **radio-field:** add valid class if field is valid ([0fb3c1a](https://github.com/p3ol/junipero/commit/0fb3c1ab82f5df0fc1fc6623d614c86f2cf07141))
+- **radio-field:** add valid class if field is valid ([ca9f445](https://github.com/p3ol/junipero/commit/ca9f445f8f09f536f017de0fd6eaed6cd40f9602))
+- **radio-field:** dispatch onValidate when value change ([025430e](https://github.com/p3ol/junipero/commit/025430e46161ce137c4019c6f3bfc786f0c5246d))
+- **radio-field:** dispatch onValidate when value change ([ade89e3](https://github.com/p3ol/junipero/commit/ade89e3c2f9824c8c2031dac568ff1e8a8c6c8c0))
+- **radio-field:** remove onChange default handler and make onChange optional on calls ([69cffad](https://github.com/p3ol/junipero/commit/69cffad3637de10f066544d9235102e627530106))
+- **radio-field:** remove onChange default handler and make onChange optional on calls ([4133014](https://github.com/p3ol/junipero/commit/41330142f125b84e6c67b328b14efe8e1f9becde))
+- **radio-field:** rename internalValue into value ([948a5fd](https://github.com/p3ol/junipero/commit/948a5fd101ef1c06a140b08274a1eb706bac6d7f))
+- **radio-field:** rename internalValue into value ([bd01dd8](https://github.com/p3ol/junipero/commit/bd01dd80e381b881e8bdba595dbfae941b4e8ad5))
+- **radio-field:** set correct dirty state on first change ([6f9d479](https://github.com/p3ol/junipero/commit/6f9d479c6d3ae33dd7a7c7aecd1ef7db5558566e))
+- **radio-field:** set correct dirty state on first change ([90c401d](https://github.com/p3ol/junipero/commit/90c401da4bc43c8d66d7c7ae1f9c33f0db765a76))
+- **radio-field:** use parseValue just where its needed ([373a1a9](https://github.com/p3ol/junipero/commit/373a1a93a13ebe2d2b1ffb28ba2fda009329fab8))
+- **react:** add alert component ([2fd0080](https://github.com/p3ol/junipero/commit/2fd0080a19807c01252cc64221b20af4d7673b2e))
+- **react:** add almost working select field ([2e2f90f](https://github.com/p3ol/junipero/commit/2e2f90f543731c9e81b40a8fdbc19ae768113eb8))
+- **react:** add badge component ([361dcd8](https://github.com/p3ol/junipero/commit/361dcd89aa7f9796882741086ad514799868ed12))
+- **react:** add breadcrumb component ([1938dae](https://github.com/p3ol/junipero/commit/1938dae4c95c47d8ffe5b1c82ab49f5f3726bd8c))
+- **react:** add button component ([b6a5766](https://github.com/p3ol/junipero/commit/b6a5766bbcc84eecece12f12d664e6a9f854ca99))
+- **react:** add card component ([930122e](https://github.com/p3ol/junipero/commit/930122e2fc039c284a4f1e9c9a9a79f64b9e2fa6))
+- **react:** add codefield component ([3dbc7cb](https://github.com/p3ol/junipero/commit/3dbc7cb1ba4f3087d7d9ec4fd82a1325d3eda62a))
+- **react:** add color field component ([347fc95](https://github.com/p3ol/junipero/commit/347fc95ce9caadc3726400de927f0aac66fe7a69))
+- **react:** add datefield component ([7c6a84d](https://github.com/p3ol/junipero/commit/7c6a84d2f0363fe4bf458930384ac9d3c05993eb))
+- **react:** add draggable & droppable components ([8127368](https://github.com/p3ol/junipero/commit/8127368fef8439635190e25d9d93ac062a755f7d))
+- **react:** add dropdown component ([d2dc9f2](https://github.com/p3ol/junipero/commit/d2dc9f28b979cfbb8dbee1e306a00166439bf7d8))
+- **react:** add dropdown groups ([32faf88](https://github.com/p3ol/junipero/commit/32faf880756a0ea36450573e4711d286a8e2bfdb))
+- **react:** add dropdown item ([25580c5](https://github.com/p3ol/junipero/commit/25580c5f8d5f06f6a0977bcc5057202ff4ac4a2c))
+- **react:** add label & abstract to text field ([b4758bb](https://github.com/p3ol/junipero/commit/b4758bb1c5c591eb0a72d30be2257f9fe90231c7))
+- **react:** add logos ([0135a88](https://github.com/p3ol/junipero/commit/0135a882781bbb3b8900fad209d1bea4746e09c8))
+- **react:** add non working select field ([37e0558](https://github.com/p3ol/junipero/commit/37e0558222938a1ed6f197afcf0e8e3420b03501))
+- **react:** add spinner component ([d5d1c9a](https://github.com/p3ol/junipero/commit/d5d1c9aa380bcfde4e10f4b999370dfec934a5bb))
+- **react:** add subtle loader to select field ([439c725](https://github.com/p3ol/junipero/commit/439c7258976eae37874dcf0bc6abca8daa8a0b3d))
+- **react:** add tabs component ([546128e](https://github.com/p3ol/junipero/commit/546128e12d1370e04250ea50c9e732142abe2d60))
+- **react:** add tag component ([e78981f](https://github.com/p3ol/junipero/commit/e78981f24b0584cfbb328a8c53f41cb6b2274bf3))
+- **react:** add text-field ([905aa74](https://github.com/p3ol/junipero/commit/905aa74d509a45969d19ecc7d11101982ee75413))
+- **react:** add tooltip component ([17e00d3](https://github.com/p3ol/junipero/commit/17e00d3ca5d094984b7b425b324d374567018421))
+- **react:** allow invalid select fields ([c4ffbf5](https://github.com/p3ol/junipero/commit/c4ffbf5a543b3959cfdfb44339b77f100c6531b6))
+- **react:** allow select field arbitrary values ([212c9af](https://github.com/p3ol/junipero/commit/212c9af68c882c3dc148e572b147068fd4c43b5b))
+- **react:** allow to select & remove value items ([fb59d2b](https://github.com/p3ol/junipero/commit/fb59d2b29ec24c873d8eff4530298134b4629096))
+- **react:** export everything ([341d175](https://github.com/p3ol/junipero/commit/341d175d1342af11093ae44ceaf42560dc0c5d3b))
+- **react:** fully working select field ([cc87412](https://github.com/p3ol/junipero/commit/cc87412be25697e5ad2a17685e95f4f40dfdc3b9))
+- **theme:** add base theme build config ([ba96ab4](https://github.com/p3ol/junipero/commit/ba96ab4cbc737111781e56022437ab8e3187f091))
+- **theme:** add new colors ([61e0821](https://github.com/p3ol/junipero/commit/61e08216ac24c0b587c087d80a1f5b5d23d8c54f))
+- **toggle-button:** wip correctly display and add colors to toggle field ([9946331](https://github.com/p3ol/junipero/commit/99463310d549702f4ff74f7ea659119a7ed98713))
+- **toggle-field:** remove useless code ([099f0ce](https://github.com/p3ol/junipero/commit/099f0ce33176f6b244317cecb7c66df5a0ab00e2))
+- **toggle-field:** wip add toggle field files ([c78567c](https://github.com/p3ol/junipero/commit/c78567c725b32c496c65c441afd95bc6603683c8))
+- **toggle:** add unit tests to toggle ([5c5588d](https://github.com/p3ol/junipero/commit/5c5588daf981bf98219f35e6c678f0dfef3cf8ce))
+- **toggle:** transform toggle-field into toggle ([5ad1266](https://github.com/p3ol/junipero/commit/5ad1266724258a8c2f256c486dbb1238b65c2085))
+- **transitions:** add basic package ([cdb7e3c](https://github.com/p3ol/junipero/commit/cdb7e3c21ef75d5751aaf9717e4c1481b3ff4ef3))
+- **types:** add extends React.ComponentPropsWithRef<any> where it needed (forwardRef comp) ([bec7209](https://github.com/p3ol/junipero/commit/bec7209a01c27317f06116e0330d4ff6c7b3b996))
+- **typing:** add all typings for junipero components ([44070f5](https://github.com/p3ol/junipero/commit/44070f5863b20fbce0ac9bfa2fe4e1708f90dd5b))
+- **typing:** add react hooks to types ([f13a7d7](https://github.com/p3ol/junipero/commit/f13a7d7c764916c6993c09c1d669a69105e98b13))
+- **typings:** add first typings under react junipero ([616ee67](https://github.com/p3ol/junipero/commit/616ee679a19c56132335622e288b253cdfd10ea5))
+- **typings:** add optional mark on all props ([0e0da1d](https://github.com/p3ol/junipero/commit/0e0da1da2fc9c1339a8592d453829bf98482cb0b))
+
+
+# [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
+
+
+**Note:** Version bump only for package junipero
 
 # [2.0.0-rc.23](https://github.com/p3ol/junipero/compare/v2.0.0-rc.22...v2.0.0-rc.23) (2022-11-09)
 
@@ -55,1159 +1138,740 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.0.0-rc.21](https://github.com/p3ol/junipero/compare/v2.0.0-rc.20...v2.0.0-rc.21) (2022-04-19)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency core-js to v3.22.0 ([2010860](https://github.com/p3ol/junipero/commit/20108604aaa92818a10392ef1a98699491c33aee))
-* **junipero:** also provide missing valid state in imperative handles ([96c55e7](https://github.com/p3ol/junipero/commit/96c55e79ab7c45f23a16bd2f699fcfb6f8a7464d))
-* **junipero:** fix missing radiofield valid state ([ee29d48](https://github.com/p3ol/junipero/commit/ee29d48a2bdce45d1fe1bf5638610432f8352747))
-
-
-
-
+- **deps:** update dependency core-js to v3.22.0 ([2010860](https://github.com/p3ol/junipero/commit/20108604aaa92818a10392ef1a98699491c33aee))
+- **junipero:** also provide missing valid state in imperative handles ([96c55e7](https://github.com/p3ol/junipero/commit/96c55e79ab7c45f23a16bd2f699fcfb6f8a7464d))
+- **junipero:** fix missing radiofield valid state ([ee29d48](https://github.com/p3ol/junipero/commit/ee29d48a2bdce45d1fe1bf5638610432f8352747))
 
 # [2.0.0-rc.20](https://github.com/p3ol/junipero/compare/v2.0.0-rc.19...v2.0.0-rc.20) (2022-04-15)
 
-
 ### Bug Fixes
 
-* **lib:** fix modal not being displayed by default ([a0e5859](https://github.com/p3ol/junipero/commit/a0e5859d2cad6a6bdfe8e42c569039774c1c1dca))
-* **tags-field:** fix missing valid state on change event ([d09131f](https://github.com/p3ol/junipero/commit/d09131f9080ddc1e8209ad64ca5a9acc5ddc9b5c))
-
-
-
-
+- **lib:** fix modal not being displayed by default ([a0e5859](https://github.com/p3ol/junipero/commit/a0e5859d2cad6a6bdfe8e42c569039774c1c1dca))
+- **tags-field:** fix missing valid state on change event ([d09131f](https://github.com/p3ol/junipero/commit/d09131f9080ddc1e8209ad64ca5a9acc5ddc9b5c))
 
 # [2.0.0-rc.19](https://github.com/p3ol/junipero/compare/v2.0.0-rc.18...v2.0.0-rc.19) (2022-03-22)
 
-
 ### Bug Fixes
 
-* **lib:** move text & title styles to reset ([ecb054f](https://github.com/p3ol/junipero/commit/ecb054f7e9406a9b0b59fb28bc7021c0b693f19d))
-
+- **lib:** move text & title styles to reset ([ecb054f](https://github.com/p3ol/junipero/commit/ecb054f7e9406a9b0b59fb28bc7021c0b693f19d))
 
 ### Features
 
-* **junipero:** add disabled state to togglefield component ([492c6a9](https://github.com/p3ol/junipero/commit/492c6a916b0a7bd6bea75ffa2fe1f292058c83f9))
-
-
-
-
+- **junipero:** add disabled state to togglefield component ([492c6a9](https://github.com/p3ol/junipero/commit/492c6a916b0a7bd6bea75ffa2fe1f292058c83f9))
 
 # [2.0.0-rc.18](https://github.com/p3ol/junipero/compare/v2.0.0-rc.17...v2.0.0-rc.18) (2022-03-09)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing prop types ([5873941](https://github.com/p3ol/junipero/commit/587394107560c99473bfe549384eb76b5b2d0ed6))
-
-
-
-
+- **lib:** fix missing prop types ([5873941](https://github.com/p3ol/junipero/commit/587394107560c99473bfe549384eb76b5b2d0ed6))
 
 # [2.0.0-rc.17](https://github.com/p3ol/junipero/compare/v2.0.0-rc.16...v2.0.0-rc.17) (2022-03-07)
 
-
 ### Bug Fixes
 
-* **lib:** add react/jsx-runtime to externals ([a9d7cc8](https://github.com/p3ol/junipero/commit/a9d7cc8dbac092aa9a18e6108bf67ed8ad1c5504))
-
-
-
-
+- **lib:** add react/jsx-runtime to externals ([a9d7cc8](https://github.com/p3ol/junipero/commit/a9d7cc8dbac092aa9a18e6108bf67ed8ad1c5504))
 
 # [2.0.0-rc.16](https://github.com/p3ol/junipero/compare/v2.0.0-rc.15...v2.0.0-rc.16) (2022-03-04)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency core-js to v3.19.0 ([b5403d2](https://github.com/p3ol/junipero/commit/b5403d26c502a30611dda9e9a7881eea823c03d0))
-* **deps:** update dependency core-js to v3.19.1 ([7661221](https://github.com/p3ol/junipero/commit/766122151224d335d3a605c1c971f8db109b3d28))
-* **deps:** update dependency core-js to v3.19.2 ([bfcb307](https://github.com/p3ol/junipero/commit/bfcb30748c87f008a4b78b8f7aa145db263ba86f))
-* **deps:** update dependency core-js to v3.19.3 ([8cdf3c2](https://github.com/p3ol/junipero/commit/8cdf3c2c7b12576b78fa7de059eca45d9f32bc98))
-* **deps:** update dependency core-js to v3.20.2 ([062c564](https://github.com/p3ol/junipero/commit/062c5644f33861dde1e8f9ed5e075459e2f4eb39))
-* **deps:** update dependency core-js to v3.20.3 ([24e6b07](https://github.com/p3ol/junipero/commit/24e6b07a49de9e70d5325373340eaf3363bd7fa6))
-* **deps:** update dependency core-js to v3.21.0 ([d65b3cd](https://github.com/p3ol/junipero/commit/d65b3cd8de8d0df01e140b1532ae410f22b35330))
-* **deps:** update dependency core-js to v3.21.1 ([70e0204](https://github.com/p3ol/junipero/commit/70e02043e41ff41c04023829a57ee808c11f76eb))
-* **deps:** update dependency prop-types to v15.8.1 ([2beb6da](https://github.com/p3ol/junipero/commit/2beb6da327392c4faa0db2019c3a6061e37b40a5))
-* **junipero:** fix wrong prop provided to selectfield story ([baaa7f2](https://github.com/p3ol/junipero/commit/baaa7f26f20d2bf2285823cfe0a9230208e19722))
-* **junipero:** simplify field title parsing dissociation ([0969ad9](https://github.com/p3ol/junipero/commit/0969ad9cf026ff96456fbb943ffa1f428bbf7e74))
-* **junipero-native:** fix typo ([2fa4622](https://github.com/p3ol/junipero/commit/2fa462200ff99c8d413beb3cc037bd4eae2517ab))
-* **junipero-native:** simplify field title parsing dissociation ([5b64860](https://github.com/p3ol/junipero/commit/5b6486080b670513cc83f0944c0d83da0a565396))
-
+- **deps:** update dependency core-js to v3.19.0 ([b5403d2](https://github.com/p3ol/junipero/commit/b5403d26c502a30611dda9e9a7881eea823c03d0))
+- **deps:** update dependency core-js to v3.19.1 ([7661221](https://github.com/p3ol/junipero/commit/766122151224d335d3a605c1c971f8db109b3d28))
+- **deps:** update dependency core-js to v3.19.2 ([bfcb307](https://github.com/p3ol/junipero/commit/bfcb30748c87f008a4b78b8f7aa145db263ba86f))
+- **deps:** update dependency core-js to v3.19.3 ([8cdf3c2](https://github.com/p3ol/junipero/commit/8cdf3c2c7b12576b78fa7de059eca45d9f32bc98))
+- **deps:** update dependency core-js to v3.20.2 ([062c564](https://github.com/p3ol/junipero/commit/062c5644f33861dde1e8f9ed5e075459e2f4eb39))
+- **deps:** update dependency core-js to v3.20.3 ([24e6b07](https://github.com/p3ol/junipero/commit/24e6b07a49de9e70d5325373340eaf3363bd7fa6))
+- **deps:** update dependency core-js to v3.21.0 ([d65b3cd](https://github.com/p3ol/junipero/commit/d65b3cd8de8d0df01e140b1532ae410f22b35330))
+- **deps:** update dependency core-js to v3.21.1 ([70e0204](https://github.com/p3ol/junipero/commit/70e02043e41ff41c04023829a57ee808c11f76eb))
+- **deps:** update dependency prop-types to v15.8.1 ([2beb6da](https://github.com/p3ol/junipero/commit/2beb6da327392c4faa0db2019c3a6061e37b40a5))
+- **junipero:** fix wrong prop provided to selectfield story ([baaa7f2](https://github.com/p3ol/junipero/commit/baaa7f26f20d2bf2285823cfe0a9230208e19722))
+- **junipero:** simplify field title parsing dissociation ([0969ad9](https://github.com/p3ol/junipero/commit/0969ad9cf026ff96456fbb943ffa1f428bbf7e74))
+- **junipero-native:** fix typo ([2fa4622](https://github.com/p3ol/junipero/commit/2fa462200ff99c8d413beb3cc037bd4eae2517ab))
+- **junipero-native:** simplify field title parsing dissociation ([5b64860](https://github.com/p3ol/junipero/commit/5b6486080b670513cc83f0944c0d83da0a565396))
 
 ### Features
 
-* **junipero:** allow to dissociate field title parsing from options ([01cc0ed](https://github.com/p3ol/junipero/commit/01cc0edda3580b304ae40074e605c1f08c3c226e))
-* **junipero-native:** allow to dissociate field title parsing from options ([af685b1](https://github.com/p3ol/junipero/commit/af685b163958f0c987d40e6754c5a07c8f6d3be9))
-
-
-
-
+- **junipero:** allow to dissociate field title parsing from options ([01cc0ed](https://github.com/p3ol/junipero/commit/01cc0edda3580b304ae40074e605c1f08c3c226e))
+- **junipero-native:** allow to dissociate field title parsing from options ([af685b1](https://github.com/p3ol/junipero/commit/af685b163958f0c987d40e6754c5a07c8f6d3be9))
 
 # [2.0.0-rc.15](https://github.com/p3ol/junipero/compare/v2.0.0-rc.14...v2.0.0-rc.15) (2021-10-20)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency core-js to v3.18.2 ([600744c](https://github.com/p3ol/junipero/commit/600744ccdb31476c8ff9367e349e55ac83a09d93))
-* **deps:** update dependency core-js to v3.18.3 ([d9c9ca9](https://github.com/p3ol/junipero/commit/d9c9ca978a5b05229594b9f842dd1a63700ff1b6))
-
-
-
-
+- **deps:** update dependency core-js to v3.18.2 ([600744c](https://github.com/p3ol/junipero/commit/600744ccdb31476c8ff9367e349e55ac83a09d93))
+- **deps:** update dependency core-js to v3.18.3 ([d9c9ca9](https://github.com/p3ol/junipero/commit/d9c9ca978a5b05229594b9f842dd1a63700ff1b6))
 
 # [2.0.0-rc.14](https://github.com/p3ol/junipero/compare/v2.0.0-rc.13...v2.0.0-rc.14) (2021-09-29)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency core-js to v3.18.1 ([7f5cde1](https://github.com/p3ol/junipero/commit/7f5cde19742f3f5fb529b0d8dba69e8fd84540ce))
-
-
-
-
+- **deps:** update dependency core-js to v3.18.1 ([7f5cde1](https://github.com/p3ol/junipero/commit/7f5cde19742f3f5fb529b0d8dba69e8fd84540ce))
 
 # [2.0.0-rc.13](https://github.com/p3ol/junipero/compare/v2.0.0-rc.12...v2.0.0-rc.13) (2021-09-16)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency @babel/runtime-corejs3 to v7.15.3 ([e5d8f38](https://github.com/p3ol/junipero/commit/e5d8f38ee5558a06dffb8255991e41202d4a58fc))
-* **deps:** update dependency core-js to v3.16.1 ([7c44b67](https://github.com/p3ol/junipero/commit/7c44b678b8f9662a247077b7e64df8c536333208))
-* **deps:** update dependency core-js to v3.16.2 ([1c0648f](https://github.com/p3ol/junipero/commit/1c0648ffb4c056db8c153d40a11d445b0138d7d6))
-* **deps:** update dependency core-js to v3.16.3 ([41f3253](https://github.com/p3ol/junipero/commit/41f3253755f0df9ed07c555c07921df401136724))
-* **deps:** update dependency core-js to v3.16.4 ([e2f735d](https://github.com/p3ol/junipero/commit/e2f735d96cd5d127ed9c74d5ffd1a228ee337703))
-* **deps:** update dependency core-js to v3.17.1 ([43d466f](https://github.com/p3ol/junipero/commit/43d466f2811130410e294d8572f6ed991291435c))
-* **deps:** update dependency core-js to v3.17.2 ([c487c0a](https://github.com/p3ol/junipero/commit/c487c0a404ccb87a137b9e640e2b07bd875e6dbe))
-* **deps:** update dependency core-js to v3.17.3 ([115d08d](https://github.com/p3ol/junipero/commit/115d08ddc7c55690b55f4bafc36ee42ba1644086))
-
+- **deps:** update dependency @babel/runtime-corejs3 to v7.15.3 ([e5d8f38](https://github.com/p3ol/junipero/commit/e5d8f38ee5558a06dffb8255991e41202d4a58fc))
+- **deps:** update dependency core-js to v3.16.1 ([7c44b67](https://github.com/p3ol/junipero/commit/7c44b678b8f9662a247077b7e64df8c536333208))
+- **deps:** update dependency core-js to v3.16.2 ([1c0648f](https://github.com/p3ol/junipero/commit/1c0648ffb4c056db8c153d40a11d445b0138d7d6))
+- **deps:** update dependency core-js to v3.16.3 ([41f3253](https://github.com/p3ol/junipero/commit/41f3253755f0df9ed07c555c07921df401136724))
+- **deps:** update dependency core-js to v3.16.4 ([e2f735d](https://github.com/p3ol/junipero/commit/e2f735d96cd5d127ed9c74d5ffd1a228ee337703))
+- **deps:** update dependency core-js to v3.17.1 ([43d466f](https://github.com/p3ol/junipero/commit/43d466f2811130410e294d8572f6ed991291435c))
+- **deps:** update dependency core-js to v3.17.2 ([c487c0a](https://github.com/p3ol/junipero/commit/c487c0a404ccb87a137b9e640e2b07bd875e6dbe))
+- **deps:** update dependency core-js to v3.17.3 ([115d08d](https://github.com/p3ol/junipero/commit/115d08ddc7c55690b55f4bafc36ee42ba1644086))
 
 ### Features
 
-* add ability to pass custom filter to filter particular children ([034f3f2](https://github.com/p3ol/junipero/commit/034f3f28c680793acdd08be2e84e591e56fb9207))
-
-
-
-
+- add ability to pass custom filter to filter particular children ([034f3f2](https://github.com/p3ol/junipero/commit/034f3f28c680793acdd08be2e84e591e56fb9207))
 
 # [2.0.0-rc.12](https://github.com/p3ol/junipero/compare/v2.0.0-rc.11...v2.0.0-rc.12) (2021-08-06)
 
-
 ### Bug Fixes
 
-* **lib:** fix infinite ref updating ([108763a](https://github.com/p3ol/junipero/commit/108763a509bbc45767acefe7a73ef6efe447df42))
-
-
-
-
+- **lib:** fix infinite ref updating ([108763a](https://github.com/p3ol/junipero/commit/108763a509bbc45767acefe7a73ef6efe447df42))
 
 # [2.0.0-rc.11](https://github.com/p3ol/junipero/compare/v2.0.0-rc.10...v2.0.0-rc.11) (2021-08-05)
 
-
 ### Bug Fixes
 
-* **lib:** fix wrong use of id & name for radio fields ([b05647f](https://github.com/p3ol/junipero/commit/b05647fb3f4a17241c603f68d3d013a574c5d7b3))
-
-
-
-
+- **lib:** fix wrong use of id & name for radio fields ([b05647f](https://github.com/p3ol/junipero/commit/b05647fb3f4a17241c603f68d3d013a574c5d7b3))
 
 # [2.0.0-rc.10](https://github.com/p3ol/junipero/compare/v2.0.0-rc.9...v2.0.0-rc.10) (2021-08-02)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency core-js to v3.16.0 ([d3ad99d](https://github.com/p3ol/junipero/commit/d3ad99db8a36761796af3dd50dbfc03ce6da1c5b))
-* **utils:** fix get default value ([107692d](https://github.com/p3ol/junipero/commit/107692d6186f103ac893c49ccdce0dc01178ca05))
-
-
-
-
+- **deps:** update dependency core-js to v3.16.0 ([d3ad99d](https://github.com/p3ol/junipero/commit/d3ad99db8a36761796af3dd50dbfc03ce6da1c5b))
+- **utils:** fix get default value ([107692d](https://github.com/p3ol/junipero/commit/107692d6186f103ac893c49ccdce0dc01178ca05))
 
 # [2.0.0-rc.9](https://github.com/p3ol/junipero/compare/v2.0.0-rc.8...v2.0.0-rc.9) (2021-07-26)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency core-js to v3.10.1 ([4ad4f56](https://github.com/p3ol/junipero/commit/4ad4f56f5b1e79eeab9bcf457576b6aff938adc5))
-* **deps:** update dependency core-js to v3.10.2 ([175c3cd](https://github.com/p3ol/junipero/commit/175c3cd529b1552a48073254612822b6ef033b3f))
-* **deps:** update dependency core-js to v3.11.0 ([b299d69](https://github.com/p3ol/junipero/commit/b299d69949eb010e1eda3e8669faf0f28574c679))
-* **deps:** update dependency core-js to v3.15.2 ([0681751](https://github.com/p3ol/junipero/commit/0681751c709d12230642cbbbf57bcedf2f2714fb))
-
+- **deps:** update dependency core-js to v3.10.1 ([4ad4f56](https://github.com/p3ol/junipero/commit/4ad4f56f5b1e79eeab9bcf457576b6aff938adc5))
+- **deps:** update dependency core-js to v3.10.2 ([175c3cd](https://github.com/p3ol/junipero/commit/175c3cd529b1552a48073254612822b6ef033b3f))
+- **deps:** update dependency core-js to v3.11.0 ([b299d69](https://github.com/p3ol/junipero/commit/b299d69949eb010e1eda3e8669faf0f28574c679))
+- **deps:** update dependency core-js to v3.15.2 ([0681751](https://github.com/p3ol/junipero/commit/0681751c709d12230642cbbbf57bcedf2f2714fb))
 
 ### Features
 
-* **colorField:** add popperOptions to colorField ([62ec659](https://github.com/p3ol/junipero/commit/62ec659c567a2a0773bc9128e747c60321d24b6c))
-
-
+- **colorField:** add popperOptions to colorField ([62ec659](https://github.com/p3ol/junipero/commit/62ec659c567a2a0773bc9128e747c60321d24b6c))
 
 ## [1.6.1](https://github.com/p3ol/junipero/compare/v1.6.0...v1.6.1) (2021-03-31)
 
-
 ### Bug Fixes
 
-* **datePicker:** repair tests ([bb53838](https://github.com/p3ol/junipero/commit/bb5383819f9c2227407a3c6b4f04b8a0ac6e4145))
-* **datePicker:** set day to first of the month to avoid months jumps ([c7f9219](https://github.com/p3ol/junipero/commit/c7f921952683ab34ed2ea69bd856f4e4a1488977))
-* **deps:** update dependency core-js to v3.10.0 ([b3709ef](https://github.com/p3ol/junipero/commit/b3709eff4949438dc70363b720fa02a9eea000ab))
-* **deps:** update dependency core-js to v3.7.0 ([2485e9c](https://github.com/p3ol/junipero/commit/2485e9cf94f404f85c99e78d8378ce73a5d73039))
-* **deps:** update dependency core-js to v3.8.0 ([d58ac88](https://github.com/p3ol/junipero/commit/d58ac88a682c12bc7eae7d30d9607532b9dbf7ad))
-* **deps:** update dependency core-js to v3.8.1 ([b5c56e1](https://github.com/p3ol/junipero/commit/b5c56e1efa7d94a701199f140f32796fc25f32b4))
-* **deps:** update dependency core-js to v3.8.2 ([8c778dd](https://github.com/p3ol/junipero/commit/8c778ddd37923dd9151b55320856f777b611a477))
-* **deps:** update dependency core-js to v3.8.3 ([e04725a](https://github.com/p3ol/junipero/commit/e04725a69f97a81edadf06af35d57455ec3f010f))
-* **deps:** update dependency core-js to v3.9.0 ([b750c11](https://github.com/p3ol/junipero/commit/b750c11543028127889a997af2166992fe1d159f))
-* **deps:** update dependency core-js to v3.9.1 ([4c9c838](https://github.com/p3ol/junipero/commit/4c9c838576fb649bad51f7642e255a35e77c2a1f))
-
-
+- **datePicker:** repair tests ([bb53838](https://github.com/p3ol/junipero/commit/bb5383819f9c2227407a3c6b4f04b8a0ac6e4145))
+- **datePicker:** set day to first of the month to avoid months jumps ([c7f9219](https://github.com/p3ol/junipero/commit/c7f921952683ab34ed2ea69bd856f4e4a1488977))
+- **deps:** update dependency core-js to v3.10.0 ([b3709ef](https://github.com/p3ol/junipero/commit/b3709eff4949438dc70363b720fa02a9eea000ab))
+- **deps:** update dependency core-js to v3.7.0 ([2485e9c](https://github.com/p3ol/junipero/commit/2485e9cf94f404f85c99e78d8378ce73a5d73039))
+- **deps:** update dependency core-js to v3.8.0 ([d58ac88](https://github.com/p3ol/junipero/commit/d58ac88a682c12bc7eae7d30d9607532b9dbf7ad))
+- **deps:** update dependency core-js to v3.8.1 ([b5c56e1](https://github.com/p3ol/junipero/commit/b5c56e1efa7d94a701199f140f32796fc25f32b4))
+- **deps:** update dependency core-js to v3.8.2 ([8c778dd](https://github.com/p3ol/junipero/commit/8c778ddd37923dd9151b55320856f777b611a477))
+- **deps:** update dependency core-js to v3.8.3 ([e04725a](https://github.com/p3ol/junipero/commit/e04725a69f97a81edadf06af35d57455ec3f010f))
+- **deps:** update dependency core-js to v3.9.0 ([b750c11](https://github.com/p3ol/junipero/commit/b750c11543028127889a997af2166992fe1d159f))
+- **deps:** update dependency core-js to v3.9.1 ([4c9c838](https://github.com/p3ol/junipero/commit/4c9c838576fb649bad51f7642e255a35e77c2a1f))
 
 # [1.6.0](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.9...v1.6.0) (2020-10-09)
 
-
 ### Bug Fixes
 
-* **chore:** handle postcss-loader changes ([38818fd](https://github.com/p3ol/junipero/commit/38818fd692bf0dfb09ae32106e98bee9ec645fc1))
-* **deps:** update dependency @babel/runtime-corejs3 to v7.11.2 ([24afdb6](https://github.com/p3ol/junipero/commit/24afdb6dcb6547a0f1356c7fbf12afa702ebfe92))
-* **radiofield:** fix missing end of file ([9bbe12b](https://github.com/p3ol/junipero/commit/9bbe12b738543d3fefc6c1141cfc687eb5d6b28c))
-* fix enzyme/jsdom fuckup on focus state with testing-library ([390b5b4](https://github.com/p3ol/junipero/commit/390b5b4c1a1509da41bdc438e2610cd79ff1704e))
-
+- **chore:** handle postcss-loader changes ([38818fd](https://github.com/p3ol/junipero/commit/38818fd692bf0dfb09ae32106e98bee9ec645fc1))
+- **deps:** update dependency @babel/runtime-corejs3 to v7.11.2 ([24afdb6](https://github.com/p3ol/junipero/commit/24afdb6dcb6547a0f1356c7fbf12afa702ebfe92))
+- **radiofield:** fix missing end of file ([9bbe12b](https://github.com/p3ol/junipero/commit/9bbe12b738543d3fefc6c1141cfc687eb5d6b28c))
+- fix enzyme/jsdom fuckup on focus state with testing-library ([390b5b4](https://github.com/p3ol/junipero/commit/390b5b4c1a1509da41bdc438e2610cd79ff1704e))
 
 ### Features
 
-* **examples:** add radiofield examples ([4efc00c](https://github.com/p3ol/junipero/commit/4efc00c36f6eeac3560a3acaf3ce5b9aea504bd0))
-* **lib:** add radiofield component ([610b448](https://github.com/p3ol/junipero/commit/610b44864abcf7ea82ab56a72479d7a05fb32ae6))
-* **radiofield:** add a label as a prop ([e97ade6](https://github.com/p3ol/junipero/commit/e97ade6b0a0486dbedc5deb56de4b95aa3758dc8))
-* **radiofield:** add a labeled example ([a903259](https://github.com/p3ol/junipero/commit/a90325955f02879997925e2701df1638182b971e))
-* **radiofield:** trigger onchange method after component being mounted ([f00015a](https://github.com/p3ol/junipero/commit/f00015a29180752a1b043398e4e4150b6e1af4bf))
-
-
-
-
+- **examples:** add radiofield examples ([4efc00c](https://github.com/p3ol/junipero/commit/4efc00c36f6eeac3560a3acaf3ce5b9aea504bd0))
+- **lib:** add radiofield component ([610b448](https://github.com/p3ol/junipero/commit/610b44864abcf7ea82ab56a72479d7a05fb32ae6))
+- **radiofield:** add a label as a prop ([e97ade6](https://github.com/p3ol/junipero/commit/e97ade6b0a0486dbedc5deb56de4b95aa3758dc8))
+- **radiofield:** add a labeled example ([a903259](https://github.com/p3ol/junipero/commit/a90325955f02879997925e2701df1638182b971e))
+- **radiofield:** trigger onchange method after component being mounted ([f00015a](https://github.com/p3ol/junipero/commit/f00015a29180752a1b043398e4e4150b6e1af4bf))
 
 # [2.0.0-rc.8](https://github.com/p3ol/junipero/compare/v2.0.0-rc.7...v2.0.0-rc.8) (2021-07-05)
 
-
 ### Bug Fixes
 
-* **lib:** add missing parseDescription for radio-field ([3c0bc66](https://github.com/p3ol/junipero/commit/3c0bc66bae91c4e1fe7cffabbc8d4ef92d1bb9dc))
-* **lib:** fix modal styles inheritance ([4c75be7](https://github.com/p3ol/junipero/commit/4c75be72af9d92f41dd16e203191a769359335e9))
-
-
-
-
+- **lib:** add missing parseDescription for radio-field ([3c0bc66](https://github.com/p3ol/junipero/commit/3c0bc66bae91c4e1fe7cffabbc8d4ef92d1bb9dc))
+- **lib:** fix modal styles inheritance ([4c75be7](https://github.com/p3ol/junipero/commit/4c75be72af9d92f41dd16e203191a769359335e9))
 
 # [2.0.0-rc.7](https://github.com/p3ol/junipero/compare/v2.0.0-rc.6...v2.0.0-rc.7) (2021-07-02)
 
-
 ### Bug Fixes
 
-* **lib:** prevent enter key from sending forms ([6eedfbe](https://github.com/p3ol/junipero/commit/6eedfbe107a3e439a78e6415274bb6a55a870da7))
-
-
-
-
+- **lib:** prevent enter key from sending forms ([6eedfbe](https://github.com/p3ol/junipero/commit/6eedfbe107a3e439a78e6415274bb6a55a870da7))
 
 # [2.0.0-rc.6](https://github.com/p3ol/junipero/compare/v2.0.0-rc.5...v2.0.0-rc.6) (2021-07-02)
 
-
 ### Bug Fixes
 
-* **lib:** fix tooltip position not being updated when content changes ([1767a56](https://github.com/p3ol/junipero/commit/1767a56a78af72ffd58b0ce3a5361e6c966cb9df))
-
-
-
-
+- **lib:** fix tooltip position not being updated when content changes ([1767a56](https://github.com/p3ol/junipero/commit/1767a56a78af72ffd58b0ce3a5361e6c966cb9df))
 
 # [2.0.0-rc.5](https://github.com/p3ol/junipero/compare/v2.0.0-rc.4...v2.0.0-rc.5) (2021-07-02)
 
-
 ### Bug Fixes
 
-* **utils:** fix missing exports ([2f32fc1](https://github.com/p3ol/junipero/commit/2f32fc1e00b8805808f2339d610b62c93a089152))
-
-
-
-
+- **utils:** fix missing exports ([2f32fc1](https://github.com/p3ol/junipero/commit/2f32fc1e00b8805808f2339d610b62c93a089152))
 
 # [2.0.0-rc.4](https://github.com/p3ol/junipero/compare/v2.0.0-rc.3...v2.0.0-rc.4) (2021-07-02)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing exports ([848442d](https://github.com/p3ol/junipero/commit/848442d6860e6d84c72a90453a736260a679d676))
-
-
-
-
+- **lib:** fix missing exports ([848442d](https://github.com/p3ol/junipero/commit/848442d6860e6d84c72a90453a736260a679d676))
 
 # [2.0.0-rc.3](https://github.com/p3ol/junipero/compare/v2.0.0-rc.2...v2.0.0-rc.3) (2021-07-01)
 
-
 ### Bug Fixes
 
-* **lib:** fix dropdown refs ([b941603](https://github.com/p3ol/junipero/commit/b9416037f70ca232f81ca165f89ba423876bed0e))
-* **lib:** fix missing forward refs ([958b16a](https://github.com/p3ol/junipero/commit/958b16a2b3275b521ef250e19fcdd1883aa99ebb))
-* **lib:** flag fields as junipero refs ([241f007](https://github.com/p3ol/junipero/commit/241f007ddcef4824c63bf7992324e94e92e89158))
-* **lib:** handle tooltip junipero refs ([fa9b3e2](https://github.com/p3ol/junipero/commit/fa9b3e23050e650ca149e9f575647e862af1561f))
-
+- **lib:** fix dropdown refs ([b941603](https://github.com/p3ol/junipero/commit/b9416037f70ca232f81ca165f89ba423876bed0e))
+- **lib:** fix missing forward refs ([958b16a](https://github.com/p3ol/junipero/commit/958b16a2b3275b521ef250e19fcdd1883aa99ebb))
+- **lib:** flag fields as junipero refs ([241f007](https://github.com/p3ol/junipero/commit/241f007ddcef4824c63bf7992324e94e92e89158))
+- **lib:** handle tooltip junipero refs ([fa9b3e2](https://github.com/p3ol/junipero/commit/fa9b3e23050e650ca149e9f575647e862af1561f))
 
 ### Features
 
-* **lib:** add new breadcrumb item component ([e800d32](https://github.com/p3ol/junipero/commit/e800d321d2d126085b6df9769c614398ac5d1f87))
-
-
-
-
+- **lib:** add new breadcrumb item component ([e800d32](https://github.com/p3ol/junipero/commit/e800d321d2d126085b6df9769c614398ac5d1f87))
 
 # [2.0.0-rc.2](https://github.com/p3ol/junipero/compare/v2.0.0-rc.1...v2.0.0-rc.2) (2021-06-29)
 
-
 ### Bug Fixes
 
-* **lib:** fix placeholders & labels overflowing everywhere ([bca42ae](https://github.com/p3ol/junipero/commit/bca42ae8b6883e56f0d55b56c1e845c7b4162e0c))
-
+- **lib:** fix placeholders & labels overflowing everywhere ([bca42ae](https://github.com/p3ol/junipero/commit/bca42ae8b6883e56f0d55b56c1e845c7b4162e0c))
 
 ### Features
 
-* **lib:** add preview to colorfield ([6bf1566](https://github.com/p3ol/junipero/commit/6bf156621f6e0000238a95d223b9c5272840db6c))
-
-
-
-
+- **lib:** add preview to colorfield ([6bf1566](https://github.com/p3ol/junipero/commit/6bf156621f6e0000238a95d223b9c5272840db6c))
 
 # [2.0.0-rc.1](https://github.com/p3ol/junipero/compare/v2.0.0-rc.0...v2.0.0-rc.1) (2021-06-29)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing card shadow variable ([c59201c](https://github.com/p3ol/junipero/commit/c59201cc7b324903aa8e4f68cae613323cdcd7eb))
-
-
-
-
+- **lib:** fix missing card shadow variable ([c59201c](https://github.com/p3ol/junipero/commit/c59201cc7b324903aa8e4f68cae613323cdcd7eb))
 
 # [2.0.0-rc.0](https://github.com/p3ol/junipero/compare/v2.0.0-beta.31...v2.0.0-rc.0) (2021-06-28)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing colors import ([125ddaa](https://github.com/p3ol/junipero/commit/125ddaa2a1ec99b27155cd4cecb63ced4d28657a))
-
-
-
-
+- **lib:** fix missing colors import ([125ddaa](https://github.com/p3ol/junipero/commit/125ddaa2a1ec99b27155cd4cecb63ced4d28657a))
 
 # [2.0.0-beta.31](https://github.com/p3ol/junipero/compare/v2.0.0-beta.30...v2.0.0-beta.31) (2021-06-24)
 
-
 ### Bug Fixes
 
-* **lib:** fix default button colors ([5ce3022](https://github.com/p3ol/junipero/commit/5ce3022d2fbd075f0d309cb2ba72f2e7064e7c5f))
-
-
-
-
+- **lib:** fix default button colors ([5ce3022](https://github.com/p3ol/junipero/commit/5ce3022d2fbd075f0d309cb2ba72f2e7064e7c5f))
 
 # [2.0.0-beta.30](https://github.com/p3ol/junipero/compare/v2.0.0-beta.29...v2.0.0-beta.30) (2021-06-22)
 
-
 ### Features
 
-* **radiofield:** set value prop propType to any ([63645fb](https://github.com/p3ol/junipero/commit/63645fbd10fb9ef0ff0dfa1ff34ac8509f99d2af))
-
-
-
-
+- **radiofield:** set value prop propType to any ([63645fb](https://github.com/p3ol/junipero/commit/63645fbd10fb9ef0ff0dfa1ff34ac8509f99d2af))
 
 # [2.0.0-beta.29](https://github.com/p3ol/junipero/compare/v2.0.0-beta.28...v2.0.0-beta.29) (2021-06-18)
 
-
 ### Bug Fixes
 
-* **lib:** replace all colors with css vars ([9a0c23b](https://github.com/p3ol/junipero/commit/9a0c23b4f0d8d8ac9e2787163a64301f8b570230))
-
-
-
-
+- **lib:** replace all colors with css vars ([9a0c23b](https://github.com/p3ol/junipero/commit/9a0c23b4f0d8d8ac9e2787163a64301f8b570230))
 
 # [2.0.0-beta.28](https://github.com/p3ol/junipero/compare/v2.0.0-beta.27...v2.0.0-beta.28) (2021-06-16)
 
-
 ### Features
 
-* **lib:** export utils mergeDeep method ([fdd961d](https://github.com/p3ol/junipero/commit/fdd961d89beeef7a5aece5be7bfcc82a959e8e9c))
-* **utils:** add new mergeDeep method ([097dca0](https://github.com/p3ol/junipero/commit/097dca041095aa664c781020ecea6fedcb235c59))
-
-
-
-
+- **lib:** export utils mergeDeep method ([fdd961d](https://github.com/p3ol/junipero/commit/fdd961d89beeef7a5aece5be7bfcc82a959e8e9c))
+- **utils:** add new mergeDeep method ([097dca0](https://github.com/p3ol/junipero/commit/097dca041095aa664c781020ecea6fedcb235c59))
 
 # [2.0.0-beta.27](https://github.com/p3ol/junipero/compare/v2.0.0-beta.26...v2.0.0-beta.27) (2021-06-16)
 
-
 ### Bug Fixes
 
-* **lib:** fix overflowing select field value ([dc9db16](https://github.com/p3ol/junipero/commit/dc9db1604da53e0240df4c0c8f21ebe276e2b91c))
-* **lib:** fix tabs overriding touchable zone styling ([a331d29](https://github.com/p3ol/junipero/commit/a331d2945a24706c1171ef12d2e9dc0e4edfd729))
-* **lib:** fix touchable zone background ([2687a21](https://github.com/p3ol/junipero/commit/2687a218468ea8f5c32ebb7a575e71e6dfd95407))
-
-
-
-
+- **lib:** fix overflowing select field value ([dc9db16](https://github.com/p3ol/junipero/commit/dc9db1604da53e0240df4c0c8f21ebe276e2b91c))
+- **lib:** fix tabs overriding touchable zone styling ([a331d29](https://github.com/p3ol/junipero/commit/a331d2945a24706c1171ef12d2e9dc0e4edfd729))
+- **lib:** fix touchable zone background ([2687a21](https://github.com/p3ol/junipero/commit/2687a218468ea8f5c32ebb7a575e71e6dfd95407))
 
 # [2.0.0-beta.26](https://github.com/p3ol/junipero/compare/v2.0.0-beta.25...v2.0.0-beta.26) (2021-06-14)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing proptype ([ed5bb5c](https://github.com/p3ol/junipero/commit/ed5bb5c246ce3a5b2dd744d939887657dd3e8ddf))
-* **lib:** fix missing stylus import ([2a34028](https://github.com/p3ol/junipero/commit/2a34028718bd5caad400c71bcac4d64eb38123bd))
-
-
-
-
+- **lib:** fix missing proptype ([ed5bb5c](https://github.com/p3ol/junipero/commit/ed5bb5c246ce3a5b2dd744d939887657dd3e8ddf))
+- **lib:** fix missing stylus import ([2a34028](https://github.com/p3ol/junipero/commit/2a34028718bd5caad400c71bcac4d64eb38123bd))
 
 # [2.0.0-beta.25](https://github.com/p3ol/junipero/compare/v2.0.0-beta.24...v2.0.0-beta.25) (2021-06-08)
 
-
 ### Features
 
-* **lib:** add always-opened capability ([0aa46ea](https://github.com/p3ol/junipero/commit/0aa46eacf1aea66787a3aad74473065d3df1dc26))
-* **lib:** use css variables instead of overriding classes ([31dfeeb](https://github.com/p3ol/junipero/commit/31dfeebe7f46155af9c35107f9028efdf5591292))
-
-
-
-
+- **lib:** add always-opened capability ([0aa46ea](https://github.com/p3ol/junipero/commit/0aa46eacf1aea66787a3aad74473065d3df1dc26))
+- **lib:** use css variables instead of overriding classes ([31dfeeb](https://github.com/p3ol/junipero/commit/31dfeebe7f46155af9c35107f9028efdf5591292))
 
 # [2.0.0-beta.24](https://github.com/p3ol/junipero/compare/v2.0.0-beta.23...v2.0.0-beta.24) (2021-05-28)
 
-
 ### Bug Fixes
 
-* **lib:** add additional dropdownProps & dropdownMenuProps ([cf642ed](https://github.com/p3ol/junipero/commit/cf642ed26ec3f6201e3b4cb588fac81befb81dd7))
-* **lib:** fix color field missing placeholder & label ([0b96b05](https://github.com/p3ol/junipero/commit/0b96b050a993ef360404bbfb0cbfbcabc08f6b33))
-
-
-
-
+- **lib:** add additional dropdownProps & dropdownMenuProps ([cf642ed](https://github.com/p3ol/junipero/commit/cf642ed26ec3f6201e3b4cb588fac81befb81dd7))
+- **lib:** fix color field missing placeholder & label ([0b96b05](https://github.com/p3ol/junipero/commit/0b96b050a993ef360404bbfb0cbfbcabc08f6b33))
 
 # [2.0.0-beta.23](https://github.com/p3ol/junipero/compare/v2.0.0-beta.22...v2.0.0-beta.23) (2021-05-26)
 
-
 ### Features
 
-* **lib:** externalize components css to standalone files ([8883b84](https://github.com/p3ol/junipero/commit/8883b84cc7357f8f28980eaa4f152bbe16058a32))
-
-
-
-
+- **lib:** externalize components css to standalone files ([8883b84](https://github.com/p3ol/junipero/commit/8883b84cc7357f8f28980eaa4f152bbe16058a32))
 
 # [2.0.0-beta.22](https://github.com/p3ol/junipero/compare/v2.0.0-beta.21...v2.0.0-beta.22) (2021-05-19)
 
-
 ### Bug Fixes
 
-* **lib:** close datefield menu on re-click ([2b3fb53](https://github.com/p3ol/junipero/commit/2b3fb5303b45c13aa0e80f0e0a2e699fa97e0d4d))
-* **lib:** fix basefield opacity when disabled ([209096f](https://github.com/p3ol/junipero/commit/209096f2c833ea83a3690874869790f831a88397))
-* **lib:** fix slider field missing minValue & maxValue props ([fdb6040](https://github.com/p3ol/junipero/commit/fdb60409d73891b9f69c5277f1f0ac089e743c72))
-* **lib:** fix wrong menus sizes ([ef45f8b](https://github.com/p3ol/junipero/commit/ef45f8b7c82dff98b3bf4b8921a802be783b1bcb))
-* **lib:** move colorfield rest props to parent ([0d1e889](https://github.com/p3ol/junipero/commit/0d1e889b31eae452abd2704d15372cc474100147))
-
-
-
-
+- **lib:** close datefield menu on re-click ([2b3fb53](https://github.com/p3ol/junipero/commit/2b3fb5303b45c13aa0e80f0e0a2e699fa97e0d4d))
+- **lib:** fix basefield opacity when disabled ([209096f](https://github.com/p3ol/junipero/commit/209096f2c833ea83a3690874869790f831a88397))
+- **lib:** fix slider field missing minValue & maxValue props ([fdb6040](https://github.com/p3ol/junipero/commit/fdb60409d73891b9f69c5277f1f0ac089e743c72))
+- **lib:** fix wrong menus sizes ([ef45f8b](https://github.com/p3ol/junipero/commit/ef45f8b7c82dff98b3bf4b8921a802be783b1bcb))
+- **lib:** move colorfield rest props to parent ([0d1e889](https://github.com/p3ol/junipero/commit/0d1e889b31eae452abd2704d15372cc474100147))
 
 # [2.0.0-beta.21](https://github.com/p3ol/junipero/compare/v2.0.0-beta.20...v2.0.0-beta.21) (2021-05-03)
 
-
 ### Bug Fixes
 
-* **lib:** close select field on click when already opened ([48d6caa](https://github.com/p3ol/junipero/commit/48d6caa834699eb96b935d695d51431edc46c8c4))
-* **lib:** pass basefield props to underlying div ([609c920](https://github.com/p3ol/junipero/commit/609c9209d038fe9a2810a3eb42b0242a5a4dc8ad))
-
-
-
-
+- **lib:** close select field on click when already opened ([48d6caa](https://github.com/p3ol/junipero/commit/48d6caa834699eb96b935d695d51431edc46c8c4))
+- **lib:** pass basefield props to underlying div ([609c920](https://github.com/p3ol/junipero/commit/609c9209d038fe9a2810a3eb42b0242a5a4dc8ad))
 
 # [2.0.0-beta.20](https://github.com/p3ol/junipero/compare/v2.0.0-beta.19...v2.0.0-beta.20) (2021-05-03)
 
-
 ### Bug Fixes
 
-* **lib:** fix wrong value prop check ([b27dcdc](https://github.com/p3ol/junipero/commit/b27dcdc2b73f5747a8c6fef388bcb5f25ce01cc5))
-
-
-
-
+- **lib:** fix wrong value prop check ([b27dcdc](https://github.com/p3ol/junipero/commit/b27dcdc2b73f5747a8c6fef388bcb5f25ce01cc5))
 
 # [2.0.0-beta.19](https://github.com/p3ol/junipero/compare/v2.0.0-beta.18...v2.0.0-beta.19) (2021-05-03)
 
-
 ### Bug Fixes
 
-* **lib:** fix modal click event wrongly prevented ([773b3ee](https://github.com/p3ol/junipero/commit/773b3ee4210a3ca96a355484e194f49ae0797d4d))
-* **lib:** fix wrong tab indexes ([52c1532](https://github.com/p3ol/junipero/commit/52c15320de918b2d19ea1bc905d0c3e7bee1ad05))
-* **lib:** increase tab indexes by 1 ([a12be63](https://github.com/p3ol/junipero/commit/a12be635906965f115e018c7f862b0542e716fb7))
-
-
-
-
+- **lib:** fix modal click event wrongly prevented ([773b3ee](https://github.com/p3ol/junipero/commit/773b3ee4210a3ca96a355484e194f49ae0797d4d))
+- **lib:** fix wrong tab indexes ([52c1532](https://github.com/p3ol/junipero/commit/52c15320de918b2d19ea1bc905d0c3e7bee1ad05))
+- **lib:** increase tab indexes by 1 ([a12be63](https://github.com/p3ol/junipero/commit/a12be635906965f115e018c7f862b0542e716fb7))
 
 # [2.0.0-beta.18](https://github.com/p3ol/junipero/compare/v2.0.0-beta.17...v2.0.0-beta.18) (2021-05-03)
 
-
 ### Bug Fixes
 
-* **lib:** fix value prop update ([44029de](https://github.com/p3ol/junipero/commit/44029de4cfdd8ff4eaefeda9a75ae0fefcd48cf2))
-
-
-
-
+- **lib:** fix value prop update ([44029de](https://github.com/p3ol/junipero/commit/44029de4cfdd8ff4eaefeda9a75ae0fefcd48cf2))
 
 # [2.0.0-beta.17](https://github.com/p3ol/junipero/compare/v2.0.0-beta.16...v2.0.0-beta.17) (2021-05-03)
 
-
 ### Bug Fixes
 
-* **lib:** handle value prop updates ([7ce2695](https://github.com/p3ol/junipero/commit/7ce2695a27bf901d1de668fb60d0646ac7688c88))
-
-
-
-
+- **lib:** handle value prop updates ([7ce2695](https://github.com/p3ol/junipero/commit/7ce2695a27bf901d1de668fb60d0646ac7688c88))
 
 # [2.0.0-beta.16](https://github.com/p3ol/junipero/compare/v2.0.0-beta.15...v2.0.0-beta.16) (2021-05-03)
 
-
 ### Bug Fixes
 
-* **lib:** remove useless logs ([b984c5d](https://github.com/p3ol/junipero/commit/b984c5d02a3dfe37f2889ca0f9304e022ab28874))
-
-
-
-
+- **lib:** remove useless logs ([b984c5d](https://github.com/p3ol/junipero/commit/b984c5d02a3dfe37f2889ca0f9304e022ab28874))
 
 # [2.0.0-beta.15](https://github.com/p3ol/junipero/compare/v2.0.0-beta.14...v2.0.0-beta.15) (2021-05-03)
 
 **Note:** Version bump only for package junipero
 
-
-
-
-
 # [2.0.0-beta.14](https://github.com/p3ol/junipero/compare/v2.0.0-beta.13...v2.0.0-beta.14) (2021-04-30)
-
 
 ### Features
 
-* **lib:** add closable prop to modal ([a0efdb0](https://github.com/p3ol/junipero/commit/a0efdb08d76d2bb82b5164efbbd60053f2470d36))
-
-
-
-
+- **lib:** add closable prop to modal ([a0efdb0](https://github.com/p3ol/junipero/commit/a0efdb08d76d2bb82b5164efbbd60053f2470d36))
 
 # [2.0.0-beta.13](https://github.com/p3ol/junipero/compare/v2.0.0-beta.12...v2.0.0-beta.13) (2021-04-30)
 
-
 ### Bug Fixes
 
-* **lib:** handle non-a-links dropdown items child ([929eb32](https://github.com/p3ol/junipero/commit/929eb32374986d71d6ebb1e4d106915851425f02))
-
-
-
-
+- **lib:** handle non-a-links dropdown items child ([929eb32](https://github.com/p3ol/junipero/commit/929eb32374986d71d6ebb1e4d106915851425f02))
 
 # [2.0.0-beta.12](https://github.com/p3ol/junipero/compare/v2.0.0-beta.11...v2.0.0-beta.12) (2021-04-28)
 
-
 ### Bug Fixes
 
-* **lib:** fix text sizes ([6868c84](https://github.com/p3ol/junipero/commit/6868c84b7d75717174ed9cb8364dd37ca48d95d2))
-
-
-
-
+- **lib:** fix text sizes ([6868c84](https://github.com/p3ol/junipero/commit/6868c84b7d75717174ed9cb8364dd37ca48d95d2))
 
 # [2.0.0-beta.11](https://github.com/p3ol/junipero/compare/v2.0.0-beta.10...v2.0.0-beta.11) (2021-04-28)
 
-
 ### Bug Fixes
 
-* **lib:** prevent focus if disabled ([0162d65](https://github.com/p3ol/junipero/commit/0162d65c4bd025ac44028a91189b1be489b0c67d))
-* **radio:** remove toggle field fix from this story ([ddc1252](https://github.com/p3ol/junipero/commit/ddc1252cc4b9c9be23da9725f7f6a9d305b62536))
-
+- **lib:** prevent focus if disabled ([0162d65](https://github.com/p3ol/junipero/commit/0162d65c4bd025ac44028a91189b1be489b0c67d))
+- **radio:** remove toggle field fix from this story ([ddc1252](https://github.com/p3ol/junipero/commit/ddc1252cc4b9c9be23da9725f7f6a9d305b62536))
 
 ### Features
 
-* **lib:** add stories + tests ([488bcfe](https://github.com/p3ol/junipero/commit/488bcfe5a35f15638b08392b5ca1ebb242e7d7a4))
-* **lib:** add tests ([cfee600](https://github.com/p3ol/junipero/commit/cfee600cf438c35c759ba66a31f22359c1d45180))
-* **lib:** disable key press if disabled ([ccc14bb](https://github.com/p3ol/junipero/commit/ccc14bba4fa6187984d1071353e805490c55cefa))
-* **lib:** radio field component ([e0b000d](https://github.com/p3ol/junipero/commit/e0b000d12cbf6efbc9158a6c339c67ca2b69a6a0))
-* **lib:** remove line break for inner div ([06af945](https://github.com/p3ol/junipero/commit/06af945b91197519342ae7255774dabcfd6dd9f0))
-* **lib:** wip rework radio field ([f50253d](https://github.com/p3ol/junipero/commit/f50253de600451e3f0d6683528ab39c856ecff6e))
-* **radio:** add EOL ([e483f9d](https://github.com/p3ol/junipero/commit/e483f9d58a28fba88513480a1a3348f1cb66aecb))
-* **radio:** add focused and internalValue to ImperativeHandle ([f4a7f95](https://github.com/p3ol/junipero/commit/f4a7f958e577af9738e845cbcd82d232e9581fd9))
-* **radio:** add multiple radio story ([c787c11](https://github.com/p3ol/junipero/commit/c787c11a42c691c91a8fe02505fa79eafd78cf79))
-* **radio:** remove useless line break ([3a74e37](https://github.com/p3ol/junipero/commit/3a74e37983723f3683a84911558c190ca7a8de36))
-* **radio:** remove useless type option on stories ([307683a](https://github.com/p3ol/junipero/commit/307683a296c7a3cc14a7ce9004bfeee65d04a1ab))
-* **radio-field:** add multiple radio story ([d878492](https://github.com/p3ol/junipero/commit/d87849214de91cd8acd1320884ac48d49544acb4))
-* **radio-field:** enable triggering onChange with enter ([fb3fba8](https://github.com/p3ol/junipero/commit/fb3fba8d4ac6a5f91a43d035a1a438125d552d26))
-
-
-
-
+- **lib:** add stories + tests ([488bcfe](https://github.com/p3ol/junipero/commit/488bcfe5a35f15638b08392b5ca1ebb242e7d7a4))
+- **lib:** add tests ([cfee600](https://github.com/p3ol/junipero/commit/cfee600cf438c35c759ba66a31f22359c1d45180))
+- **lib:** disable key press if disabled ([ccc14bb](https://github.com/p3ol/junipero/commit/ccc14bba4fa6187984d1071353e805490c55cefa))
+- **lib:** radio field component ([e0b000d](https://github.com/p3ol/junipero/commit/e0b000d12cbf6efbc9158a6c339c67ca2b69a6a0))
+- **lib:** remove line break for inner div ([06af945](https://github.com/p3ol/junipero/commit/06af945b91197519342ae7255774dabcfd6dd9f0))
+- **lib:** wip rework radio field ([f50253d](https://github.com/p3ol/junipero/commit/f50253de600451e3f0d6683528ab39c856ecff6e))
+- **radio:** add EOL ([e483f9d](https://github.com/p3ol/junipero/commit/e483f9d58a28fba88513480a1a3348f1cb66aecb))
+- **radio:** add focused and internalValue to ImperativeHandle ([f4a7f95](https://github.com/p3ol/junipero/commit/f4a7f958e577af9738e845cbcd82d232e9581fd9))
+- **radio:** add multiple radio story ([c787c11](https://github.com/p3ol/junipero/commit/c787c11a42c691c91a8fe02505fa79eafd78cf79))
+- **radio:** remove useless line break ([3a74e37](https://github.com/p3ol/junipero/commit/3a74e37983723f3683a84911558c190ca7a8de36))
+- **radio:** remove useless type option on stories ([307683a](https://github.com/p3ol/junipero/commit/307683a296c7a3cc14a7ce9004bfeee65d04a1ab))
+- **radio-field:** add multiple radio story ([d878492](https://github.com/p3ol/junipero/commit/d87849214de91cd8acd1320884ac48d49544acb4))
+- **radio-field:** enable triggering onChange with enter ([fb3fba8](https://github.com/p3ol/junipero/commit/fb3fba8d4ac6a5f91a43d035a1a438125d552d26))
 
 # [2.0.0-beta.10](https://github.com/p3ol/junipero/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2021-04-28)
 
-
 ### Bug Fixes
 
-* **lib:** fix alerts layout ([350409c](https://github.com/p3ol/junipero/commit/350409cc7a0beb890d66ec966682346f1f38601c))
-* **lib:** fix tooltip bot being animatable due to unique parent ([2c7e9be](https://github.com/p3ol/junipero/commit/2c7e9bec514fcea9213f2d4c7e9f3da34958f688))
-
-
-
-
+- **lib:** fix alerts layout ([350409c](https://github.com/p3ol/junipero/commit/350409cc7a0beb890d66ec966682346f1f38601c))
+- **lib:** fix tooltip bot being animatable due to unique parent ([2c7e9be](https://github.com/p3ol/junipero/commit/2c7e9bec514fcea9213f2d4c7e9f3da34958f688))
 
 # [2.0.0-beta.9](https://github.com/p3ol/junipero/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2021-04-26)
 
-
 ### Bug Fixes
 
-* **lib:** fix alert component ([eaf0318](https://github.com/p3ol/junipero/commit/eaf0318641199766a4188a44befe2aceb6725ed8))
-
-
-
-
+- **lib:** fix alert component ([eaf0318](https://github.com/p3ol/junipero/commit/eaf0318641199766a4188a44befe2aceb6725ed8))
 
 # [2.0.0-beta.8](https://github.com/p3ol/junipero/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2021-04-26)
 
-
 ### Bug Fixes
 
-* **lib:** fix some props not being passed to children ([c57fc6d](https://github.com/p3ol/junipero/commit/c57fc6d21db81f64c24fb52c36548a253f182343))
-
-
-
-
+- **lib:** fix some props not being passed to children ([c57fc6d](https://github.com/p3ol/junipero/commit/c57fc6d21db81f64c24fb52c36548a253f182343))
 
 # [2.0.0-beta.7](https://github.com/p3ol/junipero/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2021-04-25)
 
-
 ### Bug Fixes
 
-* **lib:** fix dropdown not closing when menu is animated ([4108ff2](https://github.com/p3ol/junipero/commit/4108ff2bed7b889fc45863aee812dd8f4d6116e3))
-* **toggle:** handle onChange when using keyboard to change state ([53b406d](https://github.com/p3ol/junipero/commit/53b406d5ef8fc930c342bbff3333fe36cc823338))
-
-
-
-
+- **lib:** fix dropdown not closing when menu is animated ([4108ff2](https://github.com/p3ol/junipero/commit/4108ff2bed7b889fc45863aee812dd8f4d6116e3))
+- **toggle:** handle onChange when using keyboard to change state ([53b406d](https://github.com/p3ol/junipero/commit/53b406d5ef8fc930c342bbff3333fe36cc823338))
 
 # [2.0.0-beta.6](https://github.com/p3ol/junipero/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2021-04-21)
 
-
 ### Features
 
-* **lib:** add searchAutoFocus prop to select field ([0ef0033](https://github.com/p3ol/junipero/commit/0ef0033e7d5b5fe7e44d317f08b1f263d2216fc4))
-
-
-
-
+- **lib:** add searchAutoFocus prop to select field ([0ef0033](https://github.com/p3ol/junipero/commit/0ef0033e7d5b5fe7e44d317f08b1f263d2216fc4))
 
 # [2.0.0-beta.5](https://github.com/p3ol/junipero/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2021-04-21)
 
-
 ### Bug Fixes
 
-* **lib:** fix buttons active colors ([7f3444b](https://github.com/p3ol/junipero/commit/7f3444b5f22604a8b5ecca1c7a77039a9484db1c))
-* **lib:** fix select field groups spacing ([2d57743](https://github.com/p3ol/junipero/commit/2d577431a8d0b347449bc67b71fcb3479d80a300))
-
-
-
-
+- **lib:** fix buttons active colors ([7f3444b](https://github.com/p3ol/junipero/commit/7f3444b5f22604a8b5ecca1c7a77039a9484db1c))
+- **lib:** fix select field groups spacing ([2d57743](https://github.com/p3ol/junipero/commit/2d577431a8d0b347449bc67b71fcb3479d80a300))
 
 # [2.0.0-beta.4](https://github.com/p3ol/junipero/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2021-04-20)
 
-
 ### Features
 
-* **lib:** add groups to select field options ([5f0223a](https://github.com/p3ol/junipero/commit/5f0223ad13ad8d64de74d9639c3db77655cf883a))
-
-
-
-
+- **lib:** add groups to select field options ([5f0223a](https://github.com/p3ol/junipero/commit/5f0223ad13ad8d64de74d9639c3db77655cf883a))
 
 # [2.0.0-beta.3](https://github.com/p3ol/junipero/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2021-04-20)
 
-
 ### Bug Fixes
 
-* **utils:** fix missing export ([f36fd5e](https://github.com/p3ol/junipero/commit/f36fd5e08606dcbc6040fb80202d6733942ec6aa))
-
-
-
-
+- **utils:** fix missing export ([f36fd5e](https://github.com/p3ol/junipero/commit/f36fd5e08606dcbc6040fb80202d6733942ec6aa))
 
 # [2.0.0-beta.2](https://github.com/p3ol/junipero/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2021-04-19)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing select-field container prop ([035ad31](https://github.com/p3ol/junipero/commit/035ad31b2abaf734d4ab11a3771e3ddc7575c257))
-
-
-
-
+- **lib:** fix missing select-field container prop ([035ad31](https://github.com/p3ol/junipero/commit/035ad31b2abaf734d4ab11a3771e3ddc7575c257))
 
 # [2.0.0-beta.1](https://github.com/p3ol/junipero/compare/v2.0.0-beta.0...v2.0.0-beta.1) (2021-04-19)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing export ([9f52db4](https://github.com/p3ol/junipero/commit/9f52db40103d0497270b7680400a8348b7599359))
-
-
-
-
+- **lib:** fix missing export ([9f52db4](https://github.com/p3ol/junipero/commit/9f52db40103d0497270b7680400a8348b7599359))
 
 # [2.0.0-beta.0](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.25...v2.0.0-beta.0) (2021-04-19)
 
-
 ### Bug Fixes
 
-* **lib:** fix icon layout ([b96d53e](https://github.com/p3ol/junipero/commit/b96d53ea567b253804d62ddd17087d1c6d2b86e1))
-* **lib:** fix wrong radiuses ([034a6d9](https://github.com/p3ol/junipero/commit/034a6d90cedc4ee2d6cdf63299bf1eea3141217f))
-* **lib:** update tabs styles ([f115bcd](https://github.com/p3ol/junipero/commit/f115bcd3fdc80816e718b092fa727a5e8f88a3a0))
-
+- **lib:** fix icon layout ([b96d53e](https://github.com/p3ol/junipero/commit/b96d53ea567b253804d62ddd17087d1c6d2b86e1))
+- **lib:** fix wrong radiuses ([034a6d9](https://github.com/p3ol/junipero/commit/034a6d90cedc4ee2d6cdf63299bf1eea3141217f))
+- **lib:** update tabs styles ([f115bcd](https://github.com/p3ol/junipero/commit/f115bcd3fdc80816e718b092fa727a5e8f88a3a0))
 
 ### Features
 
-* **lib:** add touchable zone component ([0f5808f](https://github.com/p3ol/junipero/commit/0f5808fe967d9c78059c51935979263e180834d9))
-* **lib:** better touchable zone component ([2a5b33f](https://github.com/p3ol/junipero/commit/2a5b33f172a94f9227704141c0a5c8d959b518ca))
-
-
-
-
+- **lib:** add touchable zone component ([0f5808f](https://github.com/p3ol/junipero/commit/0f5808fe967d9c78059c51935979263e180834d9))
+- **lib:** better touchable zone component ([2a5b33f](https://github.com/p3ol/junipero/commit/2a5b33f172a94f9227704141c0a5c8d959b518ca))
 
 # [2.0.0-alpha.25](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2021-04-19)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing font weight ([c6ecb20](https://github.com/p3ol/junipero/commit/c6ecb20d88ecd85a21da3fbad18eaee58e73ab0e))
-
-
-
-
+- **lib:** fix missing font weight ([c6ecb20](https://github.com/p3ol/junipero/commit/c6ecb20d88ecd85a21da3fbad18eaee58e73ab0e))
 
 # [2.0.0-alpha.24](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2021-04-19)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing box-sizing selector ([729d448](https://github.com/p3ol/junipero/commit/729d448dcbb8a856385369971296fa35e42d0c13))
-
-
-
-
+- **lib:** fix missing box-sizing selector ([729d448](https://github.com/p3ol/junipero/commit/729d448dcbb8a856385369971296fa35e42d0c13))
 
 # [2.0.0-alpha.23](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2021-04-19)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing datefield arrow ([3e38e55](https://github.com/p3ol/junipero/commit/3e38e55602d3a3f4ca97f215e960df465d301c19))
-* **lib:** fix missing export ([bab95c1](https://github.com/p3ol/junipero/commit/bab95c1069142282d8bfcdfa0d37fa87a78f5340))
-
+- **lib:** fix missing datefield arrow ([3e38e55](https://github.com/p3ol/junipero/commit/3e38e55602d3a3f4ca97f215e960df465d301c19))
+- **lib:** fix missing export ([bab95c1](https://github.com/p3ol/junipero/commit/bab95c1069142282d8bfcdfa0d37fa87a78f5340))
 
 ### Features
 
-* **hooks:** new useInterval hook ([0a4d3d8](https://github.com/p3ol/junipero/commit/0a4d3d8f732e1a91f57992cce4dbb916cbf6151a))
-
-
-
-
+- **hooks:** new useInterval hook ([0a4d3d8](https://github.com/p3ol/junipero/commit/0a4d3d8f732e1a91f57992cce4dbb916cbf6151a))
 
 # [2.0.0-alpha.22](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2021-04-15)
 
 **Note:** Version bump only for package junipero
 
-
-
-
-
 # [2.0.0-alpha.21](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.20...v2.0.0-alpha.21) (2021-04-15)
-
 
 ### Bug Fixes
 
-* **lib:** fix missing loader colors ([b5bd35e](https://github.com/p3ol/junipero/commit/b5bd35e2277571cca5f33e5a4dd72913f1cc2cc1))
-
-
-
-
+- **lib:** fix missing loader colors ([b5bd35e](https://github.com/p3ol/junipero/commit/b5bd35e2277571cca5f33e5a4dd72913f1cc2cc1))
 
 # [2.0.0-alpha.20](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.19...v2.0.0-alpha.20) (2021-04-14)
 
-
 ### Bug Fixes
 
-* fix babel root config ([26b2b28](https://github.com/p3ol/junipero/commit/26b2b28464910555ae9c31c42363914aa7f0602e))
-
-
-
-
+- fix babel root config ([26b2b28](https://github.com/p3ol/junipero/commit/26b2b28464910555ae9c31c42363914aa7f0602e))
 
 # [2.0.0-alpha.19](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.18...v2.0.0-alpha.19) (2021-04-14)
 
-
 ### Bug Fixes
 
-* fix react native tests ([d6cd8c0](https://github.com/p3ol/junipero/commit/d6cd8c0772d634141e15cece0539d89ef217c3f8))
-* upgrade dependencies ([3d100f8](https://github.com/p3ol/junipero/commit/3d100f858637962b168277bc27d2c715a7681f1d))
-* **lib:** fix dropdown size ([37ff94a](https://github.com/p3ol/junipero/commit/37ff94a8a7fddb1c87e009356cf0d9164290eaeb))
-
-
-
-
+- fix react native tests ([d6cd8c0](https://github.com/p3ol/junipero/commit/d6cd8c0772d634141e15cece0539d89ef217c3f8))
+- upgrade dependencies ([3d100f8](https://github.com/p3ol/junipero/commit/3d100f858637962b168277bc27d2c715a7681f1d))
+- **lib:** fix dropdown size ([37ff94a](https://github.com/p3ol/junipero/commit/37ff94a8a7fddb1c87e009356cf0d9164290eaeb))
 
 # [2.0.0-alpha.18](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2021-04-14)
 
-
 ### Bug Fixes
 
-* **lib:** fix missing exports ([86fee43](https://github.com/p3ol/junipero/commit/86fee43d87050ac02346322a1740318bb56d4aee))
-
+- **lib:** fix missing exports ([86fee43](https://github.com/p3ol/junipero/commit/86fee43d87050ac02346322a1740318bb56d4aee))
 
 ### Features
 
-* **lib:** add texts & titles styling ([3aa14fa](https://github.com/p3ol/junipero/commit/3aa14fa3db6e4803d7a7a5e546258b546c530bcd))
-
-
-
-
+- **lib:** add texts & titles styling ([3aa14fa](https://github.com/p3ol/junipero/commit/3aa14fa3db6e4803d7a7a5e546258b546c530bcd))
 
 # [2.0.0-alpha.17](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2021-04-14)
 
-
 ### Bug Fixes
 
-* **lib:** fix dropdown styling ([9b1166c](https://github.com/p3ol/junipero/commit/9b1166c45f0f9fc475f80bb9559185563ea096b3))
-
-
-
-
+- **lib:** fix dropdown styling ([9b1166c](https://github.com/p3ol/junipero/commit/9b1166c45f0f9fc475f80bb9559185563ea096b3))
 
 # [2.0.0-alpha.16](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2021-04-14)
 
-
 ### Bug Fixes
 
-* **lib:** fix badge styling ([3bfd7da](https://github.com/p3ol/junipero/commit/3bfd7da7508e094288193f572fe1b3cbcbb43a1f))
-
-
-
-
+- **lib:** fix badge styling ([3bfd7da](https://github.com/p3ol/junipero/commit/3bfd7da7508e094288193f572fe1b3cbcbb43a1f))
 
 # [2.0.0-alpha.15](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2021-04-14)
 
-
 ### Bug Fixes
 
-* **hooks:** fix missing peer dep ([fb598b9](https://github.com/p3ol/junipero/commit/fb598b9261bede980bd06b966d88eab988a79a2f))
-* **lib:** fix font boldness ([fa63747](https://github.com/p3ol/junipero/commit/fa637470feb5295a3a399a663cd429557334db91))
-* **lib:** fix missing line heights ([fefd7c9](https://github.com/p3ol/junipero/commit/fefd7c95de1e99b69b1c10e5cee28b38be039ca6))
-
-
-
-
+- **hooks:** fix missing peer dep ([fb598b9](https://github.com/p3ol/junipero/commit/fb598b9261bede980bd06b966d88eab988a79a2f))
+- **lib:** fix font boldness ([fa63747](https://github.com/p3ol/junipero/commit/fa637470feb5295a3a399a663cd429557334db91))
+- **lib:** fix missing line heights ([fefd7c9](https://github.com/p3ol/junipero/commit/fefd7c95de1e99b69b1c10e5cee28b38be039ca6))
 
 # [2.0.0-alpha.14](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2021-04-14)
 
-
 ### Bug Fixes
 
-* **lib:** set react peer dep to v17 ([857855b](https://github.com/p3ol/junipero/commit/857855b351b4aea3fb0e8f6b0507db4dea3206f6))
-
-
-
-
+- **lib:** set react peer dep to v17 ([857855b](https://github.com/p3ol/junipero/commit/857855b351b4aea3fb0e8f6b0507db4dea3206f6))
 
 # [2.0.0-alpha.13](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2021-04-13)
 
-
 ### Bug Fixes
 
-* **lib:** fix badge colors ([393749a](https://github.com/p3ol/junipero/commit/393749aff5115c9260d3d071a6ff1307bea51f14))
-* **lib:** fix tag colors ([782226e](https://github.com/p3ol/junipero/commit/782226e1abddbb28ec86168f2fb40708c1456ad3))
-
-
-
-
+- **lib:** fix badge colors ([393749a](https://github.com/p3ol/junipero/commit/393749aff5115c9260d3d071a6ff1307bea51f14))
+- **lib:** fix tag colors ([782226e](https://github.com/p3ol/junipero/commit/782226e1abddbb28ec86168f2fb40708c1456ad3))
 
 # [2.0.0-alpha.12](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2021-04-12)
 
-
 ### Bug Fixes
 
-* **utils:** fix missing exports ([52e3efa](https://github.com/p3ol/junipero/commit/52e3efa5e1ab58f241981e3c134c882c4183a38f))
-
-
-
-
+- **utils:** fix missing exports ([52e3efa](https://github.com/p3ol/junipero/commit/52e3efa5e1ab58f241981e3c134c882c4183a38f))
 
 # [2.0.0-alpha.11](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2021-04-12)
 
-
 ### Features
 
-* **utils:** add new addClass & removeClass helpers ([1eaf2a3](https://github.com/p3ol/junipero/commit/1eaf2a359d999934b99464285ce4a7814ff40292))
-
-
-
-
+- **utils:** add new addClass & removeClass helpers ([1eaf2a3](https://github.com/p3ol/junipero/commit/1eaf2a359d999934b99464285ce4a7814ff40292))
 
 # [2.0.0-alpha.10](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2021-04-12)
 
-
 ### Bug Fixes
 
-* clean code according to last review ([8a393a1](https://github.com/p3ol/junipero/commit/8a393a1f787047e9c9d97cfdb1adce06ef6df229))
-* clean code and remove styles from card component to add them in storybook ([cc42b55](https://github.com/p3ol/junipero/commit/cc42b55b8593932d05aeeffa70eef1228ddf9585))
-* clean code and remove useless props ([47acae0](https://github.com/p3ol/junipero/commit/47acae018d303b5f6cbac746c8502d50877b4c80))
-* clear code ([0b42433](https://github.com/p3ol/junipero/commit/0b424333f1490d49242d7e0c650d5a33d5ffd15b))
-* clear code ([606a23b](https://github.com/p3ol/junipero/commit/606a23bbc560e2bb68e3c304c5da3eba9ecd2501))
-* fix code according to last review ([e35b561](https://github.com/p3ol/junipero/commit/e35b561e05110f6e4a0a62afb3ed513c4c1e9239))
-* fix code according to previous reviews ([94daa0b](https://github.com/p3ol/junipero/commit/94daa0bc8e5e34a75d5a796f53b39beb41bf5d6d))
-* fix fomr styles in card stories ([6fc369c](https://github.com/p3ol/junipero/commit/6fc369ccf3736c092e4d116dadfed7236ae81644))
-* remove useless prop ([ea82980](https://github.com/p3ol/junipero/commit/ea829807506a5ef390705a6a93092ca7ba1ca751))
-* remove useless prop ([5869060](https://github.com/p3ol/junipero/commit/58690600e6257001b3fa76e3185bc5d4a9c4168b))
-* **native:** center buttons text ([8626dfb](https://github.com/p3ol/junipero/commit/8626dfb83d279f350ac104b1862afbf29f5a0213))
-* **native:** fix icon behaviour ([8cfc753](https://github.com/p3ol/junipero/commit/8cfc7537ca77652f7a16db8ee8d2620b28cf7bc4))
-* **native:** fix parseValue props ([f7cae20](https://github.com/p3ol/junipero/commit/f7cae209ef9f6151d64b03103d259333ec95ad04))
-* **native:** fix typo ([5f31653](https://github.com/p3ol/junipero/commit/5f3165364186f71f2bf1367bd912d3cecc49a194))
-* **native:** remove material icons ([b9b9856](https://github.com/p3ol/junipero/commit/b9b98564a64d4d65793378dc546e9b98ed7daccf))
-* **tooltip:** fix broken tooltip click trigger ([0173e94](https://github.com/p3ol/junipero/commit/0173e94692abe3bc262f80fcc34906f8d6aa5097))
-
+- clean code according to last review ([8a393a1](https://github.com/p3ol/junipero/commit/8a393a1f787047e9c9d97cfdb1adce06ef6df229))
+- clean code and remove styles from card component to add them in storybook ([cc42b55](https://github.com/p3ol/junipero/commit/cc42b55b8593932d05aeeffa70eef1228ddf9585))
+- clean code and remove useless props ([47acae0](https://github.com/p3ol/junipero/commit/47acae018d303b5f6cbac746c8502d50877b4c80))
+- clear code ([0b42433](https://github.com/p3ol/junipero/commit/0b424333f1490d49242d7e0c650d5a33d5ffd15b))
+- clear code ([606a23b](https://github.com/p3ol/junipero/commit/606a23bbc560e2bb68e3c304c5da3eba9ecd2501))
+- fix code according to last review ([e35b561](https://github.com/p3ol/junipero/commit/e35b561e05110f6e4a0a62afb3ed513c4c1e9239))
+- fix code according to previous reviews ([94daa0b](https://github.com/p3ol/junipero/commit/94daa0bc8e5e34a75d5a796f53b39beb41bf5d6d))
+- fix fomr styles in card stories ([6fc369c](https://github.com/p3ol/junipero/commit/6fc369ccf3736c092e4d116dadfed7236ae81644))
+- remove useless prop ([ea82980](https://github.com/p3ol/junipero/commit/ea829807506a5ef390705a6a93092ca7ba1ca751))
+- remove useless prop ([5869060](https://github.com/p3ol/junipero/commit/58690600e6257001b3fa76e3185bc5d4a9c4168b))
+- **native:** center buttons text ([8626dfb](https://github.com/p3ol/junipero/commit/8626dfb83d279f350ac104b1862afbf29f5a0213))
+- **native:** fix icon behaviour ([8cfc753](https://github.com/p3ol/junipero/commit/8cfc7537ca77652f7a16db8ee8d2620b28cf7bc4))
+- **native:** fix parseValue props ([f7cae20](https://github.com/p3ol/junipero/commit/f7cae209ef9f6151d64b03103d259333ec95ad04))
+- **native:** fix typo ([5f31653](https://github.com/p3ol/junipero/commit/5f3165364186f71f2bf1367bd912d3cecc49a194))
+- **native:** remove material icons ([b9b9856](https://github.com/p3ol/junipero/commit/b9b98564a64d4d65793378dc546e9b98ed7daccf))
+- **tooltip:** fix broken tooltip click trigger ([0173e94](https://github.com/p3ol/junipero/commit/0173e94692abe3bc262f80fcc34906f8d6aa5097))
 
 ### Features
 
-* **native:** add password obscuration for textfield component ([a995de4](https://github.com/p3ol/junipero/commit/a995de4343d966efb83ce4956c9d2b889c04f84d))
-* **utils:** add fromPairs helper ([c2189b2](https://github.com/p3ol/junipero/commit/c2189b2d611a864e1f93fec038b4b63a2143605c))
-* add new tag component ([132b230](https://github.com/p3ol/junipero/commit/132b2305cbe145e6e29f6c1b48e82eb40af0e627))
-* add styles for alert component ([d449b0b](https://github.com/p3ol/junipero/commit/d449b0b7a73e19e7c353d312cde9911975b02917))
-* **native:** add labeled selectfield wip ([43bf4a1](https://github.com/p3ol/junipero/commit/43bf4a17b3bca88a94405a3bdcc1e6c583aeb59c))
-* **native:** add new cases to storybook ([7059108](https://github.com/p3ol/junipero/commit/70591081d4cce343a44a4b703c1af4ee570a1a1c))
-* **native:** add new iconFont ([aa45d8a](https://github.com/p3ol/junipero/commit/aa45d8ad93132f7e27e74a17dd15450a7726a05e))
-* **native:** add new selectfields in storybook ([1404366](https://github.com/p3ol/junipero/commit/1404366f393365022e25781938400225e14a4b93))
-* **native:** add noResults case ([1041e6f](https://github.com/p3ol/junipero/commit/1041e6f569a9348b773f0be8c6416ee8d996c3db))
-* **native:** selectfield with object option and value enforced ([867536d](https://github.com/p3ol/junipero/commit/867536dffb14ab30cdf704bb8f12f515680f5419))
-* **wip:** add Alert component ([d59e66e](https://github.com/p3ol/junipero/commit/d59e66e575bcf74bf702d20597f21dca73b937ca))
-* new badge component ([a5a03ca](https://github.com/p3ol/junipero/commit/a5a03ca253d83aaf074978a1bdd4dc3cc001c643))
-* new card component ([5bbb263](https://github.com/p3ol/junipero/commit/5bbb26319cbead9909c68ba46a7d84efb9fba11e))
-* **native:** add selectfield component ([af6fa37](https://github.com/p3ol/junipero/commit/af6fa37d03535327aebbd93d3ce48d8e231343bb))
-* **native:** basic selectField ([ea0f20f](https://github.com/p3ol/junipero/commit/ea0f20fe98ace0e5b7b667a200985038ccc95419))
-* **native:** selectField with search ([b102975](https://github.com/p3ol/junipero/commit/b1029751063a0b68b6ab0841dbbf0f6e17972c41))
-
-
-
-
+- **native:** add password obscuration for textfield component ([a995de4](https://github.com/p3ol/junipero/commit/a995de4343d966efb83ce4956c9d2b889c04f84d))
+- **utils:** add fromPairs helper ([c2189b2](https://github.com/p3ol/junipero/commit/c2189b2d611a864e1f93fec038b4b63a2143605c))
+- add new tag component ([132b230](https://github.com/p3ol/junipero/commit/132b2305cbe145e6e29f6c1b48e82eb40af0e627))
+- add styles for alert component ([d449b0b](https://github.com/p3ol/junipero/commit/d449b0b7a73e19e7c353d312cde9911975b02917))
+- **native:** add labeled selectfield wip ([43bf4a1](https://github.com/p3ol/junipero/commit/43bf4a17b3bca88a94405a3bdcc1e6c583aeb59c))
+- **native:** add new cases to storybook ([7059108](https://github.com/p3ol/junipero/commit/70591081d4cce343a44a4b703c1af4ee570a1a1c))
+- **native:** add new iconFont ([aa45d8a](https://github.com/p3ol/junipero/commit/aa45d8ad93132f7e27e74a17dd15450a7726a05e))
+- **native:** add new selectfields in storybook ([1404366](https://github.com/p3ol/junipero/commit/1404366f393365022e25781938400225e14a4b93))
+- **native:** add noResults case ([1041e6f](https://github.com/p3ol/junipero/commit/1041e6f569a9348b773f0be8c6416ee8d996c3db))
+- **native:** selectfield with object option and value enforced ([867536d](https://github.com/p3ol/junipero/commit/867536dffb14ab30cdf704bb8f12f515680f5419))
+- **wip:** add Alert component ([d59e66e](https://github.com/p3ol/junipero/commit/d59e66e575bcf74bf702d20597f21dca73b937ca))
+- new badge component ([a5a03ca](https://github.com/p3ol/junipero/commit/a5a03ca253d83aaf074978a1bdd4dc3cc001c643))
+- new card component ([5bbb263](https://github.com/p3ol/junipero/commit/5bbb26319cbead9909c68ba46a7d84efb9fba11e))
+- **native:** add selectfield component ([af6fa37](https://github.com/p3ol/junipero/commit/af6fa37d03535327aebbd93d3ce48d8e231343bb))
+- **native:** basic selectField ([ea0f20f](https://github.com/p3ol/junipero/commit/ea0f20fe98ace0e5b7b667a200985038ccc95419))
+- **native:** selectField with search ([b102975](https://github.com/p3ol/junipero/commit/b1029751063a0b68b6ab0841dbbf0f6e17972c41))
 
 # [2.0.0-alpha.9](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2020-10-05)
 
-
 ### Bug Fixes
 
-* **native:** fix missing Button import ([8c2db4f](https://github.com/p3ol/junipero/commit/8c2db4f6abfedd5760d6bb2410455b3808f524a3))
-
-
-
-
+- **native:** fix missing Button import ([8c2db4f](https://github.com/p3ol/junipero/commit/8c2db4f6abfedd5760d6bb2410455b3808f524a3))
 
 # [2.0.0-alpha.8](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2020-09-01)
 
-
 ### Bug Fixes
 
-* **utils:** fix wrongly replaced undefined values using cloneDeep ([d8e2b2c](https://github.com/p3ol/junipero/commit/d8e2b2c17e354d329370bfa6f44c74b438d147b6))
-
-
-
-
+- **utils:** fix wrongly replaced undefined values using cloneDeep ([d8e2b2c](https://github.com/p3ol/junipero/commit/d8e2b2c17e354d329370bfa6f44c74b438d147b6))
 
 # [2.0.0-alpha.7](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2020-08-11)
 
-
 ### Bug Fixes
 
-* **utils:** fix mising export ([83fe664](https://github.com/p3ol/junipero/commit/83fe664efeccc3045d74c680f53eca698029ef91))
-* **web:** add more exports ([975cbd5](https://github.com/p3ol/junipero/commit/975cbd51611ef133277d23d27495a7ad98aaf54b))
-
-
-
-
+- **utils:** fix mising export ([83fe664](https://github.com/p3ol/junipero/commit/83fe664efeccc3045d74c680f53eca698029ef91))
+- **web:** add more exports ([975cbd5](https://github.com/p3ol/junipero/commit/975cbd51611ef133277d23d27495a7ad98aaf54b))
 
 # [2.0.0-alpha.6](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2020-08-11)
 
-
 ### Features
 
-* **utils:** add cloneDeep util ([55a1dbf](https://github.com/p3ol/junipero/commit/55a1dbf286ecce13938da83ed3e7a66def47c1f0))
-
-
-
-
+- **utils:** add cloneDeep util ([55a1dbf](https://github.com/p3ol/junipero/commit/55a1dbf286ecce13938da83ed3e7a66def47c1f0))
 
 # [2.0.0-alpha.5](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2020-08-11)
 
-
 ### Features
 
-* **utils:** add some more utils ([bb23823](https://github.com/p3ol/junipero/commit/bb23823eb71ac4b3bc36b273198ee5ee931fe580))
-
-
-
-
+- **utils:** add some more utils ([bb23823](https://github.com/p3ol/junipero/commit/bb23823eb71ac4b3bc36b273198ee5ee931fe580))
 
 # [2.0.0-alpha.4](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2020-08-11)
 
-
 ### Bug Fixes
 
-* **native:** fix some names, add custom styles and remove useless lines ([35b74fb](https://github.com/p3ol/junipero/commit/35b74fb3000e0987060f1db2ec43326c461fa974))
-* **native:** remove useless code ([5070c88](https://github.com/p3ol/junipero/commit/5070c88a3fd726d4ef8a7050feac6756279459d7))
-
+- **native:** fix some names, add custom styles and remove useless lines ([35b74fb](https://github.com/p3ol/junipero/commit/35b74fb3000e0987060f1db2ec43326c461fa974))
+- **native:** remove useless code ([5070c88](https://github.com/p3ol/junipero/commit/5070c88a3fd726d4ef8a7050feac6756279459d7))
 
 ### Features
 
-* **native:** add basic theme to button component ([44eae02](https://github.com/p3ol/junipero/commit/44eae027948a7b226e9d8e58adba9664a4a172c7))
-* **native:** add button component (wip) ([31f61ca](https://github.com/p3ol/junipero/commit/31f61cab1c4ee661576c066c91ecd5520015d64d))
-* **native:** change Button base component & add tests ([06f6cc9](https://github.com/p3ol/junipero/commit/06f6cc9ba46aa35dc9d55184c64dc7c0b6ca2cbf))
-* **native:** fix few things according to requested changes ([ad1d678](https://github.com/p3ol/junipero/commit/ad1d678f9af31ddc271fe990b2060004075485e2))
-* **native:** wip add multiple default styles for button component & icons ([c4565bd](https://github.com/p3ol/junipero/commit/c4565bd058544b7e5b308a10cee69fcdb0e9a0c9))
-* **native:** working button component ([95e974d](https://github.com/p3ol/junipero/commit/95e974d4c7ef7e4ebfb67cebeb4a7952fe46331e))
-* **utils:** enable better tree shaking ([74b9223](https://github.com/p3ol/junipero/commit/74b9223a1482188858ceac6780490c3603ff0231))
-
-
-
-
+- **native:** add basic theme to button component ([44eae02](https://github.com/p3ol/junipero/commit/44eae027948a7b226e9d8e58adba9664a4a172c7))
+- **native:** add button component (wip) ([31f61ca](https://github.com/p3ol/junipero/commit/31f61cab1c4ee661576c066c91ecd5520015d64d))
+- **native:** change Button base component & add tests ([06f6cc9](https://github.com/p3ol/junipero/commit/06f6cc9ba46aa35dc9d55184c64dc7c0b6ca2cbf))
+- **native:** fix few things according to requested changes ([ad1d678](https://github.com/p3ol/junipero/commit/ad1d678f9af31ddc271fe990b2060004075485e2))
+- **native:** wip add multiple default styles for button component & icons ([c4565bd](https://github.com/p3ol/junipero/commit/c4565bd058544b7e5b308a10cee69fcdb0e9a0c9))
+- **native:** working button component ([95e974d](https://github.com/p3ol/junipero/commit/95e974d4c7ef7e4ebfb67cebeb4a7952fe46331e))
+- **utils:** enable better tree shaking ([74b9223](https://github.com/p3ol/junipero/commit/74b9223a1482188858ceac6780490c3603ff0231))
 
 # [2.0.0-alpha.3](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2020-07-27)
 
-
 ### Bug Fixes
 
-* **native:** allow testID overriding in the TextField component ([6113e4f](https://github.com/p3ol/junipero/commit/6113e4f5a0d185c2d0ebf323a258fbef2bffa64b))
-* **native:** create own test for testID overriding & define a default value for testID ([5637721](https://github.com/p3ol/junipero/commit/56377215e9c06ebd06451ebd758df00d3ea080b3))
-
-
-
-
+- **native:** allow testID overriding in the TextField component ([6113e4f](https://github.com/p3ol/junipero/commit/6113e4f5a0d185c2d0ebf323a258fbef2bffa64b))
+- **native:** create own test for testID overriding & define a default value for testID ([5637721](https://github.com/p3ol/junipero/commit/56377215e9c06ebd06451ebd758df00d3ea080b3))
 
 # [2.0.0-alpha.2](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2020-07-10)
 
-
 ### Bug Fixes
 
-* **web:** fix Dropdown popper modifiers order ([36aec76](https://github.com/p3ol/junipero/commit/36aec768865be1259d788defb69d417af73315c8))
-* **web:** replace DateField inner input with BaseField ([15ac5f1](https://github.com/p3ol/junipero/commit/15ac5f18918402e6140f878aa3f207738f3fa90b))
-* **web:** replace SelectField inner input with BaseField ([e6c3dec](https://github.com/p3ol/junipero/commit/e6c3decd5c2a39e85d666a3d34f3147309fb0b5a))
-
+- **web:** fix Dropdown popper modifiers order ([36aec76](https://github.com/p3ol/junipero/commit/36aec768865be1259d788defb69d417af73315c8))
+- **web:** replace DateField inner input with BaseField ([15ac5f1](https://github.com/p3ol/junipero/commit/15ac5f18918402e6140f878aa3f207738f3fa90b))
+- **web:** replace SelectField inner input with BaseField ([e6c3dec](https://github.com/p3ol/junipero/commit/e6c3decd5c2a39e85d666a3d34f3147309fb0b5a))
 
 ### Features
 
-* **web:** add BaseField component ([f9830d7](https://github.com/p3ol/junipero/commit/f9830d73f41f6d2dc0436b252b88b10d25f60921))
-
-
-
-
+- **web:** add BaseField component ([f9830d7](https://github.com/p3ol/junipero/commit/f9830d73f41f6d2dc0436b252b88b10d25f60921))
 
 # [2.0.0-alpha.1](https://github.com/p3ol/junipero/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-07-10)
 
-
 ### Bug Fixes
 
-* **native:** fix text field valid state not being updated alongside prop ([1cc8dfe](https://github.com/p3ol/junipero/commit/1cc8dfe50810af4b5418292906e3aef7e39901ba))
-* **web:** don't trigger onToggle event when clicking outside when menu is not opened ([158ce6b](https://github.com/p3ol/junipero/commit/158ce6b01ebca6cb12b2e3c8ea2415f73b6ac1b8))
-* **web:** fix text field valid state not being updated alongside prop ([6c55380](https://github.com/p3ol/junipero/commit/6c553807cb10a8937c269134a7e69c07ec3efa76))
-
-
-
-
+- **native:** fix text field valid state not being updated alongside prop ([1cc8dfe](https://github.com/p3ol/junipero/commit/1cc8dfe50810af4b5418292906e3aef7e39901ba))
+- **web:** don't trigger onToggle event when clicking outside when menu is not opened ([158ce6b](https://github.com/p3ol/junipero/commit/158ce6b01ebca6cb12b2e3c8ea2415f73b6ac1b8))
+- **web:** fix text field valid state not being updated alongside prop ([6c55380](https://github.com/p3ol/junipero/commit/6c553807cb10a8937c269134a7e69c07ec3efa76))
 
 # [2.0.0-alpha.0](https://github.com/p3ol/junipero/compare/v1.5.1...v2.0.0-alpha.0) (2020-07-09)
 
-
 ### Bug Fixes
 
-* **breadcrumb:** forward inner ref to parent ([5e15fd8](https://github.com/p3ol/junipero/commit/5e15fd85bb3a12c118fccf72d1efc08993b0a06c))
-* **checkbox:** fix missing props ([e3f824b](https://github.com/p3ol/junipero/commit/e3f824b5d58e8280fd256f82e26c268930401005))
-* **checkbox:** fix various styling ([1a34b4c](https://github.com/p3ol/junipero/commit/1a34b4c8cfd1d03815a0bde2b952a4661757586e))
-* **code-field:** fix missing args when calling validate method ([b35e831](https://github.com/p3ol/junipero/commit/b35e831e8cc36792c2721a2e1cc126ea7d27a5d7))
-* **color-field:** fix various wrong behaviors ([09010d9](https://github.com/p3ol/junipero/commit/09010d95d47c7a0609b33916070af61a331e6c12))
-* **core:** fix elements not sized to border-box ([bf0f679](https://github.com/p3ol/junipero/commit/bf0f679532ff01e5e27eabb9915fa4a879efd540))
-* **core:** fix missing export ([fc58020](https://github.com/p3ol/junipero/commit/fc58020c69f9c3f3df30ed00449eb90ddafc2820))
-* **core:** fix missing exports ([0db7237](https://github.com/p3ol/junipero/commit/0db72374b43deb025ba2574529189e7bdbff7bba))
-* **core:** fix missing exports ([524b766](https://github.com/p3ol/junipero/commit/524b7667d07ee7adba8e7b2194070da39201d6c4))
-* **date-field:** fix missing checks ([5d186c4](https://github.com/p3ol/junipero/commit/5d186c4aaa02b9e2cb0ff8eeac37ea5b4d86f00d))
-* **dropdown:** better click outside target check ([0f2684d](https://github.com/p3ol/junipero/commit/0f2684d14d2d51ef9785c9c9f8ba89584ad5460f))
-* **dropdown:** enable custom click outside target ([2edf45a](https://github.com/p3ol/junipero/commit/2edf45aed69918c2521f3acaf2ea716281e255b7))
-* **dropdown-item:** enable styling for focused elements ([70d9232](https://github.com/p3ol/junipero/commit/70d9232a65708d2edd51ea60f35b623c5b1f1a67))
-* **native:** add missing export ([435e433](https://github.com/p3ol/junipero/commit/435e4330bcd98173dfcc0812e9f1a83f1e75c133))
-* **native:** fix compilation ([d0cf849](https://github.com/p3ol/junipero/commit/d0cf8494dcd74a2630cb53f9e2f4f07ed095409b))
-* **native:** fix missing additional exports ([c82b5aa](https://github.com/p3ol/junipero/commit/c82b5aa94a0e01a84c3201251a0a129ba0a5f025))
-* **native:** fix missing multiline text field ([7c28951](https://github.com/p3ol/junipero/commit/7c28951b2521406f5afbc37413a81d88006ff0d4))
-* **select-field:** fix missing class ([b9cdee0](https://github.com/p3ol/junipero/commit/b9cdee0407da910ae1222552200ff42070ddf781))
-* **tags-field:** fix behavior with options ([2c43478](https://github.com/p3ol/junipero/commit/2c43478a7f92036e79b4d4330f56414a10505bf8))
-* **tags-field:** fix dropdown not closed when needed ([5291152](https://github.com/p3ol/junipero/commit/5291152af500301a110738208aa735714b2f3a72))
-* **tags-field:** fix various mistakes enlightened by tests ([a5b7849](https://github.com/p3ol/junipero/commit/a5b7849f64526cc62869b15d98f44c6d3aa03cb3))
-* **text-field:** fix missing className override ([4faad2a](https://github.com/p3ol/junipero/commit/4faad2aac4d4e34c9edb1500c0b034ffae2b93dc))
-* **text-field:** fix missing colors require ([b13905b](https://github.com/p3ol/junipero/commit/b13905b692c0ddb416e2fe0b70e7de2dc463709f))
-* **theme:** fix missing color ([7b61b1a](https://github.com/p3ol/junipero/commit/7b61b1a8d60c1dfe6ca892ffd6c714b46cc7349a))
-* **utils:** fix date helpers ([c6f12da](https://github.com/p3ol/junipero/commit/c6f12daadfc66fd387377224052a9169b9f8ad59))
-* **utils:** remove unused export ([acc936e](https://github.com/p3ol/junipero/commit/acc936eac6d35e52d806a39778b3bbc4a567d56f))
-* **web:** fix missing checked status from handle ([4c94734](https://github.com/p3ol/junipero/commit/4c947346115bd9bc42897f1abd43cefca4fbda24))
-* **web:** fix missing fonts ([c67d87d](https://github.com/p3ol/junipero/commit/c67d87dfb5c6101cbebf2b9d43d976eec29c4f73))
-* **web:** fix missing multiline text variant ([d132884](https://github.com/p3ol/junipero/commit/d132884df94fa4ef031a397e93f301d2ea02fe65))
-* fix linter issues ([fa30fec](https://github.com/p3ol/junipero/commit/fa30fecebc706694ce961386d93dcdde86d453bb))
-* fix linter issues ([0be4ec6](https://github.com/p3ol/junipero/commit/0be4ec6dc91ecd413ba2f00c059cea3019f1e7bd))
-* fix linter issues ([6a8a0bb](https://github.com/p3ol/junipero/commit/6a8a0bbd52c23ec90559760f3444f31d65a58c88))
-* upgrade peer react & react-dom to 16.8 with hooks ([e6dc4de](https://github.com/p3ol/junipero/commit/e6dc4de08e47d6c430cfc93d5d78dd2ef0c90bfc))
-
+- **breadcrumb:** forward inner ref to parent ([5e15fd8](https://github.com/p3ol/junipero/commit/5e15fd85bb3a12c118fccf72d1efc08993b0a06c))
+- **checkbox:** fix missing props ([e3f824b](https://github.com/p3ol/junipero/commit/e3f824b5d58e8280fd256f82e26c268930401005))
+- **checkbox:** fix various styling ([1a34b4c](https://github.com/p3ol/junipero/commit/1a34b4c8cfd1d03815a0bde2b952a4661757586e))
+- **code-field:** fix missing args when calling validate method ([b35e831](https://github.com/p3ol/junipero/commit/b35e831e8cc36792c2721a2e1cc126ea7d27a5d7))
+- **color-field:** fix various wrong behaviors ([09010d9](https://github.com/p3ol/junipero/commit/09010d95d47c7a0609b33916070af61a331e6c12))
+- **core:** fix elements not sized to border-box ([bf0f679](https://github.com/p3ol/junipero/commit/bf0f679532ff01e5e27eabb9915fa4a879efd540))
+- **core:** fix missing export ([fc58020](https://github.com/p3ol/junipero/commit/fc58020c69f9c3f3df30ed00449eb90ddafc2820))
+- **core:** fix missing exports ([0db7237](https://github.com/p3ol/junipero/commit/0db72374b43deb025ba2574529189e7bdbff7bba))
+- **core:** fix missing exports ([524b766](https://github.com/p3ol/junipero/commit/524b7667d07ee7adba8e7b2194070da39201d6c4))
+- **date-field:** fix missing checks ([5d186c4](https://github.com/p3ol/junipero/commit/5d186c4aaa02b9e2cb0ff8eeac37ea5b4d86f00d))
+- **dropdown:** better click outside target check ([0f2684d](https://github.com/p3ol/junipero/commit/0f2684d14d2d51ef9785c9c9f8ba89584ad5460f))
+- **dropdown:** enable custom click outside target ([2edf45a](https://github.com/p3ol/junipero/commit/2edf45aed69918c2521f3acaf2ea716281e255b7))
+- **dropdown-item:** enable styling for focused elements ([70d9232](https://github.com/p3ol/junipero/commit/70d9232a65708d2edd51ea60f35b623c5b1f1a67))
+- **native:** add missing export ([435e433](https://github.com/p3ol/junipero/commit/435e4330bcd98173dfcc0812e9f1a83f1e75c133))
+- **native:** fix compilation ([d0cf849](https://github.com/p3ol/junipero/commit/d0cf8494dcd74a2630cb53f9e2f4f07ed095409b))
+- **native:** fix missing additional exports ([c82b5aa](https://github.com/p3ol/junipero/commit/c82b5aa94a0e01a84c3201251a0a129ba0a5f025))
+- **native:** fix missing multiline text field ([7c28951](https://github.com/p3ol/junipero/commit/7c28951b2521406f5afbc37413a81d88006ff0d4))
+- **select-field:** fix missing class ([b9cdee0](https://github.com/p3ol/junipero/commit/b9cdee0407da910ae1222552200ff42070ddf781))
+- **tags-field:** fix behavior with options ([2c43478](https://github.com/p3ol/junipero/commit/2c43478a7f92036e79b4d4330f56414a10505bf8))
+- **tags-field:** fix dropdown not closed when needed ([5291152](https://github.com/p3ol/junipero/commit/5291152af500301a110738208aa735714b2f3a72))
+- **tags-field:** fix various mistakes enlightened by tests ([a5b7849](https://github.com/p3ol/junipero/commit/a5b7849f64526cc62869b15d98f44c6d3aa03cb3))
+- **text-field:** fix missing className override ([4faad2a](https://github.com/p3ol/junipero/commit/4faad2aac4d4e34c9edb1500c0b034ffae2b93dc))
+- **text-field:** fix missing colors require ([b13905b](https://github.com/p3ol/junipero/commit/b13905b692c0ddb416e2fe0b70e7de2dc463709f))
+- **theme:** fix missing color ([7b61b1a](https://github.com/p3ol/junipero/commit/7b61b1a8d60c1dfe6ca892ffd6c714b46cc7349a))
+- **utils:** fix date helpers ([c6f12da](https://github.com/p3ol/junipero/commit/c6f12daadfc66fd387377224052a9169b9f8ad59))
+- **utils:** remove unused export ([acc936e](https://github.com/p3ol/junipero/commit/acc936eac6d35e52d806a39778b3bbc4a567d56f))
+- **web:** fix missing checked status from handle ([4c94734](https://github.com/p3ol/junipero/commit/4c947346115bd9bc42897f1abd43cefca4fbda24))
+- **web:** fix missing fonts ([c67d87d](https://github.com/p3ol/junipero/commit/c67d87dfb5c6101cbebf2b9d43d976eec29c4f73))
+- **web:** fix missing multiline text variant ([d132884](https://github.com/p3ol/junipero/commit/d132884df94fa4ef031a397e93f301d2ea02fe65))
+- fix linter issues ([fa30fec](https://github.com/p3ol/junipero/commit/fa30fecebc706694ce961386d93dcdde86d453bb))
+- fix linter issues ([0be4ec6](https://github.com/p3ol/junipero/commit/0be4ec6dc91ecd413ba2f00c059cea3019f1e7bd))
+- fix linter issues ([6a8a0bb](https://github.com/p3ol/junipero/commit/6a8a0bbd52c23ec90559760f3444f31d65a58c88))
+- upgrade peer react & react-dom to 16.8 with hooks ([e6dc4de](https://github.com/p3ol/junipero/commit/e6dc4de08e47d6c430cfc93d5d78dd2ef0c90bfc))
 
 ### Features
 
-* **button:** add all color schemes ([11aadb6](https://github.com/p3ol/junipero/commit/11aadb62caadf24ea8d05c659f7987f2866e504f))
-* **checkbox:** add new CheckboxField component ([e3d4bf5](https://github.com/p3ol/junipero/commit/e3d4bf5eb11a178ebb72d7a573ed611b9ec00c4a))
-* **codefield:** add CodeField component ([4884efb](https://github.com/p3ol/junipero/commit/4884efba30544a61225cab802401a12c61db76c4))
-* **core:** add new mockState util to simulate setState within useReducer ([a9a3022](https://github.com/p3ol/junipero/commit/a9a302224a4980e505487eee30ce73918a003a6c))
-* **core:** add new useEventListener hook ([d24dbb3](https://github.com/p3ol/junipero/commit/d24dbb34e6d84418a4a91b588ae079264ed15d2f))
-* **core:** add new useTimeout hook ([d6b3d3f](https://github.com/p3ol/junipero/commit/d6b3d3f68649eac35bc94fd4ad62c2414a682cfc))
-* **date-field:** add new DateField component ([ee0cc52](https://github.com/p3ol/junipero/commit/ee0cc52b2e0269f7e1f145e633d158b6eab4ee94))
-* **dropdown:** add new Dropdown, DropdownToggle, DropdownMenu & DropdownItem components ([6b29874](https://github.com/p3ol/junipero/commit/6b298748ac2b641eea78cd364f4e3759673939ee))
-* **dropdown-menu:** add css apparition mode ([647f694](https://github.com/p3ol/junipero/commit/647f6940c8a1c69b8dcea3ce89d2eed0f1924585))
-* **dropdown-toggle:** add manual trigger ([0964e17](https://github.com/p3ol/junipero/commit/0964e17b2a46cf66613826c3593b574fb42d7ce2))
-* **junipero:** add new SliderField component ([c715fff](https://github.com/p3ol/junipero/commit/c715ffff960ce0589e440d63323accc8dfecabb8))
-* **loader:** add Loader component ([d0dd07d](https://github.com/p3ol/junipero/commit/d0dd07dfcd3ba338200aadbc4b35ff7ac97fd01d))
-* **modal:** add modal component ([98ba46e](https://github.com/p3ol/junipero/commit/98ba46e4821d1b47cee685077b72c011331446ec))
-* **native:** add CheckboxField component ([9eca372](https://github.com/p3ol/junipero/commit/9eca3725e07a16a9c015b585ca07d9161174a184))
-* **native:** add fancy CheckboxField component ([97140e7](https://github.com/p3ol/junipero/commit/97140e727d28a540132686b7af6265bbfd4af3ba))
-* **native:** add fonts ([876264b](https://github.com/p3ol/junipero/commit/876264bbbf51351ba2b9ec241bc816c53c3dade7))
-* **native:** add TextField component ([755618a](https://github.com/p3ol/junipero/commit/755618a0e4ca2490d7121e13c2cc5e4b94b39c88))
-* **select-field:** add SelectField component ([baafdd0](https://github.com/p3ol/junipero/commit/baafdd0b29797b1cebb6225105a1891392316b41))
-* **select-field:** add SelectField component ([d128b4c](https://github.com/p3ol/junipero/commit/d128b4c62a097429b256141e7f2adffc30dc00b8))
-* **tabs:** add Tabs & Tab components ([3b62f08](https://github.com/p3ol/junipero/commit/3b62f084b58e64ecf6d34f884b04c7acffd8f815))
-* **tags-field:** add TagsField component ([7bddd06](https://github.com/p3ol/junipero/commit/7bddd068b1c4a45676c742544355be766eb5502d))
-* **text-field:** add new TextField component ([a4b17c1](https://github.com/p3ol/junipero/commit/a4b17c190677f748c1524c10eaae8acc6f5ebc08))
-* **toggle-field:** add ToggleField component ([5df290a](https://github.com/p3ol/junipero/commit/5df290adb76c694866b376d3f346b870957f1931))
-* **tooltip:** add Tooltip component ([e623932](https://github.com/p3ol/junipero/commit/e623932b2f6b4808872637bcbee72a82176be348))
-* **utils:** add isNull, isUndefined & exists helpers ([0d61e08](https://github.com/p3ol/junipero/commit/0d61e080c25c6286b1610f51145a74c65dc66252))
-* **utils:** add new ensureNode helper ([3668b29](https://github.com/p3ol/junipero/commit/3668b29bd2ee9ac196a32c7e6984e4711a595b6e))
-* add basic button ([55952d0](https://github.com/p3ol/junipero/commit/55952d008d38c7c7a2c65aaa8e4d8428a8ebf39f))
-* add BreadCrumb component ([0bce289](https://github.com/p3ol/junipero/commit/0bce28974797108edeb650e1d8360b672c126abc))
-* export more usefull helpers ([b1ce306](https://github.com/p3ol/junipero/commit/b1ce306b63585be548a75cfebac91e7e37ad6e18))
-
-
-
-
+- **button:** add all color schemes ([11aadb6](https://github.com/p3ol/junipero/commit/11aadb62caadf24ea8d05c659f7987f2866e504f))
+- **checkbox:** add new CheckboxField component ([e3d4bf5](https://github.com/p3ol/junipero/commit/e3d4bf5eb11a178ebb72d7a573ed611b9ec00c4a))
+- **codefield:** add CodeField component ([4884efb](https://github.com/p3ol/junipero/commit/4884efba30544a61225cab802401a12c61db76c4))
+- **core:** add new mockState util to simulate setState within useReducer ([a9a3022](https://github.com/p3ol/junipero/commit/a9a302224a4980e505487eee30ce73918a003a6c))
+- **core:** add new useEventListener hook ([d24dbb3](https://github.com/p3ol/junipero/commit/d24dbb34e6d84418a4a91b588ae079264ed15d2f))
+- **core:** add new useTimeout hook ([d6b3d3f](https://github.com/p3ol/junipero/commit/d6b3d3f68649eac35bc94fd4ad62c2414a682cfc))
+- **date-field:** add new DateField component ([ee0cc52](https://github.com/p3ol/junipero/commit/ee0cc52b2e0269f7e1f145e633d158b6eab4ee94))
+- **dropdown:** add new Dropdown, DropdownToggle, DropdownMenu & DropdownItem components ([6b29874](https://github.com/p3ol/junipero/commit/6b298748ac2b641eea78cd364f4e3759673939ee))
+- **dropdown-menu:** add css apparition mode ([647f694](https://github.com/p3ol/junipero/commit/647f6940c8a1c69b8dcea3ce89d2eed0f1924585))
+- **dropdown-toggle:** add manual trigger ([0964e17](https://github.com/p3ol/junipero/commit/0964e17b2a46cf66613826c3593b574fb42d7ce2))
+- **junipero:** add new SliderField component ([c715fff](https://github.com/p3ol/junipero/commit/c715ffff960ce0589e440d63323accc8dfecabb8))
+- **loader:** add Loader component ([d0dd07d](https://github.com/p3ol/junipero/commit/d0dd07dfcd3ba338200aadbc4b35ff7ac97fd01d))
+- **modal:** add modal component ([98ba46e](https://github.com/p3ol/junipero/commit/98ba46e4821d1b47cee685077b72c011331446ec))
+- **native:** add CheckboxField component ([9eca372](https://github.com/p3ol/junipero/commit/9eca3725e07a16a9c015b585ca07d9161174a184))
+- **native:** add fancy CheckboxField component ([97140e7](https://github.com/p3ol/junipero/commit/97140e727d28a540132686b7af6265bbfd4af3ba))
+- **native:** add fonts ([876264b](https://github.com/p3ol/junipero/commit/876264bbbf51351ba2b9ec241bc816c53c3dade7))
+- **native:** add TextField component ([755618a](https://github.com/p3ol/junipero/commit/755618a0e4ca2490d7121e13c2cc5e4b94b39c88))
+- **select-field:** add SelectField component ([baafdd0](https://github.com/p3ol/junipero/commit/baafdd0b29797b1cebb6225105a1891392316b41))
+- **select-field:** add SelectField component ([d128b4c](https://github.com/p3ol/junipero/commit/d128b4c62a097429b256141e7f2adffc30dc00b8))
+- **tabs:** add Tabs & Tab components ([3b62f08](https://github.com/p3ol/junipero/commit/3b62f084b58e64ecf6d34f884b04c7acffd8f815))
+- **tags-field:** add TagsField component ([7bddd06](https://github.com/p3ol/junipero/commit/7bddd068b1c4a45676c742544355be766eb5502d))
+- **text-field:** add new TextField component ([a4b17c1](https://github.com/p3ol/junipero/commit/a4b17c190677f748c1524c10eaae8acc6f5ebc08))
+- **toggle-field:** add ToggleField component ([5df290a](https://github.com/p3ol/junipero/commit/5df290adb76c694866b376d3f346b870957f1931))
+- **tooltip:** add Tooltip component ([e623932](https://github.com/p3ol/junipero/commit/e623932b2f6b4808872637bcbee72a82176be348))
+- **utils:** add isNull, isUndefined & exists helpers ([0d61e08](https://github.com/p3ol/junipero/commit/0d61e080c25c6286b1610f51145a74c65dc66252))
+- **utils:** add new ensureNode helper ([3668b29](https://github.com/p3ol/junipero/commit/3668b29bd2ee9ac196a32c7e6984e4711a595b6e))
+- add basic button ([55952d0](https://github.com/p3ol/junipero/commit/55952d008d38c7c7a2c65aaa8e4d8428a8ebf39f))
+- add BreadCrumb component ([0bce289](https://github.com/p3ol/junipero/commit/0bce28974797108edeb650e1d8360b672c126abc))
+- export more usefull helpers ([b1ce306](https://github.com/p3ol/junipero/commit/b1ce306b63585be548a75cfebac91e7e37ad6e18))
 
 ### Changelog
 
@@ -1215,44 +1879,39 @@ All notable changes to this project will be documented in this file. Dates are d
 
 Generated by [`auto-changelog`](https://github.com/CookPete/auto-changelog).
 
-
 ### [1.6.1](https://github.com/p3ol/junipero/compare/v1.6.0...v1.6.1) (2021-03-31)
-
 
 ### Bug Fixes
 
-* **datePicker:** repair tests ([bb53838](https://github.com/p3ol/junipero/commit/bb5383819f9c2227407a3c6b4f04b8a0ac6e4145))
-* **datePicker:** set day to first of the month to avoid months jumps ([c7f9219](https://github.com/p3ol/junipero/commit/c7f921952683ab34ed2ea69bd856f4e4a1488977))
-* **deps:** update dependency core-js to v3.10.0 ([b3709ef](https://github.com/p3ol/junipero/commit/b3709eff4949438dc70363b720fa02a9eea000ab))
-* **deps:** update dependency core-js to v3.7.0 ([2485e9c](https://github.com/p3ol/junipero/commit/2485e9cf94f404f85c99e78d8378ce73a5d73039))
-* **deps:** update dependency core-js to v3.8.0 ([d58ac88](https://github.com/p3ol/junipero/commit/d58ac88a682c12bc7eae7d30d9607532b9dbf7ad))
-* **deps:** update dependency core-js to v3.8.1 ([b5c56e1](https://github.com/p3ol/junipero/commit/b5c56e1efa7d94a701199f140f32796fc25f32b4))
-* **deps:** update dependency core-js to v3.8.2 ([8c778dd](https://github.com/p3ol/junipero/commit/8c778ddd37923dd9151b55320856f777b611a477))
-* **deps:** update dependency core-js to v3.8.3 ([e04725a](https://github.com/p3ol/junipero/commit/e04725a69f97a81edadf06af35d57455ec3f010f))
-* **deps:** update dependency core-js to v3.9.0 ([b750c11](https://github.com/p3ol/junipero/commit/b750c11543028127889a997af2166992fe1d159f))
-* **deps:** update dependency core-js to v3.9.1 ([4c9c838](https://github.com/p3ol/junipero/commit/4c9c838576fb649bad51f7642e255a35e77c2a1f))
+- **datePicker:** repair tests ([bb53838](https://github.com/p3ol/junipero/commit/bb5383819f9c2227407a3c6b4f04b8a0ac6e4145))
+- **datePicker:** set day to first of the month to avoid months jumps ([c7f9219](https://github.com/p3ol/junipero/commit/c7f921952683ab34ed2ea69bd856f4e4a1488977))
+- **deps:** update dependency core-js to v3.10.0 ([b3709ef](https://github.com/p3ol/junipero/commit/b3709eff4949438dc70363b720fa02a9eea000ab))
+- **deps:** update dependency core-js to v3.7.0 ([2485e9c](https://github.com/p3ol/junipero/commit/2485e9cf94f404f85c99e78d8378ce73a5d73039))
+- **deps:** update dependency core-js to v3.8.0 ([d58ac88](https://github.com/p3ol/junipero/commit/d58ac88a682c12bc7eae7d30d9607532b9dbf7ad))
+- **deps:** update dependency core-js to v3.8.1 ([b5c56e1](https://github.com/p3ol/junipero/commit/b5c56e1efa7d94a701199f140f32796fc25f32b4))
+- **deps:** update dependency core-js to v3.8.2 ([8c778dd](https://github.com/p3ol/junipero/commit/8c778ddd37923dd9151b55320856f777b611a477))
+- **deps:** update dependency core-js to v3.8.3 ([e04725a](https://github.com/p3ol/junipero/commit/e04725a69f97a81edadf06af35d57455ec3f010f))
+- **deps:** update dependency core-js to v3.9.0 ([b750c11](https://github.com/p3ol/junipero/commit/b750c11543028127889a997af2166992fe1d159f))
+- **deps:** update dependency core-js to v3.9.1 ([4c9c838](https://github.com/p3ol/junipero/commit/4c9c838576fb649bad51f7642e255a35e77c2a1f))
 
 ## [1.6.0](https://github.com/p3ol/junipero/compare/v1.5.1...v1.6.0) (2020-10-09)
 
-
 ### Features
 
-* **examples:** add radiofield examples ([4efc00c](https://github.com/p3ol/junipero/commit/4efc00c36f6eeac3560a3acaf3ce5b9aea504bd0))
-* **lib:** add radiofield component ([610b448](https://github.com/p3ol/junipero/commit/610b44864abcf7ea82ab56a72479d7a05fb32ae6))
-* **radiofield:** add a label as a prop ([e97ade6](https://github.com/p3ol/junipero/commit/e97ade6b0a0486dbedc5deb56de4b95aa3758dc8))
-* **radiofield:** add a labeled example ([a903259](https://github.com/p3ol/junipero/commit/a90325955f02879997925e2701df1638182b971e))
-* **radiofield:** trigger onchange method after component being mounted ([f00015a](https://github.com/p3ol/junipero/commit/f00015a29180752a1b043398e4e4150b6e1af4bf))
-
+- **examples:** add radiofield examples ([4efc00c](https://github.com/p3ol/junipero/commit/4efc00c36f6eeac3560a3acaf3ce5b9aea504bd0))
+- **lib:** add radiofield component ([610b448](https://github.com/p3ol/junipero/commit/610b44864abcf7ea82ab56a72479d7a05fb32ae6))
+- **radiofield:** add a label as a prop ([e97ade6](https://github.com/p3ol/junipero/commit/e97ade6b0a0486dbedc5deb56de4b95aa3758dc8))
+- **radiofield:** add a labeled example ([a903259](https://github.com/p3ol/junipero/commit/a90325955f02879997925e2701df1638182b971e))
+- **radiofield:** trigger onchange method after component being mounted ([f00015a](https://github.com/p3ol/junipero/commit/f00015a29180752a1b043398e4e4150b6e1af4bf))
 
 ### Bug Fixes
 
-* **chore:** handle postcss-loader changes ([38818fd](https://github.com/p3ol/junipero/commit/38818fd692bf0dfb09ae32106e98bee9ec645fc1))
-* **deps:** update dependency @babel/runtime-corejs3 to v7.11.2 ([24afdb6](https://github.com/p3ol/junipero/commit/24afdb6dcb6547a0f1356c7fbf12afa702ebfe92))
-* **radiofield:** fix missing end of file ([9bbe12b](https://github.com/p3ol/junipero/commit/9bbe12b738543d3fefc6c1141cfc687eb5d6b28c))
-* fix enzyme/jsdom fuckup on focus state with testing-library ([390b5b4](https://github.com/p3ol/junipero/commit/390b5b4c1a1509da41bdc438e2610cd79ff1704e))
-* fix linter issues ([fa30fec](https://github.com/p3ol/junipero/commit/fa30fecebc706694ce961386d93dcdde86d453bb))
-* fix linter issues ([6a8a0bb](https://github.com/p3ol/junipero/commit/6a8a0bbd52c23ec90559760f3444f31d65a58c88))
-
+- **chore:** handle postcss-loader changes ([38818fd](https://github.com/p3ol/junipero/commit/38818fd692bf0dfb09ae32106e98bee9ec645fc1))
+- **deps:** update dependency @babel/runtime-corejs3 to v7.11.2 ([24afdb6](https://github.com/p3ol/junipero/commit/24afdb6dcb6547a0f1356c7fbf12afa702ebfe92))
+- **radiofield:** fix missing end of file ([9bbe12b](https://github.com/p3ol/junipero/commit/9bbe12b738543d3fefc6c1141cfc687eb5d6b28c))
+- fix enzyme/jsdom fuckup on focus state with testing-library ([390b5b4](https://github.com/p3ol/junipero/commit/390b5b4c1a1509da41bdc438e2610cd79ff1704e))
+- fix linter issues ([fa30fec](https://github.com/p3ol/junipero/commit/fa30fecebc706694ce961386d93dcdde86d453bb))
+- fix linter issues ([6a8a0bb](https://github.com/p3ol/junipero/commit/6a8a0bbd52c23ec90559760f3444f31d65a58c88))
 
 #### [v1.5.1](https://github.com/p3ol/junipero/compare/v1.5.0...v1.5.1)
 
