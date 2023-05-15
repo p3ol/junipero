@@ -1089,6 +1089,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **typings:** add optional mark on all props ([0e0da1d](https://github.com/p3ol/junipero/commit/0e0da1da2fc9c1339a8592d453829bf98482cb0b))
 
 
+# [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
+
+
+**Note:** Version bump only for package junipero
+
 # [2.0.0-rc.23](https://github.com/p3ol/junipero/compare/v2.0.0-rc.22...v2.0.0-rc.23) (2022-11-09)
 
 

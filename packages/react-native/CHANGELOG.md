@@ -39,6 +39,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @junipero/react-native
 
+# [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
+
+**Note:** Version bump only for package @poool/junipero-native
+
 # [2.0.0-rc.22](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v2.0.0-rc.22) (2022-11-09)
 
 **Note:** Version bump only for package @poool/junipero-native

@@ -120,6 +120,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **hooks:** allow to conditionally enable or disable timers ([d8fe8c3](https://github.com/p3ol/junipero/commit/d8fe8c3aec9b347340ad89e794f45aa05786c9a5))
 
+
+# [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
+
+
+**Note:** Version bump only for package @poool/junipero-hooks
+
 # [2.0.0-rc.22](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v2.0.0-rc.22) (2022-11-09)
 
 

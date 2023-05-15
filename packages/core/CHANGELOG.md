@@ -8,9 +8,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 **Note:** Version bump only for package @junipero/core
 
 
-
-
-
 # [3.0.0-beta.10](https://github.com/p3ol/junipero/compare/v3.0.0-beta.9...v3.0.0-beta.10) (2023-03-30)
 
 
@@ -130,6 +127,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 - **core:** add filterDeep & findDeep array helpers ([4dbf63c](https://github.com/p3ol/junipero/commit/4dbf63cd5d061219ac3ca17ea4d3c3f557c6d420))
+
+
+# [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
+
+**Note:** Version bump only for package @poool/junipero-utils
 
 
 # [2.0.0-rc.22](https://github.com/p3ol/junipero/compare/v2.0.0-rc.21...v2.0.0-rc.22) (2022-11-09)
