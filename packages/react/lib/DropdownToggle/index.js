@@ -13,7 +13,7 @@ const DropdownToggle = forwardRef(({
   children,
 }, ref) => {
   const innerRef = useRef();
-  const { opened, reference, getReferenceProps } = useDropdown();
+  const { opened, refs, getReferenceProps } = useDropdown();
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -26,7 +26,7 @@ const DropdownToggle = forwardRef(({
     className: classNames(child.props.className, 'dropdown-toggle', { opened }),
     ref: r => {
       innerRef.current = r?.isJunipero ? r.innerRef.current : r;
-      reference(r?.isJunipero ? r.innerRef.current : r);
+      refs.setReference(r?.isJunipero ? r.innerRef.current : r);
     },
     ...getReferenceProps({ onClick: child.props.onClick }),
   });

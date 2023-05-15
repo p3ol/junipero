@@ -47,7 +47,7 @@ const Tooltip = forwardRef(({
     visible: opened ?? false,
   });
 
-  const { x, y, reference, floating, strategy, context, update } = useFloating({
+  const { x, y, refs, strategy, context, update } = useFloating({
     open: state.opened,
     onOpenChange: (...args) => onOpenChange(...args),
     placement,
@@ -136,12 +136,12 @@ const Tooltip = forwardRef(({
 
   const setReference = r => {
     handleRef.current = r?.isJunipero ? r.innerRef.current : r;
-    reference(r?.isJunipero ? r.innerRef.current : r);
+    refs.setReference(r?.isJunipero ? r.innerRef.current : r);
   };
 
   const setFloatingRef = r => {
     innerRef.current = r;
-    floating(r);
+    refs.setFloating(r);
   };
 
   const onAnimationExit = () => {

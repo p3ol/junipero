@@ -16,7 +16,7 @@ const DropdownMenu = forwardRef(({
   const {
     x,
     y,
-    floating,
+    refs,
     strategy,
     opened,
     visible,
@@ -43,7 +43,7 @@ const DropdownMenu = forwardRef(({
   const content = (
     <div
       { ...rest }
-      ref={floating}
+      ref={refs.setFloating}
       style={{
         position: strategy,
         top: y ?? 0,

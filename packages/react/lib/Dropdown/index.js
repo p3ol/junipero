@@ -42,7 +42,7 @@ const Dropdown = forwardRef(({
     opened: opened ?? false,
     visible: opened ?? false,
   });
-  const { x, y, reference, floating, strategy, context } = useFloating({
+  const { x, y, refs, strategy, context } = useFloating({
     open: state.opened,
     onOpenChange: (...args) => onOpenChange(...args),
     placement,
@@ -135,8 +135,7 @@ const Dropdown = forwardRef(({
     container,
     x,
     y,
-    reference,
-    floating,
+    refs,
     strategy,
     toggle,
     open,
@@ -149,8 +148,7 @@ const Dropdown = forwardRef(({
     state.visible,
     x,
     y,
-    reference,
-    floating,
+    refs,
     strategy,
   ]);
 
