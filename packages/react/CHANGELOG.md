@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/p3ol/junipero/compare/v3.0.0-beta.14...v3.0.0) (2023-05-15)
+
+
+### Bug Fixes
+
+* floating ui latest update compatibility ([14cdefb](https://github.com/p3ol/junipero/commit/14cdefb7ff514d1f5473d79f11f5c9d75f78105e))
+* update various dependencies ([2b80e70](https://github.com/p3ol/junipero/commit/2b80e7060de9689c70fea794f4f5b1d5cbabddab))
+
+
+
+
+
 # [3.0.0-beta.14](https://github.com/p3ol/junipero/compare/v3.0.0-beta.13...v3.0.0-beta.14) (2023-05-05)
 
 
