@@ -1,0 +1,65 @@
+.stepper
+  display: flex
+  width: 100%
+  justify-content: space-around
+  align-items: center
+  padding: 10px 50px
+
+  .step
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  .circle
+    position: relative
+    display: flex
+    align-items: center
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    border-style: solid
+    border-color: var(--junipero-velvet-seashell)
+    background-color: var(--junipero-velvet-disabled)
+    color: var(--junipero-seashell)
+    border-width: 11px
+
+    &.completed
+      background-color: var(--junipero-seashell)
+      border-color: var(--junipero-velvet)
+      display: flex
+      align-items: center
+      justify-content: center
+
+      &.with-icon
+        background-color: var(--junipero-velvet)
+
+    &.active
+      background-color: var(--junipero-seashell)
+      border-color: var(--junipero-velvet-hover)
+
+    i
+      font-size: 15px
+
+  .details
+    position: absolute
+    background: none
+    display: flex
+    text-align: center
+    flex-direction: column
+    color: var(--junipero-velvet-disabled)
+    font-size: 10px
+    min-width: 50px
+    margin-top: 35px
+    white-space: nowrap
+
+    &.completed
+      color: var(--junipero-velvet)
+
+    .name
+      color: var(--junipero-onyx)
+      font-size: 14px
+
+  .divider:not(:last-child)
+    flex-grow: 1
+    border-bottom: 1px solid var(--junipero-velvet)
+    margin: 5px

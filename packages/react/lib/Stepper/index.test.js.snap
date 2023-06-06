@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Stepper /> should display an icon if the parameter is passed 1`] = `
+<div>
+  <div>
+    <div
+      class="junipero stepper"
+    >
+      <div
+        class="step"
+      >
+        <div
+          class="circle active with-icon"
+        />
+        <div
+          class="details active"
+        >
+          <span>
+            Step 1
+          </span>
+          <span
+            class="name"
+          >
+            Description 1
+          </span>
+        </div>
+      </div>
+      <span
+        class="divider"
+      />
+      <div
+        class="step"
+      >
+        <div
+          class="circle with-icon"
+        />
+        <div
+          class="details"
+        >
+          <span>
+            Step 2
+          </span>
+          <span
+            class="name"
+          >
+            Description 2
+          </span>
+        </div>
+      </div>
+      <span
+        class="divider"
+      />
+      <div
+        class="step"
+      >
+        <div
+          class="circle with-icon"
+        />
+        <div
+          class="details"
+        >
+          <span>
+            Step 3
+          </span>
+          <span
+            class="name"
+          >
+            Description 3
+          </span>
+        </div>
+      </div>
+      <span
+        class="divider"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Stepper /> should render 1`] = `
+<div>
+  <div>
+    <div
+      class="junipero stepper"
+    >
+      <div
+        class="step"
+      >
+        <div
+          class="circle active"
+        />
+        <div
+          class="details active"
+        >
+          <span>
+            Step 1
+          </span>
+          <span
+            class="name"
+          >
+            Description 1
+          </span>
+        </div>
+      </div>
+      <span
+        class="divider"
+      />
+      <div
+        class="step"
+      >
+        <div
+          class="circle"
+        />
+        <div
+          class="details"
+        >
+          <span>
+            Step 2
+          </span>
+          <span
+            class="name"
+          >
+            Description 2
+          </span>
+        </div>
+      </div>
+      <span
+        class="divider"
+      />
+      <div
+        class="step"
+      >
+        <div
+          class="circle"
+        />
+        <div
+          class="details"
+        >
+          <span>
+            Step 3
+          </span>
+          <span
+            class="name"
+          >
+            Description 3
+          </span>
+        </div>
+      </div>
+      <span
+        class="divider"
+      />
+    </div>
+  </div>
+</div>
+`;
