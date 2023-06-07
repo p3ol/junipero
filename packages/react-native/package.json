@@ -1,6 +1,6 @@
 {
   "name": "@junipero/react-native",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "🏔 Junipero Design System React Native components",
   "main": "dist/junipero-react-native.cjs.js",
   "jsnext:main": "dist/esm/index.js",
