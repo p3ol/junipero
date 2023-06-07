@@ -19,7 +19,7 @@
   "sideEffects": false,
   "engines": {
     "node": ">= 14",
-    "yarn": ">= 1"
+    "yarn": "1"
   },
   "peerDependencies": {
     "react": "^18.0.0",
