@@ -1,45 +1,71 @@
-import { Fragment } from 'react';
-import { classNames } from '@junipero/react';
+import {
+  cloneElement,
+  forwardRef,
+  useMemo,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 
-const Stepper = ({ currentStep, steps = [], icon, ...rest }) => {
+import Step from '../Step';
+
+const Stepper = forwardRef(({
+  active,
+  steps,
+  children,
+  icon,
+  ...rest
+}, ref) => {
+
+  const innerRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    steps,
+    active,
+    icon,
+    isJunipero: true,
+    innerRef,
+  }));
+
+  const getStepStatus = i => {
+    switch (true) {
+      case i < active:
+        return 'completed';
+      case i === active:
+        return 'active';
+      default:
+        return '';
+    }
+  };
+
+  const availableSteps = useMemo(() => (
+    steps
+      ? steps.map((t, i) => (
+        <Step
+          status={getStepStatus(i)}
+          key={i}
+          title={t.title}
+          icon={t.icon || icon}
+        >
+          { t.content }
+        </Step>
+      )) : children.map((t, i) =>
+        cloneElement(t, { status: getStepStatus(i), key: i }
+        ))
+  ), [steps, children]);
+
   return (
-    <div {...rest}>
+    <div {...rest} ref={innerRef}>
       <div className="junipero stepper">
-        { Object.values(steps).map((step, index) => (
-          <Fragment key={index}>
-            <div className="step">
-              <div
-                className={classNames(
-                  'circle',
-                  index === currentStep && 'active',
-                  index < currentStep && 'completed',
-                  icon && 'with-icon',
-                )}
-              >
-                { index < currentStep && icon}
-              </div>
-              <div className={classNames(
-                'details',
-                index === currentStep && 'active',
-                index < currentStep && 'completed',
-              )}
-              >
-                <span>{ step.title }</span>
-                <span className="name">{ step.description }</span>
-              </div>
-            </div>
-            <span className="divider" />
-          </Fragment>
-        ))}
+        { availableSteps }
       </div>
     </div>
   );
-};
+});
 
 Stepper.displayName = 'Stepper';
 Stepper.propTypes = {
-  currentStep: PropTypes.oneOfType([
+  active: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
