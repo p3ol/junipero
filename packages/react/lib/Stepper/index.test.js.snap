@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Stepper /> should display an icon if the parameter is passed 1`] = `
+exports[`<Stepper /> should display a different icon per step 1`] = `
 <div>
   <div>
     <div
@@ -10,74 +10,77 @@ exports[`<Stepper /> should display an icon if the parameter is passed 1`] = `
         class="step"
       >
         <div
-          class="circle active with-icon"
-        />
-        <div
-          class="details active"
+          class="content"
         >
-          <span>
-            Step 1
-          </span>
-          <span
-            class="name"
+          <div
+            class="circle active"
+          />
+          <div
+            class="details active"
           >
-            Description 1
-          </span>
+            <span>
+              Step 1
+            </span>
+            <span
+              class="name"
+            >
+              Description 1
+            </span>
+          </div>
         </div>
       </div>
-      <span
-        class="divider"
-      />
       <div
         class="step"
       >
         <div
-          class="circle with-icon"
-        />
-        <div
-          class="details"
+          class="content"
         >
-          <span>
-            Step 2
-          </span>
-          <span
-            class="name"
+          <div
+            class="circle"
+          />
+          <div
+            class="details"
           >
-            Description 2
-          </span>
+            <span>
+              Step 2
+            </span>
+            <span
+              class="name"
+            >
+              Description 2
+            </span>
+          </div>
         </div>
       </div>
-      <span
-        class="divider"
-      />
       <div
         class="step"
       >
         <div
-          class="circle with-icon"
-        />
-        <div
-          class="details"
+          class="content"
         >
-          <span>
-            Step 3
-          </span>
-          <span
-            class="name"
+          <div
+            class="circle"
+          />
+          <div
+            class="details"
           >
-            Description 3
-          </span>
+            <span>
+              Step 3
+            </span>
+            <span
+              class="name"
+            >
+              Description 3
+            </span>
+          </div>
         </div>
       </div>
-      <span
-        class="divider"
-      />
     </div>
   </div>
 </div>
 `;
 
-exports[`<Stepper /> should render 1`] = `
+exports[`<Stepper /> should render step children with each status 1`] = `
 <div>
   <div>
     <div
@@ -87,68 +90,145 @@ exports[`<Stepper /> should render 1`] = `
         class="step"
       >
         <div
-          class="circle active"
-        />
-        <div
-          class="details active"
+          class="content"
         >
-          <span>
-            Step 1
-          </span>
-          <span
-            class="name"
+          <div
+            class="circle completed"
+          />
+          <div
+            class="details completed"
           >
-            Description 1
-          </span>
+            <span>
+              Step 1
+            </span>
+            <span
+              class="name"
+            >
+              Description 1
+            </span>
+          </div>
         </div>
       </div>
-      <span
-        class="divider"
-      />
       <div
         class="step"
       >
         <div
-          class="circle"
-        />
-        <div
-          class="details"
+          class="content"
         >
-          <span>
-            Step 2
-          </span>
-          <span
-            class="name"
+          <div
+            class="circle active"
+          />
+          <div
+            class="details active"
           >
-            Description 2
-          </span>
+            <span>
+              Step 2
+            </span>
+            <span
+              class="name"
+            >
+              Description 2
+            </span>
+          </div>
         </div>
       </div>
-      <span
-        class="divider"
-      />
       <div
         class="step"
       >
         <div
-          class="circle"
-        />
-        <div
-          class="details"
+          class="content"
         >
-          <span>
-            Step 3
-          </span>
-          <span
-            class="name"
+          <div
+            class="circle"
+          />
+          <div
+            class="details"
           >
-            Description 3
-          </span>
+            <span>
+              Step 3
+            </span>
+            <span
+              class="name"
+            >
+              Description 3
+            </span>
+          </div>
         </div>
       </div>
-      <span
-        class="divider"
-      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Stepper /> should render steps prop with each status 1`] = `
+<div>
+  <div>
+    <div
+      class="junipero stepper"
+    >
+      <div
+        class="step"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="circle completed"
+          />
+          <div
+            class="details completed"
+          >
+            <span>
+              Step 1
+            </span>
+            <span
+              class="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="step"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="circle active"
+          />
+          <div
+            class="details active"
+          >
+            <span>
+              Step 2
+            </span>
+            <span
+              class="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="step"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="circle"
+          />
+          <div
+            class="details"
+          >
+            <span>
+              Step 3
+            </span>
+            <span
+              class="name"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
