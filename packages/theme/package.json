@@ -1,6 +1,6 @@
 {
   "name": "@junipero/theme",
-  "version": "3.0.0-beta.12",
+  "version": "3.0.2",
   "description": "🏔 Junipero Design System Common Theme",
   "main": "dist/junipero.min.css",
   "cdn": "dist/junipero.min.css",
@@ -14,7 +14,7 @@
   "sideEffects": false,
   "engines": {
     "node": ">= 14",
-    "yarn": ">= 1"
+    "yarn": "1"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",
