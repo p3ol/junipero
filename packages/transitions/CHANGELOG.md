@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/p3ol/junipero/compare/v3.0.2...v3.1.0) (2023-06-21)
+
+
+### Features
+
+* **deps:** update dependency core-js to v3.31.0 ([fb60fe9](https://github.com/p3ol/junipero/commit/fb60fe9811608b760034ae4ccebc39df87b5d325))
+
+
+
+
+
 ## [3.0.2](https://github.com/p3ol/junipero/compare/v3.0.1...v3.0.2) (2023-06-07)
 
 **Note:** Version bump only for package @junipero/transitions

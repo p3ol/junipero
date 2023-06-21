@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/p3ol/junipero/compare/v3.0.2...v3.1.0) (2023-06-21)
+
+
+### Bug Fixes
+
+* **react:** fix code according to last review ([da986e2](https://github.com/p3ol/junipero/commit/da986e2db640ba56f6ef1dcb2b7c2d2dab96cf3e))
+
+
+### Features
+
+* **react:** add stepper component ([876cff1](https://github.com/p3ol/junipero/commit/876cff1a7e6d0071ad36ffbf97900f241f61a65a))
+
+
+
+
+
 ## [3.0.2](https://github.com/p3ol/junipero/compare/v3.0.1...v3.0.2) (2023-06-07)
 
 **Note:** Version bump only for package @junipero/theme
