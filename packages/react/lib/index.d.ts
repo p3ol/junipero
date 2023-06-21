@@ -96,6 +96,8 @@ export { default as RadioField, RadioFieldRef } from './RadioField';
 export { default as SelectField, SelectFieldRef } from './SelectField';
 export { default as Slider, SliderRef } from './Slider';
 export { default as Spinner } from './Spinner';
+export { default as Step, StepRef } from './Step';
+export { default as Stepper, StepperRef } from './Stepper';
 export { default as Tab, TabRef } from './Tab';
 export { default as Tabs, TabsRef } from './Tabs';
 export { default as Tag, TagRef } from './Tag';

@@ -24,6 +24,8 @@ export { default as ListItem } from './ListItem';
 export { default as Modal } from './Modal';
 export { default as Slider } from './Slider';
 export { default as Spinner } from './Spinner';
+export { default as Step } from './Step';
+export { default as Stepper } from './Stepper';
 export { default as Tab } from './Tab';
 export { default as Tabs } from './Tabs';
 export { default as Tag } from './Tag';
