@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: yarn
       - name: Install deps
         run: yarn install
       - name: Eslint check
@@ -33,12 +34,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: yarn
       - name: Install deps
         run: yarn install
       - name: Test
         run: yarn test --forceExit
       - name: Codecov upload
-        uses: codecov/codecov-action@v3.1.1
+        uses: codecov/codecov-action@v3.1.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -52,6 +54,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: yarn
       - name: Install deps
         run: yarn install
       - name: Build

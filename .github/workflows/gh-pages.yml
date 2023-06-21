@@ -26,6 +26,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: yarn
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Install and build
@@ -38,4 +39,4 @@ jobs:
           path: './storybook-static'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2

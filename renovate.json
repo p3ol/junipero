@@ -2,12 +2,33 @@
   "extends": [
     "config:base"
   ],
+  "baseBranches": [
+    "master",
+    "develop"
+  ],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 12,
   "packageRules": [{
-    "updateTypes": ["patch", "pin"],
-    "depTypeList": ["devDependencies", "dependencies"],
+    "matchUpdateTypes": ["patch", "pin"],
+    "matchDepTypes": ["devDependencies", "dependencies"],
     "automerge": true
   }, {
-    "packagePatterns": ["^@poool/eslint"],
+    "matchUpdateTypes": ["major","minor"],
+    "matchBaseBranches": ["master"],
+    "enabled": false
+  }, {
+    "matchUpdateTypes": ["patch"],
+    "matchBaseBranches": ["develop"],
+    "enabled": false
+  }, {
+    "matchUpdateTypes": ["minor","major"],
+    "matchDepTypes": ["dependencies"],
+    "semanticCommitType": "feat"
+  }, {
+    "matchDepTypes": ["devDependencies"],
+    "prPriority": -1
+  }, {
+    "matchPackagePatterns": ["^@poool/eslint"],
     "groupName": "poool eslint monorepo"
   }]
 }

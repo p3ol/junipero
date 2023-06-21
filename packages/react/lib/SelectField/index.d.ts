@@ -51,6 +51,7 @@ declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
     isTag?: boolean;
     isValue?: boolean;
     isOption?: boolean;
+    isGroup?: boolean;
   }): string;
   parseValue?(option: any): any;
   ref?: MutableRefObject<SelectFieldRef | undefined>;

@@ -22,7 +22,7 @@ const Tab = forwardRef(({
         'tab',
         className,
       )}
-      ref={ref}
+      ref={innerRef}
     />
   );
 });

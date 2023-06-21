@@ -1,10 +1,13 @@
 <div align="center">
 
+<br />
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://cdn.junipero.design/v3/logo/junipero-logo-dark.svg" />
   <img src="https://cdn.junipero.design/v3/logo/junipero-logo.svg" height="50" />
 </picture>
 
+<br />
 <br />
 
 [![GitHub](https://img.shields.io/github/license/p3ol/junipero.svg)](https://github.com/p3ol/junipero)
@@ -17,7 +20,7 @@
 
 -----------
 
-# ⚠ v2 has been in pre-release for 2 years and v3 is now ready for production, so v2 will be released as a major for maintenance purposes only. If you're using v1, please don't upgrade to v2 and wait for v3 to be released. v2 docs are available at https://v2.junipero.design
+### You are looking at v3 docs (https://beta.junipero.design). If you need, v2 docs are still available at https://v2.junipero.design.
 
 -----------
 

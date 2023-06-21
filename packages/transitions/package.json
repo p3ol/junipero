@@ -1,6 +1,6 @@
 {
   "name": "@junipero/transitions",
-  "version": "3.0.0-beta.11",
+  "version": "3.0.2",
   "description": "🏔 Junipero Design System React Transitions",
   "main": "dist/junipero-transitions.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -18,15 +18,15 @@
   "sideEffects": false,
   "engines": {
     "node": ">= 14",
-    "yarn": ">= 1"
+    "yarn": "1"
   },
   "peerDependencies": {
-    "@junipero/react": "^3.0.0-alpha.13",
+    "@junipero/react": "^3.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.21.5",
-    "core-js": "3.30.2"
+    "@babel/runtime-corejs3": "7.22.5",
+    "core-js": "3.31.0"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",
