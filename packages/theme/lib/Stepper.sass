@@ -1,4 +1,9 @@
-.stepper
+.junipero.stepper
+  --main-color: var(--junipero-velvet)
+  --current-color: var(--junipero-velvet-hover)
+  --disabled-color: var(--junipero-velvet-disabled)
+  --icons-color: var(--junipero-seashell)
+
   display: flex
   justify-content: space-around
   padding: 40px 50px
@@ -6,69 +11,75 @@
   .step
     display: flex
     align-items: center
+    flex-grow: 1
 
-    &:not(:last-child)
-      flex-grow: 1
-
-    &:not(:last-child):after
+    &:after
       content: ""
-      border-bottom: 1px solid var(--junipero-velvet)
       margin: 5px
       width: 100%
+      height: 1px
+      background: var(--main-color)
+
+    &:last-child
+      flex-grow: 0
+
+      &:after
+        display: none
 
     .content
       display: flex
       justify-content: center
 
-  .circle
-    display: flex
-    align-items: center
-    width: 30px
-    height: 30px
-    border-radius: 50%
-    border-style: solid
-    border-color: var(--junipero-seashell)
-    background-color: var(--junipero-velvet-disabled)
-    color: var(--junipero-seashell)
-    border-width: 11px
-
-    &.completed
-      background-color: var(--junipero-seashell)
-      border-color: var(--junipero-velvet)
+    .step-icon
       display: flex
+      align-items: center
       justify-content: center
+      width: 30px
+      height: 30px
+      border-radius: 50%
+      background-color: transparent
+      overflow: hidden
 
-      &.with-icon
-        background-color: var(--junipero-velvet)
+      &:after
+        content: ''
+        width: 8px
+        height: 8px
+        border-radius: 50%
+        background-color: var(--disabled-color)
+
+      .junipero.icon.check
+        width: 14px
+        height: 10px
+
+    .step-details
+      background: none
+      position: absolute
+      display: flex
+      text-align: center
+      flex-direction: column
+      color: var(--disabled-color)
+      font-size: 10px
+      min-width: 50px
+      margin-top: 35px
+      white-space: nowrap
 
     &.active
-      background-color: var(--junipero-seashell)
-      border-color: var(--junipero-velvet-hover)
+      .step-icon
+        background-color: var(--current-color)
 
-    i
-      font-size: 16px
+        &:after
+          background-color: var(--icons-color)
 
-  .details
-    background: none
-    position: absolute
-    display: flex
-    text-align: center
-    flex-direction: column
-    color: var(--junipero-velvet-disabled)
-    font-size: 10px
-    min-width: 50px
-    margin-top: 35px
-    white-space: nowrap
+      .step-details
+        color: var(--current-color)
 
     &.completed
-      color: var(--junipero-velvet)
+      .step-icon
+        color: var(--icons-color)
+        background-color: var(--main-color)
 
-    .name
-      color: var(--junipero-onyx)
-      font-size: 14px
+        &:after
+          display: none
 
-  .divider:not(:last-child)
-    flex-grow: 1
-    border-bottom: 1px solid var(--junipero-velvet)
-    margin: 5px
-
+      .step-details
+        color: var(--main-color)

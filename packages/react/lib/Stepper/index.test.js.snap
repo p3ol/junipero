@@ -7,22 +7,22 @@ exports[`<Stepper /> should display a different icon per step 1`] = `
       class="junipero stepper"
     >
       <div
-        class="step"
+        class="step active"
       >
         <div
           class="content"
         >
           <div
-            class="circle active"
+            class="step-icon"
           />
           <div
-            class="details active"
+            class="junipero extra step-details"
           >
             <span>
               Step 1
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             >
               Description 1
             </span>
@@ -36,16 +36,16 @@ exports[`<Stepper /> should display a different icon per step 1`] = `
           class="content"
         >
           <div
-            class="circle"
+            class="step-icon"
           />
           <div
-            class="details"
+            class="junipero extra step-details"
           >
             <span>
               Step 2
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             >
               Description 2
             </span>
@@ -59,16 +59,16 @@ exports[`<Stepper /> should display a different icon per step 1`] = `
           class="content"
         >
           <div
-            class="circle"
+            class="step-icon"
           />
           <div
-            class="details"
+            class="junipero extra step-details"
           >
             <span>
               Step 3
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             >
               Description 3
             </span>
@@ -87,22 +87,33 @@ exports[`<Stepper /> should render step children with each status 1`] = `
       class="junipero stepper"
     >
       <div
-        class="step"
+        class="step completed"
       >
         <div
           class="content"
         >
           <div
-            class="circle completed"
-          />
+            class="step-icon"
+          >
+            <svg
+              class="junipero icon check"
+              height="7"
+              viewBox="0 0 10 7"
+              width="10"
+            >
+              <path
+                d="M1.75259 3.49582L4.25675 6L8.24741 1"
+              />
+            </svg>
+          </div>
           <div
-            class="details completed"
+            class="junipero extra step-details"
           >
             <span>
               Step 1
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             >
               Description 1
             </span>
@@ -110,22 +121,22 @@ exports[`<Stepper /> should render step children with each status 1`] = `
         </div>
       </div>
       <div
-        class="step"
+        class="step active"
       >
         <div
           class="content"
         >
           <div
-            class="circle active"
+            class="step-icon"
           />
           <div
-            class="details active"
+            class="junipero extra step-details"
           >
             <span>
               Step 2
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             >
               Description 2
             </span>
@@ -139,16 +150,16 @@ exports[`<Stepper /> should render step children with each status 1`] = `
           class="content"
         >
           <div
-            class="circle"
+            class="step-icon"
           />
           <div
-            class="details"
+            class="junipero extra step-details"
           >
             <span>
               Step 3
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             >
               Description 3
             </span>
@@ -167,43 +178,54 @@ exports[`<Stepper /> should render steps prop with each status 1`] = `
       class="junipero stepper"
     >
       <div
-        class="step"
+        class="step completed"
       >
         <div
           class="content"
         >
           <div
-            class="circle completed"
-          />
+            class="step-icon"
+          >
+            <svg
+              class="junipero icon check"
+              height="7"
+              viewBox="0 0 10 7"
+              width="10"
+            >
+              <path
+                d="M1.75259 3.49582L4.25675 6L8.24741 1"
+              />
+            </svg>
+          </div>
           <div
-            class="details completed"
+            class="junipero extra step-details"
           >
             <span>
               Step 1
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             />
           </div>
         </div>
       </div>
       <div
-        class="step"
+        class="step active"
       >
         <div
           class="content"
         >
           <div
-            class="circle active"
+            class="step-icon"
           />
           <div
-            class="details active"
+            class="junipero extra step-details"
           >
             <span>
               Step 2
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             />
           </div>
         </div>
@@ -215,16 +237,16 @@ exports[`<Stepper /> should render steps prop with each status 1`] = `
           class="content"
         >
           <div
-            class="circle"
+            class="step-icon"
           />
           <div
-            class="details"
+            class="junipero extra step-details"
           >
             <span>
               Step 3
             </span>
             <span
-              class="name"
+              class="junipero secondary name"
             />
           </div>
         </div>
