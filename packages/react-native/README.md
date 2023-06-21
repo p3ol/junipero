@@ -42,9 +42,9 @@ These libraries are not bundled with Junipero and required at runtime:
 - [react](https://www.npmjs.com/package/react)
 - [react-native](https://www.npmjs.com/package/react-native)
 
-## [Documentation](https://beta.junipero.design)
+## [Documentation](https://junipero.design)
 
-https://beta.junipero.design
+https://junipero.design
 
 ## Contributing
 

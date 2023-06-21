@@ -35,7 +35,7 @@ export default ({ className, disabled }) => (
 This package is not really intended for public usage.
 Use it at your own risks.
 
-https://beta.junipero.design/components/core-utils
+https://junipero.design/components/core-utils
 
 ## Contributing
 

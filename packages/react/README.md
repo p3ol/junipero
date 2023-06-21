@@ -38,9 +38,9 @@ These libraries are not bundled with Junipero and required at runtime:
 - [react](https://www.npmjs.com/package/react)
 - [react-dom](https://www.npmjs.com/package/react-dom)
 
-## [Documentation](https://beta.junipero.design/components)
+## [Documentation](https://junipero.design/components)
 
-https://beta.junipero.design/components
+https://junipero.design/components
 
 ## Contributing
 

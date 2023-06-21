@@ -33,9 +33,9 @@ module.exports = {
 };
 ```
 
-## [Documentation](https://beta.junipero.design/foundations)
+## [Documentation](https://junipero.design/foundations)
 
-https://beta.junipero.design/foundations
+https://junipero.design/foundations
 
 ## Contributing
 

@@ -41,9 +41,9 @@ If you need to tree-shake some unneeded styles, you can import every component/u
 
 The full list is available inside the `dist/css` folder.
 
-## [Documentation](https://beta.junipero.design/foundations)
+## [Documentation](https://junipero.design/foundations)
 
-https://beta.junipero.design/foundations
+https://junipero.design/foundations
 
 ## Contributing
 
