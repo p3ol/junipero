@@ -75,7 +75,7 @@
     "react-native": "0.71.11",
     "react-native-web": "0.19.5",
     "react-test-renderer": "18.2.0",
-    "rollup": "3.25.1",
+    "rollup": "3.25.2",
     "rollup-plugin-dts": "5.3.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "sass": "1.63.6",
