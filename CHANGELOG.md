@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/p3ol/junipero/compare/v3.1.0...v3.1.1) (2023-06-26)
+
+
+### Bug Fixes
+
+* **react:** typo preventing group titles from being parsed ([aab8b3a](https://github.com/p3ol/junipero/commit/aab8b3a8ef941b696b33d654e6eda53ce9e4a6d0))
+
+
+
+
+
 # [3.1.0](https://github.com/p3ol/junipero/compare/v3.0.2...v3.1.0) (2023-06-21)
 
 
