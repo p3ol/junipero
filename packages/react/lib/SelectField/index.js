@@ -367,7 +367,7 @@ const SelectField = forwardRef(({
     }
 
     return (
-      <DropdownGroup key={i} title={parseTitle(group.title, { isGroup: true })}>
+      <DropdownGroup key={i} title={parseTitle(group, { isGroup: true })}>
         { opts.map((o, n) => renderOption(o, n)) }
       </DropdownGroup>
     );
