@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/p3ol/junipero/compare/v3.1.1...v3.1.2) (2023-06-29)
+
+
+### Bug Fixes
+
+* remove horizontal passing on stepper ([6633824](https://github.com/p3ol/junipero/commit/663382478b1237a4009184b9b9ee5e9e4c62e94f))
+
+
+
+
+
 ## [3.1.1](https://github.com/p3ol/junipero/compare/v3.1.0...v3.1.1) (2023-06-26)
 
 
