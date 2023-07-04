@@ -22,7 +22,7 @@
     "yarn": "1"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.22.5",
+    "@babel/runtime-corejs3": "7.22.6",
     "core-js": "3.31.0"
   },
   "scripts": {
