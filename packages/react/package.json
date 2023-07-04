@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.22.6",
-    "@floating-ui/react": "0.24.3",
+    "@floating-ui/react": "0.24.5",
     "core-js": "3.31.0",
     "prop-types": "15.8.1"
   },
