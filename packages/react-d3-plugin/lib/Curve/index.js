@@ -82,7 +82,7 @@ const Curve = forwardRef(({
       .select(lineRef.current)
       .datum(isMonoData ? [...yData, ...yData] : yData)
       .attr('d', d3
-        .area()
+        .line()
         .curve(curve)
         .x((d, i) => isMonoData
           ? Math.min(width - paddingRight - paddingLeft, i * width)
