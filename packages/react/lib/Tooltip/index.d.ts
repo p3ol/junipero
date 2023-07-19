@@ -18,7 +18,7 @@ export declare type TooltipRef = {
   isJunipero: boolean;
 };
 
-declare interface TooltipProps extends ComponentPropsWithRef<any> {
+export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   apparition?: string;
   children?: ReactNode | JSX.Element;
   className?: string;

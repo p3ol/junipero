@@ -156,7 +156,6 @@ const Chart = forwardRef(({
   };
 
   const getContext = useCallback(() => ({
-    innerRef,
     axis,
     width: state.width,
     height: state.height,
@@ -166,7 +165,6 @@ const Chart = forwardRef(({
     paddingBottom: state.paddingBottom,
     cursor: state.cursor,
   }), [
-    innerRef,
     axis,
     state.width,
     state.height,
@@ -211,14 +209,12 @@ Chart.propTypes = {
     data: PropTypes.arrayOf(PropTypes.any),
     min: PropTypes.any,
     max: PropTypes.any,
-    findSelection: PropTypes.func,
+    findSelectionIndex: PropTypes.func,
     parseTitle: PropTypes.func,
-    parseSelection: PropTypes.func,
     ticks: PropTypes.number,
     tickSize: PropTypes.number,
     grid: PropTypes.bool,
-  }),),
-  granularity: PropTypes.oneOf(['day', 'month', 'year']),
+  })).isRequired,
   linearDomainMaxMargin: PropTypes.number,
 };
 

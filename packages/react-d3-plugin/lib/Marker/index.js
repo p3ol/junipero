@@ -23,7 +23,7 @@ const Marker = forwardRef(({
     const xAxis = axis[xAxisIndex];
     const position = xAxis.range.invert(cursor.x);
 
-    const xIndex = axis[xAxisIndex]?.findSelection?.(position);
+    const xIndex = axis[xAxisIndex]?.findSelectionIndex?.(position);
     const xValue = xAxis?.domain?.(xAxis?.data?.[xIndex]);
 
     const yValue = Math.min(...series

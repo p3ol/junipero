@@ -105,6 +105,8 @@ const Axis = forwardRef(({
   );
 });
 
+d3.scaleTime().domain([]).range([]);
+
 Axis.displayName = 'Axis';
 Axis.propTypes = {
   axis: PropTypes.shape({
@@ -126,7 +128,7 @@ Axis.propTypes = {
     ticks: PropTypes.number,
     tickSize: PropTypes.number,
     grid: PropTypes.bool,
-  }),
+  }).isRequired,
 };
 
 export default Axis;

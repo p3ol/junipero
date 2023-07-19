@@ -52,7 +52,7 @@ const Curve = forwardRef(({
   }));
 
   useEffect(() => {
-    if (!xAxis?.range || !xAxis?.findSelection || !cursor) {
+    if (!xAxis?.range || !xAxis?.findSelectionIndex || !cursor) {
       setSelected();
 
       return;
@@ -60,8 +60,8 @@ const Curve = forwardRef(({
 
     const position = xAxis.range.invert(cursor.x);
     setSelected([
-      xAxis?.data[xAxis.findSelection(position)],
-      (serie || yAxis?.data || [])[xAxis.findSelection(position)],
+      xAxis?.data[xAxis.findSelectionIndex(position)],
+      (serie || yAxis?.data || [])[xAxis.findSelectionIndex(position)],
     ]);
   }, [cursor, xAxis, yAxis, serie]);
 
@@ -179,7 +179,6 @@ Curve.propTypes = {
   type: PropTypes.oneOf(['line', 'area']),
   xAxisIndex: PropTypes.number.isRequired,
   yAxisIndex: PropTypes.number.isRequired,
-  parseSelection: PropTypes.func,
   curve: PropTypes.oneOf([
     d3.curveLinear,
     d3.curveLinearClosed,

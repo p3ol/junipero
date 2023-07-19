@@ -28,7 +28,7 @@ const axis = [{
   type: d3.axisBottom,
   scale: d3.scaleTime,
   data: data.map(d => d[0]),
-  findSelection: position =>
+  findSelectionIndex: position =>
     closestIndexTo(position, data.map(d => d[0])),
   parseTitle: d => d.toLocaleDateString(),
   ticks: null,

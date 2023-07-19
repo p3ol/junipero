@@ -9,15 +9,17 @@ import dts from 'rollup-plugin-dts';
 
 const input = './lib/index.js';
 const output = './dist';
-const name = 'junipero-react';
+const name = 'junipero-react-d3-plugin';
 const formats = ['umd', 'cjs', 'esm'];
 
 const defaultExternals = [
-  'react', 'react-dom',
+  'react', 'react-dom', 'd3', '@junipero/react',
 ];
 const defaultGlobals = {
   react: 'React',
   'react-dom': 'ReactDOM',
+  d3: 'd3',
+  '@junipero/react': 'JuniperoReact',
 };
 
 const defaultPlugins = [
@@ -30,6 +32,7 @@ const defaultPlugins = [
     entries: {
       '@junipero/core': path.resolve('../core/lib'),
       '@junipero/hooks': path.resolve('../hooks/lib'),
+      '@junipero/react': path.resolve('../react/lib'),
     },
   }),
   resolve({
@@ -64,6 +67,8 @@ export default [
             return 'core';
           } else if (/packages\/hooks/.test(id)) {
             return 'hooks';
+          } else if (/packages\/react\//.test(id)) {
+            return 'react';
           } else if (id.includes('node_modules')) {
             return 'vendor';
           } else {
