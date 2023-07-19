@@ -116,8 +116,8 @@ const Chart = forwardRef(({
     const rect = innerRef.current.getBoundingClientRect();
 
     dispatch({
-      width: rect.width,
-      height: rect.height,
+      width: rect.width || innerRef.current.clientWidth || styles.width,
+      height: rect.height || innerRef.current.clientHeight || styles.height,
       paddingLeft: parseInt(styles.paddingLeft || 0, 10),
       paddingRight: parseInt(styles.paddingRight || 0, 10),
       paddingTop: parseInt(styles.paddingTop || 0, 10),
