@@ -182,7 +182,7 @@ const Chart = forwardRef(({
         className={classNames('junipero chart', className)}
         ref={innerRef}
       >
-        { axis.map((a, i) => (
+        { axis.filter(a => !!a).map((a, i) => (
           <Axis key={i} axis={a} />
         )) }
         { children }
