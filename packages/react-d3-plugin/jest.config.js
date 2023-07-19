@@ -15,6 +15,12 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
+  transformIgnorePatterns: [
+    '/node_modules/(?!(' +
+      // thx d3
+      'd3|d3-array|internmap|delaunator|robust-predicates' +
+    '))',
+  ],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [],
   snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
