@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
+import { Tooltip } from '@junipero/react';
+import PropTypes from 'prop-types';
 
 import { useChart } from '../hooks';
 
@@ -7,16 +8,14 @@ const Marker = forwardRef(({
   series,
   yAxisIndexes,
   xAxisIndex = 0,
+  tooltip,
+  tooltipProps,
 }, ref) => {
   const innerRef = useRef();
+  const tooltipRef = useRef();
   const { axis, cursor, height, paddingBottom, paddingLeft } = useChart();
 
-  useImperativeHandle(ref, () => ({
-    innerRef,
-    isJunipero: true,
-  }));
-
-  const [x, y] = useMemo(() => {
+  const { position, xIndex, x, y } = useMemo(() => {
     if (!cursor) {
       return [0, 0];
     }
@@ -35,14 +34,29 @@ const Marker = forwardRef(({
         axis[i]?.domain?.(axis[i]?.data?.[xIndex]))
     );
 
-    return [xValue || 0, yValue || 0];
+    return {
+      position,
+      xIndex,
+      x: xValue || 0,
+      y: yValue || 0,
+    };
   }, [yAxisIndexes, xAxisIndex, cursor, series]);
+
+  useImperativeHandle(ref, () => ({
+    innerRef,
+    tooltipRef,
+    position,
+    xIndex,
+    x,
+    y,
+    isJunipero: true,
+  }));
 
   if (!cursor) {
     return null;
   }
 
-  return (
+  const markerContent = (
     <g
       ref={innerRef}
       className="junipero marker"
@@ -56,6 +70,18 @@ const Marker = forwardRef(({
       />
     </g>
   );
+
+  return tooltip ? (
+    <Tooltip
+      ref={tooltipRef}
+      text={tooltip({ position, xIndex })}
+      container={tooltipProps?.container || 'body'}
+      opened={true}
+      {...tooltipProps}
+    >
+      { markerContent }
+    </Tooltip>
+  ) : markerContent;
 });
 
 Marker.displayName = 'Marker';
@@ -63,6 +89,8 @@ Marker.propTypes = {
   series: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.any)),
   xAxisIndex: PropTypes.number,
   yAxisIndexes: PropTypes.arrayOf(PropTypes.number),
+  tooltip: PropTypes.func,
+  tooltipProps: PropTypes.object,
 };
 
 export default Marker;

@@ -33,15 +33,17 @@ export {
   stringifyColor,
   addMonths,
   subMonths,
+  startOfYear,
+  endOfYear,
   startOfMonth,
   endOfMonth,
+  startOfDay,
+  endOfDay,
   getDaysInMonth,
+  closestIndexTo,
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
-  startOfDay,
-  endOfDay,
-  closestIndexTo,
 } from '@junipero/core';
 
 export {

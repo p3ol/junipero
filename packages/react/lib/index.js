@@ -92,6 +92,8 @@ export {
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
+  startOfYear,
+  endOfYear,
   startOfMonth,
   endOfMonth,
   startOfDay,

@@ -42,6 +42,8 @@ export {
 export {
   addMonths,
   subMonths,
+  startOfYear,
+  endOfYear,
   startOfMonth,
   endOfMonth,
   startOfDay,

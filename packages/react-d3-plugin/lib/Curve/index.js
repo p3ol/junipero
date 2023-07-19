@@ -80,12 +80,12 @@ const Curve = forwardRef(({
     // Line
     d3
       .select(lineRef.current)
-      .datum(isMonoData ? [yData, yData] : yData)
+      .datum(isMonoData ? [...yData, ...yData] : yData)
       .attr('d', d3
-        .line()
+        .area()
         .curve(curve)
         .x((d, i) => isMonoData
-          ? Math.max(paddingLeft, i * (width - paddingRight))
+          ? Math.min(width - paddingRight - paddingLeft, i * width)
           : xAxis.range(d[0]) - paddingLeft
         )
         .y(d => yAxis.range(d[1] ?? 0))
@@ -117,22 +117,24 @@ const Curve = forwardRef(({
       // Area
       d3
         .select(areaRef.current)
-        .datum(isMonoData ? [yData, yData] : yData)
+        .datum(isMonoData ? [...yData, ...yData] : yData)
         .attr('d', d3
           .area()
           .curve(curve)
           .x((d, i) => isMonoData
-            ? Math.max(paddingLeft, i * (width - paddingRight))
+            ? Math.min(width - paddingRight - paddingLeft, i * width)
             : xAxis.range(d[0]) - paddingLeft
           )
           .y0(height - paddingBottom)
-          .y1(d => Math.min(height - paddingBottom, yAxis.range(d[1] ?? 0)))
+          .y1(d => yAxis.range(d[1] ?? 0))
         )
         .style('fill', 'url(#gradient)');
     }
   }, [
     xAxis,
+    xAxis?.data,
     yAxis,
+    yAxis?.data,
     height,
     paddingLeft,
     paddingRight,

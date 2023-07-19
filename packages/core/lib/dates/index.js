@@ -1,17 +1,31 @@
 import { exists } from '../core';
 
+export const startOfYear = date => {
+  const d = new Date(date);
+  d.setMonth(0, 1);
+
+  return startOfMonth(d);
+};
+
+export const endOfYear = date => {
+  const d = new Date(date);
+  d.setMonth(11, 31);
+
+  return endOfMonth(d);
+};
+
 export const startOfMonth = date => {
   const d = new Date(date);
   d.setDate(1);
 
-  return d;
+  return startOfDay(d);
 };
 
 export const endOfMonth = date => {
   const d = addMonths(date, 1);
   d.setDate(0);
 
-  return d;
+  return endOfDay(d);
 };
 
 export const startOfDay = data => {

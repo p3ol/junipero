@@ -7,12 +7,17 @@ import {
   useReducer,
   useRef,
 } from 'react';
-import { classNames, mockState, useEventListener } from '@junipero/react';
+import {
+  classNames,
+  mockState,
+  startOfDay,
+  endOfDay,
+  useEventListener,
+} from '@junipero/react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 
 import { ChartContext } from '../contexts';
-import { getAxisTimeRange } from '../utils';
 import Axis from '../Axis';
 
 const Chart = forwardRef(({
@@ -20,7 +25,7 @@ const Chart = forwardRef(({
   className,
   redrawThreshold = 10,
   axis: axisProp,
-  granularity = 'day',
+  linearDomainMaxMargin = 1.3,
   ...rest
 }, ref) => {
   const innerRef = useRef();
@@ -44,13 +49,17 @@ const Chart = forwardRef(({
 
     switch (a.scale) {
       case d3.scaleTime:
-        domain = d3
-          .scaleTime()
-          .domain(getAxisTimeRange(a.data, {
-            granularity,
-            from: a.min ?? d3.min(a.data),
-            to: a.max ?? d3.max(a.data),
-          }));
+        domain = d3.scaleTime().domain(d3.extent(d3.timeDay.range(
+          startOfDay(a.min ?? d3.min(a.data)),
+          endOfDay(a.max ?? d3.max(a.data)),
+          1
+        )));
+        break;
+      case d3.scaleLinear:
+        domain = a.scale().domain([
+          a.min ?? d3.min(a.data),
+          (a.max ?? d3.max(a.data)) * linearDomainMaxMargin,
+        ]);
         break;
       default:
         domain = a.scale().domain([
@@ -210,6 +219,7 @@ Chart.propTypes = {
     grid: PropTypes.bool,
   }),),
   granularity: PropTypes.oneOf(['day', 'month', 'year']),
+  linearDomainMaxMargin: PropTypes.number,
 };
 
 export default Chart;

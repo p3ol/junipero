@@ -1,3 +1,7 @@
+export function startOfYear(date: Date): Date;
+
+export function endOfYear(date: Date): Date;
+
 export function startOfMonth(date: Date): Date;
 
 export function endOfMonth(date: Date): Date;

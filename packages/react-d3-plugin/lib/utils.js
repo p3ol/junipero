@@ -3,9 +3,9 @@ import * as d3 from 'd3';
 
 export const getAxisTimeRange = (serie, opts = {}) => {
   switch (opts.granularity) {
-    case 'year':
-    case 'month':
-      return d3.extent(serie, m => m[opts.dataIndex]);
+    // case 'year':
+    // case 'month':
+    //   return d3.extent(serie, m => m[opts.dataIndex]);
     default:
       return d3.extent(d3.timeDay
         .range(startOfDay(opts.from), endOfDay(opts.to), 1));
