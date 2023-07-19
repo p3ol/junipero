@@ -119,3 +119,27 @@ export const doubleAxis = () => (
     />
   </Chart>
 );
+
+export const responsive = () => (
+  <Chart
+    width="100%"
+    height="calc(100vh - 100px)"
+    style={{ padding: 50 }}
+    axis={axis}
+  >
+    <Marker
+      xAxisIndex={0}
+      yAxisIndexes={[1, 2]}
+    />
+    <Curve
+      type="area"
+      xAxisIndex={0}
+      yAxisIndex={1}
+    />
+    <Curve
+      xAxisIndex={0}
+      yAxisIndex={2}
+      className="alternative"
+    />
+  </Chart>
+);
