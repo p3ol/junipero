@@ -72,7 +72,7 @@ const Chart = forwardRef(({
       default:
         range = domain.range([
           state.height - state.paddingBottom,
-          state.paddingTop,
+          0,
         ]);
     }
 
