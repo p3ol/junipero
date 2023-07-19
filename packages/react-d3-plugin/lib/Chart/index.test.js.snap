@@ -21,7 +21,7 @@ exports[`<Chart /> should render 1`] = `
         <g
           class="tick"
           opacity="1"
-          transform="translate(-11.5,0)"
+          transform="translate(0.5,0)"
         >
           <line
             stroke="currentColor"
@@ -38,7 +38,7 @@ exports[`<Chart /> should render 1`] = `
         <g
           class="tick"
           opacity="1"
-          transform="translate(229.87931034482762,0)"
+          transform="translate(241.8793103448276,0)"
         >
           <line
             stroke="currentColor"
@@ -55,7 +55,7 @@ exports[`<Chart /> should render 1`] = `
         <g
           class="tick"
           opacity="1"
-          transform="translate(471.25862068965523,0)"
+          transform="translate(483.2586206896552,0)"
         >
           <line
             stroke="currentColor"
@@ -72,7 +72,7 @@ exports[`<Chart /> should render 1`] = `
         <g
           class="tick"
           opacity="1"
-          transform="translate(712.6379310344828,0)"
+          transform="translate(724.6379310344828,0)"
         >
           <line
             stroke="currentColor"
@@ -89,7 +89,7 @@ exports[`<Chart /> should render 1`] = `
         <g
           class="tick"
           opacity="1"
-          transform="translate(954.0172413793105,0)"
+          transform="translate(966.0172413793103,0)"
         >
           <line
             stroke="currentColor"
@@ -376,12 +376,12 @@ exports[`<Chart /> should render 1`] = `
       <g>
         <path
           class="area"
-          d="M-12,500L988,115.385L988,500L-12,500Z"
+          d="M-10,500L990,115.385L990,500L-10,500Z"
           style="fill: url(#gradient);"
         />
         <path
           class="line"
-          d="M-12,500L988,115.385"
+          d="M-10,500L990,115.385"
         />
       </g>
     </g>
