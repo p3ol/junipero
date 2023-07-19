@@ -19,6 +19,7 @@ const Curve = forwardRef(({
   curve = d3.curveMonotoneX,
   xAxisIndex,
   yAxisIndex,
+  lineCapShift = 10,
 }, ref) => {
   const innerRef = useRef();
   const defsRef = useRef();
@@ -85,8 +86,9 @@ const Curve = forwardRef(({
         .line()
         .curve(curve)
         .x((d, i) => isMonoData
-          ? Math.min(width - paddingRight - paddingLeft, i * width)
-          : xAxis.range(d[0]) - paddingLeft
+          ? Math
+            .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
+          : xAxis.range(d[0]) - paddingLeft - lineCapShift
         )
         .y(d => yAxis.range(d[1] ?? 0))
       );
@@ -122,8 +124,9 @@ const Curve = forwardRef(({
           .area()
           .curve(curve)
           .x((d, i) => isMonoData
-            ? Math.min(width - paddingRight - paddingLeft, i * width)
-            : xAxis.range(d[0]) - paddingLeft
+            ? Math
+              .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
+            : xAxis.range(d[0]) - paddingLeft - lineCapShift
           )
           .y0(height - paddingBottom)
           .y1(d => yAxis.range(d[1] ?? 0))
@@ -160,7 +163,9 @@ const Curve = forwardRef(({
           className="dot"
           transform={
             'translate(' +
-              ((xAxis?.range?.(selected[0]) || 0) - paddingLeft) +
+              (
+                (xAxis?.range?.(selected[0]) || 0) - paddingLeft - lineCapShift
+              ) +
               ', ' +
               (yAxis?.range?.(selected[1]) || 0) +
             ')'
@@ -199,6 +204,7 @@ Curve.propTypes = {
     d3.curveMonotoneX,
     d3.curveMonotoneY,
   ]),
+  lineCapShift: PropTypes.number,
 };
 
 export default Curve;

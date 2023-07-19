@@ -23,6 +23,7 @@ const Axis = forwardRef(({
     width,
     height,
     paddingRight,
+    paddingTop,
     paddingBottom,
     paddingLeft,
   } = useChart();
@@ -42,9 +43,17 @@ const Axis = forwardRef(({
       case d3.axisLeft: return [0, 0];
       case d3.axisRight: return [width - paddingRight - paddingLeft, 0];
       case d3.axisTop: return [0, 0];
-      default: return [-paddingLeft, height - paddingBottom];
+      default: return [-paddingLeft, height - paddingTop - paddingBottom];
     }
-  }, [axis?.type, width, height, paddingRight, paddingBottom, paddingLeft]);
+  }, [
+    axis?.type,
+    width,
+    height,
+    paddingRight,
+    paddingTop,
+    paddingBottom,
+    paddingLeft,
+  ]);
 
   useEffect(() => {
     if (!axis) {

@@ -22,6 +22,7 @@ declare interface CurveProps extends ComponentPropsWithRef<any> {
   curve?: d3.CurveFactory;
   xAxisIndex: number;
   yAxisIndex: number;
+  lineCapShift?: number;
 }
 
 declare function Curve(props: CurveProps): ReactNode | JSX.Element;

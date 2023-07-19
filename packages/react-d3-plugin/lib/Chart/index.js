@@ -74,14 +74,14 @@ const Chart = forwardRef(({
       case d3.axisBottom:
       case d3.axisTop:
         range = domain.range([
-          state.paddingLeft - 12,
-          state.width - state.paddingRight - 12,
+          state.paddingLeft,
+          state.width - state.paddingRight,
         ]);
         break;
       default:
         range = domain.range([
-          state.height - state.paddingBottom,
-          0,
+          state.height - state.paddingBottom - state.paddingTop,
+          -state.paddingTop,
         ]);
     }
 

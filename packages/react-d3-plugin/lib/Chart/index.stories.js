@@ -5,6 +5,7 @@ import * as d3 from 'd3';
 import Chart from './';
 import Curve from '../Curve';
 import Marker from '../Marker';
+import { Card } from '../../../react/lib';
 
 export default { title: 'react-d3-plugin/Chart' };
 
@@ -48,132 +49,157 @@ const axis = [{
   min: 0,
 }];
 
-export const basic = () => (
-  <Chart
-    width={1000}
-    height={500}
-    style={{ padding: 50 }}
-    axis={axis.slice(0, 2)}
+const Wrapper = ({ children }) => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100vw',
+      height: '100vh',
+      flexDirection: 'column',
+    }}
   >
-    <Marker
-      xAxisIndex={0}
-      yAxisIndexes={[1]}
-    />
-    <Curve
-      type="area"
-      xAxisIndex={0}
-      yAxisIndex={1}
-    />
-  </Chart>
+    <Card style={{ padding: '20px 30px 90px 70px' }}>
+      { children }
+    </Card>
+  </div>
+);
+
+export const basic = () => (
+  <Wrapper>
+    <Chart
+      width={1000}
+      height={500}
+      axis={axis.slice(0, 2)}
+    >
+      <Marker
+        xAxisIndex={0}
+        yAxisIndexes={[1]}
+      />
+      <Curve
+        type="area"
+        xAxisIndex={0}
+        yAxisIndex={1}
+      />
+    </Chart>
+  </Wrapper>
 );
 
 export const doubleCurves = () => (
-  <Chart
-    width={1000}
-    height={500}
-    style={{ padding: 50 }}
-    axis={axis.slice(0, 2)}
-  >
-    <Marker
-      series={[
-        data.map(d => d[1]),
-        data.slice().reverse().map(d => d[1]),
-      ]}
-      xAxisIndex={0}
-      yAxisIndexes={[1]}
-    />
-    <Curve
-      type="area"
-      xAxisIndex={0}
-      yAxisIndex={1}
-    />
-    <Curve
-      type="line"
-      serie={data.slice().reverse().map(d => d[1])}
-      xAxisIndex={0}
-      yAxisIndex={1}
-      className="alternative"
-    />
-  </Chart>
+  <Wrapper>
+    <Chart
+      width={1000}
+      height={500}
+      axis={axis.slice(0, 2)}
+    >
+      <Marker
+        series={[
+          data.map(d => d[1]),
+          data.slice().reverse().map(d => d[1]),
+        ]}
+        xAxisIndex={0}
+        yAxisIndexes={[1]}
+      />
+      <Curve
+        type="area"
+        xAxisIndex={0}
+        yAxisIndex={1}
+      />
+      <Curve
+        type="line"
+        serie={data.slice().reverse().map(d => d[1])}
+        xAxisIndex={0}
+        yAxisIndex={1}
+        className="alternative"
+      />
+    </Chart>
+  </Wrapper>
 );
 
 export const doubleAxis = () => (
-  <Chart
-    width={1000}
-    height={500}
-    style={{ padding: 50 }}
-    axis={axis}
-  >
-    <Marker
-      xAxisIndex={0}
-      yAxisIndexes={[1, 2]}
-    />
-    <Curve
-      type="area"
-      xAxisIndex={0}
-      yAxisIndex={1}
-    />
-    <Curve
-      xAxisIndex={0}
-      yAxisIndex={2}
-      className="alternative"
-    />
-  </Chart>
+  <Wrapper>
+    <Chart
+      width={1000}
+      height={500}
+      axis={axis}
+      style={{ paddingRight: 50 }}
+    >
+      <Marker
+        xAxisIndex={0}
+        yAxisIndexes={[1, 2]}
+      />
+      <Curve
+        type="area"
+        xAxisIndex={0}
+        yAxisIndex={1}
+      />
+      <Curve
+        xAxisIndex={0}
+        yAxisIndex={2}
+        className="alternative"
+      />
+    </Chart>
+  </Wrapper>
 );
 
 export const responsive = () => (
-  <Chart
-    width="100%"
-    height="calc(100vh - 100px)"
-    style={{ padding: 50 }}
-    axis={axis}
-  >
-    <Marker
-      xAxisIndex={0}
-      yAxisIndexes={[1, 2]}
-    />
-    <Curve
-      type="area"
-      xAxisIndex={0}
-      yAxisIndex={1}
-    />
-    <Curve
-      xAxisIndex={0}
-      yAxisIndex={2}
-      className="alternative"
-    />
-  </Chart>
+  <Wrapper>
+    <Chart
+      width="calc(100vw - 300px)"
+      height="calc(100vh - 300px)"
+      axis={axis}
+      style={{ paddingRight: 50 }}
+    >
+      <Marker
+        xAxisIndex={0}
+        yAxisIndexes={[1, 2]}
+      />
+      <Curve
+        type="area"
+        xAxisIndex={0}
+        yAxisIndex={1}
+      />
+      <Curve
+        xAxisIndex={0}
+        yAxisIndex={2}
+        className="alternative"
+      />
+    </Chart>
+  </Wrapper>
 );
 
 export const withTooltip = () => (
-  <Chart
-    width={1000}
-    height={500}
-    style={{ padding: 50 }}
-    axis={axis}
-  >
-    <Marker
-      xAxisIndex={0}
-      yAxisIndexes={[1, 2]}
-      tooltip={({ xIndex }) => (
-        <div>
-          <div>{ axis[0].data[xIndex].toISOString() }</div>
-          <div>Data: { data[xIndex][1] }</div>
-          <div>Alternative data: { alternativeData[xIndex][1] }</div>
-        </div>
-      )}
-    />
-    <Curve
-      type="area"
-      xAxisIndex={0}
-      yAxisIndex={1}
-    />
-    <Curve
-      xAxisIndex={0}
-      yAxisIndex={2}
-      className="alternative"
-    />
-  </Chart>
+  <Wrapper>
+    <Chart
+      width={1000}
+      height={500}
+      style={{ paddingRight: 50 }}
+      axis={axis}
+    >
+      <Marker
+        xAxisIndex={0}
+        yAxisIndexes={[1, 2]}
+        tooltip={({ xIndex }) => (
+          <div>
+            <div>{ axis[0].data[xIndex].toISOString() }</div>
+            <div>Data: { data[xIndex][1] }</div>
+            <div>Alternative data: { alternativeData[xIndex][1] }</div>
+          </div>
+        )}
+      />
+      <Curve
+        type="area"
+        xAxisIndex={0}
+        yAxisIndex={1}
+      />
+      <Curve
+        xAxisIndex={0}
+        yAxisIndex={2}
+        className="alternative"
+      />
+    </Chart>
+  </Wrapper>
 );
 
 export const withGranularity = () => {
@@ -212,7 +238,7 @@ export const withGranularity = () => {
   }], [data_, alternativeData_]);
 
   return (
-    <div>
+    <Wrapper>
       <div style={{ display: 'flex', justifyContent: 'end', gap: 10 }}>
         <span>Current: { granularity }</span>
         <button onClick={() => setGranularity('day')}>Day</button>
@@ -222,7 +248,7 @@ export const withGranularity = () => {
       <Chart
         width={1000}
         height={500}
-        style={{ padding: 50 }}
+        style={{ paddingRight: 50 }}
         axis={axis_}
         granularity={granularity}
       >
@@ -241,6 +267,6 @@ export const withGranularity = () => {
           className="alternative"
         />
       </Chart>
-    </div>
+    </Wrapper>
   );
 };

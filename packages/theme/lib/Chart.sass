@@ -17,7 +17,7 @@
 
     &.bottom
       text
-        transform: translate(0, 10px) rotate(-65deg)
+        transform: translate(-10px, 10px) rotate(-65deg)
         text-anchor: end
 
   .grid
@@ -51,3 +51,7 @@
     stroke: var(--main-color)
     stroke-width: 1px
     stroke-dasharray: 5px
+
+.junipero.chart-tooltip
+  pointer-events: none
+  transform: translateY(-10px)

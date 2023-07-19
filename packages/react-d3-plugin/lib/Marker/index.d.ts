@@ -27,6 +27,7 @@ declare interface MarkerProps extends ComponentPropsWithRef<any> {
     xIndex: number;
   }): ReactNode | JSX.Element;
   tooltipProps?: TooltipProps;
+  lineCapShift?: number;
 }
 
 declare function Marker(props: MarkerProps): ReactNode | JSX.Element;
