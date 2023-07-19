@@ -44,7 +44,10 @@ export {
   subMonths,
   startOfMonth,
   endOfMonth,
+  startOfDay,
+  endOfDay,
   getDaysInMonth,
+  closestIndexTo,
 } from './dates';
 
 export {

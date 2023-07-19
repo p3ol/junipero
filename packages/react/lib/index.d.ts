@@ -39,6 +39,9 @@ export {
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
+  startOfDay,
+  endOfDay,
+  closestIndexTo,
 } from '@junipero/core';
 
 export {

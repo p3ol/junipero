@@ -92,6 +92,11 @@ export {
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
+  startOfMonth,
+  endOfMonth,
+  startOfDay,
+  endOfDay,
+  closestIndexTo,
 } from '@junipero/core';
 
 // Hooks
