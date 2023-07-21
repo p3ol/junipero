@@ -211,6 +211,7 @@ Chart.propTypes = {
     scale: PropTypes.oneOf([
       d3.scaleTime,
       d3.scaleLinear,
+      d3.scaleBand,
     ]),
     range: PropTypes.func,
     data: PropTypes.arrayOf(PropTypes.any),
@@ -221,6 +222,8 @@ Chart.propTypes = {
     ticks: PropTypes.number,
     tickSize: PropTypes.number,
     grid: PropTypes.bool,
+    bandDomainKey: PropTypes.string,
+    stackKeys: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   linearDomainMaxMargin: PropTypes.number,
 };
