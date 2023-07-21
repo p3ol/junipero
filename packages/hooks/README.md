@@ -40,7 +40,7 @@ export default () => {
 
 ## Documentation
 
-https://beta.junipero.design/components/use-event-listener
+https://junipero.design/components/use-event-listener
 
 ## Contributing
 

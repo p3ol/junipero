@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/p3ol/junipero/compare/v3.1.1...v3.1.2) (2023-06-29)
+
+
+### Bug Fixes
+
+* remove horizontal passing on stepper ([6633824](https://github.com/p3ol/junipero/commit/663382478b1237a4009184b9b9ee5e9e4c62e94f))
+
+
+
+
+
+## [3.1.1](https://github.com/p3ol/junipero/compare/v3.1.0...v3.1.1) (2023-06-26)
+
+
+### Bug Fixes
+
+* **react:** typo preventing group titles from being parsed ([aab8b3a](https://github.com/p3ol/junipero/commit/aab8b3a8ef941b696b33d654e6eda53ce9e4a6d0))
+
+
+
+
+
+# [3.1.0](https://github.com/p3ol/junipero/compare/v3.0.2...v3.1.0) (2023-06-21)
+
+
+### Bug Fixes
+
+* **ci-cd:** use yarn cache for node libraries ([2d9690c](https://github.com/p3ol/junipero/commit/2d9690ce0060bcec17afc1ff6181b3bf016ed327))
+* **deps:** update dependency @floating-ui/react to v0.24.3 ([714ca33](https://github.com/p3ol/junipero/commit/714ca3385d4350cb68e8a04f053a40c5a44069be))
+* **react:** add missing exports ([b087846](https://github.com/p3ol/junipero/commit/b08784673ddfcc7a00fd07ce781146fd84498dc5))
+* **react:** also parse select group titles ([690c671](https://github.com/p3ol/junipero/commit/690c671f3b629d73d0e5b08a3ad47dd1f55ae6d8))
+* **react:** fix code according to last review ([da986e2](https://github.com/p3ol/junipero/commit/da986e2db640ba56f6ef1dcb2b7c2d2dab96cf3e))
+* **react:** fix typo in tab component's inner ref ([e744e00](https://github.com/p3ol/junipero/commit/e744e00a9f446cfab3dc85748136bef63614c12f))
+* **react:** wrong import ([72554cd](https://github.com/p3ol/junipero/commit/72554cd36bf21c6d4df2c50016489f48adb5d4a6))
+* **renovate:** improve config for PRs and commits ([0e6532f](https://github.com/p3ol/junipero/commit/0e6532fe19c4b6589061afc00c29e7f03b48fee7))
+
+
+### Features
+
+* **deps:** update dependency core-js to v3.31.0 ([fb60fe9](https://github.com/p3ol/junipero/commit/fb60fe9811608b760034ae4ccebc39df87b5d325))
+* **react:** add stepper component ([876cff1](https://github.com/p3ol/junipero/commit/876cff1a7e6d0071ad36ffbf97900f241f61a65a))
+
+
+
+
+
 ## [3.0.2](https://github.com/p3ol/junipero/compare/v3.0.1...v3.0.2) (2023-06-07)
 
 **Note:** Version bump only for package junipero

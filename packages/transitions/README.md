@@ -33,9 +33,9 @@ export default () => (
 );
 ```
 
-## [Documentation](https://beta.junipero.design/components/transition)
+## [Documentation](https://junipero.design/components/transition)
 
-https://beta.junipero.design/components/transition
+https://junipero.design/components/transition
 
 ## Contributing
 

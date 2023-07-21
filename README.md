@@ -20,7 +20,7 @@
 
 -----------
 
-### You are looking at v3 docs (https://beta.junipero.design). If you need, v2 docs are still available at https://v2.junipero.design.
+### You are looking at v3 docs (https://junipero.design). If you need, v2 docs are still available at https://v2.junipero.design.
 
 -----------
 
@@ -36,9 +36,9 @@
 | `@junipero/tailwind-plugin` | A plugin to use Junipero styles with Tailwind CSS | [documentation](https://github.com/p3ol/junipero/tree/master/packages/tailwind-plugin) |
 | `@junipero/react-native` | A lighter version of Junipero for React Native apps (legacy) | [documentation](https://github.com/p3ol/junipero/tree/master/packages/react-native) |
 
-## [Documentation](https://beta.junipero.design)
+## [Documentation](https://junipero.design)
 
-https://beta.junipero.design
+https://junipero.design
 
 ## Development
 

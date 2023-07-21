@@ -1,6 +1,6 @@
 {
   "name": "@junipero/react",
-  "version": "3.0.2",
+  "version": "3.1.1",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero-react.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -26,9 +26,9 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.22.5",
-    "@floating-ui/react": "0.24.3",
-    "core-js": "3.31.0",
+    "@babel/runtime-corejs3": "7.22.6",
+    "@floating-ui/react": "0.24.8",
+    "core-js": "3.31.1",
     "prop-types": "15.8.1"
   },
   "scripts": {
