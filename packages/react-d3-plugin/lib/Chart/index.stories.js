@@ -82,7 +82,6 @@ const barAxis = [{
   type: d3.axisBottom,
   scale: d3.scaleBand,
   data: barData,
-  bandDomainKey: 'date',
   stackKeys: ['premium', 'free'],
   parseTitle: d => d.toLocaleDateString(),
   ticks: null,

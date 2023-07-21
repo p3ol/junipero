@@ -91,7 +91,7 @@ const Bar = forwardRef(({
                 key={j}
                 width={barWidth}
                 height={yAxis.range(bar[0]) - yAxis.range(bar[1])}
-                x={xAxis.range(bar.data[xAxis.bandDomainKey])}
+                x={xAxis.range(bar.data.date)}
                 y={yAxis.range(bar[1])}
               />
             );

@@ -64,7 +64,7 @@ const Chart = forwardRef(({
       case d3.scaleBand:
         domain = a
           .scale()
-          .domain(a.data.map(d => d[a.bandDomainKey]))
+          .domain(a.data.map(d => d.date))
           .paddingInner(0.2)
           .paddingOuter(0.1);
         break;
@@ -222,7 +222,6 @@ Chart.propTypes = {
     ticks: PropTypes.number,
     tickSize: PropTypes.number,
     grid: PropTypes.bool,
-    bandDomainKey: PropTypes.string,
     stackKeys: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   linearDomainMaxMargin: PropTypes.number,

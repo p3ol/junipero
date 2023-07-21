@@ -138,7 +138,6 @@ Axis.propTypes = {
     ticks: PropTypes.number,
     tickSize: PropTypes.number,
     grid: PropTypes.bool,
-    bandDomainKey: PropTypes.string,
     stackKeys: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
