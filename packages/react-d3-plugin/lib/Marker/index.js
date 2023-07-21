@@ -1,4 +1,10 @@
-import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import { Tooltip, classNames } from '@junipero/react';
 import PropTypes from 'prop-types';
 
@@ -59,6 +65,10 @@ const Marker = forwardRef(({
     y,
     isJunipero: true,
   }));
+
+  useEffect(() => {
+    tooltipRef.current?.update?.();
+  }, [x]);
 
   if (!cursor) {
     return null;
