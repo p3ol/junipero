@@ -19,6 +19,8 @@ export declare interface AxisObject {
   ticks: number;
   tickSize: number;
   grid: boolean;
+  bandDomainKey: string;
+  stackKeys: Array<string>;
 }
 
 export declare type AxisRef = {
