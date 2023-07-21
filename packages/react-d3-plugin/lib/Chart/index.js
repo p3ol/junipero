@@ -61,6 +61,13 @@ const Chart = forwardRef(({
           (a.max ?? d3.max(a.data)) * linearDomainMaxMargin,
         ]);
         break;
+      case d3.scaleBand:
+        domain = a
+          .scale()
+          .domain(a.data.map(d => d[a.bandDomainKey]))
+          .paddingInner(0.2)
+          .paddingOuter(0.1);
+        break;
       default:
         domain = a.scale().domain([
           a.min ?? d3.min(a.data),
