@@ -15,7 +15,10 @@ export declare interface AxisObject {
   min: number | Date;
   max: number | Date;
   parseTitle?(value: number | Date): string;
-  findSelectionIndex?(position: number | Date): number;
+  findSelectionIndex?(
+    position: number | Date,
+    data: Array<number | Date>
+  ): number;
   ticks: number;
   tickSize: number;
   grid: boolean;

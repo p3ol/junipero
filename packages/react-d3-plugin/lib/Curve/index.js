@@ -60,9 +60,11 @@ const Curve = forwardRef(({
     }
 
     const position = xAxis.range.invert(cursor.x);
+    const selectionIndex = xAxis.findSelectionIndex(position, xAxis.data);
+
     setSelected([
-      xAxis?.data[xAxis.findSelectionIndex(position)],
-      (serie || yAxis?.data || [])[xAxis.findSelectionIndex(position)],
+      xAxis?.data[selectionIndex],
+      (serie || yAxis?.data || [])[selectionIndex],
     ]);
   }, [cursor, xAxis, yAxis, serie]);
 
