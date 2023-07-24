@@ -42,9 +42,14 @@ export {
 export {
   addMonths,
   subMonths,
+  startOfYear,
+  endOfYear,
   startOfMonth,
   endOfMonth,
+  startOfDay,
+  endOfDay,
   getDaysInMonth,
+  closestIndexTo,
 } from './dates';
 
 export {

@@ -1,0 +1,66 @@
+.junipero.chart
+  --main-color: var(--junipero-velvet)
+  --secondary-color: var(--junipero-velvet-disabled)
+  --grid-color: var(--junipero-mischka)
+  --axis-text-color: var(--junipero-slate)
+  --gradient-stop-color: rgba(255, 255, 255, 0)
+  --dot-border-color: var(--junipero-seashell)
+
+  overflow: visible
+
+  .axis
+    .ticks
+      color: var(--axis-text-color)
+
+      .tick
+        line
+          stroke: transparent
+
+    &.bottom
+      text
+        transform: translate(-10px, 10px) rotate(-65deg)
+        text-anchor: end
+
+  .grid
+    pointer-events: none
+
+    line
+      stroke: var(--grid-color)
+
+  .curve
+    pointer-events: none
+
+    .dot
+      pointer-events: none
+
+      circle
+        fill: var(--main-color)
+        stroke: var(--dot-border-color)
+        stroke-width: 4px
+
+    .line
+      fill: none
+      stroke: var(--main-color)
+      stroke-width: 4px
+      stroke-linecap: round
+
+    .area
+      stroke: none
+
+  .bar
+    .serie
+      rect
+        fill: var(--main-color)
+
+    .serie:nth-child(2)
+      --main-color: var(--secondary-color)
+
+  .marker
+    pointer-events: none
+    stroke: var(--main-color)
+    stroke-width: 1px
+    stroke-dasharray: 5px
+
+.junipero.chart-tooltip
+  pointer-events: none
+  transform: translateY(-10px)

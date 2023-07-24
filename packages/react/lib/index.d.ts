@@ -33,9 +33,14 @@ export {
   stringifyColor,
   addMonths,
   subMonths,
+  startOfYear,
+  endOfYear,
   startOfMonth,
   endOfMonth,
+  startOfDay,
+  endOfDay,
   getDaysInMonth,
+  closestIndexTo,
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
@@ -106,7 +111,7 @@ export { default as Toast, ToastRef } from './Toast';
 export { default as Toasts, ToastsRef } from './Toasts';
 export { default as ToastsControl, ToastsControlRef } from './ToastsControl';
 export { default as Toggle, ToggleRef } from './Toggle';
-export { default as Tooltip, TooltipRef } from './Tooltip';
+export { default as Tooltip, TooltipRef, TooltipProps } from './Tooltip';
 export { default as TouchableZone } from './TouchableZone';
 export { default as Transition } from './Transition';
 

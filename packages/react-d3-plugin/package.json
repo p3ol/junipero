@@ -1,0 +1,44 @@
+{
+  "name": "@junipero/react-d3-plugin",
+  "version": "3.1.1",
+  "description": "🏔 Junipero Design System D3 Components for React",
+  "main": "dist/junipero-react-d3-plugin.cjs.js",
+  "jsnext:main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "src/index.js",
+  "unpkg": "dist/junipero-react-d3-plugin.min.js",
+  "cdn": "dist/junipero-react-d3-plugin.min.js",
+  "types": "dist/junipero-react-d3-plugin.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p3ol/junipero.git",
+    "directory": "packages/react-d3-plugin"
+  },
+  "author": "Ugo Stephant <ugo@poool.fr>",
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 14",
+    "yarn": "1"
+  },
+  "peerDependencies": {
+    "@junipero/react": "^3.2.0",
+    "@junipero/theme": "^3.2.0",
+    "d3": "^7.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "7.22.6",
+    "core-js": "3.31.1",
+    "prop-types": "15.8.1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build": "yarn clean && rollup -c",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

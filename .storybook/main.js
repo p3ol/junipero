@@ -1,5 +1,7 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const tailwindcss = require('tailwindcss');
+
 module.exports = {
   stories: [
     '../packages/*/lib/**/*.stories.js',
@@ -29,26 +31,16 @@ module.exports = {
     });
 
     config.module.rules.push({
-      test: /\.styl$/,
-      use: ['style-loader', 'css-loader', {
-        loader: 'postcss-loader',
-        options: {
-          postcssOptions: {
-            sourceMap: true,
-            plugins: [autoprefixer],
-          },
-        },
-      }, 'stylus-loader'],
-    });
-
-    config.module.rules.push({
       test: /\.sass$/,
       use: ['style-loader', 'css-loader', {
         loader: 'postcss-loader',
         options: {
           postcssOptions: {
             sourceMap: true,
-            plugins: [autoprefixer],
+            plugins: [
+              tailwindcss,
+              autoprefixer,
+            ],
           },
         },
       }, {
