@@ -80,6 +80,7 @@ export default [
   })), {
     input: './lib/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
+    external: defaultExternals,
     plugins: [dts()],
   },
 ];
