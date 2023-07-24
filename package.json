@@ -97,6 +97,6 @@
   },
   "resolutions": {
     "inline-style-prefixer": "6.0.4",
-    "string-width": "4.2.3"
+    "string-width": "6.1.0"
   }
 }
