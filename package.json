@@ -96,6 +96,7 @@
     "webpack-merge": "5.9.0"
   },
   "resolutions": {
-    "inline-style-prefixer": "6.0.4"
+    "inline-style-prefixer": "6.0.4",
+    "string-width": "4.2.3"
   }
 }
