@@ -128,6 +128,7 @@ Axis.propTypes = {
     scale: PropTypes.oneOf([
       d3.scaleTime,
       d3.scaleLinear,
+      d3.scaleBand,
     ]),
     range: PropTypes.func,
     data: PropTypes.arrayOf(PropTypes.any),
@@ -137,6 +138,7 @@ Axis.propTypes = {
     ticks: PropTypes.number,
     tickSize: PropTypes.number,
     grid: PropTypes.bool,
+    stackKeys: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
 

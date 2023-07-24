@@ -26,6 +26,8 @@ const Chart = forwardRef(({
   redrawThreshold = 10,
   axis: axisProp,
   linearDomainMaxMargin = 1.3,
+  bandDomainInnerPadding = 0.2,
+  bandDomainOuterPadding = 0.1,
   ...rest
 }, ref) => {
   const innerRef = useRef();
@@ -60,6 +62,13 @@ const Chart = forwardRef(({
           a.min ?? d3.min(a.data),
           (a.max ?? d3.max(a.data)) * linearDomainMaxMargin,
         ]);
+        break;
+      case d3.scaleBand:
+        domain = a
+          .scale()
+          .domain(a.data)
+          .paddingInner(bandDomainInnerPadding)
+          .paddingOuter(bandDomainOuterPadding);
         break;
       default:
         domain = a.scale().domain([
@@ -204,6 +213,7 @@ Chart.propTypes = {
     scale: PropTypes.oneOf([
       d3.scaleTime,
       d3.scaleLinear,
+      d3.scaleBand,
     ]),
     range: PropTypes.func,
     data: PropTypes.arrayOf(PropTypes.any),
@@ -214,8 +224,11 @@ Chart.propTypes = {
     ticks: PropTypes.number,
     tickSize: PropTypes.number,
     grid: PropTypes.bool,
+    stackKeys: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   linearDomainMaxMargin: PropTypes.number,
+  bandDomainInnerPadding: PropTypes.number,
+  bandDomainOuterPadding: PropTypes.number,
 };
 
 export default Chart;

@@ -3,6 +3,7 @@ import { closestIndexTo, startOfMonth, startOfYear } from '@junipero/react';
 import * as d3 from 'd3';
 
 import Chart from './';
+import Bar from '../Bar';
 import Curve from '../Curve';
 import Marker from '../Marker';
 import { Card } from '../../../react/lib';
@@ -23,6 +24,14 @@ const alternativeData = [
   [new Date('2020-01-03'), 5000],
   [new Date('2020-01-04'), 3000],
   [new Date('2020-01-05'), 7000],
+];
+
+const barData = [
+  [new Date('2020-01-01'), { free: 37, premium: 63 }],
+  [new Date('2020-01-02'), { free: 16, premium: 84 }],
+  [new Date('2020-01-03'), { free: 49, premium: 51 }],
+  [new Date('2020-01-04'), { free: 61, premium: 39 }],
+  [new Date('2020-01-05'), { free: 27, premium: 73 }],
 ];
 
 const axis = [{
@@ -47,6 +56,21 @@ const axis = [{
   data: alternativeData.map(d => d[1]),
   tickSize: 20,
   min: 0,
+}];
+
+const barAxis = [{
+  type: d3.axisBottom,
+  scale: d3.scaleBand,
+  data: barData.map(d => d[0]),
+  parseTitle: d => d?.toLocaleDateString(),
+  ticks: null,
+}, {
+  type: d3.axisLeft,
+  scale: d3.scaleLinear,
+  grid: true,
+  min: 0,
+  max: 100,
+  data: barData.map(d => d[1]),
 }];
 
 const Wrapper = ({ children }) => (
@@ -138,6 +162,30 @@ export const doubleAxis = () => (
         xAxisIndex={0}
         yAxisIndex={2}
         className="alternative"
+      />
+    </Chart>
+  </Wrapper>
+);
+
+export const bars = () => (
+  <Wrapper>
+    <Chart
+      width={1000}
+      height={500}
+      axis={barAxis}
+      style={{ paddingRight: 50 }}
+      linearDomainMaxMargin={1}
+    >
+      <Bar
+        xAxisIndex={0}
+        yAxisIndex={1}
+        tooltip={({ xIndex }) => (
+          <div>
+            <div>{ barAxis[0].data[xIndex]?.toISOString() }</div>
+            <div>Free: { barAxis[1].data[xIndex]?.free }</div>
+            <div>Premium: { barAxis[1].data[xIndex]?.premium }</div>
+          </div>
+        )}
       />
     </Chart>
   </Wrapper>
