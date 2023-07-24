@@ -25,7 +25,7 @@ describe('<Chart />', () => {
           type: d3.axisBottom,
           scale: d3.scaleTime,
           data: [new Date(2020, 10, 1), new Date(2020, 10, 30)],
-          parseTitle: d => d.toLocaleDateString(),
+          parseTitle: d => d.toISOString(),
           ticks: null,
         }, {
           type: d3.axisLeft,
