@@ -1,5 +1,6 @@
 .junipero.chart
   --main-color: var(--junipero-velvet)
+  --secondary-color: var(--junipero-velvet-disabled)
   --grid-color: var(--junipero-mischka)
   --axis-text-color: var(--junipero-slate)
   --gradient-stop-color: rgba(255, 255, 255, 0)
@@ -47,13 +48,13 @@
       stroke: none
 
   .bar
-    .rectangles:nth-child(1)
+    .serie:nth-child(1)
       rect
         fill: var(--main-color)
 
-    .rectangles:nth-child(2)
+    .serie:nth-child(2)
       rect
-        fill: var(--junipero-dark-velvet-background)
+        fill: var(--secondary-color)
 
   .marker
     pointer-events: none

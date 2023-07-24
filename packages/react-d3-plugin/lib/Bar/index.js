@@ -14,18 +14,17 @@ import { scaleBandInvert } from '../utils';
 
 const Bar = forwardRef(({
   className,
-  minBarWidth = 15,
   tooltip,
   tooltipProps,
   xAxisIndex,
   yAxisIndex,
+  minBarWidth = 15,
+  order = d3.stackOrderNone,
+  offset = d3.stackOffsetNone,
 }, ref) => {
   const innerRef = useRef();
   const tooltipRef = useRef();
-  const {
-    axis,
-    cursor,
-  } = useChart();
+  const { axis, cursor } = useChart();
 
   const xAxis = useMemo(() => (
     axis[xAxisIndex]
@@ -69,37 +68,16 @@ const Bar = forwardRef(({
 
     return d3
       .stack()
-      .order(d3.stackOrderNone)
-      .offset(d3.stackOffsetNone)
-      .keys(xAxis.stackKeys)(xAxis.data);
-  }, [xAxis?.stackKeys, xAxis?.data]);
+      .order(order)
+      .offset(offset)
+      .keys(yAxis.stackKeys || Object.keys(yAxis.data?.[0] || []))(yAxis.data);
+  }, [yAxis?.stackKeys, yAxis?.data, xAxis]);
 
-  const barWidth = xAxis?.domain?.bandwidth() > minBarWidth
-    ? xAxis?.domain?.bandwidth()
-    : minBarWidth;
-
-  const bars = (
-    <g
-      ref={innerRef}
-      className={classNames('junipero bar', className)}
-    >
-      { barStacks.map((barStack, i) => (
-        <g className={classNames('rectangles', barStack.key)} key={i}>
-          { barStack.map((bar, j) => {
-            return (
-              <rect
-                key={j}
-                width={barWidth}
-                height={yAxis.range(bar[0]) - yAxis.range(bar[1])}
-                x={xAxis.range(bar.data.date)}
-                y={yAxis.range(bar[1])}
-              />
-            );
-          }) }
-        </g>
-      )) }
-    </g>
-  );
+  const barWidth = useMemo(() => (
+    xAxis?.domain?.bandwidth() > minBarWidth
+      ? xAxis?.domain?.bandwidth()
+      : minBarWidth
+  ), [xAxis?.domain, minBarWidth]);
 
   if (!xAxis || !yAxis) {
     return null;
@@ -107,7 +85,24 @@ const Bar = forwardRef(({
 
   return (
     <>
-      { bars }
+      <g
+        ref={innerRef}
+        className={classNames('junipero bar', className)}
+      >
+        { barStacks.map((barStack, i) => (
+          <g className={classNames('serie', barStack.key)} key={i}>
+            { barStack.map((bar, j) => (
+              <rect
+                key={j}
+                width={barWidth}
+                height={yAxis.range(bar[0]) - yAxis.range(bar[1])}
+                x={xAxis.range(xAxis.data?.[j])}
+                y={yAxis.range(bar[1])}
+              />
+            )) }
+          </g>
+        )) }
+      </g>
       { tooltip && cursor && (
         <Tooltip
           ref={tooltipRef}
@@ -131,6 +126,21 @@ Bar.propTypes = {
   minBarWidth: PropTypes.number,
   tooltip: PropTypes.func,
   tooltipProps: PropTypes.object,
+  order: PropTypes.oneOf([
+    d3.stackOrderNone,
+    d3.stackOrderAppearance,
+    d3.stackOrderAscending,
+    d3.stackOrderDescending,
+    d3.stackOrderInsideOut,
+    d3.stackOrderReverse,
+  ]),
+  offset: PropTypes.oneOf([
+    d3.stackOffsetNone,
+    d3.stackOffsetExpand,
+    d3.stackOffsetDiverging,
+    d3.stackOffsetSilhouette,
+    d3.stackOffsetWiggle,
+  ]),
 };
 
 export default Bar;

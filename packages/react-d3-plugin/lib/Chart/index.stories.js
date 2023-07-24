@@ -27,31 +27,11 @@ const alternativeData = [
 ];
 
 const barData = [
-  {
-    date: new Date('2020-01-01'),
-    free: 37,
-    premium: 63,
-  },
-  {
-    date: new Date('2020-01-02'),
-    free: 16,
-    premium: 84,
-  },
-  {
-    date: new Date('2020-01-03'),
-    free: 49,
-    premium: 51,
-  },
-  {
-    date: new Date('2020-01-04'),
-    free: 61,
-    premium: 39,
-  },
-  {
-    date: new Date('2020-01-05'),
-    free: 27,
-    premium: 73,
-  },
+  [new Date('2020-01-01'), { free: 37, premium: 63 }],
+  [new Date('2020-01-02'), { free: 16, premium: 84 }],
+  [new Date('2020-01-03'), { free: 49, premium: 51 }],
+  [new Date('2020-01-04'), { free: 61, premium: 39 }],
+  [new Date('2020-01-05'), { free: 27, premium: 73 }],
 ];
 
 const axis = [{
@@ -81,9 +61,8 @@ const axis = [{
 const barAxis = [{
   type: d3.axisBottom,
   scale: d3.scaleBand,
-  data: barData,
-  stackKeys: ['premium', 'free'],
-  parseTitle: d => d.toLocaleDateString(),
+  data: barData.map(d => d[0]),
+  parseTitle: d => d?.toLocaleDateString(),
   ticks: null,
 }, {
   type: d3.axisLeft,
@@ -91,6 +70,7 @@ const barAxis = [{
   grid: true,
   min: 0,
   max: 100,
+  data: barData.map(d => d[1]),
 }];
 
 const Wrapper = ({ children }) => (
@@ -201,9 +181,9 @@ export const bars = () => (
         yAxisIndex={1}
         tooltip={({ xIndex }) => (
           <div>
-            <div>{ barAxis[0].data[xIndex]?.date?.toISOString() }</div>
-            <div>Free: { barAxis[0].data[xIndex]?.free }</div>
-            <div>Premium: { barAxis[0].data[xIndex]?.premium }</div>
+            <div>{ barAxis[0].data[xIndex]?.toISOString() }</div>
+            <div>Free: { barAxis[1].data[xIndex]?.free }</div>
+            <div>Premium: { barAxis[1].data[xIndex]?.premium }</div>
           </div>
         )}
       />
