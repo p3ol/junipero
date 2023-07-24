@@ -135,7 +135,7 @@ export const doubleCurves = () => (
         serie={data.slice().reverse().map(d => d[1])}
         xAxisIndex={0}
         yAxisIndex={1}
-        className="alternative"
+        className="curve:serie-sunglow"
       />
     </Chart>
   </Wrapper>
@@ -161,7 +161,7 @@ export const doubleAxis = () => (
       <Curve
         xAxisIndex={0}
         yAxisIndex={2}
-        className="alternative"
+        className="curve:serie-sunglow"
       />
     </Chart>
   </Wrapper>
@@ -186,6 +186,7 @@ export const bars = () => (
             <div>Premium: { barAxis[1].data[xIndex]?.premium }</div>
           </div>
         )}
+        className="bar-nth-2:serie-sunglow"
       />
     </Chart>
   </Wrapper>

@@ -48,13 +48,12 @@
       stroke: none
 
   .bar
-    .serie:nth-child(1)
+    .serie
       rect
         fill: var(--main-color)
 
     .serie:nth-child(2)
-      rect
-        fill: var(--secondary-color)
+      --main-color: var(--secondary-color)
 
   .marker
     pointer-events: none
