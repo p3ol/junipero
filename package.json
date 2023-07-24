@@ -63,7 +63,6 @@
     "eslint-plugin-react": "7.33.0",
     "eslint-plugin-react-native": "4.0.0",
     "file-loader": "6.2.0",
-    "friendly-errors-webpack-plugin": "1.7.0",
     "fs-extra": "11.1.1",
     "html-webpack-plugin": "5.5.3",
     "jest": "29.6.1",
@@ -97,6 +96,7 @@
     "webpack-merge": "5.9.0"
   },
   "resolutions": {
-    "inline-style-prefixer": "6.0.4"
+    "inline-style-prefixer": "6.0.4",
+    "string-width": "^4.2.0"
   }
 }
