@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.31.1 ([f1e4530](https://github.com/p3ol/junipero/commit/f1e4530445d219f39ae247c98304c2c8a2038bf3))
+
+
+
+
+
 # [3.1.0](https://github.com/p3ol/junipero/compare/v3.0.2...v3.1.0) (2023-06-21)
 
 

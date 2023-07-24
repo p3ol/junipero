@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
+
+
+### Bug Fixes
+
+* also get chart size using computed styles if needed ([caf9671](https://github.com/p3ol/junipero/commit/caf96718e49b244759369ca168845e167942506f))
+* chart not going to max ([a1c14ed](https://github.com/p3ol/junipero/commit/a1c14ed34cae624530695180ea9dd465d3c59327))
+* **deps:** update dependency @floating-ui/react to v0.24.5 ([256dc5d](https://github.com/p3ol/junipero/commit/256dc5ded931e2dad9c44b1d965dc0091d5476df))
+* **deps:** update dependency @floating-ui/react to v0.24.6 ([c91321a](https://github.com/p3ol/junipero/commit/c91321ae6a04a9e11944abcadadc4afcf163bc5b))
+* **deps:** update dependency @floating-ui/react to v0.24.7 ([cefa537](https://github.com/p3ol/junipero/commit/cefa53743a8222885789b408b40640a68323c731))
+* **deps:** update dependency @floating-ui/react to v0.24.8 ([6ad0937](https://github.com/p3ol/junipero/commit/6ad09372a1638eebe497e2e33950cb6f49a12cf7))
+* **deps:** update dependency core-js to v3.31.1 ([f1e4530](https://github.com/p3ol/junipero/commit/f1e4530445d219f39ae247c98304c2c8a2038bf3))
+* only try to render existing axis ([f9c7c9d](https://github.com/p3ol/junipero/commit/f9c7c9d430596fc86a71c2777c03dc209ec849a8))
+* pass data to findSelectionIndex ([a6c6d0c](https://github.com/p3ol/junipero/commit/a6c6d0c74adacec00ca5632ef5f468ea4db92c14))
+* props & classes naming and various types ([f18acc1](https://github.com/p3ol/junipero/commit/f18acc170564d6134e66231811676c3d20bda7e6))
+* update tooltip on marker position change ([696865e](https://github.com/p3ol/junipero/commit/696865eceb8fdbe6c71e1c7042a0509c7a758b26))
+* various chart layout issues ([ef53818](https://github.com/p3ol/junipero/commit/ef5381847b63f70a2e11169f472cea1de789d786))
+* various layout issues ([c4a4369](https://github.com/p3ol/junipero/commit/c4a4369ce88d10460ab09ef5b54237f3ccd6e044))
+* wrong chart line type ([c4981a8](https://github.com/p3ol/junipero/commit/c4981a89f63fcf1aec3c50685ece0c77ebd6ac3a))
+
+
+### Features
+
+* add bar chart ([9ad0e4d](https://github.com/p3ol/junipero/commit/9ad0e4d67e8fc8083f72ddf7b69ba70b2ce2fc05))
+* add chart types ([81a2f97](https://github.com/p3ol/junipero/commit/81a2f97c87db4e036766afc6201f682fb8e7f973))
+* add new dates utils ([89c212f](https://github.com/p3ol/junipero/commit/89c212f92944aa60232a7f9d9aabee591ea19017))
+* add react d3 plugin ([434c16f](https://github.com/p3ol/junipero/commit/434c16fab15e13bacdb8da3e389837fe9e8fadca))
+* add ts props ([dd18f87](https://github.com/p3ol/junipero/commit/dd18f8791d3bddc9deb42b9b350852ad6dd494bd))
+* handle granularity ([4eda406](https://github.com/p3ol/junipero/commit/4eda40645d10fb8556c91ca349a9981d160ae623))
+* handle scale band ([ee3a222](https://github.com/p3ol/junipero/commit/ee3a222a6a352c5ef094960b96114c219b799f87))
+* **tailwind-plugin:** add chart utilities & variants ([30c9cf0](https://github.com/p3ol/junipero/commit/30c9cf08937cc4e49d5d923ea28ae90e9b4e5c77))
+
+
+
+
+
 ## [3.1.2](https://github.com/p3ol/junipero/compare/v3.1.1...v3.1.2) (2023-06-29)
 
 

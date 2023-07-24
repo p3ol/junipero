@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
+
+
+### Features
+
+* **tailwind-plugin:** add chart utilities & variants ([30c9cf0](https://github.com/p3ol/junipero/commit/30c9cf08937cc4e49d5d923ea28ae90e9b4e5c77))
+
+
+
+
+
 # [3.1.0](https://github.com/p3ol/junipero/compare/v3.0.2...v3.1.0) (2023-06-21)
 
 **Note:** Version bump only for package @junipero/tailwind-plugin
