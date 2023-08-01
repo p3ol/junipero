@@ -24,7 +24,10 @@ describe('<Chart />', () => {
         axis={[{
           type: d3.axisBottom,
           scale: d3.scaleTime,
-          data: [new Date(2020, 10, 1), new Date(2020, 10, 30)],
+          data: [
+            new Date('2020-10-01T00:00:00.000Z'),
+            new Date('2020-10-02T00:00:00.000Z'),
+          ],
           parseTitle: d => d.toISOString(),
           ticks: null,
         }, {

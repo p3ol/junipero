@@ -1,5 +1,7 @@
 const path = require('path');
 
+process.env.TZ = 'UTC';
+
 module.exports = {
   displayName: '@junipero/react-d3-plugin',
   clearMocks: true,
