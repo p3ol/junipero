@@ -34,7 +34,6 @@
 | `@junipero/hooks` | Custom React hooks we use inside Junipero packages | [documentation](https://github.com/p3ol/junipero/tree/master/packages/hooks) |
 | `@junipero/core` | Simple utilities we commonly use inside Junipero packages | [documentation](https://github.com/p3ol/junipero/tree/master/packages/core) |
 | `@junipero/tailwind-plugin` | A plugin to use Junipero styles with Tailwind CSS | [documentation](https://github.com/p3ol/junipero/tree/master/packages/tailwind-plugin) |
-| `@junipero/react-native` | A lighter version of Junipero for React Native apps (legacy) | [documentation](https://github.com/p3ol/junipero/tree/master/packages/react-native) |
 
 ## [Documentation](https://junipero.design)
 
