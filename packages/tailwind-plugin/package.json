@@ -13,7 +13,7 @@
   "sideEffects": false,
   "engines": {
     "node": ">= 14",
-    "yarn": "1"
+    "npm": ">= 6"
   },
   "peerDependencies": {
     "@junipero/core": "^3.0.0",
