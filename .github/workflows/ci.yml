@@ -17,11 +17,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+          cache: npm
       - name: Install deps
-        run: yarn install
+        run: npm install
       - name: Eslint check
-        run: yarn lint
+        run: npm run lint
 
   test:
     name: Unit tests
@@ -34,11 +34,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+          cache: npm
       - name: Install deps
-        run: yarn install
+        run: npm install
       - name: Test
-        run: yarn test --forceExit
+        run: npm run test
       - name: Codecov upload
         uses: codecov/codecov-action@v3.1.4
         with:
@@ -54,8 +54,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+          cache: npm
       - name: Install deps
-        run: yarn install
+        run: npm install
       - name: Build
-        run: yarn build
+        run: npm run build

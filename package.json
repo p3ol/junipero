@@ -14,8 +14,7 @@
     "clean": "./node_modules/.bin/lerna exec --parallel -- npm run clean",
     "build": "./node_modules/.bin/lerna exec -- npm run build",
     "serve": "./node_modules/.bin/storybook dev",
-    "presnapshot": "./node_modules/.bin/storybook build",
-    "snapshot": "./node_modules/.bin/percy storybook --config=./percy.config.js ./storybook-static"
+    "storybook-build": "./node_modules/.bin/storybook build"
   },
   "devDependencies": {
     "@babel/cli": "7.22.9",
