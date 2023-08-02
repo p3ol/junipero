@@ -8,10 +8,6 @@ module.exports = {
       },
     },
     {
-      files: ['packages/junipero-native'],
-      extends: ['@poool/eslint-config-react-native'],
-    },
-    {
       files: ['packages/**/*.{ts,tsx}'],
       parser: '@typescript-eslint/parser',
       globals: {
