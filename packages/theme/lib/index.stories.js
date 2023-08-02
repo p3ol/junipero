@@ -21,6 +21,7 @@ const icons = [
 
 export const all = () => (
   <div
+    className="junipero"
     style={{
       display: 'flex',
       flexDirection: 'row',
