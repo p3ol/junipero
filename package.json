@@ -4,14 +4,15 @@
     "packages/*"
   ],
   "scripts": {
+    "preinstall": "node scripts/check-package-manager.js",
     "lerna": "./node_modules/.bin/lerna",
-    "prepack": "yarn lint && yarn build && yarn test",
-    "unlink-all": "./node_modules/.bin/lerna exec --parallel -- yarn unlink",
-    "link-all": "./node_modules/.bin/lerna exec --parallel -- yarn link",
+    "prepack": "npm run lint && npm run build && npm run test",
+    "unlink-all": "./node_modules/.bin/lerna exec --parallel -- npm run unlink",
+    "link-all": "./node_modules/.bin/lerna exec --parallel -- npm run link",
     "test": "BABEL_ENV=tests ./node_modules/.bin/jest",
     "lint": "./node_modules/.bin/eslint .",
-    "clean": "./node_modules/.bin/lerna exec --parallel -- yarn clean",
-    "build": "./node_modules/.bin/lerna exec -- yarn build",
+    "clean": "./node_modules/.bin/lerna exec --parallel -- npm run clean",
+    "build": "./node_modules/.bin/lerna exec -- npm run build",
     "serve": "./node_modules/.bin/storybook dev",
     "presnapshot": "./node_modules/.bin/storybook build",
     "snapshot": "./node_modules/.bin/percy storybook --config=./percy.config.js ./storybook-static"
