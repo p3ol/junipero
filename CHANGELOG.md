@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/p3ol/junipero/compare/v3.2.0...v3.2.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* **react:** correctly depend on core ([4069acc](https://github.com/p3ol/junipero/commit/4069acc728accf2c44f210cbfeae9c8f81d34aea))
+* **theme:** fix wrong datefield background position ([11bf188](https://github.com/p3ol/junipero/commit/11bf1885e983292130cd1aec39bf968afbe66746))
+
+
+
+
+
 # [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
 
 
