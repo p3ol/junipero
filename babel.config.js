@@ -1,34 +1,11 @@
 module.exports = {
   presets: [
+    '@babel/preset-env',
     ['@babel/preset-react', {
       runtime: 'automatic',
     }],
   ],
-  overrides: [{
-    exclude: [
-      './packages/junipero-native/**/*.js',
-      'node_modules/react-native',
-      'node_modules/@react-native',
-    ],
-    presets: ['@babel/preset-env'],
-    plugins: [
-      '@babel/transform-runtime',
-    ],
-  }, {
-    test: [
-      './packages/junipero-native/**/*.js',
-      'node_modules/react-native',
-      'node_modules/@react-native',
-    ],
-    presets: [
-      ['module:metro-react-native-babel-preset', {
-        useTransformReactJSXExperimental: true,
-      }],
-    ],
-    plugins: [
-      ['@babel/plugin-transform-react-jsx', {
-        runtime: 'automatic',
-      }],
-    ],
-  }],
+  plugins: [
+    '@babel/transform-runtime',
+  ],
 };
