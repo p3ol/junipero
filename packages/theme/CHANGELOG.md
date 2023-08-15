@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/p3ol/junipero/compare/v3.2.1...v3.2.2) (2023-08-15)
+
+
+### Bug Fixes
+
+* **theme:** remove breaking old require ([1ca7921](https://github.com/p3ol/junipero/commit/1ca7921a63adc511a25b7efb328c58135d5038a4))
+
+
+
+
+
 ## [3.2.1](https://github.com/p3ol/junipero/compare/v3.2.0...v3.2.1) (2023-08-04)
 
 
