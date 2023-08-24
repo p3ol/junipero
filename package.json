@@ -64,7 +64,7 @@
     "sass": "1.66.1",
     "storybook": "7.2.1",
     "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   },
   "resolutions": {
     "inline-style-prefixer": "6.0.4"
