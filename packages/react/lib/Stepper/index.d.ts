@@ -1,21 +1,17 @@
-import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
-
+import { MutableRefObject, ComponentPropsWithRef, ReactNode } from 'react';
 import { StepObject } from '../Step';
-
+import { ForwardedProps } from '../utils';
 export declare type StepperRef = {
-  active: number;
-  steps: Array<StepObject>;
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+    active: number;
+    steps: Array<StepObject>;
+    isJunipero: boolean;
+    innerRef: MutableRefObject<any>;
 };
-
-declare interface StepperProps extends ComponentPropsWithRef<any> {
-  active?: number;
-  steps?: Array<StepObject>;
-  icon: ReactNode | JSX.Element;
-  ref?: MutableRefObject<StepperRef | undefined>;
+export declare interface StepperProps extends ComponentPropsWithRef<any> {
+    active?: number;
+    steps?: Array<StepObject>;
+    icon?: ReactNode | JSX.Element;
+    ref?: MutableRefObject<StepperRef | undefined>;
 }
-
-declare function Stepper(props: StepperProps): ReactNode | JSX.Element;
-
+declare const Stepper: ForwardedProps<StepperProps, StepperRef>;
 export default Stepper;

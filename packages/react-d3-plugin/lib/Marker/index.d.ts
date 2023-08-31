@@ -1,9 +1,9 @@
+import { TooltipProps } from '@junipero/react/lib/Tooltip';
 import {
   ReactNode,
   MutableRefObject,
   ComponentPropsWithRef,
 } from 'react';
-import { TooltipProps } from '@junipero/react';
 
 export declare type MarkerRef = {
   isJunipero: boolean;

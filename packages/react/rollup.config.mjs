@@ -6,8 +6,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
+import typescript from '@rollup/plugin-typescript';
 
-const input = './lib/index.js';
+const input = './lib/index.ts';
 const output = './dist';
 const name = 'junipero-react';
 const formats = ['umd', 'cjs', 'esm'];
@@ -42,6 +43,14 @@ export default [
   ...formats.map(f => ({
     input,
     plugins: [
+      typescript({
+        rootDir: path.resolve('./lib'),
+        emitDeclarationOnly: true,
+        declaration: true,
+        project: path.resolve('./tsconfig.build.json'),
+        ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
+      }),
+
       ...defaultPlugins,
     ],
     external: defaultExternals,
@@ -73,7 +82,7 @@ export default [
       } : {}),
     },
   })), {
-    input: './lib/index.d.ts',
+    input: './dist/dts/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
     plugins: [dts()],
   },

@@ -1,8 +1,8 @@
 module.exports = {
   stories: [
-    '../packages/react/lib/**/*.stories.js',
-    '../packages/theme/lib/**/*.stories.js',
-    '../packages/**/lib/**/*.stories.js'
+    '../packages/react/lib/**/*.stories.{js,tsx}',
+    '../packages/theme/lib/**/*.stories.{js, tsx}',
+    '../packages/**/lib/**/*.stories.{js,tsx}'
   ],
   addons: [
     '@storybook/addon-storysource',

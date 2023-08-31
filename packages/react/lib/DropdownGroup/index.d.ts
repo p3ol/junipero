@@ -1,12 +1,14 @@
-import { ReactNode, ComponentPropsWithoutRef } from 'react';
-
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 declare interface DropdownGroupProps extends ComponentPropsWithoutRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  title?: ReactNode | JSX.Element;
+    children?: JSX.Element | ReactNode;
+    className?: string;
+    title?: ReactNode | JSX.Element;
 }
-
-declare function DropdownGroup(props: DropdownGroupProps):
-  ReactNode | JSX.Element;
-
+declare const DropdownGroup: {
+    ({ children, title, className }: DropdownGroupProps): import("react").JSX.Element;
+    displayName: string;
+    propTypes: {
+        title: any;
+    };
+};
 export default DropdownGroup;

@@ -22,7 +22,8 @@
   "scripts": {
     "build": "true",
     "clean": "true",
-    "lint": "true"
+    "lint": "true",
+    "generate-types": "exit 0"
   },
   "publishConfig": {
     "access": "public"

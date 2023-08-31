@@ -1,24 +1,14 @@
-import {
-  ReactNode,
-  ElementType,
-  MutableRefObject,
-  ComponentPropsWithRef,
-} from 'react';
-
+import { ComponentPropsWithRef, ElementType, MutableRefObject, ReactNode } from 'react';
 export declare type BreadCrumbItemRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+    isJunipero: boolean;
+    innerRef: MutableRefObject<any>;
 };
-
 declare interface BreadCrumbItemProps extends ComponentPropsWithRef<any> {
-  className?: string;
-  children?: ReactNode | JSX.Element;
-  tag?: string | ElementType;
-  animate?(item: ReactNode | JSX.Element): ReactNode | JSX.Element;
-  ref?: MutableRefObject<BreadCrumbItemRef | undefined>;
+    className?: string;
+    children?: ReactNode | JSX.Element;
+    tag?: string | ElementType;
+    animate?(item: ReactNode | JSX.Element): ReactNode | JSX.Element;
+    ref?: MutableRefObject<BreadCrumbItemRef | undefined>;
 }
-
-declare function BreadCrumbItem(props: BreadCrumbItemProps):
-  ReactNode | JSX.Element;
-
+declare const BreadCrumbItem: import("react").ForwardRefExoticComponent<Omit<BreadCrumbItemProps, "ref"> & import("react").RefAttributes<BreadCrumbItemRef>>;
 export default BreadCrumbItem;

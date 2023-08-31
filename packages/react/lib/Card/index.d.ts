@@ -1,22 +1,13 @@
-import {
-  ReactNode,
-  ElementType,
-  MutableRefObject,
-  ComponentPropsWithRef,
-} from 'react';
-
+import { ComponentPropsWithRef, ElementType, MutableRefObject, ReactNode } from 'react';
 export declare type CardRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+    isJunipero: boolean;
+    innerRef: MutableRefObject<any>;
 };
-
 declare interface CardProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  tag?: string | ElementType;
-  ref?: MutableRefObject<CardRef | undefined>;
+    children?: ReactNode | JSX.Element;
+    className?: string;
+    tag?: string | ElementType;
+    ref?: MutableRefObject<CardRef | undefined>;
 }
-
-declare function Card(props: CardProps): ReactNode | JSX.Element;
-
+declare const Card: import("react").ForwardRefExoticComponent<Omit<CardProps, "ref"> & import("react").RefAttributes<CardRef>>;
 export default Card;

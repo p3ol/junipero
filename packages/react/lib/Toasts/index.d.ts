@@ -1,23 +1,19 @@
-import { ReactNode, ComponentPropsWithRef, MutableRefObject } from 'react';
-
+import { ComponentPropsWithRef, MutableRefObject } from 'react';
 import { ToastObject } from '../Toast';
-
+import { ForwardedProps } from '../utils';
 export declare type ToastsRef = {
-  isJunipero: boolean;
-  toasts: Array<ToastObject>;
-  innerRef: MutableRefObject<any>;
+    isJunipero: boolean;
+    toasts: Array<ToastObject>;
+    innerRef: MutableRefObject<any>;
 };
-
-declare interface ToastsProps extends ComponentPropsWithRef<any> {
-  animationTimeout?: number;
-  className?: string;
-  animateToast?(
-    toast: ReactNode | JSX.Element,
-    opts: { opened: boolean; index: string | number }
-  ): ReactNode | JSX.Element;
-  ref?: MutableRefObject<ToastsRef | undefined>;
+export declare interface ToastsProps extends ComponentPropsWithRef<any> {
+    animationTimeout?: number;
+    className?: string;
+    animateToast?(toast: JSX.Element, opts: {
+        opened: boolean;
+        index: string | number;
+    }): JSX.Element;
+    ref?: MutableRefObject<ToastsRef | undefined>;
 }
-
-declare function Toasts(props: ToastsProps): JSX.Element;
-
+declare const Toasts: ForwardedProps<ToastsProps, ToastsRef>;
 export default Toasts;

@@ -1,16 +1,11 @@
-import { MutableRefObject, ComponentPropsWithRef, ReactNode } from 'react';
-
+import { MutableRefObject, ComponentPropsWithRef } from 'react';
 export declare type DropdownToggleRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+    isJunipero: boolean;
+    innerRef: MutableRefObject<any>;
 };
-
 declare interface DropdownToggleProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  ref?: MutableRefObject<DropdownToggleRef | undefined>;
+    children?: JSX.Element;
+    ref?: MutableRefObject<DropdownToggleRef | undefined>;
 }
-
-declare function DropdownToggle(props: DropdownToggleProps):
-  ReactNode | JSX.Element;
-
+declare const DropdownToggle: import("react").ForwardRefExoticComponent<Omit<DropdownToggleProps, "ref"> & import("react").RefAttributes<DropdownToggleRef>>;
 export default DropdownToggle;

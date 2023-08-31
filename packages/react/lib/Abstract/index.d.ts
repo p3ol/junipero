@@ -1,10 +1,10 @@
-import { ReactNode, ComponentPropsWithoutRef } from 'react';
-
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 declare interface AbstractProps extends ComponentPropsWithoutRef<any> {
-  className?: string;
-  children?: ReactNode | JSX.Element;
+    className?: string;
+    children?: ReactNode | JSX.Element;
 }
-
-declare function Abstract(props: AbstractProps): ReactNode | JSX.Element;
-
+declare const Abstract: {
+    ({ className, ...rest }: AbstractProps): import("react").JSX.Element;
+    displayName: string;
+};
 export default Abstract;

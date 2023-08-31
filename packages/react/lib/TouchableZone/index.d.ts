@@ -1,12 +1,9 @@
-import { ReactNode, ComponentPropsWithRef, ElementType } from 'react';
-
+import { ComponentPropsWithRef, ElementType, ReactNode } from 'react';
+import { ForwardedProps } from '../utils';
 declare interface TouchableZoneProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string
-  tag?: string | ElementType;
+    children?: ReactNode | JSX.Element;
+    className?: string;
+    tag?: string | ElementType;
 }
-
-declare function TouchableZone(props: TouchableZoneProps):
-  ReactNode | JSX.Element;
-
+declare const TouchableZone: ForwardedProps<TouchableZoneProps, any>;
 export default TouchableZone;
