@@ -29,7 +29,7 @@ import DropdownGroup from '../DropdownGroup';
 import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
 import Spinner from '../Spinner';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type SelectFieldRef = {
   dirty: boolean;
@@ -126,7 +126,22 @@ const SelectField = forwardRef(({
   const dropdownRef = useRef<any>();
   const searchInputRef = useRef<any>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type SelectFieldState = {
+    value: any;
+    valid: boolean;
+    dirty: boolean;
+    opened: boolean;
+    focused: boolean;
+    search: string;
+    searching: boolean;
+    searchResults: Array<any>;
+    selectedItem: number;
+    placeholderSize: number;
+    refocus?: boolean;
+  }
+
+  const [state, dispatch] = useReducer<MockState<SelectFieldState>>(mockState, {
     value: value ?? (multiple ? [] : null),
     valid: valid ?? false,
     dirty: false,

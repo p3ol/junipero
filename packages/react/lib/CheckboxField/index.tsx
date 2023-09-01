@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
 import { Check } from '../icons';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type CheckboxFieldRef = {
   checked: boolean;
@@ -56,7 +56,13 @@ const CheckboxField = forwardRef(({
   const innerRef = useRef();
   const inputRef = useRef();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type CheckboxState = {
+    checked: boolean,
+    valid: boolean,
+    dirty: boolean
+  };
+  const [state, dispatch] = useReducer<MockState<CheckboxState>>(mockState, {
     checked: checked ?? false,
     valid: valid ?? true,
     dirty: false,

@@ -45,9 +45,9 @@ const Alerts = forwardRef(({
     isJunipero: true,
   }));
 
-  const onDismiss = (alert, index) => {
+  const onDismiss = (alert: AlertObject, index: number) => {
     dismiss?.(alert);
-    alert?.onDismiss?.(alert, index);
+    alert?.onDismiss?.(index);
   };
 
   return (

@@ -74,7 +74,7 @@ const Alert = forwardRef(({
   ...rest
 }: AlertProps, ref) => {
   const innerRef = useRef();
-  const [enabled, setEnabled] = useState(true);
+  const [enabled, setEnabled] = useState<boolean>(true);
   const timeout = animate ? animationTimeout : 0;
 
   useTimeout(() => {
@@ -90,7 +90,7 @@ const Alert = forwardRef(({
     isJunipero: true,
   }));
 
-  const onClick_ = e => {
+  const onClick_ = (e : Event) => {
     onClick?.(e);
     setEnabled(false);
   };

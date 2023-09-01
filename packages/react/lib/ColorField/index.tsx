@@ -26,7 +26,7 @@ import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import TextField from '../TextField';
 import FieldControl from '../FieldControl';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type ColorFieldRef = {
   dirty: boolean;
@@ -101,13 +101,27 @@ const ColorField = forwardRef(({
   onValidate = (val, { required }) => !!val || !required,
   ...rest
 }: ColorFieldProps, ref) => {
+  type ColorFieldState = {
+    value: string,
+    a: number,
+    h: number,
+    s: number,
+    v: number,
+    valid: boolean,
+    dirty: boolean,
+    opened: boolean,
+    handleMoving: boolean,
+    handleType: string | null,
+    focused: boolean
+  }
+
   const innerRef = useRef<any>();
   const textFieldRef = useRef<any>();
   const colorLightnessRef = useRef<any>();
   const colorHueRef = useRef<any>();
   const colorAlphaRef = useRef<any>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer(mockState, {
+  const [state, dispatch] = useReducer<MockState<ColorFieldState>>(mockState, {
     value: value ?? '',
     a: 100,
     h: 0,
@@ -118,6 +132,7 @@ const ColorField = forwardRef(({
     opened: (autoFocus || opened) ?? false,
     handleMoving: false,
     handleType: null,
+    focused: false,
   });
 
   useImperativeHandle(ref, () => ({

@@ -11,7 +11,7 @@ import {
 import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type ToggleRef = {
   checked: boolean;
@@ -43,7 +43,11 @@ const Toggle = forwardRef(({
 }: ToggleProps, ref) => {
   const innerRef = useRef();
   const inputRef = useRef();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type ToggleState = {
+    checked: boolean;
+  }
+  const [state, dispatch] = useReducer<MockState<ToggleState>>(mockState, {
     checked,
   });
 

@@ -14,13 +14,13 @@ import PropTypes from 'prop-types';
 import { ListContext, ListContextType } from '../contexts';
 import { ArrowDown, ArrowUp } from '../icons';
 import { ListColumnObject } from '../ListColumn';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type ListRef = {
   orderable: boolean;
   columns: Array<string | ListColumnObject>;
-  active: string | number;
-  asc: boolean | null;
+  active?: string | number;
+  asc?: boolean | null;
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
@@ -41,7 +41,14 @@ const List = forwardRef(({
   const listRef = useRef([]);
   const innerRef = useRef();
   const orderable = useMemo(() => !!onOrder, [onOrder]);
-  const [state, dispatch] = useReducer(mockState, {
+
+  type ListState = {
+    columns: Array<string | ListColumnObject>,
+    active?: string | number,
+    asc?: boolean,
+  };
+
+  const [state, dispatch] = useReducer<MockState<ListState>>(mockState, {
     columns,
     active: null,
     asc: null,

@@ -14,7 +14,7 @@ import { exists, classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import BreadCrumbItem from '../BreadCrumbItem';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type BreadCrumbRef = {
   items: Array<JSX.Element> | Array<string>;
@@ -39,9 +39,11 @@ const BreadCrumb = forwardRef(({
   ...rest
 }: BreadCrumbProps, ref) => {
   const innerRef = useRef();
-  const [state, dispatch] = useReducer(mockState, {
-    opened: false,
-  });
+  const [state, dispatch] = useReducer<MockState<{opened: boolean}>>(
+    mockState, {
+      opened: false,
+    }
+  );
 
   useImperativeHandle(ref, () => ({
     items,
@@ -55,7 +57,7 @@ const BreadCrumb = forwardRef(({
     dispatch({ opened: true });
   };
 
-  const availableItems = useMemo(() => (
+  const availableItems = useMemo<Array<JSX.Element | string>>(() => (
     items
       ? items.map((item, i) => (
         <BreadCrumbItem key={i}>{ item }</BreadCrumbItem>
@@ -72,7 +74,7 @@ const BreadCrumb = forwardRef(({
     availableItems.slice(0, Math.ceil(maxItems / 2))
   ), [availableItems, maxItems]);
 
-  const after = useMemo(() => (
+  const after = useMemo<Array<JSX.Element | string>>(() => (
     availableItems.slice(-Math.floor(maxItems / 2))
   ), [availableItems, maxItems]);
 

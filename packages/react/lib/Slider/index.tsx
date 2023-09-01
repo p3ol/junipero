@@ -18,7 +18,7 @@ import { useEventListener } from '@junipero/hooks';
 import PropTypes from 'prop-types';
 
 import Tooltip from '../Tooltip';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type SliderRef = {
   isJunipero: boolean;
@@ -75,7 +75,13 @@ const Slider = forwardRef(({
   const handleRef = useRef<any>();
   const slideRef = useRef<any>();
   const tooltipRef = useRef<any>();
-  const [state, dispatch] = useReducer(mockState, {
+  type SliderState = {
+    value: number;
+    precision: number;
+    moving: boolean;
+  };
+
+  const [state, dispatch] = useReducer<MockState<SliderState>>(mockState, {
     value: parseFloat(
       ensureMinMax(Math.round(value / step) * step, minValue, maxValue
       ).toFixed(getFloatPrecision(step))),

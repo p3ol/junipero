@@ -32,7 +32,7 @@ export type DropdownContextType = {
 }
 
 export type ListContextType= {
-  active?: boolean,
+  active?: string | number,
   asc?: boolean,
   orderable?: boolean,
   registerColumn?: (column: string | ListColumnObject) => void

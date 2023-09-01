@@ -2,9 +2,16 @@ import { ComponentPropsWithRef, useCallback, useReducer } from 'react';
 import { mockState } from '@junipero/core';
 
 import { FieldControlContext, FieldContextType } from '../contexts';
+import { MockState } from '../utils';
 
 const FieldControl = (props: ComponentPropsWithRef<any>) => {
-  const [state, dispatch] = useReducer(mockState, {
+
+  type FieldControlState = {
+    valid: boolean,
+    dirty: boolean,
+    focused: boolean,
+  }
+  const [state, dispatch] = useReducer<MockState<FieldControlState>>(mockState, {
     valid: true,
     dirty: false,
     focused: false,

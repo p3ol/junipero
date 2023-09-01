@@ -29,7 +29,7 @@ import {
 } from '@floating-ui/react';
 import PropTypes from 'prop-types';
 
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type TooltipRef = {
   opened: boolean;
@@ -84,7 +84,13 @@ const Tooltip = forwardRef(({
 }:TooltipProps, ref) => {
   const handleRef = useRef();
   const innerRef = useRef();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type TooltipState = {
+    opened: boolean,
+    visible: boolean
+  };
+
+  const [state, dispatch] = useReducer<MockState<TooltipState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });

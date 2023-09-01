@@ -13,6 +13,7 @@ import { classNames, mockState, exists } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
+import { MockState } from '../utils';
 
 export declare type TextFieldRef = {
   dirty: boolean;
@@ -69,7 +70,14 @@ const TextField = forwardRef(({
   const innerRef = useRef<any>();
   const inputRef = useRef<any>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type TextFieldState = {
+    value: string | number;
+    valid: boolean;
+    dirty: boolean;
+    focused: boolean;
+  }
+  const [state, dispatch] = useReducer <MockState<TextFieldState>>(mockState, {
     value: value ?? '',
     valid: valid ?? false,
     focused: autoFocus ?? false,

@@ -53,7 +53,9 @@ const Calendar = forwardRef(({
   ...rest
 }: CalendarProps, ref) => {
   const innerRef = useRef();
-  const [state, dispatch] = useReducer(mockState, {
+  type calendarState = { value: Date }
+  type MockState<T> = (prop: T, action: any) => T;
+  const [state, dispatch] = useReducer<MockState<calendarState>>(mockState, {
     value: active ?? new Date(),
   });
 
@@ -69,7 +71,7 @@ const Calendar = forwardRef(({
     }
   }, [active]);
 
-  const onSelectDate = (date, e) => {
+  const onSelectDate = (date : Date, e: Event) => {
     e.preventDefault();
 
     if (disabled || isDayDisabled(date)) {
@@ -81,7 +83,7 @@ const Calendar = forwardRef(({
     onSelect?.(state.value);
   };
 
-  const onPreviousMonthClick = e => {
+  const onPreviousMonthClick = (e: Event) => {
     e?.preventDefault();
     const value = new Date(state.value);
 
@@ -107,7 +109,7 @@ const Calendar = forwardRef(({
     dispatch({ value });
   };
 
-  const onNextMonthClick = e => {
+  const onNextMonthClick = (e: Event) => {
     e?.preventDefault();
     const value = new Date(state.value);
 

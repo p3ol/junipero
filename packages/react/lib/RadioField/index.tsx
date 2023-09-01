@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { classNames, mockState } from '@junipero/core';
 
 import { useFieldControl } from '../hooks';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type RadioFieldRef = {
   dirty: boolean;
@@ -61,7 +61,13 @@ const RadioField = forwardRef(({
   const optionRefs = useRef([]);
   const innerRef = useRef();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type RadioFieldState = {
+    dirty: boolean;
+    value: any;
+    valid: boolean;
+  }
+  const [state, dispatch] = useReducer<MockState<RadioFieldState>>(mockState, {
     dirty: false,
     value,
     valid,

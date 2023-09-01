@@ -28,7 +28,7 @@ import {
 import PropTypes from 'prop-types';
 
 import { DropdownContext, DropdownContextType } from '../contexts';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type DropdownRef = {
   isJunipero: boolean;
@@ -68,7 +68,13 @@ const Dropdown = forwardRef(({
   ...rest
 }: DropdownProps, ref) => {
   const innerRef = useRef();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type DropdownState = {
+    opened: boolean,
+    visible: boolean
+  };
+
+  const [state, dispatch] = useReducer<MockState<DropdownState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });

@@ -12,7 +12,7 @@ import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type CodeFieldRef = {
   dirty: boolean;
@@ -68,7 +68,13 @@ const CodeField = forwardRef(({
   const inputsRef = useRef([]);
   const inputRef = useRef();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer(mockState, {
+  type CodeFieldState = {
+    valid: boolean,
+    values: Array<string>,
+    dirty: boolean,
+    active: number,
+  }
+  const [state, dispatch] = useReducer<MockState<CodeFieldState>>(mockState, {
     valid: valid ?? false,
     values: value?.split('').slice(0, size) || [],
     dirty: false,

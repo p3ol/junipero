@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import { classNames, mockState, ensureNode } from '@junipero/core';
 
 import { Remove } from '../icons';
-import { ForwardedProps } from '../utils';
+import { ForwardedProps, MockState } from '../utils';
 
 export declare type ModalRef = {
   isJunipero: boolean;
@@ -59,7 +59,12 @@ const Modal = forwardRef(({
   const contentRef = useRef();
   const wrapperRef = useRef();
   const closeButtonRef = useRef();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type ModalState = {
+    opened: boolean;
+    visible: boolean;
+  }
+  const [state, dispatch] = useReducer<MockState<ModalState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });

@@ -12,4 +12,6 @@ type GrowToSize<T, A extends Array<T>, N extends number> = {
 
 export type FixedArray<T, N extends number> = GrowToSize<T, [], N>;
 
-export declare interface ForwardedProps<T, P> extends ForwardRefExoticComponent<T & React.RefAttributes<P>> {}
+export declare interface ForwardedProps<T, P> extends ForwardRefExoticComponent<T & React.RefAttributes<P>> {} // TODO move this to core project
+
+export declare type MockState<T> = (state: T, action: any) => T; // TODO move this to core project

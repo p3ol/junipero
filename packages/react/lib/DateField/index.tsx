@@ -21,7 +21,7 @@ import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import Calendar from '../Calendar';
-import { FixedArray } from '../utils';
+import { FixedArray, MockState } from '../utils';
 
 export declare type DateFieldRef = {
   dirty: boolean;
@@ -121,7 +121,19 @@ const DateField = forwardRef(({
   const timeInputRef = useRef<any>();
   const inputRef = useRef<any>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer(mockState, {
+
+  type DateFieldState = {
+    value?: Date,
+    selected: Date,
+    displayed: Date,
+    valid: boolean,
+    dirty: boolean,
+    opened: boolean,
+    focused: boolean,
+    time: string,
+    timeDirty: boolean,
+  };
+  const [state, dispatch] = useReducer<MockState<DateFieldState>>(mockState, {
     value: value ?? null,
     selected: value ?? new Date(),
     displayed: value ?? new Date(),
