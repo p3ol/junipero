@@ -58,7 +58,7 @@ const Tabs = forwardRef(({
     setActiveTab(active ?? 0);
   }, [active]);
 
-  const onClick_ = (tab, index, e) => {
+  const onClick_ = (tab: TabObject, index, e) => {
     e?.preventDefault?.();
 
     if (disabled || tab.props.disabled) {
@@ -117,6 +117,7 @@ Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.exact({
     title: PropTypes.any,
     content: PropTypes.any,
+    props: PropTypes.object,
   })),
   disabled: PropTypes.bool,
   onToggle: PropTypes.func,

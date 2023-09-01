@@ -20,7 +20,7 @@ declare interface DraggableProps extends ComponentPropsWithRef<any> {
   disabled?: boolean;
   dragImage?: Element;
   dragImageOffset?: { x: number; y: number };
-  onDrag?(e: Event): void;
+  onDrag?(e: DragEvent<HTMLElement>): void;
   onBeforeDragStart?(e: DragEvent): void;
   onDragStart?(e: DragEvent, target?: DOMRect): void;
   onDragEnd?(e: DragEvent): void;
@@ -74,7 +74,7 @@ const Draggable = forwardRef(({
     onDragStart?.(e, targetRect);
   };
 
-  const onDragEnd_ = e => {
+  const onDragEnd_ = (e: DragEvent<HTMLElement>) => {
     if (disabled) {
       return;
     }
@@ -83,7 +83,7 @@ const Draggable = forwardRef(({
     onDragEnd?.(e);
   };
 
-  const onDrag_ = e => {
+  const onDrag_ = (e: DragEvent<HTMLElement>) => {
     if (disabled) {
       return;
     }

@@ -83,7 +83,7 @@ const CheckboxField = forwardRef(({
     isJunipero: true,
   }));
 
-  const onKeyPress_ = e => {
+  const onKeyPress_ = (e: any) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault?.();
 
@@ -99,7 +99,7 @@ const CheckboxField = forwardRef(({
     return true;
   };
 
-  const onChange_ = e => {
+  const onChange_ = (e: any) => {
     if (disabled) {
       return;
     }

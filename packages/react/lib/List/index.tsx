@@ -93,7 +93,7 @@ const List = forwardRef(({
     orderable,
   ]);
 
-  const renderColumn = (column, index) => {
+  const renderColumn = (column:ListColumnObject, index: number) => {
     const { id, title, ...props } = typeof column === 'string'
       ? { id: column, title: column } : column;
 

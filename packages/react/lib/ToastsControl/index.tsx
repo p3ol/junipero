@@ -8,7 +8,7 @@ import {
 } from 'react';
 import PropTypes from 'prop-types';
 
-import { ListContextType, ToastsContext, ToastsContextType } from '../contexts';
+import { ToastsContext, ToastsContextType } from '../contexts';
 import { ToastObject } from '../Toast';
 import { ForwardedProps } from '../utils';
 
@@ -19,7 +19,8 @@ export declare type ToastsControlRef = {
   dismiss(toast: ToastObject, index: string | number): void;
 };
 
-export declare interface ToastsControlProps extends ComponentPropsWithoutRef<any> {
+export declare interface ToastsControlProps
+  extends ComponentPropsWithoutRef<any> {
   toasts?: Array<ToastObject>;
   generateId?(toast: ToastObject): string | number;
   ref?: MutableRefObject<ToastsControlRef | undefined>;

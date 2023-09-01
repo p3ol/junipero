@@ -1,4 +1,11 @@
-import { Children, cloneElement, forwardRef, useState, useEffect, ComponentPropsWithoutRef } from 'react';
+import {
+  Children,
+  cloneElement,
+  forwardRef,
+  useState,
+  useEffect,
+  ComponentPropsWithoutRef,
+} from 'react';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
@@ -41,7 +48,7 @@ const Droppable = forwardRef(({
     setDragging(true);
   };
 
-  const onDragLeave_ = e => {
+  const onDragLeave_ = (e: any) => {
     if (disabled) {
       return;
     }

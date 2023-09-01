@@ -20,7 +20,7 @@ import {
 import PropTypes from 'prop-types';
 
 import { ArrowLeft, ArrowRight } from '../icons';
-import { FixedArray, ForwardedProps } from '../utils';
+import { FixedArray, ForwardedProps, MockState } from '../utils';
 
 export declare type CalendarRef = {
   value: Date;
@@ -53,9 +53,10 @@ const Calendar = forwardRef(({
   ...rest
 }: CalendarProps, ref) => {
   const innerRef = useRef();
-  type calendarState = { value: Date }
-  type MockState<T> = (prop: T, action: any) => T;
-  const [state, dispatch] = useReducer<MockState<calendarState>>(mockState, {
+
+  type CalendarState = { value: Date }
+
+  const [state, dispatch] = useReducer<MockState<CalendarState>>(mockState, {
     value: active ?? new Date(),
   });
 
@@ -135,7 +136,7 @@ const Calendar = forwardRef(({
     dispatch({ value });
   };
 
-  const isBeforeMinDate = date => {
+  const isBeforeMinDate = (date: Date) => {
     if (!min) {
       return false;
     }
@@ -143,7 +144,7 @@ const Calendar = forwardRef(({
     return date.getTime() < min.getTime();
   };
 
-  const isAfterMaxDate = date => {
+  const isAfterMaxDate = (date: Date) => {
     if (!max) {
       return false;
     }
@@ -151,10 +152,10 @@ const Calendar = forwardRef(({
     return date.getTime() > max.getTime();
   };
 
-  const isDayDisabled = date =>
+  const isDayDisabled = (date: Date) =>
     isBeforeMinDate(date) || isAfterMaxDate(date);
 
-  const isDaySelected = date => {
+  const isDaySelected = (date: Date) => {
     const current = active ?? new Date();
 
     return date.getFullYear() === current.getFullYear() &&
@@ -162,16 +163,16 @@ const Calendar = forwardRef(({
       date.getDate() === current.getDate();
   };
 
-  const getMonthName = month =>
+  const getMonthName = (month: number) =>
     monthNames[month];
 
-  const getWeekDayOfMonth = date => {
+  const getWeekDayOfMonth = (date: Date) => {
     const weekDay = date.getDay();
 
     return weekDay === 0 ? 7 : weekDay;
   };
 
-  const getMonthDays = (date, props = {}) => Array
+  const getMonthDays = (date: Date, props: object = {}) => Array
     .from({ length: getDaysInMonth(date) }, (v, k) => ({
       date: new Date(date.getFullYear(), date.getMonth(), k + 1),
       ...props,

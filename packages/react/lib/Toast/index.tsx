@@ -1,4 +1,13 @@
-import { forwardRef, useState, useImperativeHandle, useRef, ReactNode, ComponentPropsWithRef, ElementType, MutableRefObject } from 'react';
+import {
+  forwardRef,
+  useState,
+  useImperativeHandle,
+  useRef,
+  ReactNode,
+  ComponentPropsWithRef,
+  ElementType,
+  MutableRefObject,
+} from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';

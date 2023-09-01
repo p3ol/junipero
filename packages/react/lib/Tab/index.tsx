@@ -7,6 +7,7 @@ import { ForwardedProps } from '../utils';
 export declare interface TabObject {
   title: ReactNode | JSX.Element;
   content: ReactNode | JSX.Element;
+  props: { disabled?: boolean },
 }
 
 export declare type TabRef = {

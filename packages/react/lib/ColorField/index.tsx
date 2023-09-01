@@ -231,7 +231,7 @@ const ColorField = forwardRef(({
     onBlur?.(e);
   };
 
-  const onToggle_ = ({ opened }) => {
+  const onToggle_ = ({ opened }: { opened: boolean }) => {
     dispatch({ opened });
     updateControl?.({ focused: opened });
     onToggle?.({ opened });
@@ -247,7 +247,7 @@ const ColorField = forwardRef(({
     innerRef.current?.toggle();
   };
 
-  const getCursorPosition = type => {
+  const getCursorPosition = (type: string) => {
     switch (type) {
       case 'hue':
         return {
@@ -267,7 +267,7 @@ const ColorField = forwardRef(({
     }
   };
 
-  const onMouseDown_ = (type, e) => {
+  const onMouseDown_ = (type: string, e) => {
     if (e.button !== 0) {
       return;
     }

@@ -36,9 +36,9 @@ const Toasts = forwardRef(({
     isJunipero: true,
   }));
 
-  const onDismiss = (toast, index) => {
+  const onDismiss = (toast: ToastObject, index: number) => {
     dismiss?.(toast);
-    toast?.onDismiss?.(toast, index);
+    toast?.onDismiss?.(index);
   };
 
   return (

@@ -11,11 +11,13 @@ const FieldControl = (props: ComponentPropsWithRef<any>) => {
     dirty: boolean,
     focused: boolean,
   }
-  const [state, dispatch] = useReducer<MockState<FieldControlState>>(mockState, {
-    valid: true,
-    dirty: false,
-    focused: false,
-  });
+  const [state, dispatch] = useReducer<MockState<FieldControlState>>(
+    mockState, {
+      valid: true,
+      dirty: false,
+      focused: false,
+    }
+  );
 
   const getContext = useCallback<() => FieldContextType>(() => ({
     valid: state.valid,

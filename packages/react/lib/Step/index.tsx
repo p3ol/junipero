@@ -21,28 +21,29 @@ export declare interface StepProps extends ComponentPropsWithRef<any> {
   icon?: ReactNode | JSX.Element;
   ref?: MutableRefObject<StepRef | undefined>;
 }
-const Step = forwardRef(({ title, icon, children, status, ...rest }: StepProps, ref) => {
-  const innerRef = useRef<any>();
+const Step = forwardRef(
+  ({ title, icon, children, status, ...rest }: StepProps, ref) => {
+    const innerRef = useRef<any>();
 
-  useImperativeHandle(ref, () => ({
-    isJunipero: true,
-    innerRef,
-  }));
+    useImperativeHandle(ref, () => ({
+      isJunipero: true,
+      innerRef,
+    }));
 
-  return (
-    <div ref={innerRef} className={classNames('step', status)} {...rest}>
-      <div className="content">
-        <div className="step-icon">
-          { status === 'completed' && (icon || <Check />) }
-        </div>
-        <div className="junipero extra step-details">
-          <span>{ title }</span>
-          <span className="junipero secondary name">{ children }</span>
+    return (
+      <div ref={innerRef} className={classNames('step', status)} {...rest}>
+        <div className="content">
+          <div className="step-icon">
+            { status === 'completed' && (icon || <Check />) }
+          </div>
+          <div className="junipero extra step-details">
+            <span>{ title }</span>
+            <span className="junipero secondary name">{ children }</span>
+          </div>
         </div>
       </div>
-    </div>
-  );
-}) as ForwardedProps<StepProps, StepRef>;
+    );
+  }) as ForwardedProps<StepProps, StepRef>;
 
 Step.displayName = 'Step';
 Step.propTypes = {

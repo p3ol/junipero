@@ -172,7 +172,7 @@ const DateField = forwardRef(({
     }
   }, [value]);
 
-  const onSelectDate = date => {
+  const onSelectDate = (date: Date) => {
     if (disabled || isDayDisabled(date)) {
       return;
     }
@@ -185,7 +185,7 @@ const DateField = forwardRef(({
     onChange_();
   };
 
-  const onChange_ = ({ close = true } = {}) => {
+  const onChange_ = ({ close = true }: { close?: boolean} = {}) => {
     if (disabled) {
       return;
     }
@@ -277,7 +277,7 @@ const DateField = forwardRef(({
     onBlur?.(e);
   };
 
-  const onToggle_ = ({ opened }) => {
+  const onToggle_ = ({ opened }: { opened?: boolean}) => {
     if (disabled) {
       return;
     }
@@ -350,7 +350,7 @@ const DateField = forwardRef(({
     updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
-  const isBeforeMinDate = date => {
+  const isBeforeMinDate = (date: Date) => {
     if (!min) {
       return false;
     }
@@ -358,7 +358,7 @@ const DateField = forwardRef(({
     return date.getTime() < min.getTime();
   };
 
-  const isAfterMaxDate = date => {
+  const isAfterMaxDate = (date: Date) => {
     if (!max) {
       return false;
     }
@@ -366,7 +366,7 @@ const DateField = forwardRef(({
     return date.getTime() > max.getTime();
   };
 
-  const isDayDisabled = date =>
+  const isDayDisabled = (date: Date) =>
     isBeforeMinDate(date) || isAfterMaxDate(date);
 
   const isEmpty = () =>

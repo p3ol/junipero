@@ -108,11 +108,11 @@ const CodeField = forwardRef(({
     updateControl?.({ valid: state.valid });
   }, [valid]);
 
-  const focus = (index = 0) => {
+  const focus = (index: number = 0) => {
     inputsRef.current[index]?.focus();
   };
 
-  const blur = index => {
+  const blur = (index: number) => {
     inputsRef.current[index]?.blur();
   };
 
@@ -125,7 +125,7 @@ const CodeField = forwardRef(({
     updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
-  const onChange_ = (index, e) => {
+  const onChange_ = (index: number, e: any) => {
     if (disabled) {
       return;
     }
@@ -142,7 +142,7 @@ const CodeField = forwardRef(({
     }
   };
 
-  const onKeyDown_ = (index, e) => {
+  const onKeyDown_ = (index: number, e) => {
     if (disabled) {
       return;
     }
@@ -202,13 +202,13 @@ const CodeField = forwardRef(({
     onPaste?.(e);
   };
 
-  const onFocus_ = (index, e) => {
+  const onFocus_ = (index:number, e) => {
     dispatch({ active: index });
     updateControl?.({ focused: true });
     onFocus?.(e);
   };
 
-  const onBlur_ = (index, e) => {
+  const onBlur_ = (index: number, e) => {
     dispatch({ active: -1 });
     updateControl?.({ focused: false });
     onBlur?.(e);
