@@ -32,7 +32,6 @@ export default [
     input,
     plugins: [
       typescript({
-        rootDir: path.resolve('./lib'),
         emitDeclarationOnly: true,
         declaration: true,
         project: path.resolve('./tsconfig.build.json'),
@@ -58,7 +57,7 @@ export default [
       } : {}),
     },
   })), {
-    input: './dist/dts/index.d.ts',
+    input: './dist/@types/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
     plugins: [dts()],
   }];

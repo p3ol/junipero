@@ -2,10 +2,7 @@
   "extends": "../../tsconfig.json",
   "include": ["./lib/**/*"],
   "compilerOptions": {
-    "declarationDir": "dist/dts",
-    "paths": {
-      "@junipero/hooks": ["../hooks/lib"],
-      "@junipero/core": ["../hooks/lib"],
-    }
+    "declarationDir": "./dist/@types",
+    "rootDir": "./lib"
   }
 }
