@@ -1,11 +1,11 @@
 import { useRef, useEffect, useLayoutEffect } from 'react';
 
 export const useEventListener = (
-  name,
-  handler,
-  { target = globalThis, enabled } = {}
+  name: string,
+  handler: (e: any) => any,
+  { target = globalThis, enabled }: {target?: any, enabled?: boolean} = {}
 ) => {
-  const savedHandler = useRef();
+  const savedHandler = useRef<any>();
 
   useEffect(() => {
     savedHandler.current = handler;
@@ -28,9 +28,18 @@ export const useEventListener = (
 };
 
 export const useInterval = (
-  cb, time, changes = [], { enabled = true, layoutEffect = false } = {}
+  cb: () => void,
+  time: number,
+  changes: Array<any> = [],
+  {
+    enabled = true,
+    layoutEffect = false,
+  }: {
+    enabled?: boolean,
+    layoutEffect?: boolean
+  } = {}
 ) => {
-  const returnedCallbackRef = useRef();
+  const returnedCallbackRef = useRef<any>();
 
   (layoutEffect ? useLayoutEffect : useEffect)(() => {
     if (!enabled) {
@@ -49,9 +58,18 @@ export const useInterval = (
 };
 
 export const useTimeout = (
-  cb, time, changes = [], { enabled = true, layoutEffect = false } = {}
+  cb: () => void,
+  time: number,
+  changes: Array<any> = [],
+  {
+    enabled = true,
+    layoutEffect = false,
+  }: {
+    enabled?: boolean,
+    layoutEffect?: boolean
+  } = {}
 ) => {
-  const returnedCallbackRef = useRef();
+  const returnedCallbackRef = useRef<any>();
 
   (layoutEffect ? useLayoutEffect : useEffect)(() => {
     if (!enabled) {
@@ -69,7 +87,15 @@ export const useTimeout = (
   }, changes);
 };
 
-const useAfterMount = (cb, changes = [], { layoutEffect = false } = {}) => {
+const useAfterMount = (
+  cb: () => void,
+  changes: Array<any> = [],
+  {
+    layoutEffect = false,
+  }: {
+    layoutEffect?: boolean
+  } = {}
+) => {
   const mounted = useRef(false);
 
   (layoutEffect ? useLayoutEffect : useEffect)(() => {
@@ -83,8 +109,10 @@ const useAfterMount = (cb, changes = [], { layoutEffect = false } = {}) => {
   }, changes);
 };
 
-export const useEffectAfterMount = (cb, changes = []) =>
+export const useEffectAfterMount = (cb: () => void, changes: Array<any> = []) =>
   useAfterMount(cb, changes);
 
-export const useLayoutEffectAfterMount = (cb, changes = []) =>
-  useAfterMount(cb, changes, { layoutEffect: true });
+export const useLayoutEffectAfterMount = (
+  cb: () => void,
+  changes: Array<any> = []
+) => useAfterMount(cb, changes, { layoutEffect: true });
