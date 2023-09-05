@@ -1,15 +1,15 @@
-export const classNames = (...args) => {
+export const classNames = (...args: Array<any>): string => {
   const classes = [];
 
-  args.map(arg => {
+  args.map((arg: string) => {
     if (!arg) {
       return false;
     }
 
     if (typeof arg === 'string' || typeof arg === 'number') {
       classes.push(arg);
-    } else if (Array.isArray(arg) && arg.length) {
-      const inner = classNames(...arg);
+    } else if (Array.isArray(arg) && (arg as Array<any>).length) {
+      const inner = classNames(...arg as Array<string>);
 
       if (inner) {
         classes.push(inner);
@@ -30,13 +30,13 @@ export const classNames = (...args) => {
   return classes.join(' ');
 };
 
-export const addClass = (elmt, cls) => {
+export const addClass = (elmt: HTMLElement, cls: string): void => {
   if (elmt.className.indexOf(cls) === -1) {
     elmt.className += (elmt.className.length > 0 ? ' ' : '') + cls;
   }
 };
 
-export const removeClass = (elmt, cls) => {
+export const removeClass = (elmt: HTMLElement, cls: string): void => {
   if (elmt.classList) {
     elmt.classList.remove(cls);
   } else {
@@ -50,33 +50,44 @@ export const removeClass = (elmt, cls) => {
 export const mockState = (state, action) => typeof action === 'function'
   ? action(state) : ({ ...state, ...action });
 
-export const isUndefined = v => typeof v === 'undefined';
+export const isUndefined = (v: any): boolean => typeof v === 'undefined';
 
-export const isNull = v => v === null;
+export const isNull = (v: any): boolean => v === null;
 
-export const isArray = a => Array.isArray(a);
+export const isArray = (a: any): boolean => Array.isArray(a);
 
-export const isObject = o =>
+export const isObject = (o: any): boolean =>
   typeof o === 'object' && o?.constructor?.name === 'Object';
 
-export const isDate = d => d instanceof Date;
+export const isDate = (d: any): boolean => d instanceof Date;
 
-export const exists = v => !isNull(v) && !isUndefined(v);
+export const exists = (v: any): boolean => !isNull(v) && !isUndefined(v);
 
-export const get = (obj = {}, path = '', defaultValue = null) => path
+export const get = (
+  obj: object = {},
+  path: string = '',
+  defaultValue = null
+) => path
   .split('.')
   .reduce((a, c) => exists(a?.[c]) ? a[c] : undefined, obj) ?? defaultValue;
 
-export const set = (obj = {}, path = '', value, customizer = val => val) => {
-  path = path.split('.');
-  const subObj = path
+export const set = (
+  obj: object = {},
+  path: string = '',
+  value: any,
+  customizer = (val: any, subobj: any) => val
+): object => {
+  const pathArr = path.split('.');
+  const subObj = pathArr
     .slice(0, -1)
     .reduce((a, c, i) => {
       if (a[c] && typeof a[c] === 'object') {
         return a[c];
       }
 
-      a[c] = Math.abs(path[i + 1]) >> 0 === +path[i + 1] ? [] : {};
+      a[c] = Math.abs(
+        parseFloat(pathArr[i + 1])
+      ) >> 0 === +pathArr[i + 1] ? [] : {};
 
       return a[c];
     }, obj);
@@ -86,15 +97,18 @@ export const set = (obj = {}, path = '', value, customizer = val => val) => {
   return obj;
 };
 
-export const omitBy = (obj = {}, cb) => Object
+export const omitBy = (
+  obj: object = {},
+  cb: (k: any, v: string) => any
+) => Object
   .entries(obj)
   .filter(([k, v]) => !cb(v, k))
   .reduce((res, [k, v]) => Object.assign({}, res, { [k]: v }), {});
 
-export const omit = (obj = {}, keys = []) =>
+export const omit = (obj: Object = {}, keys: Array<string> = []): Object =>
   omitBy(obj || {}, (value, key) => keys.includes(key));
 
-export const pick = (obj = {}, keys = []) =>
+export const pick = (obj: Object = {}, keys: Array<string> = []): Object =>
   keys.reduce((res, k) => {
     if (!isUndefined(obj[k])) {
       res[k] = obj[k];
@@ -103,29 +117,32 @@ export const pick = (obj = {}, keys = []) =>
     return res;
   }, {});
 
-export const cloneDeep = obj =>
+export const cloneDeep = (obj: Object | Date | Array<any>): any =>
   typeof obj !== 'object' || obj === null
     ? obj
     : isDate(obj)
-      ? new Date(obj.getTime())
+      ? new Date((obj as Date).getTime())
       : isArray(obj)
-        ? [...obj.map(o => cloneDeep(o))]
+        ? [...(obj as Array<any>).map(o => cloneDeep(o))]
         : Object.entries(obj).reduce((res, [k, v]) => {
           res[k] = cloneDeep(v);
 
           return res;
         }, {});
 
-export const fromPairs = (pairs = []) =>
+export const fromPairs = (pairs: Array<any> = []): Array<any> =>
   pairs.reduce((res, [k, v]) => {
     res[k] = v;
 
     return res;
   }, {});
 
-export const mergeDeep = (target, ...sources) =>
+export const mergeDeep = (
+  target: Object | Array<any>,
+  ...sources: Array<any>
+): Object | Array<any> =>
   isArray(target)
-    ? target.concat(...sources)
+    ? (target as Array<any>).concat(...sources)
     : isObject(target)
       ? sources.reduce((s, source) => (
         isObject(source)
@@ -143,7 +160,10 @@ export const mergeDeep = (target, ...sources) =>
       ), target)
       : target;
 
-export const filterDeep = (arr = [], cb = () => true) => {
+export const filterDeep = (
+  arr: Array<any> = [],
+  cb: (v?: any) => boolean = () => true
+): Array<any> => {
   const res = [];
 
   for (const v of arr) {
@@ -154,7 +174,7 @@ export const filterDeep = (arr = [], cb = () => true) => {
       res.push(r);
     } else if (isObject(v) && !isDate(v)) {
       res.push(Object.entries(v).reduce((o, [k, v]) => {
-        o[k] = isArray(v) ? filterDeep(v, cb) : v;
+        o[k] = isArray(v) ? filterDeep(v as Array<any>, cb) : v;
 
         return o;
       }, {}));
@@ -165,11 +185,11 @@ export const filterDeep = (arr = [], cb = () => true) => {
 };
 
 export const findDeep = (
-  arr = [],
-  cb = () => true,
-  depth = v => v,
-  multiple = false,
-) => {
+  arr: Array<any> = [],
+  cb: (v?: any) => boolean = () => true,
+  depth: (v: any) => any = v => v,
+  multiple: boolean = false,
+): Array<any> => {
   const res = [];
 
   for (const v of arr) {

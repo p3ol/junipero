@@ -60,10 +60,35 @@ export const COLORS = {
   nevada: '#646873',
   gondola: '#1E1E1E',
 };
+export type hsva = {
+  h?: number;
+  s?: number;
+  v?: number;
+  a?: number;
+};
+
+export type hsla = {
+  h?: number;
+  s?: number;
+  l?: number;
+  a?: number;
+};
+export type rgba = {
+  r?: number;
+  g?: number;
+  b?: number;
+  a?: number;
+};
+
+export type rgb = {
+  r?: number;
+  g?: number;
+  b?: number;
+};
 
 const COLOR_PARSERS = [{
   regex: /(?:rgb)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*%?,\s*(\d{1,3})\s*%?(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
-  parse: (r, g, b, a) => ({
+  parse: (r: string, g: string, b: string, a: string) => ({
     r: parseInt(r, 10) / 255,
     g: parseInt(g, 10) / 255,
     b: parseInt(b, 10) / 255,
@@ -71,7 +96,7 @@ const COLOR_PARSERS = [{
   }),
 }, {
   regex: /(?:hsl)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
-  parse: (h, s, l, a) => ({
+  parse: (h: string, s: string, l: string, a: string) => ({
     h: parseInt(h, 10) / 360,
     s: parseInt(s, 10) / 100,
     l: parseInt(l, 10) / 100,
@@ -79,7 +104,7 @@ const COLOR_PARSERS = [{
   }),
 }, {
   regex: /#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})$/,
-  parse: (r, g, b) => ({
+  parse: (r: string, g: string, b: string) => ({
     r: parseInt(r, 16) / 255,
     g: parseInt(g, 16) / 255,
     b: parseInt(b, 16) / 255,
@@ -87,7 +112,7 @@ const COLOR_PARSERS = [{
   }),
 }, {
   regex: /#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])$/,
-  parse: (r, g, b) => ({
+  parse: (r: string, g: string, b: string) => ({
     r: parseInt(r + r, 16) / 255,
     g: parseInt(g + g, 16) / 255,
     b: parseInt(b + b, 16) / 255,
@@ -95,7 +120,7 @@ const COLOR_PARSERS = [{
   }),
 }];
 
-export const hsva2hsla = ({ h, s, v, a }) => {
+export const hsva2hsla = ({ h, s, v, a }: hsva): hsla => {
   if (v === 0) {
     // HSVA brightness goes from black (0) to transparent (1)
     // So if HSVA brightness is 0, HSLA should be full black, making saturation
@@ -119,7 +144,7 @@ export const hsva2hsla = ({ h, s, v, a }) => {
   }
 };
 
-export const hsla2hsva = ({ h, s, l, a }) => {
+export const hsla2hsva = ({ h, s, l, a }: hsla): hsva => {
   s = Math.min(s, 1);
   l = Math.min(l, 1);
   a = Math.min(a, 1);
@@ -143,7 +168,7 @@ export const hsla2hsva = ({ h, s, l, a }) => {
 
 // This one was taken from the interwebs but can't remember where
 // If you are its author, please let me know :)
-export const hsva2rgba = ({ h, s, v, a = 0 } = {}) => {
+export const hsva2rgba = ({ h, s, v, a = 0 }: hsva = {}): rgba => {
   let r, g, b;
 
   const i = Math.floor(h * 6);
@@ -178,7 +203,7 @@ export const hsva2rgba = ({ h, s, v, a = 0 } = {}) => {
   return { r, g, b, a };
 };
 
-export const rgba2hsva = ({ r, g, b, a = 0 } = {}) => {
+export const rgba2hsva = ({ r, g, b, a = 0 }: rgba = {}): hsva => {
   r = Math.min(r, 1);
   g = Math.min(g, 1);
   b = Math.min(b, 1);
@@ -215,43 +240,43 @@ export const rgba2hsva = ({ r, g, b, a = 0 } = {}) => {
   return { h, s, v, a };
 };
 
-export const rgba2hex = ({ r, g, b }) =>
+export const rgba2hex = ({ r, g, b }: rgb): string =>
   '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).substr(1);
 
-export const denormalizeHSLA = ({ h, s, l, a }) => ({
+export const denormalizeHSLA = ({ h, s, l, a }: hsla): hsla => ({
   h: Math.round(h * 360),
   s: Math.round(s * 100),
   l: Math.round(l * 100),
   a,
 });
 
-export const denormalizeHSVA = ({ h, s, v, a }) => ({
+export const denormalizeHSVA = ({ h, s, v, a }: hsva): hsva => ({
   h: Math.round(h * 360),
   s: Math.round(s * 100),
   v: Math.round(v * 100),
   a,
 });
 
-export const denormalizeRGBA = ({ r, g, b, a }) => ({
+export const denormalizeRGBA = ({ r, g, b, a }: rgba): rgba => ({
   r: Math.round(r * 255),
   g: Math.round(g * 255),
   b: Math.round(b * 255),
   a,
 });
 
-export const parseColor = (color = '') => {
+export const parseColor = (color: string = '') => {
   color = color.toLowerCase();
   let hsva = null;
 
   for (const parser of COLOR_PARSERS) {
     const match = parser.regex.exec(color);
-    const parsed = match && parser.parse(...match.slice(1));
+    const parsed = match && parser.parse(...match.slice(1) as [string, string, string, string]);
 
     if (parsed) {
       /* istanbul ignore else: ignored unrecognized format */
-      if (typeof parsed.r !== 'undefined') {
+      if (typeof (parsed as rgba).r !== 'undefined') {
         hsva = rgba2hsva(parsed);
-      } else if (parsed.l) {
+      } else if ((parsed as hsla).l) {
         hsva = hsla2hsva(parsed);
       }
 
@@ -262,7 +287,10 @@ export const parseColor = (color = '') => {
   return hsva;
 };
 
-export const stringifyColor = (color, format = 'auto') => {
+export const stringifyColor = (
+  color: hsla | hsva | rgba,
+  format: string = 'auto'
+) => {
   if (format === 'auto') {
     format = color.a < 1 ? 'rgba' : 'hex';
   }
