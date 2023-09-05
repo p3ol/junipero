@@ -8,7 +8,7 @@ import FieldControl from '../FieldControl';
 import Label from '../Label';
 
 export default { title: 'react/RadioField' };
-const basicOptions = [
+const basicOptions: Array<any> = [
   { title: 'Apple', value: 'Apple' },
   { title: 'Pear', value: 'Pear' },
   { title: 'Orange', value: 'Orange' },
@@ -66,7 +66,7 @@ export const withOneDisabled = () => (
 );
 
 export const withCustomValidation = () => {
-  const withOneProhibed = cloneDeep(withDescriptions);
+  const withOneProhibed: Array<any> = cloneDeep(withDescriptions);
   withOneProhibed[2].description = 'You should not choose this fruit';
 
   return (
