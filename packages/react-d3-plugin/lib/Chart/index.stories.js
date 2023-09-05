@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
-import { closestIndexTo, startOfMonth, startOfYear } from '@junipero/react';
 import * as d3 from 'd3';
+import { closestIndexTo, startOfMonth, startOfYear } from '@junipero/core';
 
 import Chart from './';
 import Bar from '../Bar';

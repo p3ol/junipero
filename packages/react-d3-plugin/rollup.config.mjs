@@ -30,9 +30,9 @@ const defaultPlugins = [
   }),
   alias({
     entries: {
-      '@junipero/core': path.resolve('../core/lib'),
-      '@junipero/hooks': path.resolve('../hooks/lib'),
-      '@junipero/react': path.resolve('../react/lib'),
+      '@junipero/core': path.resolve('../core/dots/esm'),
+      '@junipero/hooks': path.resolve('../hooks/dist/esm'),
+      '@junipero/react': path.resolve('../react/dist/esm'),
     },
   }),
   resolve({
