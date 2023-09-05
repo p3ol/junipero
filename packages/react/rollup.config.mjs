@@ -47,7 +47,6 @@ export default [
         emitDeclarationOnly: true,
         declaration: true,
         project: path.resolve('./tsconfig.build.json'),
-        declarationDir: path.resolve('./@types'),
         ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
       }),
 

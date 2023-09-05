@@ -3,5 +3,6 @@
   "include": ["./lib/**/*"],
   "compilerOptions": {
     "declarationDir": "./dist/@types",
+    "rootDir": "./lib"
   }
 }
