@@ -5,6 +5,7 @@
     "emitDeclarationOnly": true,
     "declaration": true,
     "jsx": "react-jsx",
-    "allowJs": false
+    "allowJs": false,
+    "rootDir": "./"
   }
 }

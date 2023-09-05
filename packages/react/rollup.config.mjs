@@ -29,8 +29,8 @@ const defaultPlugins = [
   }),
   alias({
     entries: {
-      '@junipero/core': path.resolve('../core/lib'),
-      '@junipero/hooks': path.resolve('../hooks/lib'),
+      '@junipero/core': path.resolve('../core/dist/esm'), // TODO rework aliases
+      '@junipero/hooks': path.resolve('../hooks/dist/esm'),
     },
   }),
   resolve({
@@ -44,10 +44,10 @@ export default [
     input,
     plugins: [
       typescript({
-        rootDir: path.resolve('./lib'),
         emitDeclarationOnly: true,
         declaration: true,
         project: path.resolve('./tsconfig.build.json'),
+        declarationDir: path.resolve('./@types'),
         ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
       }),
 
@@ -82,7 +82,7 @@ export default [
       } : {}),
     },
   })), {
-    input: './dist/dts/index.d.ts',
+    input: './dist/@types/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
     plugins: [dts()],
   },
