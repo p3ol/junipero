@@ -49,7 +49,6 @@ export default [
         project: path.resolve('./tsconfig.build.json'),
         ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
       }),
-
       ...defaultPlugins,
     ],
     external: defaultExternals,

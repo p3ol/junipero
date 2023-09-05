@@ -6,6 +6,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
 import typescript from '@rollup/plugin-typescript';
+import { dts } from 'rollup-plugin-dts';
 
 const input = './lib/index.tsx';
 const output = './dist';
@@ -29,20 +30,21 @@ const defaultPlugins = [
   }),
   alias({
     entries: {
-      '@junipero/react': path.resolve('../react/lib'),
-      '@junipero/hooks': path.resolve('../hooks/lib'),
-      '@junipero/core': path.resolve('../core/lib'),
+      '@junipero/react': path.resolve('../react/dist/esm'),
+      '@junipero/hooks': path.resolve('../hooks/dist/esm'),
+      '@junipero/core': path.resolve('../core/dist/esm'),
     },
   }),
-  resolve(),
+  resolve({
+    rootDir: path.resolve('../../'),
+  }),
   terser(),
 ];
 
-export default formats.map(f => ({
+export default [...formats.map(f => ({
   input,
   plugins: [
     typescript({
-      rootDir: path.resolve('./lib'),
       emitDeclarationOnly: true,
       declaration: true,
       project: path.resolve('./tsconfig.build.json'),
@@ -67,4 +69,8 @@ export default formats.map(f => ({
         id.includes('node_modules') ? 'vendor' : path.parse(id).name,
     } : {}),
   },
-}));
+})), {
+  input: './dist/@types/index.d.ts',
+  output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
+  plugins: [dts()],
+}];

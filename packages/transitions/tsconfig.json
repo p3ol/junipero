@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "include": ["./lib/**/*"],
   "compilerOptions": {
-    "declarationDir": "dist/dts",
+    "declarationDir": "./dist/@types",
+    "rootDir": "./lib"
   }
 }

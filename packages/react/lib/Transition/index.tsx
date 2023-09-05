@@ -1,7 +1,7 @@
 import { Children, useState, useRef, useCallback, cloneElement, ComponentPropsWithRef, ReactNode } from 'react';
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
-import PropTypes, { instanceOf } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const UNMOUNTED = 'unmounted';
 const ENTER = 'enter';
@@ -16,7 +16,7 @@ declare type TimeoutObject = {
 };
 
 declare interface TransitionProps extends ComponentPropsWithRef<any> {
-  children?: JSX.Element;
+  children?: JSX.Element | string | ReactNode;
   in: boolean;
   mounterOnEnter?: boolean;
   name?: string;
@@ -91,8 +91,10 @@ const Transition = ({
   const child = Children.only(children);
 
   return status !== UNMOUNTED && (!unmountOnExit || mountOnEnter)
-    ? cloneElement(child, {
-      className: classNames(child.props.className, getClassName()),
+    ? cloneElement(child as JSX.Element, {
+      className: classNames(
+        (child as JSX.Element).props?.className, getClassName()
+      ),
       ...rest,
     }) : null;
 };

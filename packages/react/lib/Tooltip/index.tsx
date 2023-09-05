@@ -11,7 +11,7 @@ import {
   ReactNode,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { ensureNode, classNames, mockState, omit } from '@junipero/core';
+import { classNames, mockState, omit } from '@junipero/core';
 import {
   useFloating,
   useInteractions,
@@ -239,8 +239,8 @@ const Tooltip = forwardRef(({
         >
           { children }
         </span>
-      ) : cloneElement(Children.only<JSX.Element>(children as JSX.Element), { //TODO fixme
-        ...getReferenceProps(),
+      ) : cloneElement(Children.only<JSX.Element>(children as JSX.Element), {
+        ...getReferenceProps(), //TODO fixme
         ref: setReference,
       }) }
 
