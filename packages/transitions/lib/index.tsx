@@ -1,10 +1,19 @@
 import { Transition } from '@junipero/react';
+import { ReactNode } from 'react';
 
 export const animateMenu = (
-  name,
-  { time = 100, key, ...opts } = {}
+  name: string,
+  {
+    time = 100, key, ...opts
+  }: {
+    time?: number, key?: any, opts?: Array<any>
+  } = {}
 ) =>
-  (menu, { opened, key: k, ...props } = {}) => (
+  (menu: string, {
+    opened, key: k, ...props
+  }: {
+    opened?: boolean, key?: any, opts?: Array<any>
+  } = {}) => (
     <Transition
       in={opened}
       mountOnEnter={true}
@@ -22,10 +31,16 @@ export const slideInUpMenu = animateMenu('jp-slide-in-up-menu');
 export const slideInDownMenu = animateMenu('jp-slide-in-down-menu');
 
 export const animateModal = (
-  name,
-  { time = 300, key, ...opts } = {}
+  name: string,
+  { time = 300, key, ...opts }: {
+    time?: number, key?: any, opts?: Array<any>
+  } = {}
 ) =>
-  (modal, { opened, key: k, ...props } = {}) => (
+  (modal: any, {
+    opened, key: k, ...props
+  }: {
+    opened?: boolean, key?: any, opts?: Array<any>
+  } = {}) => (
     <Transition
       in={opened}
       mountOnEnter={true}

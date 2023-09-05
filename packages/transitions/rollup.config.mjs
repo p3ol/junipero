@@ -5,8 +5,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
+import typescript from '@rollup/plugin-typescript';
 
-const input = './lib/index.js';
+const input = './lib/index.tsx';
 const output = './dist';
 const name = 'junipero-transitions';
 const formats = ['umd', 'cjs', 'esm'];
@@ -40,6 +41,13 @@ const defaultPlugins = [
 export default formats.map(f => ({
   input,
   plugins: [
+    typescript({
+      rootDir: path.resolve('./lib'),
+      emitDeclarationOnly: true,
+      declaration: true,
+      project: path.resolve('./tsconfig.build.json'),
+      ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
+    }),
     ...defaultPlugins,
   ],
   external: defaultExternals,
