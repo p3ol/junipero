@@ -6,6 +6,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 const input = './lib/index.ts';
 const output = './dist';
@@ -20,6 +21,7 @@ const defaultPlugins = [
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
+    extensions: [...DEFAULT_EXTENSIONS, '.ts', 'ts'],
   }),
   resolve(),
   terser(),
@@ -60,7 +62,7 @@ export default [
       } : {}),
     },
   })), {
-    input: './dist/@types/index.d.ts',
+    input: './dist/@types/packages/core/lib/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
     plugins: [dts()],
   },

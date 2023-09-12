@@ -28,8 +28,13 @@ export const animateMenu = (
 
 export const slideInUpMenu = animateMenu('jp-slide-in-up-menu');
 export const slideInDownMenu = animateMenu('jp-slide-in-down-menu');
-
-export const animateModal = (
+export type SlideMenuType = (
+  modal: any, props?: { opened?: boolean, key?: any, opts?: Array<any> }
+  ) => JSX.Element;
+export type AnimateModalType = (
+  name: string, props?: { time?: number, key?: any, opts?: Array<any> }
+  ) => SlideMenuType
+export const animateModal: AnimateModalType = (
   name: string,
   { time = 300, key, ...opts }: {
     time?: number, key?: any, opts?: Array<any>

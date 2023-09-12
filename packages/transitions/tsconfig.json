@@ -3,6 +3,10 @@
   "include": ["./lib/**/*"],
   "compilerOptions": {
     "declarationDir": "./dist/@types",
-    "rootDir": "./lib"
+    "paths": {
+      "@junipero/core": ["../core/lib/index.ts"], // TODO rework aliases
+      "@junipero/hooks": ["../hooks/lib/index.ts"],
+      "@junipero/react": ["../react/lib/index.ts"],
+    }
   }
 }

@@ -7,6 +7,7 @@ import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 const input = './lib/index.ts';
 const output = './dist';
@@ -26,11 +27,14 @@ const defaultPlugins = [
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
+    extensions: [...DEFAULT_EXTENSIONS, 'ts', 'tsx'],
   }),
+
   alias({
     entries: {
-      '@junipero/core': path.resolve('../core/dist/esm'), // TODO rework aliases
-      '@junipero/hooks': path.resolve('../hooks/dist/esm'),
+      '@junipero/core': path.resolve('../core/lib/index.ts'), // TODO rework aliases
+      '@junipero/hooks': path.resolve('../hooks/lib/index.ts'),
+      '@junipero/transitions': path.resolve('../transitions/lib/index.tsx'),
     },
   }),
   resolve({
@@ -80,7 +84,7 @@ export default [
       } : {}),
     },
   })), {
-    input: './dist/@types/index.d.ts',
+    input: './dist/@types/packages/react/lib/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
     plugins: [dts()],
   },

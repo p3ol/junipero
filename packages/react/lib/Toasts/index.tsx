@@ -16,9 +16,9 @@ export declare interface ToastsProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
   className?: string;
   animateToast?(
-    toast: JSX.Element,
+    toast: JSX.Element | Element,
     opts: { opened: boolean; index: string | number }
-  ): JSX.Element;
+  ): JSX.Element| Element;
   ref?: MutableRefObject<ToastsRef | undefined>;
 }
 const Toasts = forwardRef(({

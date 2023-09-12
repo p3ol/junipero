@@ -6,6 +6,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+import typescript from '@rollup/plugin-typescript';
 
 const input = './lib/index.js';
 const output = './dist';
@@ -27,18 +29,21 @@ const defaultPlugins = [
   babel({
     exclude: /node_modules/,
     babelHelpers: 'runtime',
+    extensions: [...DEFAULT_EXTENSIONS, 'ts', 'tsx'],
+
   }),
   alias({
     entries: {
-      '@junipero/core': path.resolve('../core/dist/esm'),
-      '@junipero/hooks': path.resolve('../hooks/dist/esm'),
-      '@junipero/react': path.resolve('../react/dist/esm'),
+      '@junipero/core': path.resolve('../core/lib/index.ts'),
+      '@junipero/hooks': path.resolve('../hooks/lib/index.ts'),
+      '@junipero/react': path.resolve('../react/lib/index.ts'),
     },
   }),
   resolve({
     rootDir: path.resolve('../../'),
   }),
   terser(),
+
 ];
 
 export default [
@@ -46,6 +51,12 @@ export default [
     input,
     plugins: [
       ...defaultPlugins,
+      typescript({
+        emitDeclarationOnly: true,
+        declaration: true,
+        project: path.resolve('./tsconfig.build.json'),
+        ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
+      }),
     ],
     external: defaultExternals,
     output: {

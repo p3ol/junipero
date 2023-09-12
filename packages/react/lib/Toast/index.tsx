@@ -29,9 +29,9 @@ export declare interface ToastObject {
   index?: string | number;
   lifespan?: number;
   animate?(
-    alert: ReactNode | JSX.Element,
+    alert: Element | JSX.Element,
     opts: { opened: boolean; index: string | number }
-  ): JSX.Element;
+  ):Element | JSX.Element;
   onDismiss?(index?: string | number): any;
 }
 
@@ -43,9 +43,9 @@ export declare interface ToastProps extends ComponentPropsWithRef<any> {
   lifespan?: number;
   tag?: string | ElementType;
   animate?(
-    alert: ReactNode | JSX.Element,
+    alert: ReactNode | Element | JSX.Element,
     opts?: { opened: boolean; index: string | number }
-  ): JSX.Element;
+  ): Element | JSX.Element;
   onDismiss?(index?: string | number): any;
   ref?: MutableRefObject<ToastRef | undefined>;
 }
@@ -140,7 +140,8 @@ const Toast = forwardRef(({
     </Tag>
   );
 
-  return animate ? animate(content, { opened: enabled, index }) : content;
+  return animate ? animate(content, { opened: enabled, index }) as JSX.Element
+    : content;
 }) as ForwardedProps<ToastProps, ToastRef>;
 
 Toast.displayName = 'Toast';
