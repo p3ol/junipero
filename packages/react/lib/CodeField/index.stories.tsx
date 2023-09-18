@@ -31,7 +31,6 @@ export const withLabelAndAbstract = () => (
   <FieldControl>
     <Label className="info" htmlFor="code">One-time code</Label>
     <CodeField
-
       id="code"
       name="code"
       onChange={action('change')}

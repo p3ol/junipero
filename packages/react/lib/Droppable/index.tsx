@@ -5,13 +5,14 @@ import {
   useState,
   useEffect,
   ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { ForwardedProps } from '../utils';
 
-declare interface DroppableProps extends ComponentPropsWithoutRef<any> {
+declare interface DroppableProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: JSX.Element;
   disabled?: boolean;
@@ -113,7 +114,7 @@ const Droppable = forwardRef(({
     onDrop: onDrop_,
     onDragOver: onDragOver_,
   });
-}) as ForwardedProps<DroppableProps, any>;
+}); // TODO find a way to put ForwardedProps back
 
 Droppable.displayName = 'Droppable';
 Droppable.propTypes = {

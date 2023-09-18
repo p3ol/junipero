@@ -84,7 +84,8 @@ const DropdownMenu = forwardRef(({
   );
 
   return opened || (animate && visible) || apparition === 'css'
-    ? container ? createPortal(content, container as DocumentFragment | Element) : content
+    ? container ? createPortal(content, container as DocumentFragment | Element)
+      : content
     : null;
 });
 

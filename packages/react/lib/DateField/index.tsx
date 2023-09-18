@@ -21,7 +21,7 @@ import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import Calendar from '../Calendar';
-import { FixedArray, MockState } from '../utils';
+import { FixedArray, ForwardedProps, MockState } from '../utils';
 
 export declare type DateFieldRef = {
   dirty: boolean;
@@ -443,7 +443,7 @@ const DateField = forwardRef(({
       </DropdownMenu>
     </Dropdown>
   );
-});
+}) as ForwardedProps<DateFieldProps, DateFieldRef>;
 
 DateField.displayName = 'DateField';
 DateField.propTypes = {
@@ -459,7 +459,7 @@ DateField.propTypes = {
   valid: PropTypes.bool,
   max: PropTypes.instanceOf(Date),
   min: PropTypes.instanceOf(Date),
-  monthNames: PropTypes.array,
+  monthNames: PropTypes.any,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,

@@ -110,7 +110,7 @@ const Draggable = forwardRef(({
     onDrag: onDrag_,
     onDragEnd: onDragEnd_,
   });
-}) as ForwardedProps<DraggableProps, any>;
+}); // TODO fix the forwardedProps problem
 
 Draggable.displayName = 'Draggable';
 Draggable.propTypes = {
@@ -128,5 +128,4 @@ Draggable.propTypes = {
   onDragStart: PropTypes.func,
   onDragEnd: PropTypes.func,
 };
-
 export default Draggable;

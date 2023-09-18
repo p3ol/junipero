@@ -7,10 +7,6 @@ import {
   ReactNode,
   ComponentPropsWithRef,
   ElementType,
-  ForwardedRef,
-  ComponentPropsWithoutRef,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
 } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
@@ -25,12 +21,12 @@ declare type AlertRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface AlertProps extends ComponentPropsWithRef<any> {
+declare interface AlertProps extends ComponentPropsWithRef<any>{
   animationTimeout?: number;
   children?: ReactNode | JSX.Element;
   className?: string;
   icon?: ReactNode | JSX.Element;
-  index?: string | number;
+  index: string | number;
   lifespan?: number;
   tag?: string | ElementType;
   animate?(
@@ -39,6 +35,8 @@ declare interface AlertProps extends ComponentPropsWithRef<any> {
   ): ReactNode | JSX.Element;
   onDismiss?(index?: string | number): void;
   ref?: MutableRefObject<AlertRef | undefined>;
+  onClick?: (e: Event) => void;
+  title?: ReactNode | JSX.Element;
 }
 
 export declare interface AlertObject{
@@ -70,7 +68,6 @@ const Alert = forwardRef(({
   children,
   onClick,
   onDismiss,
-  sss,
   ...rest
 }: AlertProps, ref) => {
   const innerRef = useRef();
@@ -131,12 +128,7 @@ Alert.propTypes = {
   ]),
   lifespan: PropTypes.number,
   tag: PropTypes.any, //TODO fixme
-  title: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.object,
-  ]),
+  title: PropTypes.any,
   onDismiss: PropTypes.func,
   onClick: PropTypes.func,
 };

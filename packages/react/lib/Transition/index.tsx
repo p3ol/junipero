@@ -1,4 +1,12 @@
-import { Children, useState, useRef, useCallback, cloneElement, ComponentPropsWithRef, ReactNode } from 'react';
+import {
+  Children,
+  useState,
+  useRef,
+  useCallback,
+  cloneElement,
+  ComponentPropsWithRef,
+  ReactNode,
+} from 'react';
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';

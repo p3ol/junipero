@@ -270,7 +270,9 @@ export const parseColor = (color: string = '') => {
 
   for (const parser of COLOR_PARSERS) {
     const match = parser.regex.exec(color);
-    const parsed = match && parser.parse(...match.slice(1) as [string, string, string, string]);
+    const parsed = match && parser.parse(
+      ...match.slice(1) as [string, string, string, string]
+    );
 
     if (parsed) {
       /* istanbul ignore else: ignored unrecognized format */
