@@ -36,6 +36,6 @@ fix the thing that was not working
 ## Do
 
 ```
-✨ feat(dashboard): add new time picker to stats view
-🐛 fix(access): don't register emails twice on mailchimp
+✨ feat(react): add new time picker component
+🐛 fix(core): parse hsla correctly
 ```
