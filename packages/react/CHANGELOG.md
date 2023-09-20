@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.3](https://github.com/p3ol/junipero/compare/v3.2.2...v3.2.3) (2023-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.25.2 ([05b4791](https://github.com/p3ol/junipero/commit/05b47911065611bce4a1c9b5218985890a0afcfb))
+* **deps:** update dependency @floating-ui/react to v0.25.3 ([e09fb1d](https://github.com/p3ol/junipero/commit/e09fb1d24c515ac9f929a7337825fdc116128641))
+* **deps:** update dependency @floating-ui/react to v0.25.4 ([1ce8786](https://github.com/p3ol/junipero/commit/1ce8786e3c8eced8729ced4959aed17975593824))
+* **deps:** update dependency core-js to v3.32.1 ([be94dcc](https://github.com/p3ol/junipero/commit/be94dcc08521c8b804eac34ad1699c56fffbab30))
+* **deps:** update dependency core-js to v3.32.2 ([7eea00e](https://github.com/p3ol/junipero/commit/7eea00ef7c2db0cd02620a2c3277eb645378e633))
+* **react:** add missing exports ([d3f8a93](https://github.com/p3ol/junipero/commit/d3f8a931f32237371134eb669907864a49caf2b3))
+
+
+
+
+
 ## [3.2.2](https://github.com/p3ol/junipero/compare/v3.2.1...v3.2.2) (2023-08-15)
 
 
