@@ -113,6 +113,8 @@ export {
 export {
   useAlerts,
   useToasts,
+  useDropdown,
+  useFieldControl,
 } from './hooks';
 
 // Icons
