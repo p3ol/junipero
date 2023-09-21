@@ -1,3 +1,4 @@
+import { MutableRefObject } from 'react';
 import { UseFloatingReturn } from '@floating-ui/react';
 
 import { AlertObject } from './Alert';
@@ -13,6 +14,12 @@ declare interface ToastContext {
   toasts: Array<ToastObject>;
   add(toast: ToastObject): void;
   dismiss(toast: ToastObject, index: string | number): void;
+}
+
+declare interface ModalContext {
+  ref: MutableRefObject<any>;
+  open(): void;
+  close(): void;
 }
 
 declare type DropdownContext = Pick<
@@ -54,4 +61,6 @@ declare function useDropdown(): DropdownContext;
 
 declare function useFieldControl(): FieldControlContext;
 
-export { useAlerts, useToasts, useDropdown, useFieldControl };
+declare function useModal(): ModalContext;
+
+export { useAlerts, useToasts, useDropdown, useFieldControl, useModal };

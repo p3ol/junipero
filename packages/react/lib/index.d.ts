@@ -83,6 +83,8 @@ export { default as List, ListRef } from './List';
 export { default as ListCell, ListCellRef } from './ListCell';
 export { default as ListColumn, ListColumnRef } from './ListColumn';
 export { default as ListItem, ListItemRef } from './ListItem';
+export { default as Modal, ModalRef } from './Modal';
+export { default as ModalControl, ModalControlRef } from './ModalControl';
 export {
   PooolLogo,
   PooolIconLogo,
@@ -115,7 +117,13 @@ export { default as Tooltip, TooltipRef, TooltipProps } from './Tooltip';
 export { default as TouchableZone } from './TouchableZone';
 export { default as Transition } from './Transition';
 
-export { useAlerts, useToasts, useDropdown, useFieldControl } from './hooks';
+export {
+  useAlerts,
+  useToasts,
+  useDropdown,
+  useFieldControl,
+  useModal,
+} from './hooks';
 
 export {
   Arrows,

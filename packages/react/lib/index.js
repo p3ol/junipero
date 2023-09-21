@@ -22,6 +22,7 @@ export { default as ListCell } from './ListCell';
 export { default as ListColumn } from './ListColumn';
 export { default as ListItem } from './ListItem';
 export { default as Modal } from './Modal';
+export { default as ModalControl } from './ModalControl';
 export { default as Slider } from './Slider';
 export { default as Spinner } from './Spinner';
 export { default as Step } from './Step';

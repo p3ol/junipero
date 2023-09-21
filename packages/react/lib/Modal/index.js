@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { classNames, mockState, ensureNode } from '@junipero/core';
 
 import { Remove } from '../icons';
+import { useModal } from '../hooks';
 
 const Modal = forwardRef(({
   animate,
@@ -27,12 +28,21 @@ const Modal = forwardRef(({
   const contentRef = useRef();
   const wrapperRef = useRef();
   const closeButtonRef = useRef();
+  const { setRef: setControlRef } = useModal();
   const [state, dispatch] = useReducer(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
 
-  useImperativeHandle(ref, () => ({
+  useImperativeHandle(r => {
+    setControlRef?.(r);
+
+    if (typeof ref === 'function') {
+      ref(r);
+    } else {
+      ref.current = r;
+    }
+  }, () => ({
     innerRef,
     contentRef,
     wrapperRef,
