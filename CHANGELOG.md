@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.4](https://github.com/p3ol/junipero/compare/v3.2.3...v3.2.4) (2023-09-21)
+
+
+### Bug Fixes
+
+* **react:** wrong prop type ([c28c1f2](https://github.com/p3ol/junipero/commit/c28c1f2489f8fde39daef80056e6df7c459f8bfb))
+
+
+
+
+
 ## [3.2.3](https://github.com/p3ol/junipero/compare/v3.2.2...v3.2.3) (2023-09-20)
 
 
