@@ -116,6 +116,7 @@ export {
   useToasts,
   useDropdown,
   useFieldControl,
+  useModal,
 } from './hooks';
 
 // Icons
