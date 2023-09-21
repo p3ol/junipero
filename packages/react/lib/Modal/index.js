@@ -39,7 +39,7 @@ const Modal = forwardRef(({
 
     if (typeof ref === 'function') {
       ref(r);
-    } else {
+    } else if (ref) {
       ref.current = r;
     }
   }, () => ({

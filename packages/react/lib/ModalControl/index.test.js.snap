@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModalControl /> should should allow to control a modal from another component: Closed 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <a>
+      Open me
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<ModalControl /> should should allow to control a modal from another component: Opened 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <a>
+      Open me
+    </a>
+    <div
+      class="junipero modal opened"
+    >
+      <div
+        class="wrapper"
+        tabindex="0"
+      >
+        <div
+          class="content"
+        >
+          <a
+            class="close"
+            href="#"
+          >
+            <svg
+              class="junipero icon remove"
+              height="10"
+              viewBox="0 0 9 10"
+              width="10"
+            >
+              <path
+                d="M8 1.5L1 8.5"
+              />
+              <path
+                d="M1 1.5L8 8.5"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
