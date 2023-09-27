@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/p3ol/junipero/compare/v3.3.1...v3.3.2) (2023-09-27)
+
+
+### Bug Fixes
+
+* **transitions:** add missing type definitions ([bd52355](https://github.com/p3ol/junipero/commit/bd5235553bd5c08072d2d0173048bde1ac0cf1b4))
+* **types:** wrong property name ([7358b8d](https://github.com/p3ol/junipero/commit/7358b8dd773c70f82f8672a6543940f1b31b930f))
+
+
+
+
+
 ## [3.3.1](https://github.com/p3ol/junipero/compare/v3.3.0...v3.3.1) (2023-09-21)
 
 

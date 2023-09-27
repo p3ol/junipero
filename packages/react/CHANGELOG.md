@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/p3ol/junipero/compare/v3.3.1...v3.3.2) (2023-09-27)
+
+
+### Bug Fixes
+
+* **types:** wrong property name ([7358b8d](https://github.com/p3ol/junipero/commit/7358b8dd773c70f82f8672a6543940f1b31b930f))
+
+
+
+
+
 ## [3.3.1](https://github.com/p3ol/junipero/compare/v3.3.0...v3.3.1) (2023-09-21)
 
 
