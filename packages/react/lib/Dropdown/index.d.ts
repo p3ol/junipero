@@ -23,7 +23,7 @@ declare interface DropdownProps extends ComponentPropsWithRef<any> {
   dismissOptions?: UseDismissProps;
   floatingOptions?: object;
   hoverOptions?: UseHoverProps;
-  openend?: boolean;
+  opened?: boolean;
   placement?: Placement;
   trigger?: 'click' | 'hover' | 'manual';
   onToggle?(props: { opened: boolean }): void;
