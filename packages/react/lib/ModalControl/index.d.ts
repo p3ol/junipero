@@ -8,7 +8,8 @@ export declare type ModalControlRef = {
   modalRef: MutableRefObject<any>;
 };
 
-declare interface ModalControlProps extends ComponentPropsWithoutRef<any> {
+export declare interface ModalControlProps
+  extends ComponentPropsWithoutRef<any> {
   children?: ReactNode | JSX.Element;
   ref?: MutableRefObject<ModalControlRef | undefined>;
 }

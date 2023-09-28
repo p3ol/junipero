@@ -194,6 +194,16 @@ export {
   ListItemProps,
 } from './ListItem';
 export {
+  default as Modal,
+  ModalRef,
+  ModalProps,
+} from './Modal';
+export {
+  default as ModalControl,
+  ModalControlRef,
+  ModalControlProps,
+} from './ModalControl';
+export {
   PooolLogo,
   PooolIconLogo,
   PooolCutoutLogo,
