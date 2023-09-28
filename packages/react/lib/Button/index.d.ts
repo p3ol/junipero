@@ -10,7 +10,7 @@ export declare type ButtonRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface ButtonProps extends ComponentPropsWithRef<any> {
+export declare interface ButtonProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
   disabled?: boolean;

@@ -15,12 +15,13 @@ export declare type TabRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface TabProps extends ComponentPropsWithRef<any> {
+export declare interface TabProps extends ComponentPropsWithRef<any> {
   className?: string;
   tag?: string | ElementType;
   title?: string;
   ref?: MutableRefObject<TabRef | undefined>;
 }
+
 declare function Tab(props: TabProps): ReactNode | JSX.Element;
 
 export default Tab;

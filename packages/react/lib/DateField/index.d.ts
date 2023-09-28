@@ -20,7 +20,7 @@ export declare type DateFieldRef = {
   timeInputRef: MutableRefObject<any>;
 };
 
-declare interface DateFieldProps extends ComponentPropsWithRef<any> {
+export declare interface DateFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   className?: string;
   clearable?: boolean;

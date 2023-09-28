@@ -15,7 +15,7 @@ export declare type DropdownRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface DropdownProps extends ComponentPropsWithRef<any> {
+export declare interface DropdownProps extends ComponentPropsWithRef<any> {
   clickOptions?: UseClickProps;
   className?: string;
   container?: string | Element | DocumentFragment;

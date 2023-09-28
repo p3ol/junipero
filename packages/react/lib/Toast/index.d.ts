@@ -26,7 +26,7 @@ export declare interface ToastObject {
   onDismiss?(index?: string | number): any;
 }
 
-declare interface ToastProps extends ComponentPropsWithRef<any> {
+export declare interface ToastProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
   children?: ReactNode | JSX.Element;
   className?: string;

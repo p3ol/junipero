@@ -10,7 +10,7 @@ export declare type FieldGroupRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface FieldGroupProps extends ComponentPropsWithRef<any> {
+export declare interface FieldGroupProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
   tag?: string | ElementType;

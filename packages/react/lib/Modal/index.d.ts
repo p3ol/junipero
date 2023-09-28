@@ -12,7 +12,7 @@ export declare type ModalRef = {
   wrapperRef: MutableRefObject<any>;
 };
 
-declare interface ModalProps extends ComponentPropsWithRef<any> {
+export declare interface ModalProps extends ComponentPropsWithRef<any> {
   apparition?: string;
   children?: ReactNode | JSX.Element;
   className?: string;

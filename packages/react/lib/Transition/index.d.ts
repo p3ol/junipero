@@ -1,6 +1,6 @@
 import { ReactNode, ComponentPropsWithRef } from 'react';
 
-declare interface TransitionProps extends ComponentPropsWithRef<any> {
+export declare interface TransitionProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   in: boolean;
   mounterOnEnter?: boolean;

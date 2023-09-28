@@ -9,7 +9,8 @@ export declare type ToastsControlRef = {
   dismiss(toast: ToastObject, index: string | number): void;
 };
 
-declare interface ToastsControlProps extends ComponentPropsWithoutRef<any> {
+export declare interface ToastsControlProps
+  extends ComponentPropsWithoutRef<any> {
   toasts?: Array<ToastObject>;
   generateId?(toast: ToastObject): string | number;
   ref?: MutableRefObject<ToastsControlRef | undefined>;

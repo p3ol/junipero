@@ -10,7 +10,7 @@ export declare type BadgeRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface BadgeProps extends ComponentPropsWithRef<any> {
+export declare interface BadgeProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   tag?: string | ElementType;

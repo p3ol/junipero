@@ -8,7 +8,7 @@ export declare type AlertsRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface AlertsProps extends ComponentPropsWithRef<any> {
+export declare interface AlertsProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
   className?: string;
   icons?: {

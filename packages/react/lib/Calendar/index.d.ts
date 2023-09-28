@@ -8,7 +8,7 @@ export declare type CalendarRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface CalendarProps extends ComponentPropsWithRef<any> {
+export declare interface CalendarProps extends ComponentPropsWithRef<any> {
   active?: Date;
   className?: string;
   disabled?: boolean;

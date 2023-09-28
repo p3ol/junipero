@@ -10,7 +10,7 @@ export declare type RadioFieldRef = {
   optionRefs: Array<MutableRefObject<any>>;
 };
 
-declare interface RadioFieldProps extends ComponentPropsWithRef<any> {
+export declare interface RadioFieldProps extends ComponentPropsWithRef<any> {
   className?: string;
   disabled?: boolean;
   name?: string;

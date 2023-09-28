@@ -1,6 +1,6 @@
 import { ComponentPropsWithRef, ReactNode } from 'react';
 
-declare interface DraggableProps extends ComponentPropsWithRef<any> {
+export declare interface DraggableProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   data?: any;

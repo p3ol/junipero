@@ -14,7 +14,7 @@ export declare type SelectFieldRef = {
   searchInputRef: MutableRefObject<any>;
 };
 
-declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
+export declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
   allowArbitraryItems?: boolean;
   autoFocus?: boolean;
   className?: string;

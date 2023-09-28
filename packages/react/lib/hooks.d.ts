@@ -3,14 +3,15 @@ import { UseFloatingReturn } from '@floating-ui/react';
 
 import { AlertObject } from './Alert';
 import { ToastObject } from './Toast';
+import { ListColumnObject } from './ListColumn';
 
-declare interface AlertsContext {
+export declare interface AlertsContext {
   alerts: Array<AlertObject>;
   add(alert: AlertObject): void;
   dismiss(index: number): void;
 }
 
-declare interface ToastContext {
+export declare interface ToastContext {
   toasts: Array<ToastObject>;
   add(toast: ToastObject): void;
   dismiss(toast: ToastObject, index: string | number): void;
@@ -22,11 +23,18 @@ declare interface ModalContext {
   close(): void;
 }
 
-declare type DropdownContext = Pick<
+export declare interface ListContext {
+  active: string | number,
+  asc: boolean | null,
+  orderable: boolean,
+  registerColumn(column: string | ListColumnObject): void;
+}
+
+export declare type DropdownContext = Pick<
   UseFloatingReturn,
   'x'|
   'y'|
-  'reference'|
+  'refs'|
   'strategy'
 > & {
   opened: boolean;
@@ -42,7 +50,7 @@ declare type DropdownContext = Pick<
   toggle(): void;
 };
 
-declare interface FieldControlContext {
+export declare interface FieldControlContext {
   dirty: boolean;
   focused: boolean;
   valid: boolean;
@@ -53,14 +61,14 @@ declare interface FieldControlContext {
   }): void;
 }
 
-declare function useAlerts(): AlertsContext;
+export declare function useList(): ListContext;
 
-declare function useToasts(): ToastContext;
+export declare function useAlerts(): AlertsContext;
 
-declare function useDropdown(): DropdownContext;
+export declare function useToasts(): ToastContext;
 
-declare function useFieldControl(): FieldControlContext;
+export declare function useDropdown(): DropdownContext;
 
-declare function useModal(): ModalContext;
+export declare function useFieldControl(): FieldControlContext;
 
-export { useAlerts, useToasts, useDropdown, useFieldControl, useModal };
+export declare function useModal(): ModalContext;

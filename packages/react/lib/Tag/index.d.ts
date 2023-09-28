@@ -10,7 +10,7 @@ export declare type TagRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface TagProps extends ComponentPropsWithRef<any> {
+export declare interface TagProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   tag?: string | ElementType;

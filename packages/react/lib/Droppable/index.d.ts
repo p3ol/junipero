@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-declare interface DroppableProps extends ComponentPropsWithoutRef<any> {
+export declare interface DroppableProps extends ComponentPropsWithoutRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
   disabled?: boolean;
