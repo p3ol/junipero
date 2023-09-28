@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/p3ol/junipero/compare/v3.3.2...v3.3.3) (2023-09-28)
+
+
+### Bug Fixes
+
+* **react:** a lot ofmissing type exports ([d06f2fa](https://github.com/p3ol/junipero/commit/d06f2fa353f09fe9df439fbd5686cd79dee94b3e))
+* **react:** another missing export ([994f8bf](https://github.com/p3ol/junipero/commit/994f8bf2735db471cf93381b2a2bbe2b04a968c5))
+
+
+
+
+
 ## [3.3.2](https://github.com/p3ol/junipero/compare/v3.3.1...v3.3.2) (2023-09-27)
 
 
