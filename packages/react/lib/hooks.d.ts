@@ -17,7 +17,7 @@ export declare interface ToastContext {
   dismiss(toast: ToastObject, index: string | number): void;
 }
 
-declare interface ModalContext {
+export declare interface ModalContext {
   ref: MutableRefObject<any>;
   open(): void;
   close(): void;
