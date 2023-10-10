@@ -5,7 +5,7 @@ export declare type DropdownMenuRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface DropdownMenuProps extends ComponentPropsWithRef<any> {
+export declare interface DropdownMenuProps extends ComponentPropsWithRef<any> {
   apparition?: string;
   children?: ReactNode | JSX.Element;
   className?: string;

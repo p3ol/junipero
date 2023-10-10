@@ -15,11 +15,12 @@ export declare type StepRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface StepProps extends ComponentPropsWithRef<any> {
+export declare interface StepProps extends ComponentPropsWithRef<any> {
   title?: string;
   icon?: ReactNode | JSX.Element;
   ref?: MutableRefObject<StepRef | undefined>;
 }
+
 declare function Step(props: StepProps): ReactNode | JSX.Element;
 
 export default Step;

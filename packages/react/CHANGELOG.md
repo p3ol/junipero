@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.4](https://github.com/p3ol/junipero/compare/v3.3.3...v3.3.4) (2023-09-28)
+
+
+### Bug Fixes
+
+* **react:** fix missing export from merge ([2975c67](https://github.com/p3ol/junipero/commit/2975c677a4de3139a637d21eed339d9af4ece038))
+
+
+
+
+
+## [3.3.3](https://github.com/p3ol/junipero/compare/v3.3.2...v3.3.3) (2023-09-28)
+
+
+### Bug Fixes
+
+* **react:** a lot ofmissing type exports ([d06f2fa](https://github.com/p3ol/junipero/commit/d06f2fa353f09fe9df439fbd5686cd79dee94b3e))
+* **react:** another missing export ([994f8bf](https://github.com/p3ol/junipero/commit/994f8bf2735db471cf93381b2a2bbe2b04a968c5))
+
+
+
+
+
+## [3.3.2](https://github.com/p3ol/junipero/compare/v3.3.1...v3.3.2) (2023-09-27)
+
+
+### Bug Fixes
+
+* **types:** wrong property name ([7358b8d](https://github.com/p3ol/junipero/commit/7358b8dd773c70f82f8672a6543940f1b31b930f))
+
+
+
+
+
+## [3.3.1](https://github.com/p3ol/junipero/compare/v3.3.0...v3.3.1) (2023-09-21)
+
+
+### Bug Fixes
+
+* **react:** missing export ([305a196](https://github.com/p3ol/junipero/commit/305a196aa6f223549871aabacf786f57da034dde))
+
+
+
+
+
+# [3.3.0](https://github.com/p3ol/junipero/compare/v3.2.4...v3.3.0) (2023-09-21)
+
+
+### Features
+
+* **react:** add ModalControl component ([e2a8368](https://github.com/p3ol/junipero/commit/e2a83686eec2bd321569350d63312941434a3332))
+
+
+
+
+
+## [3.2.4](https://github.com/p3ol/junipero/compare/v3.2.3...v3.2.4) (2023-09-21)
+
+
+### Bug Fixes
+
+* **react:** wrong prop type ([c28c1f2](https://github.com/p3ol/junipero/commit/c28c1f2489f8fde39daef80056e6df7c459f8bfb))
+
+
+
+
+
+## [3.2.3](https://github.com/p3ol/junipero/compare/v3.2.2...v3.2.3) (2023-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.25.2 ([05b4791](https://github.com/p3ol/junipero/commit/05b47911065611bce4a1c9b5218985890a0afcfb))
+* **deps:** update dependency @floating-ui/react to v0.25.3 ([e09fb1d](https://github.com/p3ol/junipero/commit/e09fb1d24c515ac9f929a7337825fdc116128641))
+* **deps:** update dependency @floating-ui/react to v0.25.4 ([1ce8786](https://github.com/p3ol/junipero/commit/1ce8786e3c8eced8729ced4959aed17975593824))
+* **deps:** update dependency core-js to v3.32.1 ([be94dcc](https://github.com/p3ol/junipero/commit/be94dcc08521c8b804eac34ad1699c56fffbab30))
+* **deps:** update dependency core-js to v3.32.2 ([7eea00e](https://github.com/p3ol/junipero/commit/7eea00ef7c2db0cd02620a2c3277eb645378e633))
+* **react:** add missing exports ([d3f8a93](https://github.com/p3ol/junipero/commit/d3f8a931f32237371134eb669907864a49caf2b3))
+
+
+
+
+
+## [3.2.2](https://github.com/p3ol/junipero/compare/v3.2.1...v3.2.2) (2023-08-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.25.1 ([a79c2fd](https://github.com/p3ol/junipero/commit/a79c2fdfabee7d28e92cf26ed31c5cfe7244a407))
+
+
+
+
+
+## [3.2.1](https://github.com/p3ol/junipero/compare/v3.2.0...v3.2.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* **react:** correctly depend on core ([4069acc](https://github.com/p3ol/junipero/commit/4069acc728accf2c44f210cbfeae9c8f81d34aea))
+
+
+
+
+
 # [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
 
 

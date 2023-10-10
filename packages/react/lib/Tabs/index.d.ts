@@ -9,7 +9,7 @@ export declare type TabsRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface TabsProps extends ComponentPropsWithRef<any> {
+export declare interface TabsProps extends ComponentPropsWithRef<any> {
   active?: number;
   children?: ReactNode | JSX.Element;
   className?: string;

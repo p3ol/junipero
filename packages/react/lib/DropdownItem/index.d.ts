@@ -1,6 +1,7 @@
 import { ReactNode, ComponentPropsWithoutRef } from 'react';
 
-declare interface DropdownItemProps extends ComponentPropsWithoutRef<any> {
+export declare interface DropdownItemProps
+  extends ComponentPropsWithoutRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
 }

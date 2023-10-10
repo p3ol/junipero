@@ -1,6 +1,6 @@
 import { ReactNode, ComponentPropsWithoutRef } from 'react';
 
-declare interface SpinnerProps extends ComponentPropsWithoutRef<any> {
+export declare interface SpinnerProps extends ComponentPropsWithoutRef<any> {
   className?: string;
 }
 

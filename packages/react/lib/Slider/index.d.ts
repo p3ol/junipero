@@ -13,7 +13,7 @@ export declare type SliderRef = {
   tooltipRef: MutableRefObject<any>;
 };
 
-declare interface SliderProps extends ComponentPropsWithRef<any> {
+export declare interface SliderProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   disabled: boolean;

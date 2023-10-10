@@ -14,7 +14,7 @@ export declare type TextFieldRef = {
   inputRef: MutableRefObject<any>;
 };
 
-declare interface TextFieldProps extends ComponentPropsWithRef<any> {
+export declare interface TextFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   children?: ReactNode | JSX.Element;
   className?: string;

@@ -8,7 +8,7 @@ export declare type ToastsRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface ToastsProps extends ComponentPropsWithRef<any> {
+export declare interface ToastsProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
   className?: string;
   animateToast?(

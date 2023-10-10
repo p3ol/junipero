@@ -1,6 +1,6 @@
 {
   "name": "@junipero/core",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "🏔 Junipero Design System Core Utils",
   "main": "dist/junipero-core.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -22,8 +22,8 @@
     "npm": ">= 6"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.22.6",
-    "core-js": "3.32.0"
+    "@babel/runtime-corejs3": "7.22.15",
+    "core-js": "3.32.2"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

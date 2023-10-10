@@ -5,7 +5,7 @@ export declare type ListCellRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface ListCellProps extends ComponentPropsWithRef<any> {
+export declare interface ListCellProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<ListCellRef | undefined>;
 }
 

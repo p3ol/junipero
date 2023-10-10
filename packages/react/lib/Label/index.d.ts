@@ -1,6 +1,6 @@
 import { ReactNode, ComponentPropsWithoutRef } from 'react';
 
-declare interface LabelProps extends ComponentPropsWithoutRef<any> {
+export declare interface LabelProps extends ComponentPropsWithoutRef<any> {
   className?: string;
 }
 

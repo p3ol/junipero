@@ -14,6 +14,7 @@ DropdownGroup.displayName = 'DropdownGroup';
 DropdownGroup.propTypes = {
   title: PropTypes.oneOfType([
     PropTypes.string,
+    PropTypes.object,
     PropTypes.node,
     PropTypes.func,
   ]),

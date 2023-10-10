@@ -9,7 +9,7 @@ export declare type StepperRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface StepperProps extends ComponentPropsWithRef<any> {
+export declare interface StepperProps extends ComponentPropsWithRef<any> {
   active?: number;
   steps?: Array<StepObject>;
   icon: ReactNode | JSX.Element;
