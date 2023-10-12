@@ -1,33 +1,33 @@
-import { ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 export function Arrows(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
 export function Remove(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
 export function ArrowLeft(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
 export function ArrowRight(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
 export function ArrowDown(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
 export function ArrowUp(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
 export function Time(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
 
 export function Check(
-  className?: string,
+  props: ComponentPropsWithoutRef<'svg'>
 ): ReactNode | JSX.Element;
