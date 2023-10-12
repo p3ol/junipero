@@ -1,33 +1,33 @@
-import { ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export function Arrows({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function Arrows(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
 
-export function Remove({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function Remove(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
 
-export function ArrowLeft({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function ArrowLeft(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
 
-export function ArrowRight({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function ArrowRight(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
 
-export function ArrowDown({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function ArrowDown(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
 
-export function ArrowUp({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function ArrowUp(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
 
-export function Time({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function Time(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
 
-export function Check({
-  className,
-}: { className?: string}): ReactNode | JSX.Element;
+export function Check(
+  props: ComponentPropsWithoutRef<'svg'>
+): ReactNode | JSX.Element;
