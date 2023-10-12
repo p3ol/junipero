@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.5](https://github.com/p3ol/junipero/compare/v3.3.4...v3.3.5) (2023-10-12)
+
+
+### Bug Fixes
+
+* **icons:** set icons props to object and not plain string ([f13c16e](https://github.com/p3ol/junipero/commit/f13c16e0f870a45038fca1478ec76d370dc024e1))
+* **icons:** use svg ComponentsProps instead of custom ones ([42799f2](https://github.com/p3ol/junipero/commit/42799f27f578bb0b8ba8d70caf770cdd57720e8f))
+* **types:** wrong tooltip text type ([1385ae6](https://github.com/p3ol/junipero/commit/1385ae655f0419a21e94863c022dab26b17a4fe8))
+
+
+
+
+
 ## [3.3.4](https://github.com/p3ol/junipero/compare/v3.3.3...v3.3.4) (2023-09-28)
 
 
