@@ -29,7 +29,7 @@ export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   floatingOptions?: UseFloatingOptions;
   hoverOptions?: UseHoverProps;
   opened?: boolean;
-  text?: string;
+  text?: ReactNode | JSX.Element;
   placement?: Placement;
   trigger?: string;
   animate?(
