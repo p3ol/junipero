@@ -39,12 +39,16 @@
     .field
       padding: 10px 50px 10px 10px
 
-  &.searchable.empty
-    .field
-      cursor: text
+  &.searchable
+    .field input
+      pointer-events: auto
 
-      input
+    &.empty
+      .field
         cursor: text
+
+        input
+          cursor: text
 
   .field
     display: flex
@@ -67,6 +71,7 @@
       padding: 0
       cursor: default
       flex: 1
+      pointer-events: none
 
       &::placeholder
         color: var(--placeholder-color)
