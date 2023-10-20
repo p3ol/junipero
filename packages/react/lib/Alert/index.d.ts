@@ -33,6 +33,7 @@ export declare interface AlertObject {
   icon?: ReactNode | JSX.Element;
   index?: string | number;
   title?: ReactNode | JSX.Element;
+  type?: string;
   duration?: number;
   lifespan?: number;
   animate?(
