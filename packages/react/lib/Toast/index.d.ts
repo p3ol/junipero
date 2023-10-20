@@ -17,7 +17,7 @@ export declare interface ToastObject {
   animationTimeout?: number;
   content: ReactNode | JSX.Element;
   duration?: number;
-  index: string | number;
+  index?: string | number;
   lifespan?: number;
   animate?(
     alert: ReactNode | JSX.Element,

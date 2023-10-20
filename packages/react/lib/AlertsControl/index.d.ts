@@ -12,7 +12,7 @@ export declare type AlertsControlRef = {
 export declare interface AlertsControlProps
   extends ComponentPropsWithoutRef<any> {
   alerts?: Array<AlertObject>;
-  generateId(alert: AlertObject): string | number;
+  generateId?(alert: AlertObject): string | number;
   ref?: MutableRefObject<AlertsControlRef | undefined>;
 }
 
