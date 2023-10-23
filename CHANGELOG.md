@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.9](https://github.com/p3ol/junipero/compare/v3.3.8...v3.3.9) (2023-10-23)
+
+
+### Bug Fixes
+
+* **react:** add missing prop from alert object type def ([409b172](https://github.com/p3ol/junipero/commit/409b172a61e1316adc40fc97949951d2497b3b23))
+
+
+
+
+
 ## [3.3.8](https://github.com/p3ol/junipero/compare/v3.3.7...v3.3.8) (2023-10-20)
 
 
