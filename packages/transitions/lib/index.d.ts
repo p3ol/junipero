@@ -1,7 +1,7 @@
 import { Key, ReactNode } from 'react';
 
 declare function AnimationHandler(
-  menuOrModal: ReactNode | JSX.Element,
+  node: ReactNode | JSX.Element,
   opts?: {
     opened?: boolean;
     key?: Key;
@@ -9,7 +9,7 @@ declare function AnimationHandler(
   }
 ): ReactNode | JSX.Element;
 
-export function animateMenu(
+export function animate(
   name: string,
   opts?: {
     time?: number;
@@ -33,3 +33,6 @@ export function animateModal(
 export const slideInUpModal: typeof AnimationHandler;
 export const slideInLeftModal: typeof AnimationHandler;
 export const appearBounceModal: typeof AnimationHandler;
+
+export const slideInUp: typeof AnimationHandler;
+export const slideInDown: typeof AnimationHandler;
