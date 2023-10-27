@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/p3ol/junipero/compare/v3.4.0...v3.4.1) (2023-10-27)
+
+
+### Features
+
+* **deps:** update dependency @floating-ui/react to v0.26.1 ([8c64a8b](https://github.com/p3ol/junipero/commit/8c64a8b998707f68b94d89aced9e6dbad6d00ac4))
+* **deps:** update dependency core-js to v3.33.1 ([7779370](https://github.com/p3ol/junipero/commit/77793708b23183553ddc1b86ed646965300e9420))
+
+
+
+## [3.3.5](https://github.com/p3ol/junipero/compare/v3.3.4...v3.3.5) (2023-10-12)
+
+
+
+
+
 ## [3.3.9](https://github.com/p3ol/junipero/compare/v3.3.8...v3.3.9) (2023-10-23)
 
 
