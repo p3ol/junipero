@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/p3ol/junipero/compare/v3.3.9...v3.4.0) (2023-10-27)
+
+
+### Features
+
+* add new transitions ([8234958](https://github.com/p3ol/junipero/commit/8234958eeda91761da66e5e82c91eb1a990d99c6))
+
+
+
+
+
 ## [3.3.7](https://github.com/p3ol/junipero/compare/v3.3.6...v3.3.7) (2023-10-18)
 
 
