@@ -1,3 +1,49 @@
+.jp-slide-in-up
+  &-enter, &-appear
+    opacity: 0
+    transform: translate3d(0, 10px, 0)
+
+    &-active
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
+  &-exit
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+    &-active
+      opacity: 0
+      transform: translate3d(0, 10px, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
+.jp-slide-in-down
+  &-enter, &-appear
+    opacity: 0
+    transform: translate3d(0, -10px, 0)
+
+    &-active
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
+  &-exit
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+    &-active
+      opacity: 0
+      transform: translate3d(0, -10px, 0)
+      transition-property: opacity, transform
+      transition-timing-function: ease-out
+      transition-duration: 100ms
+
 .jp-slide-in-up-menu
   &-enter
     opacity: 0
