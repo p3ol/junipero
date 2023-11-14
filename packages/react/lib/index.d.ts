@@ -328,3 +328,9 @@ export {
   Time,
   Check,
 } from './icons';
+
+export type {
+  Grow,
+  GrowToSize,
+  FixedArray,
+} from './utils.d.ts';
