@@ -1,0 +1,49 @@
+
+.pagination
+  --main-color: var(--junipero-velvet)
+  --text-color: var(--junipero-onyx)
+  --active-text-color: var(--junipero-seashell)
+  --border-color: var(--junipero-mischka)
+
+  display: inline-flex
+  align-items: center
+  gap: 10px
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+  .previous, .previous-disabled
+    transform: rotate(90deg)
+
+  .next, .next-disabled
+    transform: rotate(-90deg)
+
+  .previous, .next
+    color: var(--text-color)
+    cursor: pointer
+
+    &-disabled
+      color: var(--border-color) !important
+      cursor: default
+
+  &-item
+    width: 40px
+    height: 40px
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    color: var(--text-color)
+    border: 2px solid var(--border-color)
+    border-radius: 4px
+    cursor: pointer
+
+    &-active
+      color: var(--active-text-color)
+      border-color: var(--main-color)
+      background: var(--main-color)
+
+    &-dots
+      cursor: auto
