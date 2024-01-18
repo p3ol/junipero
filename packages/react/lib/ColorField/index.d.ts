@@ -25,7 +25,7 @@ export declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
   format?: 'auto' | 'hex' | 'rgb' | 'rgba' | 'hsla';
-  globalEventsTarget: EventTarget;
+  globalEventsTarget?: EventTarget;
   id?: string;
   name?: string;
   opened?: boolean;
