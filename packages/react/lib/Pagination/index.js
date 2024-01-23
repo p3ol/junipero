@@ -1,47 +1,44 @@
-import { useEffect, useState } from 'react';
-import { classNames } from '@junipero/core';
+import { useEffect, useReducer } from 'react';
+import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 const Pagination = ({
   size,
+  shouldWrap = true,
+  shouldWrapFrom = 8,
   onPageChange,
   initialPage = 1,
   className,
 }) => {
-  const [activePage, setActivePage] = useState(initialPage);
-  const [wasRenderedOnce, setWasRenderedOnce] = useState(false);
+  const [state, dispatch] = useReducer(mockState, {
+    activePage: initialPage,
+    wasRenderedOnce: false,
+  });
 
   useEffect(() => {
-    if (wasRenderedOnce) {
-      onPageChange(activePage);
+    if (state.wasRenderedOnce) {
+      onPageChange(state.activePage);
     }
-  }, [activePage]);
+  }, [state.activePage]);
 
   const goToPrevious = () => {
-    if (activePage > 1) {
-      setActivePage(activePage - 1);
-      setWasRenderedOnce(true);
+    if (state.activePage > 1) {
+      dispatch({ activePage: state.activePage - 1, wasRenderedOnce: true });
     }
   };
 
   const goToNext = () => {
-    if (activePage < size) {
-      setActivePage(activePage + 1);
-      setWasRenderedOnce(true);
+    if (state.activePage < size) {
+      dispatch({ activePage: state.activePage + 1, wasRenderedOnce: true });
     }
   };
 
-  const goTo = page => {
-    setActivePage(page);
-    setWasRenderedOnce(true);
-  };
+  const goTo = page => dispatch({ activePage: page, wasRenderedOnce: true });
 
   const createPageNumbersTags = () => {
-    const pageNumbersTags = [];
-
-    if (size < 8) {
-      for (let i = 0; i < size; i++) {
-        pageNumbersTags.push(
+    if (!shouldWrap || size < shouldWrapFrom) {
+      return Array.from({ length: size }).map((_, i) => {
+        return (
           <div
             key={i}
             onClick={() => goTo(i + 1)}
@@ -49,17 +46,17 @@ const Pagination = ({
               'junipero',
               'pagination',
               'pagination-item',
-              `${i + 1 === activePage ? 'pagination-item-active' : ''}`,
+              `${ i + 1 === state.activePage ? 'pagination-item-active' : '' }`,
             )}
           >
             {i + 1}
           </div>
         );
-      }
+      });
     } else {
-      if (activePage < 5) {
-        for (let i = 0; i < 5; i++) {
-          pageNumbersTags.push(
+      if (state.activePage < 5) {
+        const pageNumbersTags = Array.from({ length: 5 }).map((_, i) => {
+          return (
             <div
               key={i}
               onClick={() => goTo(i + 1)}
@@ -67,13 +64,13 @@ const Pagination = ({
                 'junipero',
                 'pagination',
                 'pagination-item',
-                `${i + 1 === activePage ? 'pagination-item-active' : ''}`,
+                `${i + 1 === state.activePage ? 'pagination-item-active' : ''}`,
               )}
             >
               {i + 1}
             </div>
           );
-        }
+        });
 
         pageNumbersTags.push(
           <div
@@ -97,24 +94,64 @@ const Pagination = ({
               'junipero',
               'pagination',
               'pagination-item',
-              `${size === activePage ? 'pagination-item-active' : ''}`,
+              `${size === state.activePage ? 'pagination-item-active' : ''}`,
             )}
           >
             {size}
           </div>
         );
-      }
 
-      if (activePage >= 5 && activePage <= size - 4) {
-        pageNumbersTags.push(
+        return pageNumbersTags;
+      } else if (state.activePage <= size - 4) {
+        const pageNumbersTags = [
+          state.activePage - 1,
+          state.activePage,
+          state.activePage + 1,
+        ]
+          .map((page, i) => {
+            return (
+              <div
+                key={i + 2}
+                onClick={() => goTo(page)}
+                className={classNames(
+                  'junipero',
+                  'pagination',
+                  'pagination-item',
+                  `${
+                    page === state.activePage
+                      ? 'pagination-item-active'
+                      : ''
+                  }`,
+                )}
+              >
+                {page}
+              </div>
+            );
+          });
+
+        pageNumbersTags.unshift(
           <div
             key={0}
+            className={classNames(
+              'junipero',
+              'pagination',
+              'pagination-item',
+              'pagination-item-dots',
+            )}
+          >
+            ...
+          </div>
+        );
+
+        pageNumbersTags.unshift(
+          <div
+            key={1}
             onClick={() => goTo(1)}
             className={classNames(
               'junipero',
               'pagination',
               'pagination-item',
-              `${activePage === 1 ? 'pagination-item-active' : ''}`,
+              `${state.activePage === 1 ? 'pagination-item-active' : ''}`,
             )}
           >
             {1}
@@ -123,38 +160,7 @@ const Pagination = ({
 
         pageNumbersTags.push(
           <div
-            key={1}
-            className={classNames(
-              'junipero',
-              'pagination',
-              'pagination-item',
-              'pagination-item-dots',
-            )}
-          >
-            ...
-          </div>
-        );
-
-        for (let i = activePage - 1; i < activePage + 2; i++) {
-          pageNumbersTags.push(
-            <div
-              key={i}
-              onClick={() => goTo(i)}
-              className={classNames(
-                'junipero',
-                'pagination',
-                'pagination-item',
-                `${i === activePage ? 'pagination-item-active' : ''}`,
-              )}
-            >
-              {i}
-            </div>
-          );
-        }
-
-        pageNumbersTags.push(
-          <div
-            key={size - 1}
+            key={5}
             className={classNames(
               'junipero',
               'pagination',
@@ -168,37 +174,43 @@ const Pagination = ({
 
         pageNumbersTags.push(
           <div
-            key={size}
+            key={6}
             onClick={() => goTo(size)}
             className={classNames(
               'junipero',
               'pagination',
               'pagination-item',
-              `${size === activePage ? 'pagination-item-active' : ''}`,
+              `${size === state.activePage ? 'pagination-item-active' : ''}`,
             )}
           >
             {size}
           </div>
         );
-      }
 
-      if (activePage > size - 4) {
-        pageNumbersTags.push(
-          <div
-            key={0}
-            onClick={() => goTo(1)}
-            className={classNames(
-              'junipero',
-              'pagination',
-              'pagination-item',
-              `${activePage === 1 ? 'pagination-item-active' : ''}`,
-            )}
-          >
-            {1}
-          </div>
-        );
+        return pageNumbersTags;
+      } else {
+        const pageNumbersTags = Array.from({ length: 5 }).map((_, i) => {
+          return (
+            <div
+              key={i + 2}
+              onClick={() => goTo(size - i)}
+              className={classNames(
+                'junipero',
+                'pagination',
+                'pagination-item',
+                `${
+                  size - i === state.activePage
+                    ? 'pagination-item-active'
+                    : ''
+                }`,
+              )}
+            >
+              {size - i}
+            </div>
+          );
+        }).reverse();
 
-        pageNumbersTags.push(
+        pageNumbersTags.unshift(
           <div
             key={1}
             className={classNames(
@@ -212,26 +224,24 @@ const Pagination = ({
           </div>
         );
 
-        for (let i = size - 4; i <= size; i++) {
-          pageNumbersTags.push(
-            <div
-              key={i}
-              onClick={() => goTo(i)}
-              className={classNames(
-                'junipero',
-                'pagination',
-                'pagination-item',
-                `${i === activePage ? 'pagination-item-active' : ''}`,
-              )}
-            >
-              {i}
-            </div>
-          );
-        }
+        pageNumbersTags.unshift(
+          <div
+            key={0}
+            onClick={() => goTo(1)}
+            className={classNames(
+              'junipero',
+              'pagination',
+              'pagination-item',
+              `${state.activePage === 1 ? 'pagination-item-active' : ''}`,
+            )}
+          >
+            {1}
+          </div>
+        );
+
+        return pageNumbersTags;
       }
     }
-
-    return pageNumbersTags;
   };
 
   return (
@@ -240,7 +250,7 @@ const Pagination = ({
         onClick={() => goToPrevious()}
         className={classNames(
           'junipero-icons',
-          activePage === 1 ? 'previous-disabled' : 'previous',
+          state.activePage === 1 ? 'previous-disabled' : 'previous',
         )}
       >
         expand_more
@@ -250,7 +260,7 @@ const Pagination = ({
         onClick={() => goToNext()}
         className={classNames(
           'junipero-icons',
-          activePage === size ? 'next-disabled' : 'next',
+          state.activePage === size ? 'next-disabled' : 'next',
         )}
       >
         expand_more
@@ -261,6 +271,8 @@ const Pagination = ({
 
 Pagination.propTypes = {
   size: PropTypes.number.isRequired,
+  shouldWrap: PropTypes.bool,
+  shouldWrapFrom: PropTypes.number,
   onPageChange: PropTypes.func.isRequired,
   initialPage: PropTypes.number,
 };
