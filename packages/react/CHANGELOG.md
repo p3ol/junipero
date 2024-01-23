@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.3](https://github.com/p3ol/junipero/compare/v3.4.2...v3.4.3) (2024-01-18)
+
+
+### Bug Fixes
+
+* **color-field:** make globalEventsTarget prop optional ([7b7444a](https://github.com/p3ol/junipero/commit/7b7444a7b98e5f0ad357307236cb791b8c50520c))
+
+
+
+
+
 ## [3.4.2](https://github.com/p3ol/junipero/compare/v3.4.1...v3.4.2) (2023-11-14)
 
 
