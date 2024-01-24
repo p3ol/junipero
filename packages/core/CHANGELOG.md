@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.4](https://github.com/p3ol/junipero/compare/v3.4.3...v3.4.4) (2024-01-24)
+
+
+### Bug Fixes
+
+* **core:** fix formatThousand param type ([3149cff](https://github.com/p3ol/junipero/commit/3149cff0eb7d434e0951a3d1658d02d164f7afbd))
+
+
+
+
+
 ## [3.4.1](https://github.com/p3ol/junipero/compare/v3.4.0...v3.4.1) (2023-10-27)
 
 
