@@ -32,7 +32,7 @@ export declare type AxisRef = {
   gridRef: MutableRefObject<any>;
 };
 
-declare interface AxisProps extends ComponentPropsWithRef<any> {
+export declare interface AxisProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   axis: AxisObject;
