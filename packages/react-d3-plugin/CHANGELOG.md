@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.8](https://github.com/p3ol/junipero/compare/v3.4.7...v3.4.8) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix missing bar chart export ([57f664f](https://github.com/p3ol/junipero/commit/57f664feb5d1c8121102fbf1dae81ee4e27bd25a))
+
+
+
+
+
 ## [3.4.7](https://github.com/p3ol/junipero/compare/v3.4.6...v3.4.7) (2024-01-26)
 
 
