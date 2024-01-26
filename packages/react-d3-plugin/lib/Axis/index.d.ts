@@ -6,10 +6,9 @@ import {
 import * as d3 from 'd3';
 
 export declare interface AxisObject {
-  type: d3.Axis<d3.AxisDomain>;
-  scale: d3.ScaleLinear<number, number, never> |
-    d3.ScaleTime<number, number, never> |
-    d3.ScaleBand<string>;
+  type: typeof d3.axisLeft | typeof d3.axisBottom | typeof d3.axisRight |
+    typeof d3.axisTop;
+  scale: typeof d3.scaleLinear | typeof d3.scaleTime | typeof d3.scaleBand;
   data: Array<number | Date | object>;
   range?: d3.ScaleContinuousNumeric<number, number, never> |
     d3.ScaleTime<number, number, never>;
