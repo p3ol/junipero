@@ -12,7 +12,7 @@ export declare type ChartRef = {
   axis: Array<AxisObject>;
 };
 
-declare interface ChartProps extends ComponentPropsWithRef<any> {
+export declare interface ChartProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   axis: Array<AxisObject>;
