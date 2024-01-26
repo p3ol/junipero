@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 const Pagination = ({
   size,
+  initialPage = 1,
   shouldWrap = true,
   shouldWrapFrom = 8,
   onPageChange,
-  initialPage = 1,
   className,
 }) => {
   const [state, dispatch] = useReducer(mockState, {
@@ -269,6 +269,7 @@ const Pagination = ({
   );
 };
 
+Pagination.displayName = 'Pagination';
 Pagination.propTypes = {
   size: PropTypes.number.isRequired,
   shouldWrap: PropTypes.bool,
