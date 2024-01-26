@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.6](https://github.com/p3ol/junipero/compare/v3.4.5...v3.4.6) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix optional parameter ([811261e](https://github.com/p3ol/junipero/commit/811261efe3e0a2759e4ba219f3d648a31e185e07))
+
+
+
+
+
 ## [3.4.5](https://github.com/p3ol/junipero/compare/v3.4.4...v3.4.5) (2024-01-25)
 
 
