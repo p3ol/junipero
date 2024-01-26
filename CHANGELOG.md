@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.7](https://github.com/p3ol/junipero/compare/v3.4.6...v3.4.7) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix useless call to scaleTime ([1d53730](https://github.com/p3ol/junipero/commit/1d537308a128ecc1bf47010961063586c77c4355))
+* **react-d3-plugin:** wrong type & scale types ([7b812fc](https://github.com/p3ol/junipero/commit/7b812fcb9f7d74f69fa25a8cf572a6382b4940ac))
+
+
+
+
+
 ## [3.4.6](https://github.com/p3ol/junipero/compare/v3.4.5...v3.4.6) (2024-01-26)
 
 
