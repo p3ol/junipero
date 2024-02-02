@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 
 import { ForwardedProps } from '../utils';
 
-declare interface DraggableProps extends ComponentPropsWithRef<any> {
+export declare interface DraggableProps extends ComponentPropsWithRef<any> {
   children?: JSX.Element;
   className?: string;
   data?: any;

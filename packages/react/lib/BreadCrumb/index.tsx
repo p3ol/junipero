@@ -22,7 +22,7 @@ export declare type BreadCrumbRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface BreadCrumbProps extends ComponentPropsWithRef<any> {
+export declare interface BreadCrumbProps extends ComponentPropsWithRef<any> {
   children?: JSX.Element | Array<JSX.Element>;
   className?: string;
   items?: Array<JSX.Element> | Array<string>;

@@ -13,7 +13,7 @@ export declare type CurveRef = {
   areaRef: MutableRefObject<any>;
 };
 
-declare interface CurveProps extends ComponentPropsWithRef<any> {
+export declare interface CurveProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   ref?: MutableRefObject<CurveRef | undefined>;

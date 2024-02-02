@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/p3ol/junipero/compare/v3.3.9...v3.4.0) (2023-10-27)
+
+
+### Features
+
+* add new transitions ([8234958](https://github.com/p3ol/junipero/commit/8234958eeda91761da66e5e82c91eb1a990d99c6))
+
+
+
+
+
+## [3.3.7](https://github.com/p3ol/junipero/compare/v3.3.6...v3.3.7) (2023-10-18)
+
+
+### Bug Fixes
+
+* **theme:** fix select field not being selectable ([b130e82](https://github.com/p3ol/junipero/commit/b130e82e267a39d9fbd8ff8bf93799df93304210))
+
+
+
+
+
+# [3.3.0](https://github.com/p3ol/junipero/compare/v3.2.4...v3.3.0) (2023-09-21)
+
+**Note:** Version bump only for package @junipero/theme
+
+
+
+
+
+## [3.2.2](https://github.com/p3ol/junipero/compare/v3.2.1...v3.2.2) (2023-08-15)
+
+
+### Bug Fixes
+
+* **theme:** remove breaking old require ([1ca7921](https://github.com/p3ol/junipero/commit/1ca7921a63adc511a25b7efb328c58135d5038a4))
+
+
+
+
+
+## [3.2.1](https://github.com/p3ol/junipero/compare/v3.2.0...v3.2.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* **theme:** fix wrong datefield background position ([11bf188](https://github.com/p3ol/junipero/commit/11bf1885e983292130cd1aec39bf968afbe66746))
+
+
+
+
+
 # [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
 
 

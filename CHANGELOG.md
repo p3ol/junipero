@@ -3,6 +3,283 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.8](https://github.com/p3ol/junipero/compare/v3.4.7...v3.4.8) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix missing bar chart export ([57f664f](https://github.com/p3ol/junipero/commit/57f664feb5d1c8121102fbf1dae81ee4e27bd25a))
+
+
+
+
+
+## [3.4.7](https://github.com/p3ol/junipero/compare/v3.4.6...v3.4.7) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix useless call to scaleTime ([1d53730](https://github.com/p3ol/junipero/commit/1d537308a128ecc1bf47010961063586c77c4355))
+* **react-d3-plugin:** wrong type & scale types ([7b812fc](https://github.com/p3ol/junipero/commit/7b812fcb9f7d74f69fa25a8cf572a6382b4940ac))
+
+
+
+
+
+## [3.4.6](https://github.com/p3ol/junipero/compare/v3.4.5...v3.4.6) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix optional parameter ([811261e](https://github.com/p3ol/junipero/commit/811261efe3e0a2759e4ba219f3d648a31e185e07))
+
+
+
+
+
+## [3.4.5](https://github.com/p3ol/junipero/compare/v3.4.4...v3.4.5) (2024-01-25)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix missing type exports ([cf4b27d](https://github.com/p3ol/junipero/commit/cf4b27d82f5591049394ff63fe76e8c1c6586402))
+
+
+
+
+
+## [3.4.4](https://github.com/p3ol/junipero/compare/v3.4.3...v3.4.4) (2024-01-24)
+
+
+### Bug Fixes
+
+* **core:** fix formatThousand param type ([3149cff](https://github.com/p3ol/junipero/commit/3149cff0eb7d434e0951a3d1658d02d164f7afbd))
+
+
+
+
+
+## [3.4.3](https://github.com/p3ol/junipero/compare/v3.4.2...v3.4.3) (2024-01-18)
+
+
+### Bug Fixes
+
+* **color-field:** make globalEventsTarget prop optional ([7b7444a](https://github.com/p3ol/junipero/commit/7b7444a7b98e5f0ad357307236cb791b8c50520c))
+* **renovate:** extend p3ol custom Presets ([4e05980](https://github.com/p3ol/junipero/commit/4e05980264983b4bf8655c1d9c786f3336a064fd))
+
+
+
+
+
+## [3.4.2](https://github.com/p3ol/junipero/compare/v3.4.1...v3.4.2) (2023-11-14)
+
+
+### Bug Fixes
+
+* **react:** export missing types ([ad673b3](https://github.com/p3ol/junipero/commit/ad673b33aca7bddcf85584337dc32d48914e5ab3))
+
+
+
+
+
+## [3.4.1](https://github.com/p3ol/junipero/compare/v3.4.0...v3.4.1) (2023-10-27)
+
+
+### Bug Fixes
+
+* **transitions:** types ([a545b6f](https://github.com/p3ol/junipero/commit/a545b6f2675d04d0ce3ef1401d42ad6df1a3a0f9))
+
+
+### Features
+
+* **deps:** update dependency @floating-ui/react to v0.26.1 ([8c64a8b](https://github.com/p3ol/junipero/commit/8c64a8b998707f68b94d89aced9e6dbad6d00ac4))
+* **deps:** update dependency core-js to v3.33.1 ([7779370](https://github.com/p3ol/junipero/commit/77793708b23183553ddc1b86ed646965300e9420))
+
+
+
+## [3.3.5](https://github.com/p3ol/junipero/compare/v3.3.4...v3.3.5) (2023-10-12)
+
+
+
+
+
+# [3.4.0](https://github.com/p3ol/junipero/compare/v3.3.9...v3.4.0) (2023-10-27)
+
+
+### Features
+
+* add new transitions ([8234958](https://github.com/p3ol/junipero/commit/8234958eeda91761da66e5e82c91eb1a990d99c6))
+
+
+
+
+
+## [3.3.9](https://github.com/p3ol/junipero/compare/v3.3.8...v3.3.9) (2023-10-23)
+
+
+### Bug Fixes
+
+* **react:** add missing prop from alert object type def ([409b172](https://github.com/p3ol/junipero/commit/409b172a61e1316adc40fc97949951d2497b3b23))
+
+
+
+
+
+## [3.3.8](https://github.com/p3ol/junipero/compare/v3.3.7...v3.3.8) (2023-10-20)
+
+
+### Bug Fixes
+
+* **react:** fix types for some non required props ([e929a51](https://github.com/p3ol/junipero/commit/e929a511d5c9a4dc8fc60b5943a9d3faccaab2d6))
+
+
+
+
+
+## [3.3.7](https://github.com/p3ol/junipero/compare/v3.3.6...v3.3.7) (2023-10-18)
+
+
+### Bug Fixes
+
+* **theme:** fix select field not being selectable ([b130e82](https://github.com/p3ol/junipero/commit/b130e82e267a39d9fbd8ff8bf93799df93304210))
+
+
+
+
+
+## [3.3.6](https://github.com/p3ol/junipero/compare/v3.3.4...v3.3.6) (2023-10-12)
+
+
+### Bug Fixes
+
+* **icons:** set icons props to object and not plain string ([f13c16e](https://github.com/p3ol/junipero/commit/f13c16e0f870a45038fca1478ec76d370dc024e1))
+* **icons:** use svg ComponentsProps instead of custom ones ([42799f2](https://github.com/p3ol/junipero/commit/42799f27f578bb0b8ba8d70caf770cdd57720e8f))
+* **types:** wrong tooltip text type ([1385ae6](https://github.com/p3ol/junipero/commit/1385ae655f0419a21e94863c022dab26b17a4fe8))
+
+
+
+
+
+## [3.3.5](https://github.com/p3ol/junipero/compare/v3.3.4...v3.3.5) (2023-10-12)
+
+
+### Bug Fixes
+
+* **icons:** set icons props to object and not plain string ([f13c16e](https://github.com/p3ol/junipero/commit/f13c16e0f870a45038fca1478ec76d370dc024e1))
+* **icons:** use svg ComponentsProps instead of custom ones ([42799f2](https://github.com/p3ol/junipero/commit/42799f27f578bb0b8ba8d70caf770cdd57720e8f))
+
+
+
+
+
+## [3.3.4](https://github.com/p3ol/junipero/compare/v3.3.3...v3.3.4) (2023-09-28)
+
+
+### Bug Fixes
+
+* **react:** fix missing export from merge ([2975c67](https://github.com/p3ol/junipero/commit/2975c677a4de3139a637d21eed339d9af4ece038))
+
+
+
+
+
+## [3.3.3](https://github.com/p3ol/junipero/compare/v3.3.2...v3.3.3) (2023-09-28)
+
+
+### Bug Fixes
+
+* **react:** a lot ofmissing type exports ([d06f2fa](https://github.com/p3ol/junipero/commit/d06f2fa353f09fe9df439fbd5686cd79dee94b3e))
+* **react:** another missing export ([994f8bf](https://github.com/p3ol/junipero/commit/994f8bf2735db471cf93381b2a2bbe2b04a968c5))
+
+
+
+
+
+## [3.3.2](https://github.com/p3ol/junipero/compare/v3.3.1...v3.3.2) (2023-09-27)
+
+
+### Bug Fixes
+
+* **transitions:** add missing type definitions ([bd52355](https://github.com/p3ol/junipero/commit/bd5235553bd5c08072d2d0173048bde1ac0cf1b4))
+* **types:** wrong property name ([7358b8d](https://github.com/p3ol/junipero/commit/7358b8dd773c70f82f8672a6543940f1b31b930f))
+
+
+
+
+
+## [3.3.1](https://github.com/p3ol/junipero/compare/v3.3.0...v3.3.1) (2023-09-21)
+
+
+### Bug Fixes
+
+* **react:** missing export ([305a196](https://github.com/p3ol/junipero/commit/305a196aa6f223549871aabacf786f57da034dde))
+
+
+
+
+
+# [3.3.0](https://github.com/p3ol/junipero/compare/v3.2.4...v3.3.0) (2023-09-21)
+
+
+### Features
+
+* **react:** add ModalControl component ([e2a8368](https://github.com/p3ol/junipero/commit/e2a83686eec2bd321569350d63312941434a3332))
+
+
+
+
+
+## [3.2.4](https://github.com/p3ol/junipero/compare/v3.2.3...v3.2.4) (2023-09-21)
+
+
+### Bug Fixes
+
+* **react:** wrong prop type ([c28c1f2](https://github.com/p3ol/junipero/commit/c28c1f2489f8fde39daef80056e6df7c459f8bfb))
+
+
+
+
+
+## [3.2.3](https://github.com/p3ol/junipero/compare/v3.2.2...v3.2.3) (2023-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.25.2 ([05b4791](https://github.com/p3ol/junipero/commit/05b47911065611bce4a1c9b5218985890a0afcfb))
+* **deps:** update dependency @floating-ui/react to v0.25.3 ([e09fb1d](https://github.com/p3ol/junipero/commit/e09fb1d24c515ac9f929a7337825fdc116128641))
+* **deps:** update dependency @floating-ui/react to v0.25.4 ([1ce8786](https://github.com/p3ol/junipero/commit/1ce8786e3c8eced8729ced4959aed17975593824))
+* **deps:** update dependency core-js to v3.32.1 ([be94dcc](https://github.com/p3ol/junipero/commit/be94dcc08521c8b804eac34ad1699c56fffbab30))
+* **deps:** update dependency core-js to v3.32.2 ([7eea00e](https://github.com/p3ol/junipero/commit/7eea00ef7c2db0cd02620a2c3277eb645378e633))
+* **react:** add missing exports ([d3f8a93](https://github.com/p3ol/junipero/commit/d3f8a931f32237371134eb669907864a49caf2b3))
+
+
+
+
+
+## [3.2.2](https://github.com/p3ol/junipero/compare/v3.2.1...v3.2.2) (2023-08-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.25.1 ([a79c2fd](https://github.com/p3ol/junipero/commit/a79c2fdfabee7d28e92cf26ed31c5cfe7244a407))
+* **theme:** remove breaking old require ([1ca7921](https://github.com/p3ol/junipero/commit/1ca7921a63adc511a25b7efb328c58135d5038a4))
+
+
+
+
+
+## [3.2.1](https://github.com/p3ol/junipero/compare/v3.2.0...v3.2.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* **react:** correctly depend on core ([4069acc](https://github.com/p3ol/junipero/commit/4069acc728accf2c44f210cbfeae9c8f81d34aea))
+* **theme:** fix wrong datefield background position ([11bf188](https://github.com/p3ol/junipero/commit/11bf1885e983292130cd1aec39bf968afbe66746))
+
+
+
+
+
 # [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
 
 

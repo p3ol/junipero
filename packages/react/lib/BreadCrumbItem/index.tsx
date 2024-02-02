@@ -17,7 +17,7 @@ export declare type BreadCrumbItemRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface BreadCrumbItemProps extends ComponentPropsWithRef<any> {
+export declare interface BreadCrumbItemProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
   tag?: string | ElementType;

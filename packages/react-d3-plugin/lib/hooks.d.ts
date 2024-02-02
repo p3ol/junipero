@@ -1,6 +1,6 @@
 import { AxisObject } from './Axis';
 
-declare interface ChartContext {
+export declare interface ChartContext {
   axis: Array<AxisObject>;
   width: number;
   height: number;

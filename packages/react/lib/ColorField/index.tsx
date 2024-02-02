@@ -46,7 +46,7 @@ export declare type ColorFieldRef = {
   textFieldRef: MutableRefObject<any>;
 };
 
-declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
+export declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   className?: string;
   disabled?: boolean;

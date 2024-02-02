@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.8](https://github.com/p3ol/junipero/compare/v3.4.7...v3.4.8) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix missing bar chart export ([57f664f](https://github.com/p3ol/junipero/commit/57f664feb5d1c8121102fbf1dae81ee4e27bd25a))
+
+
+
+
+
+## [3.4.7](https://github.com/p3ol/junipero/compare/v3.4.6...v3.4.7) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix useless call to scaleTime ([1d53730](https://github.com/p3ol/junipero/commit/1d537308a128ecc1bf47010961063586c77c4355))
+* **react-d3-plugin:** wrong type & scale types ([7b812fc](https://github.com/p3ol/junipero/commit/7b812fcb9f7d74f69fa25a8cf572a6382b4940ac))
+
+
+
+
+
+## [3.4.6](https://github.com/p3ol/junipero/compare/v3.4.5...v3.4.6) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix optional parameter ([811261e](https://github.com/p3ol/junipero/commit/811261efe3e0a2759e4ba219f3d648a31e185e07))
+
+
+
+
+
+## [3.4.5](https://github.com/p3ol/junipero/compare/v3.4.4...v3.4.5) (2024-01-25)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix missing type exports ([cf4b27d](https://github.com/p3ol/junipero/commit/cf4b27d82f5591049394ff63fe76e8c1c6586402))
+
+
+
+
+
+## [3.4.1](https://github.com/p3ol/junipero/compare/v3.4.0...v3.4.1) (2023-10-27)
+
+
+### Features
+
+* **deps:** update dependency core-js to v3.33.1 ([7779370](https://github.com/p3ol/junipero/commit/77793708b23183553ddc1b86ed646965300e9420))
+
+
+
+
+
+# [3.3.0](https://github.com/p3ol/junipero/compare/v3.2.4...v3.3.0) (2023-09-21)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
+## [3.2.3](https://github.com/p3ol/junipero/compare/v3.2.2...v3.2.3) (2023-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.32.1 ([be94dcc](https://github.com/p3ol/junipero/commit/be94dcc08521c8b804eac34ad1699c56fffbab30))
+* **deps:** update dependency core-js to v3.32.2 ([7eea00e](https://github.com/p3ol/junipero/commit/7eea00ef7c2db0cd02620a2c3277eb645378e633))
+
+
+
+
+
+## [3.2.2](https://github.com/p3ol/junipero/compare/v3.2.1...v3.2.2) (2023-08-15)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
+## [3.2.1](https://github.com/p3ol/junipero/compare/v3.2.0...v3.2.1) (2023-08-04)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
 # [3.2.0](https://github.com/p3ol/junipero/compare/v3.1.2...v3.2.0) (2023-07-24)
 
 

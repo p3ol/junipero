@@ -12,7 +12,7 @@ export declare type BarRef = {
   tooltipRef: MutableRefObject<any>;
 };
 
-declare interface BarProps extends ComponentPropsWithRef<any> {
+export declare interface BarProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   ref?: MutableRefObject<BarRef | undefined>;

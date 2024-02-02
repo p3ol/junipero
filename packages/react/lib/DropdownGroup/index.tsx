@@ -2,7 +2,7 @@ import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-declare interface DropdownGroupProps extends ComponentPropsWithoutRef<any> {
+export declare interface DropdownGroupProps extends ComponentPropsWithoutRef<any> {
   children?: JSX.Element | ReactNode;
   className?: string;
   title?: ReactNode | JSX.Element;
@@ -21,6 +21,7 @@ DropdownGroup.displayName = 'DropdownGroup';
 DropdownGroup.propTypes = {
   title: PropTypes.oneOfType([
     PropTypes.string,
+    PropTypes.object,
     PropTypes.node,
     PropTypes.func,
   ]),

@@ -20,7 +20,7 @@ export declare type ToggleRef = {
   inputRef: MutableRefObject<any>;
 };
 
-declare interface ToggleProps extends ComponentPropsWithRef<any> {
+export declare interface ToggleProps extends ComponentPropsWithRef<any> {
   checked?: boolean;
   children?: ReactNode | JSX.Element;
   className?: string;

@@ -1,9 +1,10 @@
-import { Dispatch, createContext } from 'react';
+import { Dispatch, MutableRefObject, createContext } from 'react';
 import { ExtendedRefs, Strategy } from '@floating-ui/react';
 
 import { AlertObject } from './Alert';
 import { ToastObject } from './Toast';
 import { ListColumnObject } from './ListColumn';
+import { ModalRef } from './Modal';
 
 export type AlertsContextType = {
   alerts?: Array<AlertObject>;
@@ -50,9 +51,16 @@ export type ToastsContextType = {
   add?: (toas: ToastObject) => void,
   dismiss?: (toast: ToastObject) => void,
 }
+export declare interface ModalContextType {
+  open?(): void;
+  close?(): void;
+  toggle?: any,
+  setRef?: (ref: ModalRef) => void;
+}
 
 export const AlertsContext = createContext<AlertsContextType>({});
 export const DropdownContext = createContext<DropdownContextType>({});
 export const FieldControlContext = createContext<FieldContextType>({});
 export const ListContext = createContext<ListContextType>({});
 export const ToastsContext = createContext<ToastsContextType>({});
+export const ModalContext = createContext<ModalContextType>({});

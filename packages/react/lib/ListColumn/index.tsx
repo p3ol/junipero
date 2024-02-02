@@ -21,7 +21,7 @@ export declare type ListColumnRef = {
   isJunipero: boolean;
 };
 
-declare interface ListColumnProps extends ComponentPropsWithRef<any> {
+export declare interface ListColumnProps extends ComponentPropsWithRef<any> {
   id: string | number;
   children?: ReactNode | JSX.Element;
   ref?: MutableRefObject<ListColumnRef | undefined>;

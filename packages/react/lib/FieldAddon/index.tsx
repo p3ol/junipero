@@ -18,7 +18,7 @@ export declare type FieldAddonRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface FieldAddonProps extends ComponentPropsWithRef<any> {
+export declare interface FieldAddonProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
   tag?: (string | ElementType);

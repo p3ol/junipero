@@ -1,11 +1,11 @@
 import { ForwardRefExoticComponent } from 'react';
 
-type Grow<T, A extends Array<T>> = ((x: T, ...xs: A) => void) extends (
+export type Grow<T, A extends Array<T>> = ((x: T, ...xs: A) => void) extends (
   ...a: infer X
 ) => void
   ? X
   : never;
-type GrowToSize<T, A extends Array<T>, N extends number> = {
+export type GrowToSize<T, A extends Array<T>, N extends number> = {
   0: A;
   1: GrowToSize<T, Grow<T, A>, N>;
 }[A['length'] extends N ? 0 : 1];

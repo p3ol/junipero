@@ -1,6 +1,6 @@
 {
   "name": "@junipero/transitions",
-  "version": "3.2.0",
+  "version": "3.4.1",
   "description": "🏔 Junipero Design System React Transitions",
   "main": "dist/junipero-transitions.cjs.js",
   "jsnext:main": "dist/esm/index.js",
@@ -8,6 +8,7 @@
   "esnext": "src/index.js",
   "unpkg": "dist/junipero-transitions.min.js",
   "cdn": "dist/junipero-transitions.min.js",
+  "types": "dist/junipero-transitions.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
@@ -25,8 +26,8 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.22.6",
-    "core-js": "3.32.0"
+    "@babel/runtime-corejs3": "7.23.2",
+    "core-js": "3.33.1"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

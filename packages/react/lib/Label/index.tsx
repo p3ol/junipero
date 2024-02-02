@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef } from 'react';
 
 import { useFieldControl } from '../hooks';
 
-declare interface LabelProps extends ComponentPropsWithoutRef<any> {
+export declare interface LabelProps extends ComponentPropsWithoutRef<any> {
   className?: string;
 }
 

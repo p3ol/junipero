@@ -15,7 +15,7 @@ export declare type ListItemRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface ListItemProps extends ComponentPropsWithRef<any> {
+export declare interface ListItemProps extends ComponentPropsWithRef<any> {
   item?: Array<ReactNode | JSX.Element>;
   children?: ReactNode | JSX.Element;
   ref?: MutableRefObject<ListItemRef | undefined>;

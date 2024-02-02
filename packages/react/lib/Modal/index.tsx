@@ -14,6 +14,7 @@ import { classNames, mockState, ensureNode } from '@junipero/core';
 
 import { Remove } from '../icons';
 import { ForwardedProps, MockState } from '../utils';
+import { useModal } from '../hooks';
 
 export declare type ModalRef = {
   isJunipero: boolean;
@@ -27,7 +28,7 @@ export declare type ModalRef = {
   wrapperRef: MutableRefObject<any>;
 };
 
-declare interface ModalProps extends ComponentPropsWithRef<any> {
+export declare interface ModalProps extends ComponentPropsWithRef<any> {
   apparition?: string;
   children?: ReactNode | JSX.Element;
   className?: string;
@@ -59,17 +60,26 @@ const Modal = forwardRef(({
   const contentRef = useRef();
   const wrapperRef = useRef();
   const closeButtonRef = useRef();
-
   type ModalState = {
     opened: boolean;
     visible: boolean;
   }
+  const { setRef: setControlRef } = useModal();
+
   const [state, dispatch] = useReducer<MockState<ModalState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
 
-  useImperativeHandle(ref, () => ({
+  useImperativeHandle((r: ModalRef) => {
+    setControlRef?.(r);
+
+    if (typeof ref === 'function') {
+      ref(r);
+    } else if (ref) {
+      ref.current = r;
+    }
+  }, () => ({
     innerRef,
     contentRef,
     wrapperRef,

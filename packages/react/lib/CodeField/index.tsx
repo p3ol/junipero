@@ -26,7 +26,7 @@ export declare type CodeFieldRef = {
   inputsRef: MutableRefObject<Array<any>>;
 };
 
-declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
+export declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   disabled?: boolean;
   className?: string;

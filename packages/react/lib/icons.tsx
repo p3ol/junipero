@@ -1,7 +1,7 @@
 import { classNames } from '@junipero/core';
-import { ComponentPropsWithRef } from 'react';
+import { ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
 
-declare interface IconProps extends ComponentPropsWithRef<any> {
+declare interface IconProps extends ComponentPropsWithoutRef<'svg'> {
   className?: string
 }
 

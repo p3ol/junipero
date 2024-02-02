@@ -9,7 +9,7 @@ import { classNames } from '@junipero/core';
 
 import { ForwardedProps } from '../utils';
 
-declare interface TouchableZoneProps extends ComponentPropsWithRef<any> {
+export declare interface TouchableZoneProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string
   tag?: string | ElementType;

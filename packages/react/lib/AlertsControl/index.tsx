@@ -24,7 +24,7 @@ export declare type AlertsControlRef ={
   dismiss(alert: AlertObject): void;
 } | React.RefAttributes<HTMLElement>;
 
-declare interface AlertsControlProps extends ComponentPropsWithRef<any> {
+export declare interface AlertsControlProps extends ComponentPropsWithRef<any> {
   alerts?: Array<AlertObject>;
   generateId?: (alert: AlertObject) => string | number;
   ref?: MutableRefObject<AlertsControlRef | undefined>;

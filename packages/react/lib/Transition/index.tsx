@@ -23,7 +23,7 @@ declare type TimeoutObject = {
   exit?: number;
 };
 
-declare interface TransitionProps extends ComponentPropsWithRef<any> {
+export declare interface TransitionProps extends ComponentPropsWithRef<any> {
   children?: JSX.Element | string | ReactNode;
   in: boolean;
   mounterOnEnter?: boolean;

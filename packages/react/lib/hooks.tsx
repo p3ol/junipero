@@ -11,6 +11,8 @@ import {
   ListContextType,
   ToastsContext,
   ToastsContextType,
+  ModalContext,
+  ModalContextType,
 } from './contexts';
 
 export const useFieldControl =
@@ -20,3 +22,6 @@ export const useDropdown = () =>
 export const useAlerts = () => useContext<AlertsContextType>(AlertsContext);
 export const useList = () => useContext<ListContextType>(ListContext);
 export const useToasts = () => useContext<ToastsContextType>(ToastsContext);
+export const useModal = () => useContext<ModalContextType>(ModalContext);
+
+export { AlertsContext, DropdownContext, FieldControlContext, ListContext, ToastsContext, ModalContext };

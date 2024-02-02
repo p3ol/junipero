@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 import { ForwardedProps } from '../utils';
 
-declare interface DroppableProps extends ComponentPropsWithRef<any> {
+export declare interface DroppableProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: JSX.Element;
   disabled?: boolean;

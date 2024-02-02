@@ -26,6 +26,7 @@ import {
   UseClickProps,
   UseHoverProps,
   Placement,
+  UseFloatingOptions,
 } from '@floating-ui/react';
 import PropTypes from 'prop-types';
 
@@ -50,10 +51,10 @@ export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   container?: Element | DocumentFragment;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
-  floatingOptions?: any; //TODO fixme
+  floatingOptions?: UseFloatingOptions;
   hoverOptions?: UseHoverProps;
   opened?: boolean;
-  text?: string | ReactNode | JSX.Element;
+  text?: ReactNode | JSX.Element;
   placement?: Placement;
   trigger?: string;
   animate?(

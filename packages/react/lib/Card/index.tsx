@@ -17,7 +17,7 @@ export declare type CardRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare interface CardProps extends ComponentPropsWithRef<any> {
+export declare interface CardProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   tag?: string | ElementType;

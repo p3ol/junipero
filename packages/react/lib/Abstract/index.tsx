@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import { useFieldControl } from '../hooks';
 
-declare interface AbstractProps extends ComponentPropsWithoutRef<any> {
+export declare interface AbstractProps extends ComponentPropsWithoutRef<any> {
   className?: string;
   children?: ReactNode | JSX.Element;
 }
