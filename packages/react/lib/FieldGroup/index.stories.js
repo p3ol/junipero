@@ -3,6 +3,7 @@ import SelectField from '../SelectField';
 import FieldAddon from '../FieldAddon';
 import FieldControl from '../FieldControl';
 import Button from '../Button';
+import DateField from '../DateField';
 import FieldGroup from '.';
 
 export default { title: 'react/FieldGroup' };
@@ -65,7 +66,8 @@ export const withMultipleElements = () => (
     <TextField />
     <FieldAddon>@</FieldAddon>
     <TextField />
-    <FieldAddon className="last">seconds</FieldAddon>
-    <Button className="primary submit">Update</Button>
+    <FieldAddon>seconds</FieldAddon>
+    <DateField />
+    <Button className="primary last">Update</Button>
   </FieldGroup>
 );
