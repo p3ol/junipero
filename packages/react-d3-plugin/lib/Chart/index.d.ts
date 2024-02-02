@@ -9,7 +9,7 @@ import { AxisObject } from '../Axis';
 export declare type ChartRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
-  axis: Array<AxisObject>;
+  axis: Array<{AxisObject}>;
 };
 
 export declare interface ChartProps extends ComponentPropsWithRef<any> {

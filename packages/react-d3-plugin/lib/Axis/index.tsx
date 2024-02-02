@@ -4,9 +4,9 @@ import {
   useRef,
   useEffect,
   useMemo,
-  ComponentPropsWithRef,
-  ReactNode,
   MutableRefObject,
+  ReactNode,
+  ComponentPropsWithRef,
 } from 'react';
 import { classNames } from '@junipero/react';
 import PropTypes from 'prop-types';
@@ -16,19 +16,15 @@ import { useChart } from '../hooks';
 import { getAxisType } from '../utils';
 
 export declare interface AxisObject {
-  type: typeof d3.axisRight<d3.AxisDomain> |
-     typeof d3.axisLeft<d3.AxisDomain> |
-     typeof d3.axisTop<d3.AxisDomain> |
-     typeof d3.axisBottom<d3.AxisDomain>;
-  scale: d3.ScaleLinear<number, number, never> |
-    d3.ScaleTime<number, number, never> |
-    d3.ScaleBand<string>;
-  range: d3.ScaleContinuousNumeric<number, number, never> |
+  type: typeof d3.axisLeft | typeof d3.axisBottom | typeof d3.axisRight |
+    typeof d3.axisTop;
+  scale: typeof d3.scaleLinear | typeof d3.scaleTime | typeof d3.scaleBand;
+  data: Array<number | Date | {[key: string]: number} | string | [number, number]>;
+  range?: d3.ScaleContinuousNumeric<number, number, never> |
     d3.ScaleTime<number, number, never>;
-  data: Array<number | Date | object>;
   min?: number | Date;
   max?: number | Date;
-  parseTitle?(value: number | Date): string;
+  parseTitle?(value: number | Date, opts: object): string;
   findSelectionIndex?(
     position: number | Date,
     data: Array<number | Date>
@@ -45,7 +41,7 @@ export declare type AxisRef = {
   gridRef: MutableRefObject<any>;
 };
 
-declare interface AxisProps extends ComponentPropsWithRef<any> {
+export declare interface AxisProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   axis: AxisObject;
@@ -105,19 +101,19 @@ const Axis = forwardRef(({
       .call(axis.type(axis.range)
         .ticks(axis.ticks ?? 5)
         .tickSize(axis.tickSize ?? 5)
-        .tickFormat(d => (
-          axis.parseTitle || (v => v)
-        )?.(d, { type: 'tick', axis }))
-      , null)
+        .tickFormat((d: Date | number) => (
+          axis.parseTitle || ((v, ...args) => v.toString())
+        )?.(d, { type: 'tick', axis })) as any,
+      )
       .call(g => g.select('.domain').remove());
 
     if (axis.grid) {
       d3
-        .select(gridRef.current)
+        .select(ticksRef.current)
         .call(axis.type(axis.range)
           .ticks(axis.ticks ?? 5)
-          .tickSize(-(width - paddingLeft - paddingRight))
-          .tickFormat('')
+          .tickSize(axis.tickSize ?? 5)
+          .tickFormat((d: Date | number) => '') as any,
         )
         .call(g => g.select('.domain').remove());
     }
@@ -153,8 +149,6 @@ const Axis = forwardRef(({
     </g>
   );
 });
-
-d3.scaleTime().domain([]).range([]);
 
 Axis.displayName = 'Axis';
 Axis.propTypes = {
