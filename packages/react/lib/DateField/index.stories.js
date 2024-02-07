@@ -21,7 +21,10 @@ export const autoFocused = () => (
 );
 
 export const withValue = () => (
-  <DateField value={new Date(2019, 0, 1)} onChange={action('change')} />
+  <DateField
+    value={new Date(2019, 0, 1, 8, 22, 12)}
+    onChange={action('change')}
+  />
 );
 
 export const disabled = () => (
@@ -44,6 +47,14 @@ export const withMinAndMax = () => (
     value={new Date(2020, 6, 1)}
     min={new Date(2020, 0, 1)}
     max={new Date(2020, 11, 31)}
+    onChange={action('change')}
+  />
+);
+
+export const withoutTime = () => (
+  <DateField
+    value={new Date(2020, 6, 1, 8, 22, 12)}
+    time={false}
     onChange={action('change')}
   />
 );

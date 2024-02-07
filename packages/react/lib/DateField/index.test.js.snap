@@ -393,7 +393,7 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
           <input
             placeholder="00:00:00"
             type="text"
-            value=""
+            value="00:00:00"
           />
         </div>
       </ul>
@@ -795,7 +795,7 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
           <input
             placeholder="00:00:00"
             type="text"
-            value=""
+            value="00:00:00"
           />
         </div>
       </ul>
@@ -1197,7 +1197,7 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
           <input
             placeholder="00:00:00"
             type="text"
-            value=""
+            value="00:00:00"
           />
         </div>
       </ul>
@@ -1599,7 +1599,7 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
           <input
             placeholder="00:00:00"
             type="text"
-            value=""
+            value="00:00:00"
           />
         </div>
       </ul>
@@ -2075,7 +2075,7 @@ exports[`<DateField /> should render: opened 1`] = `
           <input
             placeholder="00:00:00"
             type="text"
-            value=""
+            value="00:00:00"
           />
         </div>
       </ul>
