@@ -46,13 +46,13 @@ const defaultPlugins = [
 export default [...formats.map(f => ({
   input,
   plugins: [
+    ...defaultPlugins,
     typescript({
       emitDeclarationOnly: true,
       declaration: true,
       project: path.resolve('./tsconfig.build.json'),
       ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
     }),
-    ...defaultPlugins,
   ],
   external: defaultExternals,
   output: {

@@ -26,7 +26,7 @@ export declare interface AlertProps extends ComponentPropsWithRef<any>{
   children?: ReactNode | JSX.Element;
   className?: string;
   icon?: ReactNode | JSX.Element;
-  index: string | number;
+  index?: string | number;
   lifespan?: number;
   tag?: string | ElementType;
   animate?(

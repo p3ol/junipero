@@ -81,7 +81,7 @@ const Bar = forwardRef(({
       };
     }
 
-    const xIndex = scaleBandInvert(xAxis.range)(cursor.x);
+    const xIndex = scaleBandInvert(xAxis.range as d3.ScaleBand<Date>)(cursor.x);
     const position = xAxis.range.domain()[xIndex];
 
     return { position, xIndex };

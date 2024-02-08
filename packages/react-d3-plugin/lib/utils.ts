@@ -1,5 +1,7 @@
 import * as d3 from 'd3';
 
+import { AxisObject } from './Axis';
+
 export const getAxisType = type => {
   switch (type) {
     case d3.axisLeft: return 'left';
@@ -9,7 +11,7 @@ export const getAxisType = type => {
   }
 };
 
-export const scaleBandInvert = scale => {
+export const scaleBandInvert = (scale: d3.ScaleBand<Date | number>) => {
   // Distance between the starts of adjacent bands
   const step = scale.step();
   // Space between two adjacent bands
@@ -18,7 +20,7 @@ export const scaleBandInvert = scale => {
   const leftPad = step * scale.paddingOuter() * scale.align() * 2;
   const domain = scale.domain();
 
-  return function (x) {
+  return function (x: number): number {
     // Clamp index value between 0 and domain length
     const index = Math.min(Math.max(0, Math.floor(
       ((x - leftPad - step + paddingInner / 2) / step) + 1

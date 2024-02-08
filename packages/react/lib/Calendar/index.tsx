@@ -84,7 +84,9 @@ const Calendar = forwardRef(({
     onSelect?.(state.value);
   };
 
-  const onPreviousMonthClick = (e: Event) => {
+  const onPreviousMonthClick = (
+    e: React.MouseEvent<SVGSVGElement, MouseEvent>
+  ) => {
     e?.preventDefault();
     const value = new Date(state.value);
 
@@ -110,7 +112,7 @@ const Calendar = forwardRef(({
     dispatch({ value });
   };
 
-  const onNextMonthClick = (e: Event) => {
+  const onNextMonthClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
     e?.preventDefault();
     const value = new Date(state.value);
 

@@ -1,4 +1,12 @@
-import { forwardRef, useCallback, useImperativeHandle, useRef, ReactNode, MutableRefObject, ComponentPropsWithoutRef } from 'react';
+import {
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useRef,
+  ReactNode,
+  MutableRefObject,
+  ComponentPropsWithoutRef,
+} from 'react';
 
 import { ModalContext } from '../contexts';
 import { ModalRef } from '../Modal';

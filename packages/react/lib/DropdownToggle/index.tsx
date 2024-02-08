@@ -17,7 +17,8 @@ export declare type DropdownToggleRef = {
   innerRef: MutableRefObject<any>;
 };
 
-export declare interface DropdownToggleProps extends ComponentPropsWithRef<any> {
+export declare interface DropdownToggleProps
+  extends ComponentPropsWithRef<any> {
   children?: JSX.Element;
   ref?: MutableRefObject<DropdownToggleRef | undefined>;
 }

@@ -106,10 +106,11 @@ const Tooltip = forwardRef(({
     middleware: floatingOptions?.middleware || [
       offset(10),
       flip({
-        boundary: floatingOptions?.boundary,
+        boundary: floatingOptions?.elements.reference,
+
       }),
       shift({
-        boundary: floatingOptions?.boundary,
+        boundary: floatingOptions?.elements.reference,
       }),
     ],
   });
@@ -247,7 +248,7 @@ const Tooltip = forwardRef(({
 
       { state.opened || (animate && state.visible) || apparition === 'css'
         ? container
-          ? createPortal(tooltip, container)
+          ? createPortal(tooltip, container as Element | DocumentFragment)
           : tooltip
         : null
       }

@@ -5,6 +5,9 @@ import {
   useEffect,
   useMemo,
   useState,
+  MutableRefObject,
+  ComponentPropsWithRef,
+  ReactNode,
 } from 'react';
 import { classNames } from '@junipero/react';
 import PropTypes from 'prop-types';
@@ -12,20 +15,39 @@ import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
 
+export declare type CurveRef = {
+  isJunipero: boolean;
+  innerRef: MutableRefObject<any>;
+  defsRef: MutableRefObject<any>;
+  lineRef: MutableRefObject<any>;
+  areaRef: MutableRefObject<any>;
+};
+
+export declare interface CurveProps extends ComponentPropsWithRef<any> {
+  children?: ReactNode | JSX.Element;
+  className?: string;
+  ref?: MutableRefObject<CurveRef | undefined>;
+  serie?: Array<number | Date>;
+  type?: 'line' | 'area';
+  curveFactory?: d3.CurveFactory;
+  xAxisIndex: number;
+  yAxisIndex: number;
+  lineCapShift?: number;
+}
 const Curve = forwardRef(({
   serie,
   className,
   type = 'line',
-  curve = d3.curveMonotoneX,
+  curveFactory = d3.curveMonotoneX,
   xAxisIndex,
   yAxisIndex,
   lineCapShift = 10,
-}, ref) => {
+}: CurveProps, ref) => {
   const innerRef = useRef();
   const defsRef = useRef();
   const lineRef = useRef();
   const areaRef = useRef();
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(null);
   const {
     axis,
     width,
@@ -54,13 +76,17 @@ const Curve = forwardRef(({
 
   useEffect(() => {
     if (!xAxis?.range || !xAxis?.findSelectionIndex || !cursor) {
-      setSelected();
+      setSelected(undefined);
 
       return;
     }
 
-    const position = xAxis.range.invert(cursor.x);
-    const selectionIndex = xAxis.findSelectionIndex(position, xAxis.data);
+    const position = (
+      xAxis.range as d3.ScaleTime<number, number, never>
+    ).invert(cursor.x);
+    const selectionIndex = xAxis.findSelectionIndex(
+      position, (xAxis.data as (number | Date)[])
+    );
 
     setSelected([
       xAxis?.data[selectionIndex],
@@ -75,25 +101,22 @@ const Curve = forwardRef(({
 
     const yData = xAxis.data.map((d, i) => [
       d,
-      (serie || yAxis.data || [])[i],
+      ((serie as [number, number]) || yAxis.data || [])[i],
     ]);
 
     const isMonoData = yData.length === 1;
-
+    const compute = d3
+      .line()
+      .curve(curveFactory).x((d, i) => isMonoData
+        ? Math
+          .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
+        : xAxis.range(d[0]) - paddingLeft - lineCapShift
+      ).y(d => yAxis.range(d[1]));
     // Line
     d3
       .select(lineRef.current)
       .datum(isMonoData ? [...yData, ...yData] : yData)
-      .attr('d', d3
-        .line()
-        .curve(curve)
-        .x((d, i) => isMonoData
-          ? Math
-            .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
-          : xAxis.range(d[0]) - paddingLeft - lineCapShift
-        )
-        .y(d => yAxis.range(d[1] ?? 0))
-      );
+      .attr('d', compute as any);//TODO: fix this
 
     if (type === 'area') {
       // Gradient
@@ -117,22 +140,21 @@ const Curve = forwardRef(({
           .attr('stop-color', 'var(--gradient-stop-color)')
           .attr('stop-opacity', 0)
         );
-
+      const compute2 = d3
+        .area()
+        .curve(curveFactory)
+        .x((d, i) => isMonoData
+          ? Math
+            .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
+          : xAxis.range(d[0]) - paddingLeft - lineCapShift
+        )
+        .y0(height - paddingBottom)
+        .y1(d => yAxis.range(d[1] ?? 0));
       // Area
       d3
         .select(areaRef.current)
         .datum(isMonoData ? [...yData, ...yData] : yData)
-        .attr('d', d3
-          .area()
-          .curve(curve)
-          .x((d, i) => isMonoData
-            ? Math
-              .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
-            : xAxis.range(d[0]) - paddingLeft - lineCapShift
-          )
-          .y0(height - paddingBottom)
-          .y1(d => yAxis.range(d[1] ?? 0))
-        )
+        .attr('d', compute2 as any)//TODO: fix this
         .style('fill', 'url(#gradient)');
     }
   }, [

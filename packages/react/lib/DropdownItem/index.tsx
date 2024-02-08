@@ -1,7 +1,8 @@
 import { classNames } from '@junipero/core';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export declare interface DropdownItemProps extends ComponentPropsWithoutRef<any> {
+export declare interface DropdownItemProps
+  extends ComponentPropsWithoutRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
 }

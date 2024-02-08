@@ -24,4 +24,11 @@ export const useList = () => useContext<ListContextType>(ListContext);
 export const useToasts = () => useContext<ToastsContextType>(ToastsContext);
 export const useModal = () => useContext<ModalContextType>(ModalContext);
 
-export { AlertsContext, DropdownContext, FieldControlContext, ListContext, ToastsContext, ModalContext };
+export {
+  AlertsContext,
+  DropdownContext,
+  FieldControlContext,
+  ListContext,
+  ToastsContext,
+  ModalContext,
+};

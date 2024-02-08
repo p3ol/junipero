@@ -19,15 +19,23 @@ export declare interface AxisObject {
   type: typeof d3.axisLeft | typeof d3.axisBottom | typeof d3.axisRight |
     typeof d3.axisTop;
   scale: typeof d3.scaleLinear | typeof d3.scaleTime | typeof d3.scaleBand;
-  data: Array<number | Date | {[key: string]: number} | string | [number, number]>;
+  data: Array<
+    number |
+    Date |
+    {[key: string]: number} |
+    string |
+    [number, number] |
+    [number, number] |
+    Iterable<[number, number]>
+  >;
   range?: d3.ScaleContinuousNumeric<number, number, never> |
-    d3.ScaleTime<number, number, never>;
+    d3.ScaleTime<number, number, never> | d3.ScaleBand<number | Date>;
   min?: number | Date;
   max?: number | Date;
   parseTitle?(value: number | Date, opts: object): string;
   findSelectionIndex?(
     position: number | Date,
-    data: Array<number | Date>
+    data?: Array<number | Date>
   ): number;
   ticks?: number;
   tickSize?: number;
