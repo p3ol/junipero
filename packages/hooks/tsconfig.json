@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "include": ["./lib/**/*"],
-  "compilerOptions": {
-    "declarationDir": "./dist/@types",
-    "rootDir": "./lib"
-  }
-}

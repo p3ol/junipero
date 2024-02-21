@@ -1,11 +1,11 @@
 import { classNames } from '@junipero/core';
 import { ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
 
-declare interface IconProps extends ComponentPropsWithoutRef<'svg'> {
+export declare interface IconProps extends ComponentPropsWithoutRef<'svg'> {
   className?: string
 }
 
-export const Arrows = ({ className, ...rest }: IconProps) => (
+export const Arrows = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg
     { ...rest }
     className={classNames('junipero icon arrows', className)}
@@ -18,20 +18,22 @@ export const Arrows = ({ className, ...rest }: IconProps) => (
   </svg>
 );
 
-export const Remove = ({ className, ...rest }: IconProps) => (
-  <svg
-    { ...rest }
-    className={classNames('junipero icon remove', className)}
-    width="10"
-    height="10"
-    viewBox="0 0 9 10"
-  >
-    <path d="M8 1.5L1 8.5" />
-    <path d="M1 1.5L8 8.5" />
-  </svg>
-);
+export const Remove = ({ className, ...rest }: IconProps): JSX.Element => {
+  return (
+    <svg
+      { ...rest }
+      className={classNames('junipero icon remove', className)}
+      width="10"
+      height="10"
+      viewBox="0 0 9 10"
+    >
+      <path d="M8 1.5L1 8.5" />
+      <path d="M1 1.5L8 8.5" />
+    </svg>
+  );
+};
 
-export const ArrowLeft = ({ className, ...rest }: IconProps) => (
+export const ArrowLeft = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg
     { ...rest }
     className={classNames('junipero icon arrow-left', className)}
@@ -43,7 +45,7 @@ export const ArrowLeft = ({ className, ...rest }: IconProps) => (
   </svg>
 );
 
-export const ArrowRight = ({ className, ...rest }: IconProps) => (
+export const ArrowRight = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg
     { ...rest }
     className={classNames('junipero icon arrow-right', className)}
@@ -55,7 +57,7 @@ export const ArrowRight = ({ className, ...rest }: IconProps) => (
   </svg>
 );
 
-export const ArrowDown = ({ className, ...rest }: IconProps) => (
+export const ArrowDown = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg
     { ...rest }
     className={classNames('junipero icon arrow-bottom', className)}
@@ -67,7 +69,7 @@ export const ArrowDown = ({ className, ...rest }: IconProps) => (
   </svg>
 );
 
-export const ArrowUp = ({ className, ...rest }: IconProps) => (
+export const ArrowUp = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg
     { ...rest }
     className={classNames('junipero icon arrow-up', className)}
@@ -79,7 +81,7 @@ export const ArrowUp = ({ className, ...rest }: IconProps) => (
   </svg>
 );
 
-export const Time = ({ className, ...rest }: IconProps) => (
+export const Time = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg
     { ...rest }
     className={classNames('junipero icon time', className)}
@@ -92,7 +94,7 @@ export const Time = ({ className, ...rest }: IconProps) => (
   </svg>
 );
 
-export const Check = ({ className, ...rest }: IconProps) => (
+export const Check = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg
     { ...rest }
     className={classNames('junipero icon check', className)}

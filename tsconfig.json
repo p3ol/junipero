@@ -15,6 +15,5 @@
     "declarationMap": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "rootDir": "./"
   },
 }

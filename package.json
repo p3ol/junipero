@@ -4,15 +4,14 @@
     "packages/*"
   ],
   "scripts": {
-    "preinstall": "node scripts/check-package-manager.js",
     "lerna": "./node_modules/.bin/lerna",
     "prepack": "npm run lint && npm run build && npm run test",
     "unlink-all": "./node_modules/.bin/lerna exec --parallel -- npm run unlink",
     "link-all": "./node_modules/.bin/lerna exec --parallel -- npm run link",
     "test": "BABEL_ENV=tests ./node_modules/.bin/jest",
     "lint": "./node_modules/.bin/eslint .",
-    "clean": "./node_modules/.bin/lerna exec --parallel -- npm run clean",
-    "build": "./node_modules/.bin/lerna exec -- npm run build",
+    "clean": "./node_modules/.bin/lerna exec --parallel -- yarn clean",
+    "build": "./node_modules/.bin/lerna exec -- yarn build",
     "serve": "./node_modules/.bin/storybook dev",
     "storybook-build": "./node_modules/.bin/storybook build",
     "generate-types": "./node_modules/.bin/lerna exec -- npm run generate-types"
@@ -25,6 +24,7 @@
     "@babel/plugin-transform-runtime": "7.23.2",
     "@babel/preset-env": "7.23.2",
     "@babel/preset-react": "7.22.15",
+    "@babel/preset-typescript": "^7.23.3",
     "@poool/eslint-config": "3.0.1",
     "@poool/eslint-config-react": "3.0.1",
     "@poool/eslint-plugin": "3.0.0",
@@ -32,7 +32,9 @@
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-swc": "0.3.0",
     "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-actions": "7.5.1",
     "@storybook/addon-storysource": "7.5.1",
     "@storybook/addon-styling": "1.3.7",
@@ -60,7 +62,7 @@
     "postcss": "8.4.31",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rollup": "3.29.4",
+    "rollup": "4.12.0",
     "rollup-plugin-dts": "6.1.0",
     "sass": "1.69.5",
     "storybook": "7.5.1",
@@ -69,5 +71,6 @@
   },
   "resolutions": {
     "inline-style-prefixer": "6.0.4"
-  }
+  },
+  "packageManager": "yarn@4.1.0"
 }

@@ -7,7 +7,9 @@ export declare interface DropdownItemProps
   className?: string;
 }
 
-const DropdownItem = ({ className, ...rest }: DropdownItemProps) => (
+const DropdownItem = (
+  { className, ...rest }: DropdownItemProps
+):JSX.Element => (
   <li className={classNames('dropdown-item', className)} {...rest} />
 );
 

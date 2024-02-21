@@ -4,7 +4,7 @@ import { mockState } from '@junipero/core';
 import { FieldControlContext, FieldContextType } from '../contexts';
 import { MockState } from '../utils';
 
-const FieldControl = (props: ComponentPropsWithRef<any>) => {
+const FieldControl = (props: ComponentPropsWithRef<any>): JSX.Element => {
 
   type FieldControlState = {
     valid: boolean,

@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "exclude": ["**/*.stories.tsx"],
-  "compilerOptions": {
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "allowJs": false
-  }
-}

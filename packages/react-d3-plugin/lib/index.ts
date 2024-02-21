@@ -1,9 +1,9 @@
-export { default as Chart, ChartProps } from './Chart';
-export { default as Curve, CurveProps } from './Curve';
-export { default as Marker, MarkerProps } from './Marker';
-export { default as Bar, BarProps } from './Bar';
+export { default as Chart, type ChartProps } from './Chart';
+export { default as Curve, type CurveProps } from './Curve';
+export { default as Marker, type MarkerProps } from './Marker';
+export { default as Bar, type BarProps } from './Bar';
 
 export {
   useChart,
-  ChartContextType,
+  type ChartContextType,
 } from './hooks';

@@ -7,7 +7,7 @@ export declare interface LabelProps extends ComponentPropsWithoutRef<any> {
   className?: string;
 }
 
-const Label = ({ className, ...rest }: LabelProps) => {
+const Label = ({ className, ...rest }: LabelProps): JSX.Element => {
   const { valid = true, dirty = false, focused = false } = useFieldControl();
 
   return (

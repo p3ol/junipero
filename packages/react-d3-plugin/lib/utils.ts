@@ -1,7 +1,5 @@
 import * as d3 from 'd3';
 
-import { AxisObject } from './Axis';
-
 export const getAxisType = type => {
   switch (type) {
     case d3.axisLeft: return 'left';

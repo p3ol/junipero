@@ -12,7 +12,7 @@ export const animateMenu = (
     opened, key: k, ...props
   }: {
     opened?: boolean, key?: any, opts?: Array<any>
-  } = {}) => (
+  } = {}): JSX.Element => (
     <Transition
       in={opened}
       mountOnEnter={true}
@@ -39,7 +39,7 @@ export const animate = (
   } = {}
 ) => (menu, { opened, key: k, ...props }: {
   opened?: boolean, key?: any, opts?: Array<any>
-} = {}) => (
+} = {}): JSX.Element => (
   <Transition
     in={opened}
     mountOnEnter={true}

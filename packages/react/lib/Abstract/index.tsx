@@ -1,5 +1,5 @@
-import { classNames } from '@junipero/core';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { classNames } from '@junipero/core';
 
 import { useFieldControl } from '../hooks';
 
@@ -12,7 +12,7 @@ const Abstract = (
   {
     className,
     ...rest
-  }: AbstractProps) => {
+  }: AbstractProps): JSX.Element => {
   const { valid = true, dirty = false, focused = false } = useFieldControl();
 
   return (

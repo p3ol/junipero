@@ -1,42 +1,36 @@
 import path from 'path';
+import fs from 'node:fs';
 
-import babel from '@rollup/plugin-babel';
+import swc from '@rollup/plugin-swc';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
-import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
-import { DEFAULT_EXTENSIONS } from '@babel/core';
+import { dts } from 'rollup-plugin-dts';
 
 const input = './lib/index.ts';
 const output = './dist';
 const name = 'junipero-core';
 const formats = ['umd', 'cjs', 'esm'];
 
-const defaultExternals = [];
-const defaultGlobals = {};
-
 const defaultPlugins = [
-  commonjs(),
-  babel({
-    exclude: /node_modules/,
-    babelHelpers: 'runtime',
-    extensions: [...DEFAULT_EXTENSIONS, '.ts', 'ts'],
+  resolve({
+    browser: true,
+    preferBuiltins: true,
+    extensions: ['.js', '.ts', '.json', '.node'],
   }),
-  resolve(),
+  commonjs(),
   terser(),
 ];
+
+const defaultExternals = [];
+const defaultGlobals = {};
 
 export default [
   ...formats.map(f => ({
     input,
     plugins: [
-      typescript({
-        emitDeclarationOnly: true,
-        declaration: true,
-        project: path.resolve('./tsconfig.build.json'),
-        ...f === 'esm' ? { declarationDir: path.resolve('./dist/esm') } : {},
-      }),
+      swc(),
       ...defaultPlugins,
     ],
     external: defaultExternals,
@@ -53,7 +47,7 @@ export default [
       globals: defaultGlobals,
       ...(f === 'esm' ? {
         manualChunks: id => {
-          if (/packages\/core\/lib\/(\w+)\/index.js/.test(id)) {
+          if (/packages\/core\/lib\/(\w+)\/index.ts/.test(id)) {
             return path.parse(id).dir.split('/').pop();
           } else {
             return id.includes('node_modules') ? 'vendor' : path.parse(id).name;
@@ -62,8 +56,48 @@ export default [
       } : {}),
     },
   })), {
-    input: './dist/@types/packages/core/lib/index.d.ts',
+    input: './lib/index.ts',
+    output: [{ file: `./dist/${name}.d.ts`, format: 'es' }],
+    plugins: [
+      typescript({
+        emitDeclarationOnly: true,
+        declaration: true,
+        declarationDir: './types',
+        tsconfig: path.resolve('./tsconfig.json'),
+        outputToFilesystem: true,
+        incremental: false,
+        include: ['lib/**/*.ts'],
+        exclude: [
+          '**/*.test.ts',
+          '**/tests/**/*',
+        ],
+      }),
+      ...defaultPlugins,
+      {
+        writeBundle () {
+          fs.unlinkSync(`./dist/${name}.d.ts`);
+        },
+      },
+    ],
+  }, {
+    input: './dist/types/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
-    plugins: [dts()],
+    external: [
+      ...defaultExternals,
+      'query-string',
+    ],
+    plugins: [
+      resolve({
+        browser: true,
+        preferBuiltins: true,
+        extensions: ['.js', '.ts', '.json', '.node'],
+      }),
+      dts({ respectExternal: true }),
+      {
+        writeBundle () {
+          fs.rmSync('./dist/types', { recursive: true, force: true });
+        },
+      },
+    ],
   },
 ];
