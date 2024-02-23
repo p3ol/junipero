@@ -9,6 +9,7 @@ import {
   MutableRefObject,
   ComponentPropsWithRef,
   ReactNode,
+  MouseEvent,
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from '@junipero/core';
@@ -58,7 +59,7 @@ const Tabs = forwardRef(({
     setActiveTab(active ?? 0);
   }, [active]);
 
-  const onClick_ = (tab: TabObject, index, e) => {
+  const onClick_ = (tab: TabObject, index: number, e: MouseEvent) => {
     e?.preventDefault?.();
 
     if (disabled || tab.props.disabled) {
@@ -86,7 +87,7 @@ const Tabs = forwardRef(({
       )}
     >
       <ul className="titles">
-        { availableTabs.map((tab, index) => (
+        { availableTabs.map((tab: TabObject, index: number) => (
           <li
             key={index}
             className={classNames(

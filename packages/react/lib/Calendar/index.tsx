@@ -230,7 +230,7 @@ const Calendar = forwardRef(({
       </div>
 
       <div className="calendar-body">
-        { weekDaysNames.map((day, index) => (
+        { weekDaysNames.map((day: string, index: number) => (
           <span key={index} className="week-day junipero info">
             { day }
           </span>

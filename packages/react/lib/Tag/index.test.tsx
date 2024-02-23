@@ -2,11 +2,11 @@ import { createRef, useState } from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Tag from './index';
+import Tag, { TagRef } from './index';
 
 describe('<Tag />', () => {
   it('should render', () => {
-    const ref = createRef();
+    const ref = createRef<TagRef>();
     const { unmount, container } = render(<Tag ref={ref}>New</Tag>);
     expect(container).toMatchSnapshot();
     expect(ref.current.isJunipero).toBe(true);
@@ -18,7 +18,7 @@ describe('<Tag />', () => {
     const Comp = () => {
       const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
 
-      const onDelete = item => {
+      const onDelete = (item: string) => {
         setItems(items.filter(i => i !== item));
       };
 

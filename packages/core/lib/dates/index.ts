@@ -79,7 +79,7 @@ export const getDaysInMonth =
 export const closestIndexTo = (date: Date, dates: Array<Date>): number => {
   const timeToCompare = date.getTime();
 
-  let result, minDistance;
+  let result: number, minDistance: number;
 
   dates.forEach((d, index) => {
     const distance = Math.abs(timeToCompare - d.getTime());

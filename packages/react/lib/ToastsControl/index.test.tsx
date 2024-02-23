@@ -1,4 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
+import { ReactNode } from 'react';
 
 import { useToasts } from '../hooks';
 import ToastsControl from '.';
@@ -45,7 +46,7 @@ describe('useToasts()', () => {
   });
 
   it('should set first state from props', () => {
-    const wrapper = ({ children }) => (
+    const wrapper = ({ children }: { children: ReactNode | JSX.Element }) => (
       <ToastsControl
         toasts={[{ content: '1' }, { content: '2' }, { content: '3' }]}
       >

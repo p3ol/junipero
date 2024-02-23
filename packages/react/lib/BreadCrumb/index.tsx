@@ -51,7 +51,7 @@ const BreadCrumb = forwardRef(({
     isJunipero: true,
   }));
 
-  const open = e => {
+  const open = (e: React.MouseEvent) => {
     e.preventDefault();
 
     dispatch({ opened: true });

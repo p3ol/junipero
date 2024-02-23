@@ -1,5 +1,6 @@
 import {
   ComponentPropsWithRef,
+  MouseEvent,
   MutableRefObject,
   ReactNode,
   forwardRef,
@@ -32,7 +33,7 @@ export declare interface ModalProps extends ComponentPropsWithRef<any> {
   apparition?: string;
   children?: ReactNode | JSX.Element;
   className?: string;
-  container?: Element | DocumentFragment;
+  container?: React.JSX.Element | DocumentFragment | string;
   disabled?: boolean;
   opened?: boolean;
   closable?: boolean;
@@ -95,7 +96,7 @@ const Modal = forwardRef(({
     dispatch({ opened: disabled ? false : !!opened });
   }, [disabled, opened]);
 
-  const onBackdropClick = e => {
+  const onBackdropClick = (e: MouseEvent) => {
     if (
       disabled ||
       !closable ||
@@ -108,7 +109,7 @@ const Modal = forwardRef(({
     close();
   };
 
-  const onCloseClick = e => {
+  const onCloseClick = (e: MouseEvent) => {
     e.preventDefault();
 
     if (disabled || !closable) {
@@ -195,7 +196,7 @@ const Modal = forwardRef(({
     }) : wrapper;
 
   return state.opened || (animate && state.visible) || apparition === 'css'
-    ? container ? createPortal(content, container) : content
+    ? container ? createPortal(content, ensureNode(container)) : content
     : null;
 }) as ForwardedProps<ModalProps, ModalRef>;
 

@@ -7,6 +7,9 @@ import {
   MutableRefObject,
   ComponentPropsWithRef,
   ReactNode,
+  ChangeEvent,
+  FocusEvent,
+  MouseEvent,
 } from 'react';
 import {
   classNames,
@@ -64,9 +67,9 @@ export declare interface DateFieldProps extends ComponentPropsWithRef<any> {
     menu: ReactNode | JSX.Element,
     opts: { opened: boolean }
   ): ReactNode | JSX.Element;
-  onBlur?(e: Event): void;
+  onBlur?(e: FocusEvent): void;
   onChange?(props: { value: Date; valid: boolean }): void;
-  onFocus?(e: Event): void;
+  onFocus?(e: FocusEvent): void;
   onToggle?(props: { opened: boolean }): void;
   onValidate?(
     value: Date,
@@ -204,7 +207,7 @@ const DateField = forwardRef(({
     close && trigger !== 'manual' && dropdownRef.current?.close?.();
   };
 
-  const onTimeChange = e => {
+  const onTimeChange = (e: ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
 
     state.time = val.length % 3 === 0 &&
@@ -255,7 +258,7 @@ const DateField = forwardRef(({
     onChange_({ close: false });
   };
 
-  const onClear = e => {
+  const onClear = (e: MouseEvent) => {
     e.stopPropagation();
 
     if (!clearable || disabled) {
@@ -269,12 +272,12 @@ const DateField = forwardRef(({
     onChange_({ close: false });
   };
 
-  const onFocus_ = e => {
+  const onFocus_ = (e: FocusEvent) => {
     focus();
     onFocus?.(e);
   };
 
-  const onBlur_ = e => {
+  const onBlur_ = (e: FocusEvent) => {
     blur();
     onBlur?.(e);
   };

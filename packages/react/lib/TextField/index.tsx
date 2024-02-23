@@ -1,7 +1,10 @@
 import {
+  ChangeEvent,
   ComponentPropsWithRef,
+  FocusEvent,
   MutableRefObject,
   ReactNode,
+  SyntheticEvent,
   WheelEvent,
   forwardRef,
   useEffect,
@@ -14,7 +17,7 @@ import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
 import { MockState } from '../utils';
-
+export declare type TextFieldChangeEvent = { value: string | number; valid: boolean; dirty: boolean }
 export declare type TextFieldRef = {
   dirty: boolean;
   focused: boolean;
@@ -29,6 +32,11 @@ export declare type TextFieldRef = {
   inputRef: MutableRefObject<any>;
 };
 
+export declare type TextFieldChangeField = {
+  value: string | number;
+  valid: boolean;
+  dirty: boolean;
+}
 export declare interface TextFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   children?: ReactNode | JSX.Element;
@@ -38,11 +46,11 @@ export declare interface TextFieldProps extends ComponentPropsWithRef<any> {
   type?: string;
   valid?: boolean;
   value?: string | number;
-  onBlur?(event: Event): void;
+  onBlur?(event: FocusEvent): void;
   onChange?(
-    field: { value: string | number; valid: boolean; dirty: boolean }
+    field: TextFieldChangeEvent
   ): void;
-  onFocus?(event: Event): void;
+  onFocus?(event: FocusEvent): void;
   onWheel?(event: WheelEvent): void;
   onValidate?(
     val: string | number,
@@ -112,14 +120,14 @@ const TextField = forwardRef(({
     updateControl?.({ valid: state.valid });
   }, [valid]);
 
-  const parseValue = value => {
+  const parseValue = (value?: string) => {
     const value_ = value.replace(',', '.');
     const parsedValue = parseFloat(value_);
 
     return !isNaN(parsedValue) ? parsedValue : value_;
   };
 
-  const onChange_ = e => {
+  const onChange_ = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     /* html input disabled attribute will prevent onChange if present anyway */
     /* istanbul ignore next: just in case */
     if (disabled) {
@@ -142,13 +150,13 @@ const TextField = forwardRef(({
     updateControl?.({ dirty: true, valid: state.valid });
   };
 
-  const onFocus_ = e => {
+  const onFocus_ = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     dispatch({ focused: true });
     updateControl?.({ focused: true });
     onFocus?.(e);
   };
 
-  const onBlur_ = e => {
+  const onBlur_ = (e: FocusEvent) => {
     dispatch({ focused: false });
     updateControl?.({ focused: false });
     onBlur?.(e);
@@ -170,7 +178,7 @@ const TextField = forwardRef(({
   const isEmpty = () =>
     !exists(state.value) || state.value === '';
 
-  const setDirty = dirty => {
+  const setDirty = (dirty: boolean) => {
     state.dirty = dirty;
     dispatch({ dirty });
     updateControl?.({ dirty });

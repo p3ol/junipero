@@ -18,7 +18,7 @@ export const useEventListener = (
       return () => {};
     }
 
-    const eventListener = event => savedHandler.current(event);
+    const eventListener = (event: Event) => savedHandler.current(event); //TODO Check this
     target.addEventListener(name, eventListener, false);
 
     return () => {

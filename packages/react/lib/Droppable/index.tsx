@@ -6,19 +6,20 @@ import {
   useEffect,
   ComponentPropsWithoutRef,
   ComponentPropsWithRef,
+  DragEvent,
 } from 'react';
 import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { ForwardedProps } from '../utils';
-
+export declare type DraggingPositionType = 'before' | 'after';
 export declare interface DroppableProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: JSX.Element;
   disabled?: boolean;
-  onDrop?(data: any, direction: 'before' | 'after', e: Event): void;
-  onDragOver?(e: Event, direction: 'before' | 'after'): void;
-  onDragLeave?(e: Event): void;
+  onDrop?(data: any, direction: DraggingPositionType, e: DragEvent): void;
+  onDragOver?(e: DragEvent, direction: DraggingPositionType): void;
+  onDragLeave?(e: DragEvent): void;
 }
 
 const Droppable = forwardRef(({
@@ -59,7 +60,7 @@ const Droppable = forwardRef(({
     onDragLeave?.(e);
   };
 
-  const onDrop_ = e => {
+  const onDrop_ = (e: DragEvent) => {
     if (disabled) {
       return;
     }
@@ -71,7 +72,7 @@ const Droppable = forwardRef(({
     setDraggingPos(null);
   };
 
-  const onDragOver_ = e => {
+  const onDragOver_ = (e: DragEvent) => {
     if (disabled) {
       return;
     }
@@ -88,7 +89,7 @@ const Droppable = forwardRef(({
 
     setDraggingPos(draggingPosition);
     e.preventDefault();
-    onDragOver?.(e, draggingPosition);
+    onDragOver?.(e, draggingPosition as DraggingPositionType);
 
     return false;
   };

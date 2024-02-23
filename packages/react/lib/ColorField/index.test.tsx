@@ -6,7 +6,7 @@ import {
   createEvent,
 } from '@testing-library/react';
 
-import ColorField from './';
+import ColorField, { ColorFieldRef } from '.';
 
 describe('<ColorField />', () => {
   it('should render', () => {
@@ -17,7 +17,7 @@ describe('<ColorField />', () => {
 
   it('should update values when mouse is down and lightness handle is ' +
     'selected', async () => {
-    const ref = createRef();
+    const ref = createRef<ColorFieldRef>();
     const { container, unmount } = render(
       <ColorField autoFocus={true} ref={ref} />
     );
@@ -59,7 +59,7 @@ describe('<ColorField />', () => {
 
   it('should update values when mouse is down and hue handle is ' +
     'selected', async () => {
-    const ref = createRef();
+    const ref = createRef<ColorFieldRef>();
     const { container, unmount } = render(
       <ColorField autoFocus={true} ref={ref} />
     );
@@ -87,7 +87,7 @@ describe('<ColorField />', () => {
 
   it('should update values when mouse is down and alpha handle is ' +
     'selected', async () => {
-    const ref = createRef();
+    const ref = createRef<ColorFieldRef>();
     const { container, unmount } = render(
       <ColorField autoFocus={true} ref={ref} />
     );

@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 
-import Tabs from './';
+import Tabs from '.';
 import Tab from '../Tab';
 
 describe('<Tabs />', () => {

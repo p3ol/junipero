@@ -1,7 +1,7 @@
 import { render, fireEvent, act } from '@testing-library/react';
 import { slideInDownMenu } from '@junipero/transitions';
 
-import Tooltip from './';
+import Tooltip from '.';
 
 describe('<Tooltip />', () => {
   it('should render', () => {

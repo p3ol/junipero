@@ -2,6 +2,7 @@ import { renderHook, act } from '@testing-library/react';
 
 import { useAlerts } from '../hooks';
 import AlertsControl from '.';
+import { ReactNode } from 'react';
 
 describe('useAlerts()', () => {
   it('should render hook', () => {
@@ -45,7 +46,7 @@ describe('useAlerts()', () => {
   });
 
   it('should set first state from props', () => {
-    const wrapper = ({ children }) => (
+    const wrapper = ({ children }: { children: ReactNode | JSX.Element }) => (
       <AlertsControl
         alerts={[{ content: '1' }, { content: '2' }, { content: '3' }]}
       >

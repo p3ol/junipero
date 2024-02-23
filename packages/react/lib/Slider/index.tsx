@@ -1,5 +1,7 @@
 import {
   ComponentPropsWithRef,
+  KeyboardEvent,
+  MouseEvent,
   MutableRefObject,
   ReactNode,
   forwardRef,
@@ -119,7 +121,7 @@ const Slider = forwardRef(({
     onMouseUp_();
   }, globalEventsTarget);
 
-  const onMouseDown_ = e => {
+  const onMouseDown_ = (e: MouseEvent) => {
     if (e.button !== 0 || disabled) {
       return;
     }
@@ -134,7 +136,7 @@ const Slider = forwardRef(({
     onMouseDown?.(e);
   };
 
-  const onMouseMove_ = e => {
+  const onMouseMove_ = (e: MouseEvent) => {
     if (!state.moving || !slideRef.current || disabled) {
       return;
     }
@@ -167,7 +169,7 @@ const Slider = forwardRef(({
     dispatch({ moving: false });
   };
 
-  const onKeyDown_ = e => {
+  const onKeyDown_ = (e: KeyboardEvent) => {
     if (e.key === 'ArrowLeft') {
       state.value = ensureMinMax(state.value - step, minValue, maxValue);
       dispatch({ value: state.value });

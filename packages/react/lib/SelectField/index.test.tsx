@@ -2,13 +2,13 @@ import { createRef, useEffect, useReducer, useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { blur, reset, sleep } from '~test-utils';
+import { blur, reset, sleep } from '~tests-utils';
 import { cloneDeep, mockState, set } from '../../../core/lib/core';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
-import TextField from '../TextField';
-import SelectField from './index';
+import TextField, { TextFieldChangeField } from '../TextField';
+import SelectField, { SelectFieldRef } from './index';
 
 describe('<SelectField />', () => {
   it('should render', () => {
@@ -94,7 +94,7 @@ describe('<SelectField />', () => {
   });
 
   it('should be invalid if validation fails', async () => {
-    const ref = createRef();
+    const ref = createRef<SelectFieldRef>();
     const { unmount, container, getByText } = render(
       <SelectField
         ref={ref}
@@ -113,7 +113,7 @@ describe('<SelectField />', () => {
 
   it('should allow to reset the field', async () => {
     const user = userEvent.setup();
-    const ref = createRef();
+    const ref = createRef<SelectFieldRef>();
     const onChange = jest.fn();
     const { unmount, container, getByText } = render(
       <SelectField
@@ -217,7 +217,7 @@ describe('<SelectField />', () => {
         placeholder="Name"
         options={['Item 1', 'Item 2', 'Item 3']}
         searchThreshold={0}
-        onSearch={() => ['Item 4']}
+        onSearch={() => Promise.resolve(['Item 4'])}
         autoFocus
       />
     );
@@ -373,8 +373,10 @@ describe('<SelectField />', () => {
         dispatch({ form: newForm });
       }, []);
 
-      const onChange = (name, field) => {
-        set(state.form, name, field.checked ?? field.value);
+      const onChange = (name: string, field: TextFieldChangeField) => {
+        // set(state.form, name, field.checked ?? field.value);
+        set(state.form, name, field.value);//TODO check this
+
         dispatch({ form: state.form, dirty: true });
       };
 
@@ -487,7 +489,7 @@ describe('<SelectField />', () => {
       />
     );
     await user.click(container.querySelector('.dropdown-toggle'));
-    container.querySelector('.dropdown-toggle').focus();
+    container.querySelector<HTMLDivElement>('.dropdown-toggle').focus();
     expect(container).toMatchSnapshot('opened');
     await user.keyboard('{Enter}');
     expect(container).toMatchSnapshot('closed');

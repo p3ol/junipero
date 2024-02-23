@@ -2,11 +2,11 @@ import { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { blur, reset } from '~test-utils';
+import { blur, reset } from '~tests-utils';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
-import TextField from './';
+import TextField from '.';
 
 describe('<TextField />', () => {
   it('should render', () => {

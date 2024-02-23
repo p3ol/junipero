@@ -6,6 +6,7 @@ import {
   useEffect,
   MutableRefObject,
   ComponentPropsWithRef,
+  KeyboardEvent,
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, mockState } from '@junipero/core';
@@ -99,9 +100,9 @@ const RadioField = forwardRef(({
     valid: state.valid,
   }));
 
-  const isChecked = option => parseValue(option) === parseValue(state.value);
+  const isChecked = (option: any) => parseValue(option) === parseValue(state.value);
 
-  const onChange_ = option => {
+  const onChange_ = (option: any) => {
     if (disabled || option.disabled) {
       /* istanbul ignore next: canoot be tested */
       return;
@@ -115,7 +116,7 @@ const RadioField = forwardRef(({
     updateControl?.({ dirty: true, valid });
   };
 
-  const onKeyDown = (option, e) => {
+  const onKeyDown = (option: any, e: KeyboardEvent) => {
     if (
       state.value !== option &&
       state.value !== parseValue(option) &&
@@ -127,7 +128,7 @@ const RadioField = forwardRef(({
     return true;
   };
 
-  const isDescriptionAvailable = option => {
+  const isDescriptionAvailable = (option: any) => {
     const desc = parseDescription(option);
 
     return desc !== null && desc !== undefined && desc !== '';

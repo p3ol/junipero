@@ -1,5 +1,6 @@
 import {
   ComponentPropsWithRef,
+  KeyboardEvent,
   MutableRefObject,
   ReactNode,
   forwardRef,
@@ -62,7 +63,7 @@ const Toggle = forwardRef(({
     isJunipero: true,
   }));
 
-  const onKeyDown = e => {
+  const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       onChange_();
     }

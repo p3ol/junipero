@@ -8,10 +8,11 @@ module.exports = {
     enableGlobally: false,
   },
   moduleNameMapper: {
-    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
+    '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
     '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.js',
   },
-  testMatch: ['<rootDir>/packages/react/lib/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/react/lib/**/*.test.tsx'],
   testPathIgnorePatterns: [
     '/node_modules/',
     '/old/',

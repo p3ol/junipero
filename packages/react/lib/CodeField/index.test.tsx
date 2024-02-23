@@ -1,7 +1,7 @@
 import { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import CodeField from './index';
+import CodeField, { CodeFieldRef } from './index';
 
 describe('<CodeField />', () => {
   it('should render', () => {
@@ -72,7 +72,7 @@ describe('<CodeField />', () => {
   });
 
   it('should erase chars & move selection when hitting backspace', () => {
-    const fieldRef = createRef();
+    const fieldRef = createRef<CodeFieldRef>();
     const { container, unmount } = render(
       <CodeField ref={fieldRef} value="224" />
     );
@@ -87,7 +87,7 @@ describe('<CodeField />', () => {
   });
 
   it('should not allow to move selection if field is disabled', () => {
-    document.activeElement?.blur();
+    (document.activeElement as HTMLElement)?.blur();
     const { container, unmount } = render(<CodeField disabled />);
 
     fireEvent.keyDown(container.querySelectorAll('input')[0],

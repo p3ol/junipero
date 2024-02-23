@@ -1,5 +1,7 @@
+declare type genericObject = { [_: string]: any}
+
 export const classNames = (...args: Array<any>): string => {
-  const classes = [];
+  const classes: Array<number | string> = []; //TODO verify this
 
   args.map((arg: string) => {
     if (!arg) {
@@ -47,8 +49,22 @@ export const removeClass = (elmt: HTMLElement, cls: string): void => {
   }
 };
 
-export const mockState = (state, action) => typeof action === 'function'
-  ? action(state) : ({ ...state, ...action });
+/**
+ * Represents a state comming from useReducer.
+ * Volontarily abstracted to allow any kind of state.
+ */
+export declare interface StateContent {
+  [key: string]: any;
+}
+
+export declare type StateReducer<T extends StateContent> =
+  (state: T, updates: Partial<T> | ((t: Partial<T>) => T)) => T;
+
+export const mockState = (
+  state: StateContent,
+  action : ((prev: any) => StateContent) | StateContent
+) => typeof action === 'function'
+  ? action(state) : ({ ...state, ...action as StateContent });
 
 export const isUndefined = (v: any): boolean => typeof v === 'undefined';
 
@@ -64,15 +80,15 @@ export const isDate = (d: any): boolean => d instanceof Date;
 export const exists = (v: any): boolean => !isNull(v) && !isUndefined(v);
 
 export const get = (
-  obj: object = {},
+  obj: genericObject = {},
   path: string = '',
-  defaultValue = null
-) => path
+  defaultValue: any = null
+): any => path
   .split('.')
   .reduce((a, c) => exists(a?.[c]) ? a[c] : undefined, obj) ?? defaultValue;
 
 export const set = (
-  obj: object = {},
+  obj: genericObject = {},
   path: string = '',
   value: any,
   customizer = (val: any, subobj: any) => val
@@ -108,8 +124,11 @@ export const omitBy = (
 export const omit = (obj: Object = {}, keys: Array<string> = []): Object =>
   omitBy(obj || {}, (value, key) => keys.includes(key));
 
-export const pick = (obj: Object = {}, keys: Array<string> = []): Object =>
-  keys.reduce((res, k) => {
+export const pick = (
+  obj: genericObject = {},
+  keys: Array<string | number> = []
+): Object =>
+  keys.reduce((res: genericObject, k: string | number) => {
     if (!isUndefined(obj[k])) {
       res[k] = obj[k];
     }
@@ -117,14 +136,14 @@ export const pick = (obj: Object = {}, keys: Array<string> = []): Object =>
     return res;
   }, {});
 
-export const cloneDeep = (obj: Object | Date | Array<any>): any =>
+export const cloneDeep = (obj: genericObject | Date | Array<any>): any =>
   typeof obj !== 'object' || obj === null
     ? obj
     : isDate(obj)
       ? new Date((obj as Date).getTime())
       : isArray(obj)
         ? [...(obj as Array<any>).map(o => cloneDeep(o))]
-        : Object.entries(obj).reduce((res, [k, v]) => {
+        : Object.entries(obj).reduce((res: genericObject, [k, v]) => {
           res[k] = cloneDeep(v);
 
           return res;
@@ -138,7 +157,7 @@ export const fromPairs = (pairs: Array<any> = []): Array<any> =>
   }, {});
 
 export const mergeDeep = (
-  target: Object | Array<any>,
+  target: genericObject | Array<any>,
   ...sources: Array<any>
 ): Object | Array<any> =>
   isArray(target)
@@ -146,10 +165,10 @@ export const mergeDeep = (
     : isObject(target)
       ? sources.reduce((s, source) => (
         isObject(source)
-          ? Object.entries(source).reduce((t, [k, v]) => {
+          ? Object.entries(source).reduce((t: genericObject, [k, v]) => {
             /* istanbul ignore else: no else needed */
             if (isArray(t[k]) || isObject(t[k])) {
-              t[k] = mergeDeep(target[k], v);
+              t[k] = mergeDeep((target as genericObject)[k], v);
             } else if (!t[k] || !isObject(t[k])) {
               t[k] = v;
             }
@@ -174,7 +193,8 @@ export const filterDeep = (
       res.push(r);
     } else if (isObject(v) && !isDate(v)) {
       res.push(Object.entries(v).reduce((o, [k, v]) => {
-        o[k] = isArray(v) ? filterDeep(v as Array<any>, cb) : v;
+        (o as genericObject)[k] = isArray(v)
+          ? filterDeep(v as Array<any>, cb) : v;
 
         return o;
       }, {}));

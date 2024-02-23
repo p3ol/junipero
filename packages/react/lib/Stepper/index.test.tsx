@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react';
 
-import Stepper from './';
+import Stepper from '.';
 import Step from '../Step';
 
 describe('<Stepper />', () => {
 
   const steps = [
-    { title: 'Step 1', description: 'Description 1' },
-    { title: 'Step 2', description: 'Description 2' },
-    { title: 'Step 3', description: 'Description 3' },
+    { title: 'Step 1', content: 'Description 1' },
+    { title: 'Step 2', content: 'Description 2' },
+    { title: 'Step 3', content: 'Description 3' },
   ];
 
   const stepsWithIcons = [

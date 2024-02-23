@@ -7,6 +7,9 @@ import {
   useImperativeHandle,
   MutableRefObject,
   ComponentPropsWithRef,
+  DragEvent,
+  SyntheticEvent,
+  ClipboardEvent,
 } from 'react';
 import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
@@ -41,7 +44,7 @@ export declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
     { dirty, required }: { dirty?: boolean; required?: boolean }
   ): boolean;
   onChange?(changeProps: { value?: string; valid: boolean }): void;
-  onPaste?(e: Event): void;
+  onPaste?(e: ClipboardEvent): void;
   onFocus?(e: Event): void;
   onBlur?(e: Event): void;
   ref?: MutableRefObject<CodeFieldRef | undefined>;
@@ -142,7 +145,7 @@ const CodeField = forwardRef(({
     }
   };
 
-  const onKeyDown_ = (index: number, e) => {
+  const onKeyDown_ = (index: number, e: KeyboardEvent) => {
     if (disabled) {
       return;
     }
@@ -190,7 +193,7 @@ const CodeField = forwardRef(({
     }
   };
 
-  const onPaste_ = e => {
+  const onPaste_ = (e: ClipboardEvent) => {
     e.preventDefault();
     const value = e.clipboardData.getData('text/plain');
 
@@ -202,13 +205,13 @@ const CodeField = forwardRef(({
     onPaste?.(e);
   };
 
-  const onFocus_ = (index:number, e) => {
+  const onFocus_ = (index:number, e: FocusEvent) => {
     dispatch({ active: index });
     updateControl?.({ focused: true });
     onFocus?.(e);
   };
 
-  const onBlur_ = (index: number, e) => {
+  const onBlur_ = (index: number, e: Event) => {
     dispatch({ active: -1 });
     updateControl?.({ focused: false });
     onBlur?.(e);

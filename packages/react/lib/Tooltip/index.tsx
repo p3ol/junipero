@@ -9,6 +9,7 @@ import {
   MutableRefObject,
   ComponentPropsWithRef,
   ReactNode,
+  Ref,
 } from 'react';
 import { createPortal } from 'react-dom';
 import { classNames, mockState, omit } from '@junipero/core';
@@ -184,12 +185,12 @@ const Tooltip = forwardRef(({
     onToggle?.({ opened: false });
   };
 
-  const setReference = r => {
+  const setReference = (r: TooltipRef) => {
     handleRef.current = r?.isJunipero ? r.innerRef.current : r;
     refs.setReference(r?.isJunipero ? r.innerRef.current : r);
   };
 
-  const setFloatingRef = r => {
+  const setFloatingRef = (r: any) => {
     innerRef.current = r;
     refs.setFloating(r);
   };

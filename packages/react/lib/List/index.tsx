@@ -63,7 +63,7 @@ const List = forwardRef(({
     isJunipero: true,
   }));
 
-  const onOrder_ = (column, e) => {
+  const onOrder_ = (column: number, e: MouseEvent) => {
     e?.preventDefault();
 
     const asc = state.asc === true ? null : state.asc === false;

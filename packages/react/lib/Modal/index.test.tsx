@@ -2,11 +2,11 @@ import { createRef } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import { appearBounceModal } from '@junipero/transitions';
 
-import Modal from './';
+import Modal, { ModalRef } from '.';
 
 describe('<Modal />', () => {
   it('should render', () => {
-    const ref = createRef();
+    const ref = createRef<ModalRef>();
     const { container, unmount } = render(
       <div className="container">
         <Modal opened={true} container=".container" ref={ref} />

@@ -15,7 +15,7 @@ export type AlertsContextType = {
 export type DropdownContextType = {
   opened?: boolean,
   visible?: boolean,
-  container?: string | Element | DocumentFragment,
+  container?: string | React.JSX.Element | DocumentFragment,
   x?: number,
   y?: number,
   refs?: ExtendedRefs<any>,

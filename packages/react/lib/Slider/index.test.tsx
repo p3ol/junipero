@@ -1,7 +1,7 @@
 import { createRef } from 'react';
 import { render, fireEvent, act, createEvent } from '@testing-library/react';
 
-import Slider from './';
+import Slider, { SliderRef } from './';
 
 describe('<Slider />', () => {
   it('should render', async () => {
@@ -11,7 +11,7 @@ describe('<Slider />', () => {
   });
 
   it('should update precision when changing step', () => {
-    const ref = createRef();
+    const ref = createRef<SliderRef>();
     const { rerender, unmount } = render(<Slider ref={ref} />);
     expect(ref.current.precision).toBe(0);
     rerender(<Slider ref={ref} step={0.1} />);
@@ -20,7 +20,7 @@ describe('<Slider />', () => {
   });
 
   it('should return a value rounded to the correct step & precision', () => {
-    const ref = createRef();
+    const ref = createRef<SliderRef>();
     const { rerender, unmount } = render(
       <Slider ref={ref} min={0} max={100} step={1} />
     );
@@ -78,7 +78,7 @@ describe('<Slider />', () => {
   });
 
   it('should set slider as moving on mouse down', () => {
-    const ref = createRef();
+    const ref = createRef<SliderRef>();
     const { container, unmount } = render(
       <Slider ref={ref} />
     );
@@ -98,7 +98,7 @@ describe('<Slider />', () => {
   });
 
   it('should trigger onMove event on mouse move', async () => {
-    const ref = createRef();
+    const ref = createRef<SliderRef>();
     const onMove = jest.fn();
     const { container, unmount } = render(
       <Slider ref={ref} onMove={onMove} min={0} max={100} step={1} />
@@ -125,7 +125,7 @@ describe('<Slider />', () => {
 
   it('shouldn\'t trigger onMove event on mouse move when slider is ' +
     'disabled', () => {
-    const ref = createRef();
+    const ref = createRef<SliderRef>();
     const onMove = jest.fn();
     const { container, unmount } = render(
       <Slider
@@ -148,7 +148,7 @@ describe('<Slider />', () => {
   });
 
   it('should allow to move slider using arrow keys', () => {
-    const ref = createRef();
+    const ref = createRef<SliderRef>();
     const { container, unmount } = render(
       <Slider
         ref={ref}

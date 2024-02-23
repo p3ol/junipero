@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import List from './';
+import List from '.';
 import ListItem from '../ListItem';
 import ListColumn from '../ListColumn';
 import ListCell from '../ListCell';

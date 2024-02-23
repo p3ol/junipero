@@ -7,13 +7,13 @@
     "allowJs": true,
     // Generate d.ts files
     "declaration": true,
-    // This compiler run should
-    // only output d.ts files
-    "emitDeclarationOnly": true,
     // go to js file when using IDE functions like
     // "Go to Definition" in VSCode
     "declarationMap": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "types": ["jest"],
+    "lib": ["DOM", "ES2022"],
+    "noImplicitAny": true
   },
 }

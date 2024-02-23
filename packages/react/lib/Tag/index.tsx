@@ -1,6 +1,7 @@
 import {
   ComponentPropsWithRef,
   ElementType,
+  MouseEvent,
   MutableRefObject,
   ReactNode,
   forwardRef,
@@ -39,7 +40,7 @@ const Tag = forwardRef(({
     innerRef,
   }));
 
-  const onDelete_ = e => {
+  const onDelete_ = (e: MouseEvent) => {
     e.stopPropagation();
     onDelete?.();
   };

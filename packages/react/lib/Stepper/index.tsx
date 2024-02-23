@@ -45,7 +45,7 @@ const Stepper = forwardRef(({
     innerRef,
   }));
 
-  const getStepStatus = i => {
+  const getStepStatus = (i: number) => {
     switch (true) {
       case i < active:
         return 'completed';
@@ -67,8 +67,8 @@ const Stepper = forwardRef(({
         >
           { t.content }
         </Step>
-      )) : children.map((t, i) =>
-        cloneElement(t, { status: getStepStatus(i), key: i }
+      )) : children.map((t: StepObject, i: number) =>
+        cloneElement<StepObject>(t, { status: getStepStatus(i), key: i }
         ))
   ), [steps, children]);
 

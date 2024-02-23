@@ -8,6 +8,8 @@ import {
   ReactNode,
   ComponentPropsWithRef,
   MutableRefObject,
+  ChangeEvent,
+  MouseEvent,
 } from 'react';
 import {
   classNames,
@@ -24,7 +26,7 @@ import { useFieldControl } from '../hooks';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
-import TextField from '../TextField';
+import TextField, { TextFieldChangeEvent } from '../TextField';
 import FieldControl from '../FieldControl';
 import { ForwardedProps, MockState } from '../utils';
 
@@ -209,11 +211,11 @@ const ColorField = forwardRef(({
     }
   };
 
-  const onChange_ = e => {
-    onColorChange_(e.value, { valuePropChange: false });
+  const onChange_ = (e: TextFieldChangeEvent) => {
+    onColorChange_(e.value as string, { valuePropChange: false });
   };
 
-  const onFocus_ = e => {
+  const onFocus_ = (e: FocusEvent) => {
     if (trigger === 'focus') {
       innerRef.current?.open();
     }
@@ -222,7 +224,7 @@ const ColorField = forwardRef(({
     onFocus?.(e);
   };
 
-  const onBlur_ = e => {
+  const onBlur_ = (e: FocusEvent) => {
     if (trigger === 'focus') {
       innerRef.current?.close();
     }
@@ -237,7 +239,7 @@ const ColorField = forwardRef(({
     onToggle?.({ opened });
   };
 
-  const onTogglePreview = e => {
+  const onTogglePreview = (e: MouseEvent) => {
     e.preventDefault();
 
     if (!state.opened) {
@@ -267,7 +269,7 @@ const ColorField = forwardRef(({
     }
   };
 
-  const onMouseDown_ = (type: string, e) => {
+  const onMouseDown_ = (type: string, e: MouseEvent) => {
     if (e.button !== 0) {
       return;
     }
@@ -278,7 +280,7 @@ const ColorField = forwardRef(({
     onMouseMove_(e);
   };
 
-  const onMouseMove_ = e => {
+  const onMouseMove_ = (e: MouseEvent) => {
     if (
       typeof window === 'undefined' || !state.handleMoving ||
       !state.handleType || disabled

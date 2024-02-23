@@ -69,10 +69,10 @@ export declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
     opts: { opened: boolean }
   ): ReactNode | JSX.Element;
   onChange?(props: { value: any; valid: boolean }): void;
-  onBlur?(event: Event): void;
-  onFocus?(event: Event): void;
-  onKeyPress?(event: Event): void;
-  onKeyUp?(event: Event): void;
+  onBlur?(event: React.SyntheticEvent): void;
+  onFocus?(event: React.FocusEvent): void;
+  onKeyPress?(event: React.KeyboardEvent): void;
+  onKeyUp?(event: React.KeyboardEvent): void;
   onValidate?(
     value: any,
     flags: { required: boolean; multiple: boolean }
@@ -227,7 +227,7 @@ const SelectField = forwardRef(({
     close && dropdownRef.current?.close?.();
   };
 
-  const onSelectOption = (option, changeOpts = {}) => {
+  const onSelectOption = (option: any, changeOpts = {}) => {
     if (disabled) {
       return;
     }
@@ -244,7 +244,7 @@ const SelectField = forwardRef(({
     onChange_({ resetSearch: !multiple, ...changeOpts });
   };
 
-  const onRemoveOption = option => {
+  const onRemoveOption = (option: any) => {
     if (disabled || !multiple || !Array.isArray(state.value)) {
       return;
     }
@@ -254,7 +254,7 @@ const SelectField = forwardRef(({
     onChange_({ close: false });
   };
 
-  const onClear = e => {
+  const onClear = (e: React.MouseEvent) => {
     e.stopPropagation();
 
     if (!clearable || disabled) {
@@ -272,7 +272,7 @@ const SelectField = forwardRef(({
     onChange_({ close: false, resetSearch: true, refocus: true });
   };
 
-  const onSearchInputChange = e => {
+  const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!searchable || disabled) {
       return;
     }
@@ -298,22 +298,22 @@ const SelectField = forwardRef(({
     dispatch({ searchResults: null });
   };
 
-  const onFocusField = e => {
+  const onFocusField = (e: React.MouseEvent) => {
     e.preventDefault();
     searchInputRef.current?.focus();
   };
 
-  const onFocus_ = e => {
+  const onFocus_ = (e: React.FocusEvent) => {
     dispatch({ focused: true });
     onFocus?.(e);
   };
 
-  const onBlur_ = e => {
+  const onBlur_ = (e: React.SyntheticEvent) => {
     dispatch({ focused: false });
     onBlur?.(e);
   };
 
-  const onToggle_ = ({ opened }) => {
+  const onToggle_ = ({ opened }: { opened: boolean}) => {
     if (disabled) {
       return;
     }
@@ -324,7 +324,7 @@ const SelectField = forwardRef(({
     updateControl?.({ focused: opened });
   };
 
-  const onKeyPress_ = e => {
+  const onKeyPress_ = (e: React.KeyboardEvent) => {
     if (disabled) {
       return;
     }
@@ -341,7 +341,7 @@ const SelectField = forwardRef(({
     onKeyPress?.(e);
   };
 
-  const onKeyUp_ = e => {
+  const onKeyUp_ = (e: React.KeyboardEvent) => {
     if (disabled) {
       return;
     }
@@ -411,7 +411,7 @@ const SelectField = forwardRef(({
     updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
-  const filterOptions = val => {
+  const filterOptions = (val?: string) => {
     if (!val) {
       return options;
     }
@@ -423,7 +423,7 @@ const SelectField = forwardRef(({
     );
   };
 
-  const findOptions = val => {
+  const findOptions = (val: Array<string> | string): string | Array<string> => {
     const isMultiple = multiple && Array.isArray(val);
     const res = (isMultiple ? val : [val]).map(v =>
       findDeep(options, o => parseValue(o) === parseValue(v), o => o.options) ||
@@ -433,12 +433,15 @@ const SelectField = forwardRef(({
     return isMultiple ? res : res[0];
   };
 
-  const filterUsedOptions = (opts = []) =>
+  const filterUsedOptions = (opts: Array<any> = []) =>
     multiple && Array.isArray(state.value)
       ? opts.filter(opt => !state.value.includes(opt))
       : opts;
 
-  const renderGroup = (group, i) => {
+  const renderGroup = (
+    group: { options: Array<any>, [_: string]: any },
+    i: number
+  ) => {
     const opts = filterUsedOptions(group.options);
 
     if (!opts.length) {
@@ -452,7 +455,7 @@ const SelectField = forwardRef(({
     );
   };
 
-  const renderOption = (item, i) => (
+  const renderOption = (item: any, i: number) => (
     <DropdownItem key={i}>
       <a onClick={onSelectOption.bind(null, item)}>
         { parseTitle(item, { isOption: true }) }
@@ -516,7 +519,7 @@ const SelectField = forwardRef(({
               onChange={() => {}}
             />
           ) }
-          { hasTags() ? state.value.map((o, i) => (
+          { hasTags() ? state.value.map((o: any, i: number) => (
             <Tag
               key={i}
               className={classNames(

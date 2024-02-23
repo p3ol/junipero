@@ -7,6 +7,8 @@ import {
   ComponentPropsWithRef,
   ElementType,
   MutableRefObject,
+  MouseEvent,
+  DragEvent,
 } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
@@ -87,7 +89,7 @@ const Toast = forwardRef(({
     onDismiss?.(index);
   }, timeout, [enabled], { enabled: !enabled && !paused });
 
-  const onClick_ = e => {
+  const onClick_ = (e: MouseEvent) => {
     onClick?.(e);
     setEnabled(false);
 
@@ -96,7 +98,7 @@ const Toast = forwardRef(({
     }
   };
 
-  const onMouseEnter_ = e => {
+  const onMouseEnter_ = (e: DragEvent) => {
     onMouseEnter?.(e);
 
     if (!pausable) {
@@ -107,7 +109,7 @@ const Toast = forwardRef(({
     setRemaining(remaining - (Date.now() - startTimeRef.current));
   };
 
-  const onMouseLeave_ = e => {
+  const onMouseLeave_ = (e: DragEvent) => {
     onMouseLeave?.(e);
 
     if (!pausable) {
