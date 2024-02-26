@@ -47,7 +47,7 @@ export const withValidation = () => (
   <TextField
     label="Age"
     placeholder="Age"
-    onValidate={val => /^[0-9]+$/g.test(val)}
+    onValidate={(val: string) => /^[0-9]+$/g.test(val)}
   />
 );
 

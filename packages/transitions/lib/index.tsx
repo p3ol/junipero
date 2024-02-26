@@ -1,4 +1,5 @@
 import { Transition } from '@junipero/react';
+import { ReactNode } from 'react';
 
 export const animateMenu = (
   name: string,
@@ -37,9 +38,18 @@ export const animate = (
   { time = 100, key, ...opts }: {
     time?: number, opened?: boolean, key?: any, opts?: Array<any>
   } = {}
-) => (menu, { opened, key: k, ...props }: {
-  opened?: boolean, key?: any, opts?: Array<any>
-} = {}): JSX.Element => (
+) => (
+  menu: JSX.Element | ReactNode | string,
+  {
+    opened,
+    key: k,
+    ...props
+  }: {
+    opened?: boolean,
+    key?: any,
+    opts?: Array<any>
+  } = {}
+): JSX.Element => (
   <Transition
     in={opened}
     mountOnEnter={true}

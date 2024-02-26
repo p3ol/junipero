@@ -39,10 +39,12 @@ export const orderable = () => {
     { name: 'Jack', age: 20 },
   ]);
 
-  const onOrder = ({ column, asc }) => {
+  const onOrder = (
+    { column, asc }: { column: string | number, asc: boolean}
+  ) => {
     setItems(it => [...it.sort((a, b) => {
-      const aVal = a[column];
-      const bVal = b[column];
+      const aVal = a[column as 'age' | 'name'];
+      const bVal = b[column as 'age' | 'name'];
       const result = aVal > bVal ? 1 : aVal < bVal ? -1 : 0;
 
       return asc ? result : -result;

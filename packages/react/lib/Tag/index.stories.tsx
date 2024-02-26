@@ -28,7 +28,7 @@ export const smaller = () => (
 export const deletable = () => {
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
 
-  const onDelete = item => {
+  const onDelete = (item: string) => {
     action('onDelete')(item);
     setItems(items.filter(i => i !== item));
   };

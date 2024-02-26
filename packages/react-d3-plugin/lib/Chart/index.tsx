@@ -25,7 +25,7 @@ import Axis, { AxisObject } from '../Axis';
 export declare type ChartRef = {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
-  axis: Array<{AxisObject}>;
+  axis: Array<AxisObject>;
 };
 
 export declare interface ChartProps extends ComponentPropsWithRef<any> {
@@ -152,7 +152,7 @@ const Chart = forwardRef(({
   };
 
   /* istanbul ignore next: cannot be tested */
-  const onMouseMove = useCallback(e => {
+  const onMouseMove = useCallback((e: MouseEvent) => {
     if (!axis || state.width === 0) {
       return;
     }

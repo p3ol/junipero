@@ -85,7 +85,7 @@ const Marker = forwardRef(({
     const xValue = xAxis?.domain?.(xAxis?.data?.[xIndex] as number);
     const values = series
       ? series.map(s => (yAxisIndexes || [1]).map(i =>
-        axis[i]?.domain?.(s[xIndex]) as number
+        axis[i]?.domain?.((s as Array<number | Date>)[xIndex]) as number
       )).flat()
       : test;
 

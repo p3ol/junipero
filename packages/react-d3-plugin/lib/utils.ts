@@ -1,6 +1,10 @@
 import * as d3 from 'd3';
 
-export const getAxisType = type => {
+export const getAxisType = (
+  type: typeof d3.axisLeft
+   | typeof d3.axisRight
+   | typeof d3.axisTop
+) => {
   switch (type) {
     case d3.axisLeft: return 'left';
     case d3.axisRight: return 'right';

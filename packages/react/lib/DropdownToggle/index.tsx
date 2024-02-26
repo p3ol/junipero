@@ -11,6 +11,7 @@ import { classNames } from '@junipero/core';
 
 import { useDropdown } from '../hooks';
 import { ForwardedProps } from '../utils';
+import { DropdownRef } from '../Dropdown';
 
 export declare type DropdownToggleRef = {
   isJunipero: boolean;
@@ -38,7 +39,7 @@ const DropdownToggle = forwardRef(({
 
   return cloneElement(child, {
     className: classNames(child.props.className, 'dropdown-toggle', { opened }),
-    ref: r => {
+    ref: (r: DropdownRef) => {
       innerRef.current = r?.isJunipero ? r.innerRef.current : r;
       refs.setReference(r?.isJunipero ? r.innerRef.current : r);
     },

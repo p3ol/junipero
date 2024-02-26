@@ -17,7 +17,7 @@ describe('<Modal />', () => {
   });
 
   it('should remove modal from DOM when using close method', async () => {
-    const ref = createRef();
+    const ref = createRef<ModalRef>();
     const { container, unmount } = render(<Modal ref={ref} />);
     await act(async () => { ref.current.open(); });
     expect(container).toMatchSnapshot('opened');
@@ -27,7 +27,7 @@ describe('<Modal />', () => {
   });
 
   it('should not toggle modal if it is disabled', async () => {
-    const ref = createRef();
+    const ref = createRef<ModalRef>();
     const { container, unmount } = render(
       <Modal ref={ref} disabled={true} />
     );
@@ -37,7 +37,7 @@ describe('<Modal />', () => {
   });
 
   it('should close modal when clicking on backdrop', async () => {
-    const ref = createRef();
+    const ref = createRef<ModalRef>();
     const { container, unmount } = render(
       <div className="container">
         <Modal container=".container" ref={ref} />
@@ -51,7 +51,7 @@ describe('<Modal />', () => {
   });
 
   it('should not close modal if clicked inside', async () => {
-    const ref = createRef();
+    const ref = createRef<ModalRef>();
     const { container, unmount } = render(
       <div className="container">
         <Modal container=".container" ref={ref} />
@@ -65,7 +65,7 @@ describe('<Modal />', () => {
   });
 
   it('should not close modal closable = false', async () => {
-    const ref = createRef();
+    const ref = createRef<ModalRef>();
     const { container, unmount } = render(
       <div className="container">
         <Modal container=".container" closable={false} ref={ref} />
@@ -80,7 +80,7 @@ describe('<Modal />', () => {
 
   it('should allow to animate modal', async () => {
     jest.useFakeTimers();
-    const ref = createRef();
+    const ref = createRef<ModalRef>();
     const { container, unmount } = render(
       <div className="container">
         <Modal animate={appearBounceModal} ref={ref} />

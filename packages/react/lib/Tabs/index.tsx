@@ -87,7 +87,7 @@ const Tabs = forwardRef(({
       )}
     >
       <ul className="titles">
-        { availableTabs.map((tab: TabObject, index: number) => (
+        { availableTabs.map((tab: JSX.Element, index: number) => (
           <li
             key={index}
             className={classNames(
@@ -98,9 +98,7 @@ const Tabs = forwardRef(({
               }
             )}
           >
-            <a href="#" onClick={onClick_.bind(null, tab, index)}>
-              { tab.props.title }
-            </a>
+            <a href="#" onClick={onClick_.bind(null, tab, index)} />
           </li>
         ))}
       </ul>

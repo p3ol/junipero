@@ -185,7 +185,7 @@ const Tooltip = forwardRef(({
     onToggle?.({ opened: false });
   };
 
-  const setReference = (r: TooltipRef) => {
+  const setReference: React.RefCallback<any> = (r: TooltipRef) => {
     handleRef.current = r?.isJunipero ? r.innerRef.current : r;
     refs.setReference(r?.isJunipero ? r.innerRef.current : r);
   };

@@ -47,10 +47,12 @@ describe('<List />', () => {
         { name: 'Jack', age: 20 },
       ]);
 
-      const onOrder = ({ column, asc }) => {
+      const onOrder = (
+        { column, asc }: { asc?: boolean, column: string | number}
+      ) => {
         setItems(it => [...it.sort((a, b) => {
-          const aVal = a[column];
-          const bVal = b[column];
+          const aVal = a[column as 'name' | 'age'];
+          const bVal = b[column as 'name' | 'age'];
           const result = aVal > bVal ? 1 : aVal < bVal ? -1 : 0;
 
           return asc ? result : -result;

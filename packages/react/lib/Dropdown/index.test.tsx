@@ -1,5 +1,6 @@
 import { act, fireEvent, render, renderHook } from '@testing-library/react';
 import { slideInDownMenu } from '@junipero/transitions';
+import { ReactNode } from 'react';
 
 import { useDropdown } from '../hooks';
 import DropdownToggle from '../DropdownToggle';
@@ -116,7 +117,9 @@ describe('useDropdwon()', () => {
   it('should set hook with props', () => {
     const container: React.JSX.Element = <div />;
 
-    const wrapper = ({ children }) => {
+    const wrapper = (
+      { children }: { children: JSX.Element | ReactNode | string}
+    ) => {
 
       return (
         <Dropdown
@@ -136,7 +139,9 @@ describe('useDropdwon()', () => {
   it('should open and close dropdown', () => {
     const toggleMock = jest.fn();
 
-    const wrapper = ({ children }) => {
+    const wrapper = (
+      { children }: { children: JSX.Element | ReactNode | string}
+    ) => {
 
       return (
         <Dropdown
@@ -170,7 +175,9 @@ describe('useDropdwon()', () => {
   it('should not open and close dropdown if disabled', () => {
     const toggleMock = jest.fn();
 
-    const wrapper = ({ children }) => {
+    const wrapper = (
+      { children }: { children: JSX.Element | ReactNode | string}
+    ) => {
 
       return (
         <Dropdown

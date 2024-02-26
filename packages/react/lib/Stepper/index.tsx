@@ -67,8 +67,8 @@ const Stepper = forwardRef(({
         >
           { t.content }
         </Step>
-      )) : children.map((t: StepObject, i: number) =>
-        cloneElement<StepObject>(t, { status: getStepStatus(i), key: i }
+      )) : children.map((t: JSX.Element, i: number) =>
+        cloneElement(t, { status: getStepStatus(i), key: i }
         ))
   ), [steps, children]);
 
