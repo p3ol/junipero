@@ -1,5 +1,6 @@
 {
   // Change this to match your project
+  "include": ["packages/**/*"],
   "compilerOptions": {
     // Generate d.ts files
     "declaration": true,
