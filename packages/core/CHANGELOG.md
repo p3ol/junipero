@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
+
+
+### Bug Fixes
+
+* **core:** fix wrong colors type declaration ([f3f6200](https://github.com/p3ol/junipero/commit/f3f620084c35710f5b23abbff4754795c2f0ea15))
+
+
+
+
+
 ## [3.4.4](https://github.com/p3ol/junipero/compare/v3.4.3...v3.4.4) (2024-01-24)
 
 
