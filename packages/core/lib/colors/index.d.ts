@@ -1,4 +1,4 @@
-export declare interface COLORS {
+export declare const COLORS: {
   [key: string]: {
     DEFAULT?: string;
     hover?: string;
@@ -6,7 +6,7 @@ export declare interface COLORS {
     disabled?: string;
     background?: string;
   } | string;
-}
+};
 
 export type COLOR_PARSERS = Array<{
   parse: ((r: string, g: string, b: string, a?: string) => {

@@ -67,7 +67,9 @@ const DateField = forwardRef(({
     dirty: false,
     opened: (autoFocus || opened) ?? false,
     focused: autoFocus ?? false,
-    time: '',
+    time: value ? value.toLocaleTimeString('en-US', {
+      hourCycle: 'h23',
+    }) : '',
     timeDirty: false,
   });
 

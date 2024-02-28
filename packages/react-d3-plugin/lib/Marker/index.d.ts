@@ -15,7 +15,7 @@ export declare type MarkerRef = {
   y: number;
 };
 
-declare interface MarkerProps extends ComponentPropsWithRef<any> {
+export declare interface MarkerProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   ref?: MutableRefObject<MarkerRef | undefined>;

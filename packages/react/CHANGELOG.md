@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.10](https://github.com/p3ol/junipero/compare/v3.4.9...v3.4.10) (2024-02-07)
+
+
+### Bug Fixes
+
+* **react:** missing date field time value ([0384d9a](https://github.com/p3ol/junipero/commit/0384d9a74aaf848b250fcd5ca5b386635b2c9bfa))
+
+
+
+
+
+## [3.4.9](https://github.com/p3ol/junipero/compare/v3.4.8...v3.4.9) (2024-02-02)
+
+
+### Bug Fixes
+
+* **theme:** correctly handle date fields inside field groups ([82f489f](https://github.com/p3ol/junipero/commit/82f489fdfa77d42bcf7b1906a8e931ebfc4e04d5))
+
+
+
+
+
+## [3.4.4](https://github.com/p3ol/junipero/compare/v3.4.3...v3.4.4) (2024-01-24)
+
+**Note:** Version bump only for package @junipero/react
+
+
+
+
+
 ## [3.4.3](https://github.com/p3ol/junipero/compare/v3.4.2...v3.4.3) (2024-01-18)
 
 
