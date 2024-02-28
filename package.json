@@ -67,6 +67,6 @@
     "typescript": "5.2.2"
   },
   "resolutions": {
-    "inline-style-prefixer": "6.0.4"
+    "inline-style-prefixer": "7.0.0"
   }
 }
