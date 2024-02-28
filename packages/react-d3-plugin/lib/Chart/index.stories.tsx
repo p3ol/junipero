@@ -1,16 +1,17 @@
-import { useCallback, useMemo, useState } from 'react';
+import { ReactNode, useCallback, useMemo, useState } from 'react';
 import * as d3 from 'd3';
 import { closestIndexTo, startOfMonth, startOfYear } from '@junipero/core';
+import { Card } from '@junipero/react';
 
-import Chart from './';
+import Chart from '.';
 import Bar from '../Bar';
 import Curve from '../Curve';
 import Marker from '../Marker';
-import { Card } from '../../../react/lib';
+import { AxisObject } from '../Axis';
 
 export default { title: 'react-d3-plugin/Chart' };
 
-const data = [
+const data: [Date, number][] = [
   [new Date('2020-01-01'), 10],
   [new Date('2020-01-02'), 50],
   [new Date('2020-01-03'), 30],
@@ -18,7 +19,7 @@ const data = [
   [new Date('2020-01-05'), 20],
 ];
 
-const alternativeData = [
+const alternativeData: [Date, number][] = [
   [new Date('2020-01-01'), 4000],
   [new Date('2020-01-02'), 2000],
   [new Date('2020-01-03'), 5000],
@@ -26,7 +27,7 @@ const alternativeData = [
   [new Date('2020-01-05'), 7000],
 ];
 
-const barData = [
+const barData: [Date, { free: number, premium:number}][] = [
   [new Date('2020-01-01'), { free: 37, premium: 63 }],
   [new Date('2020-01-02'), { free: 16, premium: 84 }],
   [new Date('2020-01-03'), { free: 49, premium: 51 }],
@@ -34,13 +35,17 @@ const barData = [
   [new Date('2020-01-05'), { free: 27, premium: 73 }],
 ];
 
-const axis = [{
+const axis: [
+    AxisObject<Array<Date>>,
+    AxisObject<Array<number>>,
+    AxisObject<Array<number>>
+] = [{
   type: d3.axisBottom,
   scale: d3.scaleTime,
   data: data.map(d => d[0]),
-  findSelectionIndex: position =>
+  findSelectionIndex: (position: Date) =>
     closestIndexTo(position, data.map(d => d[0])),
-  parseTitle: d => d.toLocaleDateString(),
+  parseTitle: (d: Date) => d.toLocaleDateString(),
   ticks: null,
 }, {
   type: d3.axisLeft,
@@ -58,11 +63,14 @@ const axis = [{
   min: 0,
 }];
 
-const barAxis = [{
+const barAxis: [
+  AxisObject<Array<Date>>,
+  AxisObject<Array<{ premium: number, free: number }>>
+] = [{
   type: d3.axisBottom,
   scale: d3.scaleBand,
-  data: barData.map(d => d[0]),
-  parseTitle: d => d?.toLocaleDateString(),
+  data: barData.map(d => d[0]) as any,
+  parseTitle: (d: Date) => d?.toLocaleDateString(),
   ticks: null,
 }, {
   type: d3.axisLeft,
@@ -72,8 +80,7 @@ const barAxis = [{
   max: 100,
   data: barData.map(d => d[1]),
 }];
-
-const Wrapper = ({ children }) => (
+const Wrapper = ({ children }: { children: JSX.Element | ReactNode}) => (
   <div
     style={{
       display: 'flex',
@@ -179,9 +186,9 @@ export const bars = () => (
       <Bar
         xAxisIndex={0}
         yAxisIndex={1}
-        tooltip={({ xIndex }) => (
+        tooltip={({ xIndex }: { xIndex: number}) => (
           <div>
-            <div>{ barAxis[0].data[xIndex]?.toISOString() }</div>
+            <div>{ (barAxis[0].data[xIndex] as Date)?.toISOString() }</div>
             <div>Free: { barAxis[1].data[xIndex]?.free }</div>
             <div>Premium: { barAxis[1].data[xIndex]?.premium }</div>
           </div>
@@ -229,11 +236,13 @@ export const withTooltip = () => (
       <Marker
         xAxisIndex={0}
         yAxisIndexes={[1, 2]}
-        tooltip={({ xIndex }) => (
+        tooltip={({ xIndex }: {xIndex: number}) => (
           <div>
             <div>{ axis[0].data[xIndex].toISOString() }</div>
-            <div>Data: { data[xIndex][1] }</div>
-            <div>Alternative data: { alternativeData[xIndex][1] }</div>
+            <div>Data: { data[xIndex][1] as number }</div>
+            <div>
+              Alternative data: { alternativeData[xIndex][1] as number }
+            </div>
           </div>
         )}
       />
@@ -254,7 +263,9 @@ export const withTooltip = () => (
 export const withGranularity = () => {
   const [granularity, setGranularity] = useState('day');
 
-  const rollup = useCallback((data, opts = {}) => {
+  const rollup = useCallback((
+    data: [Date, number][], opts: {aggregate?: string} = {}
+  ) => {
     switch (granularity) {
       case 'year':
       case 'month':

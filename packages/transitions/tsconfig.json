@@ -2,9 +2,8 @@
   "extends": "../../tsconfig.json",
   "include": ["./lib/**/*"],
   "compilerOptions": {
-    "declarationDir": "./dist/@types",
     "paths": {
-      "@junipero/core": ["../core/lib/index.ts"], // TODO rework aliases
+      "@junipero/core": ["../core/lib/index.ts"], 
       "@junipero/hooks": ["../hooks/lib/index.ts"],
       "@junipero/react": ["../react/lib/index.ts"],
     }

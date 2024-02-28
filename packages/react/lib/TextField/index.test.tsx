@@ -6,7 +6,7 @@ import { blur, reset } from '~tests-utils';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
-import TextField from '.';
+import TextField, { TextFieldRef } from '.';
 
 describe('<TextField />', () => {
   it('should render', () => {
@@ -73,7 +73,7 @@ describe('<TextField />', () => {
 
   it('should allow to reset the field', async () => {
     const user = userEvent.setup();
-    const ref = createRef();
+    const ref = createRef<TextFieldRef>();
     const onChange = jest.fn();
     const { unmount, container } = render(
       <TextField ref={ref} value="John" onChange={onChange} />

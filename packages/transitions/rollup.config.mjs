@@ -27,11 +27,6 @@ const defaultPlugins = [
     extensions: ['.js', '.ts', '.tsx', '.json', '.node'],
   }),
   commonjs({ include: /node_modules/ }),
-  alias({
-    entries: {
-      '@junipero/react': path.resolve('../react/lib/index.ts'),
-    },
-  }),
   terser(),
 ];
 
@@ -41,7 +36,7 @@ export default [
     plugins: [
       alias({
         entries: {
-          '@junipero/react': path.resolve('../react/lib/index.ts'), // TODO rework aliases
+          '@junipero/react': path.resolve('../react/lib/index.ts'),
         },
       }),
       swc({
@@ -81,11 +76,8 @@ export default [
     plugins: [
       typescript({
         emitDeclarationOnly: true,
-        declaration: true,
         declarationDir: './types',
         tsconfig: path.resolve('./tsconfig.json'),
-        outputToFilesystem: true,
-        incremental: false,
         jsx: 'react-jsx',
         include: ['lib/**/*.ts', 'lib/**/*.tsx'],
         exclude: [

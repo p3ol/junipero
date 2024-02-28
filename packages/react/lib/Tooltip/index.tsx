@@ -12,7 +12,7 @@ import {
   Ref,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { classNames, mockState, omit } from '@junipero/core';
+import { classNames, ensureNode, mockState, omit } from '@junipero/core';
 import {
   useFloating,
   useInteractions,
@@ -49,7 +49,7 @@ export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   clickOptions?: UseClickProps;
-  container?: Element | DocumentFragment | string;
+  container?: JSX.Element | DocumentFragment | string;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
   floatingOptions?: UseFloatingOptions;
@@ -243,13 +243,13 @@ const Tooltip = forwardRef(({
           { children }
         </span>
       ) : cloneElement(Children.only<JSX.Element>(children as JSX.Element), {
-        ...getReferenceProps(), //TODO fixme
+        ...getReferenceProps(),
         ref: setReference,
       }) }
 
       { state.opened || (animate && state.visible) || apparition === 'css'
         ? container
-          ? createPortal(tooltip, container as Element | DocumentFragment)
+          ? createPortal(tooltip, ensureNode(container))
           : tooltip
         : null
       }

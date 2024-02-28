@@ -15,19 +15,20 @@ import * as d3 from 'd3';
 import { useChart } from '../hooks';
 import { getAxisType } from '../utils';
 
-export declare interface AxisObject {
+type AxisDataType = Array<
+number |
+Date |
+{[key: string]: number} |
+string |
+[number, number] |
+[number, number] |
+Iterable<[number, number]>>;
+
+export declare interface AxisObject<T=AxisDataType> {
   type: typeof d3.axisLeft | typeof d3.axisBottom | typeof d3.axisRight |
     typeof d3.axisTop;
   scale: typeof d3.scaleLinear | typeof d3.scaleTime | typeof d3.scaleBand;
-  data: Array<
-    number |
-    Date |
-    {[key: string]: number} |
-    string |
-    [number, number] |
-    [number, number] |
-    Iterable<[number, number]>
-  >;
+  data: T;
   range?: d3.ScaleContinuousNumeric<number, number, never> |
     d3.ScaleTime<number, number, never> | d3.ScaleBand<number | Date>;
   min?: number | Date;

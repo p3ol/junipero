@@ -8,10 +8,13 @@ import {
   useInterval,
   useEffectAfterMount,
   useLayoutEffectAfterMount,
-} from './';
+} from '.';
 
 /* eslint-disable react/prop-types */
-const TestComponent = ({ target, onTimeout, onInterval }) => {
+const TestComponent = (
+  { target, onTimeout, onInterval }:
+  { target?: any, onTimeout?: any, onInterval?: any}
+) => {
   const [clicked, setClicked] = useState(false);
 
   useEventListener('click', () => {
@@ -72,7 +75,10 @@ describe('useTimeout(listener, time, changes)', () => {
 });
 
 /* eslint-disable react/prop-types */
-const EffectsTestComponent = ({ enabled, onEffect, onLayoutEffect }) => {
+const EffectsTestComponent = (
+  { enabled, onEffect, onLayoutEffect }:
+  { enabled?: boolean, onEffect?: ()=> void, onLayoutEffect?: ()=> void}
+): null => {
   onEffect && useEffectAfterMount(() => {
     onEffect();
   }, [enabled]);
