@@ -1,0 +1,2085 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DateField /> should allow to navigate between months: next month 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened date-field pristine valid empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+      title="Tuesday, January 1, 2019 12:00:00 AM"
+    >
+      <input
+        readonly=""
+        type="text"
+        value="Tuesday, January 1, 2019 12:00:00 AM"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu calendar-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="junipero calendar"
+        >
+          <div
+            class="calendar-header"
+          >
+            <div
+              class="current-month"
+            >
+              <strong>
+                January
+              </strong>
+               2019
+            </div>
+            <div
+              class="navigation"
+            >
+              <svg
+                class="junipero icon arrow-left"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M5.59863 9.04065L1.66113 5.04065L5.59863 1.04065"
+                />
+              </svg>
+              <svg
+                class="junipero icon arrow-right"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M1.72388 9.04065L5.66138 5.04065L1.72388 1.04065"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="calendar-body"
+          >
+            <span
+              class="week-day junipero info"
+            >
+              Mon
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Tue
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Wen
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Thu
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Fri
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sat
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sun
+            </span>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              31
+            </a>
+            <a
+              class="day junipero info active"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              6
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              10
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              11
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              12
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              13
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              14
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              15
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              16
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              17
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              18
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              19
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              20
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              21
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              22
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              23
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              24
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              25
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              31
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              6
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              10
+            </a>
+          </div>
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
+          >
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
+            />
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value="00:00:00"
+          />
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DateField /> should allow to navigate between months: previous month 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened date-field pristine valid empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+      title="Tuesday, January 1, 2019 12:00:00 AM"
+    >
+      <input
+        readonly=""
+        type="text"
+        value="Tuesday, January 1, 2019 12:00:00 AM"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu calendar-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="junipero calendar"
+        >
+          <div
+            class="calendar-header"
+          >
+            <div
+              class="current-month"
+            >
+              <strong>
+                December
+              </strong>
+               2018
+            </div>
+            <div
+              class="navigation"
+            >
+              <svg
+                class="junipero icon arrow-left"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M5.59863 9.04065L1.66113 5.04065L5.59863 1.04065"
+                />
+              </svg>
+              <svg
+                class="junipero icon arrow-right"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M1.72388 9.04065L5.66138 5.04065L1.72388 1.04065"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="calendar-body"
+          >
+            <span
+              class="week-day junipero info"
+            >
+              Mon
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Tue
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Wen
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Thu
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Fri
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sat
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sun
+            </span>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              6
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              10
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              11
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              12
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              13
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              14
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              15
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              16
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              17
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              18
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              19
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              20
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              21
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              22
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              23
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              24
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              25
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              31
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              6
+            </a>
+          </div>
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
+          >
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
+            />
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value="00:00:00"
+          />
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DateField /> should have a 3 days limited datepicker when min/max is set 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened date-field pristine valid empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+      title="Monday, December 16, 2019 12:00:00 AM"
+    >
+      <input
+        readonly=""
+        type="text"
+        value="Monday, December 16, 2019 12:00:00 AM"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu calendar-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="junipero calendar"
+        >
+          <div
+            class="calendar-header"
+          >
+            <div
+              class="current-month"
+            >
+              <strong>
+                December
+              </strong>
+               2019
+            </div>
+            <div
+              class="navigation"
+            >
+              <svg
+                class="junipero icon arrow-left"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M5.59863 9.04065L1.66113 5.04065L5.59863 1.04065"
+                />
+              </svg>
+              <svg
+                class="junipero icon arrow-right"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M1.72388 9.04065L5.66138 5.04065L1.72388 1.04065"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="calendar-body"
+          >
+            <span
+              class="week-day junipero info"
+            >
+              Mon
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Tue
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Wen
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Thu
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Fri
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sat
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sun
+            </span>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              25
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              6
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              10
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              11
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              12
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              13
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              14
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              15
+            </a>
+            <a
+              class="day junipero info active"
+              href="#"
+            >
+              16
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              17
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              18
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              19
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              20
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              21
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              22
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              23
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              24
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              25
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              31
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              5
+            </a>
+          </div>
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
+          >
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
+            />
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value="00:00:00"
+          />
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DateField /> should not let you pick a disabled date 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened date-field pristine valid empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+      title="Tuesday, December 17, 2019 12:00:00 AM"
+    >
+      <input
+        readonly=""
+        type="text"
+        value="Tuesday, December 17, 2019 12:00:00 AM"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu calendar-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="junipero calendar"
+        >
+          <div
+            class="calendar-header"
+          >
+            <div
+              class="current-month"
+            >
+              <strong>
+                December
+              </strong>
+               2019
+            </div>
+            <div
+              class="navigation"
+            >
+              <svg
+                class="junipero icon arrow-left"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M5.59863 9.04065L1.66113 5.04065L5.59863 1.04065"
+                />
+              </svg>
+              <svg
+                class="junipero icon arrow-right"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M1.72388 9.04065L5.66138 5.04065L1.72388 1.04065"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="calendar-body"
+          >
+            <span
+              class="week-day junipero info"
+            >
+              Mon
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Tue
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Wen
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Thu
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Fri
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sat
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sun
+            </span>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              25
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info inactive disabled"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              6
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              10
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              11
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              12
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              13
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              14
+            </a>
+            <a
+              class="day junipero info disabled"
+              href="#"
+            >
+              15
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              16
+            </a>
+            <a
+              class="day junipero info active"
+              href="#"
+            >
+              17
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              18
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              19
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              20
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              21
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              22
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              23
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              24
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              25
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              31
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              5
+            </a>
+          </div>
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
+          >
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
+            />
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value="00:00:00"
+          />
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DateField /> should not open calendar if disabled 1`] = `
+<div>
+  <div
+    class="junipero dropdown disabled date-field pristine valid empty"
+  >
+    <div
+      class="field dropdown-toggle"
+      title="Tuesday, January 1, 2019 12:00:00 AM"
+    >
+      <input
+        readonly=""
+        type="text"
+        value="Tuesday, January 1, 2019 12:00:00 AM"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DateField /> should render: default 1`] = `
+<div>
+  <div
+    class="junipero dropdown date-field pristine valid empty"
+  >
+    <div
+      class="field dropdown-toggle"
+      title="Friday, February 1, 2019 12:00:00 AM"
+    >
+      <input
+        placeholder="Date of birth"
+        readonly=""
+        type="text"
+        value="Friday, February 1, 2019 12:00:00 AM"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DateField /> should render: opened 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened date-field pristine valid empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+      title="Friday, February 1, 2019 12:00:00 AM"
+    >
+      <input
+        placeholder="Date of birth"
+        readonly=""
+        type="text"
+        value="Friday, February 1, 2019 12:00:00 AM"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu calendar-menu"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="junipero calendar"
+        >
+          <div
+            class="calendar-header"
+          >
+            <div
+              class="current-month"
+            >
+              <strong>
+                February
+              </strong>
+               2019
+            </div>
+            <div
+              class="navigation"
+            >
+              <svg
+                class="junipero icon arrow-left"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M5.59863 9.04065L1.66113 5.04065L5.59863 1.04065"
+                />
+              </svg>
+              <svg
+                class="junipero icon arrow-right"
+                height="11"
+                viewBox="0 0 7 11"
+                width="7"
+              >
+                <path
+                  d="M1.72388 9.04065L5.66138 5.04065L1.72388 1.04065"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="calendar-body"
+          >
+            <span
+              class="week-day junipero info"
+            >
+              Mon
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Tue
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Wen
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Thu
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Fri
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sat
+            </span>
+            <span
+              class="week-day junipero info"
+            >
+              Sun
+            </span>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              29
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              30
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              31
+            </a>
+            <a
+              class="day junipero info active"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              6
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              10
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              11
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              12
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              13
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              14
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              15
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              16
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              17
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              18
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              19
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              20
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              21
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              22
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              23
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              24
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              25
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              26
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              27
+            </a>
+            <a
+              class="day junipero info"
+              href="#"
+            >
+              28
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              1
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              2
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              3
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              4
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              5
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              6
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              7
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              8
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              9
+            </a>
+            <a
+              class="day junipero info inactive"
+              href="#"
+            >
+              10
+            </a>
+          </div>
+        </div>
+        <div
+          class="time-field"
+        >
+          <svg
+            class="junipero icon time"
+            height="19"
+            viewBox="0 0 19 19"
+            width="19"
+          >
+            <circle
+              cx="9.5"
+              cy="9.5"
+              r="8.5"
+              stroke-width="2"
+            />
+            <path
+              d="M13.4558 13L9 9.61266L9 4"
+            />
+          </svg>
+          <input
+            placeholder="00:00:00"
+            type="text"
+            value="00:00:00"
+          />
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

@@ -66,9 +66,9 @@ export const mockState = (
 ) => typeof action === 'function'
   ? action(state) : ({ ...state, ...action as StateContent });
 
-export const isUndefined = (v: any): boolean => typeof v === 'undefined';
+export const isUndefined = (v?: any): boolean => typeof v === 'undefined';
 
-export const isNull = (v: any): boolean => v === null;
+export const isNull = (v?: any): boolean => v === null;
 
 export const isArray = (a: any): boolean => Array.isArray(a);
 
@@ -77,7 +77,7 @@ export const isObject = (o: any): boolean =>
 
 export const isDate = (d: any): boolean => d instanceof Date;
 
-export const exists = (v: any): boolean => !isNull(v) && !isUndefined(v);
+export const exists = (v?: any): boolean => !isNull(v) && !isUndefined(v);
 
 export const get = (
   obj: genericObject = {},
@@ -90,9 +90,9 @@ export const get = (
 export const set = (
   obj: genericObject = {},
   path: string = '',
-  value: any,
+  value?: any,
   customizer = (val: any, subobj: any) => val
-): object => {
+): typeof obj => {
   const pathArr = path.split('.');
   const subObj = pathArr
     .slice(0, -1)
@@ -108,14 +108,15 @@ export const set = (
       return a[c];
     }, obj);
 
-  subObj[path.slice(-1)[0]] = customizer(value, subObj[path.slice(-1)[0]]);
+  subObj[pathArr.slice(-1)[0]] =
+    customizer(value, subObj[pathArr.slice(-1)[0]]);
 
   return obj;
 };
 
 export const omitBy = (
   obj: object = {},
-  cb: (k: any, v: string) => any
+  cb?: (k: any, v: string) => any
 ) => Object
   .entries(obj)
   .filter(([k, v]) => !cb(v, k))
@@ -127,7 +128,7 @@ export const omit = (obj: Object = {}, keys: Array<string> = []): Object =>
 export const pick = (
   obj: genericObject = {},
   keys: Array<string | number> = []
-): Object =>
+): typeof obj =>
   keys.reduce((res: genericObject, k: string | number) => {
     if (!isUndefined(obj[k])) {
       res[k] = obj[k];
@@ -136,7 +137,7 @@ export const pick = (
     return res;
   }, {});
 
-export const cloneDeep = (obj: genericObject | Date | Array<any>): any =>
+export const cloneDeep = (obj?: genericObject | Date | Array<any>): any =>
   typeof obj !== 'object' || obj === null
     ? obj
     : isDate(obj)
@@ -149,8 +150,10 @@ export const cloneDeep = (obj: genericObject | Date | Array<any>): any =>
           return res;
         }, {});
 
-export const fromPairs = (pairs: Array<any> = []): Array<any> =>
-  pairs.reduce((res, [k, v]) => {
+export const fromPairs = (
+  pairs: Array<[(string | number), any]> = []
+): { [_: string | number]: any } =>
+  pairs.reduce((res: {[_: string]: any}, [k, v]) => {
     res[k] = v;
 
     return res;

@@ -9,7 +9,7 @@ import {
   endOfDay,
   getDaysInMonth,
   closestIndexTo,
-} from './';
+} from '.';
 
 describe('dates', () => {
   describe('addMonths(date, amount)', () => {

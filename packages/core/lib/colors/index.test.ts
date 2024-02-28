@@ -9,7 +9,7 @@ import {
   denormalizeRGBA,
   parseColor,
   stringifyColor,
-} from './';
+} from '.';
 
 describe('colors', () => {
   describe('hsva2hsla({ h, s, v, a })', () => {
@@ -143,7 +143,7 @@ describe('colors', () => {
 
   describe('rgba2hex({ r, g, b, a })', () => {
     it('should transform simple RGBA values into an HEX string', () => {
-      const hex = rgba2hex({ r: 77, g: 179, b: 102, a: 1 });
+      const hex = rgba2hex({ r: 77, g: 179, b: 102 });
       expect(hex).toBe('#4db366');
     });
   });

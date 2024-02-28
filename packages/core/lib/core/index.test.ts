@@ -16,7 +16,7 @@ import {
   mergeDeep,
   filterDeep,
   findDeep,
-} from './';
+} from '.';
 
 describe('core', () => {
   describe('classNames(...classes)', () => {
@@ -25,8 +25,8 @@ describe('core', () => {
     });
 
     it('should ignore falsy arguments when compiling arguments', () => {
-      const secondTest = null;
-      const thirdTest = undefined;
+      const secondTest: null = null;
+      const thirdTest: undefined = undefined;
       const fourthTest = false;
       expect(classNames('test', secondTest, thirdTest, fourthTest))
         .toBe('test');
@@ -57,20 +57,20 @@ describe('core', () => {
 
   describe('addClass(element, class)', () => {
     it('should correctly add a class to an element', () => {
-      const elmt = { className: '' };
+      const elmt = { className: '' } as HTMLElement;
       addClass(elmt, 'test');
       expect(elmt.className).toBe('test');
     });
 
     it('should not add the same class twice', () => {
-      const elmt = { className: 'test' };
+      const elmt = { className: 'test' } as HTMLElement;
       addClass(elmt, 'test');
       expect(elmt.className).toBe('test');
     });
 
     it('should correctly add a class to an element alongside other ' +
       'classes', () => {
-      const elmt = { className: 'foo bar' };
+      const elmt = { className: 'foo bar' } as HTMLElement;
       addClass(elmt, 'test');
       expect(elmt.className).toBe('foo bar test');
     });
@@ -79,40 +79,37 @@ describe('core', () => {
   describe('removeClass(element, class)', () => {
     it('should correctly remove an existing class from an element ' +
       '(in between)', () => {
-      const elmt = { className: 'foo bar test' };
+      const elmt = { className: 'foo bar test' } as HTMLElement;
       removeClass(elmt, 'bar');
       expect(elmt.className).toBe('foo test');
     });
 
     it('should correctly remove an existing class from an element ' +
       '(start)', () => {
-      const elmt = { className: 'foo bar test' };
+      const elmt = { className: 'foo bar test' } as HTMLElement;
       removeClass(elmt, 'foo');
       expect(elmt.className).toBe('bar test');
     });
 
     it('should correctly remove an existing class from an element ' +
       '(end)', () => {
-      const elmt = { className: 'foo bar test' };
+      const elmt = { className: 'foo bar test' } as HTMLElement;
       removeClass(elmt, 'test');
       expect(elmt.className).toBe('foo bar');
     });
 
     it('should correctly remove all classes from an element', () => {
-      const elmt = { className: 'foo' };
+      const elmt = { className: 'foo' } as HTMLElement;
       removeClass(elmt, 'foo');
       expect(elmt.className).toBe('');
     });
 
     it('should correctly remove an existing class using classList', () => {
-      const elmt = { classList: {
-        classes: ['foo', 'bar', 'test'],
-        remove: function (cls) {
-          this.classes = this.classes.filter(c => c !== cls);
-        },
-      } };
+      const elmt = document.createElement('div');
+      elmt.className = 'foo bar test';
+
       removeClass(elmt, 'bar');
-      expect(elmt.classList.classes).toMatchObject(['foo', 'test']);
+      expect(elmt.classList.value.split(' ')).toMatchObject(['foo', 'test']);
     });
   });
 
@@ -275,8 +272,9 @@ describe('core', () => {
     it('should allow to set a value even when nested property is not ' +
       'found', () => {
       const foo = { bar: 'test' };
-      set(foo, 'bar.0.stuff', 'thing');
-      expect(foo.bar[0].stuff).toBe('thing');
+      type newType = { bar: Array<{ stuff: string }> };
+      set(foo, 'bar.0.stuff', 'thing') as newType;
+      expect((foo as unknown as newType).bar[0].stuff).toBe('thing');
     });
   });
 
@@ -324,7 +322,11 @@ describe('core', () => {
 
   describe('pick()', () => {
     it('should allow to only get some pairs from an object', () => {
-      const foo = { bar: 'test', thing: 'stuff', skywalker: null };
+      const foo: {
+        bar: string,
+        thing: string,
+        skywalker: null
+      } = { bar: 'test', thing: 'stuff', skywalker: null };
       expect(pick(foo, ['bar', 'skywalker', 'yoda']))
         .toMatchObject({ bar: 'test', skywalker: null });
     });
@@ -362,7 +364,7 @@ describe('core', () => {
     });
 
     it('should not override undefined values with plain objects', () => {
-      const obj = { foo: undefined };
+      const obj: { foo: undefined } = { foo: undefined };
       const newObj = cloneDeep(obj);
       expect(newObj).not.toBe(obj);
       expect(newObj.foo).toBeUndefined();
@@ -384,7 +386,8 @@ describe('core', () => {
 
   describe('fromPairs()', () => {
     it('should allow to make an object from an array', () => {
-      const arr = [['foo', 'bar'], ['stuff', 'thing'], [0, true]];
+      const arr: [string | number, any][] =
+        [['foo', 'bar'], ['stuff', 'thing'], [0, true]];
       const obj = fromPairs(arr);
       expect(obj.foo).toBe('bar');
       expect(obj.stuff).toBe('thing');
@@ -416,18 +419,18 @@ describe('core', () => {
     });
   });
 
-  describe('filterDeep(array, cb, hasDepth', () => {
+  describe('filterDeep(array, cb, hasDepth,multiple)', () => {
     it('should correctly filter things deep inside deep arrays', () => {
       const arr = [0, 1, [2, 3, [4, 5, [6, 7, [8, 9]]]]];
-      expect(filterDeep(arr, v => v % 2 === 0, v => v))
+      expect(filterDeep(arr, v => v % 2 === 0))
         .toMatchObject([0, [2, [4, [6, [8]]]]]);
       const arr2 = [{ options: ['Item 1', 'Item 2', 'Bar'] }, 'Item 3', 'Foo'];
-      expect(filterDeep(arr2, v => /Item/.test(v), v => v.options, true))
+      expect(filterDeep(arr2, v => /Item/.test(v)))
         .toMatchObject([{ options: ['Item 1', 'Item 2'] }, 'Item 3']);
     });
   });
 
-  describe('findDeep(array, cb, hasDepth)', () => {
+  describe('findDeep(array, cb)', () => {
     it('should correctly find an element inside deep arrays', () => {
       const arr = [0, 1, [2, 3, [4, 5, [6, 7, [8, 9]]]]];
       expect(findDeep(arr, v => v === 7)).toBe(7);

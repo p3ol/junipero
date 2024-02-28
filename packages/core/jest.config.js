@@ -7,7 +7,7 @@ module.exports = {
   fakeTimers: {
     enableGlobally: false,
   },
-  testMatch: ['<rootDir>/packages/core/lib/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/core/lib/**/*.test.ts'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],

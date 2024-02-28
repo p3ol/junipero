@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Draggable /> should not trigger anything when disabled: dragging 1`] = `
+<div>
+  <p
+    class=""
+    draggable="false"
+  >
+    hello
+  </p>
+</div>
+`;
+
+exports[`<Draggable /> should render: default 1`] = `
+<div>
+  <p
+    class="draggable"
+    draggable="true"
+  >
+    hello
+  </p>
+</div>
+`;
+
+exports[`<Draggable /> should render: default again 1`] = `
+<div>
+  <p
+    class="draggable"
+    draggable="true"
+  >
+    hello
+  </p>
+</div>
+`;
+
+exports[`<Draggable /> should render: dragged 1`] = `
+<div>
+  <p
+    class="dragged draggable"
+    draggable="true"
+  >
+    hello
+  </p>
+</div>
+`;
+
+exports[`<Draggable /> should render: dragging 1`] = `
+<div>
+  <p
+    class="dragging draggable"
+    draggable="true"
+  >
+    hello
+  </p>
+</div>
+`;

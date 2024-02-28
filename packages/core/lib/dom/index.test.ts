@@ -1,4 +1,4 @@
-import { ensureNode } from './';
+import { ensureNode } from '.';
 
 describe('dom', () => {
   describe('ensureNode(container)', () => {

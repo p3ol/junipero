@@ -10,7 +10,7 @@ module.exports = {
   moduleNameMapper: {
     '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
-    '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.js',
+    '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.ts',
   },
   testMatch: ['<rootDir>/packages/react/lib/**/*.test.tsx'],
   testPathIgnorePatterns: [

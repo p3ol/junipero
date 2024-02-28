@@ -4,6 +4,7 @@
   
   "include": ["./lib/**/*"],
   "compilerOptions": {
-    "declarationDir": "./dist/@types",
+    "types": ["jest"],
+    "declarationDir": "./dist/types",
   }
 }

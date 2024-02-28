@@ -8,7 +8,8 @@ module.exports = {
     enableGlobally: false,
   },
   moduleNameMapper: {
-    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
+    '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
   },
   testMatch: ['<rootDir>/packages/tailwind-plugin/lib/*.test.js'],
   testPathIgnorePatterns: [

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs /> should allow to render tabs from prop: First tab 1`] = `
+<div>
+  <div
+    class="junipero tabs"
+  >
+    <ul
+      class="titles"
+    >
+      <li
+        class="title active"
+      >
+        <a
+          href="#"
+        />
+      </li>
+      <li
+        class="title"
+      >
+        <a
+          href="#"
+        />
+      </li>
+    </ul>
+    <div
+      class="content"
+    >
+      <div
+        class="tab"
+      >
+        One
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Tabs /> should render 1`] = `
+<div>
+  <div
+    class="junipero tabs"
+  >
+    <ul
+      class="titles"
+    >
+      <li
+        class="title active"
+      >
+        <a
+          href="#"
+        />
+      </li>
+    </ul>
+    <div
+      class="content"
+    >
+      <div
+        class="tab"
+      >
+        Content
+      </div>
+    </div>
+  </div>
+</div>
+`;

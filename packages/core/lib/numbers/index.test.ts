@@ -2,7 +2,7 @@ import {
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
-} from './';
+} from '.';
 
 describe('numbers', () => {
   describe('getFloatPrecision(value)', () => {
