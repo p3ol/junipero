@@ -12,6 +12,7 @@
     "types": ["jest"],
     "lib": ["DOM", "ES2022"],
     "noImplicitAny": true,
+    "noEmit": true,
     "paths": {
       "@junipero/core": ["./packages/core/lib/index.ts"],
       "@junipero/hooks": ["./packages/hooks/lib/index.ts"],
