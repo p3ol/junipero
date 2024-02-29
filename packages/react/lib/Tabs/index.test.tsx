@@ -39,7 +39,7 @@ describe('<Tabs />', () => {
     unmount();
   });
 
-  it.only('should allow to render tabs from prop', () => {
+  it('should allow to render tabs from prop', () => {
     const onToggle = jest.fn();
     const { container, getByText, unmount } = render(
       <Tabs

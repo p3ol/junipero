@@ -13,14 +13,18 @@ exports[`<Tabs /> should allow to render tabs from prop: First tab 1`] = `
       >
         <a
           href="#"
-        />
+        >
+          Tab 1
+        </a>
       </li>
       <li
         class="title"
       >
         <a
           href="#"
-        />
+        >
+          Tab 2
+        </a>
       </li>
     </ul>
     <div
@@ -30,6 +34,86 @@ exports[`<Tabs /> should allow to render tabs from prop: First tab 1`] = `
         class="tab"
       >
         One
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Tabs /> should allow to render tabs from prop: Second tab 1`] = `
+<div>
+  <div
+    class="junipero tabs"
+  >
+    <ul
+      class="titles"
+    >
+      <li
+        class="title"
+      >
+        <a
+          href="#"
+        >
+          Tab 1
+        </a>
+      </li>
+      <li
+        class="title active"
+      >
+        <a
+          href="#"
+        >
+          Tab 2
+        </a>
+      </li>
+    </ul>
+    <div
+      class="content"
+    >
+      <div
+        class="tab"
+      >
+        Two
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Tabs /> should fire onToggle event when changing tab 1`] = `
+<div>
+  <div
+    class="junipero tabs"
+  >
+    <ul
+      class="titles"
+    >
+      <li
+        class="title"
+      >
+        <a
+          href="#"
+        >
+          Tab 1
+        </a>
+      </li>
+      <li
+        class="title active"
+      >
+        <a
+          href="#"
+        >
+          Tab 2
+        </a>
+      </li>
+    </ul>
+    <div
+      class="content"
+    >
+      <div
+        class="tab"
+      >
+        Two
       </div>
     </div>
   </div>
@@ -49,7 +133,9 @@ exports[`<Tabs /> should render 1`] = `
       >
         <a
           href="#"
-        />
+        >
+          Tab 1
+        </a>
       </li>
     </ul>
     <div
@@ -59,6 +145,46 @@ exports[`<Tabs /> should render 1`] = `
         class="tab"
       >
         Content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Tabs /> shouldn't change active tab if tab is disabled 1`] = `
+<div>
+  <div
+    class="junipero tabs"
+  >
+    <ul
+      class="titles"
+    >
+      <li
+        class="title active"
+      >
+        <a
+          href="#"
+        >
+          Tab 1
+        </a>
+      </li>
+      <li
+        class="title disabled"
+      >
+        <a
+          href="#"
+        >
+          Tab 2
+        </a>
+      </li>
+    </ul>
+    <div
+      class="content"
+    >
+      <div
+        class="tab"
+      >
+        One
       </div>
     </div>
   </div>
