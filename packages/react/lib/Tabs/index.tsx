@@ -98,7 +98,9 @@ const Tabs = forwardRef(({
               }
             )}
           >
-            <a href="#" onClick={onClick_.bind(null, tab, index)} />
+            <a href="#" onClick={onClick_.bind(null, tab, index)}>
+              { tab.props.title }
+            </a>
           </li>
         ))}
       </ul>
