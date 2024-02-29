@@ -12,6 +12,8 @@
     "types": ["jest"],
     "lib": ["DOM", "ES2022"],
     "noImplicitAny": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
       "@junipero/core": ["./packages/core/lib/index.ts"],
