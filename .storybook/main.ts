@@ -2,8 +2,6 @@ import type { StorybookConfig } from "@storybook/react-webpack5";
 const path = require('path')
 const config: StorybookConfig = {
   stories: [
-    '../packages/react/lib/**/*.stories.{js,tsx}',
-    '../packages/theme/lib/**/*.stories.{js, tsx}',
     '../packages/**/lib/**/*.stories.{js,tsx}'
   ],
 
