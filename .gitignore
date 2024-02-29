@@ -64,3 +64,12 @@ dist
 .DS_Store
 storybook-static
 stories
+
+# Yarn >= 3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
