@@ -29,7 +29,7 @@ export declare interface CurveProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<CurveRef | undefined>;
   serie?: Array<number | Date>;
   type?: 'line' | 'area';
-  curveFactory?: d3.CurveFactory;
+  curve?: d3.CurveFactory;
   xAxisIndex: number;
   yAxisIndex: number;
   lineCapShift?: number;
@@ -38,7 +38,7 @@ const Curve = forwardRef(({
   serie,
   className,
   type = 'line',
-  curveFactory = d3.curveMonotoneX,
+  curve = d3.curveMonotoneX,
   xAxisIndex,
   yAxisIndex,
   lineCapShift = 10,
@@ -76,7 +76,7 @@ const Curve = forwardRef(({
 
   useEffect(() => {
     if (!xAxis?.range || !xAxis?.findSelectionIndex || !cursor) {
-      setSelected(undefined);
+      setSelected(null);
 
       return;
     }
@@ -107,7 +107,7 @@ const Curve = forwardRef(({
     const isMonoData = yData.length === 1;
     const compute = d3
       .line()
-      .curve(curveFactory).x((d, i) => isMonoData
+      .curve(curve).x((d, i) => isMonoData
         ? Math
           .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
         : xAxis.range(d[0]) - paddingLeft - lineCapShift
@@ -142,7 +142,7 @@ const Curve = forwardRef(({
         );
       const compute2 = d3
         .area()
-        .curve(curveFactory)
+        .curve(curve)
         .x((d, i) => isMonoData
           ? Math
             .min(width - paddingRight - paddingLeft, i * width) - lineCapShift

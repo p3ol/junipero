@@ -14,10 +14,11 @@ import {
   classNames,
   mockState,
   useEventListener,
+  endOfDay,
+  startOfDay,
 } from '@junipero/react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3';
-import { endOfDay, startOfDay } from '@junipero/core';
 
 import { ChartContext } from '../contexts';
 import Axis, { AxisObject } from '../Axis';

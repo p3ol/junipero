@@ -28,7 +28,7 @@ module.exports = {
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
     '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.ts',
   },
-  testMatch: ['<rootDir>/packages/react-d3-plugin/lib/**/*.test.js'],
+  testMatch: ['<rootDir>/packages/react-d3-plugin/lib/**/*.test.tsx'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],

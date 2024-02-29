@@ -118,10 +118,10 @@ const Axis = forwardRef(({
 
     if (axis.grid) {
       d3
-        .select(ticksRef.current)
+        .select(gridRef.current)
         .call(axis.type(axis.range)
           .ticks(axis.ticks ?? 5)
-          .tickSize(axis.tickSize ?? 5)
+          .tickSize(-(width - paddingLeft - paddingRight))
           .tickFormat((d: Date | number) => '') as any,
         )
         .call(g => g.select('.domain').remove());
