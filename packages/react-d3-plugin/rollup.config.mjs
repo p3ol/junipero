@@ -11,7 +11,7 @@ import alias from '@rollup/plugin-alias';
 
 const input = './lib/index.ts';
 const output = './dist';
-const name = 'junipero-react-d3-plugins';
+const name = 'junipero-react-d3-plugin';
 const formats = ['umd', 'cjs', 'esm'];
 
 const defaultExternals = [
