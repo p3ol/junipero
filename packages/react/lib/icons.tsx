@@ -1,5 +1,5 @@
+import { ComponentPropsWithoutRef } from 'react';
 import { classNames } from '@junipero/core';
-import { ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
 
 export declare interface IconProps extends ComponentPropsWithoutRef<'svg'> {
   className?: string
@@ -19,6 +19,7 @@ export const Arrows = ({ className, ...rest }: IconProps): JSX.Element => (
 );
 
 export const Remove = ({ className, ...rest }: IconProps): JSX.Element => {
+
   return (
     <svg
       { ...rest }
