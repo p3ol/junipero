@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove, Time } from '../icons';
-import Dropdown from '../Dropdown';
+import Dropdown, { DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import Calendar from '../Calendar';
@@ -120,7 +120,7 @@ const DateField = forwardRef(({
   onValidate = (val, { required }) => !!val || !required,
   ...rest
 }: DateFieldProps, ref) => {
-  const dropdownRef = useRef<any>();
+  const dropdownRef = useRef<DropdownRef>();
   const timeInputRef = useRef<any>();
   const inputRef = useRef<any>();
   const { update: updateControl } = useFieldControl();

@@ -5,7 +5,6 @@ import {
   useState,
   DragEvent,
   ComponentPropsWithRef,
-  ReactNode,
 } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
@@ -26,19 +25,22 @@ export declare interface DraggableProps extends ComponentPropsWithRef<any> {
   onDragEnd?(e: DragEvent): void;
 }
 
-const Draggable = forwardRef(({
-  className,
-  children,
-  dragImage,
-  disabled = false,
-  data = {},
-  dragImageOffset = { x: 0, y: 0 },
-  onDrag,
-  onBeforeDragStart,
-  onDragStart,
-  onDragEnd,
-  ...rest
-}: DraggableProps, ref) => {
+const Draggable = forwardRef((props: DraggableProps, ref) => {
+
+  // the Proptypes eslint error force me to destructuring the props here
+  const {
+    className,
+    children,
+    dragImage,
+    disabled = false,
+    data = {},
+    dragImageOffset = { x: 0, y: 0 },
+    onDrag,
+    onBeforeDragStart,
+    onDragStart,
+    onDragEnd,
+    ...rest
+  } = props;
   const [dragged, setDragged] = useState(false);
   const [dragAnimation, setDragAnimation] = useState(false);
 
@@ -110,7 +112,7 @@ const Draggable = forwardRef(({
     onDrag: onDrag_,
     onDragEnd: onDragEnd_,
   });
-}); // TODO fix the forwardedProps problem
+}) as ForwardedProps<DraggableProps, any>;
 
 Draggable.displayName = 'Draggable';
 Draggable.propTypes = {
