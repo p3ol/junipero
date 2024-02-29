@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "include": ["./lib/**/*"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "declarationDir": "./dist/@types",
     "types": ["jest"],

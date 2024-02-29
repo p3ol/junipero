@@ -12,21 +12,22 @@ import typescript from '@rollup/plugin-typescript';
 const formats = ['umd', 'cjs', 'esm'];
 const output = './dist';
 const name = 'junipero-transitions';
+
 const defaultExternals = [
-  'react', 'react-dom',
+  'react', 'react-dom', '@junipero/react',
 ];
+
 const defaultGlobals = {
   react: 'React',
   'react-dom': 'ReactDOM',
+  '@junipero/react': 'JuniperoReact',
 };
 
 const defaultPlugins = [
+  commonjs({ include: /node_modules/ }),
   resolve({
-    browser: true,
-    preferBuiltins: true,
     extensions: ['.js', '.ts', '.tsx', '.json', '.node'],
   }),
-  commonjs({ include: /node_modules/ }),
   terser(),
 ];
 
@@ -42,13 +43,19 @@ export default [
       swc({
         swc: {
           jsc: {
+            transform: {
+              react: {
+                runtime: 'automatic',
+              },
+            },
             parser: {
+              syntax: 'typescript',
+              jsx: true,
               tsx: true,
             },
           },
         },
       }),
-
       ...defaultPlugins,
     ],
     external: defaultExternals,

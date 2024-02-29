@@ -14,12 +14,11 @@ const name = 'junipero-core';
 const formats = ['umd', 'cjs', 'esm'];
 
 const defaultPlugins = [
+  commonjs({ include: /node_modules/ }),
   resolve({
-    browser: true,
-    preferBuiltins: true,
+    rootDir: path.resolve('../../'),
     extensions: ['.js', '.ts', '.json', '.node'],
   }),
-  commonjs(),
   terser(),
 ];
 
@@ -30,7 +29,17 @@ export default [
   ...formats.map(f => ({
     input,
     plugins: [
-      swc(),
+      swc({
+        swc: {
+          jsc: {
+            parser: {
+              syntax: 'typescript',
+              jsx: true,
+              tsx: true,
+            },
+          },
+        },
+      }),
       ...defaultPlugins,
     ],
     external: defaultExternals,
@@ -82,14 +91,10 @@ export default [
   }, {
     input: './dist/types/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
-    external: [
-      ...defaultExternals,
-      'query-string',
-    ],
+    external: defaultExternals,
     plugins: [
       resolve({
-        browser: true,
-        preferBuiltins: true,
+        rootDir: path.resolve('../../'),
         extensions: ['.js', '.ts', '.json', '.node'],
       }),
       dts({ respectExternal: true }),

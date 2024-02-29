@@ -13,16 +13,18 @@ const output = './dist';
 const name = 'junipero-hooks';
 const formats = ['umd', 'cjs', 'esm'];
 
-const defaultExternals = ['react'];
+const defaultExternals = [
+  'react', 'react-dom',
+];
 const defaultGlobals = {
   react: 'React',
+  'react-dom': 'ReactDOM',
 };
 
 const defaultPlugins = [
   commonjs(),
   resolve({
-    browser: true,
-    preferBuiltins: true,
+    rootDir: path.resolve('../../'),
     extensions: ['.js', '.ts', '.json', '.node'],
   }),
   terser(),
@@ -32,7 +34,22 @@ export default [
   ...formats.map(f => ({
     input,
     plugins: [
-      swc(),
+      swc({
+        swc: {
+          jsc: {
+            transform: {
+              react: {
+                runtime: 'automatic',
+              },
+            },
+            parser: {
+              syntax: 'typescript',
+              jsx: true,
+              tsx: true,
+            },
+          },
+        },
+      }),
       ...defaultPlugins,
     ],
     output: {
@@ -44,13 +61,8 @@ export default [
         file: `${output}/${name}.${f}.js`,
       },
       ...f === 'esm' ? {
-        manualChunks: id => {
-          if (/packages\/hooks\/lib\/(\w+)\/index.ts/.test(id)) {
-            return path.parse(id).dir.split('/').pop();
-          } else {
-            return id.includes('node_modules') ? 'vendor' : path.parse(id).name;
-          }
-        },
+        manualChunks: id =>
+          id.includes('node_modules') ? 'vendor' : path.parse(id).name,
       } : {},
       name,
       sourcemap: true,

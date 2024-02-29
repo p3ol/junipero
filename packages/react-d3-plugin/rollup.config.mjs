@@ -15,49 +15,54 @@ const name = 'junipero-react-d3-plugin';
 const formats = ['umd', 'cjs', 'esm'];
 
 const defaultExternals = [
-  'react', 'react-dom',
+  'react', 'react-dom', '@junipero/react',
 ];
 const defaultGlobals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  d3: 'd3',
+  '@junipero/react': 'JuniperoReact',
 };
 
 const defaultPlugins = [
+  commonjs({ include: /node_modules/ }),
+  alias({
+    entries: {
+      '@junipero/react': path.resolve('../react'),
+    },
+  }),
   resolve({
-    browser: true,
-    preferBuiltins: true,
+    rootDir: path.resolve('../../'),
     extensions: ['.js', '.ts', '.tsx', '.json', '.node'],
   }),
-  commonjs(),
   terser(),
 ];
 
 export default [
-
   ...formats.map(f => ({
     input,
     plugins: [
-      alias({
-        entries: {
-          '@junipero/core': path.resolve('../core/lib/index.ts'),
-          '@junipero/react': path.resolve('../react/lib/index.ts'),
-          '@junipero/hooks': path.resolve('../hooks/lib/index.ts'),
-        },
-      }),
       swc({
         swc: {
           jsc: {
+            transform: {
+              react: {
+                runtime: 'automatic',
+              },
+            },
             parser: {
+              syntax: 'typescript',
+              jsx: true,
               tsx: true,
             },
           },
         },
       }),
-
       ...defaultPlugins,
     ],
-    external: defaultExternals,
+    external: [
+      ...defaultExternals,
+      'd3',
+    ],
     output: {
       ...(f === 'esm' ? {
         dir: `${output}/esm`,
@@ -68,7 +73,10 @@ export default [
       format: f,
       name,
       sourcemap: true,
-      globals: defaultGlobals,
+      globals: {
+        ...defaultGlobals,
+        d3: 'd3',
+      },
       ...(f === 'esm' ? {
         manualChunks: id => {
           if (/packages\/react-d3-plugin\/lib\/(\w+)\/index.ts/.test(id)) {
@@ -93,9 +101,7 @@ export default [
     output: [{ file: `./dist/${name}.d.ts`, format: 'es' }],
     external: [
       ...defaultExternals,
-      '@junipero/core',
-      '@junipero/hooks',
-      '@junipero/react',
+      'd3',
     ],
     plugins: [
       typescript({
@@ -125,16 +131,9 @@ export default [
   {
     input: './dist/types/react-d3-plugin/lib/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
-    external: [
-      ...defaultExternals,
-      '@junipero/core',
-      '@junipero/hooks',
-      '@junipero/react',
-    ],
-
+    external: defaultExternals, // add d3 this if we want it out of the dts file
     plugins: [
-
-      dts({ respectExternal: true, compilerOptions: { } }),
+      dts({ respectExternal: true }),
       {
         writeBundle () {
           fs.rmSync('./dist/types', { recursive: true, force: true });

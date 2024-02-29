@@ -17,42 +17,47 @@ const formats = ['umd', 'cjs', 'esm'];
 const defaultExternals = [
   'react', 'react-dom',
 ];
+
 const defaultGlobals = {
   react: 'React',
   'react-dom': 'ReactDOM',
 };
 
 const defaultPlugins = [
+  commonjs({ include: /node_modules/ }),
+  alias({
+    entries: {
+      '@junipero/core': path.resolve('../core'),
+      '@junipero/hooks': path.resolve('../hooks'),
+    },
+  }),
   resolve({
-    browser: true,
-    preferBuiltins: true,
+    rootDir: path.resolve('../../'),
     extensions: ['.js', '.ts', '.tsx', '.json', '.node'],
   }),
-  commonjs(),
   terser(),
 ];
 
 export default [
-
   ...formats.map(f => ({
     input,
     plugins: [
-      alias({
-        entries: {
-          '@junipero/core': path.resolve('../core/lib/index.ts'),
-          '@junipero/hooks': path.resolve('../hooks/lib/index.ts'),
-        },
-      }),
       swc({
         swc: {
           jsc: {
+            transform: {
+              react: {
+                runtime: 'automatic',
+              },
+            },
             parser: {
+              syntax: 'typescript',
+              jsx: true,
               tsx: true,
             },
           },
         },
       }),
-
       ...defaultPlugins,
     ],
     external: defaultExternals,
@@ -69,7 +74,7 @@ export default [
       globals: defaultGlobals,
       ...(f === 'esm' ? {
         manualChunks: id => {
-          if (/packages\/react\/lib\/(\w+)\/index.ts/.test(id)) {
+          if (/packages\/react\/lib\/(\w+)\/index.[tj]s/.test(id)) {
             return path.parse(id).dir.split('/').pop();
           } else if (/packages\/core/.test(id)) {
             return 'core';
@@ -120,12 +125,10 @@ export default [
       '@junipero/core',
       '@junipero/hooks',
     ],
-
     plugins: [
       resolve({
-        browser: true,
-        preferBuiltins: true,
-        extensions: ['.js', '.ts', '.json', '.node'],
+        rootDir: path.resolve('../../'),
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.node'],
       }),
       dts({ respectExternal: true }),
       {
