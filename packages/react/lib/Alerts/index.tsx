@@ -19,7 +19,12 @@ export declare type AlertsRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare type AlertsTypes =  'danger' | 'default' | 'primary'|  'success' | 'warning';
+declare type AlertsTypes =
+  'danger' |
+  'default' |
+  'primary'|
+  'success' |
+  'warning';
 
 export declare interface AlertsProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
@@ -71,7 +76,9 @@ const Alerts = forwardRef(({
           index={alert.id ?? index}
           animate={alert.animate ?? animateAlert}
           animationTimeout={alert.animationTimeout ?? animationTimeout}
-          icon={alert.icon ?? icons?.[alert.type as AlertsTypes] ?? icons?.default}
+          icon={
+            alert.icon ?? icons?.[alert.type as AlertsTypes] ?? icons?.default
+          }
           lifespan={alert.duration ?? alert.lifespan}
           onDismiss={onDismiss.bind(null, alert)}
           className={alert.type}

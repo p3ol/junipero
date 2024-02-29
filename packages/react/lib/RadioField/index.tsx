@@ -100,7 +100,9 @@ const RadioField = forwardRef(({
     valid: state.valid,
   }));
 
-  const isChecked = (option: any) => parseValue(option) === parseValue(state.value);
+  const isChecked = (
+    option: any
+  ) => parseValue(option) === parseValue(state.value);
 
   const onChange_ = (option: any) => {
     if (disabled || option.disabled) {

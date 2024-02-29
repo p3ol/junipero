@@ -12,6 +12,7 @@ import { classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { ForwardedProps } from '../utils';
+
 export declare type DraggingPositionType = 'before' | 'after';
 export declare interface DroppableProps extends ComponentPropsWithRef<any> {
   className?: string;
@@ -22,18 +23,19 @@ export declare interface DroppableProps extends ComponentPropsWithRef<any> {
   onDragLeave?(e: DragEvent): void;
 }
 
-const Droppable = forwardRef(({
-  className,
-  children,
-  disabled = false,
-  onDrop,
-  onDragOver,
-  onDragLeave,
-  ...rest
-}: DroppableProps, ref) => {
+const Droppable = forwardRef((props: DroppableProps, ref) => {
   const [dragging, setDragging] = useState(false);
   const [stack, setStack] = useState(0);
   const [draggingPos, setDraggingPos] = useState(null);
+  const {
+    className,
+    children,
+    disabled = false,
+    onDrop,
+    onDragOver,
+    onDragLeave,
+    ...rest
+  } = props;
 
   useEffect(() => {
     if (stack <= 0) {
@@ -115,7 +117,7 @@ const Droppable = forwardRef(({
     onDrop: onDrop_,
     onDragOver: onDragOver_,
   });
-}); // TODO find a way to put ForwardedProps back
+}) as ForwardedProps<DroppableProps, any>;
 
 Droppable.displayName = 'Droppable';
 Droppable.propTypes = {

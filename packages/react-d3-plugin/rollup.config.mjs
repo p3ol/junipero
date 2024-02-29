@@ -125,7 +125,12 @@ export default [
   {
     input: './dist/types/react-d3-plugin/lib/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
-    external: [...defaultExternals, '@junipero/core', '@junipero/hooks', '@junipero/react'],
+    external: [
+      ...defaultExternals,
+      '@junipero/core',
+      '@junipero/hooks',
+      '@junipero/react',
+    ],
 
     plugins: [
 

@@ -17,7 +17,12 @@ import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
 import { MockState } from '../utils';
-export declare type TextFieldChangeEvent = { value: string | number; valid: boolean; dirty: boolean }
+
+export declare type TextFieldChangeEvent = {
+  value: string | number;
+  valid: boolean;
+  dirty: boolean
+}
 export declare type TextFieldRef = {
   dirty: boolean;
   focused: boolean;
@@ -127,7 +132,9 @@ const TextField = forwardRef(({
     return !isNaN(parsedValue) ? parsedValue : value_;
   };
 
-  const onChange_ = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+  const onChange_ = (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     /* html input disabled attribute will prevent onChange if present anyway */
     /* istanbul ignore next: just in case */
     if (disabled) {
