@@ -7,9 +7,24 @@ module.exports = {
   fakeTimers: {
     enableGlobally: false,
   },
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
   moduleNameMapper: {
-    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
-    '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.js',
+    '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
+    '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.ts',
   },
   testMatch: ['<rootDir>/packages/transitions/lib/*.test.js'],
   testPathIgnorePatterns: [

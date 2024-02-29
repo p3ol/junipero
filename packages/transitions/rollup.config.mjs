@@ -1,47 +1,61 @@
 import path from 'path';
+import fs from 'node:fs';
 
-import babel from '@rollup/plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
+import alias from '@rollup/plugin-alias';
+import swc from '@rollup/plugin-swc';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
-import alias from '@rollup/plugin-alias';
-import dts from 'rollup-plugin-dts';
+import resolve from '@rollup/plugin-node-resolve';
+import { dts } from 'rollup-plugin-dts';
+import typescript from '@rollup/plugin-typescript';
 
-const input = './lib/index.js';
+const formats = ['umd', 'cjs', 'esm'];
 const output = './dist';
 const name = 'junipero-transitions';
-const formats = ['umd', 'cjs', 'esm'];
 
 const defaultExternals = [
-  'react',
-  '@junipero/react',
+  'react', 'react-dom', '@junipero/react',
 ];
+
 const defaultGlobals = {
   react: 'React',
+  'react-dom': 'ReactDOM',
   '@junipero/react': 'JuniperoReact',
 };
 
 const defaultPlugins = [
   commonjs({ include: /node_modules/ }),
-  babel({
-    exclude: /node_modules/,
-    babelHelpers: 'runtime',
+  resolve({
+    extensions: ['.js', '.ts', '.tsx', '.json', '.node'],
   }),
-  alias({
-    entries: {
-      '@junipero/react': path.resolve('../react/lib'),
-      '@junipero/hooks': path.resolve('../hooks/lib'),
-      '@junipero/core': path.resolve('../core/lib'),
-    },
-  }),
-  resolve(),
   terser(),
 ];
 
 export default [
   ...formats.map(f => ({
-    input,
+    input: './lib/index.tsx',
     plugins: [
+      alias({
+        entries: {
+          '@junipero/react': path.resolve('../react/lib/index.ts'),
+        },
+      }),
+      swc({
+        swc: {
+          jsc: {
+            transform: {
+              react: {
+                runtime: 'automatic',
+              },
+            },
+            parser: {
+              syntax: 'typescript',
+              jsx: true,
+              tsx: true,
+            },
+          },
+        },
+      }),
       ...defaultPlugins,
     ],
     external: defaultExternals,
@@ -61,9 +75,49 @@ export default [
           id.includes('node_modules') ? 'vendor' : path.parse(id).name,
       } : {}),
     },
-  })), {
-    input: './lib/index.d.ts',
+  })),
+  {
+    input: './lib/index.tsx',
+    output: [{ file: `./dist/${name}.d.ts`, format: 'es' }],
+    external: [...defaultExternals, '@junipero/react'],
+    plugins: [
+      typescript({
+        emitDeclarationOnly: true,
+        declarationDir: './types',
+        tsconfig: path.resolve('./tsconfig.json'),
+        jsx: 'react-jsx',
+        include: ['lib/**/*.ts', 'lib/**/*.tsx'],
+        exclude: [
+          '**/*.stories.tsx',
+          '**/*.test.ts',
+          '**/tests/**/*',
+          'node_modules/**/*',
+        ],
+      }),
+      ...defaultPlugins,
+      {
+        writeBundle () {
+          fs.unlinkSync(`./dist/${name}.d.ts`);
+        },
+      },
+    ],
+  },
+  {
+    input: './dist/types/transitions/lib/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
-    plugins: [dts()],
+    external: [
+      ...defaultExternals,
+      '@junipero/core',
+      '@junipero/hooks',
+      '@junipero/react',
+    ],
+    plugins: [
+      dts({ respectExternal: true }),
+      {
+        writeBundle () {
+          fs.rmSync('./dist/types', { recursive: true, force: true });
+        },
+      },
+    ],
   },
 ];

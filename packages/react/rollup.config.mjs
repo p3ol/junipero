@@ -1,13 +1,15 @@
 import path from 'path';
+import fs from 'node:fs';
 
-import babel from '@rollup/plugin-babel';
+import swc from '@rollup/plugin-swc';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
+import typescript from '@rollup/plugin-typescript';
+import { dts } from 'rollup-plugin-dts';
 import alias from '@rollup/plugin-alias';
-import dts from 'rollup-plugin-dts';
 
-const input = './lib/index.js';
+const input = './lib/index.ts';
 const output = './dist';
 const name = 'junipero-react';
 const formats = ['umd', 'cjs', 'esm'];
@@ -15,6 +17,7 @@ const formats = ['umd', 'cjs', 'esm'];
 const defaultExternals = [
   'react', 'react-dom',
 ];
+
 const defaultGlobals = {
   react: 'React',
   'react-dom': 'ReactDOM',
@@ -22,18 +25,15 @@ const defaultGlobals = {
 
 const defaultPlugins = [
   commonjs({ include: /node_modules/ }),
-  babel({
-    exclude: /node_modules/,
-    babelHelpers: 'runtime',
-  }),
   alias({
     entries: {
-      '@junipero/core': path.resolve('../core/lib'),
-      '@junipero/hooks': path.resolve('../hooks/lib'),
+      '@junipero/core': path.resolve('../core'),
+      '@junipero/hooks': path.resolve('../hooks'),
     },
   }),
   resolve({
     rootDir: path.resolve('../../'),
+    extensions: ['.js', '.ts', '.tsx', '.json', '.node'],
   }),
   terser(),
 ];
@@ -42,6 +42,22 @@ export default [
   ...formats.map(f => ({
     input,
     plugins: [
+      swc({
+        swc: {
+          jsc: {
+            transform: {
+              react: {
+                runtime: 'automatic',
+              },
+            },
+            parser: {
+              syntax: 'typescript',
+              jsx: true,
+              tsx: true,
+            },
+          },
+        },
+      }),
       ...defaultPlugins,
     ],
     external: defaultExternals,
@@ -53,12 +69,12 @@ export default [
         file: `${output}/${name}.${f}.js`,
       }),
       format: f,
-      name: 'JuniperoReact',
+      name,
       sourcemap: true,
       globals: defaultGlobals,
       ...(f === 'esm' ? {
         manualChunks: id => {
-          if (/packages\/react\/lib\/(\w+)\/index.js/.test(id)) {
+          if (/packages\/react\/lib\/(\w+)\/index.[tj]s/.test(id)) {
             return path.parse(id).dir.split('/').pop();
           } else if (/packages\/core/.test(id)) {
             return 'core';
@@ -72,9 +88,54 @@ export default [
         },
       } : {}),
     },
-  })), {
-    input: './lib/index.d.ts',
+  })),
+  {
+    input: './lib/index.ts',
+    output: [{ file: `./dist/${name}.d.ts`, format: 'es' }],
+    plugins: [
+      typescript({
+        emitDeclarationOnly: true,
+        declaration: true,
+        declarationDir: './types',
+        tsconfig: path.resolve('./tsconfig.json'),
+        outputToFilesystem: true,
+        incremental: false,
+        jsx: 'react-jsx',
+        include: ['lib/**/*.ts', 'lib/**/*.tsx'],
+        exclude: [
+          '**/*.stories.tsx',
+          '**/*.test.ts',
+          '**/tests/**/*',
+          'node_modules/**/*',
+        ],
+      }),
+      ...defaultPlugins,
+      {
+        writeBundle () {
+          fs.unlinkSync(`./dist/${name}.d.ts`);
+        },
+      },
+    ],
+  },
+  {
+    input: './dist/types/react/lib/index.d.ts',
     output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
-    plugins: [dts()],
+    external: [
+      ...defaultExternals,
+      '@junipero/core',
+      '@junipero/hooks',
+    ],
+    plugins: [
+      resolve({
+        rootDir: path.resolve('../../'),
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.node'],
+      }),
+      dts({ respectExternal: true }),
+      {
+        writeBundle () {
+          fs.rmSync('./dist/types', { recursive: true, force: true });
+        },
+      },
+    ],
   },
 ];

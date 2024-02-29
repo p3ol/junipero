@@ -9,11 +9,26 @@ module.exports = {
   fakeTimers: {
     enableGlobally: false,
   },
-  moduleNameMapper: {
-    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
-    '^~tests?-utils$': '<rootDir>/packages/react-d3-plugin/tests/utils.js',
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
   },
-  testMatch: ['<rootDir>/packages/react-d3-plugin/lib/**/*.test.js'],
+  moduleNameMapper: {
+    '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
+    '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.ts',
+  },
+  testMatch: ['<rootDir>/packages/react-d3-plugin/lib/**/*.test.tsx'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],

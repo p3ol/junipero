@@ -1,15 +1,19 @@
 module.exports = {
   extends: ['@poool/eslint-config-react'],
+  parser: '@typescript-eslint/parser',
   overrides: [
     {
-      files: ['packages/**/*.test.js'],
+      files: [
+        'packages/**/*.test.js',
+        'packages/**/*.test.tsx',
+        'packages/**/*.test.ts',
+      ],
       env: {
         jest: true,
       },
     },
     {
       files: ['packages/**/*.{ts,tsx}'],
-      parser: '@typescript-eslint/parser',
       globals: {
         JSX: 'readonly',
         React: 'readonly',
