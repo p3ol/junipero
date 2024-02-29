@@ -24,6 +24,7 @@ import {
   UseDismissProps,
   UseHoverProps,
   Placement,
+  OpenChangeReason,
 } from '@floating-ui/react';
 import PropTypes from 'prop-types';
 
@@ -122,7 +123,7 @@ const Dropdown = forwardRef(({
     innerRef,
   }));
 
-  const onOpenChange = (o: boolean, _: Event) => {
+  const onOpenChange = (o: boolean, _: Event, __: OpenChangeReason) => {
     if (disabled && o) {
       return;
     }

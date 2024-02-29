@@ -28,6 +28,7 @@ import {
   UseHoverProps,
   Placement,
   UseFloatingOptions,
+  OpenChangeReason,
 } from '@floating-ui/react';
 import PropTypes from 'prop-types';
 
@@ -146,7 +147,7 @@ const Tooltip = forwardRef(({
     isJunipero: true,
   }));
 
-  const onOpenChange = (o: boolean, _: Event) => {
+  const onOpenChange = (o: boolean, _: Event, __: OpenChangeReason) => {
     if (disabled && o) {
       return;
     }
