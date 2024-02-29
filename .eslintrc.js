@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['@poool/eslint-config-react'],
-
+  parser: '@typescript-eslint/parser',
   overrides: [
     {
       files: [
@@ -14,7 +14,6 @@ module.exports = {
     },
     {
       files: ['packages/**/*.{ts,tsx}'],
-      parser: '@typescript-eslint/parser',
       globals: {
         JSX: 'readonly',
         React: 'readonly',
