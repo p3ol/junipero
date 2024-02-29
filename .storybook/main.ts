@@ -1,5 +1,9 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
-const path = require('path')
+import path from 'node:path';
+
+import postcss from 'postcss';
+import sass from 'sass';
+
 const config: StorybookConfig = {
   stories: [
     '../packages/**/lib/**/*.stories.{js,tsx}'
@@ -9,34 +13,20 @@ const config: StorybookConfig = {
     '@storybook/addon-storysource',
     '@storybook/addon-actions',
     {
-      name: 'storybook-addon-swc',
-      options: {
-        swcLoaderOptions: {
-          jsc: {
-            parser: {
-              syntax: 'typescript',
-              tsx: true,
-            },
-          },
-        },
-      },
-    },
-    {
       name: '@storybook/addon-styling',
       options: {
         postCss: {
-          implementation: require('postcss'),
+          implementation: postcss,
         },
         sass: {
-          implementation: require('sass'),
+          implementation: sass,
         },
       },
     },
   ],
   framework: {
     name: '@storybook/react-webpack5',
-    options: {}
-    
+    options: {},
   },
   webpackFinal: (config) => {
     config.resolve = config.resolve || {};
@@ -50,4 +40,5 @@ const config: StorybookConfig = {
     return config;
   },
 };
-export default config
+
+export default config;

@@ -12,8 +12,7 @@
   "license": "MIT",
   "sideEffects": false,
   "engines": {
-    "node": ">= 14",
-    "npm": ">= 6"
+    "node": ">= 14"
   },
   "peerDependencies": {
     "@junipero/core": "^3.0.0",
