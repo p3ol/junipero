@@ -7,6 +7,20 @@ module.exports = {
   fakeTimers: {
     enableGlobally: false,
   },
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
   moduleNameMapper: {
     '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',

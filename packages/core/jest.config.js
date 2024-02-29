@@ -7,6 +7,20 @@ module.exports = {
   fakeTimers: {
     enableGlobally: false,
   },
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
   testMatch: ['<rootDir>/packages/core/lib/**/*.test.ts'],
   testPathIgnorePatterns: [
     '/node_modules/',
