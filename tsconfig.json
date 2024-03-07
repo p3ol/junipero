@@ -17,6 +17,11 @@
     // go to js file when using IDE functions like
     // "Go to Definition" in VSCode
     "declarationMap": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@junipero/core": ["./packages/core/lib"],
+      "@junipero/react": ["./packages/react/lib"],
+      "@junipero/hooks": ["./packages/hooks/lib"],
+    }
   }
 }
