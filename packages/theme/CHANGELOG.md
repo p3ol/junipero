@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
+
+**Note:** Version bump only for package @junipero/theme
+
+
+
+
+
+## [3.4.9](https://github.com/p3ol/junipero/compare/v3.4.8...v3.4.9) (2024-02-02)
+
+
+### Bug Fixes
+
+* **theme:** correctly handle date fields inside field groups ([82f489f](https://github.com/p3ol/junipero/commit/82f489fdfa77d42bcf7b1906a8e931ebfc4e04d5))
+
+
+
+
+
 # [3.4.0](https://github.com/p3ol/junipero/compare/v3.3.9...v3.4.0) (2023-10-27)
 
 

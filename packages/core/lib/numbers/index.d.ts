@@ -7,6 +7,6 @@ export function ensureMinMax(
 ): number;
 
 export function formatThousand(
-  count: number,
+  count: number | string,
   separator?: string
 ): string;

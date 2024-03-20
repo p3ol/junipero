@@ -3,6 +3,96 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
+
+
+### Bug Fixes
+
+* **core:** fix wrong colors type declaration ([f3f6200](https://github.com/p3ol/junipero/commit/f3f620084c35710f5b23abbff4754795c2f0ea15))
+* **deps:** update dependency @floating-ui/react to v0.26.9 ([c802d3c](https://github.com/p3ol/junipero/commit/c802d3c15823952826623eba79ada1158670d1d0))
+
+
+
+
+
+## [3.4.10](https://github.com/p3ol/junipero/compare/v3.4.9...v3.4.10) (2024-02-07)
+
+
+### Bug Fixes
+
+* **react:** missing date field time value ([0384d9a](https://github.com/p3ol/junipero/commit/0384d9a74aaf848b250fcd5ca5b386635b2c9bfa))
+
+
+
+
+
+## [3.4.9](https://github.com/p3ol/junipero/compare/v3.4.8...v3.4.9) (2024-02-02)
+
+
+### Bug Fixes
+
+* **theme:** correctly handle date fields inside field groups ([82f489f](https://github.com/p3ol/junipero/commit/82f489fdfa77d42bcf7b1906a8e931ebfc4e04d5))
+
+
+
+
+
+## [3.4.8](https://github.com/p3ol/junipero/compare/v3.4.7...v3.4.8) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix missing bar chart export ([57f664f](https://github.com/p3ol/junipero/commit/57f664feb5d1c8121102fbf1dae81ee4e27bd25a))
+
+
+
+
+
+## [3.4.7](https://github.com/p3ol/junipero/compare/v3.4.6...v3.4.7) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix useless call to scaleTime ([1d53730](https://github.com/p3ol/junipero/commit/1d537308a128ecc1bf47010961063586c77c4355))
+* **react-d3-plugin:** wrong type & scale types ([7b812fc](https://github.com/p3ol/junipero/commit/7b812fcb9f7d74f69fa25a8cf572a6382b4940ac))
+
+
+
+
+
+## [3.4.6](https://github.com/p3ol/junipero/compare/v3.4.5...v3.4.6) (2024-01-26)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix optional parameter ([811261e](https://github.com/p3ol/junipero/commit/811261efe3e0a2759e4ba219f3d648a31e185e07))
+
+
+
+
+
+## [3.4.5](https://github.com/p3ol/junipero/compare/v3.4.4...v3.4.5) (2024-01-25)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** fix missing type exports ([cf4b27d](https://github.com/p3ol/junipero/commit/cf4b27d82f5591049394ff63fe76e8c1c6586402))
+
+
+
+
+
+## [3.4.4](https://github.com/p3ol/junipero/compare/v3.4.3...v3.4.4) (2024-01-24)
+
+
+### Bug Fixes
+
+* **core:** fix formatThousand param type ([3149cff](https://github.com/p3ol/junipero/commit/3149cff0eb7d434e0951a3d1658d02d164f7afbd))
+
+
+
+
+
 ## [3.4.3](https://github.com/p3ol/junipero/compare/v3.4.2...v3.4.3) (2024-01-18)
 
 

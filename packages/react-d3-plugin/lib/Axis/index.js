@@ -114,8 +114,6 @@ const Axis = forwardRef(({
   );
 });
 
-d3.scaleTime().domain([]).range([]);
-
 Axis.displayName = 'Axis';
 Axis.propTypes = {
   axis: PropTypes.shape({
