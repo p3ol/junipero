@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useReducer } from 'react';
 import { classNames, mockState } from '@junipero/core';
 import PropTypes from 'prop-types';
 
@@ -10,30 +10,30 @@ const Pagination = ({
   onPageChange,
   className,
 }) => {
-  const [state, dispatch] = useReducer(mockState, {
-    activePage: initialPage,
-    wasRenderedOnce: false,
-  });
-
-  useEffect(() => {
-    if (state.wasRenderedOnce) {
-      onPageChange(state.activePage);
-    }
-  }, [state.activePage]);
+  const [state, dispatch] = useReducer(mockState, { activePage: initialPage });
 
   const goToPrevious = () => {
     if (state.activePage > 1) {
-      dispatch({ activePage: state.activePage - 1, wasRenderedOnce: true });
+      dispatch({ activePage: state.activePage - 1 });
+      onPageChange?.(state.activePage - 1);
     }
   };
 
   const goToNext = () => {
     if (state.activePage < size) {
-      dispatch({ activePage: state.activePage + 1, wasRenderedOnce: true });
+      dispatch({ activePage: state.activePage + 1 });
+      onPageChange?.(state.activePage + 1);
     }
   };
 
-  const goTo = page => dispatch({ activePage: page, wasRenderedOnce: true });
+  const goTo = page => {
+    if (!page) {
+      throw new Error('Page number is required');
+    }
+
+    dispatch({ activePage: page });
+    onPageChange?.(page);
+  };
 
   const createPageNumbersTags = () => {
     if (!shouldWrap || size < shouldWrapFrom) {
@@ -83,10 +83,7 @@ const Pagination = ({
             )}
           >
             ...
-          </div>
-        );
-
-        pageNumbersTags.push(
+          </div>,
           <div
             key={6}
             onClick={() => goTo(size)}
@@ -104,12 +101,34 @@ const Pagination = ({
         return pageNumbersTags;
       } else if (state.activePage <= size - 4) {
         const pageNumbersTags = [
-          state.activePage - 1,
-          state.activePage,
-          state.activePage + 1,
-        ]
-          .map((page, i) => {
-            return (
+          <div
+            key={0}
+            className={classNames(
+              'junipero',
+              'pagination',
+              'pagination-item',
+              'pagination-item-dots',
+            )}
+          >
+            ...
+          </div>,
+          <div
+            key={1}
+            onClick={() => goTo(1)}
+            className={classNames(
+              'junipero',
+              'pagination',
+              'pagination-item',
+              `${state.activePage === 1 ? 'pagination-item-active' : ''}`,
+            )}
+          >
+            {1}
+          </div>,
+        ];
+
+        [state.activePage - 1, state.activePage, state.activePage + 1]
+          .forEach((page, i) => {
+            pageNumbersTags.push(
               <div
                 key={i + 2}
                 onClick={() => goTo(page)}
@@ -129,35 +148,6 @@ const Pagination = ({
             );
           });
 
-        pageNumbersTags.unshift(
-          <div
-            key={0}
-            className={classNames(
-              'junipero',
-              'pagination',
-              'pagination-item',
-              'pagination-item-dots',
-            )}
-          >
-            ...
-          </div>
-        );
-
-        pageNumbersTags.unshift(
-          <div
-            key={1}
-            onClick={() => goTo(1)}
-            className={classNames(
-              'junipero',
-              'pagination',
-              'pagination-item',
-              `${state.activePage === 1 ? 'pagination-item-active' : ''}`,
-            )}
-          >
-            {1}
-          </div>
-        );
-
         pageNumbersTags.push(
           <div
             key={5}
@@ -169,10 +159,7 @@ const Pagination = ({
             )}
           >
             ...
-          </div>
-        );
-
-        pageNumbersTags.push(
+          </div>,
           <div
             key={6}
             onClick={() => goTo(size)}
@@ -189,7 +176,33 @@ const Pagination = ({
 
         return pageNumbersTags;
       } else {
-        const pageNumbersTags = Array.from({ length: 5 }).map((_, i) => {
+        const pageNumbersTags = [
+          <div
+            key={1}
+            className={classNames(
+              'junipero',
+              'pagination',
+              'pagination-item',
+              'pagination-item-dots',
+            )}
+          >
+            ...
+          </div>,
+          <div
+            key={0}
+            onClick={() => goTo(1)}
+            className={classNames(
+              'junipero',
+              'pagination',
+              'pagination-item',
+              `${state.activePage === 1 ? 'pagination-item-active' : ''}`,
+            )}
+          >
+            {1}
+          </div>,
+        ];
+
+        Array.from({ length: 5 }).map((_, i) => {
           return (
             <div
               key={i + 2}
@@ -208,36 +221,7 @@ const Pagination = ({
               {size - i}
             </div>
           );
-        }).reverse();
-
-        pageNumbersTags.unshift(
-          <div
-            key={1}
-            className={classNames(
-              'junipero',
-              'pagination',
-              'pagination-item',
-              'pagination-item-dots',
-            )}
-          >
-            ...
-          </div>
-        );
-
-        pageNumbersTags.unshift(
-          <div
-            key={0}
-            onClick={() => goTo(1)}
-            className={classNames(
-              'junipero',
-              'pagination',
-              'pagination-item',
-              `${state.activePage === 1 ? 'pagination-item-active' : ''}`,
-            )}
-          >
-            {1}
-          </div>
-        );
+        }).reverse().forEach(pageNumber => pageNumbersTags.push(pageNumber));
 
         return pageNumbersTags;
       }

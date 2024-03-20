@@ -65,14 +65,14 @@ exports[`<Pagination /> should render using props 2`] = `
       expand_more
     </i>
     <div
-      class="junipero pagination pagination-item"
-    >
-      1
-    </div>
-    <div
       class="junipero pagination pagination-item pagination-item-dots"
     >
       ...
+    </div>
+    <div
+      class="junipero pagination pagination-item"
+    >
+      1
     </div>
     <div
       class="junipero pagination pagination-item"
@@ -252,14 +252,14 @@ exports[`<Pagination /> should render using props 5`] = `
       expand_more
     </i>
     <div
-      class="junipero pagination pagination-item"
-    >
-      1
-    </div>
-    <div
       class="junipero pagination pagination-item pagination-item-dots"
     >
       ...
+    </div>
+    <div
+      class="junipero pagination pagination-item"
+    >
+      1
     </div>
     <div
       class="junipero pagination pagination-item"
