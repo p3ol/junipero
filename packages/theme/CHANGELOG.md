@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.12](https://github.com/p3ol/junipero/compare/v3.4.11...v3.4.12) (2024-04-17)
+
+
+### Bug Fixes
+
+* **theme:** update junipero icons to v1.2.0 ([61b0c89](https://github.com/p3ol/junipero/commit/61b0c89196a4297d642e6ea1817413a0695c580d))
+
+
+
+
+
 ## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
 
 **Note:** Version bump only for package @junipero/theme
