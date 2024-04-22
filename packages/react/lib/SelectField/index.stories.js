@@ -24,7 +24,6 @@ export const controlled = () => {
     <SelectField
       value={value}
       placeholder="Type a name"
-      options={['Item 1', 'Item 2', { title: 'Item 3', value: 'item-3' }]}
       parseTitle={o => o?.title || o}
       parseValue={o => o?.value || o}
       onChange={field => setValue(field.value)}
@@ -54,6 +53,26 @@ export const multiple = () => (
     multiple={true}
     value={['Item 1', 'Item 2', 'Item 4']}
     options={[{ title: 'Group 1', options: ['Item 1', 'Item 2'] }, 'Item 3']}
+  />
+);
+
+export const multipleWithGroups = () => (
+  <SelectField
+    placeholder="Type a name"
+    multiple={true}
+    value={['access.metrics']}
+    parseTitle={o => o?.title ?? o}
+      { title: 'Susbcribe', options: [
+        {
+          title: 'Susbcribe metrics',
+          value: 'subscribe.metrics',
+        },
+        { title: 'Access metrics', value: 'access.metrics' },
+      ] },
+      { title: 'Engage', options: [
+        { title: 'Engage metrics', value: 'engage.metrics' },
+      ] },
+    ]}
   />
 );
 
