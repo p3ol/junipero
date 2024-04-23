@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.13](https://github.com/p3ol/junipero/compare/v3.4.12...v3.4.13) (2024-04-23)
+
+
+### Bug Fixes
+
+* **core:** only return value if found ([478f6a1](https://github.com/p3ol/junipero/commit/478f6a129af5de0c9cebfd7fae7e4a61e2e1d6f5))
+
+
+
+
+
 ## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
 
 
