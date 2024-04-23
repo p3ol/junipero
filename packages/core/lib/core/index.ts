@@ -222,7 +222,11 @@ export const findDeep = (
       if (multiple) {
         res.push(...findDeep(d, cb, depth, multiple));
       } else {
-        return findDeep(d, cb, depth);
+        const res = findDeep(d, cb, depth);
+
+        if (res) {
+          return res;
+        }
       }
     } else if (cb(v)) {
       if (multiple) {
