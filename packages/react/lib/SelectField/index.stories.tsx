@@ -57,6 +57,30 @@ export const multiple = () => (
   />
 );
 
+export const multipleWithGroups = () => (
+  <SelectField
+    placeholder="Type a name"
+    multiple={true}
+    value={['access.metrics']}
+    parseTitle={o => o?.title ?? o}
+    parseValue={o => o?.value ?? o}
+    options={[
+      { title: 'Susbcribe', options: [
+        {
+          title: 'Susbcribe metrics',
+          value: 'subscribe.metrics',
+        },
+      ] },
+      { title: 'Access', options: [
+        { title: 'Access metrics', value: 'access.metrics' },
+      ] },
+      { title: 'Engage', options: [
+        { title: 'Engage metrics', value: 'engage.metrics' },
+      ] },
+    ]}
+  />
+);
+
 export const disabled = () => (
   <SelectField
     placeholder="Type a name"
