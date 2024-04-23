@@ -437,6 +437,26 @@ describe('core', () => {
         .toBe('Item 1');
     });
 
+    it('should correctly find an element inside deep arrays 2', () => {
+      const arr = [
+        { title: 'Susbcribe', options: [
+          {
+            title: 'Susbcribe metrics',
+            value: 'subscribe.metrics',
+          },
+        ] },
+        { title: 'Access', options: [
+          { title: 'Access metrics', value: 'access.metrics' },
+        ] },
+        { title: 'Engage', options: [
+          { title: 'Engage metrics', value: 'engage.metrics' },
+        ] },
+      ];
+      const val = 'access.metrics';
+      expect(findDeep(arr, v => v?.value === val || v === val, v => v.options))
+        .toMatchObject({ title: 'Access metrics', value: 'access.metrics' });
+    });
+
     it('should correctly find multiple elements inside deep arrays', () => {
       const arr = [0, 1, [2, 3, [4, 5, [6, 7, [8, 9]]]]];
       expect(findDeep(arr, v => v % 2 === 0, v => v, true))

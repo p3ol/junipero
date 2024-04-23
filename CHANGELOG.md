@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.13](https://github.com/p3ol/junipero/compare/v3.4.12...v3.4.13) (2024-04-23)
+
+
+### Bug Fixes
+
+* **core:** add story for select field multiple values with groups ([422fe01](https://github.com/p3ol/junipero/commit/422fe01ba515af00c8ae7d0dbdde0cde85236e96))
+* **core:** lint issue ([83f148c](https://github.com/p3ol/junipero/commit/83f148c8a8262cb0ad877a262b7f8dce0ef5d291))
+* **core:** only return value if found ([478f6a1](https://github.com/p3ol/junipero/commit/478f6a129af5de0c9cebfd7fae7e4a61e2e1d6f5))
+
+
+
+
+
 ## [3.4.12](https://github.com/p3ol/junipero/compare/v3.4.11...v3.4.12) (2024-04-17)
 
 
