@@ -53,6 +53,7 @@ const DateField = forwardRef(({
   parseValue = val => val,
   parseTime,
   onValidate = (val, { required }) => !!val || !required,
+  children,
   ...rest
 }, ref) => {
   const dropdownRef = useRef();
@@ -369,6 +370,7 @@ const DateField = forwardRef(({
           </div>
         ) }
       </DropdownMenu>
+      { children }
     </Dropdown>
   );
 });
