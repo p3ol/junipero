@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.14](https://github.com/p3ol/junipero/compare/v3.4.13...v3.4.14) (2024-04-30)
+
+
+### Bug Fixes
+
+* **theme:** color field group compat ([9bc6726](https://github.com/p3ol/junipero/commit/9bc6726606bf9dfbad8a1f5a73f727f470c3f9ee))
+
+
+
+
+
 ## [3.4.12](https://github.com/p3ol/junipero/compare/v3.4.11...v3.4.12) (2024-04-17)
 
 

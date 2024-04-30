@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.14](https://github.com/p3ol/junipero/compare/v3.4.13...v3.4.14) (2024-04-30)
+
+
+### Bug Fixes
+
+* **react:** allow date & color field to have children ([03cbef3](https://github.com/p3ol/junipero/commit/03cbef3c08d8c66c6c4b6c2cba93564d97fe9555))
+
+
+
+
+
 ## [3.4.13](https://github.com/p3ol/junipero/compare/v3.4.12...v3.4.13) (2024-04-23)
 
 
