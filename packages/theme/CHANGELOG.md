@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.15](https://github.com/p3ol/junipero/compare/v3.4.14...v3.4.15) (2024-05-29)
+
+
+### Bug Fixes
+
+* **theme:** update icons font version ([30525c7](https://github.com/p3ol/junipero/commit/30525c71f778c5bb6650afc71824e2489218cab2))
+
+
+
+
+
 ## [3.4.14](https://github.com/p3ol/junipero/compare/v3.4.13...v3.4.14) (2024-04-30)
 
 
