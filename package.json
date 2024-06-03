@@ -69,5 +69,5 @@
   "resolutions": {
     "inline-style-prefixer": "6.0.4"
   },
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.2.2"
 }
