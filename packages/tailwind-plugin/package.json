@@ -2,7 +2,9 @@
   "name": "@junipero/tailwind-plugin",
   "version": "3.4.11",
   "description": "🏔 Junipero Design System Tailwind Plugin",
-  "main": "lib/index.js",
+  "main": "dist/junipero-tailwind-plugin.cjs.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/junipero-tailwind-plugin.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
@@ -19,9 +21,9 @@
     "tailwindcss": "^3.0.0"
   },
   "scripts": {
-    "build": "true",
-    "clean": "true",
-    "lint": "true",
+    "clean": "rm -rf ./dist || true",
+    "build": "yarn clean && yarn run -T rollup -c",
+    "test": "jest",
     "generate-types": "exit 0"
   },
   "publishConfig": {

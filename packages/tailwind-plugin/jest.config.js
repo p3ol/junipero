@@ -1,5 +1,7 @@
 const path = require('path');
 
+process.env.TZ = 'UTC';
+
 module.exports = {
   displayName: '@junipero/tailwind-plugin',
   clearMocks: true,
@@ -25,7 +27,7 @@ module.exports = {
     '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
   },
-  testMatch: ['<rootDir>/packages/tailwind-plugin/lib/*.test.js'],
+  testMatch: ['<rootDir>/packages/tailwind-plugin/lib/*.test.ts'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],

@@ -1,10 +1,8 @@
-const plugin = require('tailwindcss/plugin');
-const {
-  default: flattenColorPalette,
-} = require('tailwindcss/lib/util/flattenColorPalette');
-const { COLORS } = require('@junipero/core');
+import plugin from 'tailwindcss/plugin';
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
+import { COLORS, fromPairs } from '@junipero/core';
 
-module.exports = plugin(({
+export default plugin(({
   matchUtilities,
   addVariant,
   theme,
@@ -29,7 +27,10 @@ module.exports = plugin(({
   matchVariant(
     'bar-nth',
     val => `.junipero.chart &.bar .serie:nth-child(${val})`,
-    { values: [...Array(10).keys()] }
+    {
+      values: fromPairs(Array.from({ length: 10 })
+        .map((_, i) => [i + 1, '' + i + 1])),
+    }
   );
 }, {
   theme: {
