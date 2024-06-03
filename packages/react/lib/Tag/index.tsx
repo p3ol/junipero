@@ -63,7 +63,8 @@ const Tag = forwardRef(({
 Tag.displayName = 'Tag';
 Tag.propTypes = {
   tag: PropTypes.oneOfType([
-    PropTypes.any, //TODO fix me
+    PropTypes.string,
+    PropTypes.elementType,
   ]),
   onDelete: PropTypes.func,
 };

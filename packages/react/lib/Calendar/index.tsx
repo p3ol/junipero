@@ -21,7 +21,7 @@ import {
 } from '@junipero/core';
 import PropTypes from 'prop-types';
 
-import type { FixedArray } from '../types';
+import { fixedArray, type FixedArray } from '../types';
 import { ArrowLeft, ArrowRight } from '../icons';
 
 export declare type CalendarRef = {
@@ -264,8 +264,8 @@ Calendar.propTypes = {
   disabled: PropTypes.bool,
   min: PropTypes.instanceOf(Date),
   max: PropTypes.instanceOf(Date),
-  monthNames: PropTypes.any, //TODO: fixme
-  weekDaysNames: PropTypes.any,
+  monthNames: fixedArray(12),
+  weekDaysNames: fixedArray(7),
   onSelect: PropTypes.func,
 };
 

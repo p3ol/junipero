@@ -214,13 +214,30 @@ const Dropdown = forwardRef(({
 Dropdown.displayName = 'Dropdown';
 Dropdown.propTypes = {
   clickOptions: PropTypes.object,
-  container: PropTypes.any, //TODO fixme
+  container: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.instanceOf(DocumentFragment),
+  ]),
   disabled: PropTypes.bool,
   dismissOptions: PropTypes.object,
   floatingOptions: PropTypes.object,
   hoverOptions: PropTypes.object,
   opened: PropTypes.bool,
-  placement: PropTypes.any, //TODO fixme
+  placement: PropTypes.oneOf([
+    'top-start',
+    'top',
+    'top-end',
+    'right-start',
+    'right',
+    'right-end',
+    'bottom-start',
+    'bottom',
+    'bottom-end',
+    'left-start',
+    'left',
+    'left-end',
+  ]),
   trigger: PropTypes.oneOf(['click', 'hover', 'manual']),
   onToggle: PropTypes.func,
 };

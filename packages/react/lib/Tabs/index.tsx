@@ -40,10 +40,12 @@ const Tabs = forwardRef(({
   active,
   tabs,
   disabled = false,
-  filterTab = child => (child as JSX.Element).type === Tab, //TODO fix me
+  filterTab = (child: ReactNode) =>
+    // @ts-ignore - String is already discarded
+    typeof child !== 'string' && child.type === Tab,
   onToggle,
   ...rest
-}:TabsProps, ref) => {
+}: TabsProps, ref) => {
   const innerRef = useRef<HTMLDivElement>();
   const [activeTab, setActiveTab] = useState(active);
 

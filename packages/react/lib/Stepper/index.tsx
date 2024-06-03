@@ -85,7 +85,7 @@ Stepper.propTypes = {
   steps: PropTypes.arrayOf(PropTypes.exact({
     title: PropTypes.node.isRequired,
     content: PropTypes.node.isRequired,
-    icon: PropTypes.node.isRequired,
+    icon: PropTypes.node,
   }).isRequired),
   icon: PropTypes.node,
 };

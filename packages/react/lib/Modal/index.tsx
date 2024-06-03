@@ -210,7 +210,9 @@ Modal.propTypes = {
   animate: PropTypes.func,
   apparition: PropTypes.string,
   container: PropTypes.oneOfType([
-    PropTypes.any, //TODO find a way to check if it's a valid DOM node
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.instanceOf(DocumentFragment),
   ]),
   closable: PropTypes.bool,
   disabled: PropTypes.bool,

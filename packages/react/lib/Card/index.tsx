@@ -45,7 +45,10 @@ const Card = forwardRef(({
 
 Card.displayName = 'Card';
 Card.propTypes = {
-  tag: PropTypes.any, // TODO fixme
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.elementType,
+  ]),
 };
 
 export default Card;

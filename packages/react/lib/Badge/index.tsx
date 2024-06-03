@@ -45,7 +45,10 @@ const Badge = forwardRef(({
 
 Badge.displayName = 'Badge';
 Badge.propTypes = {
-  tag: PropTypes.any, //TODO fixme
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.elementType,
+  ]),
 };
 
 export default Badge;

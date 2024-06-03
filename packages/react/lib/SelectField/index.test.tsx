@@ -374,9 +374,7 @@ describe('<SelectField />', () => {
       }, []);
 
       const onChange = (name: string, field: TextFieldChangeField) => {
-        // set(state.form, name, field.checked ?? field.value);
-        set(state.form, name, field.value);//TODO check this
-
+        set(state.form, name, field.value);
         dispatch({ form: state.form, dirty: true });
       };
 

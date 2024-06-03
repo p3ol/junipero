@@ -53,7 +53,10 @@ const BreadCrumbItem = forwardRef(({
 
 BreadCrumbItem.displayName = 'BreadCrumbItem';
 BreadCrumbItem.propTypes = {
-  tag: PropTypes.any, // TODO fixme
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.elementType,
+  ]),
   animate: PropTypes.func,
 };
 

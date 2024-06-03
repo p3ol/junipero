@@ -126,7 +126,10 @@ Alert.propTypes = {
     PropTypes.node,
   ]),
   lifespan: PropTypes.number,
-  tag: PropTypes.any, //TODO fixme
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.elementType,
+  ]),
   title: PropTypes.any,
   onDismiss: PropTypes.func,
   onClick: PropTypes.func,

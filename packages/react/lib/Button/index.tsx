@@ -63,7 +63,10 @@ Button.displayName = 'Button';
 Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  tag: PropTypes.any, // TODO fixme
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.elementType,
+  ]),
 };
 
 export default Button;

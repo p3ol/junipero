@@ -56,10 +56,12 @@ const Tab = forwardRef(({
 Tab.displayName = 'Tab';
 Tab.propTypes = {
   tag: PropTypes.oneOfType([
-    PropTypes.any, //TODO find a proper type
+    PropTypes.string,
+    PropTypes.elementType,
   ]),
   title: PropTypes.oneOfType([
     PropTypes.string,
+    PropTypes.node,
   ]),
 };
 
