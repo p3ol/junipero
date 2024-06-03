@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.14](https://github.com/p3ol/junipero/compare/v3.4.13...v3.4.14) (2024-04-30)
+
+
+### Bug Fixes
+
+* **react:** allow date & color field to have children ([03cbef3](https://github.com/p3ol/junipero/commit/03cbef3c08d8c66c6c4b6c2cba93564d97fe9555))
+
+
+
+
+
+## [3.4.13](https://github.com/p3ol/junipero/compare/v3.4.12...v3.4.13) (2024-04-23)
+
+
+### Bug Fixes
+
+* **core:** add story for select field multiple values with groups ([422fe01](https://github.com/p3ol/junipero/commit/422fe01ba515af00c8ae7d0dbdde0cde85236e96))
+* **core:** lint issue ([83f148c](https://github.com/p3ol/junipero/commit/83f148c8a8262cb0ad877a262b7f8dce0ef5d291))
+
+
+
+
+
+## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.26.9 ([c802d3c](https://github.com/p3ol/junipero/commit/c802d3c15823952826623eba79ada1158670d1d0))
+
+
+
+
+
 ## [3.4.10](https://github.com/p3ol/junipero/compare/v3.4.9...v3.4.10) (2024-02-07)
 
 

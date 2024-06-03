@@ -118,6 +118,7 @@ const DateField = forwardRef(({
   parseValue = val => val,
   parseTime,
   onValidate = (val, { required }) => !!val || !required,
+  children,
   ...rest
 }: DateFieldProps, ref) => {
   const dropdownRef = useRef<DropdownRef>();
@@ -446,6 +447,7 @@ const DateField = forwardRef(({
           </div>
         ) }
       </DropdownMenu>
+      { children }
     </Dropdown>
   );
 }) as ForwardedProps<DateFieldProps, DateFieldRef>;

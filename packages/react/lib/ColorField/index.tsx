@@ -92,6 +92,7 @@ const ColorField = forwardRef(({
   valid,
   value,
   opened,
+  children,
   autoFocus = false,
   disabled = false,
   format = 'auto',
@@ -513,6 +514,7 @@ const ColorField = forwardRef(({
           </div>
         </div>
       </DropdownMenu>
+      { children }
     </Dropdown>
   );
 }) as ForwardedProps<ColorFieldProps, ColorFieldRef>;

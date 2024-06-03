@@ -24,7 +24,6 @@ export const controlled = () => {
     <SelectField
       value={value}
       placeholder="Type a name"
-      options={['Item 1', 'Item 2', { title: 'Item 3', value: 'item-3' }]}
       parseTitle={o => o?.title || o}
       parseValue={o => o?.value || o}
       onChange={field => setValue(field.value)}

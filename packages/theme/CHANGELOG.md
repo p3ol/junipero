@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.15](https://github.com/p3ol/junipero/compare/v3.4.14...v3.4.15) (2024-05-29)
+
+
+### Bug Fixes
+
+* **theme:** update icons font version ([30525c7](https://github.com/p3ol/junipero/commit/30525c71f778c5bb6650afc71824e2489218cab2))
+
+
+
+
+
+## [3.4.14](https://github.com/p3ol/junipero/compare/v3.4.13...v3.4.14) (2024-04-30)
+
+
+### Bug Fixes
+
+* **theme:** color field group compat ([9bc6726](https://github.com/p3ol/junipero/commit/9bc6726606bf9dfbad8a1f5a73f727f470c3f9ee))
+
+
+
+
+
+## [3.4.12](https://github.com/p3ol/junipero/compare/v3.4.11...v3.4.12) (2024-04-17)
+
+
+### Bug Fixes
+
+* **theme:** update junipero icons to v1.2.0 ([61b0c89](https://github.com/p3ol/junipero/commit/61b0c89196a4297d642e6ea1817413a0695c580d))
+
+
+
+
+
+## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
+
+**Note:** Version bump only for package @junipero/theme
+
+
+
+
+
 ## [3.4.9](https://github.com/p3ol/junipero/compare/v3.4.8...v3.4.9) (2024-02-02)
 
 

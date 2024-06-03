@@ -4,6 +4,8 @@ import FieldAddon from '../FieldAddon';
 import FieldControl from '../FieldControl';
 import Button from '../Button';
 import DateField from '../DateField';
+import ColorField from '../ColorField';
+import Label from '../Label';
 import FieldGroup from '.';
 
 export default { title: 'react/FieldGroup' };
@@ -68,6 +70,28 @@ export const withMultipleElements = () => (
     <TextField />
     <FieldAddon>seconds</FieldAddon>
     <DateField />
+    <ColorField />
+    <Button className="primary last">Update</Button>
+  </FieldGroup>
+);
+
+export const withMultipleElementsAndLabels = () => (
+  <FieldGroup className="mt-8">
+    <FieldAddon>€</FieldAddon>
+    <TextField className="relative">
+      <Label className="absolute bottom-full left-0">Amount</Label>
+    </TextField>
+    <FieldAddon>@</FieldAddon>
+    <TextField className="relative">
+      <Label className="absolute bottom-full left-0">Username</Label>
+    </TextField>
+    <FieldAddon>seconds</FieldAddon>
+    <DateField className="relative">
+      <Label className="absolute bottom-full left-0">Created at</Label>
+    </DateField>
+    <ColorField className="relative">
+      <Label className="absolute bottom-full left-0">Color</Label>
+    </ColorField>
     <Button className="primary last">Update</Button>
   </FieldGroup>
 );
