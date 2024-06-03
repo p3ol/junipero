@@ -1,4 +1,7 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ReactNode,
   Children,
   forwardRef,
   cloneElement,
@@ -6,33 +9,34 @@ import {
   useReducer,
   useRef,
   useEffect,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ReactNode,
-  Ref,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { classNames, ensureNode, mockState, omit } from '@junipero/core';
 import {
+  type ForwardedProps,
+  type MockState,
+  classNames,
+  ensureNode,
+  mockState,
+  omit,
+} from '@junipero/core';
+import {
+  type UseDismissProps,
+  type UseClickProps,
+  type UseHoverProps,
+  type UseFloatingOptions,
+  type Placement,
+  type OpenChangeReason,
+  offset,
+  flip,
+  shift,
+  autoUpdate,
   useFloating,
   useInteractions,
   useClick,
   useHover,
   useDismiss,
-  offset,
-  flip,
-  shift,
-  autoUpdate,
-  UseDismissProps,
-  UseClickProps,
-  UseHoverProps,
-  Placement,
-  UseFloatingOptions,
-  OpenChangeReason,
 } from '@floating-ui/react';
 import PropTypes from 'prop-types';
-
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type TooltipRef = {
   opened: boolean;
@@ -67,6 +71,11 @@ export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<TooltipRef | undefined>;
 }
 
+export declare interface TooltipState {
+  opened: boolean,
+  visible: boolean
+}
+
 const Tooltip = forwardRef(({
   animate,
   apparition,
@@ -84,20 +93,13 @@ const Tooltip = forwardRef(({
   trigger = 'hover',
   onToggle,
   ...rest
-}:TooltipProps, ref) => {
+}: TooltipProps, ref) => {
   const handleRef = useRef();
   const innerRef = useRef();
-
-  type TooltipState = {
-    opened: boolean,
-    visible: boolean
-  };
-
   const [state, dispatch] = useReducer<MockState<TooltipState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
-
   const { x, y, refs, strategy, context, update } = useFloating({
     open: state.opened,
     onOpenChange: (...args) => onOpenChange(...args),
@@ -116,7 +118,6 @@ const Tooltip = forwardRef(({
       }),
     ],
   });
-
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context, {
       enabled: trigger === 'click',

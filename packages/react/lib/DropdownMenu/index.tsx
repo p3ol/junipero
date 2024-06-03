@@ -1,10 +1,10 @@
 import {
+  type ComponentPropsWithRef,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useRef,
   useImperativeHandle,
-  ComponentPropsWithRef,
-  MutableRefObject,
-  ReactNode,
 } from 'react';
 import { classNames, ensureNode } from '@junipero/core';
 import { createPortal } from 'react-dom';

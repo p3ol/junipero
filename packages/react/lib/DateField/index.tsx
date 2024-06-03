@@ -1,17 +1,19 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ReactNode,
+  type ChangeEvent,
+  type FocusEvent,
+  type MouseEvent,
   forwardRef,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ReactNode,
-  ChangeEvent,
-  FocusEvent,
-  MouseEvent,
 } from 'react';
 import {
+  type ForwardedProps,
+  type MockState,
   classNames,
   mockState,
   exists,
@@ -24,7 +26,7 @@ import Dropdown, { DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import Calendar from '../Calendar';
-import { FixedArray, ForwardedProps, MockState } from '../utils';
+import { FixedArray } from '../types';
 
 export declare type DateFieldRef = {
   dirty: boolean;
@@ -84,6 +86,18 @@ export declare interface DateFieldProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<DateFieldRef | undefined>;
 }
 
+export declare interface DateFieldState {
+  value?: Date;
+  selected: Date;
+  displayed: Date;
+  valid: boolean;
+  dirty: boolean;
+  opened: boolean;
+  focused: boolean;
+  time: string;
+  timeDirty: boolean;
+}
+
 const DateField = forwardRef(({
   animateMenu,
   className,
@@ -125,18 +139,6 @@ const DateField = forwardRef(({
   const timeInputRef = useRef<any>();
   const inputRef = useRef<any>();
   const { update: updateControl } = useFieldControl();
-
-  type DateFieldState = {
-    value?: Date,
-    selected: Date,
-    displayed: Date,
-    valid: boolean,
-    dirty: boolean,
-    opened: boolean,
-    focused: boolean,
-    time: string,
-    timeDirty: boolean,
-  };
   const [state, dispatch] = useReducer<MockState<DateFieldState>>(mockState, {
     value: value ?? null,
     selected: value ?? new Date(),

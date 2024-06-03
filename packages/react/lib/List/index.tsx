@@ -1,20 +1,24 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
   forwardRef,
   useImperativeHandle,
   useRef,
   useReducer,
   useCallback,
   useMemo,
-  MutableRefObject,
-  ComponentPropsWithRef,
 } from 'react';
-import { mockState, classNames } from '@junipero/core';
+import {
+  type ForwardedProps,
+  type MockState,
+  mockState,
+  classNames,
+} from '@junipero/core';
 import PropTypes from 'prop-types';
 
-import { ListContext, ListContextType } from '../contexts';
+import type { ListColumnObject } from '../ListColumn';
+import { ListContext, type ListContextType } from '../contexts';
 import { ArrowDown, ArrowUp } from '../icons';
-import { ListColumnObject } from '../ListColumn';
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type ListRef = {
   orderable: boolean;
@@ -31,6 +35,12 @@ export declare interface ListProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<ListRef | undefined>;
 }
 
+export declare interface ListState {
+  columns: Array<string | ListColumnObject>;
+  active?: string | number;
+  asc?: boolean;
+}
+
 const List = forwardRef(({
   className,
   children,
@@ -41,13 +51,6 @@ const List = forwardRef(({
   const listRef = useRef([]);
   const innerRef = useRef();
   const orderable = useMemo(() => !!onOrder, [onOrder]);
-
-  type ListState = {
-    columns: Array<string | ListColumnObject>,
-    active?: string | number,
-    asc?: boolean,
-  };
-
   const [state, dispatch] = useReducer<MockState<ListState>>(mockState, {
     columns,
     active: null,

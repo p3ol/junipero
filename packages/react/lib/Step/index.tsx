@@ -1,15 +1,15 @@
 import {
-  ComponentPropsWithRef,
-  MutableRefObject,
-  ReactNode,
-  forwardRef, useImperativeHandle,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
+  type ReactNode,
+  forwardRef,
+  useImperativeHandle,
   useRef,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { Check } from '../icons';
-import { ForwardedProps } from '../utils';
 
 export declare interface StepObject {
   title: ReactNode | JSX.Element;
@@ -19,7 +19,7 @@ export declare interface StepObject {
 
 export declare type StepRef = {
   isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+  innerRef: MutableRefObject<HTMLDivElement>;
 };
 
 export declare interface StepProps extends ComponentPropsWithRef<any> {
@@ -27,29 +27,35 @@ export declare interface StepProps extends ComponentPropsWithRef<any> {
   icon?: ReactNode | JSX.Element;
   ref?: MutableRefObject<StepRef | undefined>;
 }
-const Step = forwardRef(
-  ({ title, icon, children, status, ...rest }: StepProps, ref) => {
-    const innerRef = useRef<any>();
 
-    useImperativeHandle(ref, () => ({
-      isJunipero: true,
-      innerRef,
-    }));
+const Step = forwardRef(({
+  title,
+  icon,
+  children,
+  status,
+  ...rest
+}: StepProps, ref) => {
+  const innerRef = useRef<HTMLDivElement>();
 
-    return (
-      <div ref={innerRef} className={classNames('step', status)} {...rest}>
-        <div className="content">
-          <div className="step-icon">
-            { status === 'completed' && (icon || <Check />) }
-          </div>
-          <div className="junipero extra step-details">
-            <span>{ title }</span>
-            <span className="junipero secondary name">{ children }</span>
-          </div>
+  useImperativeHandle(ref, () => ({
+    isJunipero: true,
+    innerRef,
+  }));
+
+  return (
+    <div { ...rest } ref={innerRef} className={classNames('step', status)}>
+      <div className="content">
+        <div className="step-icon">
+          { status === 'completed' && (icon || <Check />) }
+        </div>
+        <div className="junipero extra step-details">
+          <span>{ title }</span>
+          <span className="junipero secondary name">{ children }</span>
         </div>
       </div>
-    );
-  }) as ForwardedProps<StepProps, StepRef>;
+    </div>
+  );
+}) as ForwardedProps<StepProps, StepRef>;
 
 Step.displayName = 'Step';
 Step.propTypes = {

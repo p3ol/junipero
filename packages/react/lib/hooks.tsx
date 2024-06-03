@@ -15,8 +15,8 @@ import {
   ModalContextType,
 } from './contexts';
 
-export const useFieldControl =
-  () => useContext<FieldContextType>(FieldControlContext);
+export const useFieldControl = () =>
+  useContext<FieldContextType>(FieldControlContext);
 export const useDropdown = () =>
   useContext<DropdownContextType>(DropdownContext);
 export const useAlerts = () => useContext<AlertsContextType>(AlertsContext);

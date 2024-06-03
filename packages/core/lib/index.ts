@@ -57,3 +57,8 @@ export {
   getFloatPrecision,
   formatThousand,
 } from './numbers';
+
+export type {
+  ForwardedProps,
+  MockState,
+} from './types';

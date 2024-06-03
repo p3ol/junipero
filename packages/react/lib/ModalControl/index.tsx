@@ -1,15 +1,15 @@
 import {
+  type ReactNode,
+  type MutableRefObject,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useCallback,
   useImperativeHandle,
   useRef,
-  ReactNode,
-  MutableRefObject,
-  ComponentPropsWithoutRef,
 } from 'react';
 
+import type { ModalRef } from '../Modal';
 import { ModalContext } from '../contexts';
-import { ModalRef } from '../Modal';
 
 export declare type ModalControlRef = {
   isJunipero: boolean;

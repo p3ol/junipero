@@ -5,8 +5,7 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-
-import { ForwardedProps } from '../utils';
+import { type ForwardedProps } from '@junipero/core';
 
 export declare type ListCellRef = {
   isJunipero: boolean;
@@ -17,9 +16,7 @@ export declare interface ListCellProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<ListCellRef | undefined>;
 }
 
-const ListCell = forwardRef(({
-  ...rest
-}: ListCellProps, ref) => {
+const ListCell = forwardRef((props: ListCellProps, ref) => {
   const innerRef = useRef();
 
   useImperativeHandle(ref, () => ({
@@ -28,7 +25,7 @@ const ListCell = forwardRef(({
   }));
 
   return (
-    <td { ...rest } ref={innerRef} />
+    <td { ...props } ref={innerRef} />
   );
 }) as ForwardedProps<ListCellProps, ListCellRef>;
 

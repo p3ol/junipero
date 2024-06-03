@@ -1,16 +1,14 @@
 import {
+  type ReactNode,
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ElementType,
   forwardRef,
   useRef,
   useImperativeHandle,
-  ReactNode,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ElementType,
 } from 'react';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
-import { classNames } from '@junipero/core';
-
-import { ForwardedProps } from '../utils';
 
 export declare interface TabObject {
   title: ReactNode | JSX.Element;

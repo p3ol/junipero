@@ -1,4 +1,8 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ReactNode,
+  type MouseEvent,
   Children,
   forwardRef,
   useEffect,
@@ -6,22 +10,17 @@ import {
   useRef,
   useState,
   useMemo,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ReactNode,
-  MouseEvent,
 } from 'react';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
-import { classNames } from '@junipero/core';
 
-import Tab, { TabObject } from '../Tab';
-import { ForwardedProps } from '../utils';
+import Tab, { type TabObject } from '../Tab';
 
 export declare type TabsRef = {
   activeTab: number;
   tabs: Array<TabObject>;
   isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+  innerRef: MutableRefObject<HTMLDivElement>;
 };
 
 export declare interface TabsProps extends ComponentPropsWithRef<any> {
@@ -45,7 +44,7 @@ const Tabs = forwardRef(({
   onToggle,
   ...rest
 }:TabsProps, ref) => {
-  const innerRef = useRef();
+  const innerRef = useRef<HTMLDivElement>();
   const [activeTab, setActiveTab] = useState(active);
 
   useImperativeHandle(ref, () => ({

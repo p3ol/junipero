@@ -1,9 +1,9 @@
 import {
-  ComponentPropsWithRef,
-  KeyboardEvent,
-  MouseEvent,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type KeyboardEvent,
+  type MouseEvent,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -11,6 +11,8 @@ import {
   useRef,
 } from 'react';
 import {
+  type ForwardedProps,
+  type MockState,
   classNames,
   mockState,
   getFloatPrecision,
@@ -19,8 +21,7 @@ import {
 import { useEventListener } from '@junipero/hooks';
 import PropTypes from 'prop-types';
 
-import Tooltip from '../Tooltip';
-import { ForwardedProps, MockState } from '../utils';
+import Tooltip, { type TooltipRef } from '../Tooltip';
 
 export declare type SliderRef = {
   isJunipero: boolean;
@@ -28,11 +29,11 @@ export declare type SliderRef = {
   precision: number;
   value: number;
   reset: () => void;
-  fillRef: MutableRefObject<any>;
-  handleRef: MutableRefObject<any>;
-  innerRef: MutableRefObject<any>;
-  slideRef: MutableRefObject<any>;
-  tooltipRef: MutableRefObject<any>;
+  fillRef: MutableRefObject<HTMLDivElement>;
+  handleRef: MutableRefObject<HTMLDivElement>;
+  innerRef: MutableRefObject<HTMLDivElement>;
+  slideRef: MutableRefObject<HTMLDivElement>;
+  tooltipRef: MutableRefObject<TooltipRef>;
 };
 
 export declare interface SliderProps extends ComponentPropsWithRef<any> {
@@ -55,6 +56,12 @@ export declare interface SliderProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<SliderRef | undefined>;
 }
 
+export declare interface SliderState {
+  value: number;
+  precision: number;
+  moving: boolean;
+}
+
 const Slider = forwardRef(({
   className,
   value = 0,
@@ -72,17 +79,11 @@ const Slider = forwardRef(({
   parseTitle = v => v,
   ...rest
 }: SliderProps, ref) => {
-  const innerRef = useRef<any>();
-  const fillRef = useRef<any>();
-  const handleRef = useRef<any>();
-  const slideRef = useRef<any>();
-  const tooltipRef = useRef<any>();
-  type SliderState = {
-    value: number;
-    precision: number;
-    moving: boolean;
-  };
-
+  const innerRef = useRef<HTMLDivElement>();
+  const fillRef = useRef<HTMLDivElement>();
+  const handleRef = useRef<HTMLDivElement>();
+  const slideRef = useRef<HTMLDivElement>();
+  const tooltipRef = useRef<TooltipRef>();
   const [state, dispatch] = useReducer<MockState<SliderState>>(mockState, {
     value: parseFloat(
       ensureMinMax(Math.round(value / step) * step, minValue, maxValue

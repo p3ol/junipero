@@ -1,19 +1,23 @@
 import {
+  type MutableRefObject,
+  type ReactNode,
+  type ComponentPropsWithRef,
+  forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
-  forwardRef,
-  MutableRefObject,
-  ReactNode,
-  ComponentPropsWithRef,
 } from 'react';
-import { classNames, mockState } from '@junipero/core';
+import {
+  type ForwardedProps,
+  type MockState,
+  classNames,
+  mockState,
+} from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
 import { Check } from '../icons';
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type CheckboxFieldRef = {
   checked: boolean;
@@ -39,6 +43,13 @@ export declare interface CheckboxFieldProps extends ComponentPropsWithRef<any> {
   ): boolean;
   ref?: MutableRefObject<CheckboxFieldRef | undefined>;
 }
+
+export declare interface CheckboxState {
+  checked: boolean;
+  valid: boolean;
+  dirty: boolean;
+}
+
 const CheckboxField = forwardRef(({
   checked = false,
   valid = true,
@@ -56,12 +67,6 @@ const CheckboxField = forwardRef(({
   const innerRef = useRef();
   const inputRef = useRef();
   const { update: updateControl } = useFieldControl();
-
-  type CheckboxState = {
-    checked: boolean,
-    valid: boolean,
-    dirty: boolean
-  };
   const [state, dispatch] = useReducer<MockState<CheckboxState>>(mockState, {
     checked: checked ?? false,
     valid: valid ?? true,
@@ -160,4 +165,5 @@ CheckboxField.propTypes = {
   onValidate: PropTypes.func,
   valid: PropTypes.bool,
 };
+
 export default CheckboxField;

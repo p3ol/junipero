@@ -1,16 +1,16 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
+  type MutableRefObject,
   forwardRef,
-  MutableRefObject,
   useCallback,
   useImperativeHandle,
   useState,
 } from 'react';
+import { type ForwardedProps } from '@junipero/core';
 import PropTypes from 'prop-types';
 
-import { ToastsContext, ToastsContextType } from '../contexts';
-import { ToastObject } from '../Toast';
-import { ForwardedProps } from '../utils';
+import type { ToastObject } from '../Toast';
+import { ToastsContext, type ToastsContextType } from '../contexts';
 
 export declare type ToastsControlRef = {
   isJunipero: boolean;

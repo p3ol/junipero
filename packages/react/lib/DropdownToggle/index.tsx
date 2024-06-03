@@ -1,17 +1,16 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
   Children,
   forwardRef,
   cloneElement,
   useImperativeHandle,
   useRef,
-  MutableRefObject,
-  ComponentPropsWithRef,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 
+import type { DropdownRef } from '../Dropdown';
 import { useDropdown } from '../hooks';
-import { ForwardedProps } from '../utils';
-import { DropdownRef } from '../Dropdown';
 
 export declare type DropdownToggleRef = {
   isJunipero: boolean;

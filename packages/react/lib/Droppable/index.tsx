@@ -1,19 +1,17 @@
 import {
+  type ComponentPropsWithRef,
+  type DragEvent,
   Children,
   cloneElement,
   forwardRef,
   useState,
   useEffect,
-  ComponentPropsWithoutRef,
-  ComponentPropsWithRef,
-  DragEvent,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
-import { ForwardedProps } from '../utils';
-
 export declare type DraggingPositionType = 'before' | 'after';
+
 export declare interface DroppableProps extends ComponentPropsWithRef<any> {
   className?: string;
   children?: JSX.Element;

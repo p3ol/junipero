@@ -1,23 +1,18 @@
 import {
-  ComponentProps,
-  ComponentPropsWithRef,
-  ComponentPropsWithoutRef,
-  ComponentRef,
-  ForwardedRef,
-  MutableRefObject,
-  PropsWithRef,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
   forwardRef,
   useCallback,
   useImperativeHandle,
   useState,
 } from 'react';
+import { type ForwardedProps } from '@junipero/core';
 import PropTypes from 'prop-types';
 
-import { AlertsContext, AlertsContextType } from '../contexts';
-import { AlertObject } from '../Alert';
-import { ForwardedProps } from '../utils';
+import { type AlertsContextType, AlertsContext } from '../contexts';
+import { type AlertObject } from '../Alert';
 
-export declare type AlertsControlRef ={
+export declare type AlertsControlRef = {
   alerts: Array<AlertObject>;
   isJunipero: boolean;
   add(alert: AlertObject): void;
@@ -72,4 +67,5 @@ AlertsControl.propTypes = {
   alerts: PropTypes.array,
   generateId: PropTypes.func,
 };
+
 export default AlertsControl;

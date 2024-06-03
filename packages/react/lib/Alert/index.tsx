@@ -1,20 +1,19 @@
 import {
+  type MutableRefObject,
+  type ReactNode,
+  type ComponentPropsWithRef,
+  type ElementType,
   forwardRef,
   useState,
   useImperativeHandle,
   useRef,
-  MutableRefObject,
-  ReactNode,
-  ComponentPropsWithRef,
-  ElementType,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';
 
 import { Remove } from '../icons';
 import Card from '../Card';
-import { ForwardedProps } from '../utils';
 
 export declare type AlertRef = {
   isJunipero: boolean;
@@ -132,4 +131,5 @@ Alert.propTypes = {
   onDismiss: PropTypes.func,
   onClick: PropTypes.func,
 };
+
 export default Alert;

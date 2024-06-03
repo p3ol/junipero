@@ -1,17 +1,16 @@
 import {
-  ComponentPropsWithRef,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { classNames, omit } from '@junipero/core';
+import { type ForwardedProps, classNames, omit } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useAlerts } from '../hooks';
 import Alert, { AlertObject } from '../Alert';
-import { ForwardedProps } from '../utils';
 
 export declare type AlertsRef = {
   alerts: Array<AlertObject>;
@@ -19,18 +18,18 @@ export declare type AlertsRef = {
   innerRef: MutableRefObject<any>;
 };
 
-declare type AlertsTypes =
-  'danger' |
-  'default' |
-  'primary'|
-  'success' |
-  'warning';
+export declare type AlertsTypes =
+  | 'danger'
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'warning';
 
 export declare interface AlertsProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
   className?: string;
   icons?: {
-    [type in AlertsTypes]?: ReactNode | JSX.Element
+    [type in AlertsTypes]?: ReactNode | JSX.Element;
   };
   animateAlert?(
     alert: ReactNode | JSX.Element,

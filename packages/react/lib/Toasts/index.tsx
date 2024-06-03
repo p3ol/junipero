@@ -1,21 +1,20 @@
 import {
-  ComponentPropsWithRef,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
   forwardRef,
-  MutableRefObject,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { classNames, omit } from '@junipero/core';
+import { type ForwardedProps, classNames, omit } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useToasts } from '../hooks';
-import Toast, { ToastObject } from '../Toast';
-import { ForwardedProps } from '../utils';
+import Toast, { type ToastObject } from '../Toast';
 
 export declare type ToastsRef = {
   isJunipero: boolean;
   toasts: Array<ToastObject>;
-  innerRef: MutableRefObject<any>;
+  innerRef: MutableRefObject<HTMLDivElement>;
 };
 
 export declare interface ToastsProps extends ComponentPropsWithRef<any> {
@@ -27,13 +26,14 @@ export declare interface ToastsProps extends ComponentPropsWithRef<any> {
   ): JSX.Element| Element;
   ref?: MutableRefObject<ToastsRef | undefined>;
 }
+
 const Toasts = forwardRef(({
   className,
   animateToast,
   animationTimeout,
   ...rest
 }: ToastsProps, ref) => {
-  const innerRef = useRef();
+  const innerRef = useRef<HTMLDivElement>();
   const { toasts, dismiss } = useToasts();
 
   useImperativeHandle(ref, () => ({

@@ -1,6 +1,6 @@
 import {
-  ComponentPropsWithRef,
-  MutableRefObject,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -9,6 +9,8 @@ import {
   useRef,
 } from 'react';
 import {
+  type ForwardedProps,
+  type MockState,
   classNames,
   mockState,
   exists,
@@ -19,8 +21,8 @@ import {
 } from '@junipero/core';
 import PropTypes from 'prop-types';
 
+import type { FixedArray } from '../types';
 import { ArrowLeft, ArrowRight } from '../icons';
-import { FixedArray, ForwardedProps, MockState } from '../utils';
 
 export declare type CalendarRef = {
   value: Date;
@@ -40,6 +42,10 @@ export declare interface CalendarProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<CalendarRef | undefined>;
 }
 
+export declare interface CalendarState {
+  value: Date;
+}
+
 const Calendar = forwardRef(({
   className,
   active,
@@ -53,9 +59,6 @@ const Calendar = forwardRef(({
   ...rest
 }: CalendarProps, ref) => {
   const innerRef = useRef();
-
-  type CalendarState = { value: Date }
-
   const [state, dispatch] = useReducer<MockState<CalendarState>>(mockState, {
     value: active ?? new Date(),
   });
@@ -265,4 +268,5 @@ Calendar.propTypes = {
   weekDaysNames: PropTypes.any,
   onSelect: PropTypes.func,
 };
+
 export default Calendar;

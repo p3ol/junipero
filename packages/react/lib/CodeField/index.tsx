@@ -1,21 +1,23 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ClipboardEvent,
   forwardRef,
   useReducer,
   useEffect,
   useMemo,
   useRef,
   useImperativeHandle,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  DragEvent,
-  SyntheticEvent,
-  ClipboardEvent,
 } from 'react';
-import { classNames, mockState } from '@junipero/core';
+import {
+  type ForwardedProps,
+  type MockState,
+  classNames,
+  mockState,
+} from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type CodeFieldRef = {
   dirty: boolean;
@@ -50,6 +52,13 @@ export declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<CodeFieldRef | undefined>;
 }
 
+export declare interface CodeFieldState {
+  values: Array<string>;
+  valid: boolean;
+  dirty: boolean;
+  active: number;
+}
+
 const CodeField = forwardRef(({
   className,
   id,
@@ -71,12 +80,6 @@ const CodeField = forwardRef(({
   const inputsRef = useRef([]);
   const inputRef = useRef();
   const { update: updateControl } = useFieldControl();
-  type CodeFieldState = {
-    valid: boolean,
-    values: Array<string>,
-    dirty: boolean,
-    active: number,
-  }
   const [state, dispatch] = useReducer<MockState<CodeFieldState>>(mockState, {
     valid: valid ?? false,
     values: value?.split('').slice(0, size) || [],
@@ -220,7 +223,9 @@ const CodeField = forwardRef(({
   const isEmpty = () =>
     state.values?.length > 0;
 
-  const inputs = useMemo(() => Array.from({ length: size }), [size]);
+  const inputs = useMemo(() => (
+    Array.from({ length: size })
+  ), [size]);
 
   return (
     <div

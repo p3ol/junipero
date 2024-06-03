@@ -1,15 +1,15 @@
 import {
+  type ReactNode,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
   forwardRef,
   useLayoutEffect,
   useImperativeHandle,
-  ReactNode,
-  ComponentPropsWithRef,
-  MutableRefObject,
 } from 'react';
+import { type ForwardedProps } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useList } from '../hooks';
-import { ForwardedProps } from '../utils';
 
 export declare interface ListColumnObject {
   id?: string | number;
@@ -26,6 +26,7 @@ export declare interface ListColumnProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   ref?: MutableRefObject<ListColumnRef | undefined>;
 }
+
 const ListColumn = forwardRef(({
   id,
   children,

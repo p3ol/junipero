@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 import { classNames } from '@junipero/core';
 
 export declare interface IconProps extends ComponentPropsWithoutRef<'svg'> {
@@ -18,21 +18,18 @@ export const Arrows = ({ className, ...rest }: IconProps): JSX.Element => (
   </svg>
 );
 
-export const Remove = ({ className, ...rest }: IconProps): JSX.Element => {
-
-  return (
-    <svg
-      { ...rest }
-      className={classNames('junipero icon remove', className)}
-      width="10"
-      height="10"
-      viewBox="0 0 9 10"
-    >
-      <path d="M8 1.5L1 8.5" />
-      <path d="M1 1.5L8 8.5" />
-    </svg>
-  );
-};
+export const Remove = ({ className, ...rest }: IconProps): JSX.Element => (
+  <svg
+    { ...rest }
+    className={classNames('junipero icon remove', className)}
+    width="10"
+    height="10"
+    viewBox="0 0 9 10"
+  >
+    <path d="M8 1.5L1 8.5" />
+    <path d="M1 1.5L8 8.5" />
+  </svg>
+);
 
 export const ArrowLeft = ({ className, ...rest }: IconProps): JSX.Element => (
   <svg

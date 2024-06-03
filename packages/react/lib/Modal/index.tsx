@@ -1,8 +1,8 @@
 import {
-  ComponentPropsWithRef,
-  MouseEvent,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type MouseEvent,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -10,12 +10,17 @@ import {
   useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
+import {
+  type ForwardedProps,
+  type MockState,
+  classNames,
+  mockState,
+  ensureNode,
+} from '@junipero/core';
 import PropTypes from 'prop-types';
-import { classNames, mockState, ensureNode } from '@junipero/core';
 
-import { Remove } from '../icons';
-import { ForwardedProps, MockState } from '../utils';
 import { useModal } from '../hooks';
+import { Remove } from '../icons';
 
 export declare type ModalRef = {
   isJunipero: boolean;
@@ -45,6 +50,11 @@ export declare interface ModalProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<ModalRef | undefined>;
 }
 
+export declare interface ModalState {
+  opened: boolean;
+  visible: boolean;
+}
+
 const Modal = forwardRef(({
   animate,
   children,
@@ -61,12 +71,7 @@ const Modal = forwardRef(({
   const contentRef = useRef();
   const wrapperRef = useRef();
   const closeButtonRef = useRef();
-  type ModalState = {
-    opened: boolean;
-    visible: boolean;
-  }
   const { setRef: setControlRef } = useModal();
-
   const [state, dispatch] = useReducer<MockState<ModalState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,

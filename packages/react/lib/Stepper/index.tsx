@@ -1,23 +1,23 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ReactNode,
   cloneElement,
   forwardRef,
   useMemo,
   useImperativeHandle,
   useRef,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ReactNode,
 } from 'react';
+import { type ForwardedProps } from '@junipero/core';
 import PropTypes from 'prop-types';
 
-import Step, { StepObject } from '../Step';
-import { ForwardedProps } from '../utils';
+import Step, { type StepObject } from '../Step';
 
 export declare type StepperRef = {
   active: number;
   steps: Array<StepObject>;
   isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+  innerRef: MutableRefObject<HTMLDivElement>;
 };
 
 export declare interface StepperProps extends ComponentPropsWithRef<any> {
@@ -34,8 +34,7 @@ const Stepper = forwardRef(({
   icon,
   ...rest
 }: StepperProps, ref) => {
-
-  const innerRef = useRef();
+  const innerRef = useRef<HTMLDivElement>();
 
   useImperativeHandle(ref, () => ({
     steps,
@@ -57,23 +56,22 @@ const Stepper = forwardRef(({
   };
 
   const availableSteps = useMemo(() => (
-    steps
-      ? steps.map((t, i) => (
-        <Step
-          status={getStepStatus(i)}
-          key={i}
-          title={t.title}
-          icon={t.icon || icon}
-        >
-          { t.content }
-        </Step>
-      )) : children.map((t: JSX.Element, i: number) =>
-        cloneElement(t, { status: getStepStatus(i), key: i }
-        ))
+    steps ? steps.map((t, i) => (
+      <Step
+        status={getStepStatus(i)}
+        key={i}
+        title={t.title}
+        icon={t.icon || icon}
+      >
+        { t.content }
+      </Step>
+    )) : children.map((t: JSX.Element, i: number) => (
+      cloneElement(t, { status: getStepStatus(i), key: i })
+    ))
   ), [steps, children]);
 
   return (
-    <div {...rest} ref={innerRef}>
+    <div { ...rest } ref={innerRef}>
       <div className="junipero stepper">
         { availableSteps }
       </div>

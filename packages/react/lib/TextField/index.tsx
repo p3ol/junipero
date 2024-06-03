@@ -1,28 +1,27 @@
 import {
-  ChangeEvent,
-  ComponentPropsWithRef,
-  FocusEvent,
-  MutableRefObject,
-  ReactNode,
-  SyntheticEvent,
-  WheelEvent,
+  type ChangeEvent,
+  type ComponentPropsWithRef,
+  type FocusEvent,
+  type MutableRefObject,
+  type ReactNode,
+  type WheelEvent,
   forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
 } from 'react';
-import { classNames, mockState, exists } from '@junipero/core';
+import { type MockState, classNames, mockState, exists } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
-import { MockState } from '../utils';
 
 export declare type TextFieldChangeEvent = {
   value: string | number;
   valid: boolean;
   dirty: boolean
 }
+
 export declare type TextFieldRef = {
   dirty: boolean;
   focused: boolean;
@@ -33,8 +32,8 @@ export declare type TextFieldRef = {
   focus(): void;
   reset(): void;
   setDirty(dirty: boolean): void;
-  innerRef: MutableRefObject<any>;
-  inputRef: MutableRefObject<any>;
+  innerRef: MutableRefObject<HTMLDivElement>;
+  inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>;
 };
 
 export declare type TextFieldChangeField = {
@@ -42,6 +41,7 @@ export declare type TextFieldChangeField = {
   valid: boolean;
   dirty: boolean;
 }
+
 export declare interface TextFieldProps extends ComponentPropsWithRef<any> {
   autoFocus?: boolean;
   children?: ReactNode | JSX.Element;
@@ -64,6 +64,13 @@ export declare interface TextFieldProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<TextFieldRef | undefined>;
 }
 
+export declare interface TextFieldState {
+  value: string | number;
+  valid: boolean;
+  dirty: boolean;
+  focused: boolean;
+}
+
 const TextField = forwardRef(({
   autoFocus,
   children,
@@ -80,16 +87,9 @@ const TextField = forwardRef(({
   onValidate = (val, { required }) => !!val || !required,
   ...rest
 }: TextFieldProps, ref) => {
-  const innerRef = useRef<any>();
-  const inputRef = useRef<any>();
+  const innerRef = useRef<HTMLDivElement>();
+  const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>();
   const { update: updateControl } = useFieldControl();
-
-  type TextFieldState = {
-    value: string | number;
-    valid: boolean;
-    dirty: boolean;
-    focused: boolean;
-  }
   const [state, dispatch] = useReducer <MockState<TextFieldState>>(mockState, {
     value: value ?? '',
     valid: valid ?? false,

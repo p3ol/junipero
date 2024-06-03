@@ -1,18 +1,22 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type KeyboardEvent,
   forwardRef,
   useReducer,
   useRef,
   useImperativeHandle,
   useEffect,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  KeyboardEvent,
 } from 'react';
+import {
+  type ForwardedProps,
+  type MockState,
+  classNames,
+  mockState,
+} from '@junipero/core';
 import PropTypes from 'prop-types';
-import { classNames, mockState } from '@junipero/core';
 
 import { useFieldControl } from '../hooks';
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type RadioFieldRef = {
   dirty: boolean;
@@ -42,6 +46,13 @@ export declare interface RadioFieldProps extends ComponentPropsWithRef<any> {
   parseValue?(option: any): any;
   ref?: MutableRefObject<RadioFieldRef | undefined>;
 }
+
+export declare interface RadioFieldState {
+  dirty: boolean;
+  value: any;
+  valid: boolean;
+}
+
 const RadioField = forwardRef(({
   disabled = false,
   required = false,
@@ -62,12 +73,6 @@ const RadioField = forwardRef(({
   const optionRefs = useRef([]);
   const innerRef = useRef();
   const { update: updateControl } = useFieldControl();
-
-  type RadioFieldState = {
-    dirty: boolean;
-    value: any;
-    valid: boolean;
-  }
   const [state, dispatch] = useReducer<MockState<RadioFieldState>>(mockState, {
     dirty: false,
     value,
@@ -75,9 +80,7 @@ const RadioField = forwardRef(({
   });
 
   useEffect(() => {
-    if (
-      value !== state.value
-    ) {
+    if (value !== state.value) {
       const valid = onValidate(value, { dirty: state.dirty, required });
       dispatch({
         value: options?.find(o => parseValue(o) === parseValue(value)),
@@ -100,9 +103,8 @@ const RadioField = forwardRef(({
     valid: state.valid,
   }));
 
-  const isChecked = (
-    option: any
-  ) => parseValue(option) === parseValue(state.value);
+  const isChecked = (option: any) =>
+    parseValue(option) === parseValue(state.value);
 
   const onChange_ = (option: any) => {
     if (disabled || option.disabled) {

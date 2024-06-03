@@ -1,15 +1,25 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
   forwardRef,
   useCallback,
   useImperativeHandle,
   useRef,
   useReducer,
   useEffect,
-  MutableRefObject,
-  ComponentPropsWithRef,
 } from 'react';
-import { classNames, mockState } from '@junipero/core';
 import {
+  type ForwardedProps,
+  type MockState,
+  classNames,
+  mockState,
+} from '@junipero/core';
+import {
+  type UseClickProps,
+  type UseDismissProps,
+  type UseHoverProps,
+  type Placement,
+  type OpenChangeReason,
   offset,
   autoUpdate,
   flip,
@@ -20,16 +30,10 @@ import {
   useDismiss,
   useClick,
   useHover,
-  UseClickProps,
-  UseDismissProps,
-  UseHoverProps,
-  Placement,
-  OpenChangeReason,
 } from '@floating-ui/react';
 import PropTypes from 'prop-types';
 
-import { DropdownContext, DropdownContextType } from '../contexts';
-import { ForwardedProps, MockState } from '../utils';
+import { DropdownContext, type DropdownContextType } from '../contexts';
 
 export declare type DropdownRef = {
   isJunipero: boolean;
@@ -54,6 +58,12 @@ export declare interface DropdownProps extends ComponentPropsWithRef<any> {
   onToggle?(props: { opened: boolean }): void;
   ref?: MutableRefObject<DropdownRef | undefined>;
 }
+
+export declare interface DropdownState {
+  opened: boolean;
+  visible: boolean;
+}
+
 const Dropdown = forwardRef(({
   className,
   container,
@@ -69,12 +79,6 @@ const Dropdown = forwardRef(({
   ...rest
 }: DropdownProps, ref) => {
   const innerRef = useRef();
-
-  type DropdownState = {
-    opened: boolean,
-    visible: boolean
-  };
-
   const [state, dispatch] = useReducer<MockState<DropdownState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,

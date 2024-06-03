@@ -1,20 +1,18 @@
 import {
+  type ReactNode,
+  type ComponentPropsWithRef,
+  type ElementType,
+  type MutableRefObject,
+  type MouseEvent,
+  type DragEvent,
   forwardRef,
   useState,
   useImperativeHandle,
   useRef,
-  ReactNode,
-  ComponentPropsWithRef,
-  ElementType,
-  MutableRefObject,
-  MouseEvent,
-  DragEvent,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';
-
-import { ForwardedProps } from '../utils';
 
 export declare type ToastRef = {
   enabled: boolean;
@@ -51,6 +49,7 @@ export declare interface ToastProps extends ComponentPropsWithRef<any> {
   onDismiss?(index?: string | number): any;
   ref?: MutableRefObject<ToastRef | undefined>;
 }
+
 const Toast = forwardRef(({
   tag: Tag = 'div',
   animationTimeout = 100,

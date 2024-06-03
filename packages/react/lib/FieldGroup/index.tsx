@@ -1,16 +1,14 @@
 import {
-  ComponentPropsWithRef,
-  ElementType,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type ElementType,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
-
-import { ForwardedProps } from '../utils';
 
 export declare type FieldGroupRef = {
   isJunipero: boolean;

@@ -1,18 +1,17 @@
 import {
-  ComponentPropsWithRef,
-  ElementType,
-  MouseEvent,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type ElementType,
+  type MouseEvent,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import { Remove } from '../icons';
-import { ForwardedProps } from '../utils';
 
 export declare type TagRef = {
   isJunipero: boolean;

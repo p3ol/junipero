@@ -1,5 +1,5 @@
+import type { ComponentPropsWithoutRef } from 'react';
 import { classNames } from '@junipero/core';
-import { ComponentPropsWithoutRef } from 'react';
 
 import { useFieldControl } from '../hooks';
 

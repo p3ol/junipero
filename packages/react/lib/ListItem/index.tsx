@@ -6,9 +6,8 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
+import { type ForwardedProps } from '@junipero/core';
 import PropTypes from 'prop-types';
-
-import { ForwardedProps } from '../utils';
 
 export declare type ListItemRef = {
   isJunipero: boolean;

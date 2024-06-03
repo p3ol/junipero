@@ -1,23 +1,27 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
   Children,
-  forwardRef,
   Fragment,
+  forwardRef,
   useImperativeHandle,
   useReducer,
   useRef,
   useMemo,
-  ReactNode,
-  MutableRefObject,
-  ComponentPropsWithRef,
 } from 'react';
-import { exists, classNames, mockState } from '@junipero/core';
+import {
+  type ForwardedProps,
+  type MockState,
+  exists,
+  classNames,
+  mockState,
+} from '@junipero/core';
 import PropTypes from 'prop-types';
 
 import BreadCrumbItem from '../BreadCrumbItem';
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type BreadCrumbRef = {
-  items: Array<JSX.Element> | Array<string>;
+  items: Array<JSX.Element | string>;
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
 };
@@ -25,11 +29,16 @@ export declare type BreadCrumbRef = {
 export declare interface BreadCrumbProps extends ComponentPropsWithRef<any> {
   children?: JSX.Element | Array<JSX.Element>;
   className?: string;
-  items?: Array<JSX.Element> | Array<string>;
+  items?: Array<JSX.Element | string>;
   maxItems?: number;
   filterItem?(children: JSX.Element): boolean;
   ref?: MutableRefObject<BreadCrumbRef | undefined>;
 }
+
+export declare interface BreadCrumbState {
+  opened: boolean;
+}
+
 const BreadCrumb = forwardRef(({
   className,
   children,
@@ -39,11 +48,9 @@ const BreadCrumb = forwardRef(({
   ...rest
 }: BreadCrumbProps, ref) => {
   const innerRef = useRef();
-  const [state, dispatch] = useReducer<MockState<{opened: boolean}>>(
-    mockState, {
-      opened: false,
-    }
-  );
+  const [state, dispatch] = useReducer<MockState<BreadCrumbState>>(mockState, {
+    opened: false,
+  });
 
   useImperativeHandle(ref, () => ({
     items,
@@ -108,4 +115,5 @@ BreadCrumb.propTypes = {
   maxItems: PropTypes.number,
   filterItem: PropTypes.func,
 };
+
 export default BreadCrumb;

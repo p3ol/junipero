@@ -1,4 +1,6 @@
 export {
+  type ForwardedProps,
+  type MockState,
   COLORS,
   ensureNode,
   classNames,
@@ -333,4 +335,4 @@ export type {
   Grow,
   GrowToSize,
   FixedArray,
-} from './utils';
+} from './types';

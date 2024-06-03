@@ -1,10 +1,10 @@
-import { Dispatch, MutableRefObject, createContext } from 'react';
-import { ExtendedRefs, Strategy } from '@floating-ui/react';
+import type { ExtendedRefs, Strategy } from '@floating-ui/react';
+import { type Dispatch, createContext } from 'react';
 
-import { AlertObject } from './Alert';
-import { ToastObject } from './Toast';
-import { ListColumnObject } from './ListColumn';
-import { ModalRef } from './Modal';
+import type { AlertObject } from './Alert';
+import type { ToastObject } from './Toast';
+import type { ListColumnObject } from './ListColumn';
+import type { ModalRef } from './Modal';
 
 export type AlertsContextType = {
   alerts?: Array<AlertObject>;

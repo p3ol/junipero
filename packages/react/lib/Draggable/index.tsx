@@ -1,16 +1,14 @@
 import {
+  type ComponentPropsWithRef,
+  type DragEvent,
   Children,
   cloneElement,
   forwardRef,
   useState,
-  DragEvent,
-  ComponentPropsWithRef,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 import PropTypes from 'prop-types';
-
-import { ForwardedProps } from '../utils';
 
 export declare interface DraggableProps extends ComponentPropsWithRef<any> {
   children?: JSX.Element;
@@ -26,8 +24,7 @@ export declare interface DraggableProps extends ComponentPropsWithRef<any> {
 }
 
 const Draggable = forwardRef((props: DraggableProps, ref) => {
-
-  // the Proptypes eslint error force me to destructuring the props here
+  // the Proptypes eslint error forces me to destructure the props here
   const {
     className,
     children,
@@ -130,4 +127,5 @@ Draggable.propTypes = {
   onDragStart: PropTypes.func,
   onDragEnd: PropTypes.func,
 };
+
 export default Draggable;

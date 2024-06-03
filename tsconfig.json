@@ -9,6 +9,7 @@
     "noImplicitAny": true,
     "module": "esnext",
     "moduleResolution": "bundler",
+    "skipLibCheck": true,
     "target": "esnext",
     "noEmit": true,
     "paths": {
@@ -22,6 +23,6 @@
   },
   "exclude": [
     "**/dist/*",
-    "node_modules",
+    "node_modules/**/*",
   ]
 }

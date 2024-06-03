@@ -1,13 +1,11 @@
 import {
-  ComponentPropsWithRef,
-  ElementType,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type ElementType,
+  type ReactNode,
   forwardRef,
 } from 'react';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
-import { classNames } from '@junipero/core';
-
-import { ForwardedProps } from '../utils';
 
 export declare interface TouchableZoneProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;

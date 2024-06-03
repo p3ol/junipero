@@ -1,24 +1,25 @@
 import {
+  type ComponentPropsWithRef,
+  type ReactNode,
   Children,
   useState,
   useRef,
   useCallback,
   cloneElement,
-  ComponentPropsWithRef,
-  ReactNode,
 } from 'react';
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const UNMOUNTED = 'unmounted';
-const ENTER = 'enter';
-const EXIT = 'exit';
-const IDLE = 'idle';
-const STARTING = 'starting';
-const ACTIVE = 'active';
-const DONE = 'done';
-declare type TimeoutObject = {
+export const TRANSITION_STATE_UNMOUNTED = 'unmounted';
+export const TRANSITION_STATE_ENTER = 'enter';
+export const TRANSITION_STATE_EXIT = 'exit';
+export const TRANSITION_STATE_IDLE = 'idle';
+export const TRANSITION_STATE_STARTING = 'starting';
+export const TRANSITION_STATE_ACTIVE = 'active';
+export const TRANSITION_STATE_DONE = 'done';
+
+export declare type TransitionTimeoutObject = {
   enter?: number;
   exit?: number;
 };
@@ -28,7 +29,7 @@ export declare interface TransitionProps extends ComponentPropsWithRef<any> {
   in: boolean;
   mounterOnEnter?: boolean;
   name?: string;
-  timeout?: number | TimeoutObject;
+  timeout?: number | TransitionTimeoutObject;
   unmountOnExit?: boolean;
   onEnter?(): void;
   onEntering?(): void;
@@ -54,8 +55,12 @@ const Transition = ({
   ...rest
 }: TransitionProps) => {
   const previousIn = useRef(inProp);
-  const [status, setStatus] = useState(inProp ? ENTER : UNMOUNTED);
-  const [step, setStep] = useState(inProp ? STARTING : IDLE);
+  const [status, setStatus] = useState(
+    inProp ? TRANSITION_STATE_ENTER : TRANSITION_STATE_UNMOUNTED
+  );
+  const [step, setStep] = useState(
+    inProp ? TRANSITION_STATE_STARTING : TRANSITION_STATE_IDLE
+  );
 
   useLayoutEffectAfterMount(() => {
     if (inProp === previousIn.current) {
@@ -63,43 +68,54 @@ const Transition = ({
     }
 
     previousIn.current = inProp;
-    setStatus(inProp ? ENTER : EXIT);
+    setStatus(inProp ? TRANSITION_STATE_ENTER : TRANSITION_STATE_EXIT);
     inProp ? onEnter?.() : onExit?.();
-    setStep(STARTING);
+    setStep(TRANSITION_STATE_STARTING);
   }, [inProp]);
 
   useTimeout(() => {
-    setStep(ACTIVE);
-    status === ENTER ? onEntering?.() : onExiting?.();
-  }, 0, [step, status], { enabled: step === STARTING });
+    setStep(TRANSITION_STATE_ACTIVE);
+    status === TRANSITION_STATE_ENTER ? onEntering?.() : onExiting?.();
+  }, 0, [step, status], { enabled: step === TRANSITION_STATE_STARTING });
 
   useTimeout(() => {
-    if (step !== IDLE) {
-      setStep(DONE);
+    if (step !== TRANSITION_STATE_IDLE) {
+      setStep(TRANSITION_STATE_DONE);
       onEntered?.();
     }
-  }, (timeout as TimeoutObject)?.enter ?? (timeout as number), [status, step], {
-    enabled: status === ENTER,
-  });
+  },
+  (timeout as TransitionTimeoutObject)?.enter ?? (timeout as number),
+  [status, step],
+  { enabled: status === TRANSITION_STATE_ENTER });
 
   useTimeout(() => {
-    if (step !== IDLE) {
-      unmountOnExit && setStatus(UNMOUNTED);
-      setStep(DONE);
+    if (step !== TRANSITION_STATE_IDLE) {
+      unmountOnExit && setStatus(TRANSITION_STATE_UNMOUNTED);
+      setStep(TRANSITION_STATE_DONE);
       onExited?.();
     }
-  }, (timeout as TimeoutObject)?.exit ?? (timeout as number), [status, step], {
-    enabled: status === EXIT,
+  },
+  (timeout as TransitionTimeoutObject)?.exit ?? (timeout as number),
+  [status, step],
+  {
+    enabled: status === TRANSITION_STATE_EXIT,
   });
 
-  const getClassName = useCallback(() => status === UNMOUNTED ? '' : (
-    name + '-' + status + (![IDLE, STARTING].includes(step) ? '-' + step : '')
+  const getClassName = useCallback(() => (
+    status === TRANSITION_STATE_UNMOUNTED ? '' : (
+      name + '-' + status + (
+        ![TRANSITION_STATE_IDLE, TRANSITION_STATE_STARTING].includes(step)
+          ? '-' + step
+          : ''
+      )
+    )
   ), [status, step]);
 
   const child = Children.only(children);
 
-  return status !== UNMOUNTED && (!unmountOnExit || mountOnEnter)
-    ? cloneElement(child as JSX.Element, {
+  return status !== TRANSITION_STATE_UNMOUNTED && (
+    !unmountOnExit || mountOnEnter
+  ) ? cloneElement(child as JSX.Element, {
       className: classNames(
         (child as JSX.Element).props?.className, getClassName()
       ),

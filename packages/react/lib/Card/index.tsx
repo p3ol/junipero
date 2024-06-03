@@ -1,16 +1,14 @@
 import {
-  ComponentPropsWithRef,
-  ElementType,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type ElementType,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { type ForwardedProps, classNames } from '@junipero/core';
 import PropTypes from 'prop-types';
-
-import { ForwardedProps } from '../utils';
 
 export declare type CardRef = {
   isJunipero: boolean;
@@ -23,9 +21,12 @@ export declare interface CardProps extends ComponentPropsWithRef<any> {
   tag?: string | ElementType;
   ref?: MutableRefObject<CardRef | undefined>;
 }
-const Card = forwardRef((
-  { className, tag: Tag = 'div', ...rest }: CardProps, ref
-) => {
+
+const Card = forwardRef(({
+  className,
+  tag: Tag = 'div',
+  ...rest
+}: CardProps, ref) => {
   const innerRef = useRef();
 
   useImperativeHandle(ref, () => ({
@@ -46,4 +47,5 @@ Card.displayName = 'Card';
 Card.propTypes = {
   tag: PropTypes.any, // TODO fixme
 };
+
 export default Card;

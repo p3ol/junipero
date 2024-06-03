@@ -1,4 +1,7 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ReactNode,
   forwardRef,
   useReducer,
   useEffect,
@@ -6,11 +9,10 @@ import {
   useLayoutEffect,
   useImperativeHandle,
   useMemo,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ReactNode,
 } from 'react';
 import {
+  type ForwardedProps,
+  type MockState,
   classNames,
   mockState,
   exists,
@@ -22,14 +24,13 @@ import PropTypes from 'prop-types';
 
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove } from '../icons';
-import Dropdown from '../Dropdown';
+import Dropdown, { type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import DropdownGroup from '../DropdownGroup';
 import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
 import Spinner from '../Spinner';
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type SelectFieldRef = {
   dirty: boolean;
@@ -88,6 +89,20 @@ export declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<SelectFieldRef | undefined>;
 }
 
+export declare interface SelectFieldState {
+  value: any;
+  valid: boolean;
+  dirty: boolean;
+  opened: boolean;
+  focused: boolean;
+  search: string;
+  searching: boolean;
+  searchResults: Array<any>;
+  selectedItem: number;
+  placeholderSize: number;
+  refocus?: boolean;
+}
+
 const SelectField = forwardRef(({
   toggleClick,
   keyboardHandler = false,
@@ -123,24 +138,9 @@ const SelectField = forwardRef(({
   onSearch,
   ...rest
 }: SelectFieldProps, ref) => {
-  const dropdownRef = useRef<any>();
-  const searchInputRef = useRef<any>();
+  const dropdownRef = useRef<DropdownRef>();
+  const searchInputRef = useRef<HTMLInputElement>();
   const { update: updateControl } = useFieldControl();
-
-  type SelectFieldState = {
-    value: any;
-    valid: boolean;
-    dirty: boolean;
-    opened: boolean;
-    focused: boolean;
-    search: string;
-    searching: boolean;
-    searchResults: Array<any>;
-    selectedItem: number;
-    placeholderSize: number;
-    refocus?: boolean;
-  }
-
   const [state, dispatch] = useReducer<MockState<SelectFieldState>>(mockState, {
     value: value ?? (multiple ? [] : null),
     valid: valid ?? false,

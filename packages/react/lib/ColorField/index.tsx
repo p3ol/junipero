@@ -1,17 +1,19 @@
+import type { UseDismissProps } from '@floating-ui/react';
 import {
+  type ReactNode,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
+  type MouseEvent,
   forwardRef,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
   useLayoutEffect,
-  ReactNode,
-  ComponentPropsWithRef,
-  MutableRefObject,
-  ChangeEvent,
-  MouseEvent,
 } from 'react';
 import {
+  type ForwardedProps,
+  type MockState,
   classNames,
   mockState,
   exists,
@@ -20,15 +22,13 @@ import {
 } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
 import PropTypes from 'prop-types';
-import { UseDismissProps } from '@floating-ui/react';
 
 import { useFieldControl } from '../hooks';
 import Dropdown from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
-import TextField, { TextFieldChangeEvent } from '../TextField';
+import TextField, { type TextFieldChangeEvent } from '../TextField';
 import FieldControl from '../FieldControl';
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type ColorFieldRef = {
   dirty: boolean;
@@ -79,6 +79,20 @@ export declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<ColorFieldRef | undefined>;
 }
 
+export declare interface ColorFieldState {
+  value: string;
+  a: number;
+  h: number;
+  s: number;
+  v: number;
+  valid: boolean;
+  dirty: boolean;
+  opened: boolean;
+  handleMoving: boolean;
+  handleType: string | null;
+  focused: boolean;
+}
+
 const ColorField = forwardRef(({
   animateMenu,
   className,
@@ -104,20 +118,6 @@ const ColorField = forwardRef(({
   onValidate = (val, { required }) => !!val || !required,
   ...rest
 }: ColorFieldProps, ref) => {
-  type ColorFieldState = {
-    value: string,
-    a: number,
-    h: number,
-    s: number,
-    v: number,
-    valid: boolean,
-    dirty: boolean,
-    opened: boolean,
-    handleMoving: boolean,
-    handleType: string | null,
-    focused: boolean
-  }
-
   const innerRef = useRef<any>();
   const textFieldRef = useRef<any>();
   const colorLightnessRef = useRef<any>();
@@ -542,4 +542,5 @@ ColorField.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
 };
+
 export default ColorField;

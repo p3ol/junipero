@@ -1,18 +1,21 @@
 import {
-  ComponentPropsWithRef,
-  KeyboardEvent,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type KeyboardEvent,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
 } from 'react';
-import { classNames, mockState } from '@junipero/core';
+import {
+  type ForwardedProps,
+  type MockState,
+  classNames,
+  mockState,
+} from '@junipero/core';
 import PropTypes from 'prop-types';
-
-import { ForwardedProps, MockState } from '../utils';
 
 export declare type ToggleRef = {
   checked: boolean;
@@ -32,6 +35,10 @@ export declare interface ToggleProps extends ComponentPropsWithRef<any> {
   ref?: MutableRefObject<ToggleRef | undefined>;
 }
 
+export declare interface ToggleState {
+  checked: boolean;
+}
+
 const Toggle = forwardRef(({
   checked = false,
   disabled = false,
@@ -44,10 +51,6 @@ const Toggle = forwardRef(({
 }: ToggleProps, ref) => {
   const innerRef = useRef();
   const inputRef = useRef();
-
-  type ToggleState = {
-    checked: boolean;
-  }
   const [state, dispatch] = useReducer<MockState<ToggleState>>(mockState, {
     checked,
   });
