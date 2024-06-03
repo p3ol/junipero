@@ -1,14 +1,19 @@
 import {
-  ComponentPropsWithRef,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
 } from 'react';
-import { Tooltip, classNames, TooltipProps, TooltipRef } from '@junipero/react';
+import {
+  type TooltipProps,
+  type TooltipRef,
+  Tooltip,
+  classNames,
+} from '@junipero/react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 

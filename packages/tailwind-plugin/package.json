@@ -4,7 +4,7 @@
   "description": "🏔 Junipero Design System Tailwind Plugin",
   "main": "dist/junipero-tailwind-plugin.cjs.js",
   "module": "dist/esm/index.js",
-  "types": "dist/junipero-tailwind-plugin.d.ts",
+  "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
@@ -14,17 +14,21 @@
   "license": "MIT",
   "sideEffects": false,
   "engines": {
-    "node": ">= 14"
+    "node": ">= 18"
   },
   "peerDependencies": {
     "@junipero/core": "^3.0.0",
     "tailwindcss": "^3.0.0"
   },
+  "devDependencies": {
+    "@junipero/core": "workspace:*"
+  },
   "scripts": {
     "clean": "rm -rf ./dist || true",
-    "build": "yarn clean && yarn run -T rollup -c",
-    "test": "jest",
-    "generate-types": "exit 0"
+    "build": "yarn clean && yarn build:code && yarn build:dts",
+    "build:code": "yarn run -T rollup --configPlugin @rollup/plugin-swc -c",
+    "build:dts": "yarn run -T tsc --project ./tsconfig.build.json",
+    "test": "jest"
   },
   "publishConfig": {
     "access": "public"

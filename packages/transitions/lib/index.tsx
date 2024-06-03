@@ -1,5 +1,5 @@
+import type { ReactNode } from 'react';
 import { Transition } from '@junipero/react';
-import { ReactNode } from 'react';
 
 export const animateMenu = (
   name: string,

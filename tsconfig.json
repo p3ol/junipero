@@ -1,12 +1,7 @@
 {
-  // Change this to match your project
   "include": ["packages/**/*"],
   "compilerOptions": {
-    // Generate d.ts files
-    "declaration": true,
-    // go to js file when using IDE functions like
-    // "Go to Definition" in VSCode
-    "declarationMap": true,
+    "baseUrl": ".",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "types": ["jest"],
@@ -14,16 +9,19 @@
     "noImplicitAny": true,
     "module": "esnext",
     "moduleResolution": "bundler",
+    "target": "esnext",
     "noEmit": true,
     "paths": {
       "@junipero/core": ["./packages/core/lib/index.ts"],
       "@junipero/hooks": ["./packages/hooks/lib/index.ts"],
       "@junipero/transitions": ["./packages/transitions/lib/index.tsx"],
       "@junipero/react": ["./packages/react/lib/index.ts"],
+      "@junipero/react-d3-plugin": ["./packages/react-d3-plugin/lib/index.ts"],
       "~tests-utils": ["./packages/react/tests/utils.ts"],
     }
   },
   "exclude": [
-    "**/node_modules/**/*", "**/dist/*", "./node_modules/**/*"
+    "**/dist/*",
+    "node_modules",
   ]
 }

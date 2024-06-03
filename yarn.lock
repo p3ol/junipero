@@ -2287,7 +2287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@junipero/core@npm:^3.4.13, @junipero/core@workspace:packages/core":
+"@junipero/core@npm:^3.4.13, @junipero/core@workspace:*, @junipero/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@junipero/core@workspace:packages/core"
   languageName: unknown
@@ -2305,6 +2305,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@junipero/react-d3-plugin@workspace:packages/react-d3-plugin"
   dependencies:
+    "@junipero/react": "workspace:*"
+    "@junipero/theme": "workspace:*"
     prop-types: "npm:15.8.1"
   peerDependencies:
     "@junipero/react": ^3.2.0
@@ -2315,7 +2317,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@junipero/react@workspace:packages/react":
+"@junipero/react@workspace:*, @junipero/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@junipero/react@workspace:packages/react"
   dependencies:
@@ -2332,13 +2334,15 @@ __metadata:
 "@junipero/tailwind-plugin@workspace:packages/tailwind-plugin":
   version: 0.0.0-use.local
   resolution: "@junipero/tailwind-plugin@workspace:packages/tailwind-plugin"
+  dependencies:
+    "@junipero/core": "workspace:*"
   peerDependencies:
     "@junipero/core": ^3.0.0
     tailwindcss: ^3.0.0
   languageName: unknown
   linkType: soft
 
-"@junipero/theme@workspace:packages/theme":
+"@junipero/theme@workspace:*, @junipero/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@junipero/theme@workspace:packages/theme"
   languageName: unknown
@@ -2347,9 +2351,12 @@ __metadata:
 "@junipero/transitions@workspace:packages/transitions":
   version: 0.0.0-use.local
   resolution: "@junipero/transitions@workspace:packages/transitions"
+  dependencies:
+    "@junipero/react": "workspace:*"
   peerDependencies:
     "@junipero/react": ^3.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 

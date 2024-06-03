@@ -1,11 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "exclude": ["node_modules/**/*"],
-  
   "include": ["./lib/**/*"],
-  "compilerOptions": {
-    "paths": {
-      "@junipero/core": ["../core/lib/index.ts"],
-    }
-  }
 }

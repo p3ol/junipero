@@ -1,10 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "exclude": ["node_modules/**/*"],
-  
   "include": ["./lib/**/*"],
-  "compilerOptions": {
-    "types": ["jest"],
-    "declarationDir": "./dist/types",
-  }
 }

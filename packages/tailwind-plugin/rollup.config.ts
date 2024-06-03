@@ -1,12 +1,9 @@
-import path from 'path';
-import fs from 'node:fs';
+import path from 'node:path';
 
 import swc from '@rollup/plugin-swc';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
-import typescript from '@rollup/plugin-typescript';
-import { dts } from 'rollup-plugin-dts';
 import alias from '@rollup/plugin-alias';
 
 const input = './lib/index.ts';
@@ -66,7 +63,7 @@ export default [
         ...defaultGlobals,
       },
       ...(f === 'esm' ? {
-        manualChunks: id => {
+        manualChunks: (id: string) => {
           if (/packages\/tailwind-plugin\/lib\/(\w+)\/index.ts/.test(id)) {
             return path.parse(id).dir.split('/').pop();
           } else if (/packages\/core/.test(id)) {
@@ -80,65 +77,4 @@ export default [
       } : {}),
     },
   })),
-  {
-    input: './lib/index.ts',
-    output: [{
-      file: `./dist/${name}.d.ts`,
-      format: 'esm',
-      inlineDynamicImports: true,
-      globals: {
-        ...defaultGlobals,
-      },
-    }],
-    external: [
-      ...defaultExternals,
-    ],
-    plugins: [
-      typescript({
-        emitDeclarationOnly: true,
-        declaration: true,
-        declarationDir: './types',
-        tsconfig: path.resolve('./tsconfig.json'),
-        outputToFilesystem: true,
-        incremental: false,
-        include: [
-          'lib/**/*.ts',
-          'lib/**/*.tsx',
-          './global.d.ts',
-        ],
-        exclude: [
-          '**/*.stories.tsx',
-          '**/*.test.ts',
-          '**/tests/**/*',
-          'node_modules/**/*',
-          '@junipero/core',
-          'tailwindcss',
-        ],
-      }),
-      ...defaultPlugins,
-      {
-        writeBundle () {
-          fs.unlinkSync(`./dist/${name}.d.ts`);
-        },
-      },
-    ],
-  },
-  {
-    input: './dist/types/tailwind-plugin/lib/index.d.ts',
-    output: [{ file: `dist/${name}.d.ts`, format: 'es' }],
-    external: defaultExternals,
-    plugins: [
-      resolve({
-        browser: false,
-        preferBuiltins: true,
-        extensions: ['.js', '.ts', '.json', '.node'],
-      }),
-      dts({ respectExternal: true }),
-      {
-        writeBundle () {
-          fs.rmSync('./dist/types', { recursive: true, force: true });
-        },
-      },
-    ],
-  },
 ];

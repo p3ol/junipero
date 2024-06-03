@@ -1,16 +1,4 @@
 {
   "extends": "../../tsconfig.json",
   "include": ["./lib/**/*"],
-  "exclude": ["node_modules", "dist"],
-  "compilerOptions": {
-    "declarationDir": "./dist/@types",
-    "types": ["jest"],
-    "paths": {
-      "@junipero/core": ["../core/lib/index.ts"],
-      "@junipero/hooks": ["../hooks/lib/index.ts"],
-      "@junipero/react": ["./lib/index.ts"],
-      "@junipero/transitions": ["../transitions/lib/index.tsx"],
-      "~tests-utils": ["./tests/utils.ts"],
-    }
-  }
 }
