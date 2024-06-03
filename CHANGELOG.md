@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.15](https://github.com/p3ol/junipero/compare/v3.4.14...v3.4.15) (2024-05-29)
+
+
+### Bug Fixes
+
+* **theme:** update icons font version ([30525c7](https://github.com/p3ol/junipero/commit/30525c71f778c5bb6650afc71824e2489218cab2))
+
+
+
+
+
+## [3.4.14](https://github.com/p3ol/junipero/compare/v3.4.13...v3.4.14) (2024-04-30)
+
+
+### Bug Fixes
+
+* **react:** allow date & color field to have children ([03cbef3](https://github.com/p3ol/junipero/commit/03cbef3c08d8c66c6c4b6c2cba93564d97fe9555))
+* **theme:** color field group compat ([9bc6726](https://github.com/p3ol/junipero/commit/9bc6726606bf9dfbad8a1f5a73f727f470c3f9ee))
+
+
+
+
+
+## [3.4.13](https://github.com/p3ol/junipero/compare/v3.4.12...v3.4.13) (2024-04-23)
+
+
+### Bug Fixes
+
+* **core:** add story for select field multiple values with groups ([422fe01](https://github.com/p3ol/junipero/commit/422fe01ba515af00c8ae7d0dbdde0cde85236e96))
+* **core:** lint issue ([83f148c](https://github.com/p3ol/junipero/commit/83f148c8a8262cb0ad877a262b7f8dce0ef5d291))
+* **core:** only return value if found ([478f6a1](https://github.com/p3ol/junipero/commit/478f6a129af5de0c9cebfd7fae7e4a61e2e1d6f5))
+
+
+
+
+
+## [3.4.12](https://github.com/p3ol/junipero/compare/v3.4.11...v3.4.12) (2024-04-17)
+
+
+### Bug Fixes
+
+* **theme:** update junipero icons to v1.2.0 ([61b0c89](https://github.com/p3ol/junipero/commit/61b0c89196a4297d642e6ea1817413a0695c580d))
+
+
+
+
+
+## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
+
+
+### Bug Fixes
+
+* **core:** fix wrong colors type declaration ([f3f6200](https://github.com/p3ol/junipero/commit/f3f620084c35710f5b23abbff4754795c2f0ea15))
+* **deps:** update dependency @floating-ui/react to v0.26.9 ([c802d3c](https://github.com/p3ol/junipero/commit/c802d3c15823952826623eba79ada1158670d1d0))
+
+
+
+
+
 ## [3.4.10](https://github.com/p3ol/junipero/compare/v3.4.9...v3.4.10) (2024-02-07)
 
 

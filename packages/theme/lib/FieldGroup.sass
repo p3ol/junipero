@@ -4,13 +4,15 @@
   width: fit-content
   gap: 2px
 
-  .junipero.select-field .field
+  .junipero.select-field .field,
+  .junipero.color-field .field
     position: relative
     z-index: 2
 
   .junipero.text-field,
   .junipero.select-field,
   .junipero.date-field,
+  .junipero.color-field,
   .junipero.button
     position: relative
     z-index: 2
@@ -56,3 +58,13 @@
     &:active
       &:not(:disabled):not(.disabled)
         box-shadow: 0 0 0 2px var(--active-color)
+
+  .junipero.focused
+    z-index: 3
+
+  .junipero .pigment
+    z-index: 4
+
+  .junipero.tooltip,
+  .junipero.dropdown-menu
+    z-index: 5
