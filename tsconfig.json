@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "types": ["jest"],
+    "types": ["jest", "node"],
     "lib": ["DOM", "ES2022"],
     "noImplicitAny": true,
     "module": "esnext",

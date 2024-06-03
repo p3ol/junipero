@@ -67,7 +67,7 @@ export default [
       sourcemap: true,
       globals: defaultGlobals,
       ...(f === 'esm' ? {
-        manualChunks: id =>
+        manualChunks: (id: string) =>
           id.includes('node_modules') ? 'vendor' : path.parse(id).name,
       } : {}),
     },

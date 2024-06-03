@@ -19,7 +19,7 @@ const defaultPlugins = [
   terser(),
 ];
 
-const defaultExternals = [];
+const defaultExternals: string[] = [];
 const defaultGlobals = {};
 
 export default [
