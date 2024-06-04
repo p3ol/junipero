@@ -1,6 +1,6 @@
-const junipero = require('./packages/tailwind-plugin/lib/index.js');
+import junipero from './packages/tailwind-plugin/lib/index.ts';
 
-module.exports = {
+export default {
   content: [
     './packages/**/lib/**/*.stories.{jsx,tsx}',
   ],
