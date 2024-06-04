@@ -57,7 +57,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/code-frame@npm:^7.24.2, @babel/code-frame@npm:^7.24.6":
+"@babel/code-frame@npm:^7.24.6":
   version: 7.24.6
   resolution: "@babel/code-frame@npm:7.24.6"
   dependencies:
@@ -388,7 +388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-module-imports@npm:^7.18.6, @babel/helper-module-imports@npm:^7.22.15":
+"@babel/helper-module-imports@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/helper-module-imports@npm:7.22.15"
   dependencies:
@@ -1824,7 +1824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.23.9
   resolution: "@babel/runtime@npm:7.23.9"
   dependencies:
@@ -3249,25 +3249,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-babel@npm:6.0.4":
-  version: 6.0.4
-  resolution: "@rollup/plugin-babel@npm:6.0.4"
-  dependencies:
-    "@babel/helper-module-imports": "npm:^7.18.6"
-    "@rollup/pluginutils": "npm:^5.0.1"
-  peerDependencies:
-    "@babel/core": ^7.0.0
-    "@types/babel__core": ^7.1.9
-    rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-  peerDependenciesMeta:
-    "@types/babel__core":
-      optional: true
-    rollup:
-      optional: true
-  checksum: 10c0/5a7c04fa6d608512b597835e749aef33e129ee9ed6cc9e33489b7d43937358fc8aba48b00819604d0bc9b7c20790a6c035e4136e8d9f70cf0d0f056ba547e700
-  languageName: node
-  linkType: hard
-
 "@rollup/plugin-commonjs@npm:25.0.8":
   version: 25.0.8
   resolution: "@rollup/plugin-commonjs@npm:25.0.8"
@@ -3338,26 +3319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:11.1.6":
-  version: 11.1.6
-  resolution: "@rollup/plugin-typescript@npm:11.1.6"
-  dependencies:
-    "@rollup/pluginutils": "npm:^5.1.0"
-    resolve: "npm:^1.22.1"
-  peerDependencies:
-    rollup: ^2.14.0||^3.0.0||^4.0.0
-    tslib: "*"
-    typescript: ">=3.7.0"
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-    tslib:
-      optional: true
-  checksum: 10c0/5347cd73ac28d4cf2401a3e689864a1a0df8f3ae029abd9c38525cbc84bcfa16c3a32a0ac5698dac65ec531ba7cf8332e14f5fc7f8fa501193da23320a134c5c
-  languageName: node
-  linkType: hard
-
-"@rollup/pluginutils@npm:^5.0.1, @rollup/pluginutils@npm:^5.1.0":
+"@rollup/pluginutils@npm:^5.0.1":
   version: 5.1.0
   resolution: "@rollup/pluginutils@npm:5.1.0"
   dependencies:
@@ -6290,7 +6252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:29.7.0, babel-jest@npm:^29.7.0":
+"babel-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "babel-jest@npm:29.7.0"
   dependencies:
@@ -12279,15 +12241,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.10":
-  version: 0.30.10
-  resolution: "magic-string@npm:0.30.10"
-  dependencies:
-    "@jridgewell/sourcemap-codec": "npm:^1.4.15"
-  checksum: 10c0/aa9ca17eae571a19bce92c8221193b6f93ee8511abb10f085e55ffd398db8e4c089a208d9eac559deee96a08b7b24d636ea4ab92f09c6cf42a7d1af51f7fd62b
-  languageName: node
-  linkType: hard
-
 "magic-string@npm:^0.30.3, magic-string@npm:^0.30.5":
   version: 0.30.7
   resolution: "magic-string@npm:0.30.7"
@@ -15002,22 +14955,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:6.1.1":
-  version: 6.1.1
-  resolution: "rollup-plugin-dts@npm:6.1.1"
-  dependencies:
-    "@babel/code-frame": "npm:^7.24.2"
-    magic-string: "npm:^0.30.10"
-  peerDependencies:
-    rollup: ^3.29.4 || ^4
-    typescript: ^4.5 || ^5.0
-  dependenciesMeta:
-    "@babel/code-frame":
-      optional: true
-  checksum: 10c0/2b042198ff00fb10c9c70087bbac9013f748dc34be0dbfcca82c6353884ead1467b4a8a37bafe9a8b9356479d43715c7cbc591eeb8e4112c583452431c1cb0a0
-  languageName: node
-  linkType: hard
-
 "rollup@npm:4.18.0":
   version: 4.18.0
   resolution: "rollup@npm:4.18.0"
@@ -15090,12 +15027,10 @@ __metadata:
     "@poool/eslint-config-react": "npm:3.0.1"
     "@poool/eslint-plugin": "npm:3.0.0"
     "@rollup/plugin-alias": "npm:5.1.0"
-    "@rollup/plugin-babel": "npm:6.0.4"
     "@rollup/plugin-commonjs": "npm:25.0.8"
     "@rollup/plugin-node-resolve": "npm:15.2.3"
     "@rollup/plugin-swc": "npm:0.3.0"
     "@rollup/plugin-terser": "npm:0.4.4"
-    "@rollup/plugin-typescript": "npm:11.1.6"
     "@storybook/addon-actions": "npm:8.1.5"
     "@storybook/addon-storysource": "npm:8.1.5"
     "@storybook/addon-styling-webpack": "npm:1.0.0"
@@ -15116,7 +15051,6 @@ __metadata:
     "@types/react-dom": "npm:18.3.0"
     "@typescript-eslint/parser": "npm:7.12.0"
     autoprefixer: "npm:10.4.19"
-    babel-jest: "npm:29.7.0"
     css-loader: "npm:7.1.2"
     d3: "npm:7.9.0"
     eslint: "npm:8.57.0"
@@ -15135,11 +15069,9 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     rollup: "npm:4.18.0"
-    rollup-plugin-dts: "npm:6.1.1"
     sass: "npm:1.77.4"
     sass-loader: "npm:14.2.1"
     storybook: "npm:8.1.5"
-    storybook-addon-swc: "npm:1.2.0"
     style-loader: "npm:4.0.0"
     tailwindcss: "npm:3.4.3"
     typescript: "npm:5.4.5"
@@ -15757,28 +15689,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-swc@npm:1.2.0":
-  version: 1.2.0
-  resolution: "storybook-addon-swc@npm:1.2.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.17.2"
-    deepmerge: "npm:^4.2.2"
-    swc-loader: "npm:^0.1.15"
-  peerDependencies:
-    "@swc/core": ^1.2.152
-    terser-webpack-plugin: ^4.0.0 || ^5.0.0
-    webpack: ^4.0.0 || ^5.0.0
-  peerDependenciesMeta:
-    "@swc/core":
-      optional: false
-    terser-webpack-plugin:
-      optional: true
-    webpack:
-      optional: true
-  checksum: 10c0/fcd3af635ff9b37f663feaed79585ab0a3d13f91b0d6e2d008a57fbf152c7989a5180db8a07001e3f7e35a4b0b1e9cfdf18fc56eb7f48b5c9757e50880a5c658
-  languageName: node
-  linkType: hard
-
 "storybook@npm:8.1.5":
   version: 8.1.5
   resolution: "storybook@npm:8.1.5"
@@ -16086,16 +15996,6 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 10c0/6c4032340701a9950865f7ae8ef38578d8d7053f5e10518076e6554a9381fa91bd9c6850193695c141f32b21f979c985db07265a758867bac95de05f7d8aeb39
-  languageName: node
-  linkType: hard
-
-"swc-loader@npm:^0.1.15":
-  version: 0.1.16
-  resolution: "swc-loader@npm:0.1.16"
-  peerDependencies:
-    "@swc/core": ^1.2.147
-    webpack: ">=2"
-  checksum: 10c0/5e5c8591f2c41fb1a868d77bab0f46c8d161173bb20fa10b22d68e2c83e8c9ef3051308d2d44800f4b1fefc6be3c32c5d8ccc3d14d6c9fd39fdad7ac402d2750
   languageName: node
   linkType: hard
 
