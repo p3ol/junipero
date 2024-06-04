@@ -4,7 +4,7 @@
     "packages/*"
   ],
   "scripts": {
-    "prepack": "yarn lint && yarn build && yarn test",
+    "prepack": "yarn lint && yarn tsc && yarn build && yarn test",
     "test": "BABEL_ENV=tests jest",
     "lint": "eslint .",
     "clean": "lerna exec --parallel -- yarn clean",
@@ -40,6 +40,8 @@
     "@types/d3": "7.4.3",
     "@types/jest": "29.5.12",
     "@types/node": "20.14.0",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
     "@typescript-eslint/parser": "7.12.0",
     "autoprefixer": "10.4.19",
     "babel-jest": "29.7.0",
