@@ -73,7 +73,7 @@
     "typescript": "5.4.5"
   },
   "resolutions": {
-    "inline-style-prefixer": "6.0.4"
+    "inline-style-prefixer": "7.0.0"
   },
   "packageManager": "yarn@4.2.2"
 }
