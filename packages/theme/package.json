@@ -13,12 +13,12 @@
   "license": "MIT",
   "sideEffects": false,
   "engines": {
-    "node": ">= 14",
-    "npm": ">= 6"
+    "node": ">= 18"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",
-    "build": "yarn clean && node script/build.js"
+    "build": "yarn clean && node script/build.js",
+    "generate-types": "exit 0"
   },
   "publishConfig": {
     "access": "public"

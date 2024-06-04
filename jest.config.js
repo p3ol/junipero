@@ -5,7 +5,7 @@ module.exports = {
     'node_modules',
     'dist',
     'old',
-    '^.+\\.stories.js$',
+    '^.+\\.stories.tsx$',
     '^.+\\.styl$',
   ],
   projects: [
