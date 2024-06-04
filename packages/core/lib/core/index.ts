@@ -1,7 +1,7 @@
 declare type genericObject = { [_: string]: any}
 
 export const classNames = (...args: Array<any>): string => {
-  const classes: Array<number | string> = []; //TODO verify this
+  const classes: string[] = [];
 
   args.map((arg: string) => {
     if (!arg) {
@@ -9,7 +9,7 @@ export const classNames = (...args: Array<any>): string => {
     }
 
     if (typeof arg === 'string' || typeof arg === 'number') {
-      classes.push(arg);
+      classes.push('' + (arg || ''));
     } else if (Array.isArray(arg) && (arg as Array<any>).length) {
       const inner = classNames(...arg as Array<string>);
 
