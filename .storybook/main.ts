@@ -1,8 +1,6 @@
 import path from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
-import postcss from 'postcss';
-import sass from 'sass';
 
 const config: StorybookConfig = {
   stories: [
@@ -11,26 +9,26 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-actions',
+    '@storybook/addon-themes',
     {
-      name: '@storybook/addon-styling',
+      name: '@storybook/addon-styling-webpack',
       options: {
-        postCss: {
-          implementation: postcss,
-        },
-        sass: {
-          implementation: sass,
-        },
+        rules: [
+          {
+            test: /\.sass$/,
+            use: [
+              'style-loader',
+              'css-loader',
+              'postcss-loader',
+              'sass-loader',
+            ],
+          },
+        ],
       },
     },
+    '@storybook/addon-webpack5-compiler-swc',
   ],
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {
-      builder: {
-        useSWC: true,
-      },
-    },
-  },
+  framework: '@storybook/react-webpack5',
   webpackFinal: (config) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
@@ -65,7 +63,10 @@ const config: StorybookConfig = {
         jsx: true,
       },
     },
-  })
+  }),
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
 };
 
 export default config;
