@@ -20,7 +20,7 @@
     "@rollup/plugin-alias": "5.1.0",
     "@rollup/plugin-commonjs": "25.0.8",
     "@rollup/plugin-node-resolve": "15.2.3",
-    "@rollup/plugin-swc": "0.3.0",
+    "@rollup/plugin-swc": "0.3.1",
     "@rollup/plugin-terser": "0.4.4",
     "@storybook/addon-actions": "8.1.5",
     "@storybook/addon-storysource": "8.1.5",
