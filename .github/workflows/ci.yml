@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          check-latest: true
           cache: yarn
       - name: Install deps
         run: yarn install
@@ -27,13 +28,17 @@ jobs:
     name: Unit tests
     runs-on: ubuntu-22.04
     timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
+          check-latest: true
           cache: yarn
       - name: Install deps
         run: yarn install
@@ -54,6 +59,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          check-latest: true
           cache: yarn
       - name: Install deps
         run: yarn install
