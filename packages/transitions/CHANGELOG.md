@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
+
+
+### Features
+
+* **deps:** update dependency core-js to v3.36.0 ([a897225](https://github.com/p3ol/junipero/commit/a897225d0902e83250255c7b535ba8528e04490d))
+* rework build, still things to fix ([08afdf6](https://github.com/p3ol/junipero/commit/08afdf6e98c66395cacd8c606dc07b21ef7ed565))
+* **typescript:** add @swc/jest and use it instead of babel ([5a9338c](https://github.com/p3ol/junipero/commit/5a9338c571b43d0fe173badd0ad63c398c8d1360))
+* **typescript:** fix package names in rollup ([f4dfcb8](https://github.com/p3ol/junipero/commit/f4dfcb86ec8c6e6d08015504308c96ba395d81f5))
+* **typescript:** remove typescript errors with no implicit any ([0b1a27b](https://github.com/p3ol/junipero/commit/0b1a27bb1eac0b6b1af604e8e144a7933f1577bb))
+* **typescript:** rework d3 package ([1116c41](https://github.com/p3ol/junipero/commit/1116c41a4228abc0fc60d5302b1fcf6e54793111))
+* **typescript:** rework transitions package config and fix typo ([f3ffc5a](https://github.com/p3ol/junipero/commit/f3ffc5ad6b43c137a62328ae2a1d4834660d44f8))
+* **typescript:** switch tests and stories to ts ([0c0cbc7](https://github.com/p3ol/junipero/commit/0c0cbc7862eb58ac33bf24ac88b08173f3141c4b))
+* **typescript:** switch to swc and repair all packages build ([b054562](https://github.com/p3ol/junipero/commit/b05456240c2ae925604ac3f2ee1d8928b2ab7bc8))
+* **typescript:** switch transitions package to typescript ([1193275](https://github.com/p3ol/junipero/commit/1193275eda1ab1cd9530cb3f8b472c9377742a7b))
+
+
+
+
+
 ## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
 
 **Note:** Version bump only for package @junipero/transitions

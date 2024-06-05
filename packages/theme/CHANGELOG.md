@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
+
+
+### Features
+
+* **typescript:** switch last story to ts ([a237c82](https://github.com/p3ol/junipero/commit/a237c82ec795d233fac62e6171aef1f183e9bcb4))
+
+
+
+
+
 ## [3.4.15](https://github.com/p3ol/junipero/compare/v3.4.14...v3.4.15) (2024-05-29)
 
 

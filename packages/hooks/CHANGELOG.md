@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
+
+
+### Features
+
+* **deps:** update dependency core-js to v3.36.0 ([a897225](https://github.com/p3ol/junipero/commit/a897225d0902e83250255c7b535ba8528e04490d))
+* **typescript:** add @swc/jest and use it instead of babel ([5a9338c](https://github.com/p3ol/junipero/commit/5a9338c571b43d0fe173badd0ad63c398c8d1360))
+* **typescript:** rework core and hooks rollup and ts config ([7bd837a](https://github.com/p3ol/junipero/commit/7bd837a5db52ad01ae92018618bcdc6b4a96e04a))
+* **typescript:** rework d3 package ([1116c41](https://github.com/p3ol/junipero/commit/1116c41a4228abc0fc60d5302b1fcf6e54793111))
+* **typescript:** switch hooks package to typescript ([07cf721](https://github.com/p3ol/junipero/commit/07cf7216d5fa0eeed85108e15ffc3b60f639a6f8))
+* **typescript:** switch tests and stories to ts ([0c0cbc7](https://github.com/p3ol/junipero/commit/0c0cbc7862eb58ac33bf24ac88b08173f3141c4b))
+* **typescript:** switch to swc and repair all packages build ([b054562](https://github.com/p3ol/junipero/commit/b05456240c2ae925604ac3f2ee1d8928b2ab7bc8))
+* **typescript:** switch to tsx snapshots ([b1a1033](https://github.com/p3ol/junipero/commit/b1a1033b4a1ea872065ad8bd4a6ee8f2f9be5d42))
+* **typescript:** wip rename tests and add implicitAny rule ([ebca843](https://github.com/p3ol/junipero/commit/ebca84354089c011a2a6dbd75881387a32115a8d))
+* **typescript:** workaround the draggable problem ([8ff5813](https://github.com/p3ol/junipero/commit/8ff5813274b87b1384006962d218a3511b793692))
+
+
+
+
+
 ## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
 
 **Note:** Version bump only for package @junipero/hooks

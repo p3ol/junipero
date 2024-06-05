@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
+
+
+### Bug Fixes
+
+* better typings ([390a06b](https://github.com/p3ol/junipero/commit/390a06beabb5a54a40f3f55ff28e0ba1b5b47689))
+
+
+### Features
+
+* **tailwind-plugin:** rewrite plugin with TS ([a727310](https://github.com/p3ol/junipero/commit/a72731050659cc31dda36d599276f3b037683c7f))
+* **typescript:** add @swc/jest and use it instead of babel ([5a9338c](https://github.com/p3ol/junipero/commit/5a9338c571b43d0fe173badd0ad63c398c8d1360))
+
+
+
+
+
 ## [3.4.11](https://github.com/p3ol/junipero/compare/v3.4.10...v3.4.11) (2024-02-28)
 
 **Note:** Version bump only for package @junipero/tailwind-plugin

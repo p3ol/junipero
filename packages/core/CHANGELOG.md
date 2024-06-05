@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
+
+
+### Bug Fixes
+
+* better typings ([390a06b](https://github.com/p3ol/junipero/commit/390a06beabb5a54a40f3f55ff28e0ba1b5b47689))
+* **core:** only return value if found ([7f09a3e](https://github.com/p3ol/junipero/commit/7f09a3e4a3f116d5f8c88b4849efeb21acb65fee))
+* remaining todo ([33914cd](https://github.com/p3ol/junipero/commit/33914cd1ae8d0f6875ed4b4fc0e9086fa1cf92ec))
+
+
+### Features
+
+* **deps:** update dependency core-js to v3.36.0 ([a897225](https://github.com/p3ol/junipero/commit/a897225d0902e83250255c7b535ba8528e04490d))
+* lint files ([31f4a6e](https://github.com/p3ol/junipero/commit/31f4a6e84e4a05d4cd407575af6edd8d0952e11c))
+* rework build, still things to fix ([08afdf6](https://github.com/p3ol/junipero/commit/08afdf6e98c66395cacd8c606dc07b21ef7ed565))
+* **typescript:** add @swc/jest and use it instead of babel ([5a9338c](https://github.com/p3ol/junipero/commit/5a9338c571b43d0fe173badd0ad63c398c8d1360))
+* **typescript:** remove defintions on lib ([d7adf2b](https://github.com/p3ol/junipero/commit/d7adf2bef43585e6d2d34bd0c8b3e04184cedf4c))
+* **typescript:** rework core and hooks rollup and ts config ([7bd837a](https://github.com/p3ol/junipero/commit/7bd837a5db52ad01ae92018618bcdc6b4a96e04a))
+* **typescript:** switch core package to typescript ([be1bcc3](https://github.com/p3ol/junipero/commit/be1bcc38b618d133afda91303bbdc90d09c8ef61))
+* **typescript:** switch tests and stories to ts ([0c0cbc7](https://github.com/p3ol/junipero/commit/0c0cbc7862eb58ac33bf24ac88b08173f3141c4b))
+* **typescript:** switch to swc and repair all packages build ([b054562](https://github.com/p3ol/junipero/commit/b05456240c2ae925604ac3f2ee1d8928b2ab7bc8))
+* **typescript:** wip rename tests and add implicitAny rule ([ebca843](https://github.com/p3ol/junipero/commit/ebca84354089c011a2a6dbd75881387a32115a8d))
+
+
+
+
+
 ## [3.4.13](https://github.com/p3ol/junipero/compare/v3.4.12...v3.4.13) (2024-04-23)
 
 

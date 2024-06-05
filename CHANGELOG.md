@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
+
+
+### Bug Fixes
+
+* better typings ([390a06b](https://github.com/p3ol/junipero/commit/390a06beabb5a54a40f3f55ff28e0ba1b5b47689))
+* **core:** only return value if found ([7f09a3e](https://github.com/p3ol/junipero/commit/7f09a3e4a3f116d5f8c88b4849efeb21acb65fee))
+* **react:** add story for select field multiple values with groups ([58f7d08](https://github.com/p3ol/junipero/commit/58f7d085a125ba7118023f414304440895810313))
+* remaining todo ([33914cd](https://github.com/p3ol/junipero/commit/33914cd1ae8d0f6875ed4b4fc0e9086fa1cf92ec))
+* remove unused dependencies ([389f08d](https://github.com/p3ol/junipero/commit/389f08dec904e3672d353cbc37057d3be15c304e))
+* **typescript:** fix lint typo ([bb72815](https://github.com/p3ol/junipero/commit/bb72815580056fbaede7af13214a72a08c38297b))
+* various TODOs ([7755be3](https://github.com/p3ol/junipero/commit/7755be3dcc7038790e8a8fc40b159e1f59b2f509))
+
+
+### Features
+
+* **deps:** update dependency core-js to v3.36.0 ([a897225](https://github.com/p3ol/junipero/commit/a897225d0902e83250255c7b535ba8528e04490d))
+* lint files ([31f4a6e](https://github.com/p3ol/junipero/commit/31f4a6e84e4a05d4cd407575af6edd8d0952e11c))
+* make props optionnal ([fdfe213](https://github.com/p3ol/junipero/commit/fdfe2137bc40a4f3077535cae265f5bb2c81cbf1))
+* remove all .d.ts and rework types generation ([2d5bacb](https://github.com/p3ol/junipero/commit/2d5bacb683b94d73d0254c62d7624f10d6f535d8))
+* remove generate-types from buildé ([f3a04de](https://github.com/p3ol/junipero/commit/f3a04de37e43fa420ec4de6ff3f3ee1eea7e5d8d))
+* rework build, still things to fix ([08afdf6](https://github.com/p3ol/junipero/commit/08afdf6e98c66395cacd8c606dc07b21ef7ed565))
+* **tailwind-plugin:** rewrite plugin with TS ([a727310](https://github.com/p3ol/junipero/commit/a72731050659cc31dda36d599276f3b037683c7f))
+* **typecript:** repair radio Field story ([4d4d67f](https://github.com/p3ol/junipero/commit/4d4d67fcd3d330b71dc043dc04696817ba877593))
+* **typescript:** add @swc/jest and use it instead of babel ([5a9338c](https://github.com/p3ol/junipero/commit/5a9338c571b43d0fe173badd0ad63c398c8d1360))
+* **typescript:** add type for state ([3dad606](https://github.com/p3ol/junipero/commit/3dad6061f5f0befc07f6c83da6d8b8a75480a70e))
+* **typescript:** fix package names in rollup ([f4dfcb8](https://github.com/p3ol/junipero/commit/f4dfcb86ec8c6e6d08015504308c96ba395d81f5))
+* **typescript:** remove defintions on lib ([d7adf2b](https://github.com/p3ol/junipero/commit/d7adf2bef43585e6d2d34bd0c8b3e04184cedf4c))
+* **typescript:** remove typescript errors with no implicit any ([0b1a27b](https://github.com/p3ol/junipero/commit/0b1a27bb1eac0b6b1af604e8e144a7933f1577bb))
+* **typescript:** remove useless title ([c9a1935](https://github.com/p3ol/junipero/commit/c9a193567d8086cfcde7a868b55ad9d068f2e568))
+* **typescript:** repair some d3 plugin behaviors ([99170b2](https://github.com/p3ol/junipero/commit/99170b21b0b224e89e35c1b82e892db37d6fd250))
+* **typescript:** repair tabs ([8bf2262](https://github.com/p3ol/junipero/commit/8bf22624b8ff322f7e755e351d916c0b4fdf063e))
+* **typescript:** rework core and hooks rollup and ts config ([7bd837a](https://github.com/p3ol/junipero/commit/7bd837a5db52ad01ae92018618bcdc6b4a96e04a))
+* **typescript:** rework d3 package ([1116c41](https://github.com/p3ol/junipero/commit/1116c41a4228abc0fc60d5302b1fcf6e54793111))
+* **typescript:** rework transitions package config and fix typo ([f3ffc5a](https://github.com/p3ol/junipero/commit/f3ffc5ad6b43c137a62328ae2a1d4834660d44f8))
+* **typescript:** rework types generation ([6dae79b](https://github.com/p3ol/junipero/commit/6dae79bb05f68d2c4ed521b7fe71097cee1956bb))
+* **typescript:** switch core package to typescript ([be1bcc3](https://github.com/p3ol/junipero/commit/be1bcc38b618d133afda91303bbdc90d09c8ef61))
+* **typescript:** switch hooks package to typescript ([07cf721](https://github.com/p3ol/junipero/commit/07cf7216d5fa0eeed85108e15ffc3b60f639a6f8))
+* **typescript:** switch last story to ts ([a237c82](https://github.com/p3ol/junipero/commit/a237c82ec795d233fac62e6171aef1f183e9bcb4))
+* **typescript:** switch tests and stories to ts ([0c0cbc7](https://github.com/p3ol/junipero/commit/0c0cbc7862eb58ac33bf24ac88b08173f3141c4b))
+* **typescript:** switch to swc and repair all packages build ([b054562](https://github.com/p3ol/junipero/commit/b05456240c2ae925604ac3f2ee1d8928b2ab7bc8))
+* **typescript:** switch to tsx snapshots ([b1a1033](https://github.com/p3ol/junipero/commit/b1a1033b4a1ea872065ad8bd4a6ee8f2f9be5d42))
+* **typescript:** switch transitions package to typescript ([1193275](https://github.com/p3ol/junipero/commit/1193275eda1ab1cd9530cb3f8b472c9377742a7b))
+* **typescript:** type every function ([72ea973](https://github.com/p3ol/junipero/commit/72ea973e13c2921c777a1fecb083fb3078678276))
+* **typescript:** typo ([4d9652d](https://github.com/p3ol/junipero/commit/4d9652de7e99a323345405d26b2d3ce3b34cc6e7))
+* **typescript:** use yarn on github workflow ([ffb045d](https://github.com/p3ol/junipero/commit/ffb045dd7b2e17bb24413325b387fe1bc61cd084))
+* **typescript:** wip rename tests and add implicitAny rule ([ebca843](https://github.com/p3ol/junipero/commit/ebca84354089c011a2a6dbd75881387a32115a8d))
+* **typescript:** workaround the draggable problem ([8ff5813](https://github.com/p3ol/junipero/commit/8ff5813274b87b1384006962d218a3511b793692))
+* **types:** wip add types for d3 plugin ([c3063c7](https://github.com/p3ol/junipero/commit/c3063c7f8ad9871aa628668b704ec1341e4da4e8))
+* update tsconfig ([abbde0c](https://github.com/p3ol/junipero/commit/abbde0c0ab699778e881f6ef7a775b4d95769cef))
+* wip add types on d3 ([53d53d5](https://github.com/p3ol/junipero/commit/53d53d532fd12e28d10e6a80ad9e4c7d59a8faf2))
+
+
+
+
+
 ## [3.4.15](https://github.com/p3ol/junipero/compare/v3.4.14...v3.4.15) (2024-05-29)
 
 
