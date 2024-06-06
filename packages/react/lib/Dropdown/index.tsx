@@ -99,11 +99,11 @@ const Dropdown = forwardRef(({
       offset(10),
       flip({
         boundary: floatingOptions?.boundary ||
-          floatingOptions?.elements.reference,
+          floatingOptions?.elements?.reference,
       }),
       shift({
         boundary: floatingOptions?.boundary ||
-          floatingOptions?.elements.reference,
+          floatingOptions?.elements?.reference,
       }),
     ],
   });
