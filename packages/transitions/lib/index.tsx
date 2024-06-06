@@ -1,55 +1,53 @@
-import type { ReactNode } from 'react';
-import { Transition } from '@junipero/react';
+import type { Key, ReactNode } from 'react';
+import { type TransitionProps, Transition } from '@junipero/react';
+
+export declare interface AnimateMenuOptions {
+  time?: number;
+  key?: Key;
+  opts?: Partial<TransitionProps>;
+}
 
 export const animateMenu = (
   name: string,
-  {
-    time = 100, key, ...opts
-  }: {
-    time?: number, key?: any, opts?: Array<any>
+  { time = 100, key, ...opts }: AnimateMenuOptions = {}
+) => (
+  menu: ReactNode,
+  { opened, key: k, ...props }: {
+    opened?: boolean;
+    key?: Key;
+    opts?: Partial<TransitionProps>;
   } = {}
-) =>
-  (menu: string, {
-    opened, key: k, ...props
-  }: {
-    opened?: boolean, key?: any, opts?: Array<any>
-  } = {}): JSX.Element => (
-    <Transition
-      in={opened}
-      mountOnEnter={true}
-      unmountOnExit={true}
-      timeout={time}
-      name={name}
-      children={menu}
-      { ...opts }
-      { ...props }
-      key={k ?? key}
-    />
-  );
-export type SlideMenuType = (
-  modal: any, props?: { opened?: boolean, key?: any, opts?: Array<any> }
-  ) => JSX.Element;
-export type AnimateModalType = (
-  name: string, props?: { time?: number, key?: any, opts?: Array<any> }
-  ) => SlideMenuType
+) => (
+  <Transition
+    in={opened}
+    mountOnEnter={true}
+    unmountOnExit={true}
+    timeout={time}
+    name={name}
+    children={menu}
+    { ...opts }
+    { ...props }
+    key={k ?? key}
+  />
+);
+
+export declare interface AnimateOptions {
+  time?: number;
+  key?: Key;
+  opts?: Partial<TransitionProps>;
+}
 
 export const animate = (
   name: string,
-  { time = 100, key, ...opts }: {
-    time?: number, opened?: boolean, key?: any, opts?: Array<any>
+  { time = 100, key, ...opts }: AnimateOptions = {}
+) => (
+  menu: ReactNode,
+  { opened, key: k, ...props }: {
+    opened?: boolean;
+    key?: Key;
+    opts?: Partial<TransitionProps>;
   } = {}
 ) => (
-  menu: JSX.Element | ReactNode | string,
-  {
-    opened,
-    key: k,
-    ...props
-  }: {
-    opened?: boolean,
-    key?: any,
-    opts?: Array<any>
-  } = {}
-): JSX.Element => (
   <Transition
     in={opened}
     mountOnEnter={true}
@@ -66,8 +64,14 @@ export const animate = (
 export const slideInUpMenu = animate('jp-slide-in-up-menu');
 export const slideInDownMenu = animate('jp-slide-in-down-menu');
 
-export const animateModal: AnimateModalType = (
-  name,
+export interface AnimateModalOptions {
+  time?: number;
+  key?: Key;
+  opts?: Partial<TransitionProps>;
+}
+
+export const animateModal = (
+  name: string,
   { time = 300, ...opts } = {}
 ) => animate(name, { time, ...opts });
 
