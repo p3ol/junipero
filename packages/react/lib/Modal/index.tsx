@@ -213,6 +213,7 @@ Modal.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.instanceOf(DocumentFragment),
+    PropTypes.any, // TODO: fix this
   ]),
   closable: PropTypes.bool,
   disabled: PropTypes.bool,

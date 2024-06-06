@@ -271,6 +271,7 @@ Tooltip.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.instanceOf(DocumentFragment),
+    PropTypes.any, // TODO: fix this
   ]),
   disabled: PropTypes.bool,
   onToggle: PropTypes.func,
