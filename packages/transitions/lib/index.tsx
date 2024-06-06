@@ -1,10 +1,9 @@
 import type { Key, ReactNode } from 'react';
 import { type TransitionProps, Transition } from '@junipero/react';
 
-export declare interface AnimateMenuOptions {
+export declare interface AnimateMenuOptions extends Partial<TransitionProps> {
   time?: number;
   key?: Key;
-  opts?: Partial<TransitionProps>;
 }
 
 export const animateMenu = (
@@ -15,8 +14,7 @@ export const animateMenu = (
   { opened, key: k, ...props }: {
     opened?: boolean;
     key?: Key;
-    opts?: Partial<TransitionProps>;
-  } = {}
+  } & Partial<TransitionProps> = {}
 ) => (
   <Transition
     in={opened}
@@ -31,10 +29,9 @@ export const animateMenu = (
   />
 );
 
-export declare interface AnimateOptions {
+export declare interface AnimateOptions extends Partial<TransitionProps> {
   time?: number;
   key?: Key;
-  opts?: Partial<TransitionProps>;
 }
 
 export const animate = (
@@ -45,8 +42,7 @@ export const animate = (
   { opened, key: k, ...props }: {
     opened?: boolean;
     key?: Key;
-    opts?: Partial<TransitionProps>;
-  } = {}
+  } & Partial<TransitionProps> = {}
 ) => (
   <Transition
     in={opened}
