@@ -26,6 +26,7 @@ import {
   type UseFloatingOptions,
   type Placement,
   type OpenChangeReason,
+  type Boundary,
   offset,
   flip,
   shift,
@@ -57,7 +58,9 @@ export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   container?: JSX.Element | HTMLElement | DocumentFragment | string;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
-  floatingOptions?: UseFloatingOptions;
+  floatingOptions?: UseFloatingOptions & {
+    boundary?: Boundary;
+  };
   hoverOptions?: UseHoverProps;
   opened?: boolean;
   text?: ReactNode | JSX.Element;
@@ -110,11 +113,12 @@ const Tooltip = forwardRef(({
     middleware: floatingOptions?.middleware || [
       offset(10),
       flip({
-        boundary: floatingOptions?.elements.reference,
-
+        boundary: floatingOptions?.boundary ||
+          floatingOptions?.elements.reference,
       }),
       shift({
-        boundary: floatingOptions?.elements.reference,
+        boundary: floatingOptions?.boundary ||
+          floatingOptions?.elements.reference,
       }),
     ],
   });

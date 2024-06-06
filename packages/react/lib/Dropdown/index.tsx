@@ -20,6 +20,8 @@ import {
   type UseHoverProps,
   type Placement,
   type OpenChangeReason,
+  type UseFloatingOptions,
+  type Boundary,
   offset,
   autoUpdate,
   flip,
@@ -50,7 +52,9 @@ export declare interface DropdownProps extends ComponentPropsWithRef<any> {
   container?: string | JSX.Element | DocumentFragment | HTMLElement;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
-  floatingOptions?: {middleware?: any[]};
+  floatingOptions?: UseFloatingOptions & {
+    boundary?: Boundary;
+  };
   hoverOptions?: UseHoverProps;
   opened?: boolean;
   placement?: Placement;
@@ -92,8 +96,14 @@ const Dropdown = forwardRef(({
     ...floatingOptions || {},
     middleware: floatingOptions?.middleware || [
       offset(10),
-      flip(),
-      shift(),
+      flip({
+        boundary: floatingOptions?.boundary ||
+          floatingOptions?.elements.reference,
+      }),
+      shift({
+        boundary: floatingOptions?.boundary ||
+          floatingOptions?.elements.reference,
+      }),
     ],
   });
   const { getReferenceProps, getFloatingProps } = useInteractions([
