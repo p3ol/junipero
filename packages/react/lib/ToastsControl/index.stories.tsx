@@ -1,4 +1,4 @@
-import { SlideMenuType, slideInDownMenu } from '@junipero/transitions';
+import { slideInDownMenu } from '@junipero/transitions';
 
 import { useToasts } from '../hooks';
 import Toasts from '../Toasts';
@@ -23,7 +23,7 @@ const Comp = () => {
         </Button>
       </div>
       <Toasts
-        animateToast={slideInDownMenu as SlideMenuType}
+        animateToast={slideInDownMenu}
         style={{ position: 'fixed', bottom: 0, right: 0 }}
       />
     </>

@@ -1,6 +1,7 @@
 import {
   type ComponentPropsWithRef,
   type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
@@ -21,7 +22,7 @@ export declare interface ToastsProps extends ComponentPropsWithRef<any> {
   animationTimeout?: number;
   className?: string;
   animateToast?(
-    toast: JSX.Element | Element,
+    toast: ReactNode,
     opts: { opened: boolean; index: string | number }
   ): JSX.Element| Element;
   ref?: MutableRefObject<ToastsRef | undefined>;
