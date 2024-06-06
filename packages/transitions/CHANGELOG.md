@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1](https://github.com/p3ol/junipero/compare/v3.5.0...v3.5.1) (2024-06-06)
+
+
+### Bug Fixes
+
+* **transitions:** typings ([eab8d6f](https://github.com/p3ol/junipero/commit/eab8d6fd760427fad7200518bade14a2f1f6fe33))
+
+
+
+
+
 # [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
 
 

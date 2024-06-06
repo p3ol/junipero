@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1](https://github.com/p3ol/junipero/compare/v3.5.0...v3.5.1) (2024-06-06)
+
+
+### Bug Fixes
+
+* **react:** floating boundaries ([08f71f6](https://github.com/p3ol/junipero/commit/08f71f65b2d1519c57a2e6e3acdf3ed008bd226b))
+* **react:** types again ([7cf3db5](https://github.com/p3ol/junipero/commit/7cf3db5e601206ac611919db992c4d89e77163c8))
+* **react:** various type issues ([0694992](https://github.com/p3ol/junipero/commit/06949921a11a9b533b954293f0435d1329f930c5))
+* **react:** wrong floating options ([f9d4e3c](https://github.com/p3ol/junipero/commit/f9d4e3c0ba6e194fac77b44f416a7fb664a97a22))
+
+
+
+
+
 # [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
 
 
