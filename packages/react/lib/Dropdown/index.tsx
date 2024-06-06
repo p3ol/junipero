@@ -13,6 +13,7 @@ import {
   type MockState,
   classNames,
   mockState,
+  omit,
 } from '@junipero/core';
 import {
   type UseClickProps,
@@ -93,7 +94,7 @@ const Dropdown = forwardRef(({
     placement,
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,
-    ...floatingOptions || {},
+    ...omit(floatingOptions || {}, ['boundary', 'middleware']),
     middleware: floatingOptions?.middleware || [
       offset(10),
       flip({
