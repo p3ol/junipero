@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.3](https://github.com/p3ol/junipero/compare/v3.5.2...v3.5.3) (2024-06-06)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** missing type ([9676fb3](https://github.com/p3ol/junipero/commit/9676fb3e9f61d6a6ca862d44a6b8f806c19ede45))
+* **ts-integration:** add Axis file exports on global export ([4207255](https://github.com/p3ol/junipero/commit/42072558fa7c519456b8ef64b453b4a08e415870))
+
+
+
+
+
 ## [3.5.1](https://github.com/p3ol/junipero/compare/v3.5.0...v3.5.1) (2024-06-06)
 
 **Note:** Version bump only for package @junipero/react-d3-plugin

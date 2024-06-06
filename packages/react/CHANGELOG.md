@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.3](https://github.com/p3ol/junipero/compare/v3.5.2...v3.5.3) (2024-06-06)
+
+
+### Bug Fixes
+
+* **react:** missing optional chaining ([669d4dc](https://github.com/p3ol/junipero/commit/669d4dca07ed3a79461211ad0770580cc95c91e3))
+
+
+
+
+
 ## [3.5.1](https://github.com/p3ol/junipero/compare/v3.5.0...v3.5.1) (2024-06-06)
 
 
