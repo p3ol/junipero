@@ -54,7 +54,7 @@ export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   children?: ReactNode | JSX.Element;
   className?: string;
   clickOptions?: UseClickProps;
-  container?: JSX.Element | DocumentFragment | string;
+  container?: JSX.Element | HTMLElement | DocumentFragment | string;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
   floatingOptions?: UseFloatingOptions;
@@ -263,7 +263,11 @@ Tooltip.displayName = 'Tooltip';
 Tooltip.propTypes = {
   animate: PropTypes.func,
   apparition: PropTypes.string,
-  container: PropTypes.any,
+  container: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.instanceOf(DocumentFragment),
+  ]),
   disabled: PropTypes.bool,
   onToggle: PropTypes.func,
   opened: PropTypes.bool,

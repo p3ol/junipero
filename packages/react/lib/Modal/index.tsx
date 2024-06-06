@@ -38,7 +38,7 @@ export declare interface ModalProps extends ComponentPropsWithRef<any> {
   apparition?: string;
   children?: ReactNode | JSX.Element;
   className?: string;
-  container?: React.JSX.Element | DocumentFragment | string;
+  container?: JSX.Element | DocumentFragment | string | HTMLElement;
   disabled?: boolean;
   opened?: boolean;
   closable?: boolean;

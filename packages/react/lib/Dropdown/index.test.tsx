@@ -115,7 +115,7 @@ describe('useDropdwon()', () => {
     ));
   });
   it('should set hook with props', () => {
-    const container: React.JSX.Element = <div />;
+    const container: ReactNode = <div />;
 
     const wrapper = (
       { children }: { children: JSX.Element | ReactNode | string}
