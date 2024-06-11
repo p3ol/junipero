@@ -150,15 +150,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-plugin@npm:7.24.6":
-  version: 7.24.6
-  resolution: "@babel/eslint-plugin@npm:7.24.6"
+"@babel/eslint-plugin@npm:7.24.7":
+  version: 7.24.7
+  resolution: "@babel/eslint-plugin@npm:7.24.7"
   dependencies:
     eslint-rule-composer: "npm:^0.3.0"
   peerDependencies:
     "@babel/eslint-parser": ^7.11.0
     eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/b611384b71eea9a35e59a33ce74947423a623435c544e34d12f8c7277d9636d518b977cfc0de6eb2222ec7a33e7a901714cec26d6b0314cdbb1a575a38404dc1
+  checksum: 10c0/5b4bc7843a49c6dea4fc9ecd115ef4a7cc69059ab036db1e6afe992afa28241b65af7fc8d32c3c1bae3e95a5834e3900ce0f8cbf72234fb5a82a3eb436c00b4d
   languageName: node
   linkType: hard
 
@@ -15011,7 +15011,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@babel/eslint-plugin": "npm:7.24.6"
+    "@babel/eslint-plugin": "npm:7.24.7"
     "@poool/eslint-config": "npm:3.0.1"
     "@poool/eslint-config-react": "npm:3.0.1"
     "@poool/eslint-plugin": "npm:3.0.0"
