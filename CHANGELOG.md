@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.5](https://github.com/p3ol/junipero/compare/v3.5.4...v3.5.5) (2024-06-11)
+
+
+### Bug Fixes
+
+* npm ignore tsconfig ([4139019](https://github.com/p3ol/junipero/commit/413901914f1bb4714eef015e9c8106017d0e70c0))
+* update various deps ([0afc16c](https://github.com/p3ol/junipero/commit/0afc16ce9f58a0c7963746025f12f144eb05cd11))
+
+
+
+
+
 ## [3.5.4](https://github.com/p3ol/junipero/compare/v3.5.3...v3.5.4) (2024-06-11)
 
 
