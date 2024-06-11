@@ -3,3 +3,5 @@ coverage
 .ci
 .github
 .storybook
+tsconfig.json
+tsconfig.build.json
