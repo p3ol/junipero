@@ -4,7 +4,7 @@
     "packages/*"
   ],
   "scripts": {
-    "prepack": "yarn lint && yarn tsc && yarn build && yarn test",
+    "prepack": "yarn build && yarn lint && yarn tsc && yarn test",
     "test": "BABEL_ENV=tests jest",
     "lint": "eslint .",
     "clean": "lerna exec --parallel -- yarn clean",
