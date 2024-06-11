@@ -14,7 +14,7 @@ export const basic = () => (
 );
 
 export const collapsed = () => (
-  <BreadCrumb kekeke={true} maxItems={2}>
+  <BreadCrumb maxItems={2}>
     <BreadCrumbItem>One</BreadCrumbItem>
     <BreadCrumbItem>Two</BreadCrumbItem>
     <BreadCrumbItem>Three</BreadCrumbItem>
