@@ -1,6 +1,6 @@
 {
   "name": "@junipero/core",
-  "version": "3.5.0",
+  "version": "3.5.5",
   "description": "🏔 Junipero Design System Core Utils",
   "main": "dist/junipero-core.cjs.js",
   "module": "dist/esm/index.js",
