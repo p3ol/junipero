@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
@@ -18,7 +18,7 @@ export declare interface ToastsRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLDivElement>;
 }
 
-export declare interface ToastsProps extends ComponentPropsWithRef<'div'> {
+export declare interface ToastsProps extends ComponentPropsWithoutRef<'div'> {
   animationTimeout?: number;
   animateToast?(
     toast: ReactNode | JSX.Element,

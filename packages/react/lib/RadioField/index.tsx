@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type KeyboardEvent,
   forwardRef,
   useReducer,
@@ -33,8 +33,7 @@ export declare interface RadioFieldRef extends JuniperoRef {
 }
 
 export declare interface RadioFieldProps
-  extends Omit<ComponentPropsWithRef<'div'>, 'onChange'> {
-  className?: string;
+  extends Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> {
   disabled?: boolean;
   name?: string;
   options?: Array<RadioFieldOptionObject | RadioFieldValue>;

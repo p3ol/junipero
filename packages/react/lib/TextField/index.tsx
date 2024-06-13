@@ -15,7 +15,7 @@ import type {
   FieldContent,
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
   StateReducer,
 } from '../types';
 import { useFieldControl } from '../hooks';
@@ -33,7 +33,8 @@ export declare interface TextFieldRef extends JuniperoRef {
   inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>;
 }
 
-export declare interface TextFieldProps extends SpecialComponentPropsWithRef {
+export declare interface TextFieldProps
+  extends SpecialComponentPropsWithoutRef {
   autoFocus?: boolean;
   disabled?: boolean;
   required?: boolean;

@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type KeyboardEvent,
   type ChangeEvent,
   forwardRef,
@@ -21,8 +21,9 @@ export declare interface CheckboxFieldRef extends JuniperoRef {
   inputRef: MutableRefObject<HTMLInputElement>;
 }
 
-export declare interface CheckboxFieldProps
-  extends Omit<ComponentPropsWithRef<'label'>, 'onChange'> {
+export declare interface CheckboxFieldProps extends Omit<
+  ComponentPropsWithoutRef<'label'>, 'onChange'
+> {
   checked?: boolean;
   disabled?: boolean;
   id?: string;

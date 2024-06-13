@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type ReactNode,
   Children,
   cloneElement,
@@ -19,7 +19,7 @@ export declare interface StepperRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLDivElement>;
 }
 
-export declare interface StepperProps extends ComponentPropsWithRef<'div'> {
+export declare interface StepperProps extends ComponentPropsWithoutRef<'div'> {
   active?: number;
   steps?: Array<StepObject>;
   icon?: ReactNode | JSX.Element;

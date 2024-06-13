@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useImperativeHandle,
   useRef,
@@ -23,7 +23,7 @@ export declare interface ListRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLTableElement>;
 }
 
-export declare interface ListProps extends ComponentPropsWithRef<'table'> {
+export declare interface ListProps extends ComponentPropsWithoutRef<'table'> {
   columns?: Array<string | ListColumnObject>;
   orderable?: boolean;
   onOrder?(order: { column: string | number; asc: boolean | null }): void;

@@ -4,6 +4,7 @@ import {
   type ChangeEvent,
   type FocusEvent,
   type MouseEvent,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useImperativeHandle,
   useReducer,
@@ -20,7 +21,7 @@ import type {
 } from '../types';
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove, Time } from '../icons';
-import Dropdown, { DropdownProps, type DropdownRef } from '../Dropdown';
+import Dropdown, { type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import Calendar from '../Calendar';
@@ -43,8 +44,9 @@ export declare interface DateFieldRef extends Omit<JuniperoRef, 'innerRef'> {
   timeInputRef: MutableRefObject<HTMLInputElement>;
 }
 
-export declare interface DateFieldProps
-  extends Omit<DropdownProps, 'onChange'> {
+export declare interface DateFieldProps extends Omit<
+  ComponentPropsWithoutRef<typeof Dropdown>, 'onChange'
+> {
   autoFocus?: boolean;
   clearable?: boolean;
   disabled?: boolean;

@@ -10,7 +10,7 @@ import { classNames } from '@junipero/core';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 import { useFieldControl } from '../hooks';
 
@@ -18,7 +18,8 @@ export declare interface FieldAddonRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLElement>;
 }
 
-export declare interface FieldAddonProps extends SpecialComponentPropsWithRef {
+export declare interface FieldAddonProps
+  extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
 }
 

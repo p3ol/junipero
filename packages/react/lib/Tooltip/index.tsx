@@ -38,7 +38,7 @@ import {
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
   StateReducer,
 } from '../types';
 import type { TransitionProps } from '../Transition';
@@ -53,7 +53,7 @@ export declare interface TooltipRef extends JuniperoRef {
   handleRef: MutableRefObject<HTMLElement>;
 }
 
-export declare interface TooltipProps extends SpecialComponentPropsWithRef {
+export declare interface TooltipProps extends SpecialComponentPropsWithoutRef {
   apparition?: string;
   clickOptions?: UseClickProps;
   container?: JSX.Element | HTMLElement | DocumentFragment | string;

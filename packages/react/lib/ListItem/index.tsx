@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
@@ -13,7 +13,7 @@ export declare interface ListItemRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLTableRowElement>;
 }
 
-export declare interface ListItemProps extends ComponentPropsWithRef<'tr'> {
+export declare interface ListItemProps extends ComponentPropsWithoutRef<'tr'> {
   item?: Array<ReactNode | JSX.Element>;
 }
 

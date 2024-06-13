@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
@@ -25,7 +25,7 @@ export declare type AlertsTypes =
   | 'success'
   | 'warning';
 
-export declare interface AlertsProps extends ComponentPropsWithRef<'div'> {
+export declare interface AlertsProps extends ComponentPropsWithoutRef<'div'> {
   animationTimeout?: number;
   icons?: {
     [type in AlertsTypes]?: ReactNode | JSX.Element;

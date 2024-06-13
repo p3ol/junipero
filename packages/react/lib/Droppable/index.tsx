@@ -9,13 +9,14 @@ import {
 } from 'react';
 import { classNames } from '@junipero/core';
 
-import type { SpecialComponentPropsWithRef } from '../types';
+import type { SpecialComponentPropsWithoutRef } from '../types';
 
 export declare type DraggingPositionType = 'before' | 'after';
 
 export declare interface DroppableRef extends MutableRefObject<any> {}
 
-export declare interface DroppableProps extends SpecialComponentPropsWithRef {
+export declare interface DroppableProps
+  extends SpecialComponentPropsWithoutRef {
   disabled?: boolean;
   onDrop?(data: any, direction: DraggingPositionType, e: DragEvent): void;
   onDragOver?(e: DragEvent, direction: DraggingPositionType): void;

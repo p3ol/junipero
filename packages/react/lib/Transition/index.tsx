@@ -8,7 +8,7 @@ import {
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
 
-import type { SpecialComponentPropsWithRef } from '../types';
+import type { SpecialComponentPropsWithoutRef } from '../types';
 
 export const TRANSITION_STATE_UNMOUNTED = 'unmounted';
 export const TRANSITION_STATE_ENTER = 'enter';
@@ -23,7 +23,8 @@ export declare interface TransitionTimeoutObject {
   exit?: number;
 }
 
-export declare interface TransitionProps extends SpecialComponentPropsWithRef {
+export declare interface TransitionProps
+  extends SpecialComponentPropsWithoutRef {
   in: boolean;
   mounterOnEnter?: boolean;
   name?: string;

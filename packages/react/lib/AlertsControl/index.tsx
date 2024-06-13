@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useCallback,
   useImperativeHandle,
@@ -17,7 +17,7 @@ export declare interface AlertsControlRef extends JuniperoRef {
 }
 
 export declare interface AlertsControlProps extends Omit<
-  ComponentPropsWithRef<typeof AlertsContext.Provider>, 'value'
+  ComponentPropsWithoutRef<typeof AlertsContext.Provider>, 'value'
 > {
   alerts?: AlertObject[];
   generateId?: (alert: AlertObject) => string | number;

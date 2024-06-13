@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { slideInDownMenu } from '@junipero/transitions';
 import { action } from '@storybook/addon-actions';
 
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
-import SelectField from './index';
+import SelectField, { SelectFieldProps, SelectFieldRef } from './index';
 
 export default { title: 'react/SelectField' };
 
@@ -19,9 +19,11 @@ export const basic = () => (
 
 export const controlled = () => {
   const [value, setValue] = useState('Item 1');
+  const props = {} as SelectFieldProps;
 
   return (
     <SelectField
+      { ...props }
       value={value}
       placeholder="Type a name"
       parseTitle={o => o?.title || o}

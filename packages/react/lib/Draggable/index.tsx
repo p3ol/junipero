@@ -9,11 +9,12 @@ import {
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
-import type { SpecialComponentPropsWithRef } from '../types';
+import type { SpecialComponentPropsWithoutRef } from '../types';
 
 export declare interface DraggableRef extends MutableRefObject<any> {}
 
-export declare interface DraggableProps extends SpecialComponentPropsWithRef {
+export declare interface DraggableProps
+  extends SpecialComponentPropsWithoutRef {
   data?: any;
   disabled?: boolean;
   dragImage?: Element;

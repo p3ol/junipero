@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
@@ -22,7 +22,7 @@ export declare interface StepRef extends JuniperoRef {
 }
 
 export declare interface StepProps
-  extends Omit<ComponentPropsWithRef<'div'>, 'title'> {
+  extends Omit<ComponentPropsWithoutRef<'div'>, 'title'> {
   title?: ReactNode | JSX.Element;
   icon?: ReactNode | JSX.Element;
   status?: 'completed' | 'active' | 'none';

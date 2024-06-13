@@ -3,13 +3,14 @@ import {
   type ReactNode,
   type MutableRefObject,
   type MouseEvent,
+  type FocusEvent,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
   useLayoutEffect,
-  FocusEvent,
 } from 'react';
 import {
   classNames,
@@ -29,7 +30,7 @@ import DropdownMenu from '../DropdownMenu';
 import TextField, { type TextFieldRef } from '../TextField';
 import FieldControl from '../FieldControl';
 
-export declare interface ColorFieldRef extends Omit<JuniperoRef, 'innerRef'> {
+export declare interface ColorFieldRef extends JuniperoRef {
   dirty: boolean;
   valid: boolean;
   value: string;
@@ -46,8 +47,10 @@ export declare interface ColorFieldRef extends Omit<JuniperoRef, 'innerRef'> {
   textFieldRef: MutableRefObject<TextFieldRef>;
 }
 
-export declare interface ColorFieldProps
-  extends Omit<DropdownProps, 'trigger' | 'onChange'> {
+export declare interface ColorFieldProps extends Omit<
+  ComponentPropsWithoutRef<typeof Dropdown>,
+  'trigger' | 'onChange'
+> {
   autoFocus?: boolean;
   className?: string;
   disabled?: boolean;

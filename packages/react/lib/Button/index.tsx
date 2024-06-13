@@ -11,14 +11,14 @@ import { classNames } from '@junipero/core';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 
 export declare interface ButtonRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLElement>;
 }
 
-export declare interface ButtonProps extends SpecialComponentPropsWithRef {
+export declare interface ButtonProps extends SpecialComponentPropsWithoutRef {
   disabled?: boolean;
   tag?: string | ElementType;
   onClick?(e: MouseEvent<HTMLElement>): void;

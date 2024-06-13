@@ -11,7 +11,7 @@ import { classNames } from '@junipero/core';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 import { Remove } from '../icons';
 
@@ -19,7 +19,7 @@ export declare interface TagRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLElement>;
 }
 
-export declare interface TagProps extends SpecialComponentPropsWithRef {
+export declare interface TagProps extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
   onDelete?: () => void;
 }

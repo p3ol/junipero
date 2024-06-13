@@ -14,7 +14,7 @@ import { useTimeout } from '@junipero/hooks';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
 import { Remove } from '../icons';
@@ -24,7 +24,7 @@ export declare interface AlertRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLElement>;
 }
 
-export declare interface AlertProps extends SpecialComponentPropsWithRef {
+export declare interface AlertProps extends SpecialComponentPropsWithoutRef {
   animationTimeout?: number;
   icon?: ReactNode | JSX.Element;
   index?: string | number;

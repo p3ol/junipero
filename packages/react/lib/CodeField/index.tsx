@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type ClipboardEvent,
   type FocusEvent,
   type ChangeEvent,
@@ -29,7 +29,7 @@ export declare interface CodeFieldRef extends JuniperoRef {
 }
 
 export declare interface CodeFieldProps extends Omit<
-  ComponentPropsWithRef<'div'>,
+  ComponentPropsWithoutRef<'div'>,
   'onChange' | 'onFocus' | 'onBlur'
 > {
   autoFocus?: boolean;

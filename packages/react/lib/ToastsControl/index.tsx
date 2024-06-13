@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useCallback,
   useImperativeHandle,
@@ -17,7 +17,7 @@ export declare interface ToastsControlRef extends JuniperoRef {
 }
 
 export declare interface ToastsControlProps extends Omit<
-  ComponentPropsWithRef<typeof ToastsContext.Provider>, 'value'
+  ComponentPropsWithoutRef<typeof ToastsContext.Provider>, 'value'
 > {
   toasts?: Array<ToastObject>;
   generateId?(toast: ToastObject): string | number;

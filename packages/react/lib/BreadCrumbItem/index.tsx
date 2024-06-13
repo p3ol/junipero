@@ -11,7 +11,7 @@ import { classNames } from '@junipero/core';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
 
@@ -20,7 +20,7 @@ export declare interface BreadCrumbItemRef extends JuniperoRef {
 }
 
 export declare interface BreadCrumbItemProps
-  extends SpecialComponentPropsWithRef {
+  extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
   animate?(
     item: ReactNode | JSX.Element,

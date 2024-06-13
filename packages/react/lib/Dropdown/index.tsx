@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useCallback,
   useImperativeHandle,
@@ -40,7 +40,7 @@ export declare interface DropdownRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLDivElement>;
 }
 
-export declare interface DropdownProps extends ComponentPropsWithRef<'div'> {
+export declare interface DropdownProps extends ComponentPropsWithoutRef<'div'> {
   clickOptions?: UseClickProps;
   container?: string | JSX.Element | DocumentFragment | HTMLElement;
   disabled?: boolean;
@@ -73,8 +73,8 @@ const Dropdown = forwardRef<DropdownRef, DropdownProps>(({
   trigger = 'click',
   onToggle,
   ...rest
-}: DropdownProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLDivElement>();
   const [state, dispatch] = useReducer<StateReducer<DropdownState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,

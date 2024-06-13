@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
@@ -19,7 +19,7 @@ export declare interface DropdownMenuRef extends JuniperoRef {
 }
 
 export declare interface DropdownMenuProps
-  extends ComponentPropsWithRef<'div'> {
+  extends ComponentPropsWithoutRef<'div'> {
   apparition?: string;
   animate?(
     menu: ReactNode | JSX.Element,

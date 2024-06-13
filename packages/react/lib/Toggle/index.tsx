@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type KeyboardEvent,
   type MutableRefObject,
   forwardRef,
@@ -21,7 +21,7 @@ export declare interface ToggleRef extends JuniperoRef {
 }
 
 export declare interface ToggleProps
-  extends Omit<ComponentPropsWithRef<'input'>, 'onChange'> {
+  extends Omit<ComponentPropsWithoutRef<'input'>, 'onChange'> {
   checked?: boolean;
   disabled?: boolean;
   tabIndex?: number;

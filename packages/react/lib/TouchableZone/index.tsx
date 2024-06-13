@@ -5,13 +5,13 @@ import {
 } from 'react';
 import { classNames } from '@junipero/core';
 
-import type { ForwardedProps, SpecialComponentPropsWithRef } from '../types';
+import type { ForwardedProps, SpecialComponentPropsWithoutRef } from '../types';
 
 export declare interface TouchableZoneRef
   extends MutableRefObject<HTMLElement> {}
 
 export declare interface TouchableZoneProps
-  extends SpecialComponentPropsWithRef {
+  extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
 }
 

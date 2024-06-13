@@ -10,14 +10,14 @@ import { classNames } from '@junipero/core';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 
 export declare interface CardRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLElement>;
 }
 
-export declare interface CardProps extends SpecialComponentPropsWithRef {
+export declare interface CardProps extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
 }
 

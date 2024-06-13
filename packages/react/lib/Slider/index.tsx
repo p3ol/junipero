@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type KeyboardEvent,
   type MouseEvent,
   type MutableRefObject,
@@ -34,7 +34,7 @@ export declare interface SliderRef extends JuniperoRef {
   tooltipRef: MutableRefObject<TooltipRef>;
 }
 
-export declare interface SliderProps extends ComponentPropsWithRef<'div'> {
+export declare interface SliderProps extends ComponentPropsWithoutRef<'div'> {
   disabled?: boolean;
   globalEventsTarget?: EventTarget;
   max?: number;

@@ -11,7 +11,7 @@ import { classNames } from '@junipero/core';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 import type { DropdownRef } from '../Dropdown';
 import { useDropdown } from '../hooks';
@@ -22,7 +22,7 @@ export declare interface DropdownToggleRef extends JuniperoRef {
 }
 
 export declare interface DropdownToggleProps
-  extends SpecialComponentPropsWithRef {}
+  extends SpecialComponentPropsWithoutRef {}
 
 const DropdownToggle = forwardRef<DropdownToggleRef, DropdownToggleProps>(({
   children,

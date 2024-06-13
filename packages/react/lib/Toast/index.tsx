@@ -14,7 +14,7 @@ import { useTimeout } from '@junipero/hooks';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
 
@@ -41,7 +41,7 @@ export declare interface ToastObject {
   onDismiss?(index?: string | number): any;
 }
 
-export declare interface ToastProps extends SpecialComponentPropsWithRef {
+export declare interface ToastProps extends SpecialComponentPropsWithoutRef {
   animationTimeout?: number;
   index?: string | number;
   lifespan?: number;

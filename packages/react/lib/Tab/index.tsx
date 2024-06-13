@@ -11,7 +11,7 @@ import { classNames } from '@junipero/core';
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 
 export declare interface TabObject {
@@ -24,7 +24,7 @@ export declare interface TabRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLElement>;
 }
 
-export declare interface TabProps extends SpecialComponentPropsWithRef {
+export declare interface TabProps extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
   title?: JSX.Element | ReactNode;
 }

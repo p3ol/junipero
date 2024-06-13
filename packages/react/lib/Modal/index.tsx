@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MouseEvent,
   type MutableRefObject,
   type ReactNode,
@@ -28,7 +28,7 @@ export declare interface ModalRef extends JuniperoRef {
   wrapperRef: MutableRefObject<HTMLDivElement>;
 }
 
-export declare interface ModalProps extends ComponentPropsWithRef<'div'> {
+export declare interface ModalProps extends ComponentPropsWithoutRef<'div'> {
   apparition?: string;
   container?: JSX.Element | DocumentFragment | string | HTMLElement;
   disabled?: boolean;

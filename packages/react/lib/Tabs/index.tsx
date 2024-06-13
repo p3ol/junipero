@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type ReactNode,
   type MouseEvent,
   Children,
@@ -22,7 +22,7 @@ export declare interface TabsRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLDivElement>;
 }
 
-export declare interface TabsProps extends ComponentPropsWithRef<'div'> {
+export declare interface TabsProps extends ComponentPropsWithoutRef<'div'> {
   active?: number;
   disabled?: boolean;
   tabs?: Array<TabObject>;

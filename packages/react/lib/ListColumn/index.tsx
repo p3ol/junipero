@@ -8,7 +8,7 @@ import {
 import type {
   ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithRef,
+  SpecialComponentPropsWithoutRef,
 } from '../types';
 import { useList } from '../hooks';
 
@@ -21,7 +21,8 @@ export declare interface ListColumnRef extends JuniperoRef {
   id: string | number;
 }
 
-export declare interface ListColumnProps extends SpecialComponentPropsWithRef {
+export declare interface ListColumnProps
+  extends SpecialComponentPropsWithoutRef {
   id: string | number;
 }
 

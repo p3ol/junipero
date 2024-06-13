@@ -55,9 +55,3 @@ export declare interface SpecialComponentPropsWithoutRef
   children?: ReactNode;
   className?: string;
 }
-
-export declare interface SpecialComponentPropsWithRef
-  extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-}

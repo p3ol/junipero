@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type MouseEvent,
   forwardRef,
@@ -28,8 +28,9 @@ export declare interface CalendarRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLDivElement>;
 }
 
-export declare interface CalendarProps
-  extends Omit<ComponentPropsWithRef<'div'>, 'onSelect'> {
+export declare interface CalendarProps extends Omit<
+  ComponentPropsWithoutRef<'div'>, 'onSelect'
+> {
   active?: Date;
   disabled?: boolean;
   max?: Date;

@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type ReactNode,
   type FocusEvent,
   type KeyboardEvent,
@@ -60,8 +60,9 @@ export declare interface SelectFieldRef extends JuniperoRef {
   searchInputRef: MutableRefObject<HTMLInputElement>;
 }
 
-export declare interface SelectFieldProps
-  extends Omit<ComponentPropsWithRef<typeof Dropdown>, 'onChange'> {
+export declare interface SelectFieldProps extends Omit<
+  ComponentPropsWithoutRef<typeof Dropdown>, 'onChange'
+> {
   allowArbitraryItems?: boolean;
   autoFocus?: boolean;
   className?: string;

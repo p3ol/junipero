@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type ReactNode,
   Children,
   Fragment,
@@ -20,7 +20,8 @@ export declare interface BreadCrumbRef extends JuniperoRef {
   innerRef: MutableRefObject<HTMLDivElement>;
 }
 
-export declare interface BreadCrumbProps extends ComponentPropsWithRef<'div'> {
+export declare interface BreadCrumbProps
+  extends ComponentPropsWithoutRef<'div'> {
   items?: Array<JSX.Element | ReactNode>;
   maxItems?: number;
   filterItem?(children: JSX.Element | ReactNode): boolean;
