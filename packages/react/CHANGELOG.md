@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/p3ol/junipero/compare/v3.5.5...v3.6.0) (2024-06-13)
+
+
+### Features
+
+* remove prop-types & fix a lot of types ([7222f54](https://github.com/p3ol/junipero/commit/7222f547bca6313af0d33f8b4461fa004a4a88dd))
+
+
+
+
+
 ## [3.5.5](https://github.com/p3ol/junipero/compare/v3.5.4...v3.5.5) (2024-06-11)
 
 **Note:** Version bump only for package @junipero/react
