@@ -2,7 +2,7 @@ import { slideInDownMenu } from '@junipero/transitions';
 import { useRef } from 'react';
 
 import { useAlerts } from '../hooks';
-import Alerts, { AlertsRef } from '../Alerts';
+import Alerts, { type AlertsRef } from '../Alerts';
 import AlertsControl from '.';
 
 export default { title: 'react/AlertsControl' };

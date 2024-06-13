@@ -1,17 +1,15 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 import { classNames } from '@junipero/core';
 
 import { useFieldControl } from '../hooks';
 
-export declare interface AbstractProps extends ComponentPropsWithoutRef<any> {
-  className?: string;
-  children?: ReactNode | JSX.Element;
-}
+export declare interface AbstractProps
+  extends ComponentPropsWithoutRef<'div'> {}
 
 const Abstract = ({
   className,
   ...rest
-}: AbstractProps): JSX.Element => {
+}: AbstractProps) => {
   const { valid = true, dirty = false, focused = false } = useFieldControl();
 
   return (

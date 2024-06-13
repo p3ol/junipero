@@ -1,6 +1,7 @@
 import {
   type ComponentPropsWithRef,
   type MutableRefObject,
+  type MouseEvent,
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -9,8 +10,7 @@ import {
   useRef,
 } from 'react';
 import {
-  type ForwardedProps,
-  type MockState,
+  type FixedArray,
   classNames,
   mockState,
   exists,
@@ -19,34 +19,31 @@ import {
   addMonths,
   getDaysInMonth,
 } from '@junipero/core';
-import PropTypes from 'prop-types';
 
-import { fixedArray, type FixedArray } from '../types';
+import type { StateReducer, JuniperoRef } from '../types';
 import { ArrowLeft, ArrowRight } from '../icons';
 
-export declare type CalendarRef = {
+export declare interface CalendarRef extends JuniperoRef {
   value: Date;
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<HTMLDivElement>;
+}
 
-export declare interface CalendarProps extends ComponentPropsWithRef<any> {
+export declare interface CalendarProps
+  extends Omit<ComponentPropsWithRef<'div'>, 'onSelect'> {
   active?: Date;
-  className?: string;
   disabled?: boolean;
   max?: Date;
   min?: Date;
   monthNames?: FixedArray<string, 12>;
-  weekDaysName?: FixedArray<string, 7>;
+  weekDaysNames?: FixedArray<string, 7>;
   onSelect?(value: Date): void;
-  ref?: MutableRefObject<CalendarRef | undefined>;
 }
 
 export declare interface CalendarState {
   value: Date;
 }
 
-const Calendar = forwardRef(({
+const Calendar = forwardRef<CalendarRef, CalendarProps>(({
   className,
   active,
   max,
@@ -57,9 +54,11 @@ const Calendar = forwardRef(({
   weekDaysNames = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
   onSelect,
   ...rest
-}: CalendarProps, ref) => {
-  const innerRef = useRef();
-  const [state, dispatch] = useReducer<MockState<CalendarState>>(mockState, {
+}, ref) => {
+  const innerRef = useRef<HTMLDivElement>();
+  const [state, dispatch] = useReducer<
+    StateReducer<CalendarState>
+  >(mockState, {
     value: active ?? new Date(),
   });
 
@@ -87,9 +86,7 @@ const Calendar = forwardRef(({
     onSelect?.(state.value);
   };
 
-  const onPreviousMonthClick = (
-    e: React.MouseEvent<SVGSVGElement, MouseEvent>
-  ) => {
+  const onPreviousMonthClick = (e: MouseEvent<SVGSVGElement>) => {
     e?.preventDefault();
     const value = new Date(state.value);
 
@@ -115,7 +112,7 @@ const Calendar = forwardRef(({
     dispatch({ value });
   };
 
-  const onNextMonthClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+  const onNextMonthClick = (e: MouseEvent<SVGSVGElement>) => {
     e?.preventDefault();
     const value = new Date(state.value);
 
@@ -177,8 +174,8 @@ const Calendar = forwardRef(({
     return weekDay === 0 ? 7 : weekDay;
   };
 
-  const getMonthDays = (date: Date, props: object = {}) => Array
-    .from({ length: getDaysInMonth(date) }, (v, k) => ({
+  const getMonthDays = (date: Date, props: Record<string, any> = {}) => Array
+    .from({ length: getDaysInMonth(date) }, (_, k) => ({
       date: new Date(date.getFullYear(), date.getMonth(), k + 1),
       ...props,
     }));
@@ -256,17 +253,8 @@ const Calendar = forwardRef(({
       </div>
     </div>
   );
-}) as ForwardedProps<CalendarProps, CalendarRef>;
+});
 
 Calendar.displayName = 'Calendar';
-Calendar.propTypes = {
-  active: PropTypes.instanceOf(Date),
-  disabled: PropTypes.bool,
-  min: PropTypes.instanceOf(Date),
-  max: PropTypes.instanceOf(Date),
-  monthNames: fixedArray(12),
-  weekDaysNames: fixedArray(7),
-  onSelect: PropTypes.func,
-};
 
 export default Calendar;

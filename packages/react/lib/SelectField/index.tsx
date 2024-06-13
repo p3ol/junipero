@@ -2,6 +2,10 @@ import {
   type MutableRefObject,
   type ComponentPropsWithRef,
   type ReactNode,
+  type FocusEvent,
+  type KeyboardEvent,
+  type MouseEvent,
+  type ChangeEvent,
   forwardRef,
   useReducer,
   useEffect,
@@ -11,8 +15,6 @@ import {
   useMemo,
 } from 'react';
 import {
-  type ForwardedProps,
-  type MockState,
   classNames,
   mockState,
   exists,
@@ -20,8 +22,9 @@ import {
   findDeep,
 } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
-import PropTypes from 'prop-types';
 
+import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type { TransitionProps } from '../Transition';
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove } from '../icons';
 import Dropdown, { type DropdownRef } from '../Dropdown';
@@ -32,21 +35,33 @@ import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
 import Spinner from '../Spinner';
 
-export declare type SelectFieldRef = {
+export declare type SelectFieldValue = any;
+
+export declare interface SelectFieldOptionObject {
+  title?: string;
+  value?: SelectFieldValue;
+}
+
+export declare interface SelectFieldGroupObject {
+  title?: string;
+  options?: Array<SelectFieldValue | SelectFieldOptionObject>;
+}
+
+export declare interface SelectFieldRef extends JuniperoRef {
   dirty: boolean;
   focused: boolean;
-  isJunipero: boolean;
   opened: boolean;
   value: any;
   valid: boolean;
   blur(): void;
   focus(): void;
   reset(): void;
-  innerRef: MutableRefObject<any>;
-  searchInputRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<DropdownRef>;
+  searchInputRef: MutableRefObject<HTMLInputElement>;
+}
 
-export declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
+export declare interface SelectFieldProps
+  extends Omit<ComponentPropsWithRef<typeof Dropdown>, 'onChange'> {
   allowArbitraryItems?: boolean;
   autoFocus?: boolean;
   className?: string;
@@ -67,43 +82,49 @@ export declare interface SelectFieldProps extends ComponentPropsWithRef<any> {
   value?: any;
   animateMenu?(
     menu: ReactNode | JSX.Element,
-    opts: { opened: boolean }
+    opts: {
+      opened: boolean;
+    } & Partial<TransitionProps>
   ): ReactNode | JSX.Element;
-  onChange?(props: { value: any; valid: boolean }): void;
-  onBlur?(event: React.SyntheticEvent): void;
-  onFocus?(event: React.FocusEvent): void;
-  onKeyPress?(event: React.KeyboardEvent): void;
-  onKeyUp?(event: React.KeyboardEvent): void;
+  onChange?(field: FieldContent<SelectFieldValue>): void;
+  onBlur?(event: FocusEvent<HTMLInputElement>): void;
+  onFocus?(event: FocusEvent<HTMLInputElement>): void;
+  onKeyPress?(event: KeyboardEvent): void;
+  onKeyUp?(event: KeyboardEvent): void;
   onValidate?(
-    value: any,
+    value: SelectFieldValue,
     flags: { required: boolean; multiple: boolean }
   ): boolean;
-  onSearch?(search: string): Promise<Array<any>>;
-  parseTitle?(option: any, flags?: {
-    isTag?: boolean;
-    isValue?: boolean;
-    isOption?: boolean;
-    isGroup?: boolean;
-  }): string;
-  parseValue?(option: any): any;
-  ref?: MutableRefObject<SelectFieldRef | undefined>;
+  onSearch?(search: string): Promise<Array<SelectFieldValue>>;
+  parseTitle?(
+    option: SelectFieldValue | SelectFieldOptionObject | SelectFieldGroupObject,
+    flags?: {
+      isTag?: boolean;
+      isValue?: boolean;
+      isOption?: boolean;
+      isGroup?: boolean;
+    },
+  ): string;
+  parseValue?(
+    option: SelectFieldValue | SelectFieldOptionObject | SelectFieldGroupObject,
+  ): SelectFieldValue;
 }
 
 export declare interface SelectFieldState {
-  value: any;
+  value: SelectFieldValue | SelectFieldOptionObject;
   valid: boolean;
   dirty: boolean;
   opened: boolean;
   focused: boolean;
   search: string;
   searching: boolean;
-  searchResults: Array<any>;
+  searchResults: Array<SelectFieldValue>;
   selectedItem: number;
   placeholderSize: number;
   refocus?: boolean;
 }
 
-const SelectField = forwardRef(({
+const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
   toggleClick,
   keyboardHandler = false,
   animateMenu,
@@ -137,11 +158,13 @@ const SelectField = forwardRef(({
   ),
   onSearch,
   ...rest
-}: SelectFieldProps, ref) => {
+}, ref) => {
   const dropdownRef = useRef<DropdownRef>();
   const searchInputRef = useRef<HTMLInputElement>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<MockState<SelectFieldState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<SelectFieldState>
+  >(mockState, {
     value: value ?? (multiple ? [] : null),
     valid: valid ?? false,
     dirty: false,
@@ -227,7 +250,10 @@ const SelectField = forwardRef(({
     close && dropdownRef.current?.close?.();
   };
 
-  const onSelectOption = (option: any, changeOpts = {}) => {
+  const onSelectOption = (
+    option: SelectFieldValue | SelectFieldOptionObject,
+    changeOpts: Record<string, boolean> = {}
+  ) => {
     if (disabled) {
       return;
     }
@@ -244,7 +270,9 @@ const SelectField = forwardRef(({
     onChange_({ resetSearch: !multiple, ...changeOpts });
   };
 
-  const onRemoveOption = (option: any) => {
+  const onRemoveOption = (
+    option: SelectFieldValue | SelectFieldOptionObject
+  ) => {
     if (disabled || !multiple || !Array.isArray(state.value)) {
       return;
     }
@@ -254,7 +282,7 @@ const SelectField = forwardRef(({
     onChange_({ close: false });
   };
 
-  const onClear = (e: React.MouseEvent) => {
+  const onClear = (e: MouseEvent) => {
     e.stopPropagation();
 
     if (!clearable || disabled) {
@@ -272,7 +300,7 @@ const SelectField = forwardRef(({
     onChange_({ close: false, resetSearch: true, refocus: true });
   };
 
-  const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!searchable || disabled) {
       return;
     }
@@ -298,17 +326,17 @@ const SelectField = forwardRef(({
     dispatch({ searchResults: null });
   };
 
-  const onFocusField = (e: React.MouseEvent) => {
+  const onFocusField = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     searchInputRef.current?.focus();
   };
 
-  const onFocus_ = (e: React.FocusEvent) => {
+  const onFocus_ = (e: FocusEvent<HTMLInputElement>) => {
     dispatch({ focused: true });
     onFocus?.(e);
   };
 
-  const onBlur_ = (e: React.SyntheticEvent) => {
+  const onBlur_ = (e: FocusEvent<HTMLInputElement>) => {
     dispatch({ focused: false });
     onBlur?.(e);
   };
@@ -324,7 +352,7 @@ const SelectField = forwardRef(({
     updateControl?.({ focused: opened });
   };
 
-  const onKeyPress_ = (e: React.KeyboardEvent) => {
+  const onKeyPress_ = (e: KeyboardEvent) => {
     if (disabled) {
       return;
     }
@@ -341,7 +369,7 @@ const SelectField = forwardRef(({
     onKeyPress?.(e);
   };
 
-  const onKeyUp_ = (e: React.KeyboardEvent) => {
+  const onKeyUp_ = (e: KeyboardEvent) => {
     if (disabled) {
       return;
     }
@@ -411,7 +439,9 @@ const SelectField = forwardRef(({
     updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
-  const filterOptions = (val?: string) => {
+  const filterOptions = (
+    val?: string
+  ): SelectFieldValue | SelectFieldOptionObject => {
     if (!val) {
       return options;
     }
@@ -423,7 +453,10 @@ const SelectField = forwardRef(({
     );
   };
 
-  const findOptions = (val: Array<string> | string): string | Array<string> => {
+  const findOptions = (
+    val: Array<string> | string,
+  ): SelectFieldValue | SelectFieldOptionObject |
+    (SelectFieldValue | SelectFieldOptionObject)[] => {
     const isMultiple = multiple && Array.isArray(val);
     const res = (isMultiple ? val : [val]).map(v =>
       findDeep(options, o => parseValue(o) === parseValue(v), o => o.options) ||
@@ -433,13 +466,15 @@ const SelectField = forwardRef(({
     return isMultiple ? res : res[0];
   };
 
-  const filterUsedOptions = (opts: Array<any> = []) =>
+  const filterUsedOptions = (
+    opts: Array<SelectFieldValue | SelectFieldOptionObject> = []
+  ) =>
     multiple && Array.isArray(state.value)
       ? opts.filter(opt => !state.value.includes(opt))
       : opts;
 
   const renderGroup = (
-    group: { options: Array<any>, [_: string]: any },
+    group: SelectFieldGroupObject,
     i: number
   ) => {
     const opts = filterUsedOptions(group.options);
@@ -455,7 +490,10 @@ const SelectField = forwardRef(({
     );
   };
 
-  const renderOption = (item: any, i: number) => (
+  const renderOption = (
+    item: SelectFieldValue | SelectFieldOptionObject,
+    i: number
+  ) => (
     <DropdownItem key={i}>
       <a onClick={onSelectOption.bind(null, item)}>
         { parseTitle(item, { isOption: true }) }
@@ -570,40 +608,8 @@ const SelectField = forwardRef(({
       ) }
     </Dropdown>
   );
-}) as ForwardedProps<SelectFieldProps, SelectFieldRef>;
+});
 
 SelectField.displayName = 'SelectField';
-SelectField.propTypes = {
-  animateMenu: PropTypes.func,
-  allowArbitraryItems: PropTypes.bool,
-  autoFocus: PropTypes.bool,
-  clearable: PropTypes.bool,
-  toggleClick: PropTypes.bool,
-  disabled: PropTypes.bool,
-  keyboardHandler: PropTypes.bool,
-  multiple: PropTypes.bool,
-  noOptionsEnabled: PropTypes.bool,
-  noOptionsLabel: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]),
-  options: PropTypes.array,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  searchable: PropTypes.bool,
-  searchMinCharacters: PropTypes.number,
-  searchThreshold: PropTypes.number,
-  valid: PropTypes.bool,
-  value: PropTypes.any,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyPress: PropTypes.func,
-  onKeyUp: PropTypes.func,
-  onSearch: PropTypes.func,
-  onValidate: PropTypes.func,
-  parseTitle: PropTypes.func,
-  parseValue: PropTypes.func,
-};
 
 export default SelectField;

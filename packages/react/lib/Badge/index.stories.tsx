@@ -1,23 +1,16 @@
-import { useRef } from 'react';
-
-import Badge, { BadgeRef } from './index';
+import Badge from './index';
 
 export default { title: 'react/Badge' };
 
-export const basic = () => {
-  const ref = useRef<BadgeRef>();
-  const isJunipero: boolean = ref.current?.isJunipero ?? false;
-
-  return (
-    <>
-      <Badge ref={ref}>10</Badge>
-      <Badge className="primary">1</Badge>
-      <Badge className="danger">1</Badge>
-      <Badge className="warning">1</Badge>
-      <Badge className="success">1</Badge>
-    </>
-  );
-};
+export const basic = () => (
+  <>
+    <Badge>10</Badge>
+    <Badge className="primary">1</Badge>
+    <Badge className="danger">1</Badge>
+    <Badge className="warning">1</Badge>
+    <Badge className="success">1</Badge>
+  </>
+);
 
 export const smaller = () => (
   <>

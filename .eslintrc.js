@@ -20,6 +20,7 @@ module.exports = {
       },
       rules: {
         // function params are considered as unused vars
+        'no-undef': 0,
         'no-unused-vars': 0,
       },
     },
@@ -32,7 +33,7 @@ module.exports = {
     'no-empty': [2, { allowEmptyCatch: true }],
 
     // Common props are not checked anyway
-    'react/prop-types': [2, { ignore: ['className', 'children'] }],
+    'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
   },
 };

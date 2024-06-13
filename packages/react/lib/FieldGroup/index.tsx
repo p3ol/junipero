@@ -1,33 +1,32 @@
 import {
-  type ComponentPropsWithRef,
   type ElementType,
   type MutableRefObject,
-  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames } from '@junipero/core';
 
-export declare type FieldGroupRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
 
-export declare interface FieldGroupProps extends ComponentPropsWithRef<any> {
-  className?: string;
-  children?: ReactNode | JSX.Element | string;
-  tag?: string | ElementType;
-  ref?: MutableRefObject<FieldGroupRef | undefined>;
+export declare interface FieldGroupRef extends JuniperoRef {
+  innerRef: MutableRefObject<HTMLElement>;
 }
 
-const FieldGroup = forwardRef(({
+export declare interface FieldGroupProps extends SpecialComponentPropsWithRef {
+  tag?: string | ElementType;
+}
+
+const FieldGroup = forwardRef<FieldGroupRef, FieldGroupProps>(({
   tag: Tag = 'div',
   className,
   ...rest
-}: FieldGroupProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLElement>();
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -41,14 +40,8 @@ const FieldGroup = forwardRef(({
       { ...rest }
     />
   );
-}) as ForwardedProps<FieldGroupProps, FieldGroupRef>;
+}) as ForwardedProps<FieldGroupRef, FieldGroupProps>;
 
 FieldGroup.displayName = 'FieldGroup';
-FieldGroup.propTypes = {
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-  ]),
-};
 
 export default FieldGroup;

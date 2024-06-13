@@ -310,7 +310,6 @@ export const withGranularity = () => {
         height={500}
         style={{ paddingRight: 50 }}
         axis={axis_}
-        granularity={granularity}
       >
         <Marker
           xAxisIndex={0}

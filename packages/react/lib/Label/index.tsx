@@ -3,11 +3,9 @@ import { classNames } from '@junipero/core';
 
 import { useFieldControl } from '../hooks';
 
-export declare interface LabelProps extends ComponentPropsWithoutRef<any> {
-  className?: string;
-}
+export declare interface LabelProps extends ComponentPropsWithoutRef<'label'> {}
 
-const Label = ({ className, ...rest }: LabelProps): JSX.Element => {
+const Label = ({ className, ...rest }: LabelProps) => {
   const { valid = true, dirty = false, focused = false } = useFieldControl();
 
   return (

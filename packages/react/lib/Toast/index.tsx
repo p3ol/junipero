@@ -1,26 +1,29 @@
 import {
   type ReactNode,
-  type ComponentPropsWithRef,
   type ElementType,
   type MutableRefObject,
   type MouseEvent,
-  type DragEvent,
   forwardRef,
   useState,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
+import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
-import PropTypes from 'prop-types';
 
-export declare type ToastRef = {
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
+import type { TransitionProps } from '../Transition';
+
+export declare interface ToastRef extends JuniperoRef {
   enabled: boolean;
-  isJunipero: boolean;
   paused: boolean;
   remaining: number;
-  innerRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<HTMLElement>;
+}
 
 export declare interface ToastObject {
   animationTimeout?: number;
@@ -29,28 +32,31 @@ export declare interface ToastObject {
   index?: string | number;
   lifespan?: number;
   animate?(
-    alert: Element | JSX.Element,
-    opts: { opened: boolean; index: string | number }
-  ):Element | JSX.Element;
+    alert: ReactNode | JSX.Element,
+    opts: {
+      opened: boolean;
+      index: string | number;
+    } & Partial<TransitionProps>,
+  ): ReactNode | JSX.Element;
   onDismiss?(index?: string | number): any;
 }
 
-export declare interface ToastProps extends ComponentPropsWithRef<any> {
+export declare interface ToastProps extends SpecialComponentPropsWithRef {
   animationTimeout?: number;
-  children?: ReactNode | JSX.Element;
-  className?: string;
   index?: string | number;
   lifespan?: number;
   tag?: string | ElementType;
   animate?(
-    alert: ReactNode | Element | JSX.Element,
-    opts?: { opened: boolean; index: string | number }
-  ): Element | JSX.Element;
+    alert: ReactNode | JSX.Element,
+    opts?: {
+      opened: boolean;
+      index: string | number;
+    } & Partial<TransitionProps>,
+  ): ReactNode | JSX.Element;
   onDismiss?(index?: string | number): any;
-  ref?: MutableRefObject<ToastRef | undefined>;
 }
 
-const Toast = forwardRef(({
+const Toast = forwardRef<ToastRef, ToastProps>(({
   tag: Tag = 'div',
   animationTimeout = 100,
   pausable = true,
@@ -64,9 +70,9 @@ const Toast = forwardRef(({
   onMouseEnter,
   onMouseLeave,
   ...rest
-}: ToastProps, ref) => {
+}, ref) => {
   const timeout = animate ? animationTimeout : 0;
-  const innerRef = useRef();
+  const innerRef = useRef<HTMLElement>();
   const startTimeRef = useRef(Date.now() + timeout);
   const [remaining, setRemaining] = useState(lifespan);
   const [enabled, setEnabled] = useState(true);
@@ -88,7 +94,7 @@ const Toast = forwardRef(({
     onDismiss?.(index);
   }, timeout, [enabled], { enabled: !enabled && !paused });
 
-  const onClick_ = (e: MouseEvent) => {
+  const onClick_ = (e: MouseEvent<HTMLElement>) => {
     onClick?.(e);
     setEnabled(false);
 
@@ -97,7 +103,7 @@ const Toast = forwardRef(({
     }
   };
 
-  const onMouseEnter_ = (e: DragEvent) => {
+  const onMouseEnter_ = (e: MouseEvent<HTMLElement>) => {
     onMouseEnter?.(e);
 
     if (!pausable) {
@@ -108,7 +114,7 @@ const Toast = forwardRef(({
     setRemaining(remaining - (Date.now() - startTimeRef.current));
   };
 
-  const onMouseLeave_ = (e: DragEvent) => {
+  const onMouseLeave_ = (e: MouseEvent<HTMLElement>) => {
     onMouseLeave?.(e);
 
     if (!pausable) {
@@ -143,26 +149,8 @@ const Toast = forwardRef(({
 
   return animate ? animate(content, { opened: enabled, index }) as JSX.Element
     : content;
-}) as ForwardedProps<ToastProps, ToastRef>;
+}) as ForwardedProps<ToastRef, ToastProps>;
 
 Toast.displayName = 'Toast';
-Toast.propTypes = {
-  index: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  lifespan: PropTypes.number,
-  animate: PropTypes.func,
-  animationTimeout: PropTypes.number,
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-  ]),
-  pausable: PropTypes.bool,
-  onDismiss: PropTypes.func,
-  onClick: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-};
 
 export default Toast;

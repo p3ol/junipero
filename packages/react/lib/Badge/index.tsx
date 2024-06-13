@@ -1,33 +1,32 @@
 import {
-  type ComponentPropsWithRef,
   type ElementType,
   type MutableRefObject,
-  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames } from '@junipero/core';
 
-export declare type BadgeRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
 
-export declare interface BadgeProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  tag?: string | ElementType;
-  ref?: MutableRefObject<BadgeRef>;
+export declare interface BadgeRef extends JuniperoRef {
+  innerRef: MutableRefObject<HTMLElement>;
 }
 
-const Badge = forwardRef(({
+export declare interface BadgeProps extends SpecialComponentPropsWithRef {
+  tag?: string | ElementType;
+}
+
+const Badge = forwardRef<BadgeRef, BadgeProps>(({
   className,
   tag: Tag = 'span',
   ...rest
-}: BadgeProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLElement>();
 
   useImperativeHandle(ref, () => ({
     isJunipero: true,
@@ -41,14 +40,8 @@ const Badge = forwardRef(({
       className={classNames('junipero', 'badge', className)}
     />
   );
-}) as ForwardedProps<BadgeProps, BadgeRef>;
+}) as ForwardedProps<BadgeRef, BadgeProps>;
 
 Badge.displayName = 'Badge';
-Badge.propTypes = {
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-  ]),
-};
 
 export default Badge;

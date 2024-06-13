@@ -23,8 +23,7 @@
   "dependencies": {
     "@floating-ui/react": "0.26.16",
     "@junipero/core": "^3.5.5",
-    "@junipero/hooks": "^3.5.5",
-    "prop-types": "15.8.1"
+    "@junipero/hooks": "^3.5.5"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

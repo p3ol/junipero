@@ -2,6 +2,8 @@ import {
   type MutableRefObject,
   type ComponentPropsWithRef,
   type ClipboardEvent,
+  type FocusEvent,
+  type ChangeEvent,
   forwardRef,
   useReducer,
   useEffect,
@@ -9,32 +11,29 @@ import {
   useRef,
   useImperativeHandle,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  classNames,
-  mockState,
-} from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames, mockState } from '@junipero/core';
 
+import type { FieldContent, JuniperoRef, StateReducer } from '../types';
 import { useFieldControl } from '../hooks';
 
-export declare type CodeFieldRef = {
+export declare interface CodeFieldRef extends JuniperoRef {
   dirty: boolean;
-  isJunipero: boolean;
   valid: boolean;
   value: string;
   focus(index: number): void;
   blur(index: number): void;
   reset(): void;
-  innerRef: MutableRefObject<any>;
-  inputsRef: MutableRefObject<Array<any>>;
-};
+  innerRef: MutableRefObject<HTMLDivElement>;
+  inputsRef: MutableRefObject<Array<HTMLInputElement>>;
+  inputRef: MutableRefObject<HTMLInputElement>;
+}
 
-export declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
+export declare interface CodeFieldProps extends Omit<
+  ComponentPropsWithRef<'div'>,
+  'onChange' | 'onFocus' | 'onBlur'
+> {
   autoFocus?: boolean;
   disabled?: boolean;
-  className?: string;
   id?: string;
   name?: string;
   required?: boolean;
@@ -45,11 +44,10 @@ export declare interface CodeFieldProps extends ComponentPropsWithRef<any> {
     value: string,
     { dirty, required }: { dirty?: boolean; required?: boolean }
   ): boolean;
-  onChange?(changeProps: { value?: string; valid: boolean }): void;
+  onChange?(field: FieldContent<string>): void;
   onPaste?(e: ClipboardEvent): void;
-  onFocus?(e: Event): void;
-  onBlur?(e: Event): void;
-  ref?: MutableRefObject<CodeFieldRef | undefined>;
+  onFocus?(e: FocusEvent<HTMLInputElement>): void;
+  onBlur?(e: FocusEvent<HTMLInputElement>): void;
 }
 
 export declare interface CodeFieldState {
@@ -59,7 +57,7 @@ export declare interface CodeFieldState {
   active: number;
 }
 
-const CodeField = forwardRef(({
+const CodeField = forwardRef<CodeFieldRef, CodeFieldProps>(({
   className,
   id,
   name,
@@ -75,12 +73,14 @@ const CodeField = forwardRef(({
   onFocus,
   onBlur,
   ...rest
-}: CodeFieldProps, ref) => {
-  const innerRef = useRef();
-  const inputsRef = useRef([]);
-  const inputRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLDivElement>();
+  const inputsRef = useRef<HTMLInputElement[]>([]);
+  const inputRef = useRef<HTMLInputElement>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<MockState<CodeFieldState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<CodeFieldState>
+  >(mockState, {
     valid: valid ?? false,
     values: value?.split('').slice(0, size) || [],
     dirty: false,
@@ -131,7 +131,7 @@ const CodeField = forwardRef(({
     updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
-  const onChange_ = (index: number, e: any) => {
+  const onChange_ = (index: number, e: ChangeEvent<HTMLInputElement>) => {
     if (disabled) {
       return;
     }
@@ -167,7 +167,10 @@ const CodeField = forwardRef(({
           return;
         }
 
-        onChange_(index - 1, { target: { value: '' } });
+        onChange_(
+          index - 1,
+          { target: { value: '' } } as ChangeEvent<HTMLInputElement>
+        );
         prev?.focus();
         break;
 
@@ -208,13 +211,13 @@ const CodeField = forwardRef(({
     onPaste?.(e);
   };
 
-  const onFocus_ = (index:number, e: FocusEvent) => {
+  const onFocus_ = (index: number, e: FocusEvent<HTMLInputElement>) => {
     dispatch({ active: index });
     updateControl?.({ focused: true });
     onFocus?.(e);
   };
 
-  const onBlur_ = (index: number, e: Event) => {
+  const onBlur_ = (_: number, e: FocusEvent<HTMLInputElement>) => {
     dispatch({ active: -1 });
     updateControl?.({ focused: false });
     onBlur?.(e);
@@ -268,23 +271,8 @@ const CodeField = forwardRef(({
       />
     </div>
   );
-}) as ForwardedProps<CodeFieldProps, CodeFieldRef>;
+});
 
 CodeField.displayName = 'CodeField';
-CodeField.propTypes = {
-  autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  required: PropTypes.bool,
-  size: PropTypes.number,
-  valid: PropTypes.bool,
-  value: PropTypes.string,
-  onValidate: PropTypes.func,
-  onChange: PropTypes.func,
-  onPaste: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-};
 
 export default CodeField;

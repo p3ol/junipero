@@ -10,7 +10,9 @@
     "clean": "lerna exec --parallel -- yarn clean",
     "build": "lerna exec -- yarn build",
     "serve": "storybook dev",
-    "storybook-build": "storybook build"
+    "storybook-build": "storybook build",
+    "p:core": "yarn workspace @junipero/core",
+    "p:react": "yarn workspace @junipero/react"
   },
   "devDependencies": {
     "@babel/eslint-plugin": "7.24.7",

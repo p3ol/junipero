@@ -1,39 +1,39 @@
 import {
-  type ComponentPropsWithRef,
   type DragEvent,
+  type MutableRefObject,
   Children,
   cloneElement,
   forwardRef,
   useState,
   useEffect,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames } from '@junipero/core';
+
+import type { SpecialComponentPropsWithRef } from '../types';
 
 export declare type DraggingPositionType = 'before' | 'after';
 
-export declare interface DroppableProps extends ComponentPropsWithRef<any> {
-  className?: string;
-  children?: JSX.Element;
+export declare interface DroppableRef extends MutableRefObject<any> {}
+
+export declare interface DroppableProps extends SpecialComponentPropsWithRef {
   disabled?: boolean;
   onDrop?(data: any, direction: DraggingPositionType, e: DragEvent): void;
   onDragOver?(e: DragEvent, direction: DraggingPositionType): void;
   onDragLeave?(e: DragEvent): void;
 }
 
-const Droppable = forwardRef((props: DroppableProps, ref) => {
+const Droppable = forwardRef<DroppableRef, DroppableProps>(({
+  className,
+  children,
+  disabled = false,
+  onDrop,
+  onDragOver,
+  onDragLeave,
+  ...rest
+}, ref) => {
   const [dragging, setDragging] = useState(false);
   const [stack, setStack] = useState(0);
   const [draggingPos, setDraggingPos] = useState(null);
-  const {
-    className,
-    children,
-    disabled = false,
-    onDrop,
-    onDragOver,
-    onDragLeave,
-    ...rest
-  } = props;
 
   useEffect(() => {
     if (stack <= 0) {
@@ -96,12 +96,12 @@ const Droppable = forwardRef((props: DroppableProps, ref) => {
 
   const child = Children.only(children);
 
-  return cloneElement(child, {
+  return cloneElement(child as JSX.Element, {
     ...rest,
     ref,
     className: classNames(
       className,
-      child.props.className,
+      (child as JSX.Element).props?.className,
       {
         'drag-enter': !disabled && dragging,
         'drag-top': !disabled && dragging && draggingPos &&
@@ -115,14 +115,8 @@ const Droppable = forwardRef((props: DroppableProps, ref) => {
     onDrop: onDrop_,
     onDragOver: onDragOver_,
   });
-}) as ForwardedProps<DroppableProps, any>;
+});
 
 Droppable.displayName = 'Droppable';
-Droppable.propTypes = {
-  disabled: PropTypes.bool,
-  onDrop: PropTypes.func,
-  onDragOver: PropTypes.func,
-  onDragLeave: PropTypes.func,
-};
 
 export default Droppable;

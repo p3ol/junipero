@@ -2,7 +2,7 @@
 
 import type { ComponentPropsWithoutRef } from 'react';
 
-export const PooolLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const PooolLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="87" height="30" viewBox="0 0 87 30" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M81.7256 23.1918C81.7256 23.601 82.0578 23.9326 82.4677 23.9326H85.5079C85.9177 23.9326 86.25 23.601 86.25 23.1918V0.740862C86.25 0.331711 85.9177 3.05176e-05 85.5079 3.05176e-05H82.4677C82.0578 3.05176e-05 81.7256 0.331713 81.7256 0.740864V23.1918Z" fill="#1A1A1A" />
     <path d="M44.0853 15.1974C44.0853 10.1241 48.2049 6.01143 53.2866 6.01143H70.9122C75.994 6.01143 80.1135 10.1241 80.1135 15.1974C80.1135 20.2707 75.994 24.3834 70.9122 24.3834H53.2866C48.2049 24.3834 44.0853 20.2707 44.0853 15.1974Z" fill="#FFB800" />
@@ -12,7 +12,7 @@ export const PooolLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element =
   </svg>
 );
 
-export const PooolIconLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const PooolIconLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="83" height="50" viewBox="0 0 83 50" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M0 24.7991C0 11.103 11.1029 0.000106812 24.799 0.000106812H57.8596C71.5557 0.000106812 82.6586 11.103 82.6586 24.7991C82.6586 38.4952 71.5557 49.5981 57.8596 49.5981H24.799C11.1029 49.5981 0 38.4952 0 24.7991Z" fill="#FFB800" />
     <path d="M0 24.7991C0 11.103 11.1029 0.000106812 24.799 0.000106812H42.3444C56.0406 0.000106812 67.1435 11.103 67.1435 24.7991C67.1435 38.4952 56.0406 49.5981 42.3444 49.5981H24.799C11.1029 49.5981 0 38.4952 0 24.7991Z" fill="#EE7674" />
@@ -20,7 +20,7 @@ export const PooolIconLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Eleme
   </svg>
 );
 
-export const PooolCutoutLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const PooolCutoutLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="233" height="82" viewBox="0 0 233 82" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M220.806 63.1151C220.806 64.2196 221.701 65.1151 222.806 65.1151H231C232.105 65.1151 233 64.2196 233 63.1151V2.50506C233 1.40049 232.105 0.505066 231 0.505066H222.806C221.701 0.505066 220.806 1.4005 220.806 2.50507V63.1151Z" fill="#1A1A1A" />
     <path d="M164.012 66.3319H191.662C205.358 66.3319 216.461 55.229 216.461 41.5328C216.461 27.8367 205.358 16.7338 191.662 16.7338H164.241C173.388 21.209 179.688 30.6077 179.688 41.4777C179.688 52.4379 173.283 61.9021 164.012 66.3319Z" fill="#1A1A1A" />
@@ -30,7 +30,7 @@ export const PooolCutoutLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Ele
   </svg>
 );
 
-export const PooolCutoutIconLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const PooolCutoutIconLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="83" height="50" viewBox="0 0 83 50" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M56.3875 49.598H57.8596C71.5557 49.598 82.6586 38.4951 82.6586 24.799C82.6586 11.1029 71.5557 0 57.8596 0H55.6231C64.7458 4.61539 70.9999 14.0773 70.9999 24.9999C70.9999 35.6147 65.0933 44.8499 56.3875 49.598Z" fill="#1A1A1A" />
     <path d="M38.3876 49.598H42.3444C56.0405 49.598 67.1434 38.4951 67.1434 24.799C67.1434 11.1029 56.0405 0 42.3444 0H37.6232C46.7458 4.61539 53 14.0773 53 24.9999C53 35.6147 47.0934 44.8499 38.3876 49.598Z" fill="#1A1A1A" />
@@ -38,7 +38,7 @@ export const PooolCutoutIconLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX
   </svg>
 );
 
-export const PooolCompactLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const PooolCompactLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="164" height="39" viewBox="0 0 164 39" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M0 19.8293C0 13.2341 5.29652 7.88757 11.8301 7.88757H27.6013C34.1349 7.88757 39.4314 13.2341 39.4314 19.8293C39.4314 26.4246 34.1349 31.7711 27.6013 31.7711H11.8301C5.2965 31.7711 0 26.4246 0 19.8293Z" fill="#FFB800" />
     <path d="M0 19.8293C0 13.2341 5.29652 7.88757 11.8301 7.88757H20.2C26.7335 7.88757 32.0301 13.2341 32.0301 19.8293C32.0301 26.4246 26.7335 31.7711 20.2 31.7711H11.8301C5.29652 31.7711 0 26.4246 0 19.8293Z" fill="#EE7674" />
@@ -53,7 +53,7 @@ export const PooolCompactLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.El
   </svg>
 );
 
-export const PooolCompactCutoutLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const PooolCompactCutoutLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="345" height="82" viewBox="0 0 345 82" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M332.348 63.1151C332.348 64.2196 333.244 65.1151 334.348 65.1151H342.542C343.647 65.1151 344.542 64.2196 344.542 63.1151V2.50506C344.542 1.40049 343.647 0.505066 342.542 0.505066H334.348C333.244 0.505066 332.348 1.4005 332.348 2.50507V63.1151Z" fill="#1A1A1A" />
     <path fillRule="evenodd" clipRule="evenodd" d="M248.186 66.0248C260.471 66.0248 273.12 57.4708 273.12 41.4548C273.12 25.4388 260.471 16.8848 248.186 16.8848C235.81 16.8848 223.252 25.4388 223.252 41.4548C223.252 57.4708 235.81 66.0248 248.186 66.0248ZM235.264 41.4548C235.264 32.9918 241.361 27.8958 248.186 27.8958C255.011 27.8958 261.017 32.9918 261.017 41.4548C261.017 49.9178 255.011 55.0138 248.186 55.0138C241.361 55.0138 235.264 49.9178 235.264 41.4548Z" fill="#1A1A1A" />
@@ -66,7 +66,7 @@ export const PooolCompactCutoutLogo = (props: ComponentPropsWithoutRef<'svg'>): 
   </svg>
 );
 
-export const AccessLogo = (props: ComponentPropsWithoutRef<'svg'>) : JSX.Element => (
+export const AccessLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="135" height="30" viewBox="0 0 135 30" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M2.94226 5.08973C2.94226 2.94149 4.68375 1.2 6.83199 1.2H27.3284V17.6269C27.3284 19.7751 25.5869 21.5166 23.4387 21.5166H6.83198C4.68375 21.5166 2.94226 19.7751 2.94226 17.6269V5.08973Z" fill="#7ED496" />
     <path d="M0 9.35167C0 7.20343 1.74149 5.46194 3.88973 5.46194H26.1103C28.2585 5.46194 30 7.20343 30 9.35167V25.0763C30 27.2245 28.2585 28.966 26.1103 28.966H3.88973C1.74149 28.966 0 27.2245 0 25.0763V9.35167Z" fill="#FFB800" />
@@ -82,7 +82,7 @@ export const AccessLogo = (props: ComponentPropsWithoutRef<'svg'>) : JSX.Element
   </svg>
 );
 
-export const SubscribeLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const SubscribeLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="175" height="30" viewBox="0 0 175 30" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M0 8.90794C0 5.94403 3.59273 4.47001 5.67439 6.57985L14.6192 15.6457L23.026 24.1218C25.101 26.2139 23.6191 29.7709 20.6725 29.7709H3.31478C1.48408 29.7709 0 28.2868 0 26.4561V8.90794Z" fill="#7ED496" />
     <path d="M30 13.0163C30 20.2051 24.1723 26.0327 16.9836 26.0327C9.7949 26.0327 3.96729 20.2051 3.96729 13.0163C3.96729 5.82761 9.7949 0 16.9836 0C24.1723 0 30 5.82761 30 13.0163Z" fill="#EE7674" />
@@ -101,7 +101,7 @@ export const SubscribeLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Eleme
   </svg>
 );
 
-export const ConnectLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const ConnectLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="157" height="30" viewBox="0 0 157 30" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M0 13.9025C0 15.2364 0.770339 16.4609 2.00185 17.0846L24.4808 28.47C26.9851 29.7385 29.9995 28.0003 29.9995 25.2879V16.1904C29.9995 14.8565 29.2292 13.632 27.9977 13.0083L5.51874 1.62285C3.01442 0.354429 0 2.09255 0 4.80497V13.9025Z" fill="#7ED496" />
     <path d="M0.000488281 16.1904C0.000488281 14.8565 0.770827 13.632 2.00234 13.0082L24.4813 1.62281C26.9856 0.354393 30 2.09252 30 4.80493V13.9025C30 15.2363 29.2297 16.4608 27.9982 17.0846L5.51922 28.47C3.01491 29.7384 0.000488281 28.0003 0.000488281 25.2879V16.1904Z" fill="#EE7674" />
@@ -118,7 +118,7 @@ export const ConnectLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element
   </svg>
 );
 
-export const EngageLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const EngageLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="145" height="32" viewBox="0 0 145 32" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M24.3123 12.1498C24.3123 5.43965 18.8726 0 12.1625 0C5.45234 0 0.0126953 5.43965 0.0126953 12.1498V24.2996H12.1625C18.8726 24.2996 24.3123 18.8599 24.3123 12.1498Z" fill="#EE7674" />
     <path d="M5.00684 17.7479C5.00684 11.0378 10.4465 5.59814 17.1566 5.59814C23.8668 5.59814 29.3064 11.0378 29.3064 17.7479V29.8977H17.1566C10.4465 29.8977 5.00684 24.4581 5.00684 17.7479Z" fill="#FFB800" />
@@ -134,7 +134,7 @@ export const EngageLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element 
   </svg>
 );
 
-export const FlowLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const FlowLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="107" height="30" viewBox="0 0 107 30" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M17.0088 12.5675C18.8574 13.6409 18.8574 16.3242 17.0088 17.3975L4.17219 24.8507C2.32358 25.9241 0.0128174 24.5824 0.0128174 22.4357V7.52934C0.0128174 5.38267 2.32358 4.041 4.17219 5.11434L17.0088 12.5675Z" fill="#FFB800" />
     <path d="M28.2047 11.8782C30.6155 13.2701 30.6155 16.7498 28.2047 18.1416L11.4642 27.8068C9.05337 29.1987 6.03986 27.4588 6.03986 24.6751V5.34476C6.03986 2.56099 9.05337 0.821138 11.4642 2.21302L28.2047 11.8782Z" fill="#5C56DF" />
@@ -148,7 +148,7 @@ export const FlowLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element =>
   </svg>
 );
 
-export const JuniperoLogo = (props: ComponentPropsWithoutRef<'svg'>): JSX.Element => (
+export const JuniperoLogo = (props: ComponentPropsWithoutRef<'svg'>) => (
   <svg width="161" height="30" viewBox="0 0 161 30" fill="none" xmlns="http://www.w3.org/2000/svg" { ...props }>
     <path d="M-1.07288e-06 2.1C-1.07288e-06 10.3006 6.71573 16.9485 15 16.9485C23.2843 16.9485 30 10.3006 30 2.1L-1.07288e-06 2.1Z" fill="#FFB800" />
     <path d="M30 27.8578C30 19.6572 23.2843 13.0093 15 13.0093C6.71573 13.0093 0 19.6572 0 27.8578H30Z" fill="#7ED496" />

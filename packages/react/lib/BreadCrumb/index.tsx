@@ -1,6 +1,7 @@
 import {
   type MutableRefObject,
   type ComponentPropsWithRef,
+  type ReactNode,
   Children,
   Fragment,
   forwardRef,
@@ -9,46 +10,38 @@ import {
   useRef,
   useMemo,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  exists,
-  classNames,
-  mockState,
-} from '@junipero/core';
-import PropTypes from 'prop-types';
+import { exists, classNames, mockState } from '@junipero/core';
 
+import type { JuniperoRef, StateReducer } from '../types';
 import BreadCrumbItem from '../BreadCrumbItem';
 
-export declare type BreadCrumbRef = {
-  items: Array<JSX.Element | string>;
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+export declare interface BreadCrumbRef extends JuniperoRef {
+  items: Array<JSX.Element | ReactNode>;
+  innerRef: MutableRefObject<HTMLDivElement>;
+}
 
-export declare interface BreadCrumbProps extends ComponentPropsWithRef<any> {
-  children?: JSX.Element | Array<JSX.Element>;
-  className?: string;
-  items?: Array<JSX.Element | string>;
+export declare interface BreadCrumbProps extends ComponentPropsWithRef<'div'> {
+  items?: Array<JSX.Element | ReactNode>;
   maxItems?: number;
-  filterItem?(children: JSX.Element): boolean;
-  ref?: MutableRefObject<BreadCrumbRef | undefined>;
+  filterItem?(children: JSX.Element | ReactNode): boolean;
 }
 
 export declare interface BreadCrumbState {
   opened: boolean;
 }
 
-const BreadCrumb = forwardRef(({
+const BreadCrumb = forwardRef<BreadCrumbRef, BreadCrumbProps>(({
   className,
   children,
   items,
   maxItems,
-  filterItem = child => child.type === BreadCrumbItem,
+  filterItem = child => (child as JSX.Element).type === BreadCrumbItem,
   ...rest
-}: BreadCrumbProps, ref) => {
-  const innerRef = useRef();
-  const [state, dispatch] = useReducer<MockState<BreadCrumbState>>(mockState, {
+}, ref) => {
+  const innerRef = useRef<HTMLDivElement>();
+  const [state, dispatch] = useReducer<
+    StateReducer<BreadCrumbState>
+  >(mockState, {
     opened: false,
   });
 
@@ -64,7 +57,7 @@ const BreadCrumb = forwardRef(({
     dispatch({ opened: true });
   };
 
-  const availableItems = useMemo<Array<JSX.Element | string>>(() => (
+  const availableItems = useMemo<ReactNode[]>(() => (
     items
       ? items.map((item, i) => (
         <BreadCrumbItem key={i}>{ item }</BreadCrumbItem>
@@ -77,11 +70,11 @@ const BreadCrumb = forwardRef(({
         .filter(filterItem)
   ), [children, items]);
 
-  const before = useMemo(() => (
+  const before = useMemo<ReactNode[]>(() => (
     availableItems.slice(0, Math.ceil(maxItems / 2))
   ), [availableItems, maxItems]);
 
-  const after = useMemo<Array<JSX.Element | string>>(() => (
+  const after = useMemo<ReactNode[]>(() => (
     availableItems.slice(-Math.floor(maxItems / 2))
   ), [availableItems, maxItems]);
 
@@ -107,13 +100,8 @@ const BreadCrumb = forwardRef(({
         ) }
     </div>
   );
-}) as ForwardedProps<BreadCrumbProps, BreadCrumbRef>;
+});
 
 BreadCrumb.displayName = 'BreadCrumb';
-BreadCrumb.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.any),
-  maxItems: PropTypes.number,
-  filterItem: PropTypes.func,
-};
 
 export default BreadCrumb;

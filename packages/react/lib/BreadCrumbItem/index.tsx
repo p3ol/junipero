@@ -1,5 +1,4 @@
 import {
-  type ComponentPropsWithRef,
   type ElementType,
   type MutableRefObject,
   type ReactNode,
@@ -7,30 +6,35 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames } from '@junipero/core';
 
-export declare type BreadCrumbItemRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
+import type { TransitionProps } from '../Transition';
 
-export declare interface BreadCrumbItemProps
-  extends ComponentPropsWithRef<any> {
-  className?: string;
-  children?: ReactNode | JSX.Element;
-  tag?: string | ElementType;
-  animate?(item: ReactNode | JSX.Element): ReactNode | JSX.Element;
-  ref?: MutableRefObject<BreadCrumbItemRef | undefined>;
+export declare interface BreadCrumbItemRef extends JuniperoRef {
+  innerRef: MutableRefObject<HTMLElement>;
 }
 
-const BreadCrumbItem = forwardRef(({
+export declare interface BreadCrumbItemProps
+  extends SpecialComponentPropsWithRef {
+  tag?: string | ElementType;
+  animate?(
+    item: ReactNode | JSX.Element,
+    opts?: Partial<TransitionProps>,
+  ): ReactNode | JSX.Element;
+}
+
+const BreadCrumbItem = forwardRef<BreadCrumbItemRef, BreadCrumbItemProps>(({
   animate,
   className,
   tag: Tag = 'span',
   ...rest
-}: BreadCrumbItemProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLElement>();
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -49,15 +53,8 @@ const BreadCrumbItem = forwardRef(({
   );
 
   return animate ? animate(rendered) : rendered;
-}) as ForwardedProps<BreadCrumbItemProps, BreadCrumbItemRef>;
+}) as ForwardedProps<BreadCrumbItemRef, BreadCrumbItemProps>;
 
 BreadCrumbItem.displayName = 'BreadCrumbItem';
-BreadCrumbItem.propTypes = {
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-  ]),
-  animate: PropTypes.func,
-};
 
 export default BreadCrumbItem;

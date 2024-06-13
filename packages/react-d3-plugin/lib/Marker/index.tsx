@@ -11,28 +11,24 @@ import {
 import {
   type TooltipProps,
   type TooltipRef,
+  type JuniperoRef,
   Tooltip,
   classNames,
 } from '@junipero/react';
-import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
 
-export declare type MarkerRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-  tooltipRef: MutableRefObject<any>;
+export declare interface MarkerRef extends JuniperoRef {
+  innerRef: MutableRefObject<SVGGElement>;
+  tooltipRef: MutableRefObject<TooltipRef>;
   position: number | Date;
   xIndex: number;
   x: number;
   y: number;
-};
+}
 
-export declare interface MarkerProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  ref?: MutableRefObject<MarkerRef | undefined>;
+export declare interface MarkerProps extends ComponentPropsWithRef<'g'> {
   series?: Array<Array<number | Date>> | Array<number | Date>;
   xAxisIndex?: number;
   yAxisIndexes?: Array<number>;
@@ -44,15 +40,16 @@ export declare interface MarkerProps extends ComponentPropsWithRef<any> {
   lineCapShift?: number;
 }
 
-const Marker = forwardRef(({
+const Marker = forwardRef<MarkerRef, MarkerProps>(({
   series,
   yAxisIndexes,
   tooltip,
   tooltipProps,
   xAxisIndex = 0,
   lineCapShift = 10,
-}: MarkerProps, ref) => {
-  const innerRef = useRef<any>();
+  ...rest
+}, ref) => {
+  const innerRef = useRef<SVGGElement>();
   const tooltipRef = useRef<TooltipRef>();
   const {
     axis,
@@ -68,12 +65,12 @@ const Marker = forwardRef(({
     xIndex,
     x,
     y,
-  }: {
+  } = useMemo<{
     position?: number | Date,
     xIndex?: number,
     x: number,
     y: number
-  } = useMemo(() => {
+  }>(() => {
     if (!cursor) {
       return { x: 0, y: 0 };
     }
@@ -124,6 +121,7 @@ const Marker = forwardRef(({
 
   const markerContent = (
     <g
+      { ...rest }
       ref={innerRef}
       className="junipero marker"
       transform={`translate(${x - paddingLeft - lineCapShift}, ${y})`}
@@ -152,13 +150,5 @@ const Marker = forwardRef(({
 });
 
 Marker.displayName = 'Marker';
-Marker.propTypes = {
-  series: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.any)),
-  xAxisIndex: PropTypes.number,
-  yAxisIndexes: PropTypes.arrayOf(PropTypes.number),
-  tooltip: PropTypes.func,
-  tooltipProps: PropTypes.object,
-  lineCapShift: PropTypes.number,
-};
 
 export default Marker;

@@ -8,31 +8,25 @@ import {
   useCallback,
   useMemo,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  mockState,
-  classNames,
-} from '@junipero/core';
-import PropTypes from 'prop-types';
+import { mockState, classNames } from '@junipero/core';
 
+import type { JuniperoRef, StateReducer } from '../types';
 import type { ListColumnObject } from '../ListColumn';
 import { ListContext, type ListContextType } from '../contexts';
 import { ArrowDown, ArrowUp } from '../icons';
 
-export declare type ListRef = {
+export declare interface ListRef extends JuniperoRef {
   orderable: boolean;
   columns: Array<string | ListColumnObject>;
   active?: string | number;
   asc?: boolean | null;
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<HTMLTableElement>;
+}
 
-export declare interface ListProps extends ComponentPropsWithRef<any> {
+export declare interface ListProps extends ComponentPropsWithRef<'table'> {
   columns?: Array<string | ListColumnObject>;
+  orderable?: boolean;
   onOrder?(order: { column: string | number; asc: boolean | null }): void;
-  ref?: MutableRefObject<ListRef | undefined>;
 }
 
 export declare interface ListState {
@@ -41,17 +35,19 @@ export declare interface ListState {
   asc?: boolean;
 }
 
-const List = forwardRef(({
+const List = forwardRef<ListRef, ListProps>(({
   className,
   children,
   columns = [],
   onOrder,
   ...rest
-}: ListProps, ref) => {
-  const listRef = useRef([]);
-  const innerRef = useRef();
+}, ref) => {
+  const listRef = useRef<Array<string | ListColumnObject>>([]);
+  const innerRef = useRef<HTMLTableElement>();
   const orderable = useMemo(() => !!onOrder, [onOrder]);
-  const [state, dispatch] = useReducer<MockState<ListState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<ListState>
+  >(mockState, {
     columns,
     active: null,
     asc: null,
@@ -76,7 +72,12 @@ const List = forwardRef(({
   };
 
   const registerColumn = (column: string | ListColumnObject) => {
-    if (listRef.current.find(it => it.id === (column as ListColumnObject).id)) {
+    const exists = listRef.current.find(it =>
+      it === column ||
+      (it as ListColumnObject)?.id === (column as ListColumnObject).id
+    );
+
+    if (exists) {
       return;
     }
 
@@ -96,7 +97,7 @@ const List = forwardRef(({
     orderable,
   ]);
 
-  const renderColumn = (column:ListColumnObject, index: number) => {
+  const renderColumn = (column: ListColumnObject, index: number) => {
     const { id, title, ...props } = typeof column === 'string'
       ? { id: column, title: column } : column;
 
@@ -134,22 +135,8 @@ const List = forwardRef(({
       </table>
     </ListContext.Provider>
   );
-}) as ForwardedProps<ListProps, ListRef>;
+});
 
 List.displayName = 'List';
-List.propTypes = {
-  orderable: PropTypes.bool,
-  columns: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      title: PropTypes.oneOfType([
-        PropTypes.node,
-        PropTypes.string,
-      ]),
-    }),
-  ])),
-  onOrder: PropTypes.func,
-};
 
 export default List;

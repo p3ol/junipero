@@ -2,44 +2,38 @@ import {
   type ComponentPropsWithRef,
   type KeyboardEvent,
   type MutableRefObject,
-  type ReactNode,
   forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  classNames,
-  mockState,
-} from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames, mockState } from '@junipero/core';
 
-export declare type ToggleRef = {
+import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+
+export declare type ToggleValue = any;
+
+export declare interface ToggleRef extends JuniperoRef {
   checked: boolean;
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-  inputRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<HTMLLabelElement>;
+  inputRef: MutableRefObject<HTMLInputElement>;
+}
 
-export declare interface ToggleProps extends ComponentPropsWithRef<any> {
+export declare interface ToggleProps
+  extends Omit<ComponentPropsWithRef<'input'>, 'onChange'> {
   checked?: boolean;
-  children?: ReactNode | JSX.Element;
-  className?: string;
   disabled?: boolean;
   tabIndex?: number;
-  value?: any;
-  onChange?(field: { value: any; checked: boolean }): void;
-  ref?: MutableRefObject<ToggleRef | undefined>;
+  value?: ToggleValue;
+  onChange?(field: FieldContent<ToggleValue>): void;
 }
 
 export declare interface ToggleState {
   checked: boolean;
 }
 
-const Toggle = forwardRef(({
+const Toggle = forwardRef<ToggleRef, ToggleProps>(({
   checked = false,
   disabled = false,
   tabIndex = 1,
@@ -48,10 +42,10 @@ const Toggle = forwardRef(({
   value,
   onChange,
   ...rest
-}: ToggleProps, ref) => {
-  const innerRef = useRef();
-  const inputRef = useRef();
-  const [state, dispatch] = useReducer<MockState<ToggleState>>(mockState, {
+}, ref) => {
+  const innerRef = useRef<HTMLLabelElement>();
+  const inputRef = useRef<HTMLInputElement>();
+  const [state, dispatch] = useReducer<StateReducer<ToggleState>>(mockState, {
     checked,
   });
 
@@ -114,20 +108,13 @@ const Toggle = forwardRef(({
       </div>
       { children && (
         <div className="label">
-          {children}
+          { children }
         </div>
       ) }
     </label>
   );
-}) as ForwardedProps<ToggleProps, ToggleRef>;
+});
 
 Toggle.displayName = 'Toggle';
-Toggle.propTypes = {
-  value: PropTypes.any,
-  checked: PropTypes.bool,
-  tabIndex: PropTypes.number,
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-};
 
 export default Toggle;

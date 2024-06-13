@@ -1,18 +1,18 @@
 import { useContext } from 'react';
 
 import {
-  AlertsContextType,
+  type AlertsContextType,
+  type DropdownContextType,
+  type FieldContextType,
+  type ListContextType,
+  type ToastsContextType,
+  type ModalContextType,
   AlertsContext,
   DropdownContext,
-  DropdownContextType,
-  FieldContextType,
   FieldControlContext,
   ListContext,
-  ListContextType,
   ToastsContext,
-  ToastsContextType,
   ModalContext,
-  ModalContextType,
 } from './contexts';
 
 export const useFieldControl = () =>
@@ -23,12 +23,3 @@ export const useAlerts = () => useContext<AlertsContextType>(AlertsContext);
 export const useList = () => useContext<ListContextType>(ListContext);
 export const useToasts = () => useContext<ToastsContextType>(ToastsContext);
 export const useModal = () => useContext<ModalContextType>(ModalContext);
-
-export {
-  AlertsContext,
-  DropdownContext,
-  FieldControlContext,
-  ListContext,
-  ToastsContext,
-  ModalContext,
-};

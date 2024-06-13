@@ -1,37 +1,34 @@
 import {
   type ComponentPropsWithRef,
-  type MutableRefObject,
   forwardRef,
   useCallback,
   useImperativeHandle,
   useState,
 } from 'react';
-import { type ForwardedProps } from '@junipero/core';
-import PropTypes from 'prop-types';
 
+import type { JuniperoRef } from '../types';
+import type { AlertObject } from '../Alert';
 import { type AlertsContextType, AlertsContext } from '../contexts';
-import { type AlertObject } from '../Alert';
 
-export declare type AlertsControlRef = {
-  alerts: Array<AlertObject>;
-  isJunipero: boolean;
+export declare interface AlertsControlRef extends JuniperoRef {
+  alerts: AlertObject[];
   add(alert: AlertObject): void;
   dismiss(alert: AlertObject): void;
-} | React.RefAttributes<HTMLElement>;
-
-export declare interface AlertsControlProps extends ComponentPropsWithRef<any> {
-  alerts?: Array<AlertObject>;
-  generateId?: (alert: AlertObject) => string | number;
-  ref?: MutableRefObject<AlertsControlRef | undefined>;
-  children?: React.ReactNode;
 }
 
-const AlertsControl = forwardRef(({
+export declare interface AlertsControlProps extends Omit<
+  ComponentPropsWithRef<typeof AlertsContext.Provider>, 'value'
+> {
+  alerts?: AlertObject[];
+  generateId?: (alert: AlertObject) => string | number;
+}
+
+const AlertsControl = forwardRef<AlertsControlRef, AlertsControlProps>(({
   alerts: alertsProp,
   generateId,
   ...rest
-}: AlertsControlProps, ref) => {
-  const [alerts, setAlerts] = useState(alertsProp || []);
+}, ref) => {
+  const [alerts, setAlerts] = useState<AlertObject[]>(alertsProp || []);
 
   useImperativeHandle(ref, () => ({
     alerts,
@@ -60,12 +57,8 @@ const AlertsControl = forwardRef(({
   return (
     <AlertsContext.Provider { ...rest } value={getContext()} />
   );
-}) as ForwardedProps<AlertsControlProps, AlertsControlRef>;
+});
 
 AlertsControl.displayName = 'AlertsControl';
-AlertsControl.propTypes = {
-  alerts: PropTypes.array,
-  generateId: PropTypes.func,
-};
 
 export default AlertsControl;

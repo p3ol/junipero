@@ -59,6 +59,7 @@ export {
 } from './numbers';
 
 export type {
-  ForwardedProps,
-  MockState,
+  Grow,
+  GrowToSize,
+  FixedArray,
 } from './types';

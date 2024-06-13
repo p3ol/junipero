@@ -10,7 +10,6 @@ import {
   useLayoutEffectAfterMount,
 } from '.';
 
-/* eslint-disable react/prop-types */
 const TestComponent = (
   { target, onTimeout, onInterval }:
   { target?: any, onTimeout?: any, onInterval?: any}
@@ -29,7 +28,6 @@ const TestComponent = (
 
   return <div className={classNames({ clicked })} />;
 };
-/* eslint-enable react/prop-types */
 
 describe('useEventListener(name, listener, target)', () => {
   it('should allow to use global event listeners', () => {

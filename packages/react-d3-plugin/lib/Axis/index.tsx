@@ -1,36 +1,39 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
   forwardRef,
   useImperativeHandle,
   useRef,
   useEffect,
   useMemo,
-  MutableRefObject,
-  ReactNode,
-  ComponentPropsWithRef,
 } from 'react';
-import { classNames } from '@junipero/react';
-import PropTypes from 'prop-types';
+import { type JuniperoRef, classNames } from '@junipero/react';
 import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
 import { getAxisType } from '../utils';
 
-type AxisDataType = Array<
-number |
-Date |
-{[key: string]: number} |
-string |
-[number, number] |
-[number, number] |
-Iterable<[number, number]>>;
+export declare type AxisDataType = Array<
+  | string
+  | number
+  | Date
+  | {[key: string]: number}
+  | [number, number]
+  | Iterable<[number, number]>
+>;
 
-export declare interface AxisObject<T=AxisDataType> {
+export declare interface AxisObject<T = AxisDataType> {
   type: typeof d3.axisLeft | typeof d3.axisBottom | typeof d3.axisRight |
     typeof d3.axisTop;
   scale: typeof d3.scaleLinear | typeof d3.scaleTime | typeof d3.scaleBand;
   data: T;
-  range?: d3.ScaleContinuousNumeric<number, number, never> |
-    d3.ScaleTime<number, number, never> | d3.ScaleBand<number | Date>;
+  range?: d3.ScaleContinuousNumeric<number, number> |
+    d3.ScaleLinear<number, number> |
+    d3.ScaleTime<number, number> |
+    d3.ScaleBand<number | Date>;
+  domain?: ReturnType<
+    typeof d3.scaleLinear | typeof d3.scaleTime | typeof d3.scaleBand
+  >;
   min?: number | Date;
   max?: number | Date;
   parseTitle?(value: number | Date, opts: object): string;
@@ -44,26 +47,24 @@ export declare interface AxisObject<T=AxisDataType> {
   stackKeys?: Array<string>;
 }
 
-export declare type AxisRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-  gridRef: MutableRefObject<any>;
-};
-
-export declare interface AxisProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  axis: AxisObject;
-  ref?: MutableRefObject<AxisRef | undefined>;
+export declare interface AxisRef extends JuniperoRef {
+  innerRef: MutableRefObject<SVGGElement>;
+  gridRef: MutableRefObject<SVGGElement>;
+  ticksRef: MutableRefObject<SVGGElement>;
 }
 
-const Axis = forwardRef(({
+export declare interface AxisProps extends ComponentPropsWithRef<'g'> {
+  axis: AxisObject;
+}
+
+const Axis = forwardRef<AxisRef, AxisProps>(({
   className,
   axis,
-}: AxisProps, ref) => {
-  const innerRef = useRef();
-  const ticksRef = useRef();
-  const gridRef = useRef();
+  ...rest
+}, ref) => {
+  const innerRef = useRef<SVGGElement>();
+  const ticksRef = useRef<SVGGElement>();
+  const gridRef = useRef<SVGGElement>();
   const {
     width,
     height,
@@ -76,6 +77,7 @@ const Axis = forwardRef(({
   useImperativeHandle(ref, () => ({
     innerRef,
     gridRef,
+    ticksRef,
     isJunipero: true,
   }));
 
@@ -145,6 +147,7 @@ const Axis = forwardRef(({
         className
       )}
       ref={innerRef}
+      { ...rest }
     >
       <g
         ref={ticksRef}
@@ -160,29 +163,5 @@ const Axis = forwardRef(({
 });
 
 Axis.displayName = 'Axis';
-Axis.propTypes = {
-  axis: PropTypes.shape({
-    type: PropTypes.oneOf([
-      d3.axisLeft,
-      d3.axisRight,
-      d3.axisTop,
-      d3.axisBottom,
-    ]),
-    scale: PropTypes.oneOf([
-      d3.scaleTime,
-      d3.scaleLinear,
-      d3.scaleBand,
-    ]),
-    range: PropTypes.func,
-    data: PropTypes.arrayOf(PropTypes.any),
-    min: PropTypes.any,
-    max: PropTypes.any,
-    parseTitle: PropTypes.func,
-    ticks: PropTypes.number,
-    tickSize: PropTypes.number,
-    grid: PropTypes.bool,
-    stackKeys: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
-};
 
 export default Axis;

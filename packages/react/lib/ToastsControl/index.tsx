@@ -1,36 +1,33 @@
 import {
-  type ComponentPropsWithoutRef,
-  type MutableRefObject,
+  type ComponentPropsWithRef,
   forwardRef,
   useCallback,
   useImperativeHandle,
   useState,
 } from 'react';
-import { type ForwardedProps } from '@junipero/core';
-import PropTypes from 'prop-types';
 
+import type { JuniperoRef } from '../types';
 import type { ToastObject } from '../Toast';
 import { ToastsContext, type ToastsContextType } from '../contexts';
 
-export declare type ToastsControlRef = {
-  isJunipero: boolean;
+export declare interface ToastsControlRef extends JuniperoRef {
   toasts: Array<ToastObject>;
   add(toast: ToastObject): void;
   dismiss(toast: ToastObject, index: string | number): void;
-};
-
-export declare interface ToastsControlProps
-  extends ComponentPropsWithoutRef<any> {
-  toasts?: Array<ToastObject>;
-  generateId?(toast: ToastObject): string | number;
-  ref?: MutableRefObject<ToastsControlRef | undefined>;
 }
 
-const ToastsControl = forwardRef(({
+export declare interface ToastsControlProps extends Omit<
+  ComponentPropsWithRef<typeof ToastsContext.Provider>, 'value'
+> {
+  toasts?: Array<ToastObject>;
+  generateId?(toast: ToastObject): string | number;
+}
+
+const ToastsControl = forwardRef<ToastsControlRef, ToastsControlProps>(({
   toasts: toastsProp,
   generateId,
   ...rest
-}: ToastsControlProps, ref) => {
+}, ref) => {
   const [toasts, setToasts] = useState(toastsProp || []);
 
   useImperativeHandle(ref, () => ({
@@ -60,12 +57,8 @@ const ToastsControl = forwardRef(({
   return (
     <ToastsContext.Provider { ...rest } value={getContext()} />
   );
-}) as ForwardedProps<ToastsControlProps, ToastsControlRef>;
+});
 
 ToastsControl.displayName = 'ToastsControl';
-ToastsControl.propTypes = {
-  toasts: PropTypes.array,
-  generateId: PropTypes.func,
-};
 
 export default ToastsControl;
