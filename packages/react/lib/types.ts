@@ -1,6 +1,5 @@
 import type {
   ComponentPropsWithoutRef,
-  ComponentPropsWithRef,
   ForwardRefExoticComponent,
   MutableRefObject,
   ReactNode,
