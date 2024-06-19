@@ -66,10 +66,10 @@ const Marker = forwardRef<MarkerRef, MarkerProps>(({
     x,
     y,
   } = useMemo<{
-    position?: number | Date,
-    xIndex?: number,
-    x: number,
-    y: number
+    position?: number | Date;
+    xIndex?: number;
+    x: number;
+    y: number;
   }>(() => {
     if (!cursor) {
       return { x: 0, y: 0 };
@@ -80,18 +80,15 @@ const Marker = forwardRef<MarkerRef, MarkerProps>(({
       xAxis.range as d3.ScaleTime<number, number, never>
     ).invert(cursor.x);
 
-    const test: number[] = (yAxisIndexes || [1]).map(i =>
-      axis[i]?.domain?.(axis[i]?.data?.[xIndex] as number))as number[];
-
     const xIndex = axis[xAxisIndex]?.findSelectionIndex?.(position);
     const xValue = xAxis?.domain?.(xAxis?.data?.[xIndex] as number);
-    const values = series
+    const yValue = Math.min(...(series
       ? series.map(s => (yAxisIndexes || [1]).map(i =>
         axis[i]?.domain?.((s as Array<number | Date>)[xIndex]) as number
       )).flat()
-      : test;
-
-    const yValue = Math.min(...values);
+      : (yAxisIndexes || [1]).map(i =>
+        axis[i]?.domain?.(axis[i]?.data?.[xIndex] as number))as number[]
+    ));
 
     return {
       position,
