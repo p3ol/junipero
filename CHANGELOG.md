@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.2](https://github.com/p3ol/junipero/compare/v3.6.1...v3.6.2) (2024-06-19)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** correctly use xindex ([2d18bfb](https://github.com/p3ol/junipero/commit/2d18bfb1be3196ddb69eae2e4c2723a9f08ea88e))
+
+
+
+
+
 ## [3.6.1](https://github.com/p3ol/junipero/compare/v3.6.0...v3.6.1) (2024-06-13)
 
 
