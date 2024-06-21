@@ -74,6 +74,7 @@ export declare interface SelectFieldProps extends Omit<
   noOptionsLabel?: ReactNode | JSX.Element;
   options?: Array<any>;
   placeholder?: string;
+  name?: string;
   required?: boolean;
   searchable?: boolean;
   searchMinCharacters?: number;
@@ -134,6 +135,7 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
   placeholder,
   value,
   valid,
+  name,
   allowArbitraryItems = false,
   autoFocus = false,
   clearable = true,
@@ -553,6 +555,7 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
           { hasValue() && (
             <input
               type="text"
+              name={name}
               readOnly={true}
               value={parseTitle(state.value, { isValue: true }) ?? ''}
               onChange={() => {}}
@@ -573,6 +576,7 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
           { (multiple || !state.value) && (
             <input
               type="text"
+              name={name}
               value={state.search}
               placeholder={placeholder}
               onChange={onSearchInputChange}
