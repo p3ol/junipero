@@ -59,6 +59,7 @@ export {
 } from './numbers';
 
 export type {
+  GenericObject,
   Grow,
   GrowToSize,
   FixedArray,

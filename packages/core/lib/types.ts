@@ -1,3 +1,5 @@
+export declare type GenericObject = { [_: string]: any; };
+
 export type Grow<T, A extends Array<T>> = ((x: T, ...xs: A) => void) extends (
   ...a: infer X
 ) => void
