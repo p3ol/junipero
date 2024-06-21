@@ -1,6 +1,6 @@
 {
   "name": "@junipero/react",
-  "version": "3.6.2",
+  "version": "3.6.3",
   "description": "🏔 Junipero Design System React components",
   "main": "dist/junipero-react.cjs.js",
   "module": "dist/esm/index.js",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "0.26.16",
-    "@junipero/core": "^3.6.0",
+    "@junipero/core": "^3.6.3",
     "@junipero/hooks": "^3.6.0"
   },
   "scripts": {

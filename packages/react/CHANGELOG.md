@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.3](https://github.com/p3ol/junipero/compare/v3.6.2...v3.6.3) (2024-06-21)
+
+
+### Bug Fixes
+
+* **react:** pass name prop to select field inner ([a97053c](https://github.com/p3ol/junipero/commit/a97053c75047e965666fd9a7796b9041edff72f3))
+
+
+
+
+
 ## [3.6.2](https://github.com/p3ol/junipero/compare/v3.6.1...v3.6.2) (2024-06-19)
 
 **Note:** Version bump only for package @junipero/react

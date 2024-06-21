@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.3](https://github.com/p3ol/junipero/compare/v3.6.2...v3.6.3) (2024-06-21)
+
+
+### Bug Fixes
+
+* **core:** wrong mergeDeep types ([137c602](https://github.com/p3ol/junipero/commit/137c60235388531e037b127bb0d0514f68385b85))
+
+
+
+
+
 # [3.6.0](https://github.com/p3ol/junipero/compare/v3.5.5...v3.6.0) (2024-06-13)
 
 
