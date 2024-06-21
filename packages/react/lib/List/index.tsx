@@ -7,6 +7,7 @@ import {
   useReducer,
   useCallback,
   useMemo,
+  useEffect,
 } from 'react';
 import {
   type ForwardedProps,
@@ -45,6 +46,7 @@ const List = forwardRef(({
   className,
   children,
   columns = [],
+  order,
   onOrder,
   ...rest
 }: ListProps, ref) => {
@@ -53,8 +55,8 @@ const List = forwardRef(({
   const orderable = useMemo(() => !!onOrder, [onOrder]);
   const [state, dispatch] = useReducer<MockState<ListState>>(mockState, {
     columns,
-    active: null,
-    asc: null,
+    active: order?.column ?? null,
+    asc: order?.asc ?? null,
   });
 
   useImperativeHandle(ref, () => ({
@@ -65,6 +67,15 @@ const List = forwardRef(({
     asc: state.asc,
     isJunipero: true,
   }));
+
+  useEffect(() => {
+    if (order) {
+      dispatch({
+        active: order.column,
+        asc: order.asc,
+      });
+    }
+  }, [order]);
 
   const onOrder_ = (column: number, e: MouseEvent) => {
     e?.preventDefault();
@@ -96,13 +107,19 @@ const List = forwardRef(({
     orderable,
   ]);
 
-  const renderColumn = (column:ListColumnObject, index: number) => {
-    const { id, title, ...props } = typeof column === 'string'
-      ? { id: column, title: column } : column;
+  const renderColumn = (column: ListColumnObject, index: number) => {
+    const {
+      id,
+      title,
+      orderable: columnOrderable,
+      ...props
+    } = typeof column === 'string'
+      ? { id: column, title: column, orderable }
+      : column;
 
     return (
       <th {...props} key={id ?? index}>
-        { orderable ? (
+        { orderable && columnOrderable !== false ? (
           <a href="#" onClick={onOrder_.bind(null, id)}>
             <span className="junipero secondary">{ title }</span>
             { state.active === id && state.asc === true ? (

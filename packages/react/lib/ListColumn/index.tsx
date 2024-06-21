@@ -14,6 +14,7 @@ import { useList } from '../hooks';
 export declare interface ListColumnObject {
   id?: string | number;
   title?: ReactNode | JSX.Element;
+  orderable?: boolean;
 }
 
 export declare type ListColumnRef = {
@@ -30,6 +31,7 @@ export declare interface ListColumnProps extends ComponentPropsWithRef<any> {
 const ListColumn = forwardRef(({
   id,
   children,
+  orderable = true,
   ...rest
 }: ListColumnProps, ref) => {
   const { registerColumn } = useList();
@@ -46,7 +48,7 @@ const ListColumn = forwardRef(({
       return;
     }
 
-    registerColumn({ id, title: children, ...rest });
+    registerColumn({ id, title: children, orderable, ...rest });
   }, []);
 
   return null;

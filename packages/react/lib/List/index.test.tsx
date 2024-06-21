@@ -82,4 +82,78 @@ describe('<List />', () => {
 
     unmount();
   });
+
+  it('should allow to handle order state from outside', () => {
+    const Comp = () => {
+      const [order, setOrder] = useState<{
+        column: string | number;
+        asc?: boolean;
+      }>({ column: 'name', asc: false });
+
+      const [items, setItems] = useState([
+        { name: 'John', age: 25 },
+        { name: 'Jane', age: 30 },
+        { name: 'Jack', age: 20 },
+      ]);
+
+      const onOrder = (
+        { column, asc }: { asc?: boolean, column: string | number}
+      ) => {
+        setOrder({ column, asc });
+        setItems(it => [...it.sort((a, b) => {
+          const aVal = a[column as 'name' | 'age'];
+          const bVal = b[column as 'name' | 'age'];
+          const result = aVal > bVal ? 1 : aVal < bVal ? -1 : 0;
+
+          return asc ? result : -result;
+        })]);
+      };
+
+      return (
+        <List onOrder={onOrder} order={order}>
+          <ListColumn id="name">Name</ListColumn>
+          <ListColumn id="age">Age</ListColumn>
+
+          { items.map(item => (
+            <ListItem key={item.name} item={[item.name, item.age]} />
+          )) }
+        </List>
+      );
+    };
+
+    const { container, getByText, unmount } = render(<Comp />);
+
+    fireEvent.click(getByText('Name'));
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
+
+  it('should allow to disable order on column', () => {
+    const Comp = () => {
+      const [items] = useState([
+        { name: 'John', age: 25 },
+        { name: 'Jane', age: 30 },
+        { name: 'Jack', age: 20 },
+      ]);
+
+      return (
+        <List onOrder={() => {}}>
+          <ListColumn id="name" orderable={false}>Name</ListColumn>
+          <ListColumn id="age">Age</ListColumn>
+
+          { items.map(item => (
+            <ListItem key={item.name} item={[item.name, item.age]} />
+          )) }
+        </List>
+      );
+    };
+
+    const { container, getByText, unmount } = render(<Comp />);
+
+    fireEvent.click(getByText('Name'));
+    expect(container).toMatchSnapshot();
+
+    unmount();
+  });
 });
