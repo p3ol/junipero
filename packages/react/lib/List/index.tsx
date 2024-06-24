@@ -32,6 +32,7 @@ export declare type ListRef = {
 
 export declare interface ListProps extends ComponentPropsWithRef<any> {
   columns?: Array<string | ListColumnObject>;
+  order?: { column: string | number; asc: boolean | null };
   onOrder?(order: { column: string | number; asc: boolean | null }): void;
   ref?: MutableRefObject<ListRef | undefined>;
 }
