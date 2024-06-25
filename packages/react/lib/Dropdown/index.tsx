@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useCallback,
   useImperativeHandle,
@@ -8,13 +8,7 @@ import {
   useReducer,
   useEffect,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  classNames,
-  mockState,
-  omit,
-} from '@junipero/core';
+import { classNames, mockState, omit } from '@junipero/core';
 import {
   type UseClickProps,
   type UseDismissProps,
@@ -34,22 +28,20 @@ import {
   useClick,
   useHover,
 } from '@floating-ui/react';
-import PropTypes from 'prop-types';
 
+import type { JuniperoRef, StateReducer } from '../types';
 import { DropdownContext, type DropdownContextType } from '../contexts';
 
-export declare type DropdownRef = {
-  isJunipero: boolean;
+export declare interface DropdownRef extends JuniperoRef {
   opened: boolean;
   toggle(): void;
   open(): void;
   close(): void;
-  innerRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<HTMLDivElement>;
+}
 
-export declare interface DropdownProps extends ComponentPropsWithRef<any> {
+export declare interface DropdownProps extends ComponentPropsWithoutRef<'div'> {
   clickOptions?: UseClickProps;
-  className?: string;
   container?: string | JSX.Element | DocumentFragment | HTMLElement;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
@@ -61,7 +53,6 @@ export declare interface DropdownProps extends ComponentPropsWithRef<any> {
   placement?: Placement;
   trigger?: 'click' | 'hover' | 'manual';
   onToggle?(props: { opened: boolean }): void;
-  ref?: MutableRefObject<DropdownRef | undefined>;
 }
 
 export declare interface DropdownState {
@@ -69,7 +60,7 @@ export declare interface DropdownState {
   visible: boolean;
 }
 
-const Dropdown = forwardRef(({
+const Dropdown = forwardRef<DropdownRef, DropdownProps>(({
   className,
   container,
   disabled,
@@ -82,9 +73,9 @@ const Dropdown = forwardRef(({
   trigger = 'click',
   onToggle,
   ...rest
-}: DropdownProps, ref) => {
-  const innerRef = useRef();
-  const [state, dispatch] = useReducer<MockState<DropdownState>>(mockState, {
+}, ref) => {
+  const innerRef = useRef<HTMLDivElement>();
+  const [state, dispatch] = useReducer<StateReducer<DropdownState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
@@ -220,38 +211,8 @@ const Dropdown = forwardRef(({
       />
     </DropdownContext.Provider>
   );
-}) as ForwardedProps<DropdownProps, DropdownRef>;
+});
 
 Dropdown.displayName = 'Dropdown';
-Dropdown.propTypes = {
-  clickOptions: PropTypes.object,
-  container: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.instanceOf(DocumentFragment),
-    PropTypes.any, // TODO: fix this
-  ]),
-  disabled: PropTypes.bool,
-  dismissOptions: PropTypes.object,
-  floatingOptions: PropTypes.object,
-  hoverOptions: PropTypes.object,
-  opened: PropTypes.bool,
-  placement: PropTypes.oneOf([
-    'top-start',
-    'top',
-    'top-end',
-    'right-start',
-    'right',
-    'right-end',
-    'bottom-start',
-    'bottom',
-    'bottom-end',
-    'left-start',
-    'left',
-    'left-end',
-  ]),
-  trigger: PropTypes.oneOf(['click', 'hover', 'manual']),
-  onToggle: PropTypes.func,
-};
 
 export default Dropdown;

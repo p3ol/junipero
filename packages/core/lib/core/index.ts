@@ -1,4 +1,4 @@
-declare type genericObject = { [_: string]: any}
+import type { GenericObject } from '../types';
 
 export const classNames = (...args: Array<any>): string => {
   const classes: string[] = [];
@@ -80,7 +80,7 @@ export const isDate = (d: any): boolean => d instanceof Date;
 export const exists = (v?: any): boolean => !isNull(v) && !isUndefined(v);
 
 export const get = (
-  obj: genericObject = {},
+  obj: GenericObject = {},
   path: string = '',
   defaultValue: any = null
 ): any => path
@@ -88,7 +88,7 @@ export const get = (
   .reduce((a, c) => exists(a?.[c]) ? a[c] : undefined, obj) ?? defaultValue;
 
 export const set = (
-  obj: genericObject = {},
+  obj: GenericObject = {},
   path: string = '',
   value?: any,
   customizer = (val: any, subobj: any) => val
@@ -126,10 +126,10 @@ export const omit = (obj: Object = {}, keys: Array<string> = []): Object =>
   omitBy(obj || {}, (value, key) => keys.includes(key));
 
 export const pick = (
-  obj: genericObject = {},
+  obj: GenericObject = {},
   keys: Array<string | number> = []
 ): typeof obj =>
-  keys.reduce((res: genericObject, k: string | number) => {
+  keys.reduce((res: GenericObject, k: string | number) => {
     if (!isUndefined(obj[k])) {
       res[k] = obj[k];
     }
@@ -137,14 +137,14 @@ export const pick = (
     return res;
   }, {});
 
-export const cloneDeep = (obj?: genericObject | Date | Array<any>): any =>
+export const cloneDeep = (obj?: GenericObject | Date | Array<any>): any =>
   typeof obj !== 'object' || obj === null
     ? obj
     : isDate(obj)
       ? new Date((obj as Date).getTime())
       : isArray(obj)
         ? [...(obj as Array<any>).map(o => cloneDeep(o))]
-        : Object.entries(obj).reduce((res: genericObject, [k, v]) => {
+        : Object.entries(obj).reduce((res: GenericObject, [k, v]) => {
           res[k] = cloneDeep(v);
 
           return res;
@@ -159,19 +159,19 @@ export const fromPairs = (
     return res;
   }, {});
 
-export const mergeDeep = (
-  target: genericObject | Array<any>,
+export function mergeDeep<T extends any> (
+  target: T,
   ...sources: Array<any>
-): Object | Array<any> =>
-  isArray(target)
+): T {
+  return isArray(target)
     ? (target as Array<any>).concat(...sources)
     : isObject(target)
       ? sources.reduce((s, source) => (
         isObject(source)
-          ? Object.entries(source).reduce((t: genericObject, [k, v]) => {
+          ? Object.entries(source).reduce((t: GenericObject, [k, v]) => {
             /* istanbul ignore else: no else needed */
             if (isArray(t[k]) || isObject(t[k])) {
-              t[k] = mergeDeep((target as genericObject)[k], v);
+              t[k] = mergeDeep((target as GenericObject)[k], v);
             } else if (!t[k] || !isObject(t[k])) {
               t[k] = v;
             }
@@ -181,6 +181,7 @@ export const mergeDeep = (
           : s
       ), target)
       : target;
+}
 
 export const filterDeep = (
   arr: Array<any> = [],
@@ -196,7 +197,7 @@ export const filterDeep = (
       res.push(r);
     } else if (isObject(v) && !isDate(v)) {
       res.push(Object.entries(v).reduce((o, [k, v]) => {
-        (o as genericObject)[k] = isArray(v)
+        (o as GenericObject)[k] = isArray(v)
           ? filterDeep(v as Array<any>, cb) : v;
 
         return o;

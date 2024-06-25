@@ -1,6 +1,6 @@
 {
   "name": "@junipero/react-d3-plugin",
-  "version": "3.5.3",
+  "version": "3.6.3",
   "description": "🏔 Junipero Design System D3 Components for React",
   "main": "dist/junipero-react-d3-plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -26,9 +26,6 @@
   "devDependencies": {
     "@junipero/react": "workspace:*",
     "@junipero/theme": "workspace:*"
-  },
-  "dependencies": {
-    "prop-types": "15.8.1"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

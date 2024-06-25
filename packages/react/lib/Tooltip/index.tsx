@@ -1,6 +1,5 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
   type ReactNode,
   Children,
   forwardRef,
@@ -12,8 +11,6 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 import {
-  type ForwardedProps,
-  type MockState,
   classNames,
   ensureNode,
   mockState,
@@ -37,23 +34,27 @@ import {
   useHover,
   useDismiss,
 } from '@floating-ui/react';
-import PropTypes from 'prop-types';
 
-export declare type TooltipRef = {
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithoutRef,
+  StateReducer,
+} from '../types';
+import type { TransitionProps } from '../Transition';
+
+export declare interface TooltipRef extends JuniperoRef {
   opened: boolean;
   open(): void;
   close(): void;
   toggle(): void;
   update(): void;
-  innerRef: MutableRefObject<any>;
-  handleRef: MutableRefObject<any>;
-  isJunipero: boolean;
-};
+  innerRef: MutableRefObject<HTMLDivElement>;
+  handleRef: MutableRefObject<HTMLElement>;
+}
 
-export declare interface TooltipProps extends ComponentPropsWithRef<any> {
+export declare interface TooltipProps extends SpecialComponentPropsWithoutRef {
   apparition?: string;
-  children?: ReactNode | JSX.Element;
-  className?: string;
   clickOptions?: UseClickProps;
   container?: JSX.Element | HTMLElement | DocumentFragment | string;
   disabled?: boolean;
@@ -65,13 +66,12 @@ export declare interface TooltipProps extends ComponentPropsWithRef<any> {
   opened?: boolean;
   text?: ReactNode | JSX.Element;
   placement?: Placement;
-  trigger?: string;
+  trigger?: 'hover' | 'click' | 'manual';
   animate?(
     tooltipInner: ReactNode | JSX.Element,
-    opts?: { opened?: boolean, onExited?: () => void }
+    opts?: { opened?: boolean } & Partial<TransitionProps>
   ): JSX.Element | ReactNode;
   onToggle?(props: { opened: boolean }): void;
-  ref?: MutableRefObject<TooltipRef | undefined>;
 }
 
 export declare interface TooltipState {
@@ -79,7 +79,7 @@ export declare interface TooltipState {
   visible: boolean
 }
 
-const Tooltip = forwardRef(({
+const Tooltip = forwardRef<TooltipRef, TooltipProps>(({
   animate,
   apparition,
   children,
@@ -96,14 +96,14 @@ const Tooltip = forwardRef(({
   trigger = 'hover',
   onToggle,
   ...rest
-}: TooltipProps, ref) => {
-  const handleRef = useRef();
-  const innerRef = useRef();
-  const [state, dispatch] = useReducer<MockState<TooltipState>>(mockState, {
+}, ref) => {
+  const handleRef = useRef<HTMLElement>();
+  const innerRef = useRef<HTMLDivElement>();
+  const [state, dispatch] = useReducer<StateReducer<TooltipState>>(mockState, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
-  const { x, y, refs, strategy, context, update } = useFloating({
+  const { x, y, refs, strategy, context, update } = useFloating<HTMLElement>({
     open: state.opened,
     onOpenChange: (...args) => onOpenChange(...args),
     placement,
@@ -191,9 +191,13 @@ const Tooltip = forwardRef(({
     onToggle?.({ opened: false });
   };
 
-  const setReference: React.RefCallback<any> = (r: TooltipRef) => {
-    handleRef.current = r?.isJunipero ? r.innerRef.current : r;
-    refs.setReference(r?.isJunipero ? r.innerRef.current : r);
+  const setReference: React.RefCallback<HTMLElement> = (
+    r: HTMLElement | JuniperoRef
+  ) => {
+    handleRef.current = ((r as JuniperoRef)?.isJunipero
+      ? (r as JuniperoRef).innerRef.current : r) as HTMLElement;
+    refs.setReference(((r as JuniperoRef)?.isJunipero
+      ? (r as JuniperoRef).innerRef.current : r) as HTMLElement);
   };
 
   const setFloatingRef = (r: any) => {
@@ -261,30 +265,8 @@ const Tooltip = forwardRef(({
       }
     </>
   );
-}) as ForwardedProps<TooltipProps, TooltipRef>;
+}) as ForwardedProps<TooltipRef, TooltipProps>;
 
 Tooltip.displayName = 'Tooltip';
-Tooltip.propTypes = {
-  animate: PropTypes.func,
-  apparition: PropTypes.string,
-  container: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.instanceOf(DocumentFragment),
-    PropTypes.any, // TODO: fix this
-  ]),
-  disabled: PropTypes.bool,
-  onToggle: PropTypes.func,
-  opened: PropTypes.bool,
-  placement: PropTypes.any,
-  text: PropTypes.oneOfType([
-    PropTypes.node,
-  ]),
-  trigger: PropTypes.string,
-  clickOptions: PropTypes.object,
-  dismissOptions: PropTypes.object,
-  floatingOptions: PropTypes.object,
-  hoverOptions: PropTypes.object,
-};
 
 export default Tooltip;

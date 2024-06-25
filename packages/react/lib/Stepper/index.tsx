@@ -1,39 +1,37 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type ReactNode,
+  Children,
   cloneElement,
   forwardRef,
   useMemo,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps } from '@junipero/core';
-import PropTypes from 'prop-types';
 
+import type { JuniperoRef } from '../types';
 import Step, { type StepObject } from '../Step';
 
-export declare type StepperRef = {
+export declare interface StepperRef extends JuniperoRef {
   active: number;
   steps: Array<StepObject>;
-  isJunipero: boolean;
   innerRef: MutableRefObject<HTMLDivElement>;
-};
+}
 
-export declare interface StepperProps extends ComponentPropsWithRef<any> {
+export declare interface StepperProps extends ComponentPropsWithoutRef<'div'> {
   active?: number;
   steps?: Array<StepObject>;
   icon?: ReactNode | JSX.Element;
-  ref?: MutableRefObject<StepperRef | undefined>;
 }
 
-const Stepper = forwardRef(({
+const Stepper = forwardRef<StepperRef, StepperProps>(({
   active,
   steps,
   children,
   icon,
   ...rest
-}: StepperProps, ref) => {
+}, ref) => {
   const innerRef = useRef<HTMLDivElement>();
 
   useImperativeHandle(ref, () => ({
@@ -51,7 +49,7 @@ const Stepper = forwardRef(({
       case i === active:
         return 'active';
       default:
-        return '';
+        return null;
     }
   };
 
@@ -65,7 +63,7 @@ const Stepper = forwardRef(({
       >
         { t.content }
       </Step>
-    )) : children.map((t: JSX.Element, i: number) => (
+    )) : Children.toArray(children).map((t: JSX.Element, i: number) => (
       cloneElement(t, { status: getStepStatus(i), key: i })
     ))
   ), [steps, children]);
@@ -77,17 +75,8 @@ const Stepper = forwardRef(({
       </div>
     </div>
   );
-}) as ForwardedProps<StepperProps, StepperRef>;
+});
 
 Stepper.displayName = 'Stepper';
-Stepper.propTypes = {
-  active: PropTypes.number,
-  steps: PropTypes.arrayOf(PropTypes.exact({
-    title: PropTypes.node.isRequired,
-    content: PropTypes.node.isRequired,
-    icon: PropTypes.node,
-  }).isRequired),
-  icon: PropTypes.node,
-};
 
 export default Stepper;

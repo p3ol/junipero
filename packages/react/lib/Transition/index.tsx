@@ -1,15 +1,14 @@
 import {
-  type ComponentPropsWithRef,
-  type ReactNode,
   Children,
+  cloneElement,
   useState,
   useRef,
   useCallback,
-  cloneElement,
 } from 'react';
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+
+import type { SpecialComponentPropsWithoutRef } from '../types';
 
 export const TRANSITION_STATE_UNMOUNTED = 'unmounted';
 export const TRANSITION_STATE_ENTER = 'enter';
@@ -19,13 +18,13 @@ export const TRANSITION_STATE_STARTING = 'starting';
 export const TRANSITION_STATE_ACTIVE = 'active';
 export const TRANSITION_STATE_DONE = 'done';
 
-export declare type TransitionTimeoutObject = {
+export declare interface TransitionTimeoutObject {
   enter?: number;
   exit?: number;
-};
+}
 
-export declare interface TransitionProps extends ComponentPropsWithRef<any> {
-  children?: JSX.Element | string | ReactNode;
+export declare interface TransitionProps
+  extends SpecialComponentPropsWithoutRef {
   in: boolean;
   mounterOnEnter?: boolean;
   name?: string;
@@ -97,9 +96,7 @@ const Transition = ({
   },
   (timeout as TransitionTimeoutObject)?.exit ?? (timeout as number),
   [status, step],
-  {
-    enabled: status === TRANSITION_STATE_EXIT,
-  });
+  { enabled: status === TRANSITION_STATE_EXIT });
 
   const getClassName = useCallback(() => (
     status === TRANSITION_STATE_UNMOUNTED ? '' : (
@@ -124,24 +121,5 @@ const Transition = ({
 };
 
 Transition.displayName = 'Transition';
-Transition.propTypes = {
-  in: PropTypes.bool.isRequired,
-  name: PropTypes.string,
-  timeout: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      enter: PropTypes.number,
-      exit: PropTypes.number,
-    }),
-  ]),
-  mountOnEnter: PropTypes.bool,
-  unmountOnExit: PropTypes.bool,
-  onEnter: PropTypes.func,
-  onEntering: PropTypes.func,
-  onEntered: PropTypes.func,
-  onExit: PropTypes.func,
-  onExiting: PropTypes.func,
-  onExited: PropTypes.func,
-};
 
 export default Transition;

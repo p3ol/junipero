@@ -1,14 +1,15 @@
 import {
   type ReactNode,
-  type ComponentPropsWithRef,
-  type MutableRefObject,
   forwardRef,
   useLayoutEffect,
   useImperativeHandle,
 } from 'react';
-import { type ForwardedProps } from '@junipero/core';
-import PropTypes from 'prop-types';
 
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithoutRef,
+} from '../types';
 import { useList } from '../hooks';
 
 export declare interface ListColumnObject {
@@ -17,23 +18,21 @@ export declare interface ListColumnObject {
   orderable?: boolean;
 }
 
-export declare type ListColumnRef = {
+export declare interface ListColumnRef extends JuniperoRef {
   id: string | number;
-  isJunipero: boolean;
-};
-
-export declare interface ListColumnProps extends ComponentPropsWithRef<any> {
-  id: string | number;
-  children?: ReactNode | JSX.Element;
-  ref?: MutableRefObject<ListColumnRef | undefined>;
 }
 
-const ListColumn = forwardRef(({
+export declare interface ListColumnProps
+  extends SpecialComponentPropsWithoutRef {
+  id: string | number;
+}
+
+const ListColumn = forwardRef<ListColumnRef, ListColumnProps>(({
   id,
   children,
   orderable = true,
   ...rest
-}: ListColumnProps, ref) => {
+}, ref) => {
   const { registerColumn } = useList();
 
   useImperativeHandle(ref, () => ({
@@ -52,11 +51,8 @@ const ListColumn = forwardRef(({
   }, []);
 
   return null;
-}) as ForwardedProps<ListColumnProps, ListColumnRef>;
+}) as ForwardedProps<ListColumnRef, ListColumnProps>;
 
 ListColumn.displayName = 'ListColumn';
-ListColumn.propTypes = {
-  id: PropTypes.string.isRequired,
-};
 
 export default ListColumn;

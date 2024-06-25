@@ -1,7 +1,6 @@
 import {
-  ComponentPropsWithRef,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithRef,
+  type MutableRefObject,
   forwardRef,
   useCallback,
   useEffect,
@@ -11,34 +10,43 @@ import {
   useRef,
 } from 'react';
 import {
+  type JuniperoRef,
+  type StateReducer,
   classNames,
   mockState,
   useEventListener,
   endOfDay,
   startOfDay,
 } from '@junipero/react';
-import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 
-import { ChartContext } from '../contexts';
-import Axis, { AxisObject } from '../Axis';
+import { type ChartContextType, ChartContext } from '../contexts';
+import Axis, { type AxisObject } from '../Axis';
 
-export declare type ChartRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
+export declare interface ChartRef extends JuniperoRef {
+  innerRef: MutableRefObject<SVGSVGElement>;
   axis: Array<AxisObject>;
-};
+}
 
-export declare interface ChartProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
+export declare interface ChartProps extends ComponentPropsWithRef<'svg'> {
   axis: Array<AxisObject>;
   redrawThreshold?: number;
   linearDomainMaxMargin?: number;
-  ref?: MutableRefObject<ChartRef | undefined>;
+  bandDomainInnerPadding?: number;
+  bandDomainOuterPadding?: number;
 }
 
-const Chart = forwardRef(({
+export declare interface ChartState {
+  width: number;
+  height: number;
+  paddingLeft: number;
+  paddingRight: number;
+  paddingTop: number;
+  paddingBottom: number;
+  cursor?: { x: number, y: number };
+}
+
+const Chart = forwardRef<ChartRef, ChartProps>(({
   children,
   className,
   redrawThreshold = 10,
@@ -47,10 +55,12 @@ const Chart = forwardRef(({
   bandDomainInnerPadding = 0.2,
   bandDomainOuterPadding = 0.1,
   ...rest
-}: ChartProps, ref) => {
-  const innerRef = useRef<any>();
-  const resizeTimerRef = useRef<any>();
-  const [state, dispatch] = useReducer(mockState, {
+}, ref) => {
+  const innerRef = useRef<SVGSVGElement>();
+  const resizeTimerRef = useRef<NodeJS.Timeout>();
+  const [state, dispatch] = useReducer<
+    StateReducer<ChartState>
+  >(mockState, {
     width: 0,
     height: 0,
     paddingLeft: 0,
@@ -65,7 +75,9 @@ const Chart = forwardRef(({
       return null;
     }
 
-    let domain;
+    let domain: ReturnType<typeof d3.scaleLinear<number>> |
+      ReturnType<typeof d3.scaleTime<number>> |
+      ReturnType<typeof d3.scaleBand>;
 
     switch (a.scale) {
       case d3.scaleTime:
@@ -95,7 +107,7 @@ const Chart = forwardRef(({
         ]);
     }
 
-    let range;
+    let range: ReturnType<typeof domain.range>;
 
     switch (a.type) {
       case d3.axisBottom:
@@ -103,16 +115,16 @@ const Chart = forwardRef(({
         range = domain.range([
           state.paddingLeft,
           state.width - state.paddingRight,
-        ]);
+        ]) as ReturnType<typeof domain.range>;
         break;
       default:
         range = domain.range([
           state.height - state.paddingBottom - state.paddingTop,
           -state.paddingTop,
-        ]);
+        ]) as ReturnType<typeof domain.range>;
     }
 
-    return { ...a, domain, range };
+    return { ...a, domain, range } as AxisObject;
   }), [
     axisProp,
     state.width,
@@ -143,8 +155,10 @@ const Chart = forwardRef(({
     const rect = innerRef.current.getBoundingClientRect();
 
     dispatch({
-      width: rect.width || innerRef.current.clientWidth || styles.width,
-      height: rect.height || innerRef.current.clientHeight || styles.height,
+      width: rect.width || innerRef.current.clientWidth ||
+        Number(styles.width),
+      height: rect.height || innerRef.current.clientHeight ||
+        Number(styles.height),
       paddingLeft: parseInt(styles.paddingLeft || '0', 10),
       paddingRight: parseInt(styles.paddingRight || '0', 10),
       paddingTop: parseInt(styles.paddingTop || '0', 10),
@@ -182,7 +196,7 @@ const Chart = forwardRef(({
     dispatch({ cursor: null });
   };
 
-  const getContext = useCallback(() => ({
+  const getContext = useCallback((): ChartContextType => ({
     axis,
     width: state.width,
     height: state.height,
@@ -219,34 +233,5 @@ const Chart = forwardRef(({
 });
 
 Chart.displayName = 'Chart';
-Chart.propTypes = {
-  redrawThreshold: PropTypes.number,
-  axis: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.oneOf([
-      d3.axisLeft,
-      d3.axisRight,
-      d3.axisTop,
-      d3.axisBottom,
-    ]),
-    scale: PropTypes.oneOf([
-      d3.scaleTime,
-      d3.scaleLinear,
-      d3.scaleBand,
-    ]),
-    range: PropTypes.func,
-    data: PropTypes.arrayOf(PropTypes.any),
-    min: PropTypes.any,
-    max: PropTypes.any,
-    findSelectionIndex: PropTypes.func,
-    parseTitle: PropTypes.func,
-    ticks: PropTypes.number,
-    tickSize: PropTypes.number,
-    grid: PropTypes.bool,
-    stackKeys: PropTypes.arrayOf(PropTypes.string),
-  })).isRequired,
-  linearDomainMaxMargin: PropTypes.number,
-  bandDomainInnerPadding: PropTypes.number,
-  bandDomainOuterPadding: PropTypes.number,
-};
 
 export default Chart;

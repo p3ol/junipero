@@ -1,5 +1,4 @@
 import {
-  type ReactNode,
   type MutableRefObject,
   type ComponentPropsWithoutRef,
   forwardRef,
@@ -8,24 +7,24 @@ import {
   useRef,
 } from 'react';
 
+import type { JuniperoRef } from '../types';
 import type { ModalRef } from '../Modal';
 import { ModalContext } from '../contexts';
 
-export declare type ModalControlRef = {
-  isJunipero: boolean;
+export declare interface ModalControlRef extends JuniperoRef {
   close(): void;
   open(): void;
   toggle(): void;
   modalRef: MutableRefObject<ModalRef>;
-};
-
-export declare interface ModalControlProps
-  extends ComponentPropsWithoutRef<any> {
-  children?: ReactNode | JSX.Element;
-  ref?: MutableRefObject<ModalControlRef | undefined>;
 }
 
-const ModalControl = forwardRef(({ children }: ModalControlProps, ref) => {
+export declare interface ModalControlProps extends Omit<
+  ComponentPropsWithoutRef<typeof ModalContext.Provider>, 'value'
+> {}
+
+const ModalControl = forwardRef<ModalControlRef, ModalControlProps>((
+  props, ref,
+) => {
   const modalRef = useRef<ModalRef>();
 
   useImperativeHandle(ref, () => ({
@@ -60,9 +59,7 @@ const ModalControl = forwardRef(({ children }: ModalControlProps, ref) => {
   }), [open, close, toggle, setRef]);
 
   return (
-    <ModalContext.Provider value={getContext()}>
-      { children }
-    </ModalContext.Provider>
+    <ModalContext.Provider { ...props } value={getContext()} />
   );
 });
 

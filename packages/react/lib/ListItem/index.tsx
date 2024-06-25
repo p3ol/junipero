@@ -1,31 +1,28 @@
 import {
-  ComponentPropsWithRef,
-  MutableRefObject,
-  ReactNode,
+  type ComponentPropsWithoutRef,
+  type MutableRefObject,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps } from '@junipero/core';
-import PropTypes from 'prop-types';
 
-export declare type ListItemRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+import type { JuniperoRef } from '../types';
 
-export declare interface ListItemProps extends ComponentPropsWithRef<any> {
-  item?: Array<ReactNode | JSX.Element>;
-  children?: ReactNode | JSX.Element;
-  ref?: MutableRefObject<ListItemRef | undefined>;
+export declare interface ListItemRef extends JuniperoRef {
+  innerRef: MutableRefObject<HTMLTableRowElement>;
 }
 
-const ListItem = forwardRef(({
+export declare interface ListItemProps extends ComponentPropsWithoutRef<'tr'> {
+  item?: Array<ReactNode | JSX.Element>;
+}
+
+const ListItem = forwardRef<ListItemRef, ListItemProps>(({
   item,
   children,
   ...rest
-}: ListItemProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLTableRowElement>();
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -39,11 +36,8 @@ const ListItem = forwardRef(({
       )) : children }
     </tr>
   );
-}) as ForwardedProps<ListItemProps, ListItemRef>;
+});
 
 ListItem.displayName = 'ListItem';
-ListItem.propTypes = {
-  item: PropTypes.array,
-};
 
 export default ListItem;

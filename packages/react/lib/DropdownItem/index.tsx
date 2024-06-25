@@ -1,17 +1,14 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 import { classNames } from '@junipero/core';
 
 export declare interface DropdownItemProps
-  extends ComponentPropsWithoutRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-}
+  extends ComponentPropsWithoutRef<'li'> {}
 
 const DropdownItem = ({
   className,
   ...rest
-}: DropdownItemProps): JSX.Element => (
-  <li className={classNames('dropdown-item', className)} {...rest} />
+}: DropdownItemProps) => (
+  <li className={classNames('dropdown-item', className)} { ...rest } />
 );
 
 DropdownItem.displayName = 'DropdownItem';

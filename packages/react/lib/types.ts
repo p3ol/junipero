@@ -1,21 +1,56 @@
-export type Grow<T, A extends Array<T>> = ((x: T, ...xs: A) => void) extends (
-  ...a: infer X
-) => void
-  ? X
-  : never;
-export type GrowToSize<T, A extends Array<T>, N extends number> = {
-  0: A;
-  1: GrowToSize<T, Grow<T, A>, N>;
-}[A['length'] extends N ? 0 : 1];
+import type {
+  ComponentPropsWithoutRef,
+  ForwardRefExoticComponent,
+  MutableRefObject,
+  ReactNode,
+} from 'react';
 
-export type FixedArray<T, N extends number> = GrowToSize<T, [], N>;
+export declare interface JuniperoRef {
+  isJunipero: boolean;
+  innerRef?: MutableRefObject<HTMLElement | JuniperoRef | SVGElement>;
+}
 
-export const fixedArray = (size: number) => (
-  props: Record<string, any>,
-  propName: string
-) => {
-  if (props[propName] && props[propName]?.length !== size) {
-    return new Error(`Invalid ${propName} length, expected ${size} items, ` +
-      `got ${props[propName]?.length}`);
-  }
+/**
+ * Represents a field content
+ */
+export declare type FieldContent<T = any> = {
+  valid?: boolean;
+  checked?: boolean;
+  value?: T;
+  dirty?: boolean;
 };
+
+/**
+* Represents a state comming from useReducer.
+* Volontarily abstracted to allow any kind of state.
+*/
+export declare interface StateContent {
+ [key: string]: any;
+}
+
+/**
+* Represents a state comming from useReducer.
+*
+* When using a callback (e.g `dispatch(s => ({ ... }))`) the state should
+* not be a partial and is fully passed as the first argument, and expected
+* to return fully too.
+*/
+export declare type StateReducer<T extends StateContent> =
+ (state: T, updates: Partial<T> | ((t: T) => T)) => T;
+
+/**
+ * As it is not currently possible to generically type a forwarded component,
+ * we still have to use a custom forwardedprops type & special
+ * interfaces in order to keep vscode completion for component & allow
+ * any props for components with a `tag` prop, like <Badge tag="a" />.
+ * Without these interfaces, it would be impossible to have a `href` prop
+ * on a <Badge /> component even if the tag is an `a` element.
+ */
+export declare interface ForwardedProps<Ref, Props>
+  extends ForwardRefExoticComponent<Props & React.RefAttributes<Ref>> {}
+
+export declare interface SpecialComponentPropsWithoutRef
+  extends ComponentPropsWithoutRef<any> {
+  children?: ReactNode;
+  className?: string;
+}

@@ -1,6 +1,6 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type KeyboardEvent,
   forwardRef,
   useReducer,
@@ -8,43 +8,52 @@ import {
   useImperativeHandle,
   useEffect,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  classNames,
-  mockState,
-} from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames, mockState } from '@junipero/core';
 
+import type { FieldContent, JuniperoRef, StateReducer } from '../types';
 import { useFieldControl } from '../hooks';
 
-export declare type RadioFieldRef = {
-  dirty: boolean;
-  isJunipero: boolean;
-  valid: boolean;
-  value: any;
-  innerRef: MutableRefObject<any>;
-  inputRefs: MutableRefObject<Array<any>>;
-  optionRefs: MutableRefObject<Array<any>>;
-};
+export declare type RadioFieldValue = any;
 
-export declare interface RadioFieldProps extends ComponentPropsWithRef<any> {
-  className?: string;
+export declare interface RadioFieldOptionObject {
+  id?: string | number;
+  title?: string;
+  description?: string;
+  value?: RadioFieldValue;
+  disabled?: boolean;
+}
+
+export declare interface RadioFieldRef extends JuniperoRef {
+  dirty: boolean;
+  valid: boolean;
+  value: RadioFieldValue;
+  innerRef: MutableRefObject<HTMLDivElement>;
+  inputRefs: MutableRefObject<Array<HTMLInputElement>>;
+  optionRefs: MutableRefObject<Array<HTMLLabelElement>>;
+}
+
+export declare interface RadioFieldProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> {
   disabled?: boolean;
   name?: string;
-  options?: Array<any>;
+  options?: Array<RadioFieldOptionObject | RadioFieldValue>;
   required?: boolean;
   valid?: boolean;
-  value?: any;
-  onChange?(props: { value: any; valid: boolean }): void;
+  value?: RadioFieldValue;
+  onChange?(field: FieldContent<RadioFieldValue>): void;
   onValidate?(
-    value: any,
+    value: RadioFieldValue,
     flags: { dirty: boolean; required: boolean }
   ): boolean;
-  parseDescription?(option: any): string;
-  parseTitle?(option: any): string;
-  parseValue?(option: any): any;
-  ref?: MutableRefObject<RadioFieldRef | undefined>;
+  parseDescription?(
+    option: RadioFieldValue | RadioFieldOptionObject,
+  ): string;
+  parseTitle?(
+    option: RadioFieldValue | RadioFieldOptionObject,
+  ): string;
+  parseValue?(
+    option: RadioFieldValue | RadioFieldOptionObject,
+  ): RadioFieldValue;
 }
 
 export declare interface RadioFieldState {
@@ -53,7 +62,7 @@ export declare interface RadioFieldState {
   valid: boolean;
 }
 
-const RadioField = forwardRef(({
+const RadioField = forwardRef<RadioFieldRef, RadioFieldProps>(({
   disabled = false,
   required = false,
   valid = true,
@@ -68,12 +77,14 @@ const RadioField = forwardRef(({
   parseTitle = val => val?.title ?? val?.toString?.(),
   parseDescription = val => val?.description || '',
   ...rest
-}: RadioFieldProps, ref) => {
-  const inputRefs = useRef([]);
-  const optionRefs = useRef([]);
-  const innerRef = useRef();
+}, ref) => {
+  const inputRefs = useRef<HTMLInputElement[]>([]);
+  const optionRefs = useRef<HTMLLabelElement[]>([]);
+  const innerRef = useRef<HTMLDivElement>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<MockState<RadioFieldState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<RadioFieldState>
+  >(mockState, {
     dirty: false,
     value,
     valid,
@@ -103,10 +114,10 @@ const RadioField = forwardRef(({
     valid: state.valid,
   }));
 
-  const isChecked = (option: any) =>
+  const isChecked = (option: RadioFieldValue | RadioFieldOptionObject) =>
     parseValue(option) === parseValue(state.value);
 
-  const onChange_ = (option: any) => {
+  const onChange_ = (option: RadioFieldValue | RadioFieldOptionObject) => {
     if (disabled || option.disabled) {
       /* istanbul ignore next: canoot be tested */
       return;
@@ -120,7 +131,10 @@ const RadioField = forwardRef(({
     updateControl?.({ dirty: true, valid });
   };
 
-  const onKeyDown = (option: any, e: KeyboardEvent) => {
+  const onKeyDown = (
+    option: RadioFieldValue | RadioFieldOptionObject,
+    e: KeyboardEvent
+  ) => {
     if (
       state.value !== option &&
       state.value !== parseValue(option) &&
@@ -132,7 +146,9 @@ const RadioField = forwardRef(({
     return true;
   };
 
-  const isDescriptionAvailable = (option: any) => {
+  const isDescriptionAvailable = (
+    option: RadioFieldValue | RadioFieldOptionObject,
+  ) => {
     const desc = parseDescription(option);
 
     return desc !== null && desc !== undefined && desc !== '';
@@ -183,22 +199,8 @@ const RadioField = forwardRef(({
       ))}
     </div>
   );
-}) as ForwardedProps<RadioFieldProps, RadioFieldRef>;
+});
 
 RadioField.displayName = 'RadioField';
-RadioField.propTypes = {
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  onChange: PropTypes.func,
-  onValidate: PropTypes.func,
-  required: PropTypes.bool,
-  valid: PropTypes.bool,
-  options: PropTypes.array,
-  parseValue: PropTypes.func,
-  parseDescription: PropTypes.func,
-  parseTitle: PropTypes.func,
-  value: PropTypes.any,
-  name: PropTypes.string,
-};
 
 export default RadioField;

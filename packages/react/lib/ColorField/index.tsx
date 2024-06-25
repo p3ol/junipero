@@ -1,9 +1,10 @@
 import type { UseDismissProps } from '@floating-ui/react';
 import {
   type ReactNode,
-  type ComponentPropsWithRef,
   type MutableRefObject,
   type MouseEvent,
+  type FocusEvent,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useImperativeHandle,
   useReducer,
@@ -12,8 +13,6 @@ import {
   useLayoutEffect,
 } from 'react';
 import {
-  type ForwardedProps,
-  type MockState,
   classNames,
   mockState,
   exists,
@@ -21,18 +20,18 @@ import {
   parseColor,
 } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
-import PropTypes from 'prop-types';
 
+import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type { TransitionProps } from '../Transition';
 import { useFieldControl } from '../hooks';
-import Dropdown from '../Dropdown';
+import Dropdown, { type DropdownProps, type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
-import TextField, { type TextFieldChangeEvent } from '../TextField';
+import TextField, { type TextFieldRef } from '../TextField';
 import FieldControl from '../FieldControl';
 
-export declare type ColorFieldRef = {
+export declare interface ColorFieldRef extends JuniperoRef {
   dirty: boolean;
-  isJunipero: boolean;
   valid: boolean;
   value: string;
   blur(): void;
@@ -41,14 +40,17 @@ export declare type ColorFieldRef = {
   open(): void;
   reset(): void;
   toggle(): void;
-  colorAlphaRef: MutableRefObject<any>;
-  colorHueRef: MutableRefObject<any>;
-  colorLightnessRef: MutableRefObject<any>;
-  innerRef: MutableRefObject<any>;
-  textFieldRef: MutableRefObject<any>;
-};
+  colorAlphaRef: MutableRefObject<HTMLDivElement>;
+  colorHueRef: MutableRefObject<HTMLDivElement>;
+  colorLightnessRef: MutableRefObject<HTMLDivElement>;
+  innerRef: MutableRefObject<DropdownRef>;
+  textFieldRef: MutableRefObject<TextFieldRef>;
+}
 
-export declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
+export declare interface ColorFieldProps extends Omit<
+  ComponentPropsWithoutRef<typeof Dropdown>,
+  'trigger' | 'onChange'
+> {
   autoFocus?: boolean;
   className?: string;
   disabled?: boolean;
@@ -57,26 +59,24 @@ export declare interface ColorFieldProps extends ComponentPropsWithRef<any> {
   globalEventsTarget?: EventTarget;
   id?: string;
   name?: string;
-  opened?: boolean;
   placeholder?: string;
   required?: boolean;
   tabIndex?: number;
-  trigger?: 'click' | 'hover' | 'manual' | 'focus';
   valid?: boolean;
   value?: string;
+  trigger?: DropdownProps['trigger'] | 'focus';
   animateMenu?(
     menu: ReactNode | JSX.Element,
-    opts: { opened: boolean }
+    opts: { opened: boolean } & Partial<TransitionProps>,
   ): ReactNode | JSX.Element;
-  onBlur?(e: Event): void;
-  onChange?(props: { value: string; valid: boolean }): void;
-  onFocus?(e: Event): void;
+  onBlur?(e: FocusEvent<HTMLInputElement>): void;
+  onChange?(field: FieldContent<string>): void;
+  onFocus?(e: FocusEvent<HTMLInputElement>): void;
   onToggle?({ opened }: { opened: boolean }): void;
   onValidate?(
     value: string,
     { dirty, required }: { dirty?: boolean; required?: boolean }
   ): boolean;
-  ref?: MutableRefObject<ColorFieldRef | undefined>;
 }
 
 export declare interface ColorFieldState {
@@ -93,8 +93,7 @@ export declare interface ColorFieldState {
   focused: boolean;
 }
 
-const ColorField = forwardRef(({
-  animateMenu,
+const ColorField = forwardRef<ColorFieldRef, ColorFieldProps>(({
   className,
   dismissOptions,
   globalEventsTarget,
@@ -111,6 +110,7 @@ const ColorField = forwardRef(({
   disabled = false,
   format = 'auto',
   required = false,
+  animateMenu,
   onBlur,
   onChange,
   onFocus,
@@ -118,13 +118,15 @@ const ColorField = forwardRef(({
   onValidate = (val, { required }) => !!val || !required,
   ...rest
 }: ColorFieldProps, ref) => {
-  const innerRef = useRef<any>();
-  const textFieldRef = useRef<any>();
-  const colorLightnessRef = useRef<any>();
-  const colorHueRef = useRef<any>();
-  const colorAlphaRef = useRef<any>();
+  const innerRef = useRef<DropdownRef>();
+  const textFieldRef = useRef<TextFieldRef>();
+  const colorLightnessRef = useRef<HTMLDivElement>();
+  const colorHueRef = useRef<HTMLDivElement>();
+  const colorAlphaRef = useRef<HTMLDivElement>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<MockState<ColorFieldState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<ColorFieldState>
+  >(mockState, {
     value: value ?? '',
     a: 100,
     h: 0,
@@ -212,11 +214,11 @@ const ColorField = forwardRef(({
     }
   };
 
-  const onChange_ = (e: TextFieldChangeEvent) => {
-    onColorChange_(e.value as string, { valuePropChange: false });
+  const onChange_ = (field: FieldContent<string>) => {
+    onColorChange_(field.value, { valuePropChange: false });
   };
 
-  const onFocus_ = (e: FocusEvent) => {
+  const onFocus_ = (e: FocusEvent<HTMLInputElement>) => {
     if (trigger === 'focus') {
       innerRef.current?.open();
     }
@@ -225,7 +227,7 @@ const ColorField = forwardRef(({
     onFocus?.(e);
   };
 
-  const onBlur_ = (e: FocusEvent) => {
+  const onBlur_ = (e: FocusEvent<HTMLInputElement>) => {
     if (trigger === 'focus') {
       innerRef.current?.close();
     }
@@ -517,30 +519,8 @@ const ColorField = forwardRef(({
       { children }
     </Dropdown>
   );
-}) as ForwardedProps<ColorFieldProps, ColorFieldRef>;
+});
 
 ColorField.displayName = 'ColorField';
-ColorField.propTypes = {
-  animateMenu: PropTypes.func,
-  autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
-  dismissOptions: PropTypes.object,
-  opened: PropTypes.bool,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  valid: PropTypes.bool,
-  value: PropTypes.string,
-  onValidate: PropTypes.func,
-  trigger: PropTypes.oneOf(['click', 'hover', 'manual', 'focus']),
-  tabIndex: PropTypes.number,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onToggle: PropTypes.func,
-  globalEventsTarget: PropTypes.any, //TODO fixme
-  format: PropTypes.oneOf(['auto', 'hex', 'rgb', 'rgba', 'hsla']),
-  id: PropTypes.string,
-  name: PropTypes.string,
-};
 
 export default ColorField;

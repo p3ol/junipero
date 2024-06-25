@@ -1,44 +1,44 @@
 import {
-  type ComponentPropsWithRef,
   type ElementType,
   type MutableRefObject,
-  type ReactNode,
+  type MouseEvent,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames } from '@junipero/core';
 
-export declare type ButtonRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithoutRef,
+} from '../types';
 
-export declare interface ButtonProps extends ComponentPropsWithRef<any> {
-  className?: string;
-  children?: ReactNode | JSX.Element;
-  disabled?: boolean;
-  tag?: string | ElementType;
-  onClick?(e: Event): void;
-  ref?: MutableRefObject<ButtonRef | undefined>;
+export declare interface ButtonRef extends JuniperoRef {
+  innerRef: MutableRefObject<HTMLElement>;
 }
 
-const Button = forwardRef(({
+export declare interface ButtonProps extends SpecialComponentPropsWithoutRef {
+  disabled?: boolean;
+  tag?: string | ElementType;
+  onClick?(e: MouseEvent<HTMLElement>): void;
+}
+
+const Button = forwardRef<ButtonRef, ButtonProps>(({
   className,
   disabled,
   tag: Tag = 'button',
   onClick,
   ...rest
-}: ButtonProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLElement>();
 
   useImperativeHandle(ref, () => ({
     innerRef,
     isJunipero: true,
   }));
 
-  const onClick_ = (e: Event) => {
+  const onClick_ = (e: MouseEvent<HTMLElement>) => {
     if (disabled) {
       e.preventDefault();
 
@@ -57,16 +57,8 @@ const Button = forwardRef(({
       onClick={onClick_}
     />
   );
-}) as ForwardedProps<ButtonProps, ButtonRef>;
+}) as ForwardedProps<ButtonRef, ButtonProps>;
 
 Button.displayName = 'Button';
-Button.propTypes = {
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-  ]),
-};
 
 export default Button;

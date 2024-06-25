@@ -1,38 +1,37 @@
 import {
-  type ComponentPropsWithRef,
   type ElementType,
   type MouseEvent,
   type MutableRefObject,
-  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames } from '@junipero/core';
 
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithoutRef,
+} from '../types';
 import { Remove } from '../icons';
 
-export declare type TagRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+export declare interface TagRef extends JuniperoRef {
+  innerRef: MutableRefObject<HTMLElement>;
+}
 
-export declare interface TagProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
+export declare interface TagProps extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
   onDelete?: () => void;
-  ref?: MutableRefObject<TagRef | undefined>;
 }
-const Tag = forwardRef(({
+
+const Tag = forwardRef<TagRef, TagProps>(({
   className,
   children,
   onDelete,
   tag: Comp = 'span',
   ...rest
-}: TagProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLElement>();
 
   useImperativeHandle(ref, () => ({
     isJunipero: true,
@@ -58,15 +57,8 @@ const Tag = forwardRef(({
       ) }
     </Comp>
   );
-}) as ForwardedProps<TagProps, TagRef>;
+}) as ForwardedProps<TagRef, TagProps>;
 
 Tag.displayName = 'Tag';
-Tag.propTypes = {
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-  ]),
-  onDelete: PropTypes.func,
-};
 
 export default Tag;

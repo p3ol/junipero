@@ -1,9 +1,7 @@
 import {
   type ChangeEvent,
-  type ComponentPropsWithRef,
   type FocusEvent,
   type MutableRefObject,
-  type ReactNode,
   type WheelEvent,
   forwardRef,
   useEffect,
@@ -11,21 +9,20 @@ import {
   useReducer,
   useRef,
 } from 'react';
-import { type MockState, classNames, mockState, exists } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames, mockState, exists } from '@junipero/core';
 
+import type {
+  FieldContent,
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithoutRef,
+  StateReducer,
+} from '../types';
 import { useFieldControl } from '../hooks';
 
-export declare type TextFieldChangeEvent = {
-  value: string | number;
-  valid: boolean;
-  dirty: boolean
-}
-
-export declare type TextFieldRef = {
+export declare interface TextFieldRef extends JuniperoRef {
   dirty: boolean;
   focused: boolean;
-  isJunipero: boolean;
   valid: boolean;
   value: string | number;
   blur(): void;
@@ -34,34 +31,24 @@ export declare type TextFieldRef = {
   setDirty(dirty: boolean): void;
   innerRef: MutableRefObject<HTMLDivElement>;
   inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>;
-};
-
-export declare type TextFieldChangeField = {
-  value: string | number;
-  valid: boolean;
-  dirty: boolean;
 }
 
-export declare interface TextFieldProps extends ComponentPropsWithRef<any> {
+export declare interface TextFieldProps
+  extends SpecialComponentPropsWithoutRef {
   autoFocus?: boolean;
-  children?: ReactNode | JSX.Element;
-  className?: string;
   disabled?: boolean;
   required?: boolean;
   type?: string;
   valid?: boolean;
   value?: string | number;
-  onBlur?(event: FocusEvent): void;
-  onChange?(
-    field: TextFieldChangeEvent
-  ): void;
-  onFocus?(event: FocusEvent): void;
-  onWheel?(event: WheelEvent): void;
+  onBlur?(event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>): void;
+  onChange?(field: FieldContent<string | number>): void;
+  onFocus?(event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>): void;
+  onWheel?(event: WheelEvent<HTMLInputElement | HTMLTextAreaElement>): void;
   onValidate?(
     val: string | number,
     flags: { required: boolean; dirty: boolean }
   ): boolean;
-  ref?: MutableRefObject<TextFieldRef | undefined>;
 }
 
 export declare interface TextFieldState {
@@ -71,7 +58,7 @@ export declare interface TextFieldState {
   focused: boolean;
 }
 
-const TextField = forwardRef(({
+const TextField = forwardRef<TextFieldRef, TextFieldProps>(({
   autoFocus,
   children,
   className,
@@ -86,11 +73,13 @@ const TextField = forwardRef(({
   onWheel,
   onValidate = (val, { required }) => !!val || !required,
   ...rest
-}: TextFieldProps, ref) => {
+}, ref) => {
   const innerRef = useRef<HTMLDivElement>();
   const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer <MockState<TextFieldState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<TextFieldState>
+  >(mockState, {
     value: value ?? '',
     valid: valid ?? false,
     focused: autoFocus ?? false,
@@ -163,7 +152,7 @@ const TextField = forwardRef(({
     onFocus?.(e);
   };
 
-  const onBlur_ = (e: FocusEvent) => {
+  const onBlur_ = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     dispatch({ focused: false });
     updateControl?.({ focused: false });
     onBlur?.(e);
@@ -222,26 +211,8 @@ const TextField = forwardRef(({
       { children }
     </div>
   );
-});
+}) as ForwardedProps<TextFieldRef, TextFieldProps>;
 
 TextField.displayName = 'TextField';
-TextField.propTypes = {
-  min: PropTypes.number,
-  max: PropTypes.number,
-  autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  type: PropTypes.string,
-  valid: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onWheel: PropTypes.func,
-  onValidate: PropTypes.func,
-};
 
 export default TextField;

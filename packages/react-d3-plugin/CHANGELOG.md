@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.3](https://github.com/p3ol/junipero/compare/v3.6.2...v3.6.3) (2024-06-21)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
+## [3.6.2](https://github.com/p3ol/junipero/compare/v3.6.1...v3.6.2) (2024-06-19)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** correctly use xindex ([2d18bfb](https://github.com/p3ol/junipero/commit/2d18bfb1be3196ddb69eae2e4c2723a9f08ea88e))
+
+
+
+
+
+## [3.6.1](https://github.com/p3ol/junipero/compare/v3.6.0...v3.6.1) (2024-06-13)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
+# [3.6.0](https://github.com/p3ol/junipero/compare/v3.5.5...v3.6.0) (2024-06-13)
+
+
+### Features
+
+* remove prop-types & fix a lot of types ([7222f54](https://github.com/p3ol/junipero/commit/7222f547bca6313af0d33f8b4461fa004a4a88dd))
+
+
+
+
+
+## [3.5.5](https://github.com/p3ol/junipero/compare/v3.5.4...v3.5.5) (2024-06-11)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
+## [3.5.4](https://github.com/p3ol/junipero/compare/v3.5.3...v3.5.4) (2024-06-11)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
 ## [3.5.3](https://github.com/p3ol/junipero/compare/v3.5.2...v3.5.3) (2024-06-06)
 
 

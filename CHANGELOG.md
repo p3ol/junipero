@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.3](https://github.com/p3ol/junipero/compare/v3.6.2...v3.6.3) (2024-06-21)
+
+
+### Bug Fixes
+
+* **core:** wrong mergeDeep types ([137c602](https://github.com/p3ol/junipero/commit/137c60235388531e037b127bb0d0514f68385b85))
+* **react:** pass name prop to select field inner ([a97053c](https://github.com/p3ol/junipero/commit/a97053c75047e965666fd9a7796b9041edff72f3))
+
+
+
+
+
+## [3.6.2](https://github.com/p3ol/junipero/compare/v3.6.1...v3.6.2) (2024-06-19)
+
+
+### Bug Fixes
+
+* **react-d3-plugin:** correctly use xindex ([2d18bfb](https://github.com/p3ol/junipero/commit/2d18bfb1be3196ddb69eae2e4c2723a9f08ea88e))
+
+
+
+
+
+## [3.6.1](https://github.com/p3ol/junipero/compare/v3.6.0...v3.6.1) (2024-06-13)
+
+
+### Bug Fixes
+
+* various types ([d83eebf](https://github.com/p3ol/junipero/commit/d83eebfac8f767f56c00decb1b8b15687230e65b))
+
+
+
+
+
+# [3.6.0](https://github.com/p3ol/junipero/compare/v3.5.5...v3.6.0) (2024-06-13)
+
+
+### Features
+
+* remove prop-types & fix a lot of types ([7222f54](https://github.com/p3ol/junipero/commit/7222f547bca6313af0d33f8b4461fa004a4a88dd))
+
+
+
+
+
+## [3.5.5](https://github.com/p3ol/junipero/compare/v3.5.4...v3.5.5) (2024-06-11)
+
+
+### Bug Fixes
+
+* npm ignore tsconfig ([4139019](https://github.com/p3ol/junipero/commit/413901914f1bb4714eef015e9c8106017d0e70c0))
+* update various deps ([0afc16c](https://github.com/p3ol/junipero/commit/0afc16ce9f58a0c7963746025f12f144eb05cd11))
+
+
+
+
+
+## [3.5.4](https://github.com/p3ol/junipero/compare/v3.5.3...v3.5.4) (2024-06-11)
+
+
+### Bug Fixes
+
+* **react:** temporary prop types fix ([fdf58b3](https://github.com/p3ol/junipero/commit/fdf58b3d216146f0ed62d97e6fa49804540263b2))
+
+
+
+
+
 ## [3.5.3](https://github.com/p3ol/junipero/compare/v3.5.2...v3.5.3) (2024-06-06)
 
 

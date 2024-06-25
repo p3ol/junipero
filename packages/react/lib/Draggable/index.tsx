@@ -1,18 +1,20 @@
 import {
-  type ComponentPropsWithRef,
   type DragEvent,
+  type MutableRefObject,
   Children,
   cloneElement,
   forwardRef,
   useState,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
+import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
-import PropTypes from 'prop-types';
 
-export declare interface DraggableProps extends ComponentPropsWithRef<any> {
-  children?: JSX.Element;
-  className?: string;
+import type { SpecialComponentPropsWithoutRef } from '../types';
+
+export declare interface DraggableRef extends MutableRefObject<any> {}
+
+export declare interface DraggableProps
+  extends SpecialComponentPropsWithoutRef {
   data?: any;
   disabled?: boolean;
   dragImage?: Element;
@@ -23,21 +25,19 @@ export declare interface DraggableProps extends ComponentPropsWithRef<any> {
   onDragEnd?(e: DragEvent): void;
 }
 
-const Draggable = forwardRef((props: DraggableProps, ref) => {
-  // the Proptypes eslint error forces me to destructure the props here
-  const {
-    className,
-    children,
-    dragImage,
-    disabled = false,
-    data = {},
-    dragImageOffset = { x: 0, y: 0 },
-    onDrag,
-    onBeforeDragStart,
-    onDragStart,
-    onDragEnd,
-    ...rest
-  } = props;
+const Draggable = forwardRef<DraggableRef, DraggableProps>(({
+  className,
+  children,
+  dragImage,
+  disabled = false,
+  data = {},
+  dragImageOffset = { x: 0, y: 0 },
+  onDrag,
+  onBeforeDragStart,
+  onDragStart,
+  onDragEnd,
+  ...rest
+}, ref) => {
   const [dragged, setDragged] = useState(false);
   const [dragAnimation, setDragAnimation] = useState(false);
 
@@ -92,12 +92,12 @@ const Draggable = forwardRef((props: DraggableProps, ref) => {
 
   const child = Children.only(children);
 
-  return cloneElement(child, {
+  return cloneElement(child as JSX.Element, {
     ...rest,
     ref,
     className: classNames(
       className,
-      child.props.className,
+      (child as JSX.Element).props?.className,
       {
         dragging: !disabled && dragAnimation,
         dragged: !disabled && dragged,
@@ -109,23 +109,8 @@ const Draggable = forwardRef((props: DraggableProps, ref) => {
     onDrag: onDrag_,
     onDragEnd: onDragEnd_,
   });
-}) as ForwardedProps<DraggableProps, any>;
+});
 
 Draggable.displayName = 'Draggable';
-Draggable.propTypes = {
-  disabled: PropTypes.bool,
-  data: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  dragImage: PropTypes.any, //TODO fixme
-  dragImageOffset: PropTypes.any, //TODO fixme
-  onDrag: PropTypes.func,
-  onBeforeDragStart: PropTypes.func,
-  onDragStart: PropTypes.func,
-  onDragEnd: PropTypes.func,
-};
 
 export default Draggable;

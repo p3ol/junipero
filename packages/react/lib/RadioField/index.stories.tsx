@@ -85,7 +85,7 @@ export const withLabelAndAbstract = () => {
   withOneProhibed[2].description = 'You should not choose this fruit';
 
   return (
-    <FieldControl className="info">
+    <FieldControl>
       <Label>Choose your favorite fruit</Label>
       <RadioField
         options={withOneProhibed}

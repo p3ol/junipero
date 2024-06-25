@@ -1,7 +1,12 @@
-import { ComponentPropsWithRef, useCallback, useReducer } from 'react';
-import { type MockState, mockState } from '@junipero/core';
+import { type ComponentPropsWithoutRef, useCallback, useReducer } from 'react';
+import { mockState } from '@junipero/core';
 
-import { FieldControlContext, FieldContextType } from '../contexts';
+import type { StateReducer } from '../types';
+import { type FieldContextType, FieldControlContext } from '../contexts';
+
+export declare interface FieldControlProps extends Omit<
+  ComponentPropsWithoutRef<typeof FieldControlContext.Provider>, 'value'
+> {}
 
 export declare interface FieldControlState {
   valid: boolean;
@@ -9,9 +14,9 @@ export declare interface FieldControlState {
   focused: boolean;
 }
 
-const FieldControl = (props: ComponentPropsWithRef<any>): JSX.Element => {
+const FieldControl = (props: FieldControlProps) => {
   const [state, dispatch] = useReducer<
-    MockState<FieldControlState>
+    StateReducer<FieldControlState>
   >(mockState, {
     valid: true,
     dirty: false,
@@ -26,7 +31,7 @@ const FieldControl = (props: ComponentPropsWithRef<any>): JSX.Element => {
   }), [state.valid, state.dirty, state.focused]);
 
   return (
-    <FieldControlContext.Provider value={getContext()} {...props} />
+    <FieldControlContext.Provider { ...props } value={getContext()} />
   );
 };
 

@@ -1,22 +1,22 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames, omit } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames, omit } from '@junipero/core';
 
+import type { JuniperoRef } from '../types';
+import type { TransitionProps } from '../Transition';
 import { useAlerts } from '../hooks';
-import Alert, { AlertObject } from '../Alert';
+import Alert, { type AlertObject } from '../Alert';
 
-export declare type AlertsRef = {
+export declare interface AlertsRef extends JuniperoRef {
   alerts: Array<AlertObject>;
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<HTMLDivElement>;
+}
 
 export declare type AlertsTypes =
   | 'danger'
@@ -25,27 +25,28 @@ export declare type AlertsTypes =
   | 'success'
   | 'warning';
 
-export declare interface AlertsProps extends ComponentPropsWithRef<any> {
+export declare interface AlertsProps extends ComponentPropsWithoutRef<'div'> {
   animationTimeout?: number;
-  className?: string;
   icons?: {
     [type in AlertsTypes]?: ReactNode | JSX.Element;
   };
   animateAlert?(
     alert: ReactNode | JSX.Element,
-    opts: { opened: boolean; index: string | number }
+    opts: {
+      opened: boolean;
+      index: string | number;
+    } & Partial<TransitionProps>,
   ): ReactNode | JSX.Element;
-  ref?: MutableRefObject<AlertsRef | undefined>;
 }
 
-const Alerts = forwardRef(({
+const Alerts = forwardRef<AlertsRef, AlertsProps>(({
   className,
   animateAlert,
   animationTimeout,
   icons,
   ...rest
 }: AlertsProps, ref) => {
-  const innerRef = useRef();
+  const innerRef = useRef<HTMLDivElement>();
   const { alerts, dismiss } = useAlerts();
 
   useImperativeHandle(ref, () => ({
@@ -87,13 +88,8 @@ const Alerts = forwardRef(({
       )) }
     </div>
   );
-}) as ForwardedProps<AlertsProps, AlertsRef>;
+});
 
 Alerts.displayName = 'Alerts';
-Alerts.propTypes = {
-  animateAlert: PropTypes.func,
-  animationTimeout: PropTypes.number,
-  icons: PropTypes.object,
-};
 
 export default Alerts;

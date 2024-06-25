@@ -1,24 +1,26 @@
 import {
-  type ComponentPropsWithRef,
   type ElementType,
-  type ReactNode,
+  type MutableRefObject,
   forwardRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames } from '@junipero/core';
 
-export declare interface TouchableZoneProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string
+import type { ForwardedProps, SpecialComponentPropsWithoutRef } from '../types';
+
+export declare interface TouchableZoneRef
+  extends MutableRefObject<HTMLElement> {}
+
+export declare interface TouchableZoneProps
+  extends SpecialComponentPropsWithoutRef {
   tag?: string | ElementType;
 }
 
-const TouchableZone = forwardRef(({
+const TouchableZone = forwardRef<TouchableZoneRef, TouchableZoneProps>(({
   className,
   children,
   tag: Tag = 'a',
   ...rest
-}: TouchableZoneProps, ref) => (
+}, ref) => (
   <Tag
     { ...rest }
     ref={ref}
@@ -26,13 +28,8 @@ const TouchableZone = forwardRef(({
   >
     { children }
   </Tag>
-)) as ForwardedProps<TouchableZoneProps, any>;
+)) as ForwardedProps<TouchableZoneRef, TouchableZoneProps>;
 
-TouchableZone.propTypes = {
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-  ]),
-};
+TouchableZone.displayName = 'TouchableZone';
 
 export default TouchableZone;

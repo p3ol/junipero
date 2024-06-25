@@ -1,32 +1,33 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
   Children,
   forwardRef,
   cloneElement,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames } from '@junipero/core';
+import { classNames } from '@junipero/core';
 
+import type {
+  ForwardedProps,
+  JuniperoRef,
+  SpecialComponentPropsWithoutRef,
+} from '../types';
 import type { DropdownRef } from '../Dropdown';
 import { useDropdown } from '../hooks';
 
-export declare type DropdownToggleRef = {
+export declare interface DropdownToggleRef extends JuniperoRef {
   isJunipero: boolean;
   innerRef: MutableRefObject<any>;
-};
-
-export declare interface DropdownToggleProps
-  extends ComponentPropsWithRef<any> {
-  children?: JSX.Element;
-  ref?: MutableRefObject<DropdownToggleRef | undefined>;
 }
 
-const DropdownToggle = forwardRef(({
+export declare interface DropdownToggleProps
+  extends SpecialComponentPropsWithoutRef {}
+
+const DropdownToggle = forwardRef<DropdownToggleRef, DropdownToggleProps>(({
   children,
-}: DropdownToggleProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<any>();
   const { opened, refs, getReferenceProps } = useDropdown();
 
   useImperativeHandle(ref, () => ({
@@ -36,17 +37,17 @@ const DropdownToggle = forwardRef(({
 
   const child = Children.only(children);
 
-  return cloneElement(child, {
-    className: classNames(child.props.className, 'dropdown-toggle', { opened }),
+  return cloneElement(child as JSX.Element, {
+    className: classNames((child as JSX.Element)
+      .props?.className, 'dropdown-toggle', { opened }),
     ref: (r: DropdownRef) => {
       innerRef.current = r?.isJunipero ? r.innerRef.current : r;
       refs.setReference(r?.isJunipero ? r.innerRef.current : r);
     },
-    ...getReferenceProps({ onClick: child.props.onClick }),
+    ...getReferenceProps({ onClick: (child as JSX.Element).props?.onClick }),
   });
-}) as ForwardedProps<DropdownToggleProps, DropdownToggleRef>;
+}) as ForwardedProps<DropdownToggleRef, DropdownToggleProps>;
 
 DropdownToggle.displayName = 'DropdownToggle';
-DropdownToggle.propTypes = {};
 
 export default DropdownToggle;

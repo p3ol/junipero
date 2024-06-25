@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type KeyboardEvent,
   type MouseEvent,
   type MutableRefObject,
@@ -11,20 +11,18 @@ import {
   useRef,
 } from 'react';
 import {
-  type ForwardedProps,
-  type MockState,
   classNames,
   mockState,
   getFloatPrecision,
   ensureMinMax,
 } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
-import PropTypes from 'prop-types';
 
+import type { JuniperoRef, StateReducer } from '../types';
+import type { TransitionProps } from '../Transition';
 import Tooltip, { type TooltipRef } from '../Tooltip';
 
-export declare type SliderRef = {
-  isJunipero: boolean;
+export declare interface SliderRef extends JuniperoRef {
   moving: boolean;
   precision: number;
   value: number;
@@ -34,12 +32,11 @@ export declare type SliderRef = {
   innerRef: MutableRefObject<HTMLDivElement>;
   slideRef: MutableRefObject<HTMLDivElement>;
   tooltipRef: MutableRefObject<TooltipRef>;
-};
+}
 
-export declare interface SliderProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
+export declare interface SliderProps extends ComponentPropsWithoutRef<'div'> {
   disabled?: boolean;
+  globalEventsTarget?: EventTarget;
   max?: number;
   min?: number;
   maxValue?: number;
@@ -49,11 +46,12 @@ export declare interface SliderProps extends ComponentPropsWithRef<any> {
   value?: number;
   animateTooltip?(
     tooltip: ReactNode | JSX.Element,
-    opts: { opened: boolean }
+    opts: {
+      opened: boolean;
+    } & Partial<TransitionProps>
   ): ReactNode | JSX.Element;
   onMove?(value: number): void;
   parseTitle?(value: number): ReactNode | JSX.Element;
-  ref?: MutableRefObject<SliderRef | undefined>;
 }
 
 export declare interface SliderState {
@@ -62,7 +60,7 @@ export declare interface SliderState {
   moving: boolean;
 }
 
-const Slider = forwardRef(({
+const Slider = forwardRef<SliderRef, SliderProps>(({
   className,
   value = 0,
   disabled = false,
@@ -84,7 +82,7 @@ const Slider = forwardRef(({
   const handleRef = useRef<HTMLDivElement>();
   const slideRef = useRef<HTMLDivElement>();
   const tooltipRef = useRef<TooltipRef>();
-  const [state, dispatch] = useReducer<MockState<SliderState>>(mockState, {
+  const [state, dispatch] = useReducer<StateReducer<SliderState>>(mockState, {
     value: parseFloat(
       ensureMinMax(Math.round(value / step) * step, minValue, maxValue
       ).toFixed(getFloatPrecision(step))),
@@ -116,13 +114,13 @@ const Slider = forwardRef(({
 
   useEventListener('mousemove', e => {
     onMouseMove_(e);
-  }, globalEventsTarget);
+  }, { target: globalEventsTarget, enabled: state.moving && !disabled });
 
   useEventListener('mouseup', e => {
     onMouseUp_();
-  }, globalEventsTarget);
+  }, { target: globalEventsTarget, enabled: state.moving && !disabled });
 
-  const onMouseDown_ = (e: MouseEvent) => {
+  const onMouseDown_ = (e: MouseEvent<HTMLDivElement>) => {
     if (e.button !== 0 || disabled) {
       return;
     }
@@ -137,7 +135,7 @@ const Slider = forwardRef(({
     onMouseDown?.(e);
   };
 
-  const onMouseMove_ = (e: MouseEvent) => {
+  const onMouseMove_ = (e: MouseEvent<HTMLDivElement>) => {
     if (!state.moving || !slideRef.current || disabled) {
       return;
     }
@@ -242,26 +240,8 @@ const Slider = forwardRef(({
       </Tooltip>
     </div>
   );
-}) as ForwardedProps<SliderProps, SliderRef>;
+});
 
 Slider.displayName = 'Slider';
-Slider.propTypes = {
-  disabled: PropTypes.bool,
-  globalEventsTarget: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.object,
-  ]),
-  max: PropTypes.number,
-  maxValue: PropTypes.number,
-  min: PropTypes.number,
-  minValue: PropTypes.number,
-  step: PropTypes.number,
-  value: PropTypes.number,
-  tooltipEnabled: PropTypes.bool,
-  animateTooltip: PropTypes.func,
-  onMove: PropTypes.func,
-  onMouseDown: PropTypes.func,
-  parseTitle: PropTypes.func,
-};
 
 export default Slider;

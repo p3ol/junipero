@@ -1,30 +1,32 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
   useEffect,
   useMemo,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ReactNode,
 } from 'react';
-import { Tooltip, classNames, TooltipProps, TooltipRef } from '@junipero/react';
-import PropTypes from 'prop-types';
+import {
+  type TooltipProps,
+  type TooltipRef,
+  type JuniperoRef,
+  Tooltip,
+  classNames,
+} from '@junipero/react';
 import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
 import { scaleBandInvert } from '../utils';
 
-export declare type BarRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-  tooltipRef: MutableRefObject<any>;
-};
+export declare interface BarRef extends JuniperoRef {
+  innerRef: MutableRefObject<SVGGElement>;
+  tooltipRef: MutableRefObject<TooltipRef>;
+}
 
-export declare interface BarProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  ref?: MutableRefObject<BarRef | undefined>;
+export declare interface BarProps
+  extends Omit<ComponentPropsWithRef<'g'>, 'offset' | 'order'> {
   xAxisIndex: number;
   yAxisIndex: number;
   minBarWidth?: number;
@@ -37,7 +39,7 @@ export declare interface BarProps extends ComponentPropsWithRef<any> {
   offset?(series: d3.Series<any, any>, order: Iterable<number>): void;
 }
 
-const Bar = forwardRef(({
+const Bar = forwardRef<BarRef, BarProps>(({
   className,
   tooltip,
   tooltipProps,
@@ -46,8 +48,9 @@ const Bar = forwardRef(({
   minBarWidth = 15,
   order = d3.stackOrderNone,
   offset = d3.stackOffsetNone,
-}: BarProps, ref) => {
-  const innerRef = useRef();
+  ...rest
+}, ref) => {
+  const innerRef = useRef<SVGGElement>();
   const tooltipRef = useRef<TooltipRef>();
   const { axis, cursor } = useChart();
 
@@ -116,6 +119,7 @@ const Bar = forwardRef(({
       <g
         ref={innerRef}
         className={classNames('junipero bar', className)}
+        { ...rest }
       >
         { barStacks.map((barStack, i) => (
           <g className={classNames('serie', barStack.key)} key={i}>
@@ -148,27 +152,5 @@ const Bar = forwardRef(({
 });
 
 Bar.displayName = 'Bar';
-Bar.propTypes = {
-  xAxisIndex: PropTypes.number.isRequired,
-  yAxisIndex: PropTypes.number.isRequired,
-  minBarWidth: PropTypes.number,
-  tooltip: PropTypes.func,
-  tooltipProps: PropTypes.object,
-  order: PropTypes.oneOf([
-    d3.stackOrderNone,
-    d3.stackOrderAppearance,
-    d3.stackOrderAscending,
-    d3.stackOrderDescending,
-    d3.stackOrderInsideOut,
-    d3.stackOrderReverse,
-  ]),
-  offset: PropTypes.oneOf([
-    d3.stackOffsetNone,
-    d3.stackOffsetExpand,
-    d3.stackOffsetDiverging,
-    d3.stackOffsetSilhouette,
-    d3.stackOffsetWiggle,
-  ]),
-};
 
 export default Bar;

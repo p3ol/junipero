@@ -1,39 +1,40 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { type ForwardedProps, classNames, omit } from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames, omit } from '@junipero/core';
 
+import type { JuniperoRef } from '../types';
+import type { TransitionProps } from '../Transition';
 import { useToasts } from '../hooks';
 import Toast, { type ToastObject } from '../Toast';
 
-export declare type ToastsRef = {
-  isJunipero: boolean;
+export declare interface ToastsRef extends JuniperoRef {
   toasts: Array<ToastObject>;
   innerRef: MutableRefObject<HTMLDivElement>;
-};
-
-export declare interface ToastsProps extends ComponentPropsWithRef<any> {
-  animationTimeout?: number;
-  className?: string;
-  animateToast?(
-    toast: ReactNode,
-    opts: { opened: boolean; index: string | number }
-  ): JSX.Element| Element;
-  ref?: MutableRefObject<ToastsRef | undefined>;
 }
 
-const Toasts = forwardRef(({
+export declare interface ToastsProps extends ComponentPropsWithoutRef<'div'> {
+  animationTimeout?: number;
+  animateToast?(
+    toast: ReactNode | JSX.Element,
+    opts: {
+      opened: boolean;
+      index: string | number
+    } & Partial<TransitionProps>,
+  ): JSX.Element| ReactNode;
+}
+
+const Toasts = forwardRef<ToastsRef, ToastsProps>(({
   className,
   animateToast,
   animationTimeout,
   ...rest
-}: ToastsProps, ref) => {
+}, ref) => {
   const innerRef = useRef<HTMLDivElement>();
   const { toasts, dismiss } = useToasts();
 
@@ -50,7 +51,7 @@ const Toasts = forwardRef(({
 
   return (
     <div
-      {...rest}
+      { ...rest }
       ref={innerRef}
       className={classNames('junipero', 'toasts', className)}
     >
@@ -72,12 +73,8 @@ const Toasts = forwardRef(({
       )) }
     </div>
   );
-}) as ForwardedProps<ToastsProps, ToastsRef>;
+});
 
 Toasts.displayName = 'Toasts';
-Toasts.propTypes = {
-  animateToast: PropTypes.func,
-  animationTimeout: PropTypes.number,
-};
 
 export default Toasts;

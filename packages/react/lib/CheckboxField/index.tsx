@@ -1,56 +1,50 @@
 import {
   type MutableRefObject,
-  type ReactNode,
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
+  type KeyboardEvent,
+  type ChangeEvent,
   forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  classNames,
-  mockState,
-} from '@junipero/core';
-import PropTypes from 'prop-types';
+import { classNames, mockState } from '@junipero/core';
 
+import type { FieldContent, JuniperoRef, StateReducer } from '../types';
 import { useFieldControl } from '../hooks';
 import { Check } from '../icons';
 
-export declare type CheckboxFieldRef = {
+export declare interface CheckboxFieldRef extends JuniperoRef {
   checked: boolean;
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-  inputRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<HTMLLabelElement>;
+  inputRef: MutableRefObject<HTMLInputElement>;
+}
 
-export declare interface CheckboxFieldProps extends ComponentPropsWithRef<any> {
+export declare interface CheckboxFieldProps extends Omit<
+  ComponentPropsWithoutRef<'label'>, 'onChange'
+> {
   checked?: boolean;
-  children?: ReactNode | JSX.Element;
-  className?: string;
   disabled?: boolean;
   id?: string;
   name?: string;
   required?: boolean;
   valid?: boolean;
   value?: any;
-  onChange?(changeEvent: { value: any; checked: boolean }): void;
+  onChange?(changeEvent: FieldContent): void;
   onValidate?(
     value: any,
     { dirty, required }: { dirty?: boolean; required?: boolean }
   ): boolean;
-  ref?: MutableRefObject<CheckboxFieldRef | undefined>;
 }
 
-export declare interface CheckboxState {
+export declare interface CheckboxFieldState {
   checked: boolean;
   valid: boolean;
   dirty: boolean;
 }
 
-const CheckboxField = forwardRef(({
+const CheckboxField = forwardRef<CheckboxFieldRef, CheckboxFieldProps>(({
   checked = false,
   valid = true,
   disabled = false,
@@ -63,11 +57,13 @@ const CheckboxField = forwardRef(({
   onChange,
   onValidate = (val, { required }) => val || !required,
   ...rest
-}: CheckboxFieldProps, ref) => {
-  const innerRef = useRef();
-  const inputRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLLabelElement>();
+  const inputRef = useRef<HTMLInputElement>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<MockState<CheckboxState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<CheckboxFieldState>
+  >(mockState, {
     checked: checked ?? false,
     valid: valid ?? true,
     dirty: false,
@@ -88,7 +84,7 @@ const CheckboxField = forwardRef(({
     isJunipero: true,
   }));
 
-  const onKeyPress_ = (e: any) => {
+  const onKeyPress_ = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault?.();
 
@@ -104,7 +100,7 @@ const CheckboxField = forwardRef(({
     return true;
   };
 
-  const onChange_ = (e: any) => {
+  const onChange_ = (e: ChangeEvent<HTMLInputElement>) => {
     if (disabled) {
       return;
     }
@@ -151,19 +147,8 @@ const CheckboxField = forwardRef(({
       <div className="content">{children}</div>
     </label>
   );
-}) as ForwardedProps<CheckboxFieldProps, CheckboxFieldRef>;
+});
 
 CheckboxField.displayName = 'CheckboxField';
-CheckboxField.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.any,
-  onChange: PropTypes.func,
-  required: PropTypes.bool,
-  onValidate: PropTypes.func,
-  valid: PropTypes.bool,
-};
 
 export default CheckboxField;

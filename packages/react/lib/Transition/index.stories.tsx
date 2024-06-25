@@ -3,8 +3,9 @@ import { mockState } from '@junipero/core';
 
 import Button from '../Button';
 import Label from '../Label';
-import TextField, { TextFieldChangeEvent } from '../TextField';
+import TextField from '../TextField';
 import Transition from '.';
+import { FieldContent } from '../types';
 
 export default { title: 'react/Transition' };
 
@@ -20,9 +21,8 @@ export const basic = () => {
         <Label>Timeout (in ms)</Label>
         <TextField
           value={state.timeout}
-          onChange={
-            (e: TextFieldChangeEvent) => dispatch({ timeout: Number(e.value) })
-          }
+          onChange={(e: FieldContent<number>) =>
+            dispatch({ timeout: Number(e.value) })}
         />
       </div>
       <p>

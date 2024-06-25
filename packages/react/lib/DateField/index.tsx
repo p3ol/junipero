@@ -1,34 +1,32 @@
 import {
   type MutableRefObject,
-  type ComponentPropsWithRef,
   type ReactNode,
   type ChangeEvent,
   type FocusEvent,
   type MouseEvent,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
 } from 'react';
-import {
-  type ForwardedProps,
-  type MockState,
-  classNames,
-  mockState,
-  exists,
-} from '@junipero/core';
-import PropTypes from 'prop-types';
+import { type FixedArray, classNames, mockState, exists } from '@junipero/core';
 
+import type { TransitionProps } from '../Transition';
+import type {
+  JuniperoRef,
+  FieldContent,
+  StateReducer,
+} from '../types';
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove, Time } from '../icons';
-import Dropdown, { DropdownRef } from '../Dropdown';
+import Dropdown, { type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import Calendar from '../Calendar';
-import { FixedArray } from '../types';
 
-export declare type DateFieldRef = {
+export declare interface DateFieldRef extends Omit<JuniperoRef, 'innerRef'> {
   dirty: boolean;
   focused: boolean;
   isJunipero: boolean;
@@ -41,14 +39,15 @@ export declare type DateFieldRef = {
   open(): void;
   close(): void;
   toggle(): void;
-  innerRef: MutableRefObject<any>;
-  inputRef: MutableRefObject<any>;
-  timeInputRef: MutableRefObject<any>;
-};
+  innerRef: MutableRefObject<DropdownRef>;
+  inputRef: MutableRefObject<HTMLInputElement>;
+  timeInputRef: MutableRefObject<HTMLInputElement>;
+}
 
-export declare interface DateFieldProps extends ComponentPropsWithRef<any> {
+export declare interface DateFieldProps extends Omit<
+  ComponentPropsWithoutRef<typeof Dropdown>, 'onChange'
+> {
   autoFocus?: boolean;
-  className?: string;
   clearable?: boolean;
   disabled?: boolean;
   id?: string;
@@ -61,17 +60,16 @@ export declare interface DateFieldProps extends ComponentPropsWithRef<any> {
   required?: boolean;
   time?: boolean;
   timePlaceholder?: string;
-  trigger?: 'click' | 'hover' | 'manual';
   valid?: boolean;
   value?: Date;
-  weekDaysName?: FixedArray<string, 7>;
+  weekDaysNames?: FixedArray<string, 7>;
   animateMenu?(
     menu: ReactNode | JSX.Element,
-    opts: { opened: boolean }
+    opts: { opened: boolean } & Partial<TransitionProps>
   ): ReactNode | JSX.Element;
-  onBlur?(e: FocusEvent): void;
-  onChange?(props: { value: Date; valid: boolean }): void;
-  onFocus?(e: FocusEvent): void;
+  onBlur?(e: FocusEvent<HTMLInputElement>): void;
+  onChange?(field: FieldContent<Date>): void;
+  onFocus?(e: FocusEvent<HTMLInputElement>): void;
   onToggle?(props: { opened: boolean }): void;
   onValidate?(
     value: Date,
@@ -83,7 +81,6 @@ export declare interface DateFieldProps extends ComponentPropsWithRef<any> {
     options?: { time?: boolean, isValue?: boolean}
   ): string;
   parseValue?(value: Date, options?: { required?: boolean }): Date;
-  ref?: MutableRefObject<DateFieldRef | undefined>;
 }
 
 export declare interface DateFieldState {
@@ -98,7 +95,7 @@ export declare interface DateFieldState {
   timeDirty: boolean;
 }
 
-const DateField = forwardRef(({
+const DateField = forwardRef<DateFieldRef, DateFieldProps>(({
   animateMenu,
   className,
   id,
@@ -134,12 +131,14 @@ const DateField = forwardRef(({
   onValidate = (val, { required }) => !!val || !required,
   children,
   ...rest
-}: DateFieldProps, ref) => {
+}, ref) => {
   const dropdownRef = useRef<DropdownRef>();
-  const timeInputRef = useRef<any>();
-  const inputRef = useRef<any>();
+  const timeInputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>();
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<MockState<DateFieldState>>(mockState, {
+  const [state, dispatch] = useReducer<
+    StateReducer<DateFieldState>
+  >(mockState, {
     value: value ?? null,
     selected: value ?? new Date(),
     displayed: value ?? new Date(),
@@ -275,12 +274,12 @@ const DateField = forwardRef(({
     onChange_({ close: false });
   };
 
-  const onFocus_ = (e: FocusEvent) => {
+  const onFocus_ = (e: FocusEvent<HTMLInputElement>) => {
     focus();
     onFocus?.(e);
   };
 
-  const onBlur_ = (e: FocusEvent) => {
+  const onBlur_ = (e: FocusEvent<HTMLInputElement>) => {
     blur();
     onBlur?.(e);
   };
@@ -351,7 +350,7 @@ const DateField = forwardRef(({
 
   const reset = () => {
     dispatch({
-      value: value ?? '',
+      value: value ?? null,
       valid: valid ?? false,
       dirty: false,
     });
@@ -452,36 +451,8 @@ const DateField = forwardRef(({
       { children }
     </Dropdown>
   );
-}) as ForwardedProps<DateFieldProps, DateFieldRef>;
+});
 
 DateField.displayName = 'DateField';
-DateField.propTypes = {
-  animateMenu: PropTypes.func,
-  autoFocus: PropTypes.bool,
-  clearable: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  value: PropTypes.instanceOf(Date),
-  valid: PropTypes.bool,
-  max: PropTypes.instanceOf(Date),
-  min: PropTypes.instanceOf(Date),
-  monthNames: PropTypes.any,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onValidate: PropTypes.func,
-  opened: PropTypes.bool,
-  parseTitle: PropTypes.func,
-  parseValue: PropTypes.func,
-  weekDaysNames: PropTypes.array,
-  onToggle: PropTypes.func,
-  time: PropTypes.bool,
-  timePlaceholder: PropTypes.string,
-  parseTime: PropTypes.func,
-  trigger: PropTypes.oneOf(['click', 'hover', 'manual']),
-};
 
 export default DateField;

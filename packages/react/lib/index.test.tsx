@@ -3,7 +3,8 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { mockState } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
-import TextField, { TextFieldChangeEvent } from './TextField';
+import type { FieldContent } from './types';
+import TextField from './TextField';
 
 describe('mockState: inside react', () => {
   it('should fail update the state correctly and return the old ' +
@@ -20,7 +21,7 @@ describe('mockState: inside react', () => {
         dispatch({ value: { ...state.value, content: ['foo'] } });
       }, 1, []);
 
-      const onTextChange = ({ value }: TextFieldChangeEvent) => {
+      const onTextChange = ({ value }: FieldContent) => {
         dispatch({ value: { ...state.value, text: value } });
       };
 
@@ -74,7 +75,7 @@ describe('mockState: inside react', () => {
         dispatch(s => ({ value: { ...s.value, content: ['foo'] } }));
       }, 1, []);
 
-      const onTextChange = ({ value }: TextFieldChangeEvent) => {
+      const onTextChange = ({ value }: FieldContent) => {
         dispatch(s => ({ value: { ...s.value, text: value } }));
       };
 

@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.3](https://github.com/p3ol/junipero/compare/v3.6.2...v3.6.3) (2024-06-21)
+
+
+### Bug Fixes
+
+* **core:** wrong mergeDeep types ([137c602](https://github.com/p3ol/junipero/commit/137c60235388531e037b127bb0d0514f68385b85))
+
+
+
+
+
+# [3.6.0](https://github.com/p3ol/junipero/compare/v3.5.5...v3.6.0) (2024-06-13)
+
+
+### Features
+
+* remove prop-types & fix a lot of types ([7222f54](https://github.com/p3ol/junipero/commit/7222f547bca6313af0d33f8b4461fa004a4a88dd))
+
+
+
+
+
+## [3.5.5](https://github.com/p3ol/junipero/compare/v3.5.4...v3.5.5) (2024-06-11)
+
+**Note:** Version bump only for package @junipero/core
+
+
+
+
+
 # [3.5.0](https://github.com/p3ol/junipero/compare/v3.4.15...v3.5.0) (2024-06-05)
 
 

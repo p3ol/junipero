@@ -1,32 +1,26 @@
 import {
+  type MutableRefObject,
+  type ComponentPropsWithRef,
   forwardRef,
   useImperativeHandle,
   useRef,
   useEffect,
   useMemo,
   useState,
-  MutableRefObject,
-  ComponentPropsWithRef,
-  ReactNode,
 } from 'react';
-import { classNames } from '@junipero/react';
-import PropTypes from 'prop-types';
+import { type JuniperoRef, classNames } from '@junipero/react';
 import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
 
-export declare type CurveRef = {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-  defsRef: MutableRefObject<any>;
-  lineRef: MutableRefObject<any>;
-  areaRef: MutableRefObject<any>;
-};
+export declare interface CurveRef extends JuniperoRef {
+  innerRef: MutableRefObject<SVGGElement>;
+  defsRef: MutableRefObject<SVGDefsElement>;
+  lineRef: MutableRefObject<SVGPathElement>;
+  areaRef: MutableRefObject<SVGPathElement>;
+}
 
-export declare interface CurveProps extends ComponentPropsWithRef<any> {
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  ref?: MutableRefObject<CurveRef | undefined>;
+export declare interface CurveProps extends ComponentPropsWithRef<'g'> {
   serie?: Array<number | Date>;
   type?: 'line' | 'area';
   curve?: d3.CurveFactory;
@@ -34,7 +28,8 @@ export declare interface CurveProps extends ComponentPropsWithRef<any> {
   yAxisIndex: number;
   lineCapShift?: number;
 }
-const Curve = forwardRef(({
+
+const Curve = forwardRef<CurveRef, CurveProps>(({
   serie,
   className,
   type = 'line',
@@ -42,11 +37,12 @@ const Curve = forwardRef(({
   xAxisIndex,
   yAxisIndex,
   lineCapShift = 10,
-}: CurveProps, ref) => {
-  const innerRef = useRef();
-  const defsRef = useRef();
-  const lineRef = useRef();
-  const areaRef = useRef();
+  ...rest
+}, ref) => {
+  const innerRef = useRef<SVGGElement>();
+  const defsRef = useRef<SVGDefsElement>();
+  const lineRef = useRef<SVGPathElement>();
+  const areaRef = useRef<SVGPathElement>();
   const [selected, setSelected] = useState(null);
   const {
     axis,
@@ -173,6 +169,7 @@ const Curve = forwardRef(({
     <g
       ref={innerRef}
       className={classNames('junipero curve', className)}
+      { ...rest }
     >
       <defs ref={defsRef} />
       <g>
@@ -203,32 +200,5 @@ const Curve = forwardRef(({
 });
 
 Curve.displayName = 'Curve';
-Curve.propTypes = {
-  serie: PropTypes.arrayOf(PropTypes.any),
-  type: PropTypes.oneOf(['line', 'area']),
-  xAxisIndex: PropTypes.number.isRequired,
-  yAxisIndex: PropTypes.number.isRequired,
-  curve: PropTypes.oneOf([
-    d3.curveLinear,
-    d3.curveLinearClosed,
-    d3.curveStep,
-    d3.curveStepBefore,
-    d3.curveStepAfter,
-    d3.curveBasis,
-    d3.curveBasisClosed,
-    d3.curveBasisOpen,
-    d3.curveBundle,
-    d3.curveNatural,
-    d3.curveCardinal,
-    d3.curveCardinalClosed,
-    d3.curveCardinalOpen,
-    d3.curveCatmullRom,
-    d3.curveCatmullRomClosed,
-    d3.curveCatmullRomOpen,
-    d3.curveMonotoneX,
-    d3.curveMonotoneY,
-  ]),
-  lineCapShift: PropTypes.number,
-};
 
 export default Curve;

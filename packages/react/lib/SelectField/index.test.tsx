@@ -3,11 +3,12 @@ import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { blur, reset, sleep } from '~tests-utils';
+import type { FieldContent } from '../types';
 import { cloneDeep, mockState, set } from '../../../core/lib/core';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
-import TextField, { TextFieldChangeField } from '../TextField';
+import TextField from '../TextField';
 import SelectField, { SelectFieldRef } from './index';
 
 describe('<SelectField />', () => {
@@ -373,7 +374,7 @@ describe('<SelectField />', () => {
         dispatch({ form: newForm });
       }, []);
 
-      const onChange = (name: string, field: TextFieldChangeField) => {
+      const onChange = (name: string, field: FieldContent) => {
         set(state.form, name, field.value);
         dispatch({ form: state.form, dirty: true });
       };

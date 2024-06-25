@@ -1,5 +1,5 @@
 import {
-  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
   type MutableRefObject,
   type ReactNode,
   forwardRef,
@@ -8,34 +8,35 @@ import {
 } from 'react';
 import { classNames, ensureNode } from '@junipero/core';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 
+import type { TransitionProps } from '../Transition';
+import type { JuniperoRef } from '../types';
 import { useDropdown } from '../hooks';
 
-export declare type DropdownMenuRef = {
+export declare interface DropdownMenuRef extends JuniperoRef {
   isJunipero: boolean;
-  innerRef: MutableRefObject<any>;
-};
-
-export declare interface DropdownMenuProps extends ComponentPropsWithRef<any> {
-  apparition?: string;
-  children?: ReactNode | JSX.Element;
-  className?: string;
-  animate?(
-    menu: ReactNode | JSX.Element,
-    opts: { opened: boolean, onExited: (opened: boolean) => void }
-  ): ReactNode | JSX.Element;
-  ref?: MutableRefObject<DropdownMenuRef | undefined>;
+  innerRef: MutableRefObject<HTMLDivElement>;
 }
 
-export const DropdownMenu = forwardRef(({
+export declare interface DropdownMenuProps
+  extends ComponentPropsWithoutRef<'div'> {
+  apparition?: string;
+  animate?(
+    menu: ReactNode | JSX.Element,
+    opts: {
+      opened: boolean;
+    } & Partial<TransitionProps>
+  ): ReactNode | JSX.Element;
+}
+
+export const DropdownMenu = forwardRef<DropdownMenuRef, DropdownMenuProps>(({
   animate,
   apparition,
   children,
   className,
   ...rest
-}: DropdownMenuProps, ref) => {
-  const innerRef = useRef();
+}, ref) => {
+  const innerRef = useRef<HTMLDivElement>();
   const {
     x,
     y,
@@ -66,7 +67,10 @@ export const DropdownMenu = forwardRef(({
   const content = (
     <div
       { ...rest }
-      ref={refs.setFloating}
+      ref={r => {
+        refs.setFloating?.(r);
+        innerRef.current = r;
+      }}
       style={{
         position: strategy,
         top: y ?? 0,
@@ -90,9 +94,5 @@ export const DropdownMenu = forwardRef(({
 });
 
 DropdownMenu.displayName = 'DropdownMenu';
-DropdownMenu.propTypes = {
-  animate: PropTypes.func,
-  apparition: PropTypes.string,
-};
 
 export default DropdownMenu;
