@@ -13,48 +13,48 @@ export type AlertsContextType = {
 }
 
 export type DropdownContextType = {
-  opened?: boolean,
-  visible?: boolean,
-  container?: string | JSX.Element | DocumentFragment | HTMLElement,
-  x?: number,
-  y?: number,
-  refs?: ExtendedRefs<any>,
-  strategy?: Strategy,
-  toggle?: () => void,
-  open?: () => void,
-  close?: () => void,
+  opened?: boolean;
+  visible?: boolean;
+  container?: string | JSX.Element | DocumentFragment | HTMLElement;
+  x?: number;
+  y?: number;
+  refs?: ExtendedRefs<any>;
+  strategy?: Strategy;
+  toggle?: () => void;
+  open?: () => void;
+  close?: () => void;
   getReferenceProps?: (
     userProps?: React.HTMLProps<Element>
-  ) => Record<string, unknown>,
+  ) => Record<string, unknown>;
   getFloatingProps?: (
     userProps?: React.HTMLProps<HTMLElement>
-  ) => Record<string, unknown>,
-  onAnimationExit?: () => void,
+  ) => Record<string, unknown>;
+  onAnimationExit?: () => void;
 }
 
-export type ListContextType= {
-  active?: string | number,
-  asc?: boolean,
-  orderable?: boolean,
-  registerColumn?: (column: string | ListColumnObject) => void
+export type ListContextType = {
+  active?: string | number;
+  asc?: boolean;
+  orderable?: boolean;
+  registerColumn?: (column: string | ListColumnObject) => void;
 }
 
 export type FieldContextType = {
-  valid?: boolean,
-  dirty?: boolean,
-  focused?: boolean,
-  update?: Dispatch<any>,
+  valid?: boolean;
+  dirty?: boolean;
+  focused?: boolean;
+  update?: Dispatch<any>;
 }
 
 export type ToastsContextType = {
-  toasts?: Array<ToastObject>,
-  add?: (toas: ToastObject) => void,
-  dismiss?: (toast: ToastObject) => void,
+  toasts?: Array<ToastObject>;
+  add?: (toas: ToastObject) => void;
+  dismiss?: (toast: ToastObject) => void;
 }
 export declare interface ModalContextType {
   open?(): void;
   close?(): void;
-  toggle?: any,
+  toggle?: any;
   setRef?: (ref: ModalRef) => void;
 }
 
