@@ -21,7 +21,7 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@floating-ui/react": "0.26.16",
+    "@floating-ui/react": "0.26.18",
     "@junipero/core": "^3.6.3",
     "@junipero/hooks": "^3.6.0"
   },
