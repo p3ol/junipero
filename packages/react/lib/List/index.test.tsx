@@ -87,7 +87,7 @@ describe('<List />', () => {
     const Comp = () => {
       const [order, setOrder] = useState<{
         column: string | number;
-        asc?: boolean;
+        asc: boolean;
       }>({ column: 'name', asc: false });
 
       const [items, setItems] = useState([
