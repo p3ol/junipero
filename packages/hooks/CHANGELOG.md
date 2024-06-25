@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/p3ol/junipero/compare/v3.6.3...v3.7.0) (2024-06-25)
+
+**Note:** Version bump only for package @junipero/hooks
+
+
+
+
+
 # [3.6.0](https://github.com/p3ol/junipero/compare/v3.5.5...v3.6.0) (2024-06-13)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/p3ol/junipero/compare/v3.6.3...v3.7.0) (2024-06-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.26.18 ([0e847eb](https://github.com/p3ol/junipero/commit/0e847eb4b06f572b08f6df3552312e6479f5e775))
+* **react:** missing prop type ([84b76a0](https://github.com/p3ol/junipero/commit/84b76a08b0670055c1e95cf8d8853c2d2e92aa53))
+
+
+### Features
+
+* **react:** allow to handle order state from outside on list ([1deb99b](https://github.com/p3ol/junipero/commit/1deb99b6a6e178314088f818f1f80865c21dbe86))
+
+
+
+
+
 ## [3.6.3](https://github.com/p3ol/junipero/compare/v3.6.2...v3.6.3) (2024-06-21)
 
 
