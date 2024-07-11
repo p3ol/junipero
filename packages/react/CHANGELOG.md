@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.1](https://github.com/p3ol/junipero/compare/v3.7.0...v3.7.1) (2024-07-11)
+
+
+### Bug Fixes
+
+* **core:** move StateReducer to core for non react deps ([66b00f3](https://github.com/p3ol/junipero/commit/66b00f31e558c1a2b7e370af20a56b0f83fb8c34))
+
+
+
+
+
 # [3.7.0](https://github.com/p3ol/junipero/compare/v3.6.3...v3.7.0) (2024-06-25)
 
 
