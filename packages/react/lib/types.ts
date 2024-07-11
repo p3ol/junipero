@@ -4,6 +4,7 @@ import type {
   MutableRefObject,
   ReactNode,
 } from 'react';
+import type { StateContent, StateReducer } from '@junipero/core';
 
 export declare interface JuniperoRef {
   isJunipero: boolean;
@@ -21,24 +22,6 @@ export declare type FieldContent<T = any> = {
 };
 
 /**
-* Represents a state comming from useReducer.
-* Volontarily abstracted to allow any kind of state.
-*/
-export declare interface StateContent {
- [key: string]: any;
-}
-
-/**
-* Represents a state comming from useReducer.
-*
-* When using a callback (e.g `dispatch(s => ({ ... }))`) the state should
-* not be a partial and is fully passed as the first argument, and expected
-* to return fully too.
-*/
-export declare type StateReducer<T extends StateContent> =
- (state: T, updates: Partial<T> | ((t: T) => T)) => T;
-
-/**
  * As it is not currently possible to generically type a forwarded component,
  * we still have to use a custom forwardedprops type & special
  * interfaces in order to keep vscode completion for component & allow
@@ -54,3 +37,6 @@ export declare interface SpecialComponentPropsWithoutRef
   children?: ReactNode;
   className?: string;
 }
+
+// Compat
+export { StateContent, StateReducer };

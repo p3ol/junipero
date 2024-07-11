@@ -1,4 +1,4 @@
-import type { GenericObject } from '../types';
+import type { GenericObject, StateContent } from '../types';
 
 export const classNames = (...args: Array<any>): string => {
   const classes: string[] = [];
@@ -48,17 +48,6 @@ export const removeClass = (elmt: HTMLElement, cls: string): void => {
       .trim();
   }
 };
-
-/**
- * Represents a state comming from useReducer.
- * Volontarily abstracted to allow any kind of state.
- */
-export declare interface StateContent {
-  [key: string]: any;
-}
-
-export declare type StateReducer<T extends StateContent> =
-  (state: T, updates: Partial<T> | ((t: Partial<T>) => T)) => T;
 
 export const mockState = (
   state: StateContent,

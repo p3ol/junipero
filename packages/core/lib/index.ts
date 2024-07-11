@@ -63,4 +63,6 @@ export type {
   Grow,
   GrowToSize,
   FixedArray,
+  StateContent,
+  StateReducer,
 } from './types';
