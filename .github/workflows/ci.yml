@@ -23,6 +23,8 @@ jobs:
         run: yarn install
       - name: Eslint check
         run: yarn lint
+      - name: Type check
+        run: yarn tsc
 
   test:
     name: Unit tests
