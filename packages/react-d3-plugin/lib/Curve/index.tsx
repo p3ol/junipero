@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { type JuniperoRef, classNames } from '@junipero/react';
+import { type JuniperoRef, classNames, startOfDay } from '@junipero/react';
 import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
@@ -36,7 +36,7 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
   curve = d3.curveMonotoneX,
   xAxisIndex,
   yAxisIndex,
-  lineCapShift = 10,
+  lineCapShift = 0,
   ...rest
 }, ref) => {
   const innerRef = useRef<SVGGElement>();
@@ -106,7 +106,10 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
       .curve(curve).x((d, i) => isMonoData
         ? Math
           .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
-        : xAxis.range(d[0]) - paddingLeft - lineCapShift
+        : xAxis.range(xAxis.scale === d3.scaleTime
+          ? startOfDay(d[0])
+          : d[0]
+        ) - paddingLeft - lineCapShift
       ).y(d => yAxis.range(d[1]));
     // Line
     d3
@@ -142,7 +145,10 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
         .x((d, i) => isMonoData
           ? Math
             .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
-          : xAxis.range(d[0]) - paddingLeft - lineCapShift
+          : xAxis.range(xAxis.scale === d3.scaleTime
+            ? startOfDay(d[0])
+            : d[0]
+          ) - paddingLeft - lineCapShift
         )
         .y0(height - paddingBottom)
         .y1(d => yAxis.range(d[1] ?? 0));
@@ -185,7 +191,10 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
           transform={
             'translate(' +
               (
-                (xAxis?.range?.(selected[0]) || 0) - paddingLeft - lineCapShift
+                (xAxis?.range?.(xAxis.scale === d3.scaleTime
+                  ? startOfDay(selected[0])
+                  : selected[0]
+                ) || 0) - paddingLeft - lineCapShift
               ) +
               ', ' +
               (yAxis?.range?.(selected[1]) || 0) +

@@ -14,6 +14,7 @@ import {
   type JuniperoRef,
   Tooltip,
   classNames,
+  startOfDay,
 } from '@junipero/react';
 import * as d3 from 'd3';
 
@@ -46,7 +47,7 @@ const Marker = forwardRef<MarkerRef, MarkerProps>(({
   tooltip,
   tooltipProps,
   xAxisIndex = 0,
-  lineCapShift = 10,
+  lineCapShift = 0,
   ...rest
 }, ref) => {
   const innerRef = useRef<SVGGElement>();
@@ -81,7 +82,9 @@ const Marker = forwardRef<MarkerRef, MarkerProps>(({
     ).invert(cursor.x);
 
     const xIndex = axis[xAxisIndex]?.findSelectionIndex?.(position);
-    const xValue = xAxis?.domain?.(xAxis?.data?.[xIndex] as number);
+    const xValue = xAxis?.domain?.(xAxis.scale === d3.scaleTime
+      ? startOfDay(xAxis?.data?.[xIndex] as Date)
+      : xAxis?.data?.[xIndex] as number);
     const yValue = Math.min(...(series
       ? series.map(s => (yAxisIndexes || [1]).map(i =>
         axis[i]?.domain?.((s as Array<number | Date>)[xIndex]) as number
