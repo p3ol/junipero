@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.3](https://github.com/p3ol/junipero/compare/v3.7.2...v3.7.3) (2024-08-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/react to v0.26.20 ([f1ea1b8](https://github.com/p3ol/junipero/commit/f1ea1b8fd650ef7b43144df41bb7f5eef4109d0c))
+
+
+
+
+
 ## [3.7.2](https://github.com/p3ol/junipero/compare/v3.7.1...v3.7.2) (2024-07-19)
 
 

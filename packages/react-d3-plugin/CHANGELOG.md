@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.3](https://github.com/p3ol/junipero/compare/v3.7.2...v3.7.3) (2024-08-01)
+
+
+### Bug Fixes
+
+* **react-d3:** fix curves offset ([5ab8aba](https://github.com/p3ol/junipero/commit/5ab8aba95054a30a41d0b741b3600f0df2aeba1b))
+
+
+
+
+
 ## [3.7.2](https://github.com/p3ol/junipero/compare/v3.7.1...v3.7.2) (2024-07-19)
 
 **Note:** Version bump only for package @junipero/react-d3-plugin
