@@ -4197,12 +4197,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.14.13":
+"@types/node@npm:*":
   version: 20.14.13
   resolution: "@types/node@npm:20.14.13"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/10bb3ece675308742301c652ab8c6cb88b1ebddebed22316103c58f94fe7eff131edd5f679e487c19077fadb6b5e6b1ad9a60a2cee2869aa1f20452b9761d570
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.14.15":
+  version: 20.14.15
+  resolution: "@types/node@npm:20.14.15"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/093713db52dc544f3931a3dec9d7d8ef661f323e57becd083a7918c778cef1eb6ec32d1017bf5ade06bb06dc5c7551f4f4d749a14e40868cce44d51e54acd8ed
   languageName: node
   linkType: hard
 
@@ -13263,7 +13272,7 @@ __metadata:
     "@testing-library/user-event": "npm:14.5.2"
     "@types/d3": "npm:7.4.3"
     "@types/jest": "npm:29.5.12"
-    "@types/node": "npm:20.14.13"
+    "@types/node": "npm:20.14.15"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     "@typescript-eslint/parser": "npm:7.18.0"
