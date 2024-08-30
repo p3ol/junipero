@@ -34,6 +34,7 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
     </div>
     <div
       class="junipero dropdown-menu calendar-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -436,6 +437,7 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
     </div>
     <div
       class="junipero dropdown-menu calendar-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -838,6 +840,7 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
     </div>
     <div
       class="junipero dropdown-menu calendar-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1240,6 +1243,7 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
     </div>
     <div
       class="junipero dropdown-menu calendar-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1716,6 +1720,7 @@ exports[`<DateField /> should render: opened 1`] = `
     </div>
     <div
       class="junipero dropdown-menu calendar-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
