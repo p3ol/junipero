@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "clean": "lerna exec --parallel -- yarn clean",
     "build": "lerna exec -- yarn build",
-    "serve": "storybook dev",
+    "dev": "storybook dev",
+    "serve": "yarn dev",
     "storybook-build": "storybook build",
     "p:core": "yarn workspace @junipero/core",
     "p:react": "yarn workspace @junipero/react"
@@ -69,5 +70,5 @@
     "tailwindcss": "3.4.7",
     "typescript": "5.5.3"
   },
-  "packageManager": "yarn@4.3.1"
+  "packageManager": "yarn@4.4.1"
 }
