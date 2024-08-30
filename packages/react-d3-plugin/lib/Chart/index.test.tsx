@@ -22,8 +22,8 @@ describe('<Chart />', () => {
         width={1000}
         height={500}
         axis={[{
-          type: d3.axisBottom,
-          scale: d3.scaleTime,
+          type: 'axisBottom',
+          scale: 'scaleTime',
           data: [
             new Date('2020-10-01T00:00:00.000Z'),
             new Date('2020-10-02T00:00:00.000Z'),
@@ -31,8 +31,8 @@ describe('<Chart />', () => {
           parseTitle: (d: Date) => d.toISOString(),
           ticks: null,
         }, {
-          type: d3.axisLeft,
-          scale: d3.scaleLinear,
+          type: 'axisLeft',
+          scale: 'scaleLinear',
           data: [0, 100],
           grid: true,
           min: 0,

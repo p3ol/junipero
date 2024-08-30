@@ -80,28 +80,28 @@ const Chart = forwardRef<ChartRef, ChartProps>(({
       ReturnType<typeof d3.scaleBand>;
 
     switch (a.scale) {
-      case d3.scaleTime:
+      case 'scaleTime':
         domain = d3.scaleTime().domain(d3.extent(d3.timeDay.range(
           startOfDay(a.min ?? d3.min(a.data as Date[])),
           endOfDay(a.max ?? d3.max(a.data as Date[])),
           1
         )));
         break;
-      case d3.scaleLinear:
-        domain = a.scale().domain([
+      case 'scaleLinear':
+        domain = d3.scaleLinear().domain([
           a.min as number ?? d3.min(a.data as number[]),
           (a.max as number ?? d3.max(a.data as number[])) *
             linearDomainMaxMargin,
         ]);
         break;
-      case d3.scaleBand:
-        domain = (a.scale() as ReturnType<typeof d3.scaleBand>)
+      case 'scaleBand':
+        domain = (d3.scaleBand() as ReturnType<typeof d3.scaleBand>)
           .domain(a.data)
           .paddingInner(bandDomainInnerPadding)
           .paddingOuter(bandDomainOuterPadding);
         break;
       default:
-        domain = (a.scale as typeof d3.scaleLinear)().domain([
+        domain = d3.scaleLinear().domain([
           a.min ?? d3.min(a.data as number[]),
           a.max ?? d3.max(a.data as number[]),
         ]);
@@ -110,8 +110,8 @@ const Chart = forwardRef<ChartRef, ChartProps>(({
     let range: ReturnType<typeof domain.range>;
 
     switch (a.type) {
-      case d3.axisBottom:
-      case d3.axisTop:
+      case 'axisBottom':
+      case 'axisTop':
         range = domain.range([
           state.paddingLeft,
           state.width - state.paddingRight,
