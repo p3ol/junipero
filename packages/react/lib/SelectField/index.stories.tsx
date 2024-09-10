@@ -142,6 +142,14 @@ export const withArbitraryValues = () => (
   />
 );
 
+export const withOnlyArbitraryValues = () => (
+  <SelectField
+    placeholder="Type a name"
+    allowArbitraryItems={true}
+    multiple={true}
+  />
+);
+
 export const withClickOptionsAndKeyboardHandler = () => (
   <SelectField
     toggleClick={true}

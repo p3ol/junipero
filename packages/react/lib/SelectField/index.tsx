@@ -340,6 +340,10 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
   };
 
   const onBlur_ = (e: FocusEvent<HTMLInputElement>) => {
+    if (allowArbitraryItems && state.search) {
+      onSelectOption(state.search, { resetSearch: true });
+    }
+
     dispatch({ focused: false });
     onBlur?.(e);
   };
@@ -595,7 +599,9 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
             { !!state.value && clearable && (!isEmpty() || state.search) && (
               <Remove onClick={onClear} />
             ) }
-            <Arrows />
+            { (!allowArbitraryItems || options?.length > 0) && (
+              <Arrows />
+            )}
           </div>
         </div>
       </DropdownToggle>
