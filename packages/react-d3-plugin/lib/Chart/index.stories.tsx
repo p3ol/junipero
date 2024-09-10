@@ -40,24 +40,24 @@ const axis: [
     AxisObject<Array<number>>,
     AxisObject<Array<number>>
 ] = [{
-  type: d3.axisBottom,
-  scale: d3.scaleTime,
+  type: 'axisBottom',
+  scale: 'scaleTime',
   data: data.map(d => d[0]),
   findSelectionIndex: (position: Date) =>
     closestIndexTo(position, data.map(d => d[0])),
   parseTitle: (d: Date) => d.toLocaleDateString(),
   ticks: null,
 }, {
-  type: d3.axisLeft,
-  scale: d3.scaleLinear,
+  type: 'axisLeft',
+  scale: 'scaleLinear',
   data: data.map(d => d[1]),
   grid: true,
   min: 0,
   tickSize: 20,
   parseTitle: d => `${d}%`,
 }, {
-  type: d3.axisRight,
-  scale: d3.scaleLinear,
+  type: 'axisRight',
+  scale: 'scaleLinear',
   data: alternativeData.map(d => d[1]),
   tickSize: 20,
   min: 0,
@@ -67,14 +67,14 @@ const barAxis: [
   AxisObject<Array<Date>>,
   AxisObject<Array<{ premium: number, free: number }>>
 ] = [{
-  type: d3.axisBottom,
-  scale: d3.scaleBand,
+  type: 'axisBottom',
+  scale: 'scaleBand',
   data: barData.map(d => d[0]) as any,
   parseTitle: (d: Date) => d?.toLocaleDateString(),
   ticks: null,
 }, {
-  type: d3.axisLeft,
-  scale: d3.scaleLinear,
+  type: 'axisLeft',
+  scale: 'scaleLinear',
   grid: true,
   min: 0,
   max: 100,

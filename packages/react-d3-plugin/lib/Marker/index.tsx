@@ -82,7 +82,7 @@ const Marker = forwardRef<MarkerRef, MarkerProps>(({
     ).invert(cursor.x);
 
     const xIndex = axis[xAxisIndex]?.findSelectionIndex?.(position);
-    const xValue = xAxis?.domain?.(xAxis.scale === d3.scaleTime
+    const xValue = xAxis?.domain?.(xAxis.scale === 'scaleTime'
       ? startOfDay(xAxis?.data?.[xIndex] as Date)
       : xAxis?.data?.[xIndex] as number);
     const yValue = Math.min(...(series

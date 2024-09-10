@@ -11,7 +11,7 @@ import { type JuniperoRef, classNames } from '@junipero/react';
 import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
-import { getAxisType } from '../utils';
+import { getAxisType, getAxisFunction } from '../utils';
 
 export declare type AxisDataType = Array<
   | string
@@ -23,9 +23,8 @@ export declare type AxisDataType = Array<
 >;
 
 export declare interface AxisObject<T = AxisDataType> {
-  type: typeof d3.axisLeft | typeof d3.axisBottom | typeof d3.axisRight |
-    typeof d3.axisTop;
-  scale: typeof d3.scaleLinear | typeof d3.scaleTime | typeof d3.scaleBand;
+  type: 'axisTop' | 'axisRight' | 'axisBottom' | 'axisLeft';
+  scale: 'scaleLinear' | 'scaleTime' | 'scaleBand';
   data: T;
   range?: d3.ScaleContinuousNumeric<number, number> |
     d3.ScaleLinear<number, number> |
@@ -87,9 +86,9 @@ const Axis = forwardRef<AxisRef, AxisProps>(({
     }
 
     switch (axis.type) {
-      case d3.axisLeft: return [0, 0];
-      case d3.axisRight: return [width - paddingRight - paddingLeft, 0];
-      case d3.axisTop: return [0, 0];
+      case 'axisLeft': return [0, 0];
+      case 'axisRight': return [width - paddingRight - paddingLeft, 0];
+      case 'axisTop': return [0, 0];
       default: return [-paddingLeft, height - paddingTop - paddingBottom];
     }
   }, [
@@ -109,7 +108,7 @@ const Axis = forwardRef<AxisRef, AxisProps>(({
 
     d3
       .select(ticksRef.current)
-      .call(axis.type(axis.range)
+      .call(getAxisFunction(axis.type)(axis.range)
         .ticks(axis.ticks ?? 5)
         .tickSize(axis.tickSize ?? 5)
         .tickFormat((d: Date | number) => (
@@ -121,7 +120,7 @@ const Axis = forwardRef<AxisRef, AxisProps>(({
     if (axis.grid) {
       d3
         .select(gridRef.current)
-        .call(axis.type(axis.range)
+        .call(getAxisFunction(axis.type)(axis.range)
           .ticks(axis.ticks ?? 5)
           .tickSize(-(width - paddingLeft - paddingRight))
           .tickFormat((d: Date | number) => '') as any,

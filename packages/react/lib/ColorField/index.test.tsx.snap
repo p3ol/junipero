@@ -23,6 +23,7 @@ exports[`<ColorField /> should render 1`] = `
     </div>
     <div
       class="junipero dropdown-menu color-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -105,6 +106,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
     </div>
     <div
       class="junipero dropdown-menu color-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -187,6 +189,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
     </div>
     <div
       class="junipero dropdown-menu color-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -269,6 +272,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
     </div>
     <div
       class="junipero dropdown-menu color-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -351,6 +355,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
     </div>
     <div
       class="junipero dropdown-menu color-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -433,6 +438,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
     </div>
     <div
       class="junipero dropdown-menu color-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -515,6 +521,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
     </div>
     <div
       class="junipero dropdown-menu color-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
