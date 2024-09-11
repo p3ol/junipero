@@ -71,7 +71,8 @@ const TextField = forwardRef<TextFieldRef, TextFieldProps>(({
   onChange,
   onFocus,
   onWheel,
-  onValidate = (val, { required }) => !!val || !required,
+  onValidate = (val: string | number, opts?: { required: boolean }) =>
+    !!val || !opts?.required,
   ...rest
 }, ref) => {
   const innerRef = useRef<HTMLDivElement>();

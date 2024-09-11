@@ -106,7 +106,7 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
       .curve(curve).x((d, i) => isMonoData
         ? Math
           .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
-        : xAxis.range(xAxis.scale === d3.scaleTime
+        : xAxis.range(xAxis.scale === 'scaleTime'
           ? startOfDay(d[0])
           : d[0]
         ) - paddingLeft - lineCapShift
@@ -145,7 +145,7 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
         .x((d, i) => isMonoData
           ? Math
             .min(width - paddingRight - paddingLeft, i * width) - lineCapShift
-          : xAxis.range(xAxis.scale === d3.scaleTime
+          : xAxis.range(xAxis.scale === 'scaleTime'
             ? startOfDay(d[0])
             : d[0]
           ) - paddingLeft - lineCapShift
@@ -191,7 +191,7 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
           transform={
             'translate(' +
               (
-                (xAxis?.range?.(xAxis.scale === d3.scaleTime
+                (xAxis?.range?.(xAxis.scale === 'scaleTime'
                   ? startOfDay(selected[0])
                   : selected[0]
                 ) || 0) - paddingLeft - lineCapShift

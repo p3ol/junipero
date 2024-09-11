@@ -501,6 +501,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -611,6 +612,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -721,6 +723,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 3`]
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -831,6 +834,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 4`]
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -941,6 +945,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1051,6 +1056,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1239,6 +1245,7 @@ exports[`<SelectField /> should allow to search for an existing value 1`] = `
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1296,6 +1303,7 @@ exports[`<SelectField /> should allow to search for an existing value 2`] = `
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1367,6 +1375,7 @@ exports[`<SelectField /> should allow to search for an external value 1`] = `
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1718,6 +1727,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1808,6 +1818,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1865,6 +1876,7 @@ exports[`<SelectField /> should not toggle on click if disabled: opened 1`] = `
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1936,6 +1948,7 @@ exports[`<SelectField /> should not toggle on click if disabled: still opened 1`
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2007,6 +2020,7 @@ exports[`<SelectField /> should not toggle on click if searchable: opened 1`] = 
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2078,6 +2092,7 @@ exports[`<SelectField /> should not toggle on click if searchable: still opened 
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2149,6 +2164,7 @@ exports[`<SelectField /> should render 1`] = `
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -2503,6 +2519,7 @@ exports[`<SelectField /> should toggle on click if enabled: opened 1`] = `
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2612,6 +2629,7 @@ exports[`<SelectField /> should toggle on click if not searchable: opened 1`] = 
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2683,6 +2701,7 @@ exports[`<SelectField /> should toggle on keyboard if enabled: back opened 1`] =
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2790,6 +2809,7 @@ exports[`<SelectField /> should toggle on keyboard if enabled: opened 1`] = `
     </div>
     <div
       class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >

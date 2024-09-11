@@ -1,15 +1,24 @@
 import * as d3 from 'd3';
 
 export const getAxisType = (
-  type: typeof d3.axisLeft
-    | typeof d3.axisRight
-    | typeof d3.axisTop
+  type: 'axisLeft' | 'axisRight' | 'axisTop' | 'axisBottom'
 ) => {
   switch (type) {
-    case d3.axisLeft: return 'left';
-    case d3.axisRight: return 'right';
-    case d3.axisTop: return 'top';
+    case 'axisLeft': return 'left';
+    case 'axisRight': return 'right';
+    case 'axisTop': return 'top';
     default: return 'bottom';
+  }
+};
+
+export const getAxisFunction = (
+  type: 'axisLeft' | 'axisRight' | 'axisTop' | 'axisBottom'
+) => {
+  switch (type) {
+    case 'axisLeft': return d3.axisLeft;
+    case 'axisRight': return d3.axisRight;
+    case 'axisTop': return d3.axisTop;
+    default: return d3.axisBottom;
   }
 };
 
