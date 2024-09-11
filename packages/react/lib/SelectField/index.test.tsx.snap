@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<SelectField /> should add a value when focus out if allowArbitraryItems is true 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field dirty valid searchable multiple"
+  >
+    <div
+      class="field dropdown-toggle"
+    >
+      <span
+        class="junipero tag info"
+      >
+        <span>
+          Item 4
+        </span>
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </span>
+      <input
+        placeholder="Type a name"
+        size="11"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<SelectField /> should allow arbitrary values 1`] = `
 <div>
   <div

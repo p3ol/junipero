@@ -2,7 +2,7 @@ import { createRef, useEffect, useReducer, useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { blur, reset, sleep } from '~tests-utils';
+import { blur, focus, reset, sleep } from '~tests-utils';
 import type { FieldContent } from '../types';
 import { cloneDeep, mockState, set } from '../../../core/lib/core';
 import FieldControl from '../FieldControl';
@@ -497,4 +497,21 @@ describe('<SelectField />', () => {
     unmount();
   });
 
+  it('should add a value when focus out if' +
+    ' allowArbitraryItems is true', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Type a name"
+        allowArbitraryItems={true}
+        multiple={true}
+      />
+    );
+    const input = container.querySelector('input');
+    await focus(input);
+    await user.type(input, 'Item 4');
+    await blur(input);
+
+    expect(container).toMatchSnapshot();
+  });
 });
