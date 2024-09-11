@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/p3ol/junipero/compare/v3.7.4...v3.8.0) (2024-09-11)
+
+
+### Bug Fixes
+
+* upgrade various deps ([f06e61d](https://github.com/p3ol/junipero/commit/f06e61df9e73aa437374b0e0f279e3a2f44fa8c9))
+
+
+### Features
+
+* **select-field:** remove arrows and allow to save tag on blur ([57df715](https://github.com/p3ol/junipero/commit/57df715c51c9cb7f1b5d4fc96dd7b392284f620a))
+* **select-field:** remove useless ref ([4a04ee7](https://github.com/p3ol/junipero/commit/4a04ee75704aa086f9ab9579f542225bd9906e85))
+* **select-fields:** add a prevent default on enter key press ([81dbb30](https://github.com/p3ol/junipero/commit/81dbb308fa6692156e0b25ed1a038319b9dc77b7))
+
+
+
+
+
 ## [3.7.4](https://github.com/p3ol/junipero/compare/v3.7.3...v3.7.4) (2024-08-30)
 
 

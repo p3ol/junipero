@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/p3ol/junipero/compare/v3.7.4...v3.8.0) (2024-09-11)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
 ## [3.7.4](https://github.com/p3ol/junipero/compare/v3.7.3...v3.7.4) (2024-08-30)
 
 **Note:** Version bump only for package @junipero/transitions
