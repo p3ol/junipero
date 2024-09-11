@@ -142,6 +142,15 @@ export const withArbitraryValues = () => (
   />
 );
 
+export const withOnlyArbitraryValues = () => (
+  <SelectField
+    placeholder="Type a name"
+    allowArbitraryItems={true}
+    multiple={true}
+    noOptionsEnabled={false}
+  />
+);
+
 export const withClickOptionsAndKeyboardHandler = () => (
   <SelectField
     toggleClick={true}
@@ -163,3 +172,23 @@ export const noEmpty = () => (
     animateMenu={slideInDownMenu}
   />
 );
+
+export const onAForm = () => {
+  const actions = action('submitted');
+
+  return (
+    <form
+      onSubmit={e => {
+        actions({ name: 'submitted', event: e });
+        e.preventDefault();
+      }}
+    >
+      <SelectField
+        allowArbitraryItems={true}
+        multiple={true}
+        noOptionsEnabled={false}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
