@@ -174,7 +174,6 @@ export const noEmpty = () => (
 );
 
 export const onAForm = () => {
-  const ref = useRef<SelectFieldRef>(null);
   const actions = action('submitted');
 
   return (
@@ -185,7 +184,6 @@ export const onAForm = () => {
       }}
     >
       <SelectField
-        ref={ref}
         allowArbitraryItems={true}
         multiple={true}
         noOptionsEnabled={false}
