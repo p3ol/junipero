@@ -366,6 +366,8 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
 
     switch (e.key) {
       case 'Enter':
+        e.preventDefault();
+
         if (allowArbitraryItems) {
           onSelectOption(state.search, { resetSearch: true });
         }

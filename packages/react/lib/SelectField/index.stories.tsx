@@ -147,6 +147,7 @@ export const withOnlyArbitraryValues = () => (
     placeholder="Type a name"
     allowArbitraryItems={true}
     multiple={true}
+    noOptionsEnabled={false}
   />
 );
 
@@ -171,3 +172,25 @@ export const noEmpty = () => (
     animateMenu={slideInDownMenu}
   />
 );
+
+export const onAForm = () => {
+  const ref = useRef<SelectFieldRef>(null);
+  const actions = action('submitted');
+
+  return (
+    <form
+      onSubmit={e => {
+        actions({ name: 'submitted', event: e });
+        e.preventDefault();
+      }}
+    >
+      <SelectField
+        ref={ref}
+        allowArbitraryItems={true}
+        multiple={true}
+        noOptionsEnabled={false}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
