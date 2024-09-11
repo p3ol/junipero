@@ -32,7 +32,7 @@
     "@storybook/addon-webpack5-compiler-swc": "1.0.5",
     "@storybook/react": "8.2.9",
     "@storybook/react-webpack5": "8.2.9",
-    "@swc/core": "1.7.22",
+    "@swc/core": "1.7.26",
     "@swc/jest": "0.2.36",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.5.0",
