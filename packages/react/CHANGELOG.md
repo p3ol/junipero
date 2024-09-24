@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.1](https://github.com/p3ol/junipero/compare/v3.8.0...v3.8.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* **react:** do not display options when disabled & empty search results ([084abad](https://github.com/p3ol/junipero/commit/084abada0463ad2b376f6c8bfa060e6994483541))
+
+
+
+
+
 # [3.8.0](https://github.com/p3ol/junipero/compare/v3.7.4...v3.8.0) (2024-09-11)
 
 
