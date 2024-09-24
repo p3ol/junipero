@@ -607,7 +607,7 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
           </div>
         </div>
       </DropdownToggle>
-      { (hasOptions || noOptionsEnabled || state.searchResults) && (
+      { (hasOptions || state.searchResults?.length > 0 || noOptionsEnabled) && (
         <DropdownMenu
           animate={animateMenu}
           className={classNames('select-menu', { searching: state.searching })}
