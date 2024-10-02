@@ -3308,13 +3308,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.3.8":
-  version: 18.3.8
-  resolution: "@types/react@npm:18.3.8"
+"@types/react@npm:18.3.11":
+  version: 18.3.11
+  resolution: "@types/react@npm:18.3.11"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/367312c9fe276639ecb142265e090a4dd04bb39f8d718cbab546de3f1ddcfddeff415e1147d0fc40f734badaa7420b7b109d511bd4304b2c4c9c36164612fdf8
+  checksum: 10c0/ce80512246ca5bda69db85b9f4f1835189334acfb6b2c4f3eda8cabff1ff1a3ea9ce4f3b895bdbc18c94140aa45592331aa3fdeb557f525c1b048de7ce84fc0e
   languageName: node
   linkType: hard
 
@@ -11976,7 +11976,7 @@ __metadata:
     "@types/d3": "npm:7.4.3"
     "@types/jest": "npm:29.5.13"
     "@types/node": "npm:22.6.1"
-    "@types/react": "npm:18.3.8"
+    "@types/react": "npm:18.3.11"
     "@types/react-dom": "npm:18.3.0"
     "@typescript-eslint/parser": "npm:8.7.0"
     autoprefixer: "npm:10.4.20"
