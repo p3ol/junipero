@@ -1,5 +1,6 @@
 import { createRef, useEffect, useReducer, useState } from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
+import { configMocks, mockIntersectionObserver } from 'jsdom-testing-mocks';
 import userEvent from '@testing-library/user-event';
 
 import { blur, focus, reset, sleep } from '~tests-utils';
@@ -10,6 +11,9 @@ import Label from '../Label';
 import Abstract from '../Abstract';
 import TextField from '../TextField';
 import SelectField, { SelectFieldRef } from './index';
+
+configMocks({ act });
+const io = mockIntersectionObserver();
 
 describe('<SelectField />', () => {
   it('should render', () => {
@@ -513,5 +517,54 @@ describe('<SelectField />', () => {
     await blur(input);
 
     expect(container).toMatchSnapshot();
+    unmount();
+  });
+
+  it('should allow to load more data on scroll', async () => {
+    const Form = () => {
+      const [options, setOptions] = useState<string[]>(
+        Array.from({ length: 10 }).map((_, i) => `Item ${i + 1}`)
+      );
+
+      const onLoadMore = async (page: number) => {
+        if (page <= 2) {
+          await new Promise(resolve => setTimeout(resolve, 10));
+          setOptions(o => o.concat(
+            Array
+              .from({ length: 10 })
+              .map((_, i) => `Item ${i + o.length + 1}`)
+          ));
+        }
+      };
+
+      return (
+        <SelectField
+          placeholder="Type a name"
+          options={options}
+          onLoadMore={onLoadMore}
+          hasMore={options.length < 20}
+        />
+      );
+    };
+
+    const { unmount, container } = render(<Form />);
+
+    await fireEvent.click(container.querySelector('input'));
+
+    expect(container).toMatchSnapshot('Before scroll');
+
+    await fireEvent.scroll(container.querySelector('.menu-inner'), {
+      target: { scrollTop: 10000 },
+    });
+    await io.enterNode(container.querySelector('.load-more'));
+
+    expect(container).toMatchSnapshot('During scroll');
+
+    await sleep(20);
+
+    expect(container).toMatchSnapshot('After scroll');
+
+    unmount();
+    io.cleanup();
   });
 });

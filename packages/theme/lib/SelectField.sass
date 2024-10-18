@@ -7,6 +7,7 @@
   --invalid-color: var(--junipero-grapefruit)
   --spinner-color: var(--junipero-velvet)
   --background-color: var(--junipero-seashell)
+  --no-options-color: var(--junipero-slate)
 
   display: inline-flex
   min-width: 250px
@@ -103,18 +104,38 @@
   .no-options
     padding: 0 10px
     text-align: center
-    color: var(--secondary-color)
+    color: var(--no-options-color)
 
   .spinner
     --background-color: var(--spinner-color)
+
+  .load-more
+    min-height: 10px
+
+    .no-more-options
+      padding: 15px 10px 10px
+      cursor: default
+      text-align: center
+      color: var(--no-options-color)
+      font-size: 12px
 
 .junipero.selectfield .menu-inner,
 .junipero.select-menu .menu-inner
   max-height: 250px
   overflow-y: scroll
 
+  .dropdown-item.loader
+    padding: 5px 10px
+    display: flex
+    gap: 10px
+    align-items: center
+    font-size: 12px
+    color: var(--no-options-color)
+
 .junipero.select-field.searching .menu-inner,
-.junipero.select-menu.searching .menu-inner
+.junipero.select-menu.searching .menu-inner,
+.junipero.select-field.loading .menu-inner,
+.junipero.select-menu.loading .menu-inner
   pointer-events: none
 
   .content
