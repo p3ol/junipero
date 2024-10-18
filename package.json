@@ -63,7 +63,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "rollup": "4.22.4",
-    "sass": "1.79.3",
+    "sass": "1.80.2",
     "sass-loader": "16.0.2",
     "storybook": "8.3.2",
     "style-loader": "4.0.0",
