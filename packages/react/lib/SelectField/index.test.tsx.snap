@@ -1080,6 +1080,463 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
 </div>
 `;
 
+exports[`<SelectField /> should allow to load more data on scroll: After scroll 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <input
+        placeholder="Type a name"
+        size="11"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
+      style="position: fixed; top: 10px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 4
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 5
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 6
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 7
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 8
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 9
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 10
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 11
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 12
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 13
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 14
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 15
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 16
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 17
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 18
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 19
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 20
+            </a>
+          </li>
+          <div
+            class="load-more"
+          >
+            <li
+              class="dropdown-item no-more-options"
+            >
+              🎉 No more options
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should allow to load more data on scroll: Before scroll 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <input
+        placeholder="Type a name"
+        size="11"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 4
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 5
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 6
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 7
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 8
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 9
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 10
+            </a>
+          </li>
+          <div
+            class="load-more"
+          />
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should allow to load more data on scroll: During scroll 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid searchable empty focused"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <input
+        placeholder="Type a name"
+        size="11"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu loading"
+      data-floating-ui-focusable=""
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 4
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 5
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 6
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 7
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 8
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 9
+            </a>
+          </li>
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 10
+            </a>
+          </li>
+          <div
+            class="load-more"
+          >
+            <li
+              class="dropdown-item loader"
+            >
+              <div
+                class="junipero spinner primary small"
+              />
+              Loading more options...
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<SelectField /> should allow to render without a placeholder 1`] = `
 <div>
   <div

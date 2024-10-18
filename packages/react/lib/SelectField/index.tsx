@@ -82,6 +82,10 @@ export declare interface SelectFieldProps extends Omit<
   toggleClick?: boolean;
   valid?: boolean;
   value?: any;
+  hasMore?: boolean;
+  loadingMoreLabel?: ReactNode | JSX.Element;
+  noMoreOptionsEnabled?: boolean;
+  noMoreOptionsLabel?: ReactNode | JSX.Element;
   animateMenu?(
     menu: ReactNode | JSX.Element,
     opts: {
@@ -98,6 +102,7 @@ export declare interface SelectFieldProps extends Omit<
     flags: { required: boolean; multiple: boolean }
   ): boolean;
   onSearch?(search: string): Promise<Array<SelectFieldValue>>;
+  onLoadMore?(page: number): Promise<void>;
   parseTitle?(
     option: SelectFieldValue | SelectFieldOptionObject | SelectFieldGroupObject,
     flags?: {
@@ -123,6 +128,8 @@ export declare interface SelectFieldState {
   searchResults: Array<SelectFieldValue>;
   selectedItem: number;
   placeholderSize: number;
+  page: number;
+  loading: boolean;
   refocus?: boolean;
 }
 
@@ -147,6 +154,10 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
   searchMinCharacters = 2,
   searchThreshold = 400,
   required = false,
+  hasMore = true,
+  loadingMoreLabel = 'Loading more options...',
+  noMoreOptionsEnabled = true,
+  noMoreOptionsLabel = '🎉 No more options',
   onChange,
   parseTitle = val => val?.toString?.(),
   parseValue = val => val,
@@ -160,10 +171,12 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
     !required
   ),
   onSearch,
+  onLoadMore,
   ...rest
 }, ref) => {
   const dropdownRef = useRef<DropdownRef>();
   const searchInputRef = useRef<HTMLInputElement>();
+  const loadMoreRef = useRef<HTMLDivElement>();
   const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer<
     StateReducer<SelectFieldState>
@@ -178,6 +191,8 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
     searchResults: null,
     selectedItem: -1,
     placeholderSize: Math.max(10, placeholder?.length ?? 0),
+    page: 1,
+    loading: false,
   });
 
   useImperativeHandle(ref, () => ({
@@ -206,6 +221,25 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
       valid: onValidate(parseValue(state.value), { required, multiple }),
     });
   }, [value, options]);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (onLoadMore && loadMoreRef.current) {
+      observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !state.loading) {
+          dispatch({ page: state.page + 1 });
+          loadMore(state.page + 1);
+        }
+      });
+
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      observer?.disconnect();
+    };
+  }, [onLoadMore, state.opened]);
 
   useLayoutEffect(() => {
     dispatch({ placeholderSize: Math.max(10, placeholder?.length ?? 0) });
@@ -448,6 +482,22 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
     updateControl?.({ dirty: false, valid: valid ?? false });
   };
 
+  const loadMore = async (page: number) => {
+    if (state.loading || !hasMore) {
+      return;
+    }
+
+    dispatch({ loading: true });
+
+    try {
+      await onLoadMore?.(page);
+    } catch (e) {
+      console.error(e);
+    }
+
+    dispatch({ loading: false });
+  };
+
   const filterOptions = (
     val?: string
   ): SelectFieldValue | SelectFieldOptionObject => {
@@ -610,10 +660,31 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
       { (hasOptions || state.searchResults?.length > 0 || noOptionsEnabled) && (
         <DropdownMenu
           animate={animateMenu}
-          className={classNames('select-menu', { searching: state.searching })}
+          className={classNames('select-menu', {
+            searching: state.searching,
+            loading: state.loading,
+          })}
         >
           <div className="content">
-            { hasOptions ? renderedOptions : (
+            { hasOptions ? (
+              <>
+                { renderedOptions }
+                { onLoadMore && (
+                  <div ref={loadMoreRef} className="load-more">
+                    { state.loading ? (
+                      <DropdownItem className="loader">
+                        <Spinner className="primary small" />
+                        { loadingMoreLabel}
+                      </DropdownItem>
+                    ) : !hasMore && noMoreOptionsEnabled && (
+                      <DropdownItem className="no-more-options">
+                        { noMoreOptionsLabel }
+                      </DropdownItem>
+                    ) }
+                  </div>
+                ) }
+              </>
+            ) : (
               <div className="no-options">{ noOptionsLabel }</div>
             ) }
           </div>
