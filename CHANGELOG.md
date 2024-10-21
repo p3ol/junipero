@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/p3ol/junipero/compare/v3.8.1...v3.9.0) (2024-10-21)
+
+
+### Bug Fixes
+
+* update various deps ([378b296](https://github.com/p3ol/junipero/commit/378b2965ec29553aabb51a2a3d8dcd11abe39fe1))
+* upgrade various deps ([92288dc](https://github.com/p3ol/junipero/commit/92288dcd922ed1254438594c52426b552a90b099))
+
+
+### Features
+
+* **react:** allow to load more data on select-field's scroll ([c7c9636](https://github.com/p3ol/junipero/commit/c7c9636cc7c91feaabba49cbb36613441b4c499f))
+
+
+
+
+
 ## [3.8.1](https://github.com/p3ol/junipero/compare/v3.8.0...v3.8.1) (2024-09-24)
 
 
