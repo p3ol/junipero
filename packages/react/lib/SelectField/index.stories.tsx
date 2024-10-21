@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { slideInDownMenu } from '@junipero/transitions';
 import { action } from '@storybook/addon-actions';
 
@@ -190,5 +190,36 @@ export const onAForm = () => {
       />
       <button type="submit">Submit</button>
     </form>
+  );
+};
+
+export const withPagination = () => {
+  const [options, setOptions] = useState(
+    Array.from({ length: 10 }).map((_, i) => `Item ${i + 1}`)
+  );
+  const [hasMore, setHasMore] = useState(true);
+
+  const onLoadMore = async (page: number) => {
+    action('onLoadMore')(page);
+
+    if (page <= 3) {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      setOptions(o => o.concat(
+        Array.from({ length: 10 }).map((_, i) => `Item ${i + o.length + 1}`)
+      ));
+    } else {
+      setHasMore(false);
+    }
+  };
+
+  return (
+    <SelectField
+      placeholder="Type a name"
+      options={options}
+      onChange={action('onChange')}
+      onLoadMore={onLoadMore}
+      hasMore={hasMore}
+    />
   );
 };
