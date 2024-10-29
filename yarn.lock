@@ -1100,7 +1100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@junipero/hooks@workspace:packages/hooks"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -1114,8 +1114,8 @@ __metadata:
     "@junipero/react": ^3.2.0
     "@junipero/theme": ^3.2.0
     d3: ^7.0.0
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -1127,8 +1127,8 @@ __metadata:
     "@junipero/core": "npm:^3.7.1"
     "@junipero/hooks": "npm:^3.7.0"
   peerDependencies:
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -1156,8 +1156,8 @@ __metadata:
     "@junipero/react": "workspace:*"
   peerDependencies:
     "@junipero/react": ^3.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -9781,7 +9781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -11697,15 +11697,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.3.1":
-  version: 18.3.1
-  resolution: "react-dom@npm:18.3.1"
+"react-dom@npm:19.0.0-rc-02c0e824-20241028":
+  version: 19.0.0-rc-02c0e824-20241028
+  resolution: "react-dom@npm:19.0.0-rc-02c0e824-20241028"
   dependencies:
-    loose-envify: "npm:^1.1.0"
-    scheduler: "npm:^0.23.2"
+    scheduler: "npm:0.25.0-rc-02c0e824-20241028"
   peerDependencies:
-    react: ^18.3.1
-  checksum: 10c0/a752496c1941f958f2e8ac56239172296fcddce1365ce45222d04a1947e0cc5547df3e8447f855a81d6d39f008d7c32eab43db3712077f09e3f67c4874973e85
+    react: 19.0.0-rc-02c0e824-20241028
+  checksum: 10c0/3c3d32edaac11ab0811cbd66e32368ddf59a5a35f2704296bda6bffed56845997068edbe3d65840b401e571ee02f4b03b5c1277fa026c9a3778dcc1344be11d7
   languageName: node
   linkType: hard
 
@@ -11751,12 +11750,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.3.1":
-  version: 18.3.1
-  resolution: "react@npm:18.3.1"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: 10c0/283e8c5efcf37802c9d1ce767f302dd569dd97a70d9bb8c7be79a789b9902451e0d16334b05d73299b20f048cbc3c7d288bbbde10b701fa194e2089c237dbea3
+"react@npm:19.0.0-rc-02c0e824-20241028":
+  version: 19.0.0-rc-02c0e824-20241028
+  resolution: "react@npm:19.0.0-rc-02c0e824-20241028"
+  checksum: 10c0/e19a6b9310d76cbb9afcbc1de130890070a9dd0abf9de8bc66861488d3273d76f617bf8acebd5117f4b617a4d034c9175fec5accdbc94053eb37e0616531f23a
   languageName: node
   linkType: hard
 
@@ -12248,8 +12245,8 @@ __metadata:
     lerna: "npm:8.1.8"
     postcss: "npm:8.4.47"
     postcss-loader: "npm:8.1.1"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
+    react: "npm:19.0.0-rc-02c0e824-20241028"
+    react-dom: "npm:19.0.0-rc-02c0e824-20241028"
     rollup: "npm:4.24.2"
     sass: "npm:1.80.4"
     sass-loader: "npm:16.0.2"
@@ -12385,12 +12382,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "scheduler@npm:0.23.2"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: 10c0/26383305e249651d4c58e6705d5f8425f153211aef95f15161c151f7b8de885f24751b377e4a0b3dd42cce09aad3f87a61dab7636859c0d89b7daf1a1e2a5c78
+"scheduler@npm:0.25.0-rc-02c0e824-20241028":
+  version: 0.25.0-rc-02c0e824-20241028
+  resolution: "scheduler@npm:0.25.0-rc-02c0e824-20241028"
+  checksum: 10c0/bb05dfd4946b70b5dcbf455c37a20e3e3a0df42a5bf1bb15ca6a8c9735b8bdbba05986bc2a9858251ac49751f6859ae6972d172bea0e9eefdf7228300d0a2b76
   languageName: node
   linkType: hard
 
