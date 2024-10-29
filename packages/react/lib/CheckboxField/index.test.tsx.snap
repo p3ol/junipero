@@ -180,7 +180,6 @@ exports[`<CheckboxField /> should set checked if provided 1`] = `
       checked=""
       tabindex="-1"
       type="checkbox"
-      value=""
     />
     <div
       class="inner"

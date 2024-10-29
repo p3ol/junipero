@@ -200,7 +200,6 @@ exports[`<Toggle /> should render 1`] = `
     <input
       tabindex="-1"
       type="checkbox"
-      value=""
     />
     <div
       class="inner"
@@ -222,7 +221,6 @@ exports[`<Toggle /> should render with children 1`] = `
     <input
       tabindex="-1"
       type="checkbox"
-      value=""
     />
     <div
       class="inner"
@@ -250,7 +248,6 @@ exports[`<Toggle /> should set disabled class if toggle is disabled 1`] = `
       disabled=""
       tabindex="-1"
       type="checkbox"
-      value=""
     />
     <div
       class="inner"
