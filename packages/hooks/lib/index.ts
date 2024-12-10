@@ -1,11 +1,22 @@
-import { useRef, useEffect, useLayoutEffect } from 'react';
+import {
+  type EffectCallback,
+  type DependencyList,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+} from 'react';
+
+export declare interface UseEventListenerOptions {
+  target?: Element | Document | Window | typeof globalThis;
+  enabled?: boolean;
+}
 
 export const useEventListener = (
   name: string,
   handler: (e: any) => any,
-  { target = globalThis, enabled }: {target?: any, enabled?: boolean} = {}
+  { target = globalThis, enabled }: UseEventListenerOptions = {}
 ) => {
-  const savedHandler = useRef<any>();
+  const savedHandler = useRef<typeof handler>(null);
 
   useEffect(() => {
     savedHandler.current = handler;
@@ -27,19 +38,21 @@ export const useEventListener = (
   }, [name, target, enabled]);
 };
 
+export declare interface UseIntervalOptions {
+  enabled?: boolean;
+  layoutEffect?: boolean;
+}
+
 export const useInterval = (
-  cb: () => void,
+  cb: EffectCallback,
   time: number,
-  changes: Array<any> = [],
+  changes: DependencyList = [],
   {
     enabled = true,
     layoutEffect = false,
-  }: {
-    enabled?: boolean,
-    layoutEffect?: boolean
-  } = {}
+  }: UseIntervalOptions = {}
 ) => {
-  const returnedCallbackRef = useRef<any>();
+  const returnedCallbackRef = useRef<ReturnType<EffectCallback>>(null);
 
   (layoutEffect ? useLayoutEffect : useEffect)(() => {
     if (!enabled) {
@@ -52,24 +65,28 @@ export const useInterval = (
 
     return () => {
       clearInterval(interval);
-      returnedCallbackRef.current?.();
+      (
+        returnedCallbackRef.current as Exclude<ReturnType<EffectCallback>, void>
+      )?.();
     };
   }, changes);
 };
 
+export declare interface UseTimeoutOptions {
+  enabled?: boolean;
+  layoutEffect?: boolean;
+}
+
 export const useTimeout = (
-  cb: () => void,
+  cb: EffectCallback,
   time: number,
-  changes: Array<any> = [],
+  changes: DependencyList = [],
   {
     enabled = true,
     layoutEffect = false,
-  }: {
-    enabled?: boolean,
-    layoutEffect?: boolean
-  } = {}
+  }: UseTimeoutOptions = {}
 ) => {
-  const returnedCallbackRef = useRef<any>();
+  const returnedCallbackRef = useRef<ReturnType<EffectCallback>>(null);
 
   (layoutEffect ? useLayoutEffect : useEffect)(() => {
     if (!enabled) {
@@ -82,19 +99,23 @@ export const useTimeout = (
 
     return () => {
       clearTimeout(timeout);
-      returnedCallbackRef.current?.();
+      (
+        returnedCallbackRef.current as Exclude<ReturnType<EffectCallback>, void>
+      )?.();
     };
   }, changes);
 };
 
+interface UseAfterMountOptions {
+  layoutEffect?: boolean;
+}
+
 const useAfterMount = (
-  cb: () => void,
-  changes: Array<any> = [],
+  cb: EffectCallback,
+  changes: DependencyList = [],
   {
     layoutEffect = false,
-  }: {
-    layoutEffect?: boolean
-  } = {}
+  }: UseAfterMountOptions = {}
 ) => {
   const mounted = useRef(false);
 
@@ -109,10 +130,12 @@ const useAfterMount = (
   }, changes);
 };
 
-export const useEffectAfterMount = (cb: () => void, changes: Array<any> = []) =>
-  useAfterMount(cb, changes);
+export const useEffectAfterMount = (
+  cb: EffectCallback,
+  changes: DependencyList = [],
+) => useAfterMount(cb, changes);
 
 export const useLayoutEffectAfterMount = (
-  cb: () => void,
-  changes: Array<any> = []
+  cb: EffectCallback,
+  changes: DependencyList = []
 ) => useAfterMount(cb, changes, { layoutEffect: true });
