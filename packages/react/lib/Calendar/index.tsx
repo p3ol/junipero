@@ -1,8 +1,6 @@
 import {
-  type ComponentPropsWithoutRef,
-  type MutableRefObject,
+  type RefObject,
   type MouseEvent,
-  forwardRef,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -12,7 +10,6 @@ import {
 import {
   type FixedArray,
   classNames,
-  mockState,
   exists,
   startOfMonth,
   subMonths,
@@ -20,16 +17,17 @@ import {
   getDaysInMonth,
 } from '@junipero/core';
 
-import type { StateReducer, JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
+import { mockState } from '../utils';
 import { ArrowLeft, ArrowRight } from '../icons';
 
 export declare interface CalendarRef extends JuniperoRef {
   value: Date;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
 export declare interface CalendarProps extends Omit<
-  ComponentPropsWithoutRef<'div'>, 'onSelect'
+  SpecialComponentPropsWithRef<'div', CalendarRef>, 'onSelect'
 > {
   active?: Date;
   disabled?: boolean;
@@ -44,7 +42,8 @@ export declare interface CalendarState {
   value: Date;
 }
 
-const Calendar = forwardRef<CalendarRef, CalendarProps>(({
+const Calendar = ({
+  ref,
   className,
   active,
   max,
@@ -55,11 +54,9 @@ const Calendar = forwardRef<CalendarRef, CalendarProps>(({
   weekDaysNames = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
   onSelect,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
-  const [state, dispatch] = useReducer<
-    StateReducer<CalendarState>
-  >(mockState, {
+}: CalendarProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [state, dispatch] = useReducer(mockState<CalendarState>, {
     value: active ?? new Date(),
   });
 
@@ -254,7 +251,7 @@ const Calendar = forwardRef<CalendarRef, CalendarProps>(({
       </div>
     </div>
   );
-});
+};
 
 Calendar.displayName = 'Calendar';
 

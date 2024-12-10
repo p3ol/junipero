@@ -1,5 +1,5 @@
-import Button from '.';
 import Spinner from '../Spinner';
+import Button from '.';
 
 export default { title: 'react/Button' };
 

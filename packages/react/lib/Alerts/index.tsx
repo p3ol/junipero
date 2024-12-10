@@ -1,21 +1,19 @@
 import {
-  type ComponentPropsWithoutRef,
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames, omit } from '@junipero/core';
 
-import type { JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { TransitionProps } from '../Transition';
 import { useAlerts } from '../hooks';
 import Alert, { type AlertObject } from '../Alert';
 
 export declare interface AlertsRef extends JuniperoRef {
   alerts: Array<AlertObject>;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
 export declare type AlertsTypes =
@@ -25,28 +23,30 @@ export declare type AlertsTypes =
   | 'success'
   | 'warning';
 
-export declare interface AlertsProps extends ComponentPropsWithoutRef<'div'> {
+export declare interface AlertsProps
+  extends SpecialComponentPropsWithRef<'div', AlertsRef> {
   animationTimeout?: number;
   icons?: {
-    [type in AlertsTypes]?: ReactNode | JSX.Element;
+    [type in AlertsTypes]?: ReactNode;
   };
   animateAlert?(
-    alert: ReactNode | JSX.Element,
+    alert: ReactNode,
     opts: {
       opened: boolean;
       index: string | number;
     } & Partial<TransitionProps>,
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
 }
 
-const Alerts = forwardRef<AlertsRef, AlertsProps>(({
+const Alerts = ({
+  ref,
   className,
   animateAlert,
   animationTimeout,
   icons,
   ...rest
-}: AlertsProps, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
+}: AlertsProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
   const { alerts, dismiss } = useAlerts();
 
   useImperativeHandle(ref, () => ({
@@ -88,7 +88,7 @@ const Alerts = forwardRef<AlertsRef, AlertsProps>(({
       )) }
     </div>
   );
-});
+};
 
 Alerts.displayName = 'Alerts';
 

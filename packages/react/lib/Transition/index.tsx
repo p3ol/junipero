@@ -1,4 +1,6 @@
 import {
+  type ComponentPropsWithoutRef,
+  type ReactElement,
   Children,
   cloneElement,
   useState,
@@ -7,8 +9,6 @@ import {
 } from 'react';
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
-
-import type { SpecialComponentPropsWithoutRef } from '../types';
 
 export const TRANSITION_STATE_UNMOUNTED = 'unmounted';
 export const TRANSITION_STATE_ENTER = 'enter';
@@ -24,7 +24,7 @@ export declare interface TransitionTimeoutObject {
 }
 
 export declare interface TransitionProps
-  extends SpecialComponentPropsWithoutRef {
+  extends ComponentPropsWithoutRef<any> {
   in: boolean;
   mounterOnEnter?: boolean;
   name?: string;
@@ -108,13 +108,14 @@ const Transition = ({
     )
   ), [status, step]);
 
-  const child = Children.only(children);
+  const child = Children
+    .only<ReactElement<ComponentPropsWithoutRef<any>>>(children);
 
   return status !== TRANSITION_STATE_UNMOUNTED && (
     !unmountOnExit || mountOnEnter
-  ) ? cloneElement(child as JSX.Element, {
+  ) ? cloneElement(child, {
       className: classNames(
-        (child as JSX.Element).props?.className, getClassName()
+        child.props?.className, getClassName()
       ),
       ...rest,
     }) : null;

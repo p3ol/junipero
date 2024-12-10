@@ -37,7 +37,7 @@ export const animatedButStillInDom = () => (
 
 export const manuallyUpdate = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  const tooltipRef = useRef<TooltipRef>();
+  const tooltipRef = useRef<TooltipRef>(null);
 
   const handleMouseMove = (e: MouseEvent) => {
     setPos({ x: e.pageX, y: e.pageY });

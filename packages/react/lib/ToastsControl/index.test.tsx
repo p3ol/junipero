@@ -46,7 +46,7 @@ describe('useToasts()', () => {
   });
 
   it('should set first state from props', () => {
-    const wrapper = ({ children }: { children: ReactNode | JSX.Element }) => (
+    const wrapper = ({ children }: { children: ReactNode }) => (
       <ToastsControl
         toasts={[{ content: '1' }, { content: '2' }, { content: '3' }]}
       >

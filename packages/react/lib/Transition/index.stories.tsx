@@ -1,16 +1,21 @@
 import { useReducer } from 'react';
-import { mockState } from '@junipero/core';
 
+import type { FieldContent } from '../types';
+import { mockState } from '../utils';
 import Button from '../Button';
 import Label from '../Label';
 import TextField from '../TextField';
 import Transition from '.';
-import { FieldContent } from '../types';
 
 export default { title: 'react/Transition' };
 
+type State = {
+  enabled?: boolean;
+  timeout?: number;
+};
+
 export const basic = () => {
-  const [state, dispatch] = useReducer(mockState, {
+  const [state, dispatch] = useReducer(mockState<State>, {
     enabled: false,
     timeout: 100,
   });

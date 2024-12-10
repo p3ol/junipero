@@ -1,5 +1,5 @@
 import type { ExtendedRefs, Strategy } from '@floating-ui/react';
-import { type Dispatch, createContext } from 'react';
+import { type Dispatch, type ReactElement, createContext } from 'react';
 
 import type { AlertObject } from './Alert';
 import type { ToastObject } from './Toast';
@@ -15,7 +15,7 @@ export type AlertsContextType = {
 export type DropdownContextType = {
   opened?: boolean;
   visible?: boolean;
-  container?: string | JSX.Element | DocumentFragment | HTMLElement;
+  container?: string | ReactElement | DocumentFragment | HTMLElement;
   x?: number;
   y?: number;
   refs?: ExtendedRefs<any>;

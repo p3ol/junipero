@@ -1,26 +1,30 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithRef,
-  forwardRef,
+  type RefObject,
   useImperativeHandle,
   useRef,
   useEffect,
   useMemo,
   useState,
 } from 'react';
-import { type JuniperoRef, classNames, startOfDay } from '@junipero/react';
+import {
+  type JuniperoRef,
+  type SpecialComponentPropsWithRef,
+  classNames,
+  startOfDay,
+} from '@junipero/react';
 import * as d3 from 'd3';
 
 import { useChart } from '../hooks';
 
 export declare interface CurveRef extends JuniperoRef {
-  innerRef: MutableRefObject<SVGGElement>;
-  defsRef: MutableRefObject<SVGDefsElement>;
-  lineRef: MutableRefObject<SVGPathElement>;
-  areaRef: MutableRefObject<SVGPathElement>;
+  innerRef: RefObject<SVGGElement>;
+  defsRef: RefObject<SVGDefsElement>;
+  lineRef: RefObject<SVGPathElement>;
+  areaRef: RefObject<SVGPathElement>;
 }
 
-export declare interface CurveProps extends ComponentPropsWithRef<'g'> {
+export declare interface CurveProps
+  extends SpecialComponentPropsWithRef<'g', CurveRef> {
   serie?: Array<number | Date>;
   type?: 'line' | 'area';
   curve?: d3.CurveFactory;
@@ -29,7 +33,8 @@ export declare interface CurveProps extends ComponentPropsWithRef<'g'> {
   lineCapShift?: number;
 }
 
-const Curve = forwardRef<CurveRef, CurveProps>(({
+const Curve = ({
+  ref,
   serie,
   className,
   type = 'line',
@@ -38,11 +43,11 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
   yAxisIndex,
   lineCapShift = 0,
   ...rest
-}, ref) => {
-  const innerRef = useRef<SVGGElement>();
-  const defsRef = useRef<SVGDefsElement>();
-  const lineRef = useRef<SVGPathElement>();
-  const areaRef = useRef<SVGPathElement>();
+}: CurveProps) => {
+  const innerRef = useRef<SVGGElement>(null);
+  const defsRef = useRef<SVGDefsElement>(null);
+  const lineRef = useRef<SVGPathElement>(null);
+  const areaRef = useRef<SVGPathElement>(null);
   const [selected, setSelected] = useState(null);
   const {
     axis,
@@ -206,7 +211,7 @@ const Curve = forwardRef<CurveRef, CurveProps>(({
       ) }
     </g>
   );
-});
+};
 
 Curve.displayName = 'Curve';
 

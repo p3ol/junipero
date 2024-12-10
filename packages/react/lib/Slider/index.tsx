@@ -1,10 +1,8 @@
 import {
-  type ComponentPropsWithoutRef,
   type KeyboardEvent,
   type MouseEvent,
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
-  forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
@@ -12,14 +10,14 @@ import {
 } from 'react';
 import {
   classNames,
-  mockState,
   getFloatPrecision,
   ensureMinMax,
 } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
 
-import type { JuniperoRef, StateReducer } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { TransitionProps } from '../Transition';
+import { mockState } from '../utils';
 import Tooltip, { type TooltipRef } from '../Tooltip';
 
 export declare interface SliderRef extends JuniperoRef {
@@ -27,14 +25,15 @@ export declare interface SliderRef extends JuniperoRef {
   precision: number;
   value: number;
   reset: () => void;
-  fillRef: MutableRefObject<HTMLDivElement>;
-  handleRef: MutableRefObject<HTMLDivElement>;
-  innerRef: MutableRefObject<HTMLDivElement>;
-  slideRef: MutableRefObject<HTMLDivElement>;
-  tooltipRef: MutableRefObject<TooltipRef>;
+  fillRef: RefObject<HTMLDivElement>;
+  handleRef: RefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
+  slideRef: RefObject<HTMLDivElement>;
+  tooltipRef: RefObject<TooltipRef>;
 }
 
-export declare interface SliderProps extends ComponentPropsWithoutRef<'div'> {
+export declare interface SliderProps
+  extends SpecialComponentPropsWithRef<'div', SliderRef> {
   disabled?: boolean;
   globalEventsTarget?: EventTarget;
   max?: number;
@@ -45,13 +44,13 @@ export declare interface SliderProps extends ComponentPropsWithoutRef<'div'> {
   tooltipEnabled?: boolean;
   value?: number;
   animateTooltip?(
-    tooltip: ReactNode | JSX.Element,
+    tooltip: ReactNode,
     opts: {
       opened: boolean;
     } & Partial<TransitionProps>
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onMove?(value: number): void;
-  parseTitle?(value: number): ReactNode | JSX.Element;
+  parseTitle?(value: number): ReactNode;
 }
 
 export declare interface SliderState {
@@ -60,7 +59,8 @@ export declare interface SliderState {
   moving: boolean;
 }
 
-const Slider = forwardRef<SliderRef, SliderProps>(({
+const Slider = ({
+  ref,
   className,
   value = 0,
   disabled = false,
@@ -76,13 +76,13 @@ const Slider = forwardRef<SliderRef, SliderProps>(({
   onMouseDown,
   parseTitle = v => v,
   ...rest
-}: SliderProps, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
-  const fillRef = useRef<HTMLDivElement>();
-  const handleRef = useRef<HTMLDivElement>();
-  const slideRef = useRef<HTMLDivElement>();
-  const tooltipRef = useRef<TooltipRef>();
-  const [state, dispatch] = useReducer<StateReducer<SliderState>>(mockState, {
+}: SliderProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
+  const fillRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
+  const slideRef = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<TooltipRef>(null);
+  const [state, dispatch] = useReducer(mockState<SliderState>, {
     value: parseFloat(
       ensureMinMax(Math.round(value / step) * step, minValue, maxValue
       ).toFixed(getFloatPrecision(step))),
@@ -240,7 +240,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(({
       </Tooltip>
     </div>
   );
-});
+};
 
 Slider.displayName = 'Slider';
 

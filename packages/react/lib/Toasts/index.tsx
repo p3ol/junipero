@@ -1,41 +1,41 @@
 import {
-  type ComponentPropsWithoutRef,
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames, omit } from '@junipero/core';
 
-import type { JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { TransitionProps } from '../Transition';
 import { useToasts } from '../hooks';
 import Toast, { type ToastObject } from '../Toast';
 
 export declare interface ToastsRef extends JuniperoRef {
   toasts: Array<ToastObject>;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
-export declare interface ToastsProps extends ComponentPropsWithoutRef<'div'> {
+export declare interface ToastsProps
+  extends SpecialComponentPropsWithRef<'div', ToastsRef> {
   animationTimeout?: number;
   animateToast?(
-    toast: ReactNode | JSX.Element,
+    toast: ReactNode,
     opts: {
       opened: boolean;
       index: string | number
     } & Partial<TransitionProps>,
-  ): JSX.Element| ReactNode;
+  ): ReactNode;
 }
 
-const Toasts = forwardRef<ToastsRef, ToastsProps>(({
+const Toasts = ({
+  ref,
   className,
-  animateToast,
   animationTimeout,
+  animateToast,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
+}: ToastsProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
   const { toasts, dismiss } = useToasts();
 
   useImperativeHandle(ref, () => ({
@@ -73,7 +73,7 @@ const Toasts = forwardRef<ToastsRef, ToastsProps>(({
       )) }
     </div>
   );
-});
+};
 
 Toasts.displayName = 'Toasts';
 

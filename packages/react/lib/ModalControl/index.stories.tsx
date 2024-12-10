@@ -2,8 +2,8 @@ import { useRef } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { useModal } from '../hooks';
+import Modal, { type ModalRef } from '../Modal';
 import Button from '../Button';
-import Modal from '../Modal';
 import ModalControl from './index';
 
 export default { title: 'react/ModalControl' };
@@ -19,7 +19,7 @@ const Comp = () => {
 };
 
 export const basic = () => {
-  const modalRef = useRef();
+  const modalRef = useRef<ModalRef>(null);
 
   return (
     <ModalControl>

@@ -1,20 +1,20 @@
 import {
   type DragEvent,
-  type MutableRefObject,
+  type ComponentPropsWithoutRef,
+  type RefObject,
+  type ReactElement,
   Children,
   cloneElement,
-  forwardRef,
   useState,
 } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
-import type { SpecialComponentPropsWithoutRef } from '../types';
-
-export declare interface DraggableRef extends MutableRefObject<any> {}
+export declare type DraggableRef = any;
 
 export declare interface DraggableProps
-  extends SpecialComponentPropsWithoutRef {
+  extends ComponentPropsWithoutRef<any> {
+  ref?: RefObject<DraggableRef>;
   data?: any;
   disabled?: boolean;
   dragImage?: Element;
@@ -25,7 +25,8 @@ export declare interface DraggableProps
   onDragEnd?(e: DragEvent): void;
 }
 
-const Draggable = forwardRef<DraggableRef, DraggableProps>(({
+const Draggable = ({
+  ref,
   className,
   children,
   dragImage,
@@ -37,7 +38,7 @@ const Draggable = forwardRef<DraggableRef, DraggableProps>(({
   onDragStart,
   onDragEnd,
   ...rest
-}, ref) => {
+}: DraggableProps) => {
   const [dragged, setDragged] = useState(false);
   const [dragAnimation, setDragAnimation] = useState(false);
 
@@ -90,14 +91,15 @@ const Draggable = forwardRef<DraggableRef, DraggableProps>(({
     onDrag?.(e);
   };
 
-  const child = Children.only(children);
+  const child = Children
+    .only<ReactElement<ComponentPropsWithoutRef<any>>>(children);
 
-  return cloneElement(child as JSX.Element, {
+  return cloneElement(child, {
     ...rest,
     ref,
     className: classNames(
       className,
-      (child as JSX.Element).props?.className,
+      child.props?.className,
       {
         dragging: !disabled && dragAnimation,
         dragged: !disabled && dragged,
@@ -109,7 +111,7 @@ const Draggable = forwardRef<DraggableRef, DraggableProps>(({
     onDrag: onDrag_,
     onDragEnd: onDragEnd_,
   });
-});
+};
 
 Draggable.displayName = 'Draggable';
 

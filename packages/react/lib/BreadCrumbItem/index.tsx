@@ -1,40 +1,36 @@
 import {
   type ElementType,
-  type MutableRefObject,
   type ReactNode,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
 
-export declare interface BreadCrumbItemRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
-}
+export declare interface BreadCrumbItemRef extends JuniperoRef {}
 
 export declare interface BreadCrumbItemProps
-  extends SpecialComponentPropsWithoutRef {
-  tag?: string | ElementType;
+  extends SpecialComponentPropsWithRef<any, BreadCrumbItemRef> {
+  tag?: ElementType;
   animate?(
-    item: ReactNode | JSX.Element,
+    item: ReactNode,
     opts?: Partial<TransitionProps>,
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
 }
 
-const BreadCrumbItem = forwardRef<BreadCrumbItemRef, BreadCrumbItemProps>(({
-  animate,
+const BreadCrumbItem = ({
+  ref,
   className,
   tag: Tag = 'span',
+  animate,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: BreadCrumbItemProps) => {
+  const innerRef = useRef<HTMLElement>(null);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -53,7 +49,7 @@ const BreadCrumbItem = forwardRef<BreadCrumbItemRef, BreadCrumbItemProps>(({
   );
 
   return animate ? animate(rendered) : rendered;
-}) as ForwardedProps<BreadCrumbItemRef, BreadCrumbItemProps>;
+};
 
 BreadCrumbItem.displayName = 'BreadCrumbItem';
 

@@ -1,4 +1,4 @@
-import { ReactElement, createRef } from 'react';
+import { createRef } from 'react';
 import { render } from '@testing-library/react';
 
 import Badge, { BadgeRef } from './index';

@@ -1,8 +1,6 @@
 import {
-  type ComponentPropsWithoutRef,
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
-  forwardRef,
   useRef,
   useImperativeHandle,
 } from 'react';
@@ -10,33 +8,33 @@ import { classNames, ensureNode } from '@junipero/core';
 import { createPortal } from 'react-dom';
 
 import type { TransitionProps } from '../Transition';
-import type { JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { useDropdown } from '../hooks';
 
 export declare interface DropdownMenuRef extends JuniperoRef {
-  isJunipero: boolean;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
 export declare interface DropdownMenuProps
-  extends ComponentPropsWithoutRef<'div'> {
+  extends SpecialComponentPropsWithRef<'div', DropdownMenuRef> {
   apparition?: string;
   animate?(
-    menu: ReactNode | JSX.Element,
+    menu: ReactNode,
     opts: {
       opened: boolean;
     } & Partial<TransitionProps>
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
 }
 
-export const DropdownMenu = forwardRef<DropdownMenuRef, DropdownMenuProps>(({
-  animate,
+export const DropdownMenu = ({
+  ref,
   apparition,
   children,
   className,
+  animate,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
+}: DropdownMenuProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
   const {
     x,
     y,
@@ -91,7 +89,7 @@ export const DropdownMenu = forwardRef<DropdownMenuRef, DropdownMenuProps>(({
     ? container ? createPortal(content, ensureNode(container))
       : content
     : null;
-});
+};
 
 DropdownMenu.displayName = 'DropdownMenu';
 

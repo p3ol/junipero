@@ -7,7 +7,7 @@ import {
 } from 'react';
 
 export declare interface UseEventListenerOptions {
-  target?: Element | Document | Window | typeof globalThis;
+  target?: EventTarget;
   enabled?: boolean;
 }
 

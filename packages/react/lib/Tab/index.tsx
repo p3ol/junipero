@@ -1,41 +1,38 @@
 import {
   type ReactNode,
-  type MutableRefObject,
   type ElementType,
-  forwardRef,
   useRef,
   useImperativeHandle,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 
 export declare interface TabObject {
-  title: ReactNode | JSX.Element;
-  content: ReactNode | JSX.Element;
+  title: ReactNode;
+  content: ReactNode;
   props?: { disabled?: boolean };
 }
 
-export declare interface TabRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
+export declare interface TabRef extends JuniperoRef {}
+
+export declare interface TabProps
+  extends SpecialComponentPropsWithRef<any, TabRef> {
+  tag?: ElementType;
+  title?: ReactNode;
 }
 
-export declare interface TabProps extends SpecialComponentPropsWithoutRef {
-  tag?: string | ElementType;
-  title?: JSX.Element | ReactNode;
-}
-
-const Tab = forwardRef<TabRef, TabProps>(({
+const Tab = ({
+  ref,
   className,
-  tag: Tag = 'div',
   title: _,
+  tag: Tag = 'div',
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: TabProps) => {
+  const innerRef = useRef<HTMLElement>(null);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -52,7 +49,7 @@ const Tab = forwardRef<TabRef, TabProps>(({
       ref={innerRef}
     />
   );
-}) as ForwardedProps<TabRef, TabProps>;
+};
 
 Tab.displayName = 'Tab';
 

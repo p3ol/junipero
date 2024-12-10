@@ -1,7 +1,5 @@
 import {
-  type ComponentPropsWithRef,
-  type MutableRefObject,
-  forwardRef,
+  type RefObject,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -11,7 +9,7 @@ import {
 } from 'react';
 import {
   type JuniperoRef,
-  type StateReducer,
+  type SpecialComponentPropsWithRef,
   classNames,
   mockState,
   useEventListener,
@@ -24,11 +22,12 @@ import { type ChartContextType, ChartContext } from '../contexts';
 import Axis, { type AxisObject } from '../Axis';
 
 export declare interface ChartRef extends JuniperoRef {
-  innerRef: MutableRefObject<SVGSVGElement>;
+  innerRef: RefObject<SVGSVGElement>;
   axis: Array<AxisObject>;
 }
 
-export declare interface ChartProps extends ComponentPropsWithRef<'svg'> {
+export declare interface ChartProps
+  extends SpecialComponentPropsWithRef<'svg', ChartRef> {
   axis: Array<AxisObject>;
   redrawThreshold?: number;
   linearDomainMaxMargin?: number;
@@ -46,21 +45,20 @@ export declare interface ChartState {
   cursor?: { x: number, y: number };
 }
 
-const Chart = forwardRef<ChartRef, ChartProps>(({
+const Chart = ({
+  ref,
   children,
   className,
-  redrawThreshold = 10,
   axis: axisProp,
+  redrawThreshold = 10,
   linearDomainMaxMargin = 1.3,
   bandDomainInnerPadding = 0.2,
   bandDomainOuterPadding = 0.1,
   ...rest
-}, ref) => {
-  const innerRef = useRef<SVGSVGElement>();
-  const resizeTimerRef = useRef<NodeJS.Timeout>();
-  const [state, dispatch] = useReducer<
-    StateReducer<ChartState>
-  >(mockState, {
+}: ChartProps) => {
+  const innerRef = useRef<SVGSVGElement>(null);
+  const resizeTimerRef = useRef<NodeJS.Timeout>(null);
+  const [state, dispatch] = useReducer(mockState<ChartState>, {
     width: 0,
     height: 0,
     paddingLeft: 0,
@@ -230,7 +228,7 @@ const Chart = forwardRef<ChartRef, ChartProps>(({
       </svg>
     </ChartContext.Provider>
   );
-});
+};
 
 Chart.displayName = 'Chart';
 

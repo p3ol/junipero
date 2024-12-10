@@ -1,12 +1,10 @@
 import {
-  type ComponentPropsWithoutRef,
-  forwardRef,
   useCallback,
   useImperativeHandle,
   useState,
 } from 'react';
 
-import type { JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { AlertObject } from '../Alert';
 import { type AlertsContextType, AlertsContext } from '../contexts';
 
@@ -17,17 +15,22 @@ export declare interface AlertsControlRef extends JuniperoRef {
 }
 
 export declare interface AlertsControlProps extends Omit<
-  ComponentPropsWithoutRef<typeof AlertsContext.Provider>, 'value'
+  SpecialComponentPropsWithRef<
+    typeof AlertsContext.Provider,
+    AlertsControlRef
+  >,
+  'value'
 > {
   alerts?: AlertObject[];
   generateId?: (alert: AlertObject) => string | number;
 }
 
-const AlertsControl = forwardRef<AlertsControlRef, AlertsControlProps>(({
+const AlertsControl = ({
+  ref,
   alerts: alertsProp,
   generateId,
   ...rest
-}, ref) => {
+}: AlertsControlProps) => {
   const [alerts, setAlerts] = useState<AlertObject[]>(alertsProp || []);
 
   useImperativeHandle(ref, () => ({
@@ -57,7 +60,7 @@ const AlertsControl = forwardRef<AlertsControlRef, AlertsControlProps>(({
   return (
     <AlertsContext.Provider { ...rest } value={getContext()} />
   );
-});
+};
 
 AlertsControl.displayName = 'AlertsControl';
 

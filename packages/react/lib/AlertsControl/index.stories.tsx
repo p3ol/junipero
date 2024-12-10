@@ -1,5 +1,5 @@
-import { slideInDownMenu } from '@junipero/transitions';
 import { useRef } from 'react';
+import { slideInDownMenu } from '@junipero/transitions';
 
 import { useAlerts } from '../hooks';
 import Alerts, { type AlertsRef } from '../Alerts';
@@ -11,7 +11,7 @@ const icon = <i className="material-icons">info</i>;
 
 const Comp = () => {
   const { add } = useAlerts();
-  const ref = useRef<AlertsRef>();
+  const ref = useRef<AlertsRef>(null);
 
   return (
     <>

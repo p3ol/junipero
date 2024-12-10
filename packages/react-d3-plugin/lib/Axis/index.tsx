@@ -1,17 +1,19 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithRef,
-  forwardRef,
+  type RefObject,
   useImperativeHandle,
   useRef,
   useEffect,
   useMemo,
 } from 'react';
-import { type JuniperoRef, classNames } from '@junipero/react';
+import {
+  type JuniperoRef,
+  type SpecialComponentPropsWithRef,
+  classNames,
+} from '@junipero/react';
 import * as d3 from 'd3';
 
-import { useChart } from '../hooks';
 import { getAxisType, getAxisFunction } from '../utils';
+import { useChart } from '../hooks';
 
 export declare type AxisDataType = Array<
   | string
@@ -47,23 +49,25 @@ export declare interface AxisObject<T = AxisDataType> {
 }
 
 export declare interface AxisRef extends JuniperoRef {
-  innerRef: MutableRefObject<SVGGElement>;
-  gridRef: MutableRefObject<SVGGElement>;
-  ticksRef: MutableRefObject<SVGGElement>;
+  innerRef: RefObject<SVGGElement>;
+  gridRef: RefObject<SVGGElement>;
+  ticksRef: RefObject<SVGGElement>;
 }
 
-export declare interface AxisProps extends ComponentPropsWithRef<'g'> {
+export declare interface AxisProps
+  extends SpecialComponentPropsWithRef<'g', AxisRef> {
   axis: AxisObject;
 }
 
-const Axis = forwardRef<AxisRef, AxisProps>(({
+const Axis = ({
+  ref,
   className,
   axis,
   ...rest
-}, ref) => {
-  const innerRef = useRef<SVGGElement>();
-  const ticksRef = useRef<SVGGElement>();
-  const gridRef = useRef<SVGGElement>();
+}: AxisProps) => {
+  const innerRef = useRef<SVGGElement>(null);
+  const ticksRef = useRef<SVGGElement>(null);
+  const gridRef = useRef<SVGGElement>(null);
   const {
     width,
     height,
@@ -159,7 +163,7 @@ const Axis = forwardRef<AxisRef, AxisProps>(({
       ) }
     </g>
   );
-});
+};
 
 Axis.displayName = 'Axis';
 

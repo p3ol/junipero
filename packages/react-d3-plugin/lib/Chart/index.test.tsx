@@ -1,5 +1,4 @@
 import { cleanup, render } from '@testing-library/react';
-import * as d3 from 'd3';
 
 import Curve from '../Curve';
 import Marker from '../Marker';

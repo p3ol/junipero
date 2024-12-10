@@ -1,9 +1,7 @@
 import {
   type ReactNode,
   type ElementType,
-  type MutableRefObject,
   type MouseEvent,
-  forwardRef,
   useState,
   useImperativeHandle,
   useRef,
@@ -12,9 +10,8 @@ import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
 
@@ -22,57 +19,59 @@ export declare interface ToastRef extends JuniperoRef {
   enabled: boolean;
   paused: boolean;
   remaining: number;
-  innerRef: MutableRefObject<HTMLElement>;
 }
 
 export declare interface ToastObject {
   animationTimeout?: number;
-  content?: ReactNode | JSX.Element;
+  content?: ReactNode;
   duration?: number;
   index?: string | number;
   lifespan?: number;
   animate?(
-    alert: ReactNode | JSX.Element,
+    alert: ReactNode,
     opts: {
       opened: boolean;
       index: string | number;
     } & Partial<TransitionProps>,
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onDismiss?(index?: string | number): any;
 }
 
-export declare interface ToastProps extends SpecialComponentPropsWithoutRef {
+export declare interface ToastProps
+  extends SpecialComponentPropsWithRef<'div', ToastRef> {
   animationTimeout?: number;
   index?: string | number;
   lifespan?: number;
+  pausable?: boolean;
   tag?: string | ElementType;
   animate?(
-    alert: ReactNode | JSX.Element,
+    alert: ReactNode,
     opts?: {
       opened: boolean;
       index: string | number;
     } & Partial<TransitionProps>,
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onDismiss?(index?: string | number): any;
 }
 
-const Toast = forwardRef<ToastRef, ToastProps>(({
+const Toast = ({
+  ref,
+  index,
+  children,
+  className,
   tag: Tag = 'div',
   animationTimeout = 100,
   pausable = true,
   lifespan = 0,
-  index,
   animate,
-  children,
-  className,
-  onDismiss,
   onClick,
+  onDismiss,
   onMouseEnter,
   onMouseLeave,
   ...rest
-}, ref) => {
+}: ToastProps) => {
   const timeout = animate ? animationTimeout : 0;
-  const innerRef = useRef<HTMLElement>();
+  const innerRef = useRef<HTMLElement>(null);
   const startTimeRef = useRef(Date.now() + timeout);
   const [remaining, setRemaining] = useState(lifespan);
   const [enabled, setEnabled] = useState(true);
@@ -94,7 +93,7 @@ const Toast = forwardRef<ToastRef, ToastProps>(({
     onDismiss?.(index);
   }, timeout, [enabled], { enabled: !enabled && !paused });
 
-  const onClick_ = (e: MouseEvent<HTMLElement>) => {
+  const onClick_ = (e: MouseEvent<HTMLDivElement>) => {
     onClick?.(e);
     setEnabled(false);
 
@@ -103,7 +102,7 @@ const Toast = forwardRef<ToastRef, ToastProps>(({
     }
   };
 
-  const onMouseEnter_ = (e: MouseEvent<HTMLElement>) => {
+  const onMouseEnter_ = (e: MouseEvent<HTMLDivElement>) => {
     onMouseEnter?.(e);
 
     if (!pausable) {
@@ -114,7 +113,7 @@ const Toast = forwardRef<ToastRef, ToastProps>(({
     setRemaining(remaining - (Date.now() - startTimeRef.current));
   };
 
-  const onMouseLeave_ = (e: MouseEvent<HTMLElement>) => {
+  const onMouseLeave_ = (e: MouseEvent<HTMLDivElement>) => {
     onMouseLeave?.(e);
 
     if (!pausable) {
@@ -147,9 +146,9 @@ const Toast = forwardRef<ToastRef, ToastProps>(({
     </Tag>
   );
 
-  return animate ? animate(content, { opened: enabled, index }) as JSX.Element
+  return animate ? animate(content, { opened: enabled, index })
     : content;
-}) as ForwardedProps<ToastRef, ToastProps>;
+};
 
 Toast.displayName = 'Toast';
 

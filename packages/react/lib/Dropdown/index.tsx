@@ -1,14 +1,13 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithoutRef,
-  forwardRef,
+  type RefObject,
+  type ReactElement,
   useCallback,
   useImperativeHandle,
   useRef,
   useReducer,
   useEffect,
 } from 'react';
-import { classNames, mockState, omit } from '@junipero/core';
+import { classNames, omit } from '@junipero/core';
 import {
   type UseClickProps,
   type UseDismissProps,
@@ -29,20 +28,24 @@ import {
   useHover,
 } from '@floating-ui/react';
 
-import type { JuniperoRef, StateReducer } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { DropdownContext, type DropdownContextType } from '../contexts';
+import { mockState } from '../utils';
 
 export declare interface DropdownRef extends JuniperoRef {
   opened: boolean;
   toggle(): void;
   open(): void;
   close(): void;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
-export declare interface DropdownProps extends ComponentPropsWithoutRef<'div'> {
+export declare interface DropdownProps extends Omit<
+  SpecialComponentPropsWithRef<'div', DropdownRef>,
+  'onToggle'
+>{
   clickOptions?: UseClickProps;
-  container?: string | JSX.Element | DocumentFragment | HTMLElement;
+  container?: string | ReactElement | DocumentFragment | HTMLElement;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
   floatingOptions?: UseFloatingOptions & {
@@ -60,7 +63,8 @@ export declare interface DropdownState {
   visible: boolean;
 }
 
-const Dropdown = forwardRef<DropdownRef, DropdownProps>(({
+const Dropdown = ({
+  ref,
   className,
   container,
   disabled,
@@ -73,9 +77,9 @@ const Dropdown = forwardRef<DropdownRef, DropdownProps>(({
   trigger = 'click',
   onToggle,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
-  const [state, dispatch] = useReducer<StateReducer<DropdownState>>(mockState, {
+}: DropdownProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [state, dispatch] = useReducer(mockState<DropdownState>, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
@@ -211,7 +215,7 @@ const Dropdown = forwardRef<DropdownRef, DropdownProps>(({
       />
     </DropdownContext.Provider>
   );
-});
+};
 
 Dropdown.displayName = 'Dropdown';
 

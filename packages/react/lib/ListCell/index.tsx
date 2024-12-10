@@ -1,21 +1,23 @@
 import {
-  type ComponentPropsWithoutRef,
-  type MutableRefObject,
-  forwardRef,
+  type RefObject,
   useImperativeHandle,
   useRef,
 } from 'react';
 
-import type { JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 
 export declare interface ListCellRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLTableCellElement>;
+  innerRef: RefObject<HTMLTableCellElement>;
 }
 
-export declare interface ListCellProps extends ComponentPropsWithoutRef<'td'> {}
+export declare interface ListCellProps
+  extends SpecialComponentPropsWithRef<'td', ListCellRef> {}
 
-const ListCell = forwardRef<ListCellRef, ListCellProps>((props, ref) => {
-  const innerRef = useRef<HTMLTableCellElement>();
+const ListCell = ({
+  ref,
+  ...rest
+}: ListCellProps) => {
+  const innerRef = useRef<HTMLTableCellElement>(null);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -23,9 +25,9 @@ const ListCell = forwardRef<ListCellRef, ListCellProps>((props, ref) => {
   }));
 
   return (
-    <td { ...props } ref={innerRef} />
+    <td { ...rest } ref={innerRef} />
   );
-});
+};
 
 ListCell.displayName = 'ListCell';
 

@@ -2,7 +2,6 @@ export {
   classNames,
   addClass,
   removeClass,
-  mockState,
   exists,
   isUndefined,
   isNull,
@@ -63,6 +62,4 @@ export type {
   Grow,
   GrowToSize,
   FixedArray,
-  StateContent,
-  StateReducer,
 } from './types';

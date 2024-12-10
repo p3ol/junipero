@@ -7,7 +7,6 @@ export {
   classNames,
   addClass,
   removeClass,
-  mockState,
   exists,
   isUndefined,
   isNull,
@@ -375,5 +374,9 @@ export {
   type ToastsContextType,
   type ModalContextType,
 } from './contexts';
+
+export {
+  mockState,
+} from './utils';
 
 export type * from './types';

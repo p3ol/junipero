@@ -1,27 +1,32 @@
 import {
-  type ComponentPropsWithoutRef,
   type KeyboardEvent,
-  type MutableRefObject,
-  forwardRef,
+  type RefObject,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
 } from 'react';
-import { classNames, mockState } from '@junipero/core';
+import { classNames } from '@junipero/core';
 
-import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type {
+  FieldContent,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
+import { mockState } from '../utils';
 
 export declare type ToggleValue = any;
 
 export declare interface ToggleRef extends JuniperoRef {
   checked: boolean;
-  innerRef: MutableRefObject<HTMLLabelElement>;
-  inputRef: MutableRefObject<HTMLInputElement>;
+  innerRef: RefObject<HTMLLabelElement>;
+  inputRef: RefObject<HTMLInputElement>;
 }
 
-export declare interface ToggleProps
-  extends Omit<ComponentPropsWithoutRef<'input'>, 'onChange'> {
+export declare interface ToggleProps extends Omit<
+  SpecialComponentPropsWithRef<'input', ToggleRef>,
+  'onChange'
+> {
   checked?: boolean;
   disabled?: boolean;
   tabIndex?: number;
@@ -33,7 +38,8 @@ export declare interface ToggleState {
   checked: boolean;
 }
 
-const Toggle = forwardRef<ToggleRef, ToggleProps>(({
+const Toggle = ({
+  ref,
   checked = false,
   disabled = false,
   tabIndex = 1,
@@ -42,10 +48,10 @@ const Toggle = forwardRef<ToggleRef, ToggleProps>(({
   value,
   onChange,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLLabelElement>();
-  const inputRef = useRef<HTMLInputElement>();
-  const [state, dispatch] = useReducer<StateReducer<ToggleState>>(mockState, {
+}: ToggleProps) => {
+  const innerRef = useRef<HTMLLabelElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [state, dispatch] = useReducer(mockState<ToggleState>, {
     checked,
   });
 
@@ -113,7 +119,7 @@ const Toggle = forwardRef<ToggleRef, ToggleProps>(({
       ) }
     </label>
   );
-});
+};
 
 Toggle.displayName = 'Toggle';
 

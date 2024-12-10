@@ -1,20 +1,18 @@
 import {
   type ReactNode,
-  forwardRef,
   useLayoutEffect,
   useImperativeHandle,
 } from 'react';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import { useList } from '../hooks';
 
 export declare interface ListColumnObject {
   id?: string | number;
-  title?: ReactNode | JSX.Element;
+  title?: ReactNode;
   orderable?: boolean;
 }
 
@@ -23,16 +21,17 @@ export declare interface ListColumnRef extends JuniperoRef {
 }
 
 export declare interface ListColumnProps
-  extends SpecialComponentPropsWithoutRef {
+  extends SpecialComponentPropsWithRef<any, ListColumnRef> {
   id: string | number;
 }
 
-const ListColumn = forwardRef<ListColumnRef, ListColumnProps>(({
+const ListColumn = ({
+  ref,
   id,
   children,
   orderable = true,
   ...rest
-}, ref) => {
+}: ListColumnProps): ReactNode => {
   const { registerColumn } = useList();
 
   useImperativeHandle(ref, () => ({
@@ -51,7 +50,7 @@ const ListColumn = forwardRef<ListColumnRef, ListColumnProps>(({
   }, []);
 
   return null;
-}) as ForwardedProps<ListColumnRef, ListColumnProps>;
+};
 
 ListColumn.displayName = 'ListColumn';
 

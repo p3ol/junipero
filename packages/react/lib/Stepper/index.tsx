@@ -1,38 +1,40 @@
 import {
-  type MutableRefObject,
+  type RefObject,
   type ComponentPropsWithoutRef,
   type ReactNode,
+  type ReactElement,
   Children,
   cloneElement,
-  forwardRef,
   useMemo,
   useImperativeHandle,
   useRef,
 } from 'react';
 
-import type { JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import Step, { type StepObject } from '../Step';
 
 export declare interface StepperRef extends JuniperoRef {
   active: number;
   steps: Array<StepObject>;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
-export declare interface StepperProps extends ComponentPropsWithoutRef<'div'> {
+export declare interface StepperProps
+  extends SpecialComponentPropsWithRef<'div', StepperRef> {
   active?: number;
   steps?: Array<StepObject>;
-  icon?: ReactNode | JSX.Element;
+  icon?: ReactNode;
 }
 
-const Stepper = forwardRef<StepperRef, StepperProps>(({
+const Stepper = ({
+  ref,
   active,
   steps,
   children,
   icon,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
+}: StepperProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
     steps,
@@ -63,7 +65,10 @@ const Stepper = forwardRef<StepperRef, StepperProps>(({
       >
         { t.content }
       </Step>
-    )) : Children.toArray(children).map((t: JSX.Element, i: number) => (
+    )) : Children.toArray(children).map((
+      t: ReactElement<ComponentPropsWithoutRef<any>>,
+      i: number
+    ) => (
       cloneElement(t, { status: getStepStatus(i), key: i })
     ))
   ), [steps, children]);
@@ -75,7 +80,7 @@ const Stepper = forwardRef<StepperRef, StepperProps>(({
       </div>
     </div>
   );
-});
+};
 
 Stepper.displayName = 'Stepper';
 

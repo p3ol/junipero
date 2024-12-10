@@ -1,12 +1,10 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithoutRef,
+  type RefObject,
   type ReactNode,
   type FocusEvent,
   type KeyboardEvent,
   type MouseEvent,
   type ChangeEvent,
-  forwardRef,
   useReducer,
   useEffect,
   useRef,
@@ -16,17 +14,21 @@ import {
 } from 'react';
 import {
   classNames,
-  mockState,
   exists,
   filterDeep,
   findDeep,
 } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
-import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type {
+  FieldContent,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
 import type { TransitionProps } from '../Transition';
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove } from '../icons';
+import { mockState } from '../utils';
 import Dropdown, { type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
@@ -56,12 +58,13 @@ export declare interface SelectFieldRef extends JuniperoRef {
   blur(): void;
   focus(): void;
   reset(): void;
-  innerRef: MutableRefObject<DropdownRef>;
-  searchInputRef: MutableRefObject<HTMLInputElement>;
+  innerRef: RefObject<DropdownRef>;
+  searchInputRef: RefObject<HTMLInputElement>;
 }
 
 export declare interface SelectFieldProps extends Omit<
-  ComponentPropsWithoutRef<typeof Dropdown>, 'onChange'
+  SpecialComponentPropsWithRef<typeof Dropdown, SelectFieldRef>,
+  'onChange'
 > {
   allowArbitraryItems?: boolean;
   autoFocus?: boolean;
@@ -71,7 +74,7 @@ export declare interface SelectFieldProps extends Omit<
   keyboardHandler?: boolean;
   multiple?: boolean;
   noOptionsEnabled?: boolean;
-  noOptionsLabel?: ReactNode | JSX.Element;
+  noOptionsLabel?: ReactNode;
   options?: Array<any>;
   placeholder?: string;
   name?: string;
@@ -83,15 +86,15 @@ export declare interface SelectFieldProps extends Omit<
   valid?: boolean;
   value?: any;
   hasMore?: boolean;
-  loadingMoreLabel?: ReactNode | JSX.Element;
+  loadingMoreLabel?: ReactNode;
   noMoreOptionsEnabled?: boolean;
-  noMoreOptionsLabel?: ReactNode | JSX.Element;
+  noMoreOptionsLabel?: ReactNode;
   animateMenu?(
-    menu: ReactNode | JSX.Element,
+    menu: ReactNode,
     opts: {
       opened: boolean;
     } & Partial<TransitionProps>
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onChange?(field: FieldContent<SelectFieldValue>): void;
   onBlur?(event: FocusEvent<HTMLInputElement>): void;
   onFocus?(event: FocusEvent<HTMLInputElement>): void;
@@ -133,16 +136,16 @@ export declare interface SelectFieldState {
   refocus?: boolean;
 }
 
-const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
+const SelectField = ({
+  ref,
   toggleClick,
-  keyboardHandler = false,
-  animateMenu,
   className,
   options,
   placeholder,
   value,
   valid,
   name,
+  keyboardHandler = false,
   allowArbitraryItems = false,
   autoFocus = false,
   clearable = true,
@@ -158,29 +161,28 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
   loadingMoreLabel = 'Loading more options...',
   noMoreOptionsEnabled = true,
   noMoreOptionsLabel = '🎉 No more options',
+  animateMenu,
   onChange,
-  parseTitle = val => val?.toString?.(),
-  parseValue = val => val,
   onBlur,
   onFocus,
   onKeyPress,
   onKeyUp,
+  onSearch,
+  onLoadMore,
+  parseTitle = val => val?.toString?.(),
+  parseValue = val => val,
   onValidate = (val, { required, multiple }) => (
     (multiple && Array.isArray(val) && val.length > 0) ||
     (!multiple && exists(val) && val !== '') ||
     !required
   ),
-  onSearch,
-  onLoadMore,
   ...rest
-}, ref) => {
-  const dropdownRef = useRef<DropdownRef>();
-  const searchInputRef = useRef<HTMLInputElement>();
-  const loadMoreRef = useRef<HTMLDivElement>();
+}: SelectFieldProps) => {
+  const dropdownRef = useRef<DropdownRef>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<
-    StateReducer<SelectFieldState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<SelectFieldState>, {
     value: value ?? (multiple ? [] : null),
     valid: valid ?? false,
     dirty: false,
@@ -692,7 +694,7 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
       ) }
     </Dropdown>
   );
-});
+};
 
 SelectField.displayName = 'SelectField';
 

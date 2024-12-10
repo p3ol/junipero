@@ -1,23 +1,21 @@
 import {
   type ChangeEvent,
   type FocusEvent,
-  type MutableRefObject,
+  type RefObject,
   type WheelEvent,
-  forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
 } from 'react';
-import { classNames, mockState, exists } from '@junipero/core';
+import { classNames, exists } from '@junipero/core';
 
 import type {
   FieldContent,
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
-  StateReducer,
+  SpecialComponentPropsWithRef,
 } from '../types';
+import { mockState } from '../utils';
 import { useFieldControl } from '../hooks';
 
 export declare interface TextFieldRef extends JuniperoRef {
@@ -29,12 +27,12 @@ export declare interface TextFieldRef extends JuniperoRef {
   focus(): void;
   reset(): void;
   setDirty(dirty: boolean): void;
-  innerRef: MutableRefObject<HTMLDivElement>;
-  inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>;
+  innerRef: RefObject<HTMLDivElement>;
+  inputRef: RefObject<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 export declare interface TextFieldProps
-  extends SpecialComponentPropsWithoutRef {
+  extends SpecialComponentPropsWithRef<any, TextFieldRef> {
   autoFocus?: boolean;
   disabled?: boolean;
   required?: boolean;
@@ -58,7 +56,8 @@ export declare interface TextFieldState {
   focused: boolean;
 }
 
-const TextField = forwardRef<TextFieldRef, TextFieldProps>(({
+const TextField = ({
+  ref,
   autoFocus,
   children,
   className,
@@ -74,13 +73,11 @@ const TextField = forwardRef<TextFieldRef, TextFieldProps>(({
   onValidate = (val: string | number, opts?: { required: boolean }) =>
     !!val || !opts?.required,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
-  const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>();
+}: TextFieldProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<
-    StateReducer<TextFieldState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<TextFieldState>, {
     value: value ?? '',
     valid: valid ?? false,
     focused: autoFocus ?? false,
@@ -212,7 +209,7 @@ const TextField = forwardRef<TextFieldRef, TextFieldProps>(({
       { children }
     </div>
   );
-}) as ForwardedProps<TextFieldRef, TextFieldProps>;
+};
 
 TextField.displayName = 'TextField';
 

@@ -1,8 +1,6 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithRef,
+  type RefObject,
   type ReactNode,
-  forwardRef,
   useImperativeHandle,
   useRef,
   useEffect,
@@ -12,6 +10,7 @@ import {
   type TooltipProps,
   type TooltipRef,
   type JuniperoRef,
+  type SpecialComponentPropsWithRef,
   Tooltip,
   classNames,
 } from '@junipero/react';
@@ -21,37 +20,40 @@ import { useChart } from '../hooks';
 import { scaleBandInvert } from '../utils';
 
 export declare interface BarRef extends JuniperoRef {
-  innerRef: MutableRefObject<SVGGElement>;
-  tooltipRef: MutableRefObject<TooltipRef>;
+  innerRef: RefObject<SVGGElement>;
+  tooltipRef: RefObject<TooltipRef>;
 }
 
-export declare interface BarProps
-  extends Omit<ComponentPropsWithRef<'g'>, 'offset' | 'order'> {
+export declare interface BarProps extends Omit<
+  SpecialComponentPropsWithRef<'g', BarRef>,
+  'offset' | 'order'
+> {
   xAxisIndex: number;
   yAxisIndex: number;
   minBarWidth?: number;
   tooltip?(opts: {
     position: number | Date;
     xIndex: number;
-  }): ReactNode | JSX.Element;
+  }): ReactNode;
   tooltipProps?: TooltipProps;
   order?(series: d3.Series<any, any>): number[];
   offset?(series: d3.Series<any, any>, order: Iterable<number>): void;
 }
 
-const Bar = forwardRef<BarRef, BarProps>(({
+const Bar = ({
+  ref,
   className,
-  tooltip,
   tooltipProps,
   xAxisIndex,
   yAxisIndex,
   minBarWidth = 15,
+  tooltip,
   order = d3.stackOrderNone,
   offset = d3.stackOffsetNone,
   ...rest
-}, ref) => {
-  const innerRef = useRef<SVGGElement>();
-  const tooltipRef = useRef<TooltipRef>();
+}: BarProps) => {
+  const innerRef = useRef<SVGGElement>(null);
+  const tooltipRef = useRef<TooltipRef>(null);
   const { axis, cursor } = useChart();
 
   const xAxis = useMemo(() => (
@@ -149,7 +151,7 @@ const Bar = forwardRef<BarRef, BarProps>(({
       ) }
     </>
   );
-});
+};
 
 Bar.displayName = 'Bar';
 

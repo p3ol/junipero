@@ -1,16 +1,19 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithoutRef,
+  type RefObject,
   type KeyboardEvent,
-  forwardRef,
   useReducer,
   useRef,
   useImperativeHandle,
   useEffect,
 } from 'react';
-import { classNames, mockState } from '@junipero/core';
+import { classNames } from '@junipero/core';
 
-import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type {
+  FieldContent,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
+import { mockState } from '../utils';
 import { useFieldControl } from '../hooks';
 
 export declare type RadioFieldValue = any;
@@ -27,13 +30,15 @@ export declare interface RadioFieldRef extends JuniperoRef {
   dirty: boolean;
   valid: boolean;
   value: RadioFieldValue;
-  innerRef: MutableRefObject<HTMLDivElement>;
-  inputRefs: MutableRefObject<Array<HTMLInputElement>>;
-  optionRefs: MutableRefObject<Array<HTMLLabelElement>>;
+  innerRef: RefObject<HTMLDivElement>;
+  inputRefs: RefObject<HTMLInputElement[]>;
+  optionRefs: RefObject<HTMLLabelElement[]>;
 }
 
-export declare interface RadioFieldProps
-  extends Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> {
+export declare interface RadioFieldProps extends Omit<
+  SpecialComponentPropsWithRef<'div', RadioFieldRef>,
+  'onChange'
+> {
   disabled?: boolean;
   name?: string;
   options?: Array<RadioFieldOptionObject | RadioFieldValue>;
@@ -62,14 +67,15 @@ export declare interface RadioFieldState {
   valid: boolean;
 }
 
-const RadioField = forwardRef<RadioFieldRef, RadioFieldProps>(({
+const RadioField = ({
+  ref,
+  className,
+  name,
+  value,
   disabled = false,
   required = false,
   valid = true,
   options = [],
-  className,
-  name,
-  value,
   onChange,
   onValidate = (val, { required }) =>
     (typeof val !== 'undefined' && val !== null) || !required,
@@ -77,14 +83,12 @@ const RadioField = forwardRef<RadioFieldRef, RadioFieldProps>(({
   parseTitle = val => val?.title ?? val?.toString?.(),
   parseDescription = val => val?.description || '',
   ...rest
-}, ref) => {
+}: RadioFieldProps) => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
   const optionRefs = useRef<HTMLLabelElement[]>([]);
-  const innerRef = useRef<HTMLDivElement>();
+  const innerRef = useRef<HTMLDivElement>(null);
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<
-    StateReducer<RadioFieldState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<RadioFieldState>, {
     dirty: false,
     value,
     valid,
@@ -199,7 +203,7 @@ const RadioField = forwardRef<RadioFieldRef, RadioFieldProps>(({
       ))}
     </div>
   );
-});
+};
 
 RadioField.displayName = 'RadioField';
 

@@ -1,33 +1,29 @@
 import {
   type ElementType,
-  type MutableRefObject,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 
-export declare interface FieldGroupRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
-}
+export declare interface FieldGroupRef extends JuniperoRef {}
 
 export declare interface FieldGroupProps
-  extends SpecialComponentPropsWithoutRef {
-  tag?: string | ElementType;
+  extends SpecialComponentPropsWithRef<any, FieldGroupRef> {
+  tag?: ElementType;
 }
 
-const FieldGroup = forwardRef<FieldGroupRef, FieldGroupProps>(({
-  tag: Tag = 'div',
+const FieldGroup = ({
+  ref,
   className,
+  tag: Tag = 'div',
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: FieldGroupProps) => {
+  const innerRef = useRef<HTMLElement>(null);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -41,7 +37,7 @@ const FieldGroup = forwardRef<FieldGroupRef, FieldGroupProps>(({
       { ...rest }
     />
   );
-}) as ForwardedProps<FieldGroupRef, FieldGroupProps>;
+};
 
 FieldGroup.displayName = 'FieldGroup';
 
