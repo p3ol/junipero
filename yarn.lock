@@ -1129,13 +1129,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@junipero/core@npm:^3.10.0-beta.0, @junipero/core@workspace:*, @junipero/core@workspace:packages/core":
+"@junipero/core@npm:^3.10.0, @junipero/core@workspace:*, @junipero/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@junipero/core@workspace:packages/core"
   languageName: unknown
   linkType: soft
 
-"@junipero/hooks@npm:^3.10.0-beta.0, @junipero/hooks@workspace:packages/hooks":
+"@junipero/hooks@npm:^3.10.0, @junipero/hooks@workspace:packages/hooks":
   version: 0.0.0-use.local
   resolution: "@junipero/hooks@workspace:packages/hooks"
   peerDependencies:
@@ -1163,8 +1163,8 @@ __metadata:
   resolution: "@junipero/react@workspace:packages/react"
   dependencies:
     "@floating-ui/react": "npm:0.27.0"
-    "@junipero/core": "npm:^3.10.0-beta.0"
-    "@junipero/hooks": "npm:^3.10.0-beta.0"
+    "@junipero/core": "npm:^3.10.0"
+    "@junipero/hooks": "npm:^3.10.0"
   peerDependencies:
     react: ^18.0.0 || ^19.0.0
     react-dom: ^18.0.0 || ^19.0.0
