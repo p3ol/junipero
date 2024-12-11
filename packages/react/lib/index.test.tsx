@@ -6,11 +6,18 @@ import { useTimeout } from '@junipero/hooks';
 import type { FieldContent } from './types';
 import TextField from './TextField';
 
+type State = {
+  value: {
+    text: string;
+    content: string[];
+  };
+}
+
 describe('mockState: inside react', () => {
   it('should fail update the state correctly and return the old ' +
     'state', async () => {
     const Comp = () => {
-      const [state, dispatch] = useReducer(mockState, {
+      const [state, dispatch] = useReducer(mockState<State>, {
         value: {
           text: 'This is a test',
           content: [],
@@ -64,7 +71,7 @@ describe('mockState: inside react', () => {
   it('should not fail update the state correctly and return the new ' +
     'state when using mockState with a callback', async () => {
     const Comp = () => {
-      const [state, dispatch] = useReducer(mockState, {
+      const [state, dispatch] = useReducer(mockState<State>, {
         value: {
           text: 'This is a test',
           content: [],

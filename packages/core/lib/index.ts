@@ -2,7 +2,6 @@ export {
   classNames,
   addClass,
   removeClass,
-  mockState,
   exists,
   isUndefined,
   isNull,
@@ -58,11 +57,14 @@ export {
   formatThousand,
 } from './numbers';
 
+export {
+  mockState,
+} from './state';
+
 export type {
   GenericObject,
   Grow,
   GrowToSize,
   FixedArray,
   StateContent,
-  StateReducer,
 } from './types';

@@ -1,29 +1,30 @@
 import {
   type DragEvent,
-  type MutableRefObject,
+  type ComponentPropsWithoutRef,
+  type RefObject,
+  type ReactElement,
   Children,
   cloneElement,
-  forwardRef,
   useState,
   useEffect,
 } from 'react';
 import { classNames } from '@junipero/core';
 
-import type { SpecialComponentPropsWithoutRef } from '../types';
-
 export declare type DraggingPositionType = 'before' | 'after';
 
-export declare interface DroppableRef extends MutableRefObject<any> {}
+export declare type DroppableRef = any;
 
 export declare interface DroppableProps
-  extends SpecialComponentPropsWithoutRef {
+  extends ComponentPropsWithoutRef<any> {
+  ref?: RefObject<DroppableRef>;
   disabled?: boolean;
   onDrop?(data: any, direction: DraggingPositionType, e: DragEvent): void;
   onDragOver?(e: DragEvent, direction: DraggingPositionType): void;
   onDragLeave?(e: DragEvent): void;
 }
 
-const Droppable = forwardRef<DroppableRef, DroppableProps>(({
+const Droppable = ({
+  ref,
   className,
   children,
   disabled = false,
@@ -31,7 +32,7 @@ const Droppable = forwardRef<DroppableRef, DroppableProps>(({
   onDragOver,
   onDragLeave,
   ...rest
-}, ref) => {
+}: DroppableProps) => {
   const [dragging, setDragging] = useState(false);
   const [stack, setStack] = useState(0);
   const [draggingPos, setDraggingPos] = useState(null);
@@ -95,14 +96,15 @@ const Droppable = forwardRef<DroppableRef, DroppableProps>(({
     return false;
   };
 
-  const child = Children.only(children);
+  const child = Children
+    .only<ReactElement<ComponentPropsWithoutRef<any>>>(children);
 
-  return cloneElement(child as JSX.Element, {
+  return cloneElement(child, {
     ...rest,
     ref,
     className: classNames(
       className,
-      (child as JSX.Element).props?.className,
+      child.props?.className,
       {
         'drag-enter': !disabled && dragging,
         'drag-top': !disabled && dragging && draggingPos &&
@@ -116,7 +118,7 @@ const Droppable = forwardRef<DroppableRef, DroppableProps>(({
     onDrop: onDrop_,
     onDragOver: onDragOver_,
   });
-});
+};
 
 Droppable.displayName = 'Droppable';
 

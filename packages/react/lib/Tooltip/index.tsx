@@ -1,8 +1,9 @@
 import {
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
+  type ReactElement,
+  type ComponentPropsWithoutRef,
   Children,
-  forwardRef,
   cloneElement,
   useImperativeHandle,
   useReducer,
@@ -13,8 +14,8 @@ import { createPortal } from 'react-dom';
 import {
   classNames,
   ensureNode,
-  mockState,
   omit,
+  mockState,
 } from '@junipero/core';
 import {
   type UseDismissProps,
@@ -36,10 +37,9 @@ import {
 } from '@floating-ui/react';
 
 import type {
-  ForwardedProps,
+  JuniperoInnerRef,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
-  StateReducer,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
 
@@ -49,14 +49,15 @@ export declare interface TooltipRef extends JuniperoRef {
   close(): void;
   toggle(): void;
   update(): void;
-  innerRef: MutableRefObject<HTMLDivElement>;
-  handleRef: MutableRefObject<HTMLElement>;
+  handleRef: RefObject<JuniperoRef | JuniperoInnerRef>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
-export declare interface TooltipProps extends SpecialComponentPropsWithoutRef {
+export declare interface TooltipProps
+  extends SpecialComponentPropsWithRef<any, TooltipRef> {
   apparition?: string;
   clickOptions?: UseClickProps;
-  container?: JSX.Element | HTMLElement | DocumentFragment | string;
+  container?: string | ReactElement | HTMLElement | DocumentFragment;
   disabled?: boolean;
   dismissOptions?: UseDismissProps;
   floatingOptions?: UseFloatingOptions & {
@@ -64,13 +65,13 @@ export declare interface TooltipProps extends SpecialComponentPropsWithoutRef {
   };
   hoverOptions?: UseHoverProps;
   opened?: boolean;
-  text?: ReactNode | JSX.Element;
+  text?: ReactNode;
   placement?: Placement;
   trigger?: 'hover' | 'click' | 'manual';
   animate?(
-    tooltipInner: ReactNode | JSX.Element,
+    tooltipInner: ReactNode,
     opts?: { opened?: boolean } & Partial<TransitionProps>
-  ): JSX.Element | ReactNode;
+  ): ReactNode;
   onToggle?(props: { opened: boolean }): void;
 }
 
@@ -79,8 +80,8 @@ export declare interface TooltipState {
   visible: boolean
 }
 
-const Tooltip = forwardRef<TooltipRef, TooltipProps>(({
-  animate,
+const Tooltip = ({
+  ref,
   apparition,
   children,
   className,
@@ -94,16 +95,17 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(({
   text,
   placement = 'top',
   trigger = 'hover',
+  animate,
   onToggle,
   ...rest
-}, ref) => {
-  const handleRef = useRef<HTMLElement>();
-  const innerRef = useRef<HTMLDivElement>();
-  const [state, dispatch] = useReducer<StateReducer<TooltipState>>(mockState, {
+}: TooltipProps) => {
+  const handleRef = useRef<JuniperoRef | JuniperoInnerRef>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [state, dispatch] = useReducer(mockState<TooltipState>, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
-  const { x, y, refs, strategy, context, update } = useFloating<HTMLElement>({
+  const { x, y, refs, strategy, context, update } = useFloating({
     open: state.opened,
     onOpenChange: (...args) => onOpenChange(...args),
     placement,
@@ -191,16 +193,18 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(({
     onToggle?.({ opened: false });
   };
 
-  const setReference: React.RefCallback<HTMLElement> = (
-    r: HTMLElement | JuniperoRef
+  const setReference = (
+    r: JuniperoRef | JuniperoInnerRef
   ) => {
-    handleRef.current = ((r as JuniperoRef)?.isJunipero
-      ? (r as JuniperoRef).innerRef.current : r) as HTMLElement;
-    refs.setReference(((r as JuniperoRef)?.isJunipero
-      ? (r as JuniperoRef).innerRef.current : r) as HTMLElement);
+    handleRef.current = (r as JuniperoRef)?.isJunipero
+      ? (r as JuniperoRef).innerRef.current : r;
+    refs.setReference(
+      ((r as JuniperoRef)?.isJunipero
+        ? (r as JuniperoRef).innerRef.current : r) as HTMLElement
+    );
   };
 
-  const setFloatingRef = (r: any) => {
+  const setFloatingRef = (r: HTMLDivElement) => {
     innerRef.current = r;
     refs.setFloating(r);
   };
@@ -243,6 +247,10 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(({
     </div>
   );
 
+  const child = children && typeof children !== 'string'
+    ? Children.only<ReactElement<ComponentPropsWithoutRef<any>>>(children)
+    : null;
+
   return (
     <>
       { !children || typeof children === 'string' ? (
@@ -252,7 +260,7 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(({
         >
           { children }
         </span>
-      ) : cloneElement(Children.only<JSX.Element>(children as JSX.Element), {
+      ) : cloneElement(child, {
         ...getReferenceProps(),
         ref: setReference,
       }) }
@@ -265,7 +273,7 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(({
       }
     </>
   );
-}) as ForwardedProps<TooltipRef, TooltipProps>;
+};
 
 Tooltip.displayName = 'Tooltip';
 

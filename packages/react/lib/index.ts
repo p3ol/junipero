@@ -2,12 +2,12 @@ export {
   type Grow,
   type GrowToSize,
   type FixedArray,
+  type StateContent,
   COLORS,
   ensureNode,
   classNames,
   addClass,
   removeClass,
-  mockState,
   exists,
   isUndefined,
   isNull,
@@ -47,6 +47,7 @@ export {
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
+  mockState,
 } from '@junipero/core';
 
 export {

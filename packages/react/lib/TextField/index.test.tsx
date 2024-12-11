@@ -6,7 +6,7 @@ import { blur, reset } from '~tests-utils';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
-import TextField, { TextFieldRef } from '.';
+import TextField, { type TextFieldRef } from '.';
 
 describe('<TextField />', () => {
   it('should render', () => {

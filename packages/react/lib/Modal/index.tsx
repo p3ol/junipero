@@ -1,18 +1,17 @@
 import {
-  type ComponentPropsWithoutRef,
   type MouseEvent,
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
-  forwardRef,
+  type ReactElement,
   useEffect,
   useImperativeHandle,
   useReducer,
   useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { classNames, mockState, ensureNode } from '@junipero/core';
+import { classNames, ensureNode, mockState } from '@junipero/core';
 
-import type { JuniperoRef, StateReducer } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { TransitionProps } from '../Transition';
 import { useModal } from '../hooks';
 import { Remove } from '../icons';
@@ -22,24 +21,27 @@ export declare interface ModalRef extends JuniperoRef {
   close(): void;
   open(): void;
   toggle(): void;
-  closeButtonRef: MutableRefObject<HTMLAnchorElement>;
-  contentRef: MutableRefObject<HTMLDivElement>;
-  innerRef: MutableRefObject<HTMLDivElement>;
-  wrapperRef: MutableRefObject<HTMLDivElement>;
+  closeButtonRef: RefObject<HTMLAnchorElement>;
+  contentRef: RefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
+  wrapperRef: RefObject<HTMLDivElement>;
 }
 
-export declare interface ModalProps extends ComponentPropsWithoutRef<'div'> {
+export declare interface ModalProps extends Omit<
+  SpecialComponentPropsWithRef<'div', ModalRef>,
+  'onToggle'
+> {
   apparition?: string;
-  container?: JSX.Element | DocumentFragment | string | HTMLElement;
+  container?: string | ReactElement | DocumentFragment | HTMLElement;
   disabled?: boolean;
   opened?: boolean;
   closable?: boolean;
   animate?(
-    modal: ReactNode | JSX.Element,
+    modal: ReactNode,
     opts: {
       opened: boolean;
     } & Partial<TransitionProps>
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onToggle?(props: { opened: boolean }): void;
 }
 
@@ -48,7 +50,8 @@ export declare interface ModalState {
   visible: boolean;
 }
 
-const Modal = forwardRef<ModalRef, ModalProps>(({
+const Modal = ({
+  ref,
   animate,
   children,
   className,
@@ -59,15 +62,13 @@ const Modal = forwardRef<ModalRef, ModalProps>(({
   closable = true,
   onToggle,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
-  const contentRef = useRef<HTMLDivElement>();
-  const wrapperRef = useRef<HTMLDivElement>();
-  const closeButtonRef = useRef<HTMLAnchorElement>();
+}: ModalProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLAnchorElement>(null);
   const { setRef: setControlRef } = useModal();
-  const [state, dispatch] = useReducer<
-    StateReducer<ModalState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<ModalState>, {
     opened: opened ?? false,
     visible: opened ?? false,
   });
@@ -76,7 +77,7 @@ const Modal = forwardRef<ModalRef, ModalProps>(({
     setControlRef?.(r);
 
     if (typeof ref === 'function') {
-      ref(r);
+      (ref as Function)(r);
     } else if (ref) {
       ref.current = r;
     }
@@ -198,7 +199,7 @@ const Modal = forwardRef<ModalRef, ModalProps>(({
   return state.opened || (animate && state.visible) || apparition === 'css'
     ? container ? createPortal(content, ensureNode(container)) : content
     : null;
-});
+};
 
 Modal.displayName = 'Modal';
 

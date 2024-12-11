@@ -1,7 +1,6 @@
 import { type ComponentPropsWithoutRef, useCallback, useReducer } from 'react';
 import { mockState } from '@junipero/core';
 
-import type { StateReducer } from '../types';
 import { type FieldContextType, FieldControlContext } from '../contexts';
 
 export declare interface FieldControlProps extends Omit<
@@ -15,9 +14,7 @@ export declare interface FieldControlState {
 }
 
 const FieldControl = (props: FieldControlProps) => {
-  const [state, dispatch] = useReducer<
-    StateReducer<FieldControlState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<FieldControlState>, {
     valid: true,
     dirty: false,
     focused: false,

@@ -1,9 +1,7 @@
 import {
-  type MutableRefObject,
   type ReactNode,
   type ElementType,
   type MouseEvent,
-  forwardRef,
   useState,
   useImperativeHandle,
   useRef,
@@ -12,54 +10,53 @@ import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
 import { Remove } from '../icons';
 import Card from '../Card';
 
-export declare interface AlertRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
-}
+export declare interface AlertRef extends JuniperoRef {}
 
-export declare interface AlertProps extends SpecialComponentPropsWithoutRef {
+export declare interface AlertProps
+  extends SpecialComponentPropsWithRef<any, AlertRef> {
   animationTimeout?: number;
-  icon?: ReactNode | JSX.Element;
+  icon?: ReactNode;
   index?: string | number;
   lifespan?: number;
-  tag?: string | ElementType;
+  tag?: ElementType;
+  title?: ReactNode;
   animate?(
-    alert: ReactNode | JSX.Element,
+    alert: ReactNode,
     opts: {
       opened: boolean;
       index: string | number;
     } & Partial<TransitionProps>
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onDismiss?(index?: string | number): void;
   onClick?: (e: MouseEvent<HTMLElement>) => void;
-  title?: ReactNode | JSX.Element;
 }
 
 export declare interface AlertObject {
   id?: number | string,
   animationTimeout?: number;
-  content?: ReactNode | JSX.Element;
-  icon?: ReactNode | JSX.Element;
+  content?: ReactNode;
+  icon?: ReactNode;
   index?: string | number;
-  title?: ReactNode | JSX.Element;
+  title?: ReactNode;
   duration?: number;
   type?: string;
   lifespan?: number;
   animate?(
-    alert: ReactNode | JSX.Element,
+    alert: ReactNode,
     opts: { opened: boolean; index: string | number }
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onDismiss?(index?: string | number): void;
 }
 
-const Alert = forwardRef<AlertRef, AlertProps>(({
+const Alert = ({
+  ref,
   animationTimeout = 100,
   tag: Tag = 'div',
   lifespan = 0,
@@ -72,8 +69,8 @@ const Alert = forwardRef<AlertRef, AlertProps>(({
   onClick,
   onDismiss,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: AlertProps) => {
+  const innerRef = useRef<HTMLElement>(null);
   const [enabled, setEnabled] = useState<boolean>(true);
   const timeout = animate ? animationTimeout : 0;
 
@@ -116,7 +113,7 @@ const Alert = forwardRef<AlertRef, AlertProps>(({
   );
 
   return animate ? animate(content, { opened: enabled, index }) : content;
-}) as ForwardedProps<AlertRef, AlertProps>;
+};
 
 Alert.displayName = 'Alert';
 

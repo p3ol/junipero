@@ -1,50 +1,44 @@
 import {
-  type MutableRefObject,
+  type RefObject,
   type ComponentPropsWithoutRef,
   type ReactNode,
+  type ReactElement,
+  type MouseEvent,
   Children,
   Fragment,
-  forwardRef,
   useImperativeHandle,
-  useReducer,
   useRef,
   useMemo,
+  useState,
 } from 'react';
-import { exists, classNames, mockState } from '@junipero/core';
+import { exists, classNames } from '@junipero/core';
 
-import type { JuniperoRef, StateReducer } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import BreadCrumbItem from '../BreadCrumbItem';
 
 export declare interface BreadCrumbRef extends JuniperoRef {
-  items: Array<JSX.Element | ReactNode>;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  items: ReactNode[];
+  innerRef: RefObject<HTMLDivElement>;
 }
 
 export declare interface BreadCrumbProps
-  extends ComponentPropsWithoutRef<'div'> {
-  items?: Array<JSX.Element | ReactNode>;
+  extends SpecialComponentPropsWithRef<'div', BreadCrumbRef> {
+  items?: ReactNode[];
   maxItems?: number;
-  filterItem?(children: JSX.Element | ReactNode): boolean;
+  filterItem?(children: ReactNode): boolean;
 }
 
-export declare interface BreadCrumbState {
-  opened: boolean;
-}
-
-const BreadCrumb = forwardRef<BreadCrumbRef, BreadCrumbProps>(({
+const BreadCrumb = ({
+  ref,
   className,
   children,
   items,
   maxItems,
-  filterItem = child => (child as JSX.Element).type === BreadCrumbItem,
+  filterItem = child => (child as ReactElement).type === BreadCrumbItem,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
-  const [state, dispatch] = useReducer<
-    StateReducer<BreadCrumbState>
-  >(mockState, {
-    opened: false,
-  });
+}: BreadCrumbProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [opened, setOpened] = useState<boolean>(false);
 
   useImperativeHandle(ref, () => ({
     items,
@@ -52,10 +46,9 @@ const BreadCrumb = forwardRef<BreadCrumbRef, BreadCrumbProps>(({
     isJunipero: true,
   }));
 
-  const open = (e: React.MouseEvent) => {
+  const open = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
-
-    dispatch({ opened: true });
+    setOpened(true);
   };
 
   const availableItems = useMemo<ReactNode[]>(() => (
@@ -65,8 +58,9 @@ const BreadCrumb = forwardRef<BreadCrumbRef, BreadCrumbProps>(({
       ))
       : Children
         .toArray(children)
-        .map((child: JSX.Element) => child.type === Fragment
-          ? child.props.children : child)
+        .map((
+          child: ReactElement<ComponentPropsWithoutRef<any>>
+        ) => child.type === Fragment ? child.props.children : child)
         .flat()
         .filter(filterItem)
   ), [children, items]);
@@ -84,13 +78,12 @@ const BreadCrumb = forwardRef<BreadCrumbRef, BreadCrumbProps>(({
       { ...rest }
       ref={innerRef}
       className={classNames(
-        'junipero',
-        'breadcrumb',
-        state.opened ? 'opened' : exists(maxItems) ? 'collapsed' : '',
+        'junipero breadcrumb',
+        opened ? 'opened' : exists(maxItems) ? 'collapsed' : '',
         className,
       )}
     >
-      { !exists(maxItems) || maxItems > availableItems.length || state.opened
+      { !exists(maxItems) || maxItems > availableItems.length || opened
         ? availableItems
         : (
           <>
@@ -101,7 +94,7 @@ const BreadCrumb = forwardRef<BreadCrumbRef, BreadCrumbProps>(({
         ) }
     </div>
   );
-});
+};
 
 BreadCrumb.displayName = 'BreadCrumb';
 

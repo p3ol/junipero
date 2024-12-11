@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 
-import BreadCrumb from '.';
 import BreadCrumbItem from '../BreadCrumbItem';
+import BreadCrumb from '.';
 
 describe('<BreadCrumb />', () => {
   it('should render', () => {

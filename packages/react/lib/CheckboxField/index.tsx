@@ -1,9 +1,7 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithoutRef,
+  type RefObject,
   type KeyboardEvent,
   type ChangeEvent,
-  forwardRef,
   useEffect,
   useImperativeHandle,
   useReducer,
@@ -11,18 +9,23 @@ import {
 } from 'react';
 import { classNames, mockState } from '@junipero/core';
 
-import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type {
+  FieldContent,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
 import { useFieldControl } from '../hooks';
 import { Check } from '../icons';
 
 export declare interface CheckboxFieldRef extends JuniperoRef {
   checked: boolean;
-  innerRef: MutableRefObject<HTMLLabelElement>;
-  inputRef: MutableRefObject<HTMLInputElement>;
+  innerRef: RefObject<HTMLLabelElement>;
+  inputRef: RefObject<HTMLInputElement>;
 }
 
 export declare interface CheckboxFieldProps extends Omit<
-  ComponentPropsWithoutRef<'label'>, 'onChange'
+  SpecialComponentPropsWithRef<'label', CheckboxFieldRef>,
+  'onChange'
 > {
   checked?: boolean;
   disabled?: boolean;
@@ -44,26 +47,25 @@ export declare interface CheckboxFieldState {
   dirty: boolean;
 }
 
-const CheckboxField = forwardRef<CheckboxFieldRef, CheckboxFieldProps>(({
-  checked = false,
-  valid = true,
-  disabled = false,
-  required = false,
+const CheckboxField = ({
+  ref,
   children,
   value,
   id,
   name,
   className,
+  checked = false,
+  valid = true,
+  disabled = false,
+  required = false,
   onChange,
   onValidate = (val, { required }) => val || !required,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLLabelElement>();
-  const inputRef = useRef<HTMLInputElement>();
+}: CheckboxFieldProps) => {
+  const innerRef = useRef<HTMLLabelElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<
-    StateReducer<CheckboxFieldState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<CheckboxFieldState>, {
     checked: checked ?? false,
     valid: valid ?? true,
     dirty: false,
@@ -147,7 +149,7 @@ const CheckboxField = forwardRef<CheckboxFieldRef, CheckboxFieldProps>(({
       <div className="content">{children}</div>
     </label>
   );
-});
+};
 
 CheckboxField.displayName = 'CheckboxField';
 

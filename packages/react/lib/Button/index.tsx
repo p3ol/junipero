@@ -1,37 +1,34 @@
 import {
   type ElementType,
-  type MutableRefObject,
   type MouseEvent,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 
-export declare interface ButtonRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
-}
+export declare interface ButtonRef extends JuniperoRef {}
 
-export declare interface ButtonProps extends SpecialComponentPropsWithoutRef {
+export declare interface ButtonProps
+  extends SpecialComponentPropsWithRef<any, ButtonRef> {
   disabled?: boolean;
-  tag?: string | ElementType;
+  tag?: ElementType;
   onClick?(e: MouseEvent<HTMLElement>): void;
 }
 
-const Button = forwardRef<ButtonRef, ButtonProps>(({
+const Button = ({
+  ref,
   className,
   disabled,
   tag: Tag = 'button',
   onClick,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: ButtonProps) => {
+  const innerRef = useRef<HTMLElement>(null);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -57,7 +54,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(({
       onClick={onClick_}
     />
   );
-}) as ForwardedProps<ButtonRef, ButtonProps>;
+};
 
 Button.displayName = 'Button';
 

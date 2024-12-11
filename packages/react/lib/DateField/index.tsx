@@ -1,23 +1,21 @@
 import {
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
   type ChangeEvent,
   type FocusEvent,
   type MouseEvent,
-  type ComponentPropsWithoutRef,
-  forwardRef,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
 } from 'react';
-import { type FixedArray, classNames, mockState, exists } from '@junipero/core';
+import { type FixedArray, classNames, exists, mockState } from '@junipero/core';
 
 import type { TransitionProps } from '../Transition';
 import type {
   JuniperoRef,
   FieldContent,
-  StateReducer,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove, Time } from '../icons';
@@ -26,7 +24,7 @@ import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import Calendar from '../Calendar';
 
-export declare interface DateFieldRef extends Omit<JuniperoRef, 'innerRef'> {
+export declare interface DateFieldRef extends JuniperoRef {
   dirty: boolean;
   focused: boolean;
   isJunipero: boolean;
@@ -39,13 +37,14 @@ export declare interface DateFieldRef extends Omit<JuniperoRef, 'innerRef'> {
   open(): void;
   close(): void;
   toggle(): void;
-  innerRef: MutableRefObject<DropdownRef>;
-  inputRef: MutableRefObject<HTMLInputElement>;
-  timeInputRef: MutableRefObject<HTMLInputElement>;
+  innerRef: RefObject<DropdownRef>;
+  inputRef: RefObject<HTMLInputElement>;
+  timeInputRef: RefObject<HTMLInputElement>;
 }
 
 export declare interface DateFieldProps extends Omit<
-  ComponentPropsWithoutRef<typeof Dropdown>, 'onChange'
+  SpecialComponentPropsWithRef<typeof Dropdown, DateFieldRef>,
+  'onChange'
 > {
   autoFocus?: boolean;
   clearable?: boolean;
@@ -64,9 +63,9 @@ export declare interface DateFieldProps extends Omit<
   value?: Date;
   weekDaysNames?: FixedArray<string, 7>;
   animateMenu?(
-    menu: ReactNode | JSX.Element,
+    menu: ReactNode,
     opts: { opened: boolean } & Partial<TransitionProps>
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onBlur?(e: FocusEvent<HTMLInputElement>): void;
   onChange?(field: FieldContent<Date>): void;
   onFocus?(e: FocusEvent<HTMLInputElement>): void;
@@ -95,8 +94,8 @@ export declare interface DateFieldState {
   timeDirty: boolean;
 }
 
-const DateField = forwardRef<DateFieldRef, DateFieldProps>(({
-  animateMenu,
+const DateField = ({
+  ref,
   className,
   id,
   max,
@@ -116,6 +115,7 @@ const DateField = forwardRef<DateFieldRef, DateFieldProps>(({
   time = true,
   timePlaceholder = '00:00:00',
   weekDaysNames = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
+  animateMenu,
   onChange,
   onFocus,
   onBlur,
@@ -131,14 +131,12 @@ const DateField = forwardRef<DateFieldRef, DateFieldProps>(({
   onValidate = (val, { required }) => !!val || !required,
   children,
   ...rest
-}, ref) => {
-  const dropdownRef = useRef<DropdownRef>();
-  const timeInputRef = useRef<HTMLInputElement>();
-  const inputRef = useRef<HTMLInputElement>();
+}: DateFieldProps) => {
+  const dropdownRef = useRef<DropdownRef>(null);
+  const timeInputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<
-    StateReducer<DateFieldState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<DateFieldState>, {
     value: value ?? null,
     selected: value ?? new Date(),
     displayed: value ?? new Date(),
@@ -451,7 +449,7 @@ const DateField = forwardRef<DateFieldRef, DateFieldProps>(({
       { children }
     </Dropdown>
   );
-});
+};
 
 DateField.displayName = 'DateField';
 

@@ -3,7 +3,7 @@ import { classNames } from '@junipero/core';
 
 export declare interface DropdownGroupProps
   extends Omit<ComponentPropsWithoutRef<'div'>, 'title'> {
-  title?: ReactNode | JSX.Element;
+  title?: ReactNode;
 }
 
 const DropdownGroup = ({

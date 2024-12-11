@@ -1,4 +1,4 @@
-import type { GenericObject, StateContent } from '../types';
+import type { GenericObject } from '../types';
 
 export const classNames = (...args: Array<any>): string => {
   const classes: string[] = [];
@@ -48,12 +48,6 @@ export const removeClass = (elmt: HTMLElement, cls: string): void => {
       .trim();
   }
 };
-
-export const mockState = (
-  state: StateContent,
-  action : ((prev: any) => StateContent) | StateContent
-) => typeof action === 'function'
-  ? action(state) : ({ ...state, ...action as StateContent });
 
 export const isUndefined = (v?: any): boolean => typeof v === 'undefined';
 

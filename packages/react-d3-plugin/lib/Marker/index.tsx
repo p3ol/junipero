@@ -1,8 +1,6 @@
 import {
-  type ComponentPropsWithRef,
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
-  forwardRef,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -12,6 +10,7 @@ import {
   type TooltipProps,
   type TooltipRef,
   type JuniperoRef,
+  type SpecialComponentPropsWithRef,
   Tooltip,
   classNames,
   startOfDay,
@@ -21,27 +20,29 @@ import * as d3 from 'd3';
 import { useChart } from '../hooks';
 
 export declare interface MarkerRef extends JuniperoRef {
-  innerRef: MutableRefObject<SVGGElement>;
-  tooltipRef: MutableRefObject<TooltipRef>;
   position: number | Date;
   xIndex: number;
   x: number;
   y: number;
+  innerRef: RefObject<SVGGElement>;
+  tooltipRef: RefObject<TooltipRef>;
 }
 
-export declare interface MarkerProps extends ComponentPropsWithRef<'g'> {
+export declare interface MarkerProps
+  extends SpecialComponentPropsWithRef<'g', MarkerRef> {
   series?: Array<Array<number | Date>> | Array<number | Date>;
   xAxisIndex?: number;
   yAxisIndexes?: Array<number>;
   tooltip?(opts: {
     position: number | Date;
     xIndex: number;
-  }): ReactNode | JSX.Element;
+  }): ReactNode;
   tooltipProps?: TooltipProps;
   lineCapShift?: number;
 }
 
-const Marker = forwardRef<MarkerRef, MarkerProps>(({
+const Marker = ({
+  ref,
   series,
   yAxisIndexes,
   tooltip,
@@ -49,9 +50,9 @@ const Marker = forwardRef<MarkerRef, MarkerProps>(({
   xAxisIndex = 0,
   lineCapShift = 0,
   ...rest
-}, ref) => {
-  const innerRef = useRef<SVGGElement>();
-  const tooltipRef = useRef<TooltipRef>();
+}: MarkerProps) => {
+  const innerRef = useRef<SVGGElement>(null);
+  const tooltipRef = useRef<TooltipRef>(null);
   const {
     axis,
     cursor,
@@ -147,7 +148,7 @@ const Marker = forwardRef<MarkerRef, MarkerProps>(({
       { markerContent }
     </Tooltip>
   ) : markerContent;
-});
+};
 
 Marker.displayName = 'Marker';
 

@@ -1,11 +1,9 @@
 import type { UseDismissProps } from '@floating-ui/react';
 import {
   type ReactNode,
-  type MutableRefObject,
+  type RefObject,
   type MouseEvent,
   type FocusEvent,
-  type ComponentPropsWithoutRef,
-  forwardRef,
   useImperativeHandle,
   useReducer,
   useRef,
@@ -14,14 +12,18 @@ import {
 } from 'react';
 import {
   classNames,
-  mockState,
   exists,
   stringifyColor,
   parseColor,
+  mockState,
 } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
 
-import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type {
+  FieldContent,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
 import type { TransitionProps } from '../Transition';
 import { useFieldControl } from '../hooks';
 import Dropdown, { type DropdownProps, type DropdownRef } from '../Dropdown';
@@ -40,15 +42,15 @@ export declare interface ColorFieldRef extends JuniperoRef {
   open(): void;
   reset(): void;
   toggle(): void;
-  colorAlphaRef: MutableRefObject<HTMLDivElement>;
-  colorHueRef: MutableRefObject<HTMLDivElement>;
-  colorLightnessRef: MutableRefObject<HTMLDivElement>;
-  innerRef: MutableRefObject<DropdownRef>;
-  textFieldRef: MutableRefObject<TextFieldRef>;
+  colorAlphaRef: RefObject<HTMLDivElement>;
+  colorHueRef: RefObject<HTMLDivElement>;
+  colorLightnessRef: RefObject<HTMLDivElement>;
+  innerRef: RefObject<DropdownRef>;
+  textFieldRef: RefObject<TextFieldRef>;
 }
 
 export declare interface ColorFieldProps extends Omit<
-  ComponentPropsWithoutRef<typeof Dropdown>,
+  SpecialComponentPropsWithRef<typeof Dropdown, ColorFieldRef>,
   'trigger' | 'onChange'
 > {
   autoFocus?: boolean;
@@ -66,9 +68,9 @@ export declare interface ColorFieldProps extends Omit<
   value?: string;
   trigger?: DropdownProps['trigger'] | 'focus';
   animateMenu?(
-    menu: ReactNode | JSX.Element,
+    menu: ReactNode,
     opts: { opened: boolean } & Partial<TransitionProps>,
-  ): ReactNode | JSX.Element;
+  ): ReactNode;
   onBlur?(e: FocusEvent<HTMLInputElement>): void;
   onChange?(field: FieldContent<string>): void;
   onFocus?(e: FocusEvent<HTMLInputElement>): void;
@@ -93,7 +95,8 @@ export declare interface ColorFieldState {
   focused: boolean;
 }
 
-const ColorField = forwardRef<ColorFieldRef, ColorFieldProps>(({
+const ColorField = ({
+  ref,
   className,
   dismissOptions,
   globalEventsTarget,
@@ -117,16 +120,14 @@ const ColorField = forwardRef<ColorFieldRef, ColorFieldProps>(({
   onToggle,
   onValidate = (val, { required }) => !!val || !required,
   ...rest
-}: ColorFieldProps, ref) => {
-  const innerRef = useRef<DropdownRef>();
-  const textFieldRef = useRef<TextFieldRef>();
-  const colorLightnessRef = useRef<HTMLDivElement>();
-  const colorHueRef = useRef<HTMLDivElement>();
-  const colorAlphaRef = useRef<HTMLDivElement>();
+}: ColorFieldProps) => {
+  const innerRef = useRef<DropdownRef>(null);
+  const textFieldRef = useRef<TextFieldRef>(null);
+  const colorLightnessRef = useRef<HTMLDivElement>(null);
+  const colorHueRef = useRef<HTMLDivElement>(null);
+  const colorAlphaRef = useRef<HTMLDivElement>(null);
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<
-    StateReducer<ColorFieldState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<ColorFieldState>, {
     value: value ?? '',
     a: 100,
     h: 0,
@@ -519,7 +520,7 @@ const ColorField = forwardRef<ColorFieldRef, ColorFieldProps>(({
       { children }
     </Dropdown>
   );
-});
+};
 
 ColorField.displayName = 'ColorField';
 

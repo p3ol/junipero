@@ -118,7 +118,7 @@ describe('useDropdwon()', () => {
     const container: ReactNode = <div />;
 
     const wrapper = (
-      { children }: { children: JSX.Element | ReactNode | string}
+      { children }: { children: ReactNode }
     ) => {
 
       return (
@@ -140,7 +140,7 @@ describe('useDropdwon()', () => {
     const toggleMock = jest.fn();
 
     const wrapper = (
-      { children }: { children: JSX.Element | ReactNode | string}
+      { children }: { children: ReactNode }
     ) => {
 
       return (
@@ -176,7 +176,7 @@ describe('useDropdwon()', () => {
     const toggleMock = jest.fn();
 
     const wrapper = (
-      { children }: { children: JSX.Element | ReactNode | string}
+      { children }: { children: ReactNode }
     ) => {
 
       return (

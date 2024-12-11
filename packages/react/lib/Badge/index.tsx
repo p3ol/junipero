@@ -1,32 +1,30 @@
 import {
   type ElementType,
-  type MutableRefObject,
-  forwardRef,
+  type RefObject,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 
-export declare interface BadgeRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
+export declare interface BadgeRef extends JuniperoRef {}
+
+export declare interface BadgeProps
+  extends SpecialComponentPropsWithRef<any, BadgeRef> {
+  tag?: ElementType;
 }
 
-export declare interface BadgeProps extends SpecialComponentPropsWithoutRef {
-  tag?: string | ElementType;
-}
-
-const Badge = forwardRef<BadgeRef, BadgeProps>(({
+const Badge = ({
+  ref,
   className,
   tag: Tag = 'span',
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: BadgeProps) => {
+  const innerRef = useRef<HTMLElement>(null);
 
   useImperativeHandle(ref, () => ({
     isJunipero: true,
@@ -40,7 +38,7 @@ const Badge = forwardRef<BadgeRef, BadgeProps>(({
       className={classNames('junipero', 'badge', className)}
     />
   );
-}) as ForwardedProps<BadgeRef, BadgeProps>;
+};
 
 Badge.displayName = 'Badge';
 

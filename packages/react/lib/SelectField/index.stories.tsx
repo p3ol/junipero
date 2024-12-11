@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
-import SelectField, { SelectFieldProps, SelectFieldRef } from './index';
+import SelectField, { type SelectFieldProps } from './index';
 
 export default { title: 'react/SelectField' };
 

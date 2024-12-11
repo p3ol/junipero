@@ -1,34 +1,30 @@
 import {
   type ElementType,
-  type MutableRefObject,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import { useFieldControl } from '../hooks';
 
-export declare interface FieldAddonRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
-}
+export declare interface FieldAddonRef extends JuniperoRef {}
 
 export declare interface FieldAddonProps
-  extends SpecialComponentPropsWithoutRef {
-  tag?: string | ElementType;
+  extends SpecialComponentPropsWithRef<any, FieldAddonRef> {
+  tag?: ElementType;
 }
 
-const FieldAddon = forwardRef<FieldAddonRef, FieldAddonProps>(({
+const FieldAddon = ({
+  ref,
   tag: Tag = 'div',
   className,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: FieldAddonProps) => {
+  const innerRef = useRef<HTMLElement>(null);
   const { focused } = useFieldControl();
 
   useImperativeHandle(ref, () => ({
@@ -38,16 +34,16 @@ const FieldAddon = forwardRef<FieldAddonRef, FieldAddonProps>(({
 
   return (
     <Tag
+      { ...rest }
       className={classNames(
         'junipero field-addon',
         { focused },
         className,
       )}
       ref={innerRef}
-      { ...rest }
     />
   );
-}) as ForwardedProps<FieldAddonRef, FieldAddonProps>;
+};
 
 FieldAddon.displayName = 'FieldAddon';
 

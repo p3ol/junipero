@@ -1,41 +1,40 @@
 import {
-  type ComponentPropsWithoutRef,
-  type MutableRefObject,
+  type RefObject,
   type ReactNode,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
-import type { JuniperoRef } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { Check } from '../icons';
 
 export declare interface StepObject {
-  title: ReactNode | JSX.Element;
-  content: ReactNode | JSX.Element;
-  icon?: ReactNode | JSX.Element;
+  title: ReactNode;
+  content: ReactNode;
+  icon?: ReactNode;
 }
 
 export declare interface StepRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
 export declare interface StepProps
-  extends Omit<ComponentPropsWithoutRef<'div'>, 'title'> {
-  title?: ReactNode | JSX.Element;
-  icon?: ReactNode | JSX.Element;
+  extends Omit<SpecialComponentPropsWithRef<'div', StepRef>, 'title'> {
+  title?: ReactNode;
+  icon?: ReactNode;
   status?: 'completed' | 'active' | 'none';
 }
 
-const Step = forwardRef<StepRef, StepProps>(({
+const Step = ({
+  ref,
   title,
   icon,
   children,
   status,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
+}: StepProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
     isJunipero: true,
@@ -55,7 +54,7 @@ const Step = forwardRef<StepRef, StepProps>(({
       </div>
     </div>
   );
-});
+};
 
 Step.displayName = 'Step';
 

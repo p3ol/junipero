@@ -1,10 +1,10 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithoutRef,
+  type RefObject,
   type ReactNode,
   type MouseEvent,
+  type ReactElement,
+  type ComponentPropsWithoutRef,
   Children,
-  forwardRef,
   useEffect,
   useImperativeHandle,
   useRef,
@@ -13,35 +13,39 @@ import {
 } from 'react';
 import { classNames } from '@junipero/core';
 
-import type { JuniperoRef } from '../types';
-import Tab, { type TabObject } from '../Tab';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
+import Tab, { type TabProps, type TabObject } from '../Tab';
 
 export declare interface TabsRef extends JuniperoRef {
   activeTab: number;
   tabs: Array<TabObject>;
-  innerRef: MutableRefObject<HTMLDivElement>;
+  innerRef: RefObject<HTMLDivElement>;
 }
 
-export declare interface TabsProps extends ComponentPropsWithoutRef<'div'> {
+export declare interface TabsProps extends Omit<
+  SpecialComponentPropsWithRef<'div', TabsRef>,
+  'onToggle'
+> {
   active?: number;
   disabled?: boolean;
   tabs?: Array<TabObject>;
-  filterTab?(child: ReactNode | JSX.Element): boolean;
+  filterTab?(child: ReactElement<ComponentPropsWithoutRef<any>>): boolean;
   onToggle?(index: number): void;
 }
 
-const Tabs = forwardRef<TabsRef, TabsProps>(({
+const Tabs = ({
+  ref,
   className,
   children,
   active,
   tabs,
   disabled = false,
-  filterTab = (child: ReactNode | JSX.Element) =>
-    typeof child !== 'string' && (child as JSX.Element).type === Tab,
+  filterTab = (child: ReactElement<ComponentPropsWithoutRef<any>>) =>
+    typeof child !== 'string' && child.type === Tab,
   onToggle,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
+}: TabsProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState(active);
 
   useImperativeHandle(ref, () => ({
@@ -70,7 +74,7 @@ const Tabs = forwardRef<TabsRef, TabsProps>(({
     onToggle?.(index);
   };
 
-  const availableTabs = useMemo<(ReactNode | JSX.Element)[]>(() => (
+  const availableTabs = useMemo<ReactNode[]>(() => (
     tabs
       ? tabs.map((t, i) => <Tab key={i} title={t.title}>{ t.content }</Tab>)
       : Children.toArray(children).filter(filterTab)
@@ -87,7 +91,7 @@ const Tabs = forwardRef<TabsRef, TabsProps>(({
       )}
     >
       <ul className="titles">
-        { availableTabs.map((tab: JSX.Element, index: number) => (
+        { availableTabs.map((tab: ReactElement<TabProps>, index: number) => (
           <li
             key={index}
             className={classNames(
@@ -102,7 +106,7 @@ const Tabs = forwardRef<TabsRef, TabsProps>(({
               { tab.props?.title }
             </a>
           </li>
-        ))}
+        )) }
       </ul>
 
       <div className="content">
@@ -110,7 +114,7 @@ const Tabs = forwardRef<TabsRef, TabsProps>(({
       </div>
     </div>
   );
-});
+};
 
 Tabs.displayName = 'Tabs';
 

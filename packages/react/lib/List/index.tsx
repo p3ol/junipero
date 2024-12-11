@@ -1,7 +1,5 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithoutRef,
-  forwardRef,
+  type RefObject,
   useImperativeHandle,
   useRef,
   useReducer,
@@ -9,9 +7,9 @@ import {
   useMemo,
   useEffect,
 } from 'react';
-import { mockState, classNames } from '@junipero/core';
+import { classNames, mockState } from '@junipero/core';
 
-import type { JuniperoRef, StateReducer } from '../types';
+import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { ListColumnObject } from '../ListColumn';
 import { ListContext, type ListContextType } from '../contexts';
 import { ArrowDown, ArrowUp } from '../icons';
@@ -21,10 +19,11 @@ export declare interface ListRef extends JuniperoRef {
   columns: Array<string | ListColumnObject>;
   active?: string | number;
   asc?: boolean | null;
-  innerRef: MutableRefObject<HTMLTableElement>;
+  innerRef: RefObject<HTMLTableElement>;
 }
 
-export declare interface ListProps extends ComponentPropsWithoutRef<'table'> {
+export declare interface ListProps
+  extends SpecialComponentPropsWithRef<'table', ListRef> {
   columns?: Array<string | ListColumnObject>;
   order?: { column: string | number; asc: boolean | null };
   orderable?: boolean;
@@ -37,20 +36,19 @@ export declare interface ListState {
   asc?: boolean;
 }
 
-const List = forwardRef<ListRef, ListProps>(({
+const List = ({
+  ref,
   className,
   children,
-  columns = [],
   order,
+  columns = [],
   onOrder,
   ...rest
-}, ref) => {
+}: ListProps) => {
   const listRef = useRef<Array<string | ListColumnObject>>([]);
-  const innerRef = useRef<HTMLTableElement>();
+  const innerRef = useRef<HTMLTableElement>(null);
   const orderable = useMemo(() => !!onOrder, [onOrder]);
-  const [state, dispatch] = useReducer<
-    StateReducer<ListState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<ListState>, {
     columns,
     active: order?.column ?? null,
     asc: order?.asc ?? null,
@@ -153,7 +151,7 @@ const List = forwardRef<ListRef, ListProps>(({
       </table>
     </ListContext.Provider>
   );
-});
+};
 
 List.displayName = 'List';
 

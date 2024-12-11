@@ -8,7 +8,7 @@ import Modal, { ModalRef } from './index';
 export default { title: 'react/Modal' };
 
 export const basic = () => {
-  const modalRef = useRef<ModalRef>();
+  const modalRef = useRef<ModalRef>(null);
 
   return (
     <>
@@ -21,7 +21,7 @@ export const basic = () => {
 };
 
 export const animated = () => {
-  const modalRef = useRef<ModalRef>();
+  const modalRef = useRef<ModalRef>(null);
 
   return (
     <>
@@ -36,7 +36,7 @@ export const animated = () => {
 };
 
 export const panel = () => {
-  const modalRef = useRef<ModalRef>();
+  const modalRef = useRef<ModalRef>(null);
 
   return (
     <>
@@ -56,7 +56,7 @@ export const panel = () => {
 };
 
 export const nonClosablePanel = () => {
-  const modalRef = useRef<ModalRef>();
+  const modalRef = useRef<ModalRef>(null);
 
   return (
     <>

@@ -1,37 +1,34 @@
 import {
   type ElementType,
   type MouseEvent,
-  type MutableRefObject,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 import { Remove } from '../icons';
 
-export declare interface TagRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
-}
+export declare interface TagRef extends JuniperoRef {}
 
-export declare interface TagProps extends SpecialComponentPropsWithoutRef {
-  tag?: string | ElementType;
+export declare interface TagProps
+  extends SpecialComponentPropsWithRef<any, TagRef> {
+  tag?: ElementType;
   onDelete?: () => void;
 }
 
-const Tag = forwardRef<TagRef, TagProps>(({
+const Tag = ({
+  ref,
   className,
   children,
   onDelete,
   tag: Comp = 'span',
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: TagProps) => {
+  const innerRef = useRef<HTMLElement>(null);
 
   useImperativeHandle(ref, () => ({
     isJunipero: true,
@@ -57,7 +54,7 @@ const Tag = forwardRef<TagRef, TagProps>(({
       ) }
     </Comp>
   );
-}) as ForwardedProps<TagRef, TagProps>;
+};
 
 Tag.displayName = 'Tag';
 

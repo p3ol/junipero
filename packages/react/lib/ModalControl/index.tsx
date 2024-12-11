@@ -1,7 +1,6 @@
 import {
-  type MutableRefObject,
+  type RefObject,
   type ComponentPropsWithoutRef,
-  forwardRef,
   useCallback,
   useImperativeHandle,
   useRef,
@@ -15,17 +14,20 @@ export declare interface ModalControlRef extends JuniperoRef {
   close(): void;
   open(): void;
   toggle(): void;
-  modalRef: MutableRefObject<ModalRef>;
+  modalRef: RefObject<ModalRef>;
 }
 
 export declare interface ModalControlProps extends Omit<
   ComponentPropsWithoutRef<typeof ModalContext.Provider>, 'value'
-> {}
+> {
+  ref?: RefObject<ModalControlRef>;
+}
 
-const ModalControl = forwardRef<ModalControlRef, ModalControlProps>((
-  props, ref,
-) => {
-  const modalRef = useRef<ModalRef>();
+const ModalControl = ({
+  ref,
+  ...rest
+}: ModalControlProps) => {
+  const modalRef = useRef<ModalRef>(null);
 
   useImperativeHandle(ref, () => ({
     modalRef,
@@ -59,9 +61,9 @@ const ModalControl = forwardRef<ModalControlRef, ModalControlProps>((
   }), [open, close, toggle, setRef]);
 
   return (
-    <ModalContext.Provider { ...props } value={getContext()} />
+    <ModalContext.Provider { ...rest } value={getContext()} />
   );
-});
+};
 
 ModalControl.displayName = 'ModalControl';
 

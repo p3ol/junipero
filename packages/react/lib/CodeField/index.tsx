@@ -1,10 +1,8 @@
 import {
-  type MutableRefObject,
-  type ComponentPropsWithoutRef,
+  type RefObject,
   type ClipboardEvent,
   type FocusEvent,
   type ChangeEvent,
-  forwardRef,
   useReducer,
   useEffect,
   useMemo,
@@ -13,7 +11,11 @@ import {
 } from 'react';
 import { classNames, mockState } from '@junipero/core';
 
-import type { FieldContent, JuniperoRef, StateReducer } from '../types';
+import type {
+  FieldContent,
+  JuniperoRef,
+  SpecialComponentPropsWithRef,
+} from '../types';
 import { useFieldControl } from '../hooks';
 
 export declare interface CodeFieldRef extends JuniperoRef {
@@ -23,13 +25,13 @@ export declare interface CodeFieldRef extends JuniperoRef {
   focus(index: number): void;
   blur(index: number): void;
   reset(): void;
-  innerRef: MutableRefObject<HTMLDivElement>;
-  inputsRef: MutableRefObject<Array<HTMLInputElement>>;
-  inputRef: MutableRefObject<HTMLInputElement>;
+  innerRef: RefObject<HTMLDivElement>;
+  inputsRef: RefObject<Array<HTMLInputElement>>;
+  inputRef: RefObject<HTMLInputElement>;
 }
 
 export declare interface CodeFieldProps extends Omit<
-  ComponentPropsWithoutRef<'div'>,
+  SpecialComponentPropsWithRef<'div', CodeFieldRef>,
   'onChange' | 'onFocus' | 'onBlur'
 > {
   autoFocus?: boolean;
@@ -57,7 +59,8 @@ export declare interface CodeFieldState {
   active: number;
 }
 
-const CodeField = forwardRef<CodeFieldRef, CodeFieldProps>(({
+const CodeField = ({
+  ref,
   className,
   id,
   name,
@@ -67,20 +70,18 @@ const CodeField = forwardRef<CodeFieldRef, CodeFieldProps>(({
   disabled = false,
   required = false,
   size = 6,
-  onValidate = (val, { required } = {}) => !!val || !required,
   onChange,
   onPaste,
   onFocus,
   onBlur,
+  onValidate = (val, { required } = {}) => !!val || !required,
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLDivElement>();
+}: CodeFieldProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
   const inputsRef = useRef<HTMLInputElement[]>([]);
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
   const { update: updateControl } = useFieldControl();
-  const [state, dispatch] = useReducer<
-    StateReducer<CodeFieldState>
-  >(mockState, {
+  const [state, dispatch] = useReducer(mockState<CodeFieldState>, {
     valid: valid ?? false,
     values: value?.split('').slice(0, size) || [],
     dirty: false,
@@ -271,7 +272,7 @@ const CodeField = forwardRef<CodeFieldRef, CodeFieldProps>(({
       />
     </div>
   );
-});
+};
 
 CodeField.displayName = 'CodeField';
 

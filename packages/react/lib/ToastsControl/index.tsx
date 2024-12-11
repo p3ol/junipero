@@ -1,6 +1,6 @@
 import {
   type ComponentPropsWithoutRef,
-  forwardRef,
+  type RefObject,
   useCallback,
   useImperativeHandle,
   useState,
@@ -19,15 +19,17 @@ export declare interface ToastsControlRef extends JuniperoRef {
 export declare interface ToastsControlProps extends Omit<
   ComponentPropsWithoutRef<typeof ToastsContext.Provider>, 'value'
 > {
+  ref?: RefObject<ToastsControlRef>;
   toasts?: Array<ToastObject>;
   generateId?(toast: ToastObject): string | number;
 }
 
-const ToastsControl = forwardRef<ToastsControlRef, ToastsControlProps>(({
+const ToastsControl = ({
+  ref,
   toasts: toastsProp,
   generateId,
   ...rest
-}, ref) => {
+}: ToastsControlProps) => {
   const [toasts, setToasts] = useState(toastsProp || []);
 
   useImperativeHandle(ref, () => ({
@@ -57,7 +59,7 @@ const ToastsControl = forwardRef<ToastsControlRef, ToastsControlProps>(({
   return (
     <ToastsContext.Provider { ...rest } value={getContext()} />
   );
-});
+};
 
 ToastsControl.displayName = 'ToastsControl';
 

@@ -1,32 +1,29 @@
 import {
   type ElementType,
-  type MutableRefObject,
-  forwardRef,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
-  ForwardedProps,
   JuniperoRef,
-  SpecialComponentPropsWithoutRef,
+  SpecialComponentPropsWithRef,
 } from '../types';
 
-export declare interface CardRef extends JuniperoRef {
-  innerRef: MutableRefObject<HTMLElement>;
+export declare interface CardRef extends JuniperoRef {}
+
+export declare interface CardProps
+  extends SpecialComponentPropsWithRef<any, CardRef> {
+  tag?: ElementType;
 }
 
-export declare interface CardProps extends SpecialComponentPropsWithoutRef {
-  tag?: string | ElementType;
-}
-
-const Card = forwardRef<CardRef, CardProps>(({
+const Card = ({
+  ref,
   className,
   tag: Tag = 'div',
   ...rest
-}, ref) => {
-  const innerRef = useRef<HTMLElement>();
+}: CardProps) => {
+  const innerRef = useRef<HTMLElement>(null);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -36,11 +33,11 @@ const Card = forwardRef<CardRef, CardProps>(({
   return (
     <Tag
       { ...rest }
-      className={classNames('junipero', 'card', className)}
+      className={classNames('junipero card', className)}
       ref={innerRef}
     />
   );
-}) as ForwardedProps<CardRef, CardProps>;
+};
 
 Card.displayName = 'Card';
 

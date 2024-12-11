@@ -80,7 +80,7 @@ const barAxis: [
   max: 100,
   data: barData.map(d => d[1]),
 }];
-const Wrapper = ({ children }: { children: JSX.Element | ReactNode}) => (
+const Wrapper = ({ children }: { children: ReactNode }) => (
   <div
     style={{
       display: 'flex',
