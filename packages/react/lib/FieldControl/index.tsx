@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef, useCallback, useReducer } from 'react';
+import { mockState } from '@junipero/core';
 
 import { type FieldContextType, FieldControlContext } from '../contexts';
-import { mockState } from '../utils';
 
 export declare interface FieldControlProps extends Omit<
   ComponentPropsWithoutRef<typeof FieldControlContext.Provider>, 'value'

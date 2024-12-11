@@ -15,6 +15,7 @@ import {
   exists,
   stringifyColor,
   parseColor,
+  mockState,
 } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
 
@@ -24,7 +25,6 @@ import type {
   SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
-import { mockState } from '../utils';
 import { useFieldControl } from '../hooks';
 import Dropdown, { type DropdownProps, type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';

@@ -1,9 +1,9 @@
 import { useReducer } from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { mockState } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
 import type { FieldContent } from './types';
-import { mockState } from './utils';
 import TextField from './TextField';
 
 type State = {

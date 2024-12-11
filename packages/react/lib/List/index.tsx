@@ -7,13 +7,12 @@ import {
   useMemo,
   useEffect,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { classNames, mockState } from '@junipero/core';
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { ListColumnObject } from '../ListColumn';
 import { ListContext, type ListContextType } from '../contexts';
 import { ArrowDown, ArrowUp } from '../icons';
-import { mockState } from '../utils';
 
 export declare interface ListRef extends JuniperoRef {
   orderable: boolean;

@@ -17,6 +17,7 @@ import {
   exists,
   filterDeep,
   findDeep,
+  mockState,
 } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
@@ -28,7 +29,6 @@ import type {
 import type { TransitionProps } from '../Transition';
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove } from '../icons';
-import { mockState } from '../utils';
 import Dropdown, { type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';

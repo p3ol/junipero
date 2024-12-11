@@ -15,6 +15,7 @@ import {
   classNames,
   ensureNode,
   omit,
+  mockState,
 } from '@junipero/core';
 import {
   type UseDismissProps,
@@ -41,7 +42,6 @@ import type {
   SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
-import { mockState } from '../utils';
 
 export declare interface TooltipRef extends JuniperoRef {
   opened: boolean;

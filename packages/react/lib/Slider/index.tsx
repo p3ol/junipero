@@ -12,12 +12,12 @@ import {
   classNames,
   getFloatPrecision,
   ensureMinMax,
+  mockState,
 } from '@junipero/core';
 import { useEventListener } from '@junipero/hooks';
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { TransitionProps } from '../Transition';
-import { mockState } from '../utils';
 import Tooltip, { type TooltipRef } from '../Tooltip';
 
 export declare interface SliderRef extends JuniperoRef {

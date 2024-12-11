@@ -9,7 +9,7 @@ import {
   useRef,
   useEffect,
 } from 'react';
-import { type FixedArray, classNames, exists } from '@junipero/core';
+import { type FixedArray, classNames, exists, mockState } from '@junipero/core';
 
 import type { TransitionProps } from '../Transition';
 import type {
@@ -17,7 +17,6 @@ import type {
   FieldContent,
   SpecialComponentPropsWithRef,
 } from '../types';
-import { mockState } from '../utils';
 import { useFieldControl } from '../hooks';
 import { Arrows, Remove, Time } from '../icons';
 import Dropdown, { type DropdownRef } from '../Dropdown';

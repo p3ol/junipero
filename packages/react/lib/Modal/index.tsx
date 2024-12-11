@@ -9,12 +9,11 @@ import {
   useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { classNames, ensureNode } from '@junipero/core';
+import { classNames, ensureNode, mockState } from '@junipero/core';
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import type { TransitionProps } from '../Transition';
 import { useModal } from '../hooks';
-import { mockState } from '../utils';
 import { Remove } from '../icons';
 
 export declare interface ModalRef extends JuniperoRef {

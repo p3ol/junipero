@@ -2,6 +2,7 @@ export {
   type Grow,
   type GrowToSize,
   type FixedArray,
+  type StateContent,
   COLORS,
   ensureNode,
   classNames,
@@ -46,6 +47,7 @@ export {
   ensureMinMax,
   getFloatPrecision,
   formatThousand,
+  mockState,
 } from '@junipero/core';
 
 export {
@@ -374,9 +376,5 @@ export {
   type ToastsContextType,
   type ModalContextType,
 } from './contexts';
-
-export {
-  mockState,
-} from './utils';
 
 export type * from './types';

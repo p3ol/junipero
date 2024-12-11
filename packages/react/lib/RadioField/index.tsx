@@ -6,14 +6,13 @@ import {
   useImperativeHandle,
   useEffect,
 } from 'react';
-import { classNames } from '@junipero/core';
+import { classNames, mockState } from '@junipero/core';
 
 import type {
   FieldContent,
   JuniperoRef,
   SpecialComponentPropsWithRef,
 } from '../types';
-import { mockState } from '../utils';
 import { useFieldControl } from '../hooks';
 
 export declare type RadioFieldValue = any;

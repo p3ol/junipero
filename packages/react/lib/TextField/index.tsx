@@ -8,14 +8,13 @@ import {
   useReducer,
   useRef,
 } from 'react';
-import { classNames, exists } from '@junipero/core';
+import { classNames, exists, mockState } from '@junipero/core';
 
 import type {
   FieldContent,
   JuniperoRef,
   SpecialComponentPropsWithRef,
 } from '../types';
-import { mockState } from '../utils';
 import { useFieldControl } from '../hooks';
 
 export declare interface TextFieldRef extends JuniperoRef {

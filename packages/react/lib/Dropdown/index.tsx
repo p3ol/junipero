@@ -7,7 +7,7 @@ import {
   useReducer,
   useEffect,
 } from 'react';
-import { classNames, omit } from '@junipero/core';
+import { classNames, omit, mockState } from '@junipero/core';
 import {
   type UseClickProps,
   type UseDismissProps,
@@ -30,7 +30,6 @@ import {
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { DropdownContext, type DropdownContextType } from '../contexts';
-import { mockState } from '../utils';
 
 export declare interface DropdownRef extends JuniperoRef {
   opened: boolean;

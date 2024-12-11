@@ -1,12 +1,12 @@
 import { createRef, useEffect, useReducer, useState } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import { configMocks, mockIntersectionObserver } from 'jsdom-testing-mocks';
+import { mockState } from '@junipero/core';
 import userEvent from '@testing-library/user-event';
 
 import { blur, focus, reset, sleep } from '~tests-utils';
 import type { FieldContent } from '../types';
 import { cloneDeep, set } from '../../../core/lib/core';
-import { mockState } from '../utils';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';

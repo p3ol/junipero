@@ -57,9 +57,14 @@ export {
   formatThousand,
 } from './numbers';
 
+export {
+  mockState,
+} from './state';
+
 export type {
   GenericObject,
   Grow,
   GrowToSize,
   FixedArray,
+  StateContent,
 } from './types';

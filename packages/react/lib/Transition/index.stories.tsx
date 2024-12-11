@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
+import { mockState } from '@junipero/core';
 
 import type { FieldContent } from '../types';
-import { mockState } from '../utils';
 import Button from '../Button';
 import Label from '../Label';
 import TextField from '../TextField';

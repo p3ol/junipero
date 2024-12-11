@@ -3,6 +3,7 @@ import {
   type ReactNode,
   type MouseEvent,
   type ReactElement,
+  type ComponentPropsWithoutRef,
   Children,
   useEffect,
   useImperativeHandle,
@@ -13,7 +14,7 @@ import {
 import { classNames } from '@junipero/core';
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
-import Tab, { TabProps, type TabObject } from '../Tab';
+import Tab, { type TabProps, type TabObject } from '../Tab';
 
 export declare interface TabsRef extends JuniperoRef {
   activeTab: number;
@@ -28,7 +29,7 @@ export declare interface TabsProps extends Omit<
   active?: number;
   disabled?: boolean;
   tabs?: Array<TabObject>;
-  filterTab?(child: ReactElement | ReactNode): boolean;
+  filterTab?(child: ReactElement<ComponentPropsWithoutRef<any>>): boolean;
   onToggle?(index: number): void;
 }
 
@@ -39,7 +40,7 @@ const Tabs = ({
   active,
   tabs,
   disabled = false,
-  filterTab = (child: ReactElement) =>
+  filterTab = (child: ReactElement<ComponentPropsWithoutRef<any>>) =>
     typeof child !== 'string' && child.type === Tab,
   onToggle,
   ...rest

@@ -1,6 +1,6 @@
-import { mockState } from './utils';
+import { mockState } from './';
 
-describe('react/utils', () => {
+describe('state', () => {
   describe('mockState(state, action)', () => {
     it('should merge state with action object to simulate setState', () => {
       expect(mockState({ foo: 'bar' }, { foo: 'test' }))

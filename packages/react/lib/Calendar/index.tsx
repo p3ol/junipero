@@ -15,10 +15,10 @@ import {
   subMonths,
   addMonths,
   getDaysInMonth,
+  mockState,
 } from '@junipero/core';
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
-import { mockState } from '../utils';
 import { ArrowLeft, ArrowRight } from '../icons';
 
 export declare interface CalendarRef extends JuniperoRef {
