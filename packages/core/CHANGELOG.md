@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/p3ol/junipero/compare/v3.10.0-beta.0...v3.10.0) (2024-12-11)
+
+
+### Bug Fixes
+
+* bring back mockState inside core ([71832e1](https://github.com/p3ol/junipero/commit/71832e1fd1102cb8915488fa0a62941314a91f09))
+
+
+
+
+
 # [3.10.0-beta.0](https://github.com/p3ol/junipero/compare/v3.9.0...v3.10.0-beta.0) (2024-10-29)
 
 **Note:** Version bump only for package @junipero/core
