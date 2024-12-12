@@ -2,6 +2,7 @@ import type {
   ComponentPropsWithoutRef,
   RefObject,
   ElementType,
+  Ref,
 } from 'react';
 
 export declare type JuniperoInnerRef = HTMLElement | SVGElement;
@@ -25,7 +26,7 @@ export declare type SpecialComponentPropsWithRef<
   T extends ElementType = any,
   R extends JuniperoRef = any
 > = ComponentPropsWithoutRef<T> & {
-  ref?: RefObject<R>;
+  ref?: Ref<R>;
 }
 
 /**

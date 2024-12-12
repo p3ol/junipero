@@ -1,7 +1,7 @@
 import {
   type DragEvent,
   type ComponentPropsWithoutRef,
-  type RefObject,
+  type Ref,
   type ReactElement,
   Children,
   cloneElement,
@@ -16,7 +16,7 @@ export declare type DroppableRef = any;
 
 export declare interface DroppableProps
   extends ComponentPropsWithoutRef<any> {
-  ref?: RefObject<DroppableRef>;
+  ref?: Ref<DroppableRef>;
   disabled?: boolean;
   onDrop?(data: any, direction: DraggingPositionType, e: DragEvent): void;
   onDragOver?(e: DragEvent, direction: DraggingPositionType): void;

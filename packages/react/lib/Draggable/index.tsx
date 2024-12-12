@@ -1,8 +1,8 @@
 import {
   type DragEvent,
   type ComponentPropsWithoutRef,
-  type RefObject,
   type ReactElement,
+  type Ref,
   Children,
   cloneElement,
   useState,
@@ -14,7 +14,7 @@ export declare type DraggableRef = any;
 
 export declare interface DraggableProps
   extends ComponentPropsWithoutRef<any> {
-  ref?: RefObject<DraggableRef>;
+  ref?: Ref<DraggableRef>;
   data?: any;
   disabled?: boolean;
   dragImage?: Element;

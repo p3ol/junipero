@@ -1,7 +1,7 @@
 import type {
   ComponentPropsWithoutRef,
   ElementType,
-  RefObject,
+  Ref,
 } from 'react';
 import { classNames } from '@junipero/core';
 
@@ -9,8 +9,8 @@ export declare type TouchableZoneRef = HTMLAnchorElement;
 
 export declare interface TouchableZoneProps
   extends ComponentPropsWithoutRef<'a'> {
-  ref?: RefObject<TouchableZoneRef>;
-  tag?: string | ElementType;
+  ref?: Ref<TouchableZoneRef>;
+  tag?: ElementType;
 }
 
 const TouchableZone = ({

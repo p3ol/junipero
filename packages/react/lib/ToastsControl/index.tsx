@@ -1,6 +1,6 @@
 import {
   type ComponentPropsWithoutRef,
-  type RefObject,
+  type Ref,
   useCallback,
   useImperativeHandle,
   useState,
@@ -19,7 +19,7 @@ export declare interface ToastsControlRef extends JuniperoRef {
 export declare interface ToastsControlProps extends Omit<
   ComponentPropsWithoutRef<typeof ToastsContext.Provider>, 'value'
 > {
-  ref?: RefObject<ToastsControlRef>;
+  ref?: Ref<ToastsControlRef>;
   toasts?: Array<ToastObject>;
   generateId?(toast: ToastObject): string | number;
 }
