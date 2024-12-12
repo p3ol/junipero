@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.1](https://github.com/p3ol/junipero/compare/v3.10.0...v3.10.1) (2024-12-12)
+
+
+### Bug Fixes
+
+* **react:** fix wrong refs ([9100f30](https://github.com/p3ol/junipero/commit/9100f30270ec5b6e7e65d156408a68e38915c82f))
+
+
+
+
+
 # [3.10.0](https://github.com/p3ol/junipero/compare/v3.10.0-beta.0...v3.10.0) (2024-12-11)
 
 
