@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.2](https://github.com/p3ol/junipero/compare/v3.10.1...v3.10.2) (2024-12-17)
+
+**Note:** Version bump only for package @junipero/theme
+
+
+
+
+
 # [3.10.0](https://github.com/p3ol/junipero/compare/v3.10.0-beta.0...v3.10.0) (2024-12-11)
 
 **Note:** Version bump only for package @junipero/theme
