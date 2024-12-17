@@ -13,7 +13,8 @@
     "serve": "yarn dev",
     "storybook-build": "storybook build",
     "p:core": "yarn workspace @junipero/core",
-    "p:react": "yarn workspace @junipero/react"
+    "p:react": "yarn workspace @junipero/react",
+    "p:theme": "yarn workspace @junipero/theme"
   },
   "devDependencies": {
     "@babel/eslint-plugin": "7.25.9",
