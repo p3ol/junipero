@@ -1,7 +1,6 @@
 import {
   type ComponentPropsWithoutRef,
   type ReactElement,
-  Children,
   cloneElement,
   useState,
   useRef,
@@ -108,8 +107,10 @@ const Transition = ({
     )
   ), [status, step]);
 
-  const child = Children
-    .only<ReactElement<ComponentPropsWithoutRef<any>>>(children);
+  const child: ReactElement<
+    ComponentPropsWithoutRef<any>
+  > = typeof children !== 'string' && Array.isArray(children)
+    ? children[0] : children;
 
   return status !== TRANSITION_STATE_UNMOUNTED && (
     !unmountOnExit || mountOnEnter

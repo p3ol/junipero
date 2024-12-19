@@ -3,7 +3,6 @@ import {
   type ComponentPropsWithoutRef,
   type Ref,
   type ReactElement,
-  Children,
   cloneElement,
   useState,
   useEffect,
@@ -96,8 +95,10 @@ const Droppable = ({
     return false;
   };
 
-  const child = Children
-    .only<ReactElement<ComponentPropsWithoutRef<any>>>(children);
+  const child: ReactElement<
+    ComponentPropsWithoutRef<any>
+  > = typeof children !== 'string' && Array.isArray(children)
+    ? children[0] : children;
 
   return cloneElement(child, {
     ...rest,

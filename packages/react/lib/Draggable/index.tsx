@@ -3,7 +3,6 @@ import {
   type ComponentPropsWithoutRef,
   type ReactElement,
   type Ref,
-  Children,
   cloneElement,
   useState,
 } from 'react';
@@ -91,8 +90,10 @@ const Draggable = ({
     onDrag?.(e);
   };
 
-  const child = Children
-    .only<ReactElement<ComponentPropsWithoutRef<any>>>(children);
+  const child: ReactElement<
+    ComponentPropsWithoutRef<any>
+  > = typeof children !== 'string' && Array.isArray(children)
+    ? children[0] : children;
 
   return cloneElement(child, {
     ...rest,

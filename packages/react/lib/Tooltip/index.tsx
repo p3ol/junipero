@@ -3,7 +3,6 @@ import {
   type ReactNode,
   type ReactElement,
   type ComponentPropsWithoutRef,
-  Children,
   cloneElement,
   useImperativeHandle,
   useReducer,
@@ -247,8 +246,10 @@ const Tooltip = ({
     </div>
   );
 
-  const child = children && typeof children !== 'string'
-    ? Children.only<ReactElement<ComponentPropsWithoutRef<any>>>(children)
+  const child: ReactElement<
+    ComponentPropsWithoutRef<any>
+  > = children && typeof children !== 'string'
+    ? Array.isArray(children) ? children[0] : children
     : null;
 
   return (

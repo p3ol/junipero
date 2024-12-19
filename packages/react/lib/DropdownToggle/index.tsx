@@ -2,7 +2,6 @@ import {
   type RefObject,
   type ReactElement,
   type ComponentPropsWithoutRef,
-  Children,
   cloneElement,
   useImperativeHandle,
   useRef,
@@ -35,8 +34,10 @@ const DropdownToggle = ({
     isJunipero: true,
   }));
 
-  const child = Children
-    .only<ReactElement<ComponentPropsWithoutRef<any>>>(children);
+  const child: ReactElement<
+    ComponentPropsWithoutRef<any>
+  > = typeof children !== 'string' && Array.isArray(children)
+    ? children[0] : children;
 
   return cloneElement(child, {
     className: classNames(
