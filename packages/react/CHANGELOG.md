@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.3](https://github.com/p3ol/junipero/compare/v3.10.2...v3.10.3) (2024-12-19)
+
+
+### Bug Fixes
+
+* **react:** get rid of cursed Children.only ([96d6ec6](https://github.com/p3ol/junipero/commit/96d6ec6549ac508dfcb585a62600ccdd066282c6))
+
+
+
+
+
 ## [3.10.1](https://github.com/p3ol/junipero/compare/v3.10.0...v3.10.1) (2024-12-12)
 
 
