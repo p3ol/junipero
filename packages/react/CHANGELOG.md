@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.5](https://github.com/p3ol/junipero/compare/v3.10.4...v3.10.5) (2025-02-18)
+
+
+### Bug Fixes
+
+* upgrade various deps ([eda098b](https://github.com/p3ol/junipero/commit/eda098b390e5f77e067b97e693e578e3174402d1))
+
+
+
+
+
 ## [3.10.4](https://github.com/p3ol/junipero/compare/v3.10.3...v3.10.4) (2025-02-03)
 
 
