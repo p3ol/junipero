@@ -224,7 +224,10 @@ const ColorField = ({
       innerRef.current?.open();
     }
 
-    !state.opened && updateControl?.({ focused: true });
+    if (!state.opened) {
+      updateControl?.({ focused: true });
+    }
+
     onFocus?.(e);
   };
 
@@ -233,7 +236,10 @@ const ColorField = ({
       innerRef.current?.close();
     }
 
-    !state.opened && updateControl?.({ focused: false });
+    if (!state.opened) {
+      updateControl?.({ focused: false });
+    }
+
     onBlur?.(e);
   };
 

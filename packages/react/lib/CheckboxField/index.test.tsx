@@ -76,6 +76,8 @@ describe('<CheckboxField />', () => {
 
     await act(async () => {
       container.querySelector('label').focus();
+
+      return Promise.resolve();
     });
 
     await user.keyboard('{Enter}');
@@ -94,6 +96,8 @@ describe('<CheckboxField />', () => {
 
     await act(async () => {
       container.querySelector('label').focus();
+
+      return Promise.resolve();
     });
 
     await user.keyboard('{ }');
@@ -102,7 +106,7 @@ describe('<CheckboxField />', () => {
     unmount();
   });
 
-  it('should toggle active state on click', async () => {
+  it('should toggle active state on click', () => {
     const { unmount, container } = render(<CheckboxField />);
 
     fireEvent.mouseDown(container.querySelector('label'));
@@ -121,6 +125,8 @@ describe('<CheckboxField />', () => {
 
     await act(async () => {
       container.querySelector('label').focus();
+
+      return Promise.resolve();
     });
     expect(container).toMatchSnapshot('focused');
     unmount();

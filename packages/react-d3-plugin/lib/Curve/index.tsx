@@ -25,7 +25,7 @@ export declare interface CurveRef extends JuniperoRef {
 
 export declare interface CurveProps
   extends SpecialComponentPropsWithRef<'g', CurveRef> {
-  serie?: Array<number | Date>;
+  serie?: (number | Date)[];
   type?: 'line' | 'area';
   curve?: d3.CurveFactory;
   xAxisIndex: number;
@@ -120,7 +120,7 @@ const Curve = ({
     d3
       .select(lineRef.current)
       .datum(isMonoData ? [...yData, ...yData] : yData)
-      .attr('d', compute as any);//TODO: fix this
+      .attr('d', compute as any); // TODO: fix this
 
     if (type === 'area') {
       // Gradient
@@ -161,7 +161,7 @@ const Curve = ({
       d3
         .select(areaRef.current)
         .datum(isMonoData ? [...yData, ...yData] : yData)
-        .attr('d', compute2 as any)//TODO: fix this
+        .attr('d', compute2 as any) // TODO: fix this
         .style('fill', 'url(#gradient)');
     }
   }, [

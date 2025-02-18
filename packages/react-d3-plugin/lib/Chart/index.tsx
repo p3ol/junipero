@@ -23,12 +23,12 @@ import Axis, { type AxisObject } from '../Axis';
 
 export declare interface ChartRef extends JuniperoRef {
   innerRef: RefObject<SVGSVGElement>;
-  axis: Array<AxisObject>;
+  axis: AxisObject[];
 }
 
 export declare interface ChartProps
   extends SpecialComponentPropsWithRef<'svg', ChartRef> {
-  axis: Array<AxisObject>;
+  axis: AxisObject[];
   redrawThreshold?: number;
   linearDomainMaxMargin?: number;
   bandDomainInnerPadding?: number;
@@ -93,8 +93,8 @@ const Chart = ({
         ]);
         break;
       case 'scaleBand':
-        domain = (d3.scaleBand() as ReturnType<typeof d3.scaleBand>)
-          .domain(a.data)
+        domain = d3.scaleBand()
+          .domain(a.data as any) // TODO fix this
           .paddingInner(bandDomainInnerPadding)
           .paddingOuter(bandDomainOuterPadding);
         break;

@@ -19,9 +19,9 @@ describe('<Modal />', () => {
   it('should remove modal from DOM when using close method', async () => {
     const ref = createRef<ModalRef>();
     const { container, unmount } = render(<Modal ref={ref} />);
-    await act(async () => { ref.current.open(); });
+    await act(async () => Promise.resolve(ref.current.open()));
     expect(container).toMatchSnapshot('opened');
-    await act(async () => { ref.current.close(); });
+    await act(async () => Promise.resolve(ref.current.close()));
     expect(container).toMatchSnapshot('closed');
     unmount();
   });
@@ -31,7 +31,7 @@ describe('<Modal />', () => {
     const { container, unmount } = render(
       <Modal ref={ref} disabled={true} />
     );
-    await act(async () => { ref.current.open(); });
+    await act(async () => Promise.resolve(ref.current.open()));
     expect(container).toMatchSnapshot();
     unmount();
   });
@@ -43,7 +43,7 @@ describe('<Modal />', () => {
         <Modal container=".container" ref={ref} />
       </div>
     );
-    await act(async () => { ref.current.open(); });
+    await act(async () => Promise.resolve(ref.current.open()));
     expect(container).toMatchSnapshot('opened');
     fireEvent.click(container.querySelector('.wrapper'));
     expect(container).toMatchSnapshot('closed');
@@ -57,7 +57,7 @@ describe('<Modal />', () => {
         <Modal container=".container" ref={ref} />
       </div>
     );
-    await act(async () => { ref.current.open(); });
+    await act(async () => Promise.resolve(ref.current.open()));
     expect(container).toMatchSnapshot();
     fireEvent.click(container.querySelector('.content'));
     expect(container).toMatchSnapshot();
@@ -71,14 +71,14 @@ describe('<Modal />', () => {
         <Modal container=".container" closable={false} ref={ref} />
       </div>
     );
-    await act(async () => { ref.current.open(); });
+    await act(async () => Promise.resolve(ref.current.open()));
     expect(container).toMatchSnapshot();
     fireEvent.click(container.querySelector('.wrapper'));
     expect(container).toMatchSnapshot();
     unmount();
   });
 
-  it('should allow to animate modal', async () => {
+  it('should allow to animate modal', () => {
     jest.useFakeTimers();
     const ref = createRef<ModalRef>();
     const { container, unmount } = render(

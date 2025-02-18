@@ -259,7 +259,7 @@ describe('core', () => {
     it('should allow to set a value even when nested property is not ' +
       'found', () => {
       const foo = { bar: 'test' };
-      type newType = { bar: Array<{ stuff: string }> };
+      interface newType { bar: { stuff: string }[] }
       set(foo, 'bar.0.stuff', 'thing') as newType;
       expect((foo as unknown as newType).bar[0].stuff).toBe('thing');
     });
@@ -314,6 +314,7 @@ describe('core', () => {
         thing: string,
         skywalker: null
       } = { bar: 'test', thing: 'stuff', skywalker: null };
+      // @ts-expect-error - yoda doesn't exist on purpose
       expect(pick(foo, ['bar', 'skywalker', 'yoda']))
         .toMatchObject({ bar: 'test', skywalker: null });
     });
@@ -409,11 +410,12 @@ describe('core', () => {
   describe('filterDeep(array, cb, hasDepth,multiple)', () => {
     it('should correctly filter things deep inside deep arrays', () => {
       const arr = [0, 1, [2, 3, [4, 5, [6, 7, [8, 9]]]]];
-      expect(filterDeep(arr, v => v % 2 === 0))
+      expect(filterDeep(arr, (v: number) => v % 2 === 0))
         .toMatchObject([0, [2, [4, [6, [8]]]]]);
       const arr2 = [{ options: ['Item 1', 'Item 2', 'Bar'] }, 'Item 3', 'Foo'];
-      expect(filterDeep(arr2, v => /Item/.test(v)))
-        .toMatchObject([{ options: ['Item 1', 'Item 2'] }, 'Item 3']);
+      expect(filterDeep(arr2, (v: string) =>
+        typeof v === 'string' && v.includes('Item'))
+      ).toMatchObject([{ options: ['Item 1', 'Item 2'] }, 'Item 3']);
     });
   });
 

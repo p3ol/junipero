@@ -6,13 +6,13 @@ import type { ToastObject } from './Toast';
 import type { ListColumnObject } from './ListColumn';
 import type { ModalRef } from './Modal';
 
-export type AlertsContextType = {
-  alerts?: Array<AlertObject>;
+export interface AlertsContextType {
+  alerts?: AlertObject[];
   add?: (alert: AlertObject) => void;
   dismiss?: (alert: AlertObject) => void;
 }
 
-export type DropdownContextType = {
+export interface DropdownContextType {
   opened?: boolean;
   visible?: boolean;
   container?: string | ReactElement | DocumentFragment | HTMLElement;
@@ -32,22 +32,22 @@ export type DropdownContextType = {
   onAnimationExit?: () => void;
 }
 
-export type ListContextType = {
+export interface ListContextType {
   active?: string | number;
   asc?: boolean;
   orderable?: boolean;
   registerColumn?: (column: string | ListColumnObject) => void;
 }
 
-export type FieldContextType = {
+export interface FieldContextType {
   valid?: boolean;
   dirty?: boolean;
   focused?: boolean;
   update?: Dispatch<any>;
 }
 
-export type ToastsContextType = {
-  toasts?: Array<ToastObject>;
+export interface ToastsContextType {
+  toasts?: ToastObject[];
   add?: (toas: ToastObject) => void;
   dismiss?: (toast: ToastObject) => void;
 }

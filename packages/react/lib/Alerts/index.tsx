@@ -12,7 +12,7 @@ import { useAlerts } from '../hooks';
 import Alert, { type AlertObject } from '../Alert';
 
 export declare interface AlertsRef extends JuniperoRef {
-  alerts: Array<AlertObject>;
+  alerts: AlertObject[];
   innerRef: RefObject<HTMLDivElement>;
 }
 
@@ -26,9 +26,7 @@ export declare type AlertsTypes =
 export declare interface AlertsProps
   extends SpecialComponentPropsWithRef<'div', AlertsRef> {
   animationTimeout?: number;
-  icons?: {
-    [type in AlertsTypes]?: ReactNode;
-  };
+  icons?: Partial<Record<AlertsTypes, ReactNode>>;
   animateAlert?(
     alert: ReactNode,
     opts: {

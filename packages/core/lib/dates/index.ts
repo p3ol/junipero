@@ -76,7 +76,7 @@ export const subMonths = (
 export const getDaysInMonth =
   (date: Date | number | string): number => endOfMonth(date).getDate();
 
-export const closestIndexTo = (date: Date, dates: Array<Date>): number => {
+export const closestIndexTo = (date: Date, dates: Date[]): number => {
   const timeToCompare = date.getTime();
 
   let result: number, minDistance: number;

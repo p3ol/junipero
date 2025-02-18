@@ -77,11 +77,11 @@ export default [
         manualChunks: (id: string) => {
           if (/packages\/react-d3-plugin\/lib\/(\w+)\/index.ts/.test(id)) {
             return path.parse(id).dir.split('/').pop();
-          } else if (/packages\/core/.test(id)) {
+          } else if (id.includes('packages/core')) {
             return 'core';
-          } else if (/packages\/hooks/.test(id)) {
+          } else if (id.includes('packages/hooks')) {
             return 'hooks';
-          } else if (/packages\/react\//.test(id)) {
+          } else if (id.includes('packages/react/')) {
             return 'react';
           } else if (id.includes('node_modules')) {
             return 'vendor';

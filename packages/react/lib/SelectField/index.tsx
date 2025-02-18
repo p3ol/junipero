@@ -37,7 +37,8 @@ import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
 import Spinner from '../Spinner';
 
-export declare type SelectFieldValue = any;
+export declare type SelectFieldValue =
+  | string | number | boolean | object | null;
 
 export declare interface SelectFieldOptionObject {
   title?: string;
@@ -46,14 +47,14 @@ export declare interface SelectFieldOptionObject {
 
 export declare interface SelectFieldGroupObject {
   title?: string;
-  options?: Array<SelectFieldValue | SelectFieldOptionObject>;
+  options?: (SelectFieldOptionObject | SelectFieldValue)[];
 }
 
 export declare interface SelectFieldRef extends JuniperoRef {
   dirty: boolean;
   focused: boolean;
   opened: boolean;
-  value: any;
+  value: SelectFieldValue | SelectFieldOptionObject;
   valid: boolean;
   blur(): void;
   focus(): void;
@@ -75,7 +76,7 @@ export declare interface SelectFieldProps extends Omit<
   multiple?: boolean;
   noOptionsEnabled?: boolean;
   noOptionsLabel?: ReactNode;
-  options?: Array<any>;
+  options?: (SelectFieldOptionObject | SelectFieldValue)[];
   placeholder?: string;
   name?: string;
   required?: boolean;
@@ -84,7 +85,8 @@ export declare interface SelectFieldProps extends Omit<
   searchThreshold?: number;
   toggleClick?: boolean;
   valid?: boolean;
-  value?: any;
+  value?: SelectFieldValue | SelectFieldOptionObject
+    | (SelectFieldValue | SelectFieldOptionObject)[];
   hasMore?: boolean;
   loadingMoreLabel?: ReactNode;
   noMoreOptionsEnabled?: boolean;
@@ -104,7 +106,8 @@ export declare interface SelectFieldProps extends Omit<
     value: SelectFieldValue,
     flags: { required: boolean; multiple: boolean }
   ): boolean;
-  onSearch?(search: string): Promise<Array<SelectFieldValue>>;
+  onSearch?(search: string):
+    Promise<(SelectFieldValue | SelectFieldOptionObject)[]>;
   onLoadMore?(page: number): Promise<void>;
   parseTitle?(
     option: SelectFieldValue | SelectFieldOptionObject | SelectFieldGroupObject,
@@ -117,18 +120,19 @@ export declare interface SelectFieldProps extends Omit<
   ): string;
   parseValue?(
     option: SelectFieldValue | SelectFieldOptionObject | SelectFieldGroupObject,
-  ): SelectFieldValue;
+  ): SelectFieldValue | SelectFieldOptionObject;
 }
 
 export declare interface SelectFieldState {
-  value: SelectFieldValue | SelectFieldOptionObject;
+  value: SelectFieldValue | SelectFieldOptionObject |
+    (SelectFieldValue | SelectFieldOptionObject)[];
   valid: boolean;
   dirty: boolean;
   opened: boolean;
   focused: boolean;
   search: string;
   searching: boolean;
-  searchResults: Array<SelectFieldValue>;
+  searchResults: (SelectFieldValue | SelectFieldOptionObject)[];
   selectedItem: number;
   placeholderSize: number;
   page: number;
@@ -286,7 +290,10 @@ const SelectField = ({
     });
     onChange?.({ value: parseValue(state.value), valid: state.valid });
     updateControl?.({ valid: state.valid, dirty: true });
-    close && dropdownRef.current?.close?.();
+
+    if (close) {
+      dropdownRef.current?.close?.();
+    }
   };
 
   const onSelectOption = (
@@ -415,7 +422,7 @@ const SelectField = ({
   };
 
   const onKeyUp_ = (e: KeyboardEvent) => {
-    if (disabled) {
+    if (disabled || !Array.isArray(state.value)) {
       return;
     }
 
@@ -502,7 +509,7 @@ const SelectField = ({
 
   const filterOptions = (
     val?: string
-  ): SelectFieldValue | SelectFieldOptionObject => {
+  ): (SelectFieldValue | SelectFieldOptionObject)[] => {
     if (!val) {
       return options;
     }
@@ -510,12 +517,14 @@ const SelectField = ({
     const search = new RegExp(val, 'i');
 
     return filterDeep(options, v =>
-      search.test(parseTitle(v)) || search.test(parseValue(v))
+      search.test(parseTitle(v)) || search.test(parseValue(v)?.toString())
     );
   };
 
   const findOptions = (
-    val: Array<string> | string,
+    val:
+      | SelectFieldValue | SelectFieldValue[]
+      | SelectFieldOptionObject | SelectFieldOptionObject[],
   ): SelectFieldValue | SelectFieldOptionObject |
     (SelectFieldValue | SelectFieldOptionObject)[] => {
     const isMultiple = multiple && Array.isArray(val);
@@ -528,11 +537,17 @@ const SelectField = ({
   };
 
   const filterUsedOptions = (
-    opts: Array<SelectFieldValue | SelectFieldOptionObject> = []
-  ) =>
-    multiple && Array.isArray(state.value)
-      ? opts.filter(opt => !state.value.includes(opt))
-      : opts;
+    opts: (SelectFieldValue | SelectFieldOptionObject)[] = []
+  ) => {
+    if (multiple && Array.isArray(state.value)) {
+      return opts.filter(opt => (
+        !(state.value as (SelectFieldValue | SelectFieldOptionObject)[])
+          .includes(opt)
+      ));
+    } else {
+      return opts;
+    }
+  };
 
   const renderGroup = (
     group: SelectFieldGroupObject,
@@ -575,7 +590,8 @@ const SelectField = ({
     filterUsedOptions(
       state.searchResults ? state.searchResults : options
     ).map((o, i) => (
-      o?.options ? renderGroup(o, i) : renderOption(o, i)
+      (o as SelectFieldGroupObject)?.options
+        ? renderGroup(o as SelectFieldGroupObject, i) : renderOption(o, i)
     ))
   ), [state.searchResults, state.value, options, onChange]);
 
@@ -619,18 +635,19 @@ const SelectField = ({
               onChange={() => {}}
             />
           ) }
-          { hasTags() ? state.value.map((o: any, i: number) => (
-            <Tag
-              key={i}
-              className={classNames(
-                'info',
-                { selected: i === state.selectedItem }
-              )}
-              onDelete={onRemoveOption.bind(null, o)}
-            >
-              { parseTitle(o, { isTag: true }) }
-            </Tag>
-          )) : null }
+          { hasTags() && Array.isArray(state.value)
+            ? state.value.map((o: any, i: number) => (
+              <Tag
+                key={i}
+                className={classNames(
+                  'info',
+                  { selected: i === state.selectedItem }
+                )}
+                onDelete={onRemoveOption.bind(null, o)}
+              >
+                { parseTitle(o, { isTag: true }) }
+              </Tag>
+            )) : null }
           { (multiple || !state.value) && (
             <input
               type="text"

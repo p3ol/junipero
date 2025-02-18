@@ -25,7 +25,7 @@ describe('useToasts()', () => {
     const { result } = renderHook(() =>
       useToasts(), { wrapper: ToastsControl });
     expect(result.current.toasts).toHaveLength(0);
-    await act(async () => { result.current.add(customToast); });
+    await act(async () => Promise.resolve(result.current.add(customToast)));
     expect(result.current.toasts).toHaveLength(1);
     expect(result.current.toasts[0]).toEqual(customToast);
   });
@@ -38,10 +38,10 @@ describe('useToasts()', () => {
     const { result } = renderHook(() =>
       useToasts(), { wrapper: ToastsControl });
     expect(result.current.toasts).toHaveLength(0);
-    await act(async () => { result.current.add(customToast); });
+    await act(async () => Promise.resolve(result.current.add(customToast)));
     expect(result.current.toasts).toHaveLength(1);
     expect(result.current.toasts[0]).toEqual(customToast);
-    await act(async () => { result.current.dismiss(customToast); });
+    await act(async () => Promise.resolve(result.current.dismiss(customToast)));
     expect(result.current.toasts).toHaveLength(0);
   });
 

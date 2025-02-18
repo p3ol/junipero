@@ -16,7 +16,7 @@ import { ArrowDown, ArrowUp } from '../icons';
 
 export declare interface ListRef extends JuniperoRef {
   orderable: boolean;
-  columns: Array<string | ListColumnObject>;
+  columns: (string | ListColumnObject)[];
   active?: string | number;
   asc?: boolean | null;
   innerRef: RefObject<HTMLTableElement>;
@@ -24,14 +24,14 @@ export declare interface ListRef extends JuniperoRef {
 
 export declare interface ListProps
   extends SpecialComponentPropsWithRef<'table', ListRef> {
-  columns?: Array<string | ListColumnObject>;
+  columns?: (string | ListColumnObject)[];
   order?: { column: string | number; asc: boolean | null };
   orderable?: boolean;
   onOrder?(order: { column: string | number; asc: boolean | null }): void;
 }
 
 export declare interface ListState {
-  columns: Array<string | ListColumnObject>;
+  columns: (string | ListColumnObject)[];
   active?: string | number;
   asc?: boolean;
 }
@@ -45,7 +45,7 @@ const List = ({
   onOrder,
   ...rest
 }: ListProps) => {
-  const listRef = useRef<Array<string | ListColumnObject>>([]);
+  const listRef = useRef<(string | ListColumnObject)[]>([]);
   const innerRef = useRef<HTMLTableElement>(null);
   const orderable = useMemo(() => !!onOrder, [onOrder]);
   const [state, dispatch] = useReducer(mockState<ListState>, {

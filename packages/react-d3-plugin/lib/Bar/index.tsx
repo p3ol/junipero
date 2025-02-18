@@ -102,7 +102,7 @@ const Bar = ({
       .offset(offset)
       .keys(
         yAxis.stackKeys || Object.keys(yAxis.data?.[0] || [])
-      )(yAxis.data as {[key: string]: number}[]);
+      )(yAxis.data as Record<string, number>[]);
   }, [yAxis?.stackKeys, yAxis?.data, xAxis]);
 
   const barWidth = useMemo(() => (

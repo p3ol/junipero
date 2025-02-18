@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { slideInDownMenu } from '@junipero/transitions';
 import { action } from '@storybook/addon-actions';
 
+import type { FieldContent } from '../types';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
-import SelectField, { type SelectFieldProps } from './index';
+import SelectField, { SelectFieldOptionObject, type SelectFieldProps } from './index';
 
 export default { title: 'react/SelectField' };
 
@@ -26,9 +27,9 @@ export const controlled = () => {
       { ...props }
       value={value}
       placeholder="Type a name"
-      parseTitle={o => o?.title || o}
-      parseValue={o => o?.value || o}
-      onChange={field => setValue(field.value)}
+      parseTitle={o => (o as SelectFieldOptionObject)?.title || o as string}
+      parseValue={o => (o as SelectFieldOptionObject)?.value || o}
+      onChange={(field: FieldContent<string>) => setValue(field.value)}
     />
   );
 };
@@ -63,8 +64,8 @@ export const multipleWithGroups = () => (
     placeholder="Type a name"
     multiple={true}
     value={['access.metrics']}
-    parseTitle={o => o?.title ?? o}
-    parseValue={o => o?.value ?? o}
+    parseTitle={o => (o as SelectFieldOptionObject)?.title ?? o as string}
+    parseValue={o => (o as SelectFieldOptionObject)?.value ?? o}
     options={[
       { title: 'Susbcribe', options: [
         {
@@ -124,7 +125,7 @@ export const multipleWithLabelAndAbstract = () => (
     <SelectField
       placeholder="Type a name"
       options={['Item 1', 'Item 2', 'Item 3']}
-      onValidate={v => v.includes('Item 1')}
+      onValidate={(v: string) => v.includes('Item 1')}
       multiple={true}
     />
     <Abstract className="info">

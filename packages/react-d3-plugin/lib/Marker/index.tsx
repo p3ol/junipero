@@ -30,9 +30,9 @@ export declare interface MarkerRef extends JuniperoRef {
 
 export declare interface MarkerProps
   extends SpecialComponentPropsWithRef<'g', MarkerRef> {
-  series?: Array<Array<number | Date>> | Array<number | Date>;
+  series?: (number | Date)[][] | (number | Date)[];
   xAxisIndex?: number;
-  yAxisIndexes?: Array<number>;
+  yAxisIndexes?: number[];
   tooltip?(opts: {
     position: number | Date;
     xIndex: number;
@@ -88,7 +88,7 @@ const Marker = ({
       : xAxis?.data?.[xIndex] as number);
     const yValue = Math.min(...(series
       ? series.map(s => (yAxisIndexes || [1]).map(i =>
-        axis[i]?.domain?.((s as Array<number | Date>)[xIndex]) as number
+        axis[i]?.domain?.((s as (number | Date)[])[xIndex]) as number
       )).flat()
       : (yAxisIndexes || [1]).map(i =>
         axis[i]?.domain?.(axis[i]?.data?.[xIndex] as number))as number[]
@@ -98,7 +98,7 @@ const Marker = ({
       position,
       xIndex,
       x: xValue as number || 0,
-      y: yValue as number || 0,
+      y: yValue || 0,
     };
   }, [yAxisIndexes, xAxisIndex, cursor, series]);
 

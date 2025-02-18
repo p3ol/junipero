@@ -1,3 +1,4 @@
+import type { StateContent } from '@junipero/core';
 import type {
   ComponentPropsWithoutRef,
   RefObject,
@@ -15,26 +16,18 @@ export declare interface JuniperoRef {
 /**
  * Represents a field content
  */
-export declare type FieldContent<T = any> = {
+export declare interface FieldContent<T = any> {
   valid?: boolean;
   checked?: boolean;
   value?: T;
   dirty?: boolean;
-};
+}
 
 export declare type SpecialComponentPropsWithRef<
   T extends ElementType = any,
   R extends JuniperoRef = any
 > = ComponentPropsWithoutRef<T> & {
   ref?: Ref<R>;
-}
-
-/**
-* Represents a state comming from useReducer.
-* Volontarily abstracted to allow any kind of state.
-*/
-export declare interface StateContent {
-  [key: string]: any;
 }
 
 /**

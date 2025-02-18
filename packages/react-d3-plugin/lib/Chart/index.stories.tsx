@@ -36,9 +36,9 @@ const barData: [Date, { free: number, premium:number}][] = [
 ];
 
 const axis: [
-    AxisObject<Array<Date>>,
-    AxisObject<Array<number>>,
-    AxisObject<Array<number>>
+    AxisObject<Date[]>,
+    AxisObject<number[]>,
+    AxisObject<number[]>
 ] = [{
   type: 'axisBottom',
   scale: 'scaleTime',
@@ -64,8 +64,8 @@ const axis: [
 }];
 
 const barAxis: [
-  AxisObject<Array<Date>>,
-  AxisObject<Array<{ premium: number, free: number }>>
+  AxisObject<Date[]>,
+  AxisObject<{ premium: number, free: number }[]>
 ] = [{
   type: 'axisBottom',
   scale: 'scaleBand',
@@ -188,7 +188,7 @@ export const bars = () => (
         yAxisIndex={1}
         tooltip={({ xIndex }: { xIndex: number}) => (
           <div>
-            <div>{ (barAxis[0].data[xIndex] as Date)?.toISOString() }</div>
+            <div>{ (barAxis[0].data[xIndex])?.toISOString() }</div>
             <div>Free: { barAxis[1].data[xIndex]?.free }</div>
             <div>Premium: { barAxis[1].data[xIndex]?.premium }</div>
           </div>
@@ -239,9 +239,9 @@ export const withTooltip = () => (
         tooltip={({ xIndex }: {xIndex: number}) => (
           <div>
             <div>{ axis[0].data[xIndex].toISOString() }</div>
-            <div>Data: { data[xIndex][1] as number }</div>
+            <div>Data: { data[xIndex][1] }</div>
             <div>
-              Alternative data: { alternativeData[xIndex][1] as number }
+              Alternative data: { alternativeData[xIndex][1] }
             </div>
           </div>
         )}

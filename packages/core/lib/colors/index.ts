@@ -60,33 +60,36 @@ export const COLORS = {
   nevada: '#646873',
   gondola: '#1E1E1E',
 };
-export type hsva = {
+
+export interface hsva {
   h?: number;
   s?: number;
   v?: number;
   a?: number;
-};
+}
 
-export type hsla = {
+export interface hsla {
   h?: number;
   s?: number;
   l?: number;
   a?: number;
-};
-export type rgba = {
+}
+
+export interface rgba {
   r?: number;
   g?: number;
   b?: number;
   a?: number;
-};
+}
 
-export type rgb = {
+export interface rgb {
   r?: number;
   g?: number;
   b?: number;
-};
+}
 
 const COLOR_PARSERS = [{
+  // eslint-disable-next-line @stylistic/js/max-len
   regex: /(?:rgb)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*%?,\s*(\d{1,3})\s*%?(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
   parse: (r: string, g: string, b: string, a: string) => ({
     r: parseInt(r, 10) / 255,
@@ -95,6 +98,7 @@ const COLOR_PARSERS = [{
     a: isNaN(parseFloat(a)) ? 1 : parseFloat(a),
   }),
 }, {
+  // eslint-disable-next-line @stylistic/js/max-len
   regex: /(?:hsl)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
   parse: (h: string, s: string, l: string, a: string) => ({
     h: parseInt(h, 10) / 360,

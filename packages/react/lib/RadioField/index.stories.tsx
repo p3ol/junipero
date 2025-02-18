@@ -2,29 +2,30 @@ import { useState } from 'react';
 import { cloneDeep } from '@junipero/core';
 import { action } from '@storybook/addon-actions';
 
-import RadioField from '.';
+import RadioField, { RadioFieldOptionObject } from '.';
 import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 
 export default { title: 'react/RadioField' };
-const basicOptions: Array<any> = [
+const basicOptions: RadioFieldOptionObject[] = [
   { title: 'Apple', value: 'Apple' },
   { title: 'Pear', value: 'Pear' },
   { title: 'Orange', value: 'Orange' },
 ];
 
-const basicOptionsOneDisabled = [
+const basicOptionsOneDisabled: RadioFieldOptionObject[] = [
   { title: 'Apple', value: 'Apple' },
   { title: 'Pear', value: 'Pear' },
   { title: 'Orange', value: 'Orange', disabled: true },
 ];
 
-const withDescriptions = [
+const withDescriptions: RadioFieldOptionObject[] = [
   { title: 'Apple', value: 'Apple', description: 'This is a description' },
   { title: 'Pear', value: 'Pear', description: 'This is a description' },
   { title: 'Orange', value: 'Orange', description: 'This is a description' },
 ];
+
 export const basic = () => (
   <RadioField options={basicOptions} onChange={action('change')} />
 );
@@ -66,7 +67,7 @@ export const withOneDisabled = () => (
 );
 
 export const withCustomValidation = () => {
-  const withOneProhibed: Array<any> = cloneDeep(withDescriptions);
+  const withOneProhibed: RadioFieldOptionObject[] = cloneDeep(withDescriptions);
   withOneProhibed[2].description = 'You should not choose this fruit';
 
   return (

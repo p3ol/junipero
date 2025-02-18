@@ -3,7 +3,7 @@ import { createContext } from 'react';
 import type { AxisObject } from './Axis';
 
 export declare interface ChartContextType {
-  axis?: Array<AxisObject>;
+  axis?: AxisObject[];
   width?: number;
   height?: number;
   paddingLeft?: number;

@@ -4,7 +4,7 @@ import { render, fireEvent, act, createEvent } from '@testing-library/react';
 import Slider, { SliderRef } from './';
 
 describe('<Slider />', () => {
-  it('should render', async () => {
+  it('should render', () => {
     const { container, unmount } = render(<Slider />);
     expect(container).toMatchSnapshot();
     unmount();
@@ -110,6 +110,8 @@ describe('<Slider />', () => {
         'offsetWidth',
         { value: 234 }
       );
+
+      return Promise.resolve();
     });
     fireEvent.mouseDown(container.querySelector('.handle'), { button: 0 });
 

@@ -1,5 +1,4 @@
 {
-  "include": ["packages/**/*"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",
@@ -21,6 +20,11 @@
       "~tests-utils": ["./packages/react/tests/utils.ts"],
     }
   },
+  "include": [
+    "packages/**/*",
+    "*.ts",
+    ".storybook/**/*",
+  ],
   "exclude": [
     "**/dist/*",
     "node_modules/**/*",

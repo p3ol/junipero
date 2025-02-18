@@ -72,7 +72,7 @@ describe('<Toggle />', () => {
     );
     expect(container).toMatchSnapshot('unChecked');
     await act(async () => {
-      container.querySelector('label').focus();
+      return Promise.resolve(container.querySelector('label').focus());
     });
     user.keyboard('{ }');
     await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith(
@@ -90,7 +90,7 @@ describe('<Toggle />', () => {
     unmount();
   });
 
-  it('should not handle change if toggle is disabled', async () => {
+  it('should not handle change if toggle is disabled', () => {
     const user = userEvent.setup();
     const onChangeMock = jest.fn();
     const { container, unmount } = render(

@@ -51,6 +51,7 @@ export const withAllEvents = () => (
 export const withChildrenInProps = () => (
   <CheckboxField
     value="agreement"
+    // eslint-disable-next-line react/no-children-prop
     children={<p>this is given child</p>}
   />
 );
@@ -59,8 +60,9 @@ export const withRequiredField = () => (
   <CheckboxField
     value="agreement"
     required={true}
-    children={<p>this is given child</p>}
-  />
+  >
+    <p>this is given child</p>
+  </CheckboxField>
 );
 
 export const withLabelAndAbstract = () => (
@@ -73,7 +75,7 @@ export const withLabelAndAbstract = () => (
       I have read and accept the CGU
     </CheckboxField>
     <Abstract className="info">
-     You can see our CGU here
+      You can see our CGU here
     </Abstract>
   </FieldControl>
 );

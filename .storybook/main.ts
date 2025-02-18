@@ -1,6 +1,7 @@
 import path from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { Options } from '@swc/core';
 
 const config: StorybookConfig = {
   stories: [
@@ -29,7 +30,7 @@ const config: StorybookConfig = {
     '@storybook/addon-webpack5-compiler-swc',
   ],
   framework: '@storybook/react-webpack5',
-  webpackFinal: (config) => {
+  webpackFinal: config => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve?.alias,
@@ -45,7 +46,7 @@ const config: StorybookConfig = {
 
     return config;
   },
-  swc: config => ({
+  swc: (config: Options): Options => ({
     ...config,
     jsc: {
       ...config.jsc,
@@ -60,7 +61,6 @@ const config: StorybookConfig = {
         ...config.jsc?.parser,
         syntax: 'typescript',
         tsx: true,
-        jsx: true,
       },
     },
   }),

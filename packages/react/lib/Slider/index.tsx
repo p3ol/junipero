@@ -116,7 +116,7 @@ const Slider = ({
     onMouseMove_(e);
   }, { target: globalEventsTarget, enabled: state.moving && !disabled });
 
-  useEventListener('mouseup', e => {
+  useEventListener('mouseup', () => {
     onMouseUp_();
   }, { target: globalEventsTarget, enabled: state.moving && !disabled });
 

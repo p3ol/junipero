@@ -12,7 +12,7 @@ import { useToasts } from '../hooks';
 import Toast, { type ToastObject } from '../Toast';
 
 export declare interface ToastsRef extends JuniperoRef {
-  toasts: Array<ToastObject>;
+  toasts: ToastObject[];
   innerRef: RefObject<HTMLDivElement>;
 }
 
@@ -58,7 +58,7 @@ const Toasts = ({
       { toasts?.map((toast, index) => (
         <Toast
           { ...omit(toast, [
-            'id', 'content', 'lifespan', 'animate', 'animationTimeout',
+            'content', 'lifespan', 'animate', 'animationTimeout',
             'onDismiss',
           ]) }
           key={toast.index ?? index}

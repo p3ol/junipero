@@ -26,7 +26,7 @@ export declare interface CodeFieldRef extends JuniperoRef {
   blur(index: number): void;
   reset(): void;
   innerRef: RefObject<HTMLDivElement>;
-  inputsRef: RefObject<Array<HTMLInputElement>>;
+  inputsRef: RefObject<HTMLInputElement[]>;
   inputRef: RefObject<HTMLInputElement>;
 }
 
@@ -53,7 +53,7 @@ export declare interface CodeFieldProps extends Omit<
 }
 
 export declare interface CodeFieldState {
-  values: Array<string>;
+  values: string[];
   valid: boolean;
   dirty: boolean;
   active: number;

@@ -15,14 +15,14 @@ import Step, { type StepObject } from '../Step';
 
 export declare interface StepperRef extends JuniperoRef {
   active: number;
-  steps: Array<StepObject>;
+  steps: StepObject[];
   innerRef: RefObject<HTMLDivElement>;
 }
 
 export declare interface StepperProps
   extends SpecialComponentPropsWithRef<'div', StepperRef> {
   active?: number;
-  steps?: Array<StepObject>;
+  steps?: StepObject[];
   icon?: ReactNode;
 }
 

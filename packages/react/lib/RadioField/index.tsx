@@ -15,7 +15,7 @@ import type {
 } from '../types';
 import { useFieldControl } from '../hooks';
 
-export declare type RadioFieldValue = any;
+export declare type RadioFieldValue = string | number | boolean | object | null;
 
 export declare interface RadioFieldOptionObject {
   id?: string | number;
@@ -40,7 +40,7 @@ export declare interface RadioFieldProps extends Omit<
 > {
   disabled?: boolean;
   name?: string;
-  options?: Array<RadioFieldOptionObject | RadioFieldValue>;
+  options?: (RadioFieldOptionObject | RadioFieldValue)[];
   required?: boolean;
   valid?: boolean;
   value?: RadioFieldValue;
@@ -78,9 +78,10 @@ const RadioField = ({
   onChange,
   onValidate = (val, { required }) =>
     (typeof val !== 'undefined' && val !== null) || !required,
-  parseValue = val => val?.value ?? val,
-  parseTitle = val => val?.title ?? val?.toString?.(),
-  parseDescription = val => val?.description || '',
+  parseValue = val => (val as RadioFieldOptionObject)?.value ?? val,
+  parseTitle = val => (val as RadioFieldOptionObject)?.title ??
+    val?.toString?.(),
+  parseDescription = val => (val as RadioFieldOptionObject)?.description || '',
   ...rest
 }: RadioFieldProps) => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
@@ -121,7 +122,7 @@ const RadioField = ({
     parseValue(option) === parseValue(state.value);
 
   const onChange_ = (option: RadioFieldValue | RadioFieldOptionObject) => {
-    if (disabled || option.disabled) {
+    if (disabled || (option as RadioFieldOptionObject).disabled) {
       /* istanbul ignore next: canoot be tested */
       return;
     }
@@ -176,17 +177,17 @@ const RadioField = ({
           ref={el => { optionRefs.current[index] = el; }}
           className={classNames({
             checked: isChecked(option),
-            disabled: disabled || option.disabled,
+            disabled: disabled || (option as RadioFieldOptionObject).disabled,
           })}
           onKeyDown={onKeyDown.bind(null, option)}
           tabIndex={disabled ? -1 : index + 1}
         >
           <input
-            id={option.id}
+            id={(option as RadioFieldOptionObject).id?.toString()}
             name={name}
             ref={el => { inputRefs.current[index] = el; }}
             type="radio"
-            value={parseValue(option)}
+            value={parseValue(option) as string}
             checked={isChecked(option)}
             onChange={onChange_.bind(null, option)}
             tabIndex={-1}

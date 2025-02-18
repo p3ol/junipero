@@ -66,7 +66,7 @@ export default [
         manualChunks: (id: string) => {
           if (/packages\/tailwind-plugin\/lib\/(\w+)\/index.ts/.test(id)) {
             return path.parse(id).dir.split('/').pop();
-          } else if (/packages\/core/.test(id)) {
+          } else if (id.includes('packages/core')) {
             return 'core';
           } else if (id.includes('node_modules')) {
             return 'vendor';

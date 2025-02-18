@@ -11,7 +11,7 @@ import type { ToastObject } from '../Toast';
 import { ToastsContext, type ToastsContextType } from '../contexts';
 
 export declare interface ToastsControlRef extends JuniperoRef {
-  toasts: Array<ToastObject>;
+  toasts: ToastObject[];
   add(toast: ToastObject): void;
   dismiss(toast: ToastObject, index: string | number): void;
 }
@@ -20,7 +20,7 @@ export declare interface ToastsControlProps extends Omit<
   ComponentPropsWithoutRef<typeof ToastsContext.Provider>, 'value'
 > {
   ref?: Ref<ToastsControlRef>;
-  toasts?: Array<ToastObject>;
+  toasts?: ToastObject[];
   generateId?(toast: ToastObject): string | number;
 }
 

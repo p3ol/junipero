@@ -67,7 +67,7 @@ const Draggable = ({
           dragImageOffset.y
         );
       }
-    } catch (err) {}
+    } catch {}
 
     setDragAnimation(true);
     onDragStart?.(e, targetRect);
