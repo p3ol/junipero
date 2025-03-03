@@ -59,7 +59,7 @@
     "postcss-loader": "8.1.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "rollup": "4.34.8",
+    "rollup": "4.34.9",
     "sass": "1.85.0",
     "sass-loader": "16.0.5",
     "storybook": "8.5.6",
