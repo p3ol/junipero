@@ -3,11 +3,15 @@ import {
   type ReactNode,
   type ReactElement,
   type ComponentPropsWithoutRef,
+  type LazyExoticComponent,
+  type FunctionComponent,
+  type Usable,
   cloneElement,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
+  use,
 } from 'react';
 import { createPortal } from 'react-dom';
 import {
@@ -245,10 +249,16 @@ const Tooltip = ({
       }
     </div>
   );
-
-  const child: ReactElement<
+  
+  type ReactElt = ReactElement<
     ComponentPropsWithoutRef<any>
-  > = children && typeof children !== 'string'
+  >
+
+  type ReactLazy = LazyExoticComponent<FunctionComponent> & {
+    _payload: Usable<ReactElt>
+  };
+
+  const child: ReactElt| ReactLazy = children && typeof children !== 'string'
     ? Array.isArray(children) ? children[0] : children
     : null;
 
@@ -261,10 +271,14 @@ const Tooltip = ({
         >
           { children }
         </span>
-      ) : cloneElement(child, {
-        ...getReferenceProps(),
-        ref: setReference,
-      }) }
+      ) : cloneElement(
+        (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+          ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+        {
+          ...getReferenceProps(),
+          ref: setReference,
+        }
+      ) }
 
       { state.opened || (animate && state.visible) || apparition === 'css'
         ? container
