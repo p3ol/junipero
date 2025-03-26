@@ -249,7 +249,7 @@ const Tooltip = ({
       }
     </div>
   );
-  
+
   type ReactElt = ReactElement<
     ComponentPropsWithoutRef<any>
   >
