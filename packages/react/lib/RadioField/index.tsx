@@ -179,7 +179,7 @@ const RadioField = ({
             disabled: disabled || option.disabled,
           })}
           onKeyDown={onKeyDown.bind(null, option)}
-          tabIndex={disabled ? -1 : index + 1}
+          tabIndex={disabled ? -1 : 0}
         >
           <input
             id={option.id}
