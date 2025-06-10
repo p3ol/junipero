@@ -15,6 +15,7 @@ export type AlertsContextType = {
 export type DropdownContextType = {
   opened?: boolean;
   visible?: boolean;
+  highlightedOptionId?: string | null;
   container?: string | ReactElement | DocumentFragment | HTMLElement;
   x?: number;
   y?: number;
@@ -30,6 +31,7 @@ export type DropdownContextType = {
     userProps?: React.HTMLProps<HTMLElement>
   ) => Record<string, unknown>;
   onAnimationExit?: () => void;
+  setHighlightedOptionId?: (id: string) => void;
 }
 
 export type ListContextType = {

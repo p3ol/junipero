@@ -1,6 +1,7 @@
 import {
   type RefObject,
   type ReactNode,
+  useEffect,
   useRef,
   useImperativeHandle,
 } from 'react';
@@ -41,6 +42,7 @@ export const DropdownMenu = ({
     refs,
     strategy,
     opened,
+    highlightedOptionId,
     visible,
     container,
     getFloatingProps,
@@ -56,8 +58,16 @@ export const DropdownMenu = ({
     return null;
   }
 
+  innerRef.current?.focus();
+
   const menu = (
-    <ul className="menu-inner">
+    <ul
+      className="menu-inner"
+      role="listbox"
+      tabIndex={-1}
+      aria-labelledby="dropdown-toggle"
+      aria-activedescendant={highlightedOptionId}
+    >
       { children }
     </ul>
   );

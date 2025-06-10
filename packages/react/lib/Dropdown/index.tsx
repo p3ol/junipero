@@ -60,6 +60,7 @@ export declare interface DropdownProps extends Omit<
 export declare interface DropdownState {
   opened: boolean;
   visible: boolean;
+  highlightedOptionId: string | null;
 }
 
 const Dropdown = ({
@@ -81,6 +82,7 @@ const Dropdown = ({
   const [state, dispatch] = useReducer(mockState<DropdownState>, {
     opened: opened ?? false,
     visible: opened ?? false,
+    highlightedOptionId: null,
   });
   const { x, y, refs, strategy, context } = useFloating({
     open: state.opened,
@@ -175,9 +177,14 @@ const Dropdown = ({
     dispatch({ visible: false });
   };
 
+  const setHighlightedOptionId = (id: string) => {
+    dispatch({ highlightedOptionId: id });
+  };
+
   const getContext = useCallback<() => DropdownContextType>(() => ({
     opened: state.opened,
     visible: state.visible,
+    highlightedOptionId: state.highlightedOptionId,
     container,
     x,
     y,
@@ -189,6 +196,7 @@ const Dropdown = ({
     getReferenceProps,
     getFloatingProps,
     onAnimationExit,
+    setHighlightedOptionId,
   }), [
     state.opened,
     state.visible,

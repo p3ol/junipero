@@ -52,6 +52,11 @@ const DropdownToggle = ({
       );
     },
     ...getReferenceProps({ onClick: child.props?.onClick }),
+    id: 'dropdown-toggle',
+    'aria-haspopup': 'listbox',
+    'aria-expanded': opened,
+    'aria-controls': refs.floating?.current?.id,
+    'aria-multiselectable': Array.isArray(child.props?.children),
   });
 };
 
