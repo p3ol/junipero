@@ -13,7 +13,7 @@ import type {
   JuniperoRef,
   SpecialComponentPropsWithRef,
 } from '../types';
-import { useDropdown } from '../hooks';
+import { useAccessibility, useDropdown } from '../hooks';
 
 export declare interface DropdownToggleRef extends JuniperoRef {
   innerRef: RefObject<JuniperoRef | JuniperoInnerRef>;
@@ -28,6 +28,7 @@ const DropdownToggle = ({
 }: DropdownToggleProps) => {
   const innerRef = useRef<JuniperoRef | JuniperoInnerRef>(null);
   const { opened, refs, getReferenceProps } = useDropdown();
+  const { onKeyDown } = useAccessibility();
 
   useImperativeHandle(ref, () => ({
     innerRef,

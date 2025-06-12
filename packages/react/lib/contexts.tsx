@@ -60,9 +60,17 @@ export declare interface ModalContextType {
   setRef?: (ref: ModalRef) => void;
 }
 
+export declare interface AccessibilityContextType {
+  currentlyFocusedElement?: string,
+  setCurrentlyFocusedElement?: (element: string) => void;
+  registerElement?: (id: string) => void;
+  onKeyDown?: (event: React.KeyboardEvent) => void;
+}
+
 export const AlertsContext = createContext<AlertsContextType>({});
 export const DropdownContext = createContext<DropdownContextType>({});
 export const FieldControlContext = createContext<FieldContextType>({});
 export const ListContext = createContext<ListContextType>({});
 export const ToastsContext = createContext<ToastsContextType>({});
 export const ModalContext = createContext<ModalContextType>({});
+export const AccessibilityContext = createContext<AccessibilityContextType>({});

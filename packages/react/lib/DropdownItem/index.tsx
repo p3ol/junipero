@@ -1,27 +1,46 @@
-import { type ComponentPropsWithoutRef, useId } from 'react';
+import {
+  type ComponentPropsWithoutRef,
+  ReactElement,
+  cloneElement,
+} from 'react';
 import { classNames } from '@junipero/core';
 
-import { useDropdown } from '../hooks';
+import { useAccessibility } from '../hooks';
 
 export declare interface DropdownItemProps
-  extends ComponentPropsWithoutRef<'li'> {}
+  extends ComponentPropsWithoutRef<'li'> {
+  accessibilityKey?: string;
+  }
 
 const DropdownItem = ({
+  accessibilityKey,
   className,
+  children,
   ...rest
 }: DropdownItemProps) => {
-  const optionId = useId();
-  const { setHighlightedOptionId } = useDropdown();
+  const { registerElement, setCurrentlyFocusedElement } = useAccessibility();
+
+  const child: ReactElement<
+    ComponentPropsWithoutRef<any>
+  > = typeof children !== 'string' && Array.isArray(children)
+    ? children[0] : children;
+
+  registerElement(accessibilityKey);
 
   return (
     <li
-      key={optionId}
+      id={accessibilityKey}
+      key={accessibilityKey}
       className={classNames('dropdown-item', className)}
       role="option"
       tabIndex={0}
-      onMouseEnter={() => setHighlightedOptionId(`option-${optionId}`)}
+      onMouseEnter={() => setCurrentlyFocusedElement(accessibilityKey)}
       { ...rest }
-    />
+    >
+      { cloneElement(child, {
+        tabIndex: -1,
+      }) }
+    </li>
   );
 };
 

@@ -609,7 +609,15 @@ const SelectField = ({
       onToggle={onToggle_}
     >
       <DropdownToggle>
-        <div className="field" onClick={onFocusField}>
+        <div
+          className="field"
+          onClick={onFocusField}
+          role="combobox"
+          onFocus={() => {
+            dropdownRef.current?.open?.();
+            dispatch({ opened: true, focused: false });
+          }}
+        >
           { hasValue() && (
             <input
               type="text"

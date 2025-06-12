@@ -30,6 +30,7 @@ import {
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { DropdownContext, type DropdownContextType } from '../contexts';
+import AccessibilityStore from '../AccessibilityStore';
 
 export declare interface DropdownRef extends JuniperoRef {
   opened: boolean;
@@ -177,14 +178,9 @@ const Dropdown = ({
     dispatch({ visible: false });
   };
 
-  const setHighlightedOptionId = (id: string) => {
-    dispatch({ highlightedOptionId: id });
-  };
-
   const getContext = useCallback<() => DropdownContextType>(() => ({
     opened: state.opened,
     visible: state.visible,
-    highlightedOptionId: state.highlightedOptionId,
     container,
     x,
     y,
@@ -196,7 +192,6 @@ const Dropdown = ({
     getReferenceProps,
     getFloatingProps,
     onAnimationExit,
-    setHighlightedOptionId,
   }), [
     state.opened,
     state.visible,
@@ -207,20 +202,22 @@ const Dropdown = ({
   ]);
 
   return (
-    <DropdownContext.Provider value={getContext()}>
-      <div
-        { ...rest }
-        className={classNames(
-          'junipero dropdown',
-          {
-            opened: state.opened,
-            disabled,
-          },
-          className
-        )}
-        ref={innerRef}
-      />
-    </DropdownContext.Provider>
+    <AccessibilityStore>
+      <DropdownContext.Provider value={getContext()}>
+        <div
+          { ...rest }
+          className={classNames(
+            'junipero dropdown',
+            {
+              opened: state.opened,
+              disabled,
+            },
+            className
+          )}
+          ref={innerRef}
+        />
+      </DropdownContext.Provider>
+    </AccessibilityStore>
   );
 };
 

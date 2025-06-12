@@ -1,16 +1,16 @@
 import {
   type RefObject,
   type ReactNode,
-  useEffect,
   useRef,
   useImperativeHandle,
+  useEffect,
 } from 'react';
 import { classNames, ensureNode } from '@junipero/core';
 import { createPortal } from 'react-dom';
 
 import type { TransitionProps } from '../Transition';
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
-import { useDropdown } from '../hooks';
+import { useAccessibility, useDropdown } from '../hooks';
 
 export declare interface DropdownMenuRef extends JuniperoRef {
   innerRef: RefObject<HTMLDivElement>;
@@ -42,12 +42,18 @@ export const DropdownMenu = ({
     refs,
     strategy,
     opened,
-    highlightedOptionId,
     visible,
     container,
     getFloatingProps,
     onAnimationExit,
   } = useDropdown();
+  const { onKeyDown, currentlyFocusedElement } = useAccessibility();
+
+  useEffect(() => {
+    if (innerRef.current) {
+      innerRef.current.focus();
+    }
+  }, [opened, innerRef.current]);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -58,16 +64,8 @@ export const DropdownMenu = ({
     return null;
   }
 
-  innerRef.current?.focus();
-
   const menu = (
-    <ul
-      className="menu-inner"
-      role="listbox"
-      tabIndex={-1}
-      aria-labelledby="dropdown-toggle"
-      aria-activedescendant={highlightedOptionId}
-    >
+    <ul className="menu-inner">
       { children }
     </ul>
   );
@@ -87,6 +85,11 @@ export const DropdownMenu = ({
       }}
       className={classNames('junipero dropdown-menu', className)}
       { ...getFloatingProps() }
+      tabIndex={0}
+      onKeyDown={onKeyDown}
+      role="listbox"
+      aria-labelledby="dropdown-toggle"
+      aria-activedescendant={currentlyFocusedElement}
     >
       { animate ? animate(menu, {
         opened,
