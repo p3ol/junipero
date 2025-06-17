@@ -7,6 +7,7 @@ import {
 } from './contexts';
 
 export interface AccessibilityStoreProps extends ComponentPropsWithoutRef<any> {
+  handleAction?: any;
 }
 
 declare interface AccessibilityState {
@@ -15,6 +16,7 @@ declare interface AccessibilityState {
 }
 
 const AccessibilityStore = ({
+  handleAction,
   children,
 }: AccessibilityStoreProps) => {
 
@@ -30,30 +32,43 @@ const AccessibilityStore = ({
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
-      const { elements, currentlyFocusedElement } = state;
-      if (!elements.length) return;
-
-      const currentIndex = currentlyFocusedElement
-        ? elements.indexOf(currentlyFocusedElement)
-        : -1;
-
       let nextIndex;
+      const { elements, currentlyFocusedElement } = state;
+      if (elements.length === 0) return;
+      const currentlyFocusedIndex = elements.indexOf(currentlyFocusedElement);
 
-      if (e.key === 'ArrowDown') {
-        nextIndex = (currentIndex + 1) % elements.length;
+      if (currentlyFocusedIndex !== -1) {
+        if (e.key === 'ArrowDown') {
+          nextIndex = currentlyFocusedIndex > 0
+            ? currentlyFocusedIndex - 1
+            : currentlyFocusedIndex;
+        } else if (e.key === 'ArrowUp') {
+          nextIndex = currentlyFocusedIndex < elements.length - 1
+            ? currentlyFocusedIndex + 1
+            : currentlyFocusedIndex;
+        }
       } else {
-        nextIndex = (currentIndex - 1 + elements.length) % elements.length;
+        nextIndex = e.key === 'ArrowDown' ? elements.length - 1 : 0;
       }
 
-      const nextElement = elements[nextIndex];
-      dispatch({ currentlyFocusedElement: nextElement });
+      dispatch({ currentlyFocusedElement: elements[nextIndex] });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      const { currentlyFocusedElement } = state;
+
+      if (
+        currentlyFocusedElement !== undefined &&
+        currentlyFocusedElement !== null &&
+        handleAction
+      ) {
+        handleAction(currentlyFocusedElement);
+      }
     }
   };
 
   const registerElement = (id: string) => {
     if (!state.elements.includes(id)) {
-      state.elements.push(id);
-      dispatch({ elements: state.elements });
+      dispatch({ elements: [...state.elements, id] });
     }
   };
 

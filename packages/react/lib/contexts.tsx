@@ -62,8 +62,8 @@ export declare interface ModalContextType {
 
 export declare interface AccessibilityContextType {
   currentlyFocusedElement?: string,
-  setCurrentlyFocusedElement?: (element: string) => void;
-  registerElement?: (id: string) => void;
+  setCurrentlyFocusedElement?: (element: string | number) => void;
+  registerElement?: (id: string | number) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 

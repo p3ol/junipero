@@ -19,6 +19,7 @@ export declare interface DropdownMenuRef extends JuniperoRef {
 export declare interface DropdownMenuProps
   extends SpecialComponentPropsWithRef<'div', DropdownMenuRef> {
   apparition?: string;
+  a11yFocus?: boolean;
   animate?(
     menu: ReactNode,
     opts: {
@@ -29,6 +30,7 @@ export declare interface DropdownMenuProps
 
 export const DropdownMenu = ({
   ref,
+  a11yFocus = true,
   apparition,
   children,
   className,
@@ -44,13 +46,14 @@ export const DropdownMenu = ({
     opened,
     visible,
     container,
+    close,
     getFloatingProps,
     onAnimationExit,
   } = useDropdown();
   const { onKeyDown, currentlyFocusedElement } = useAccessibility();
 
   useEffect(() => {
-    if (innerRef.current) {
+    if (innerRef.current && a11yFocus) {
       innerRef.current.focus();
     }
   }, [opened, innerRef.current]);
@@ -83,6 +86,7 @@ export const DropdownMenu = ({
         left: x ?? 0,
         ...rest.style || {},
       }}
+      onBlur={close}
       className={classNames('junipero dropdown-menu', className)}
       { ...getFloatingProps() }
       tabIndex={0}

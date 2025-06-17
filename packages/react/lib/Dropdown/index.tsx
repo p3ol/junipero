@@ -55,6 +55,7 @@ export declare interface DropdownProps extends Omit<
   opened?: boolean;
   placement?: Placement;
   trigger?: 'click' | 'hover' | 'manual';
+  withAccessibility?: boolean;
   onToggle?(props: { opened: boolean }): void;
 }
 
@@ -76,6 +77,7 @@ const Dropdown = ({
   opened = false,
   placement = 'bottom-start',
   trigger = 'click',
+  withAccessibility = true,
   onToggle,
   ...rest
 }: DropdownProps) => {
@@ -201,23 +203,33 @@ const Dropdown = ({
     strategy,
   ]);
 
+  const Dropdown = (
+    <DropdownContext.Provider value={getContext()}>
+      <div
+        { ...rest }
+        className={classNames(
+          'junipero dropdown',
+          {
+            opened: state.opened,
+            disabled,
+          },
+          className
+        )}
+        ref={innerRef}
+      />
+    </DropdownContext.Provider>
+  );
+
   return (
-    <AccessibilityStore>
-      <DropdownContext.Provider value={getContext()}>
-        <div
-          { ...rest }
-          className={classNames(
-            'junipero dropdown',
-            {
-              opened: state.opened,
-              disabled,
-            },
-            className
-          )}
-          ref={innerRef}
-        />
-      </DropdownContext.Provider>
-    </AccessibilityStore>
+    <>
+      { withAccessibility ? (
+        <AccessibilityStore>
+          { Dropdown }
+        </AccessibilityStore>
+      ) : (
+        Dropdown
+      )}
+    </>
   );
 };
 
