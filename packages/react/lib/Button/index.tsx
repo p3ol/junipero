@@ -47,6 +47,7 @@ const Button = ({
 
   return (
     <Tag
+      type="button"
       { ...rest }
       aria-disabled={disabled}
       disabled={disabled}

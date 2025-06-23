@@ -117,6 +117,10 @@ const CheckboxField = ({
   return (
     <label
       htmlFor={id}
+      role="checkbox"
+      aria-checked={state.checked}
+      aria-disabled={disabled}
+      aria-required={required}
       { ...rest }
       ref={innerRef}
       className={classNames(
