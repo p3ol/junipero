@@ -392,7 +392,7 @@ const SelectField = ({
       onSelectOption(state.search, { resetSearch: true });
     }
 
-    dispatch({ focused: false });
+    dispatch({ focused: false, opened: false });
     onBlur?.(e);
   };
 

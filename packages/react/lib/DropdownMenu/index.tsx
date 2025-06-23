@@ -86,7 +86,6 @@ export const DropdownMenu = ({
         left: x ?? 0,
         ...rest.style || {},
       }}
-      onBlur={close}
       className={classNames('junipero dropdown-menu', className)}
       { ...getFloatingProps() }
       tabIndex={0}

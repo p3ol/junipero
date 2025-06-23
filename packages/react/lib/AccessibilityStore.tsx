@@ -67,7 +67,10 @@ const AccessibilityStore = ({
   };
 
   const registerElement = (id: string) => {
-    if (!state.elements.includes(id)) {
+  const registerElement = (id: string | string[]) => {
+    if (Array.isArray(id)) {
+      dispatch({ elements: id });
+    } else if (!state.elements.includes(id)) {
       dispatch({ elements: [...state.elements, id] });
     }
   };
@@ -75,10 +78,12 @@ const AccessibilityStore = ({
   const getContext = useCallback<() => AccessibilityContextType>(() => ({
     currentlyFocusedElement: state.currentlyFocusedElement,
     setCurrentlyFocusedElement,
+    elements: state.elements,
     registerElement,
     onKeyDown,
   }), [
     state.currentlyFocusedElement,
+    state.elements,
     onKeyDown,
   ]);
 

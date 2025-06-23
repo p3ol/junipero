@@ -16,7 +16,7 @@ const DropdownItem = ({
 }: DropdownItemProps) => {
   const { registerElement, setCurrentlyFocusedElement } = useAccessibility();
 
-  registerElement(a11yKey);
+  registerElement(a11yKey.toString());
 
   return (
     <li
