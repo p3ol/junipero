@@ -66,7 +66,6 @@ const AccessibilityStore = ({
     }
   };
 
-  const registerElement = (id: string) => {
   const registerElement = (id: string | string[]) => {
     if (Array.isArray(id)) {
       dispatch({ elements: id });
