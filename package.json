@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@babel/eslint-plugin": "7.25.9",
-    "@poool/eslint-config": "3.0.1",
-    "@poool/eslint-config-react": "3.0.1",
+    "@poool/eslint-config": "4.1.0",
+    "@poool/eslint-config-react": "4.1.1",
     "@poool/eslint-plugin": "3.0.0",
     "@rollup/plugin-alias": "5.1.1",
     "@rollup/plugin-commonjs": "28.0.2",
