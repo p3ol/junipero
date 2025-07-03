@@ -4,6 +4,7 @@ exports[`<Button /> should render 1`] = `
 <div>
   <button
     class="junipero button"
+    type="button"
   >
     Click me
   </button>

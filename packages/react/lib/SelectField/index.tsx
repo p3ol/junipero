@@ -72,7 +72,6 @@ export declare interface SelectFieldProps extends Omit<
   className?: string;
   clearable?: boolean;
   disabled?: boolean;
-  id?: string;
   keyboardHandler?: boolean;
   multiple?: boolean;
   noOptionsEnabled?: boolean;
@@ -163,7 +162,6 @@ const SelectField = ({
   loadingMoreLabel = 'Loading more options...',
   noMoreOptionsEnabled = true,
   noMoreOptionsLabel = '🎉 No more options',
-  id,
   animateMenu,
   onChange,
   onBlur,
@@ -655,7 +653,6 @@ const SelectField = ({
             { (multiple || !state.value) && (
               <input
                 type="text"
-                id={id}
                 name={name}
                 value={state.search}
                 placeholder={placeholder}

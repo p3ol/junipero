@@ -1,4 +1,6 @@
-import type { ComponentPropsWithoutRef } from 'react';
+'use client';
+
+import { useEffect, type ComponentPropsWithoutRef } from 'react';
 import { classNames } from '@junipero/core';
 
 import { useAccessibility } from '../hooks';
@@ -16,7 +18,9 @@ const DropdownItem = ({
 }: DropdownItemProps) => {
   const { registerElement, setCurrentlyFocusedElement } = useAccessibility();
 
-  registerElement(a11yKey.toString());
+  useEffect(() => {
+    registerElement(a11yKey?.toString());
+  }, []);
 
   return (
     <li

@@ -6,16 +6,19 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
     id="menu-container"
   >
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
       >
         <li
           class="dropdown-item"
+          role="option"
         >
           Item 1
         </li>
@@ -27,6 +30,7 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
   >
     <span
       class="dropdown-toggle opened"
+      id="dropdown-toggle"
     >
       Click me
     </span>
@@ -41,14 +45,17 @@ exports[`<Dropdown /> should allow to use groups 1`] = `
   >
     <span
       class="dropdown-toggle opened"
+      id="dropdown-toggle"
     >
       Click me
     </span>
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
@@ -66,11 +73,13 @@ exports[`<Dropdown /> should allow to use groups 1`] = `
           >
             <li
               class="dropdown-item"
+              role="option"
             >
               Item 1
             </li>
             <li
               class="dropdown-item"
+              role="option"
             >
               Item 2
             </li>
@@ -89,11 +98,13 @@ exports[`<Dropdown /> should allow to use groups 1`] = `
           >
             <li
               class="dropdown-item"
+              role="option"
             >
               Item 3
             </li>
             <li
               class="dropdown-item"
+              role="option"
             >
               Item 4
             </li>
@@ -112,20 +123,24 @@ exports[`<Dropdown /> should auto close when disabled prop changes 1`] = `
   >
     <span
       class="dropdown-toggle opened"
+      id="dropdown-toggle"
     >
       Click me
     </span>
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
       >
         <li
           class="dropdown-item"
+          role="option"
         >
           Item 1
         </li>
@@ -142,6 +157,7 @@ exports[`<Dropdown /> should auto close when disabled prop changes 2`] = `
   >
     <span
       class="dropdown-toggle"
+      id="dropdown-toggle"
     >
       Click me
     </span>
@@ -156,6 +172,7 @@ exports[`<Dropdown /> should render 1`] = `
   >
     <span
       class="dropdown-toggle"
+      id="dropdown-toggle"
     >
       Click me
     </span>
@@ -170,20 +187,24 @@ exports[`<Dropdown /> should render 2`] = `
   >
     <span
       class="dropdown-toggle opened"
+      id="dropdown-toggle"
     >
       Click me
     </span>
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
       >
         <li
           class="dropdown-item"
+          role="option"
         >
           Item 1
         </li>
@@ -200,20 +221,24 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: In dom 1`] = `
   >
     <span
       class="dropdown-toggle opened"
+      id="dropdown-toggle"
     >
       Click me
     </span>
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner jp-slide-in-down-menu-enter-done"
       >
         <li
           class="dropdown-item"
+          role="option"
         >
           Item 1
         </li>
@@ -230,6 +255,7 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: Not in dom 1`] =
   >
     <span
       class="dropdown-toggle"
+      id="dropdown-toggle"
     >
       Click me
     </span>
@@ -244,6 +270,7 @@ exports[`useDropdwon() should allow to animate dropdown: Exit: Not in dom 1`] = 
   >
     <span
       class="dropdown-toggle"
+      id="dropdown-toggle"
     >
       Click me
     </span>
@@ -258,14 +285,17 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle"
+      id="dropdown-toggle"
     >
       Click me
     </span>
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     />
   </div>
 </div>
@@ -278,20 +308,24 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle opened"
+      id="dropdown-toggle"
     >
       Click me
     </span>
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner jp-slide-in-down-menu-enter-done"
       >
         <li
           class="dropdown-item"
+          role="option"
         >
           Item 1
         </li>
@@ -308,14 +342,17 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle"
+      id="dropdown-toggle"
     >
       Click me
     </span>
     <div
+      aria-labelledby="dropdown-toggle"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     />
   </div>
 </div>

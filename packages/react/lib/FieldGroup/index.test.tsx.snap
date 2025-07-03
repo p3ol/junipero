@@ -15,8 +15,12 @@ exports[`<FieldGroup /> should render a select field prefix 1`] = `
     >
       <div
         class="field dropdown-toggle"
+        id="dropdown-toggle"
       >
         <input
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          role="combobox"
           size="10"
           type="text"
           value=""
@@ -54,8 +58,12 @@ exports[`<FieldGroup /> should render a select field suffix 1`] = `
     >
       <div
         class="field dropdown-toggle"
+        id="dropdown-toggle"
       >
         <input
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          role="combobox"
           size="10"
           type="text"
           value=""
@@ -155,6 +163,7 @@ exports[`<FieldGroup /> should render a textfield with a prefix & a button suffi
     </div>
     <button
       class="junipero button"
+      type="button"
     >
       Update
     </button>
