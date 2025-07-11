@@ -171,7 +171,7 @@ export const fromPairs = (
 
 export function mergeDeep<T = any, U = any, V = any, W = any, X = any> (
   target: T,
-  source: U,
+  source?: U,
   source2?: V,
   source3?: W,
   source4?: X,
@@ -180,7 +180,7 @@ export function mergeDeep<T = any, U = any, V = any, W = any, X = any> (
   const allSources = [source, source2, source3, source4, ...sources];
 
   return isArray(target)
-    ? (target as any[]).concat(...allSources)
+    ? (target as any).concat(...allSources)
     : isObject(target)
       ? allSources.reduce((s, source) => (
         isObject(source)
@@ -196,7 +196,7 @@ export function mergeDeep<T = any, U = any, V = any, W = any, X = any> (
           }, s)
           : s
       ), target)
-      : target;
+      : target as T & U & V & W & X;
 }
 
 export function filterDeep <T extends any[]> (
