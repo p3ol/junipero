@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { slideInDownMenu } from '@junipero/transitions';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import type { FieldContent } from '../types';
 import FieldControl from '../FieldControl';

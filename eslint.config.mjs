@@ -1,5 +1,6 @@
 import tseslint from 'typescript-eslint';
 import pooolint from '@poool/eslint-config-react';
+import storybook from 'eslint-plugin-storybook';
 
 export default tseslint.config(
   { ignores: [
@@ -18,4 +19,5 @@ export default tseslint.config(
     },
   },
   ...pooolint.configs.recommended,
+  storybook.configs['flat/recommended'],
 );

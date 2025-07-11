@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { useModal } from '../hooks';
 import Modal, { type ModalRef } from '../Modal';

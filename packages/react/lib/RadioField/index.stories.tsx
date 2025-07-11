@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { cloneDeep } from '@junipero/core';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import RadioField, { RadioFieldOptionObject } from '.';
 import Abstract from '../Abstract';
