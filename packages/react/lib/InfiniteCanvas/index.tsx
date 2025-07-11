@@ -83,7 +83,7 @@ const InfiniteCanvas = ({
     gap = 20,
     size = 1,
     fill = 'var(--dots-color)',
-    pattern = 'dots',
+    pattern = 'dot',
   } = background || {};
   const [state, dispatch] = useReducer(mockState<InfiniteCanvasState>, {
     zoom: initialZoom || 1,
