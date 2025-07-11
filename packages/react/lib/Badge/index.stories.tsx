@@ -2,7 +2,7 @@ import Badge from './index';
 
 export default { title: 'react/Badge' };
 
-export const basic = () => (
+export const Basic = () => (
   <>
     <Badge>10</Badge>
     <Badge className="primary">1</Badge>
@@ -12,7 +12,7 @@ export const basic = () => (
   </>
 );
 
-export const smaller = () => (
+export const Smaller = () => (
   <>
     <Badge className="info">1</Badge>
     <Badge className="info primary">1</Badge>

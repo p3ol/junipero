@@ -125,6 +125,9 @@ const Chart = ({
     return { ...a, domain, range } as AxisObject;
   }), [
     axisProp,
+    linearDomainMaxMargin,
+    bandDomainInnerPadding,
+    bandDomainOuterPadding,
     state.width,
     state.height,
     state.paddingLeft,
@@ -173,17 +176,19 @@ const Chart = ({
     const [x, y] = d3.pointer(e);
 
     dispatch({ cursor: { x, y } });
-  }, [state.width]);
+  }, [state.width, axis]);
 
   useEffect(() => {
+    const ref = innerRef.current;
+
     d3
-      .select(innerRef.current)
+      .select(ref)
       .on('mousemove', onMouseMove)
       .on('mouseout', onMouseOut);
 
     return () => {
       d3
-        .select(innerRef.current)
+        .select(ref)
         .on('mousemove', null)
         .on('mouseout', null);
     };

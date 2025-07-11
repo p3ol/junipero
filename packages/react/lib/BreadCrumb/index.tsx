@@ -63,7 +63,7 @@ const BreadCrumb = ({
         ) => child.type === Fragment ? child.props.children : child)
         .flat()
         .filter(filterItem)
-  ), [children, items]);
+  ), [children, items, filterItem]);
 
   const before = useMemo<ReactNode[]>(() => (
     availableItems.slice(0, Math.ceil(maxItems / 2))

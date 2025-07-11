@@ -3,7 +3,7 @@ import Button from '.';
 
 export default { title: 'react/Button' };
 
-export const basic = () => (
+export const Basic = () => (
   <div style={{ display: 'flex', gap: '10px' }}>
     <Button>Click me</Button>
     <Button className="subtle">Click me</Button>
@@ -14,7 +14,7 @@ export const basic = () => (
   </div>
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <div style={{ display: 'flex', gap: '10px' }}>
     <Button disabled>Click me</Button>
     <Button disabled className="subtle">Click me</Button>
@@ -25,7 +25,7 @@ export const disabled = () => (
   </div>
 );
 
-export const loading = () => (
+export const Loading = () => (
   <div style={{ display: 'flex', gap: '10px' }}>
     <Button disabled><span>Click me</span><Spinner className="small" /></Button>
     <Button disabled className="subtle">

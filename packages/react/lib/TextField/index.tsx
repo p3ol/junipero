@@ -104,11 +104,13 @@ const TextField = ({
       dispatch({ value: state.value, valid: state.valid });
       updateControl?.({ valid: state.valid, dirty: state.dirty });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   useEffect(() => {
     dispatch({ valid: valid ?? false });
     updateControl?.({ valid: state.valid });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valid]);
 
   const parseValue = (value?: string) => {

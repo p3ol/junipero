@@ -8,14 +8,14 @@ import Card from '../Card';
 
 export default { title: 'react/List' };
 
-export const basic = () => (
+export const Basic = () => (
   <List columns={['name', 'age']}>
     <ListItem item={['John', 25]} />
     <ListItem item={['Jane', 30]} />
   </List>
 );
 
-export const verbose = () => (
+export const Verbose = () => (
   <List>
     <ListColumn id="name">Name</ListColumn>
     <ListColumn id="age">Age</ListColumn>
@@ -32,7 +32,7 @@ export const verbose = () => (
   </List>
 );
 
-export const orderable = () => {
+export const Orderable = () => {
   const [items, setItems] = useState([
     { name: 'John', age: 25 },
     { name: 'Jane', age: 30 },
@@ -63,7 +63,7 @@ export const orderable = () => {
   );
 };
 
-export const insideCard = () => (
+export const InsideCard = () => (
   <Card className="with-list">
     <List columns={['name', 'age']}>
       <ListItem item={['John', 25]} />

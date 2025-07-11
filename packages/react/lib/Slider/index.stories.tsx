@@ -5,14 +5,14 @@ import Slider from '.';
 
 export default { title: 'react/Slider' };
 
-export const basic = () => (
+export const Basic = () => (
   <Slider onMove={action('move')} />
 );
 
-export const withoutTooltip = () => (
+export const WithoutTooltip = () => (
   <Slider tooltipEnabled={false} />
 );
 
-export const animatedTooltip = () => (
+export const AnimatedTooltip = () => (
   <Slider animateTooltip={slideInDownMenu} />
 );

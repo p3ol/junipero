@@ -10,7 +10,7 @@ import FieldGroup from '.';
 
 export default { title: 'react/FieldGroup' };
 
-export const withTextFieldPrefix = () => (
+export const WithTextFieldPrefix = () => (
   <FieldControl>
     <FieldGroup>
       <FieldAddon>€</FieldAddon>
@@ -19,7 +19,7 @@ export const withTextFieldPrefix = () => (
   </FieldControl>
 );
 
-export const withTextFieldSuffix = () => (
+export const WithTextFieldSuffix = () => (
   <FieldControl>
     <FieldGroup>
       <TextField />
@@ -28,7 +28,7 @@ export const withTextFieldSuffix = () => (
   </FieldControl>
 );
 
-export const withTextFieldCenter = () => (
+export const WithTextFieldCenter = () => (
   <FieldGroup>
     <TextField />
     <FieldAddon>@</FieldAddon>
@@ -36,7 +36,7 @@ export const withTextFieldCenter = () => (
   </FieldGroup>
 );
 
-export const withButton = () => (
+export const WithButton = () => (
   <FieldGroup>
     <FieldAddon>€</FieldAddon>
     <TextField />
@@ -44,7 +44,7 @@ export const withButton = () => (
   </FieldGroup>
 );
 
-export const withSelectFieldPrefix = () => (
+export const WithSelectFieldPrefix = () => (
   <FieldControl>
     <FieldGroup>
       <FieldAddon>€</FieldAddon>
@@ -53,7 +53,7 @@ export const withSelectFieldPrefix = () => (
   </FieldControl>
 );
 
-export const withSelectFieldSuffix = () => (
+export const WithSelectFieldSuffix = () => (
   <FieldControl>
     <FieldGroup>
       <SelectField />
@@ -62,7 +62,7 @@ export const withSelectFieldSuffix = () => (
   </FieldControl>
 );
 
-export const withMultipleElements = () => (
+export const WithMultipleElements = () => (
   <FieldGroup>
     <FieldAddon>€</FieldAddon>
     <TextField />
@@ -75,7 +75,7 @@ export const withMultipleElements = () => (
   </FieldGroup>
 );
 
-export const withMultipleElementsAndLabels = () => (
+export const WithMultipleElementsAndLabels = () => (
   <FieldGroup className="mt-8">
     <FieldAddon>€</FieldAddon>
     <TextField className="relative">

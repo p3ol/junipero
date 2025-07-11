@@ -119,7 +119,7 @@ const Transition = ({
           : ''
       )
     )
-  ), [status, step]);
+  ), [status, step, name]);
 
   const child: ReactElement<
     ComponentPropsWithoutRef<any>

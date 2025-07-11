@@ -8,36 +8,36 @@ import Label from '../Label';
 
 export default { title: 'react/Checkbox' };
 
-export const basic = () => (
+export const Basic = () => (
   <CheckboxField onChange={action('change')}>
     Check this
   </CheckboxField>
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <CheckboxField disabled={true}>
     Can&apos;t check this
   </CheckboxField>
 );
 
-export const alreadyChecked = () => (
+export const AlreadyChecked = () => (
   <CheckboxField onChange={action('change')} checked={true}>
     Uncheck this
   </CheckboxField>
 );
-export const alreadyCheckedAndDisabled = () => (
+export const AlreadyCheckedAndDisabled = () => (
   <CheckboxField onChange={action('change')} checked={true} disabled={true}>
     Can&apos;t uncheck this
   </CheckboxField>
 );
 
-export const withValue = () => (
+export const WithValue = () => (
   <CheckboxField value="agreement" onChange={action('change')}>
     Check this
   </CheckboxField>
 );
 
-export const withAllEvents = () => (
+export const WithAllEvents = () => (
   <CheckboxField
     value="agreement"
     onChange={action('change')}
@@ -48,7 +48,7 @@ export const withAllEvents = () => (
   </CheckboxField>
 );
 
-export const withChildrenInProps = () => (
+export const WithChildrenInProps = () => (
   <CheckboxField
     value="agreement"
     // eslint-disable-next-line react/no-children-prop
@@ -56,7 +56,7 @@ export const withChildrenInProps = () => (
   />
 );
 
-export const withRequiredField = () => (
+export const WithRequiredField = () => (
   <CheckboxField
     value="agreement"
     required={true}
@@ -65,7 +65,7 @@ export const withRequiredField = () => (
   </CheckboxField>
 );
 
-export const withLabelAndAbstract = () => (
+export const WithLabelAndAbstract = () => (
   <FieldControl>
     <Label className="info">CGU</Label>
     <CheckboxField
@@ -80,7 +80,7 @@ export const withLabelAndAbstract = () => (
   </FieldControl>
 );
 
-export const controlled = () => {
+export const Controlled = () => {
   const [checked, setChecked] = useState(false);
 
   return (

@@ -121,6 +121,7 @@ const Dropdown = ({
     if (disabled && state.opened) {
       close();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disabled]);
 
   useImperativeHandle(ref, () => ({
@@ -141,7 +142,25 @@ const Dropdown = ({
     onToggle?.({ opened: o });
   };
 
-  const toggle = () => {
+  const open = useCallback(() => {
+    if (disabled) {
+      return;
+    }
+
+    dispatch({ opened: true, visible: true });
+    onToggle?.({ opened: true });
+  }, [disabled, onToggle]);
+
+  const close = useCallback(() => {
+    if (disabled) {
+      return;
+    }
+
+    dispatch({ opened: false });
+    onToggle?.({ opened: false });
+  }, [disabled, onToggle]);
+
+  const toggle = useCallback(() => {
     if (disabled) {
       return;
     }
@@ -151,29 +170,11 @@ const Dropdown = ({
     } else {
       open();
     }
-  };
+  }, [disabled, state.opened, open, close]);
 
-  const open = () => {
-    if (disabled) {
-      return;
-    }
-
-    dispatch({ opened: true, visible: true });
-    onToggle?.({ opened: true });
-  };
-
-  const close = () => {
-    if (disabled) {
-      return;
-    }
-
-    dispatch({ opened: false });
-    onToggle?.({ opened: false });
-  };
-
-  const onAnimationExit = () => {
+  const onAnimationExit = useCallback(() => {
     dispatch({ visible: false });
-  };
+  }, []);
 
   const getContext = useCallback<() => DropdownContextType>(() => ({
     opened: state.opened,
@@ -190,12 +191,10 @@ const Dropdown = ({
     getFloatingProps,
     onAnimationExit,
   }), [
-    state.opened,
-    state.visible,
-    x,
-    y,
-    refs,
-    strategy,
+    state.opened, state.visible,
+    x, y, refs, strategy,
+    toggle, open, close,
+    getReferenceProps, getFloatingProps, onAnimationExit, container,
   ]);
 
   return (

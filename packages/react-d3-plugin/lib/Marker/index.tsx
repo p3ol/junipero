@@ -100,7 +100,7 @@ const Marker = ({
       x: xValue as number || 0,
       y: yValue || 0,
     };
-  }, [yAxisIndexes, xAxisIndex, cursor, series]);
+  }, [yAxisIndexes, xAxisIndex, series, cursor, axis]);
 
   useImperativeHandle(ref, () => ({
     innerRef,

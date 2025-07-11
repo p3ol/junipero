@@ -78,7 +78,7 @@ const Tabs = ({
     tabs
       ? tabs.map((t, i) => <Tab key={i} title={t.title}>{ t.content }</Tab>)
       : Children.toArray(children).filter(filterTab)
-  ), [tabs, children]);
+  ), [tabs, children, filterTab]);
 
   return (
     <div

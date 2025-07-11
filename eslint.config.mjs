@@ -9,6 +9,7 @@ export default tseslint.config(
     'coverage',
     '.yarn',
     'node_modules',
+    'storybook-static',
   ] },
   {
     languageOptions: {
