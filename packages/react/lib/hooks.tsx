@@ -1,12 +1,6 @@
 import { useContext } from 'react';
 
 import {
-  type AlertsContextType,
-  type DropdownContextType,
-  type FieldContextType,
-  type ListContextType,
-  type ToastsContextType,
-  type ModalContextType,
   AlertsContext,
   DropdownContext,
   FieldControlContext,
@@ -15,11 +9,9 @@ import {
   ModalContext,
 } from './contexts';
 
-export const useFieldControl = () =>
-  useContext<FieldContextType>(FieldControlContext);
-export const useDropdown = () =>
-  useContext<DropdownContextType>(DropdownContext);
-export const useAlerts = () => useContext<AlertsContextType>(AlertsContext);
-export const useList = () => useContext<ListContextType>(ListContext);
-export const useToasts = () => useContext<ToastsContextType>(ToastsContext);
-export const useModal = () => useContext<ModalContextType>(ModalContext);
+export const useFieldControl = () => useContext(FieldControlContext);
+export const useDropdown = () => useContext(DropdownContext);
+export const useAlerts = () => useContext(AlertsContext);
+export const useList = () => useContext(ListContext);
+export const useToasts = () => useContext(ToastsContext);
+export const useModal = () => useContext(ModalContext);
