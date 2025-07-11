@@ -9,7 +9,7 @@ import DropdownItem from '../DropdownItem';
 
 export default { title: 'react/Dropdown' };
 
-export const basic = () => (
+export const Basic = () => (
   <Dropdown>
     <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
     <DropdownMenu>
@@ -18,7 +18,7 @@ export const basic = () => (
   </Dropdown>
 );
 
-export const hover = () => (
+export const Hover = () => (
   <Dropdown trigger="hover">
     <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
     <DropdownMenu>
@@ -27,7 +27,7 @@ export const hover = () => (
   </Dropdown>
 );
 
-export const withGroups = () => (
+export const WithGroups = () => (
   <Dropdown>
     <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
     <DropdownMenu>
@@ -41,7 +41,7 @@ export const withGroups = () => (
   </Dropdown>
 );
 
-export const animated = () => (
+export const Animated = () => (
   <Dropdown>
     <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
     <DropdownMenu animate={slideInDownMenu}>
@@ -50,7 +50,7 @@ export const animated = () => (
   </Dropdown>
 );
 
-export const animatedButStillInDom = () => (
+export const AnimatedButStillInDom = () => (
   <Dropdown>
     <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
     <DropdownMenu animate={slideInDownMenu} apparition="css">

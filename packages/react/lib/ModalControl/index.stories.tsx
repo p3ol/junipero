@@ -18,7 +18,7 @@ const Comp = () => {
   );
 };
 
-export const basic = () => {
+export const Basic = () => {
   const modalRef = useRef<ModalRef>(null);
 
   return (

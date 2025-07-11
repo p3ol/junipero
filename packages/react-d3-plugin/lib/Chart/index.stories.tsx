@@ -97,7 +97,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
-export const basic = () => (
+export const Basic = () => (
   <Wrapper>
     <Chart
       width={1000}
@@ -117,7 +117,7 @@ export const basic = () => (
   </Wrapper>
 );
 
-export const doubleCurves = () => (
+export const DoubleCurves = () => (
   <Wrapper>
     <Chart
       width={1000}
@@ -148,7 +148,7 @@ export const doubleCurves = () => (
   </Wrapper>
 );
 
-export const doubleAxis = () => (
+export const DoubleAxis = () => (
   <Wrapper>
     <Chart
       width={1000}
@@ -174,7 +174,7 @@ export const doubleAxis = () => (
   </Wrapper>
 );
 
-export const bars = () => (
+export const Bars = () => (
   <Wrapper>
     <Chart
       width={1000}
@@ -199,7 +199,7 @@ export const bars = () => (
   </Wrapper>
 );
 
-export const responsive = () => (
+export const Responsive = () => (
   <Wrapper>
     <Chart
       width="calc(100vw - 300px)"
@@ -225,7 +225,7 @@ export const responsive = () => (
   </Wrapper>
 );
 
-export const withTooltip = () => (
+export const WithTooltip = () => (
   <Wrapper>
     <Chart
       width={1000}
@@ -260,7 +260,7 @@ export const withTooltip = () => (
   </Wrapper>
 );
 
-export const withGranularity = () => {
+export const WithGranularity = () => {
   const [granularity, setGranularity] = useState('day');
 
   const rollup = useCallback((

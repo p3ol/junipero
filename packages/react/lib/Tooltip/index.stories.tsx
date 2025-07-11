@@ -6,25 +6,25 @@ import Tooltip, { TooltipRef } from './index';
 
 export default { title: 'react/Tooltip' };
 
-export const basic = () => (
+export const Basic = () => (
   <Tooltip text="Text" onToggle={action('toggle')}>
     Hover me
   </Tooltip>
 );
 
-export const click = () => (
+export const Click = () => (
   <Tooltip text="Text" onToggle={action('toggle')} trigger="click">
     Click me
   </Tooltip>
 );
 
-export const animated = () => (
+export const Animated = () => (
   <Tooltip text="Text" animate={slideInDownMenu} onToggle={action('toggle')}>
     Hover me
   </Tooltip>
 );
 
-export const animatedButStillInDom = () => (
+export const AnimatedButStillInDom = () => (
   <Tooltip
     text="Text"
     animate={slideInDownMenu}
@@ -35,7 +35,7 @@ export const animatedButStillInDom = () => (
   </Tooltip>
 );
 
-export const manuallyUpdate = () => {
+export const ManuallyUpdate = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const tooltipRef = useRef<TooltipRef>(null);
 

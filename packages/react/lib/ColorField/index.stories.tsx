@@ -8,11 +8,11 @@ import ColorField from '.';
 
 export default { title: 'react/ColorField' };
 
-export const basic = () => (
+export const Basic = () => (
   <ColorField placeholder="Pick a color" onChange={action('change')} />
 );
 
-export const withLabelAndAbstract = () => (
+export const WithLabelAndAbstract = () => (
   <FieldControl>
     <Label className="info" htmlFor="firstname">Eye color</Label>
     <ColorField
@@ -27,17 +27,17 @@ export const withLabelAndAbstract = () => (
   </FieldControl>
 );
 
-export const autoFocused = () => (
+export const AutoFocused = () => (
   <ColorField
     autoFocus={true}
     onChange={action('change')}
   />
 );
 
-export const alwaysOpened = () => (
+export const AlwaysOpened = () => (
   <ColorField opened={true} trigger="manual" onChange={action('change')} />
 );
 
-export const animated = () => (
+export const Animated = () => (
   <ColorField animateMenu={slideInDownMenu} />
 );

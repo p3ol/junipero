@@ -10,7 +10,7 @@ import SelectField, { SelectFieldOptionObject, type SelectFieldProps } from './i
 
 export default { title: 'react/SelectField' };
 
-export const basic = () => (
+export const Basic = () => (
   <SelectField
     placeholder="Type a name"
     options={['Item 1', 'Item 2', 'Item 3']}
@@ -18,7 +18,7 @@ export const basic = () => (
   />
 );
 
-export const controlled = () => {
+export const Controlled = () => {
   const [value, setValue] = useState('Item 1');
   const props = {} as SelectFieldProps;
 
@@ -34,7 +34,7 @@ export const controlled = () => {
   );
 };
 
-export const notSearchable = () => (
+export const NotSearchable = () => (
   <SelectField
     searchable={false}
     placeholder="Type a name"
@@ -42,7 +42,7 @@ export const notSearchable = () => (
   />
 );
 
-export const autoFocused = () => (
+export const AutoFocused = () => (
   <SelectField
     autoFocus
     placeholder="Type a name"
@@ -50,7 +50,7 @@ export const autoFocused = () => (
   />
 );
 
-export const multiple = () => (
+export const Multiple = () => (
   <SelectField
     placeholder="Type a name"
     multiple={true}
@@ -59,7 +59,7 @@ export const multiple = () => (
   />
 );
 
-export const multipleWithGroups = () => (
+export const MultipleWithGroups = () => (
   <SelectField
     placeholder="Type a name"
     multiple={true}
@@ -83,7 +83,7 @@ export const multipleWithGroups = () => (
   />
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <SelectField
     placeholder="Type a name"
     multiple={true}
@@ -93,7 +93,7 @@ export const disabled = () => (
   />
 );
 
-export const asyncSearch = () => (
+export const AsyncSearch = () => (
   <SelectField
     placeholder="Type a name"
     options={['Item 1', 'Item 2', 'Item 3']}
@@ -105,7 +105,7 @@ export const asyncSearch = () => (
   />
 );
 
-export const withLabelAndAbstract = () => (
+export const WithLabelAndAbstract = () => (
   <FieldControl>
     <Label className="info" htmlFor="itemname">Item name</Label>
     <SelectField
@@ -119,7 +119,7 @@ export const withLabelAndAbstract = () => (
   </FieldControl>
 );
 
-export const multipleWithLabelAndAbstract = () => (
+export const MultipleWithLabelAndAbstract = () => (
   <FieldControl>
     <Label className="info" htmlFor="itemname">Item name</Label>
     <SelectField
@@ -134,7 +134,7 @@ export const multipleWithLabelAndAbstract = () => (
   </FieldControl>
 );
 
-export const withArbitraryValues = () => (
+export const WithArbitraryValues = () => (
   <SelectField
     placeholder="Type a name"
     options={['Item 1', 'Item 2', 'Item 3']}
@@ -143,7 +143,7 @@ export const withArbitraryValues = () => (
   />
 );
 
-export const withOnlyArbitraryValues = () => (
+export const WithOnlyArbitraryValues = () => (
   <SelectField
     placeholder="Type a name"
     allowArbitraryItems={true}
@@ -152,7 +152,7 @@ export const withOnlyArbitraryValues = () => (
   />
 );
 
-export const withClickOptionsAndKeyboardHandler = () => (
+export const WithClickOptionsAndKeyboardHandler = () => (
   <SelectField
     toggleClick={true}
     keyboardHandler={true}
@@ -162,11 +162,11 @@ export const withClickOptionsAndKeyboardHandler = () => (
   />
 );
 
-export const animated = () => (
+export const Animated = () => (
   <SelectField animateMenu={slideInDownMenu} />
 );
 
-export const noEmpty = () => (
+export const NoEmpty = () => (
   <SelectField
     placeholder="Type a name"
     noOptionsEnabled={false}
@@ -174,7 +174,7 @@ export const noEmpty = () => (
   />
 );
 
-export const onAForm = () => {
+export const OnAForm = () => {
   const actions = action('submitted');
 
   return (
@@ -194,7 +194,7 @@ export const onAForm = () => {
   );
 };
 
-export const withPagination = () => {
+export const WithPagination = () => {
   const [options, setOptions] = useState(
     Array.from({ length: 10 }).map((_, i) => `Item ${i + 1}`)
   );

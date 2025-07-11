@@ -19,7 +19,7 @@ const icons = [
   'user', 'users', 'vertical_split', 'visibility_off', 'visibility',
 ];
 
-export const all = () => (
+export const All = () => (
   <div
     className="junipero"
     style={{

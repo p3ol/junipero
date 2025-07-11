@@ -14,46 +14,46 @@ import {
 
 export default { title: 'react/Logo' };
 
-export const poool = () => (
+export const Poool = () => (
   <PooolLogo />
 );
 
-export const pooolIcon = () => (
+export const PooolIcon = () => (
   <PooolIconLogo />
 );
 
-export const pooolCutout = () => (
+export const PooolCutout = () => (
   <PooolCutoutLogo />
 );
 
-export const pooolCutoutIcon = () => (
+export const PooolCutoutIcon = () => (
   <PooolCutoutIconLogo />
 );
 
-export const pooolCompact = () => (
+export const PooolCompact = () => (
   <PooolCompactLogo />
 );
 
-export const pooolCompactCutout = () => (
+export const PooolCompactCutout = () => (
   <PooolCompactCutoutLogo />
 );
 
-export const access = () => (
+export const Access = () => (
   <AccessLogo />
 );
 
-export const subscribe = () => (
+export const Subscribe = () => (
   <SubscribeLogo />
 );
 
-export const connect = () => (
+export const Connect = () => (
   <ConnectLogo />
 );
 
-export const engage = () => (
+export const Engage = () => (
   <EngageLogo />
 );
 
-export const flow = () => (
+export const Flow = () => (
   <FlowLogo />
 );

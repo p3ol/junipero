@@ -5,7 +5,7 @@ import BreadCrumbItem from '../BreadCrumbItem';
 
 export default { title: 'react/BreadCrumb' };
 
-export const basic = () => (
+export const Basic = () => (
   <BreadCrumb>
     <BreadCrumbItem>One</BreadCrumbItem>
     <BreadCrumbItem>Two</BreadCrumbItem>
@@ -13,7 +13,7 @@ export const basic = () => (
   </BreadCrumb>
 );
 
-export const collapsed = () => (
+export const Collapsed = () => (
   <BreadCrumb maxItems={2}>
     <BreadCrumbItem>One</BreadCrumbItem>
     <BreadCrumbItem>Two</BreadCrumbItem>
@@ -21,7 +21,7 @@ export const collapsed = () => (
   </BreadCrumb>
 );
 
-export const withLinks = () => (
+export const WithLinks = () => (
   <BreadCrumb>
     <BreadCrumbItem tag="a" href="#">One</BreadCrumbItem>
     <BreadCrumbItem tag="a" href="#">Two</BreadCrumbItem>
@@ -29,7 +29,7 @@ export const withLinks = () => (
   </BreadCrumb>
 );
 
-export const withConditionalItems = () => {
+export const WithConditionalItems = () => {
   const [enabled, setEnabled] = useState(false);
 
   return (
@@ -49,10 +49,10 @@ export const withConditionalItems = () => {
   );
 };
 
-export const withItemsProp = () => (
+export const WithItemsProp = () => (
   <BreadCrumb items={['One', 'Two', 'Three']} />
 );
 
-export const withItemsPropCollapsed = () => (
+export const WithItemsPropCollapsed = () => (
   <BreadCrumb items={['One', 'Two', 'Three']} maxItems={2} />
 );

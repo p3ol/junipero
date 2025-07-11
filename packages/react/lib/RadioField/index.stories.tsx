@@ -26,15 +26,15 @@ const withDescriptions: RadioFieldOptionObject[] = [
   { title: 'Orange', value: 'Orange', description: 'This is a description' },
 ];
 
-export const basic = () => (
+export const Basic = () => (
   <RadioField options={basicOptions} onChange={action('change')} />
 );
 
-export const withDescription = () => (
+export const WithDescription = () => (
   <RadioField options={[1, 2, 3, 4, 5]} onChange={action('change')} />
 );
 
-export const withPresetValue = () => (
+export const WithPresetValue = () => (
   <RadioField
     options={withDescriptions}
     value="Orange"
@@ -42,7 +42,7 @@ export const withPresetValue = () => (
   />
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <RadioField
     options={withDescriptions}
     disabled={true}
@@ -50,7 +50,7 @@ export const disabled = () => (
   />
 );
 
-export const disabledWithPresetValue = () => (
+export const DisabledWithPresetValue = () => (
   <RadioField
     options={withDescriptions}
     value="Pear"
@@ -59,14 +59,14 @@ export const disabledWithPresetValue = () => (
   />
 );
 
-export const withOneDisabled = () => (
+export const WithOneDisabled = () => (
   <RadioField
     options={basicOptionsOneDisabled}
     onChange={action('change')}
   />
 );
 
-export const withCustomValidation = () => {
+export const WithCustomValidation = () => {
   const withOneProhibed: RadioFieldOptionObject[] = cloneDeep(withDescriptions);
   withOneProhibed[2].description = 'You should not choose this fruit';
 
@@ -81,7 +81,7 @@ export const withCustomValidation = () => {
   );
 };
 
-export const withLabelAndAbstract = () => {
+export const WithLabelAndAbstract = () => {
   const withOneProhibed = cloneDeep(withDescriptions);
   withOneProhibed[2].description = 'You should not choose this fruit';
 
@@ -102,7 +102,7 @@ export const withLabelAndAbstract = () => {
   );
 };
 
-export const boxedWithDescription = () => (
+export const BoxedWithDescription = () => (
   <RadioField
     options={withDescriptions}
     className="boxed"
@@ -110,7 +110,7 @@ export const boxedWithDescription = () => (
   />
 );
 
-export const boxed = () => (
+export const Boxed = () => (
   <RadioField
     options={basicOptions}
     className="boxed"
@@ -121,7 +121,7 @@ export const boxed = () => (
   />
 );
 
-export const boxedWithOneDisabled = () => {
+export const BoxedWithOneDisabled = () => {
   const withOneDisabled = cloneDeep(withDescriptions);
   withOneDisabled[2].disabled = true;
 
@@ -135,7 +135,7 @@ export const boxedWithOneDisabled = () => {
   );
 };
 
-export const withValueChanging = () => {
+export const WithValueChanging = () => {
   const [value, setValue] = useState(withDescriptions[2].value);
 
   const changeValue = () => {
@@ -155,7 +155,7 @@ export const withValueChanging = () => {
   );
 };
 
-export const withOptionsChanging = () => {
+export const WithOptionsChanging = () => {
   const alternativeOptions = [
     { title: 'Apple', value: 'apple', description: 'This is a description' },
     { title: 'Google', value: 'google', description: 'This is a description' },

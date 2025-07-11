@@ -34,7 +34,7 @@ const Comp = () => {
   );
 };
 
-export const basic = () => (
+export const Basic = () => (
   <AlertsControl>
     <Comp />
   </AlertsControl>

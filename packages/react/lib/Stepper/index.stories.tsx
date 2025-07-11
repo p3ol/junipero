@@ -27,7 +27,7 @@ const stepsWithIcons = [
   },
 ];
 
-export const basic = () => (
+export const Basic = () => (
   <>
     <Stepper active={0}>
       <Step title="Step 1">Description 1</Step>
@@ -52,7 +52,7 @@ export const basic = () => (
   </>
 );
 
-export const withStepsProp = () => (
+export const WithStepsProp = () => (
   <>
     <Stepper
       steps={steps}
@@ -73,7 +73,7 @@ export const withStepsProp = () => (
   </>
 );
 
-export const withDefaultIcon = () => (
+export const WithDefaultIcon = () => (
   <>
     <Stepper
       steps={steps}
@@ -98,7 +98,7 @@ export const withDefaultIcon = () => (
   </>
 );
 
-export const withCustomIcons = () => (
+export const WithCustomIcons = () => (
   <>
     <Stepper
       steps={stepsWithIcons}
