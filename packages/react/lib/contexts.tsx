@@ -12,6 +12,8 @@ export interface AlertsContextType {
   dismiss?: (alert: AlertObject) => void;
 }
 
+export const AlertsContext = createContext<AlertsContextType>({});
+
 export interface DropdownContextType {
   opened?: boolean;
   visible?: boolean;
@@ -32,12 +34,16 @@ export interface DropdownContextType {
   onAnimationExit?: () => void;
 }
 
+export const DropdownContext = createContext<DropdownContextType>({});
+
 export interface ListContextType {
   active?: string | number;
   asc?: boolean;
   orderable?: boolean;
   registerColumn?: (column: string | ListColumnObject) => void;
 }
+
+export const ListContext = createContext<ListContextType>({});
 
 export interface FieldContextType {
   valid?: boolean;
@@ -46,21 +52,21 @@ export interface FieldContextType {
   update?: Dispatch<any>;
 }
 
+export const FieldControlContext = createContext<FieldContextType>({});
+
 export interface ToastsContextType {
   toasts?: ToastObject[];
   add?: (toas: ToastObject) => void;
   dismiss?: (toast: ToastObject) => void;
 }
+
+export const ToastsContext = createContext<ToastsContextType>({});
+
 export declare interface ModalContextType {
   open?(): void;
   close?(): void;
-  toggle?: any;
+  toggle?(): void;
   setRef?: (ref: ModalRef) => void;
 }
 
-export const AlertsContext = createContext<AlertsContextType>({});
-export const DropdownContext = createContext<DropdownContextType>({});
-export const FieldControlContext = createContext<FieldContextType>({});
-export const ListContext = createContext<ListContextType>({});
-export const ToastsContext = createContext<ToastsContextType>({});
 export const ModalContext = createContext<ModalContextType>({});
