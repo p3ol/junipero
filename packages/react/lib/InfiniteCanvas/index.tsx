@@ -3,6 +3,7 @@ import {
   type RefObject,
   useCallback,
   useEffect,
+  useId,
   useImperativeHandle,
   useReducer,
   useRef,
@@ -79,6 +80,7 @@ const InfiniteCanvas = ({
   const innerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<SVGSVGElement>(null);
+  const patternId = useId();
   const {
     gap = 20,
     size = 1,
@@ -151,14 +153,11 @@ const InfiniteCanvas = ({
   }, [state.zoom, state.offsetX, state.offsetY, minZoom, maxZoom]);
 
   useEffect(() => {
-    if (innerRef.current) {
-      innerRef.current.addEventListener('wheel', onWheel, { passive: false });
-    }
+    const ref = innerRef.current;
+    ref?.addEventListener('wheel', onWheel, { passive: false });
 
     return () => {
-      if (innerRef.current) {
-        innerRef.current.removeEventListener('wheel', onWheel);
-      }
+      ref?.removeEventListener('wheel', onWheel);
     };
   }, [onWheel]);
 
@@ -307,7 +306,11 @@ const InfiniteCanvas = ({
       globalEventsTarget.removeEventListener('mousemove', onMouseMove);
       globalEventsTarget.removeEventListener('mouseup', onMouseUp);
     };
-  }, [state.panning, cursorMode, state.offsetX, state.offsetY]);
+  }, [
+    state.panning,
+    cursorMode, globalEventsTarget,
+    onMouseMove, onMouseUp,
+  ]);
 
   const scaledPatternGap = gap * state.zoom;
   const scaledPatternSize = size * state.zoom;
@@ -349,7 +352,7 @@ const InfiniteCanvas = ({
 
         <svg ref={backgroundRef} className="infinite-canvas-background">
           <pattern
-            id="dots"
+            id={patternId}
             patternUnits="userSpaceOnUse"
             x={state.offsetX % scaledPatternGap}
             y={state.offsetY % scaledPatternGap}
@@ -393,7 +396,7 @@ const InfiniteCanvas = ({
             y="0"
             width="100%"
             height="100%"
-            fill="url(#dots)"
+            fill={`url(#${patternId})`}
           />
         </svg>
       </div>
