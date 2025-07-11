@@ -44,6 +44,7 @@ export declare interface InfiniteCanvasProps extends
   cursorMode?: InfiniteCanvasCursorMode;
   background?: {
     pattern?: InfiniteCanvasBackgroundPattern;
+    patternId?: string;
     gap?: number;
     size?: number;
     fill?: string;
@@ -86,6 +87,7 @@ const InfiniteCanvas = ({
     size = 1,
     fill = 'var(--dots-color)',
     pattern = 'dot',
+    patternId: customPatternId = patternId,
   } = background || {};
   const [state, dispatch] = useReducer(mockState<InfiniteCanvasState>, {
     zoom: initialZoom || 1,
@@ -352,7 +354,7 @@ const InfiniteCanvas = ({
 
         <svg ref={backgroundRef} className="infinite-canvas-background">
           <pattern
-            id={patternId}
+            id={customPatternId}
             patternUnits="userSpaceOnUse"
             x={state.offsetX % scaledPatternGap}
             y={state.offsetY % scaledPatternGap}
@@ -396,7 +398,7 @@ const InfiniteCanvas = ({
             y="0"
             width="100%"
             height="100%"
-            fill={`url(#${patternId})`}
+            fill={`url(#${customPatternId})`}
           />
         </svg>
       </div>

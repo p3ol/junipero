@@ -85,7 +85,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
     >
       <pattern
         height="20"
-        id="dots"
+        id="«r0»"
         patternTransform="translate(1, 1)"
         patternUnits="userSpaceOnUse"
         width="20"
@@ -100,7 +100,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
         />
       </pattern>
       <rect
-        fill="url(#dots)"
+        fill="url(#«r0»)"
         height="100%"
         width="100%"
         x="0"
