@@ -244,6 +244,13 @@ export {
   type ModalControlProps,
 } from './ModalControl';
 export {
+  default as Moveable,
+  type MoveableRef,
+  type MoveableProps,
+  type MoveableState,
+  type MoveableStrategy,
+} from './Moveable';
+export {
   default as RadioField,
   type RadioFieldRef,
   type RadioFieldProps,
