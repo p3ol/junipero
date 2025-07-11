@@ -8,6 +8,7 @@ import {
   useMemo,
   useImperativeHandle,
   useRef,
+  useCallback,
 } from 'react';
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
@@ -44,7 +45,7 @@ const Stepper = ({
     innerRef,
   }));
 
-  const getStepStatus = (i: number) => {
+  const getStepStatus = useCallback((i: number) => {
     switch (true) {
       case i < active:
         return 'completed';
@@ -53,7 +54,7 @@ const Stepper = ({
       default:
         return null;
     }
-  };
+  }, [active]);
 
   const availableSteps = useMemo(() => (
     steps ? steps.map((t, i) => (
@@ -71,7 +72,7 @@ const Stepper = ({
     ) => (
       cloneElement(t, { status: getStepStatus(i), key: i })
     ))
-  ), [steps, children]);
+  ), [steps, children, icon, getStepStatus]);
 
   return (
     <div { ...rest } ref={innerRef}>

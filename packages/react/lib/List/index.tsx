@@ -81,7 +81,7 @@ const List = ({
     onOrder?.({ column, asc });
   };
 
-  const registerColumn = (column: string | ListColumnObject) => {
+  const registerColumn = useCallback((column: string | ListColumnObject) => {
     const exists = listRef.current.find(it =>
       it === column ||
       (it as ListColumnObject)?.id === (column as ListColumnObject).id
@@ -93,7 +93,7 @@ const List = ({
 
     listRef.current.push(column);
     dispatch({ columns: listRef.current });
-  };
+  }, []);
 
   const getContext = useCallback<() => ListContextType>(() => ({
     active: state.active,
@@ -101,10 +101,9 @@ const List = ({
     orderable,
     registerColumn,
   }), [
-    state.columns,
-    state.active,
-    state.asc,
+    state.active, state.asc,
     orderable,
+    registerColumn,
   ]);
 
   const renderColumn = (column: ListColumnObject, index: number) => {

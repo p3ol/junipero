@@ -39,22 +39,22 @@ const ToastsControl = ({
     isJunipero: true,
   }));
 
-  const add = (toast: ToastObject) => {
+  const add = useCallback((toast: ToastObject) => {
     toast.index = toast.index ||
       generateId ? generateId(toast) : Math.random().toString(36);
 
     setToasts(t => t.concat(toast));
-  };
+  }, [generateId]);
 
-  const dismiss = (toast: ToastObject) => {
+  const dismiss = useCallback((toast: ToastObject) => {
     setToasts(t => t.filter(i => i !== toast));
-  };
+  }, []);
 
-  const getContext = useCallback<() => ToastsContextType>(() => ({
+  const getContext = useCallback((): ToastsContextType => ({
     toasts,
     add,
     dismiss,
-  }), [toasts]);
+  }), [toasts, add, dismiss]);
 
   return (
     <ToastsContext.Provider { ...rest } value={getContext()} />

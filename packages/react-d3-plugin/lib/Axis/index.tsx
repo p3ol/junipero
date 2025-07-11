@@ -96,7 +96,7 @@ const Axis = ({
       default: return [-paddingLeft, height - paddingTop - paddingBottom];
     }
   }, [
-    axis?.type,
+    axis,
     width,
     height,
     paddingRight,
@@ -132,14 +132,10 @@ const Axis = ({
         .call(g => g.select('.domain').remove());
     }
   }, [
-    axis?.type,
-    axis?.range,
-    axis?.ticks,
-    axis?.tickSize,
-    axis?.grid,
-    axis?.parseTitle,
+    axis,
     width,
     paddingRight,
+    paddingLeft,
   ]);
 
   return (

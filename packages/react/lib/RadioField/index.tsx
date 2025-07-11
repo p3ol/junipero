@@ -106,6 +106,7 @@ const RadioField = ({
         valid,
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, options]);
 
   useImperativeHandle(ref, () => ({

@@ -173,7 +173,11 @@ const Curve = ({
     paddingLeft,
     paddingRight,
     paddingBottom,
+    width,
+    type,
+    lineCapShift,
     serie,
+    curve,
   ]);
 
   return (

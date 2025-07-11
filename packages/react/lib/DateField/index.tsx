@@ -175,6 +175,7 @@ const DateField = ({
         valid: onValidate(parseValue(value), { required, dirty: true }),
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const onSelectDate = (date: Date) => {

@@ -97,6 +97,7 @@ const Slider = ({
         .toFixed(state.precision)
     );
     dispatch({ precision: state.precision, value: state.value });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, step]);
 
   useImperativeHandle(ref, () => ({

@@ -163,10 +163,12 @@ const ColorField = ({
     if (exists(value)) {
       onColorChange_(value, { valuePropChange: true });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   useLayoutEffect(() => {
     dispatch({ h: state.h, s: state.s, v: state.v, a: state.a });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoFocus, state.opened]);
 
   useEventListener('mousemove', e => {
