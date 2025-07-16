@@ -75,9 +75,10 @@ export const ModalContext = createContext<ModalContextType>({});
 
 export declare interface AccessibilityContextType {
   currentlyFocusedElement?: string,
+  elements?: string[];
+  toggleId?: string;
   setCurrentlyFocusedElement?: (element: string | number) => void;
   registerElement?: (id: string | string[]) => void;
-  elements?: string[];
   onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 

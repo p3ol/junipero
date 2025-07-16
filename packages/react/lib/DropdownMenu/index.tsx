@@ -49,7 +49,7 @@ export const DropdownMenu = ({
     getFloatingProps,
     onAnimationExit,
   } = useDropdown();
-  const { onKeyDown, currentlyFocusedElement } = useAccessibility();
+  const { onKeyDown, currentlyFocusedElement, toggleId } = useAccessibility();
 
   useEffect(() => {
     if (innerRef.current && a11yFocus) {
@@ -90,7 +90,7 @@ export const DropdownMenu = ({
       tabIndex={0}
       onKeyDown={onKeyDown}
       role="listbox"
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby={toggleId}
       aria-activedescendant={currentlyFocusedElement}
     >
       { animate ? animate(menu, {

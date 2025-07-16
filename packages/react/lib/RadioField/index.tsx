@@ -184,7 +184,6 @@ const RadioField = ({
       { options.map((option, index) => (
         <label
           key={index}
-          id={index.toString()}
           role="radio"
           ref={el => { optionRefs.current[index] = el; }}
           className={classNames({

@@ -1,4 +1,9 @@
-import { type ComponentPropsWithoutRef, useCallback, useReducer } from 'react';
+import {
+  type ComponentPropsWithoutRef,
+  useCallback,
+  useId,
+  useReducer,
+} from 'react';
 import { mockState } from '@junipero/core';
 
 import {
@@ -13,6 +18,7 @@ export interface AccessibilityStoreProps extends ComponentPropsWithoutRef<any> {
 declare interface AccessibilityState {
   elements: string[];
   currentlyFocusedElement: string;
+  toggleId: string;
 }
 
 const AccessibilityStore = ({
@@ -23,6 +29,7 @@ const AccessibilityStore = ({
   const [state, dispatch] = useReducer(mockState<AccessibilityState>, {
     elements: [],
     currentlyFocusedElement: null,
+    toggleId: useId(),
   });
 
   const setCurrentlyFocusedElement = useCallback((elementId: string) => {
@@ -76,11 +83,13 @@ const AccessibilityStore = ({
 
   const getContext = useCallback<() => AccessibilityContextType>(() => ({
     currentlyFocusedElement: state.currentlyFocusedElement,
+    toggleId: state.toggleId,
     setCurrentlyFocusedElement,
     elements: state.elements,
     registerElement,
     onKeyDown,
   }), [
+    state.toggleId,
     state.currentlyFocusedElement,
     state.elements,
     onKeyDown,

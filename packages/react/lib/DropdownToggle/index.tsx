@@ -29,7 +29,7 @@ const DropdownToggle = ({
 }: DropdownToggleProps) => {
   const innerRef = useRef<JuniperoRef | JuniperoInnerRef>(null);
   const { opened, refs, getReferenceProps } = useDropdown();
-  const { onKeyDown, currentlyFocusedElement } = useAccessibility();
+  const { onKeyDown, currentlyFocusedElement, toggleId } = useAccessibility();
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -83,7 +83,7 @@ const DropdownToggle = ({
       );
     },
     ...getReferenceProps({ onClick: child.props?.onClick }),
-    id: 'dropdown-toggle',
+    id: { toggleId },
   });
 };
 
