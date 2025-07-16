@@ -1,39 +1,40 @@
 import { useState } from 'react';
 import { cloneDeep } from '@junipero/core';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
-import RadioField from '.';
+import RadioField, { RadioFieldOptionObject } from '.';
 import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 
 export default { title: 'react/RadioField' };
-const basicOptions: Array<any> = [
+const basicOptions: RadioFieldOptionObject[] = [
   { title: 'Apple', value: 'Apple' },
   { title: 'Pear', value: 'Pear' },
   { title: 'Orange', value: 'Orange' },
 ];
 
-const basicOptionsOneDisabled = [
+const basicOptionsOneDisabled: RadioFieldOptionObject[] = [
   { title: 'Apple', value: 'Apple' },
   { title: 'Pear', value: 'Pear' },
   { title: 'Orange', value: 'Orange', disabled: true },
 ];
 
-const withDescriptions = [
+const withDescriptions: RadioFieldOptionObject[] = [
   { title: 'Apple', value: 'Apple', description: 'This is a description' },
   { title: 'Pear', value: 'Pear', description: 'This is a description' },
   { title: 'Orange', value: 'Orange', description: 'This is a description' },
 ];
-export const basic = () => (
+
+export const Basic = () => (
   <RadioField options={basicOptions} onChange={action('change')} />
 );
 
-export const withDescription = () => (
+export const WithDescription = () => (
   <RadioField options={[1, 2, 3, 4, 5]} onChange={action('change')} />
 );
 
-export const withPresetValue = () => (
+export const WithPresetValue = () => (
   <RadioField
     options={withDescriptions}
     value="Orange"
@@ -41,7 +42,7 @@ export const withPresetValue = () => (
   />
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <RadioField
     options={withDescriptions}
     disabled={true}
@@ -49,7 +50,7 @@ export const disabled = () => (
   />
 );
 
-export const disabledWithPresetValue = () => (
+export const DisabledWithPresetValue = () => (
   <RadioField
     options={withDescriptions}
     value="Pear"
@@ -58,15 +59,15 @@ export const disabledWithPresetValue = () => (
   />
 );
 
-export const withOneDisabled = () => (
+export const WithOneDisabled = () => (
   <RadioField
     options={basicOptionsOneDisabled}
     onChange={action('change')}
   />
 );
 
-export const withCustomValidation = () => {
-  const withOneProhibed: Array<any> = cloneDeep(withDescriptions);
+export const WithCustomValidation = () => {
+  const withOneProhibed: RadioFieldOptionObject[] = cloneDeep(withDescriptions);
   withOneProhibed[2].description = 'You should not choose this fruit';
 
   return (
@@ -80,7 +81,7 @@ export const withCustomValidation = () => {
   );
 };
 
-export const withLabelAndAbstract = () => {
+export const WithLabelAndAbstract = () => {
   const withOneProhibed = cloneDeep(withDescriptions);
   withOneProhibed[2].description = 'You should not choose this fruit';
 
@@ -101,7 +102,7 @@ export const withLabelAndAbstract = () => {
   );
 };
 
-export const boxedWithDescription = () => (
+export const BoxedWithDescription = () => (
   <RadioField
     options={withDescriptions}
     className="boxed"
@@ -109,7 +110,7 @@ export const boxedWithDescription = () => (
   />
 );
 
-export const boxed = () => (
+export const Boxed = () => (
   <RadioField
     options={basicOptions}
     className="boxed"
@@ -120,7 +121,7 @@ export const boxed = () => (
   />
 );
 
-export const boxedWithOneDisabled = () => {
+export const BoxedWithOneDisabled = () => {
   const withOneDisabled = cloneDeep(withDescriptions);
   withOneDisabled[2].disabled = true;
 
@@ -134,7 +135,7 @@ export const boxedWithOneDisabled = () => {
   );
 };
 
-export const withValueChanging = () => {
+export const WithValueChanging = () => {
   const [value, setValue] = useState(withDescriptions[2].value);
 
   const changeValue = () => {
@@ -154,7 +155,7 @@ export const withValueChanging = () => {
   );
 };
 
-export const withOptionsChanging = () => {
+export const WithOptionsChanging = () => {
   const alternativeOptions = [
     { title: 'Apple', value: 'apple', description: 'This is a description' },
     { title: 'Google', value: 'google', description: 'This is a description' },

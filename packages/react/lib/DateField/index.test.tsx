@@ -132,7 +132,7 @@ describe('<DateField />', () => {
     unmount();
   });
 
-  it('should correctly display current month dates', async () => {
+  it('should correctly display current month dates', () => {
     const currentDay = new Date(2019, 0, 15);
     const { unmount, container } = render(
       <DateField autoFocus={true} value={currentDay} />
@@ -144,7 +144,7 @@ describe('<DateField />', () => {
   });
 
   it('should correctly display current month dates ' +
-  'even if the 31th day is selected', async () => {
+  'even if the 31th day is selected', () => {
     const currentDay = new Date(2019, 0, 31);
     const { unmount, container } = render(
       <DateField autoFocus={true} value={currentDay} />

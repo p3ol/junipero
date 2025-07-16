@@ -25,7 +25,7 @@ describe('useFieldControl()', () => {
   });
 
   it('should be able to update field control properties ' +
-  'from hook', async () => {
+  'from hook', () => {
     const { result } = renderHook(
       () => useFieldControl(), { wrapper: FieldControl }
     );

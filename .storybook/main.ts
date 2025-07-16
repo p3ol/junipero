@@ -1,17 +1,23 @@
-import path from 'node:path';
+import { createRequire } from 'node:module';
+import path, { dirname, join } from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { Options } from '@swc/core';
+
+const require = createRequire(import.meta.url);
+
+function getAbsolutePath (value: string): any {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
 
 const config: StorybookConfig = {
   stories: [
     '../packages/**/lib/**/*.stories.{js,tsx}',
   ],
   addons: [
-    '@storybook/addon-storysource',
-    '@storybook/addon-actions',
-    '@storybook/addon-themes',
+    getAbsolutePath('@storybook/addon-themes'),
     {
-      name: '@storybook/addon-styling-webpack',
+      name: getAbsolutePath('@storybook/addon-styling-webpack'),
       options: {
         rules: [
           {
@@ -26,10 +32,10 @@ const config: StorybookConfig = {
         ],
       },
     },
-    '@storybook/addon-webpack5-compiler-swc',
+    getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
   ],
-  framework: '@storybook/react-webpack5',
-  webpackFinal: (config) => {
+  framework: getAbsolutePath('@storybook/react-webpack5'),
+  webpackFinal: config => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve?.alias,
@@ -45,7 +51,7 @@ const config: StorybookConfig = {
 
     return config;
   },
-  swc: config => ({
+  swc: (config: Options): Options => ({
     ...config,
     jsc: {
       ...config.jsc,
@@ -60,7 +66,6 @@ const config: StorybookConfig = {
         ...config.jsc?.parser,
         syntax: 'typescript',
         tsx: true,
-        jsx: true,
       },
     },
   }),

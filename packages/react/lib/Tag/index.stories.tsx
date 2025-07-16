@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import Tag from './index';
 
 export default { title: 'react/Tag' };
 
-export const basic = () => (
+export const Basic = () => (
   <>
     <Tag>Default</Tag>
     <Tag className="primary">Primary</Tag>
@@ -15,7 +15,7 @@ export const basic = () => (
   </>
 );
 
-export const smaller = () => (
+export const Smaller = () => (
   <>
     <Tag className="info">Default</Tag>
     <Tag className="info primary">Primary</Tag>
@@ -25,7 +25,7 @@ export const smaller = () => (
   </>
 );
 
-export const deletable = () => {
+export const Deletable = () => {
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
 
   const onDelete = (item: string) => {

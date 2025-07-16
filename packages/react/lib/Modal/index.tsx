@@ -77,7 +77,7 @@ const Modal = ({
     setControlRef?.(r);
 
     if (typeof ref === 'function') {
-      (ref as Function)(r);
+      ref(r);
     } else if (ref) {
       ref.current = r;
     }

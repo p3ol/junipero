@@ -30,7 +30,7 @@ const Comp = () => {
   );
 };
 
-export const basic = () => (
+export const Basic = () => (
   <ToastsControl>
     <Comp />
   </ToastsControl>

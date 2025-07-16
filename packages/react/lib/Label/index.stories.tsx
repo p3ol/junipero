@@ -2,6 +2,6 @@ import Label from './index';
 
 export default { title: 'react/Label' };
 
-export const basic = () => (
+export const Basic = () => (
   <Label>First name</Label>
 );

@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { slideInDownMenu } from '@junipero/transitions';
 
 import FieldControl from '../FieldControl';
@@ -8,7 +8,7 @@ import DateField from './index';
 
 export default { title: 'react/DateField' };
 
-export const basic = () => (
+export const Basic = () => (
   <DateField
     placeholder="Date of birth"
     onChange={action('change')}
@@ -16,22 +16,22 @@ export const basic = () => (
   />
 );
 
-export const autoFocused = () => (
+export const AutoFocused = () => (
   <DateField autoFocus onChange={action('change')} />
 );
 
-export const withValue = () => (
+export const WithValue = () => (
   <DateField
     value={new Date(2019, 0, 1, 8, 22, 12)}
     onChange={action('change')}
   />
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <DateField disabled value={new Date()} />
 );
 
-export const withValidation = () => (
+export const WithValidation = () => (
   <FieldControl>
     <Label>Enter your birthdate</Label>
     <DateField
@@ -42,7 +42,7 @@ export const withValidation = () => (
   </FieldControl>
 );
 
-export const withMinAndMax = () => (
+export const WithMinAndMax = () => (
   <DateField
     value={new Date(2020, 6, 1)}
     min={new Date(2020, 0, 1)}
@@ -51,7 +51,7 @@ export const withMinAndMax = () => (
   />
 );
 
-export const withoutTime = () => (
+export const WithoutTime = () => (
   <DateField
     value={new Date(2020, 6, 1, 8, 22, 12)}
     time={false}
@@ -59,7 +59,7 @@ export const withoutTime = () => (
   />
 );
 
-export const alwaysOpened = () => (
+export const AlwaysOpened = () => (
   <DateField
     opened={true}
     trigger="manual"
@@ -68,10 +68,10 @@ export const alwaysOpened = () => (
   />
 );
 
-export const animated = () => (
+export const Animated = () => (
   <DateField animateMenu={slideInDownMenu} />
 );
 
-export const dateOnly = () => (
+export const DateOnly = () => (
   <DateField time={false} onChange={action('change')} />
 );

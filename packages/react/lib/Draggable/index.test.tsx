@@ -1,6 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 
 import { sleep } from '~tests-utils';
+
 import Draggable from './index';
 
 describe('<Draggable />', () => {

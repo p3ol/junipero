@@ -2,7 +2,7 @@ import Spinner from './index';
 
 export default { title: 'react/Spinner' };
 
-export const basic = () => (
+export const Basic = () => (
   <>
     <Spinner />
     <Spinner className="primary" />
@@ -12,7 +12,7 @@ export const basic = () => (
   </>
 );
 
-export const small = () => (
+export const Small = () => (
   <>
     <Spinner className="small" />
     <Spinner className="primary small" />

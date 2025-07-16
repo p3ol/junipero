@@ -1,6 +1,6 @@
 import type { GenericObject } from '../types';
 
-export const classNames = (...args: Array<any>): string => {
+export const classNames = (...args: any[]): string => {
   const classes: string[] = [];
 
   args.map((arg: string) => {
@@ -10,8 +10,8 @@ export const classNames = (...args: Array<any>): string => {
 
     if (typeof arg === 'string' || typeof arg === 'number') {
       classes.push('' + (arg || ''));
-    } else if (Array.isArray(arg) && (arg as Array<any>).length) {
-      const inner = classNames(...arg as Array<string>);
+    } else if (Array.isArray(arg) && (arg as any[]).length) {
+      const inner = classNames(...arg as string[]);
 
       if (inner) {
         classes.push(inner);
@@ -33,7 +33,7 @@ export const classNames = (...args: Array<any>): string => {
 };
 
 export const addClass = (elmt: HTMLElement, cls: string): void => {
-  if (elmt.className.indexOf(cls) === -1) {
+  if (!elmt.className.includes(cls)) {
     elmt.className += (elmt.className.length > 0 ? ' ' : '') + cls;
   }
 };
@@ -62,20 +62,28 @@ export const isDate = (d: any): boolean => d instanceof Date;
 
 export const exists = (v?: any): boolean => !isNull(v) && !isUndefined(v);
 
-export const get = (
-  obj: GenericObject = {},
-  path: string = '',
-  defaultValue: any = null
-): any => path
-  .split('.')
-  .reduce((a, c) => exists(a?.[c]) ? a[c] : undefined, obj) ?? defaultValue;
+type Idx<T, K extends string> = K extends keyof T ? T[K] : never;
 
-export const set = (
-  obj: GenericObject = {},
+type DeepIndex<T, K extends string> = T extends object ? (
+  K extends `${infer F}.${infer R}` ? DeepIndex<Idx<T, F>, R> : Idx<T, K>
+) : never;
+
+export function get <T extends Record<string, any>, D = any> (
+  obj: T = {} as T,
+  path: string = '',
+  defaultValue?: D
+): DeepIndex<T, typeof path> | D {
+  return path
+    .split('.')
+    .reduce((a, c) => exists(a?.[c]) ? a[c] : undefined, obj) ?? defaultValue;
+}
+
+export function set <T extends Record<string, any>, U = any> (
+  obj: T = {} as T,
   path: string = '',
   value?: any,
-  customizer = (val: any, subobj: any) => val
-): typeof obj => {
+  customizer: <V = any>(val: V, subobj: any) => V = (val, _subobj) => val
+): T | U {
   const pathArr = path.split('.');
   const subObj = pathArr
     .slice(0, -1)
@@ -84,9 +92,9 @@ export const set = (
         return a[c];
       }
 
-      a[c] = Math.abs(
+      Object.assign(a, { [c]: Math.abs(
         parseFloat(pathArr[i + 1])
-      ) >> 0 === +pathArr[i + 1] ? [] : {};
+      ) >> 0 === +pathArr[i + 1] ? [] : {} });
 
       return a[c];
     }, obj);
@@ -95,63 +103,88 @@ export const set = (
     customizer(value, subObj[pathArr.slice(-1)[0]]);
 
   return obj;
-};
+}
 
-export const omitBy = (
-  obj: object = {},
-  cb?: (k: any, v: string) => any
-) => Object
-  .entries(obj)
-  .filter(([k, v]) => !cb(v, k))
-  .reduce((res, [k, v]) => Object.assign({}, res, { [k]: v }), {});
+export function omitBy<T extends Record<string, any>> (
+  obj: T = {} as T,
+  cb?: (value: T[keyof T], key: keyof T) => any
+): Partial<T> {
+  return Object
+    .entries(obj)
+    .filter(([k, v]) => !cb(v, k))
+    .reduce((res, [k, v]) => (
+      Object.assign({} as Partial<T>, res, { [k]: v })
+    ), {} as Partial<T>);
+}
 
-export const omit = (obj: Object = {}, keys: Array<string> = []): Object =>
-  omitBy(obj || {}, (value, key) => keys.includes(key));
+export function omit<
+  T extends Record<string, any>,
+  U extends keyof T
+> (
+  obj: T = {} as T,
+  keys: U[] = []
+): Omit<T, U> {
+  return omitBy(obj || {}, (_value, key) =>
+    keys.includes(key)) as Exclude<T, U>;
+}
 
-export const pick = (
-  obj: GenericObject = {},
-  keys: Array<string | number> = []
-): typeof obj =>
-  keys.reduce((res: GenericObject, k: string | number) => {
+export function pick<
+  T extends Record<string, any>,
+  U extends keyof T
+> (
+  obj: T = {} as T,
+  keys: U[] = []
+): Pick<T, U> {
+  return keys.reduce((res: T, k: keyof T) => {
     if (!isUndefined(obj[k])) {
       res[k] = obj[k];
     }
 
     return res;
-  }, {});
+  }, {} as T);
+}
 
-export const cloneDeep = (obj?: GenericObject | Date | Array<any>): any =>
-  typeof obj !== 'object' || obj === null
+export function cloneDeep<T = any> (
+  obj?: T
+): T {
+  return typeof obj !== 'object' || obj === null
     ? obj
     : isDate(obj)
-      ? new Date((obj as Date).getTime())
+      ? new Date((obj as unknown as Date).getTime()) as T
       : isArray(obj)
-        ? [...(obj as Array<any>).map(o => cloneDeep(o))]
-        : Object.entries(obj).reduce((res: GenericObject, [k, v]) => {
-          res[k] = cloneDeep(v);
+        ? [...(obj as any[]).map(o => cloneDeep<T>(o))] as T
+        : Object.entries(obj).reduce((res: T, [k, v]) => {
+          Object.assign(res, { [k]: cloneDeep(v) });
 
           return res;
-        }, {});
+        }, {} as T);
+}
 
 export const fromPairs = (
-  pairs: Array<[(string | number), any]> = []
-): { [_: string | number]: any } =>
-  pairs.reduce((res: {[_: string]: any}, [k, v]) => {
+  pairs: [(string | number), any][] = []
+): Record<string | number, any> =>
+  pairs.reduce((res: Record<string, any>, [k, v]) => {
     res[k] = v;
 
     return res;
   }, {});
 
-export function mergeDeep<T extends any> (
+export function mergeDeep<T = any, U = any, V = any, W = any, X = any> (
   target: T,
-  ...sources: Array<any>
-): T {
+  source?: U,
+  source2?: V,
+  source3?: W,
+  source4?: X,
+  ...sources: any[]
+): T & U & V & W & X {
+  const allSources = [source, source2, source3, source4, ...sources];
+
   return isArray(target)
-    ? (target as Array<any>).concat(...sources)
+    ? (target as any).concat(...allSources)
     : isObject(target)
-      ? sources.reduce((s, source) => (
+      ? allSources.reduce((s, source) => (
         isObject(source)
-          ? Object.entries(source).reduce((t: GenericObject, [k, v]) => {
+          ? Object.entries(source).reduce((t: Record<string, any>, [k, v]) => {
             /* istanbul ignore else: no else needed */
             if (isArray(t[k]) || isObject(t[k])) {
               t[k] = mergeDeep((target as GenericObject)[k], v);
@@ -163,14 +196,14 @@ export function mergeDeep<T extends any> (
           }, s)
           : s
       ), target)
-      : target;
+      : target as T & U & V & W & X;
 }
 
-export const filterDeep = (
-  arr: Array<any> = [],
-  cb: (v?: any) => boolean = () => true
-): Array<any> => {
-  const res = [];
+export function filterDeep <T extends any[]> (
+  arr: T = [] as T,
+  cb: (v?: T[keyof T]) => boolean = () => true
+): T {
+  const res = [] as T;
 
   for (const v of arr) {
     if (cb(v)) {
@@ -179,25 +212,27 @@ export const filterDeep = (
       const r = filterDeep(v, cb);
       res.push(r);
     } else if (isObject(v) && !isDate(v)) {
-      res.push(Object.entries(v).reduce((o, [k, v]) => {
-        (o as GenericObject)[k] = isArray(v)
-          ? filterDeep(v as Array<any>, cb) : v;
+      res.push(Object
+        .entries<typeof v>(v)
+        .reduce((o: Record<string, any>, [k, v]) => {
+          o[k] = isArray(v)
+            ? filterDeep(v, cb) : v;
 
-        return o;
-      }, {}));
+          return o;
+        }, {}));
     }
   }
 
   return res;
-};
+}
 
-export const findDeep = (
-  arr: Array<any> = [],
+export function findDeep <T extends any[]> (
+  arr: T = [] as T,
   cb: (v?: any) => boolean = () => true,
   depth: (v: any) => any = v => v,
   multiple: boolean = false,
-): Array<any> => {
-  const res = [];
+): T[keyof T] | T {
+  const res = [] as T;
 
   for (const v of arr) {
     const d = depth(v);
@@ -224,4 +259,4 @@ export const findDeep = (
   if (res.length && multiple) {
     return res;
   }
-};
+}

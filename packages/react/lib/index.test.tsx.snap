@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`mockState: inside react should fail update the state correctly and return the old state: With updated content but with old text value 1`] = `
 <div>
@@ -38,7 +38,7 @@ exports[`mockState: inside react should fail update the state correctly and retu
         class="field"
         data-testid="Field"
         type="text"
-        value="This is a test"
+        value="This is a test 2"
       />
     </div>
     <button>

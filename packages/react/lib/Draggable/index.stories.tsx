@@ -12,7 +12,7 @@ const Item = ({ name }: { name: string}) => (
   </Draggable>
 );
 
-export const basic = () => {
+export const Basic = () => {
   const [items, setItems] = useState([]);
 
   return (

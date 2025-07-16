@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import Label from '../Label';
 import Abstract from '../Abstract';
@@ -7,11 +7,11 @@ import TextField from './index';
 
 export default { title: 'react/TextField' };
 
-export const basic = () => (
+export const Basic = () => (
   <TextField placeholder="First name" onChange={action('change')} />
 );
 
-export const basicMultiline = () => (
+export const BasicMultiline = () => (
   <TextField
     rows={10}
     label="First name"
@@ -20,7 +20,7 @@ export const basicMultiline = () => (
   />
 );
 
-export const withLabelAndAbstract = () => (
+export const WithLabelAndAbstract = () => (
   <FieldControl>
     <Label className="info" htmlFor="firstname">First name</Label>
     <TextField
@@ -35,15 +35,15 @@ export const withLabelAndAbstract = () => (
   </FieldControl>
 );
 
-export const autoFocused = () => (
+export const AutoFocused = () => (
   <TextField autoFocus onChange={action('change')} />
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <TextField disabled value="test" />
 );
 
-export const withValidation = () => (
+export const WithValidation = () => (
   <TextField
     label="Age"
     placeholder="Age"
@@ -51,7 +51,7 @@ export const withValidation = () => (
   />
 );
 
-export const typeNumber = () => (
+export const TypeNumber = () => (
   <TextField
     className="field noscroll"
     label="Age"
@@ -64,7 +64,7 @@ export const typeNumber = () => (
   />
 );
 
-export const withOnWheelOverrided = () => (
+export const WithOnWheelOverrided = () => (
   <TextField
     className="field noscroll"
     label="Age"

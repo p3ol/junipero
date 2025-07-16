@@ -40,6 +40,8 @@ describe('<ColorField />', () => {
         'offsetHeight',
         { value: 100 }
       );
+
+      return Promise.resolve();
     });
 
     // Testing library (or jsdom?) doesn't support pageX/Y if passed
@@ -74,6 +76,8 @@ describe('<ColorField />', () => {
         'offsetWidth',
         { value: 100 }
       );
+
+      return Promise.resolve();
     });
 
     const moveEvent = createEvent
@@ -102,6 +106,8 @@ describe('<ColorField />', () => {
         'offsetWidth',
         { value: 100 }
       );
+
+      return Promise.resolve();
     });
 
     const moveEvent = createEvent

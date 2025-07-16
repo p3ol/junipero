@@ -23,12 +23,12 @@ import Axis, { type AxisObject } from '../Axis';
 
 export declare interface ChartRef extends JuniperoRef {
   innerRef: RefObject<SVGSVGElement>;
-  axis: Array<AxisObject>;
+  axis: AxisObject[];
 }
 
 export declare interface ChartProps
   extends SpecialComponentPropsWithRef<'svg', ChartRef> {
-  axis: Array<AxisObject>;
+  axis: AxisObject[];
   redrawThreshold?: number;
   linearDomainMaxMargin?: number;
   bandDomainInnerPadding?: number;
@@ -93,8 +93,8 @@ const Chart = ({
         ]);
         break;
       case 'scaleBand':
-        domain = (d3.scaleBand() as ReturnType<typeof d3.scaleBand>)
-          .domain(a.data)
+        domain = d3.scaleBand()
+          .domain(a.data as any) // TODO fix this
           .paddingInner(bandDomainInnerPadding)
           .paddingOuter(bandDomainOuterPadding);
         break;
@@ -125,6 +125,9 @@ const Chart = ({
     return { ...a, domain, range } as AxisObject;
   }), [
     axisProp,
+    linearDomainMaxMargin,
+    bandDomainInnerPadding,
+    bandDomainOuterPadding,
     state.width,
     state.height,
     state.paddingLeft,
@@ -173,17 +176,19 @@ const Chart = ({
     const [x, y] = d3.pointer(e);
 
     dispatch({ cursor: { x, y } });
-  }, [state.width]);
+  }, [state.width, axis]);
 
   useEffect(() => {
+    const ref = innerRef.current;
+
     d3
-      .select(innerRef.current)
+      .select(ref)
       .on('mousemove', onMouseMove)
       .on('mouseout', onMouseOut);
 
     return () => {
       d3
-        .select(innerRef.current)
+        .select(ref)
         .on('mousemove', null)
         .on('mouseout', null);
     };

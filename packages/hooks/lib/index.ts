@@ -23,7 +23,7 @@ export const useEventListener = (
   }, [handler]);
 
   useEffect(() => {
-    const isSupported = target && target.addEventListener;
+    const isSupported = !!target?.addEventListener;
 
     if (!isSupported || enabled === false) {
       return () => {};

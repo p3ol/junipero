@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import Label from '../Label';
 import Abstract from '../Abstract';
@@ -7,27 +7,27 @@ import CodeField from './index';
 
 export default { title: 'react/CodeField' };
 
-export const basic = () => (
+export const Basic = () => (
   <CodeField onChange={action('change')} />
 );
 
-export const autoFocused = () => (
+export const AutoFocused = () => (
   <CodeField autoFocus onChange={action('change')} />
 );
 
-export const withValue = () => (
+export const WithValue = () => (
   <CodeField value="253453" onChange={action('change')} />
 );
 
-export const disabled = () => (
+export const Disabled = () => (
   <CodeField disabled value="253453" />
 );
 
-export const withValidation = () => (
+export const WithValidation = () => (
   <CodeField onValidate={val => /^[0-9]+$/g.test(val)} />
 );
 
-export const withLabelAndAbstract = () => (
+export const WithLabelAndAbstract = () => (
   <FieldControl>
     <Label className="info" htmlFor="code">One-time code</Label>
     <CodeField

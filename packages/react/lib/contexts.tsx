@@ -6,13 +6,15 @@ import type { ToastObject } from './Toast';
 import type { ListColumnObject } from './ListColumn';
 import type { ModalRef } from './Modal';
 
-export type AlertsContextType = {
-  alerts?: Array<AlertObject>;
+export interface AlertsContextType {
+  alerts?: AlertObject[];
   add?: (alert: AlertObject) => void;
   dismiss?: (alert: AlertObject) => void;
 }
 
-export type DropdownContextType = {
+export const AlertsContext = createContext<AlertsContextType>({});
+
+export interface DropdownContextType {
   opened?: boolean;
   visible?: boolean;
   highlightedOptionId?: string | null;
@@ -34,31 +36,42 @@ export type DropdownContextType = {
   setHighlightedOptionId?: (id: string) => void;
 }
 
-export type ListContextType = {
+export const DropdownContext = createContext<DropdownContextType>({});
+
+export interface ListContextType {
   active?: string | number;
   asc?: boolean;
   orderable?: boolean;
   registerColumn?: (column: string | ListColumnObject) => void;
 }
 
-export type FieldContextType = {
+export const ListContext = createContext<ListContextType>({});
+
+export interface FieldContextType {
   valid?: boolean;
   dirty?: boolean;
   focused?: boolean;
   update?: Dispatch<any>;
 }
 
-export type ToastsContextType = {
-  toasts?: Array<ToastObject>;
+export const FieldControlContext = createContext<FieldContextType>({});
+
+export interface ToastsContextType {
+  toasts?: ToastObject[];
   add?: (toas: ToastObject) => void;
   dismiss?: (toast: ToastObject) => void;
 }
+
+export const ToastsContext = createContext<ToastsContextType>({});
+
 export declare interface ModalContextType {
   open?(): void;
   close?(): void;
-  toggle?: any;
+  toggle?(): void;
   setRef?: (ref: ModalRef) => void;
 }
+
+export const ModalContext = createContext<ModalContextType>({});
 
 export declare interface AccessibilityContextType {
   currentlyFocusedElement?: string,
@@ -68,10 +81,4 @@ export declare interface AccessibilityContextType {
   onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 
-export const AlertsContext = createContext<AlertsContextType>({});
-export const DropdownContext = createContext<DropdownContextType>({});
-export const FieldControlContext = createContext<FieldContextType>({});
-export const ListContext = createContext<ListContextType>({});
-export const ToastsContext = createContext<ToastsContextType>({});
-export const ModalContext = createContext<ModalContextType>({});
 export const AccessibilityContext = createContext<AccessibilityContextType>({});

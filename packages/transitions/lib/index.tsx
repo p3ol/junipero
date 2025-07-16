@@ -22,11 +22,12 @@ export const animateMenu = (
     unmountOnExit={true}
     timeout={time}
     name={name}
-    children={menu}
     { ...opts }
     { ...props }
     key={k ?? key}
-  />
+  >
+    { menu }
+  </Transition>
 );
 
 export declare interface AnimateOptions extends Partial<TransitionProps> {
@@ -50,11 +51,12 @@ export const animate = (
     unmountOnExit={true}
     timeout={time}
     name={name}
-    children={menu}
     { ...opts }
     { ...props }
     key={k ?? key}
-  />
+  >
+    { menu }
+  </Transition>
 );
 
 export const slideInUpMenu = animate('jp-slide-in-up-menu');

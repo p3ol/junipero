@@ -40,22 +40,22 @@ const AlertsControl = ({
     isJunipero: true,
   }));
 
-  const add = (alert: AlertObject) => {
+  const add = useCallback((alert: AlertObject) => {
     alert.id = alert.id ||
       generateId ? generateId(alert) : Math.random().toString(36);
 
     setAlerts(a => a.concat(alert));
-  };
+  }, [generateId]);
 
-  const dismiss = (alert: AlertObject) => {
+  const dismiss = useCallback((alert: AlertObject) => {
     setAlerts(a => a.filter(a => a !== alert));
-  };
+  }, []);
 
   const getContext = useCallback<() => AlertsContextType>(() => ({
     alerts,
     add,
     dismiss,
-  }), [alerts]);
+  }), [alerts, add, dismiss]);
 
   return (
     <AlertsContext.Provider { ...rest } value={getContext()} />

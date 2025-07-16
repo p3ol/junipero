@@ -5,13 +5,14 @@ import { mockState } from '@junipero/core';
 import userEvent from '@testing-library/user-event';
 
 import { blur, focus, reset, sleep } from '~tests-utils';
+
 import type { FieldContent } from '../types';
 import { cloneDeep, set } from '../../../core/lib/core';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import TextField from '../TextField';
-import SelectField, { type SelectFieldRef } from './index';
+import SelectField, { SelectFieldOptionObject, type SelectFieldRef } from './index';
 
 configMocks({ act });
 const io = mockIntersectionObserver();
@@ -346,9 +347,9 @@ describe('<SelectField />', () => {
               'Item 2',
               { title: 'Item 3', value: 'item-3' },
             ]}
-            parseTitle={o => o.title || o}
-            parseValue={o => o.value || o}
-            onChange={field => setValue(field.value)}
+            parseTitle={o => '' + ((o as SelectFieldOptionObject).title || o)}
+            parseValue={o => (o as SelectFieldOptionObject).value || o}
+            onChange={(field: FieldContent<string>) => setValue(field.value)}
           />
         </>
       );
@@ -369,7 +370,7 @@ describe('<SelectField />', () => {
     const user = userEvent.setup();
     const options = ['Item 1', 'Item 2', 'Item 3'];
 
-    type FormState = {
+    interface FormState {
       form: {
         name?: string;
         config?: {
@@ -377,7 +378,7 @@ describe('<SelectField />', () => {
         };
       };
       dirty?: boolean;
-    };
+    }
 
     const Form = () => {
       const [state, dispatch] = useReducer(mockState<FormState>, {
@@ -560,14 +561,14 @@ describe('<SelectField />', () => {
 
     const { unmount, container } = render(<Form />);
 
-    await fireEvent.click(container.querySelector('input'));
+    fireEvent.click(container.querySelector('input'));
 
     expect(container).toMatchSnapshot('Before scroll');
 
-    await fireEvent.scroll(container.querySelector('.menu-inner'), {
+    fireEvent.scroll(container.querySelector('.menu-inner'), {
       target: { scrollTop: 10000 },
     });
-    await io.enterNode(container.querySelector('.load-more'));
+    io.enterNode(container.querySelector('.load-more'));
 
     expect(container).toMatchSnapshot('During scroll');
 

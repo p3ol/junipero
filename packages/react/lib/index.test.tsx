@@ -6,7 +6,7 @@ import { useTimeout } from '@junipero/hooks';
 import type { FieldContent } from './types';
 import TextField from './TextField';
 
-type State = {
+interface State {
   value: {
     text: string;
     content: string[];

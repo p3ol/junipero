@@ -89,7 +89,7 @@ const Bar = ({
     const position = xAxis.range.domain()[xIndex];
 
     return { position, xIndex };
-  }, [cursor, xAxis, yAxis]);
+  }, [cursor, xAxis]);
 
   const barStacks = useMemo(() => {
     if (!xAxis || !yAxis) {
@@ -102,8 +102,8 @@ const Bar = ({
       .offset(offset)
       .keys(
         yAxis.stackKeys || Object.keys(yAxis.data?.[0] || [])
-      )(yAxis.data as {[key: string]: number}[]);
-  }, [yAxis?.stackKeys, yAxis?.data, xAxis]);
+      )(yAxis.data as Record<string, number>[]);
+  }, [xAxis, yAxis, order, offset]);
 
   const barWidth = useMemo(() => (
     (xAxis?.domain as ReturnType<typeof d3.scaleBand>)

@@ -20,11 +20,17 @@ const TestComponent = (
     setClicked(true);
   }, { target });
 
-  onInterval && useInterval(() => onInterval(), 500, []);
+  if (onInterval) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useInterval(() => onInterval(), 500, []);
+  }
 
-  onTimeout && useTimeout(() => {
-    onTimeout();
-  }, 500);
+  if (onTimeout) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useTimeout(() => {
+      onTimeout();
+    }, 500);
+  }
 
   return <div className={classNames({ clicked })} />;
 };
@@ -47,7 +53,7 @@ describe('useEventListener(name, listener, target)', () => {
 });
 
 describe('useInterval(cb, time, changes)', () => {
-  it('should execute task each given amount of ms', async () => {
+  it('should execute task each given amount of ms', () => {
     jest.useFakeTimers();
     const onInterval = jest.fn();
     const { unmount } = render(<TestComponent onInterval={onInterval} />);
@@ -72,22 +78,26 @@ describe('useTimeout(listener, time, changes)', () => {
   });
 });
 
-/* eslint-disable react/prop-types */
 const EffectsTestComponent = (
   { enabled, onEffect, onLayoutEffect }:
   { enabled?: boolean, onEffect?: ()=> void, onLayoutEffect?: ()=> void}
 ): null => {
-  onEffect && useEffectAfterMount(() => {
-    onEffect();
-  }, [enabled]);
+  if (onEffect) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffectAfterMount(() => {
+      onEffect();
+    }, [enabled]);
+  }
 
-  onLayoutEffect && useLayoutEffectAfterMount(() => {
-    onLayoutEffect();
-  }, [enabled]);
+  if (onLayoutEffect) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useLayoutEffectAfterMount(() => {
+      onLayoutEffect();
+    }, [enabled]);
+  }
 
   return null;
 };
-/* eslint-enable react/prop-types */
 
 describe('useEffectAfterMount(cb, changes)', () => {
   it('should execute task after mount', () => {

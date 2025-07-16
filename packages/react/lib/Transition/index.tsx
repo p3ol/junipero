@@ -67,13 +67,24 @@ const Transition = ({
 
     previousIn.current = inProp;
     setStatus(inProp ? TRANSITION_STATE_ENTER : TRANSITION_STATE_EXIT);
-    inProp ? onEnter?.() : onExit?.();
+
+    if (inProp) {
+      onEnter?.();
+    } else {
+      onExit?.();
+    }
+
     setStep(TRANSITION_STATE_STARTING);
   }, [inProp]);
 
   useTimeout(() => {
     setStep(TRANSITION_STATE_ACTIVE);
-    status === TRANSITION_STATE_ENTER ? onEntering?.() : onExiting?.();
+
+    if (status === TRANSITION_STATE_ENTER) {
+      onEntering?.();
+    } else {
+      onExiting?.();
+    }
   }, 0, [step, status], { enabled: step === TRANSITION_STATE_STARTING });
 
   useTimeout(() => {
@@ -88,7 +99,10 @@ const Transition = ({
 
   useTimeout(() => {
     if (step !== TRANSITION_STATE_IDLE) {
-      unmountOnExit && setStatus(TRANSITION_STATE_UNMOUNTED);
+      if (unmountOnExit) {
+        setStatus(TRANSITION_STATE_UNMOUNTED);
+      }
+
       setStep(TRANSITION_STATE_DONE);
       onExited?.();
     }
@@ -105,7 +119,7 @@ const Transition = ({
           : ''
       )
     )
-  ), [status, step]);
+  ), [status, step, name]);
 
   const child: ReactElement<
     ComponentPropsWithoutRef<any>

@@ -21,8 +21,8 @@ describe('<Alert />', () => {
     );
     expect(container).toMatchSnapshot();
 
-    await act(async () => jest.advanceTimersByTime(100));
-    await act(async () => jest.advanceTimersByTime(1));
+    await act(async () => Promise.resolve(jest.advanceTimersByTime(100)));
+    await act(async () => Promise.resolve(jest.advanceTimersByTime(1)));
     expect(container).toMatchSnapshot();
 
     unmount();

@@ -97,6 +97,7 @@ const Slider = ({
         .toFixed(state.precision)
     );
     dispatch({ precision: state.precision, value: state.value });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, step]);
 
   useImperativeHandle(ref, () => ({
@@ -116,7 +117,7 @@ const Slider = ({
     onMouseMove_(e);
   }, { target: globalEventsTarget, enabled: state.moving && !disabled });
 
-  useEventListener('mouseup', e => {
+  useEventListener('mouseup', () => {
     onMouseUp_();
   }, { target: globalEventsTarget, enabled: state.moving && !disabled });
 

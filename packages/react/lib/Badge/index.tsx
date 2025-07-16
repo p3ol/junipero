@@ -1,6 +1,5 @@
 import {
   type ElementType,
-  type RefObject,
   useImperativeHandle,
   useRef,
 } from 'react';

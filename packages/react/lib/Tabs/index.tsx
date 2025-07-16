@@ -18,7 +18,7 @@ import Tab, { type TabProps, type TabObject } from '../Tab';
 
 export declare interface TabsRef extends JuniperoRef {
   activeTab: number;
-  tabs: Array<TabObject>;
+  tabs: TabObject[];
   innerRef: RefObject<HTMLDivElement>;
 }
 
@@ -28,7 +28,7 @@ export declare interface TabsProps extends Omit<
 > {
   active?: number;
   disabled?: boolean;
-  tabs?: Array<TabObject>;
+  tabs?: TabObject[];
   filterTab?(child: ReactElement<ComponentPropsWithoutRef<any>>): boolean;
   onToggle?(index: number): void;
 }
@@ -78,7 +78,7 @@ const Tabs = ({
     tabs
       ? tabs.map((t, i) => <Tab key={i} title={t.title}>{ t.content }</Tab>)
       : Children.toArray(children).filter(filterTab)
-  ), [tabs, children]);
+  ), [tabs, children, filterTab]);
 
   return (
     <div

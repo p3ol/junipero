@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { appearBounceModal, slideInLeftModal } from '@junipero/transitions';
 
 import Button from '../Button';
@@ -7,7 +7,7 @@ import Modal, { ModalRef } from './index';
 
 export default { title: 'react/Modal' };
 
-export const basic = () => {
+export const Basic = () => {
   const modalRef = useRef<ModalRef>(null);
 
   return (
@@ -20,7 +20,7 @@ export const basic = () => {
   );
 };
 
-export const animated = () => {
+export const Animated = () => {
   const modalRef = useRef<ModalRef>(null);
 
   return (
@@ -35,7 +35,7 @@ export const animated = () => {
   );
 };
 
-export const panel = () => {
+export const Panel = () => {
   const modalRef = useRef<ModalRef>(null);
 
   return (
@@ -55,7 +55,7 @@ export const panel = () => {
   );
 };
 
-export const nonClosablePanel = () => {
+export const NonClosablePanel = () => {
   const modalRef = useRef<ModalRef>(null);
 
   return (

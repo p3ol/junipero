@@ -15,14 +15,14 @@ import * as d3 from 'd3';
 import { getAxisType, getAxisFunction } from '../utils';
 import { useChart } from '../hooks';
 
-export declare type AxisDataType = Array<
+export declare type AxisDataType = (
   | string
   | number
   | Date
-  | {[key: string]: number}
+  | Record<string, number>
   | [number, number]
   | Iterable<[number, number]>
->;
+)[];
 
 export declare interface AxisObject<T = AxisDataType> {
   type: 'axisTop' | 'axisRight' | 'axisBottom' | 'axisLeft';
@@ -40,12 +40,12 @@ export declare interface AxisObject<T = AxisDataType> {
   parseTitle?(value: number | Date, opts: object): string;
   findSelectionIndex?(
     position: number | Date,
-    data?: Array<number | Date>
+    data?: (number | Date)[]
   ): number;
   ticks?: number;
   tickSize?: number;
   grid?: boolean;
-  stackKeys?: Array<string>;
+  stackKeys?: string[];
 }
 
 export declare interface AxisRef extends JuniperoRef {
@@ -96,7 +96,7 @@ const Axis = ({
       default: return [-paddingLeft, height - paddingTop - paddingBottom];
     }
   }, [
-    axis?.type,
+    axis,
     width,
     height,
     paddingRight,
@@ -116,7 +116,7 @@ const Axis = ({
         .ticks(axis.ticks ?? 5)
         .tickSize(axis.tickSize ?? 5)
         .tickFormat((d: Date | number) => (
-          axis.parseTitle || ((v, ...args) => v.toString())
+          axis.parseTitle || (v => v.toString())
         )?.(d, { type: 'tick', axis })) as any,
       )
       .call(g => g.select('.domain').remove());
@@ -127,19 +127,15 @@ const Axis = ({
         .call(getAxisFunction(axis.type)(axis.range)
           .ticks(axis.ticks ?? 5)
           .tickSize(-(width - paddingLeft - paddingRight))
-          .tickFormat((d: Date | number) => '') as any,
+          .tickFormat(() => '') as any,
         )
         .call(g => g.select('.domain').remove());
     }
   }, [
-    axis?.type,
-    axis?.range,
-    axis?.ticks,
-    axis?.tickSize,
-    axis?.grid,
-    axis?.parseTitle,
+    axis,
     width,
     paddingRight,
+    paddingLeft,
   ]);
 
   return (

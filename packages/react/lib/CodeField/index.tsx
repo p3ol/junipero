@@ -26,7 +26,7 @@ export declare interface CodeFieldRef extends JuniperoRef {
   blur(index: number): void;
   reset(): void;
   innerRef: RefObject<HTMLDivElement>;
-  inputsRef: RefObject<Array<HTMLInputElement>>;
+  inputsRef: RefObject<HTMLInputElement[]>;
   inputRef: RefObject<HTMLInputElement>;
 }
 
@@ -53,7 +53,7 @@ export declare interface CodeFieldProps extends Omit<
 }
 
 export declare interface CodeFieldState {
-  values: Array<string>;
+  values: string[];
   valid: boolean;
   dirty: boolean;
   active: number;
@@ -108,11 +108,13 @@ const CodeField = ({
       dispatch({ values: state.values, valid: state.valid });
       updateControl?.({ valid: state.valid, dirty: state.dirty });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   useEffect(() => {
     dispatch({ valid: valid ?? false });
     updateControl?.({ valid: state.valid });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valid]);
 
   const focus = (index: number = 0) => {

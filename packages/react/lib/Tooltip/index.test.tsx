@@ -18,7 +18,7 @@ describe('<Tooltip />', () => {
     unmount();
   });
 
-  it('should also render tooltip when using click as trigger', async () => {
+  it('should also render tooltip when using click as trigger', () => {
     const { container, unmount } = render(
       <Tooltip text="Bar" trigger="click">Foo</Tooltip>
     );

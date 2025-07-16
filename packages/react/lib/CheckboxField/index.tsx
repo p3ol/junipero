@@ -77,6 +77,7 @@ const CheckboxField = ({
     });
     dispatch({ checked: checked ?? false, valid });
     updateControl?.({ dirty: state.dirty, valid });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked]);
 
   useImperativeHandle(ref, () => ({

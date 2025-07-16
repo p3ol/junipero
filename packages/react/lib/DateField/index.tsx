@@ -175,6 +175,7 @@ const DateField = ({
         valid: onValidate(parseValue(value), { required, dirty: true }),
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const onSelectDate = (date: Date) => {
@@ -204,7 +205,10 @@ const DateField = ({
     });
     onChange?.({ value: parseValue(state.value), valid: state.valid });
     updateControl?.({ valid: state.valid, dirty: true });
-    close && trigger !== 'manual' && dropdownRef.current?.close?.();
+
+    if (close && trigger !== 'manual') {
+      dropdownRef.current?.close?.();
+    }
   };
 
   const onTimeChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -212,7 +216,7 @@ const DateField = ({
 
     state.time = val.length % 3 === 0 &&
       val.length > state.time.length &&
-      val.slice(-1) !== ':' &&
+      !val.endsWith(':') &&
       (val.match(/:/g) || []).length < 2
       ? val.slice(0, -1) + ':' + val.slice(-1) : val;
 
@@ -298,7 +302,10 @@ const DateField = ({
       });
     } else {
       dispatch({ opened, focused: opened });
-      state.timeDirty && onTimeBlur();
+
+      if (state.timeDirty) {
+        onTimeBlur();
+      }
     }
 
     updateControl?.({ focused: opened });

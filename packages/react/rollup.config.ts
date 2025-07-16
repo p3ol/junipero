@@ -72,9 +72,9 @@ export default [
         manualChunks: (id: string) => {
           if (/packages\/react\/lib\/(\w+)\/index.[tj]s/.test(id)) {
             return path.parse(id).dir.split('/').pop();
-          } else if (/packages\/core/.test(id)) {
+          } else if (id.includes('packages/core')) {
             return 'core';
-          } else if (/packages\/hooks/.test(id)) {
+          } else if (id.includes('packages/hooks')) {
             return 'hooks';
           } else if (id.includes('node_modules')) {
             return 'vendor';

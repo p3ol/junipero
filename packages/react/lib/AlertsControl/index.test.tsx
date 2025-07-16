@@ -25,7 +25,7 @@ describe('useAlerts()', () => {
     const { result } = renderHook(() =>
       useAlerts(), { wrapper: AlertsControl });
     expect(result.current.alerts).toHaveLength(0);
-    await act(async () => { result.current.add(customAlert); });
+    await act(async () => Promise.resolve(result.current.add(customAlert)));
     expect(result.current.alerts).toHaveLength(1);
     expect(result.current.alerts[0]).toEqual(customAlert);
   });
@@ -38,10 +38,10 @@ describe('useAlerts()', () => {
     const { result } = renderHook(() =>
       useAlerts(), { wrapper: AlertsControl });
     expect(result.current.alerts).toHaveLength(0);
-    await act(async () => { result.current.add(customAlert); });
+    await act(async () => Promise.resolve(result.current.add(customAlert)));
     expect(result.current.alerts).toHaveLength(1);
     expect(result.current.alerts[0]).toEqual(customAlert);
-    await act(async () => { result.current.dismiss(customAlert); });
+    await act(async () => Promise.resolve(result.current.dismiss(customAlert)));
     expect(result.current.alerts).toHaveLength(0);
   });
 

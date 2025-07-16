@@ -9,12 +9,12 @@ import Transition from '.';
 
 export default { title: 'react/Transition' };
 
-type State = {
+interface State {
   enabled?: boolean;
   timeout?: number;
-};
+}
 
-export const basic = () => {
+export const Basic = () => {
   const [state, dispatch] = useReducer(mockState<State>, {
     enabled: false,
     timeout: 100,

@@ -11,7 +11,7 @@ import type { ToastObject } from '../Toast';
 import { ToastsContext, type ToastsContextType } from '../contexts';
 
 export declare interface ToastsControlRef extends JuniperoRef {
-  toasts: Array<ToastObject>;
+  toasts: ToastObject[];
   add(toast: ToastObject): void;
   dismiss(toast: ToastObject, index: string | number): void;
 }
@@ -20,7 +20,7 @@ export declare interface ToastsControlProps extends Omit<
   ComponentPropsWithoutRef<typeof ToastsContext.Provider>, 'value'
 > {
   ref?: Ref<ToastsControlRef>;
-  toasts?: Array<ToastObject>;
+  toasts?: ToastObject[];
   generateId?(toast: ToastObject): string | number;
 }
 
@@ -39,22 +39,22 @@ const ToastsControl = ({
     isJunipero: true,
   }));
 
-  const add = (toast: ToastObject) => {
+  const add = useCallback((toast: ToastObject) => {
     toast.index = toast.index ||
       generateId ? generateId(toast) : Math.random().toString(36);
 
     setToasts(t => t.concat(toast));
-  };
+  }, [generateId]);
 
-  const dismiss = (toast: ToastObject) => {
+  const dismiss = useCallback((toast: ToastObject) => {
     setToasts(t => t.filter(i => i !== toast));
-  };
+  }, []);
 
-  const getContext = useCallback<() => ToastsContextType>(() => ({
+  const getContext = useCallback((): ToastsContextType => ({
     toasts,
     add,
     dismiss,
-  }), [toasts]);
+  }), [toasts, add, dismiss]);
 
   return (
     <ToastsContext.Provider { ...rest } value={getContext()} />

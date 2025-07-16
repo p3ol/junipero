@@ -43,7 +43,7 @@ export declare interface ToastProps
   index?: string | number;
   lifespan?: number;
   pausable?: boolean;
-  tag?: string | ElementType;
+  tag?: ElementType;
   animate?(
     alert: ReactNode,
     opts?: {

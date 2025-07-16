@@ -71,7 +71,7 @@ describe('<RadioField />', () => {
     expect(container).toMatchSnapshot('option 1 checked');
 
     await act(async () => {
-      container.querySelectorAll('label')[1].focus();
+      return Promise.resolve(container.querySelectorAll('label')[1].focus());
     });
     await user.keyboard('{Enter}');
 
@@ -97,7 +97,7 @@ describe('<RadioField />', () => {
     expect(container).toMatchSnapshot('option 1 checked');
 
     await act(async () => {
-      container.querySelectorAll('label')[1].focus();
+      return Promise.resolve(container.querySelectorAll('label')[1].focus());
     });
     await user.keyboard('{ }');
 
@@ -135,7 +135,7 @@ describe('<RadioField />', () => {
   });
 
   it('should not trigger onChange if ' +
-  'a radio if just this option is disabled', async () => {
+  'a radio if just this option is disabled', () => {
     const onChangeMock = jest.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
@@ -226,7 +226,7 @@ describe('<RadioField />', () => {
   });
 
   it('should use given parse title, description and value if ' +
-  'function are provided', async () => {
+  'function are provided', () => {
     const options = [{
       cutomValue: 'peach',
       customTitle: 'Delicious peach',

@@ -1,4 +1,4 @@
-import type { PluginCreator, PluginsConfig } from 'tailwindcss/types/config';
+import type { PluginCreator } from 'tailwindcss/types/config';
 import tailwind, { type Config } from 'tailwindcss';
 import postcss from 'postcss';
 
@@ -6,7 +6,6 @@ export const generate = async (
   plugin: { handler: PluginCreator; config?: Partial<Config>; },
   content: string
 ) => (
-  // @ts-ignore - TODO fixme
   postcss([
     tailwind({
       content: [{ raw: content }],
