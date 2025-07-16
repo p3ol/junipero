@@ -11,7 +11,7 @@ export interface AccessibilityStoreProps extends ComponentPropsWithoutRef<any> {
 }
 
 declare interface AccessibilityState {
-  elements: Array<string>;
+  elements: string[];
   currentlyFocusedElement: string;
 }
 
@@ -29,7 +29,7 @@ const AccessibilityStore = ({
     dispatch({ currentlyFocusedElement: elementId });
   }, []);
 
-  const onKeyDown = (e: React.KeyboardEvent) => {
+  const onKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
       let nextIndex;
@@ -64,15 +64,15 @@ const AccessibilityStore = ({
         handleAction(currentlyFocusedElement);
       }
     }
-  };
+  }, [handleAction, state]);
 
-  const registerElement = (id: string | string[]) => {
+  const registerElement = useCallback((id: string | string[]) => {
     if (Array.isArray(id)) {
       dispatch({ elements: id });
     } else if (!state.elements.includes(id)) {
       dispatch({ elements: [...state.elements, id] });
     }
-  };
+  }, [state.elements]);
 
   const getContext = useCallback<() => AccessibilityContextType>(() => ({
     currentlyFocusedElement: state.currentlyFocusedElement,
@@ -84,6 +84,8 @@ const AccessibilityStore = ({
     state.currentlyFocusedElement,
     state.elements,
     onKeyDown,
+    registerElement,
+    setCurrentlyFocusedElement,
   ]);
 
   return (

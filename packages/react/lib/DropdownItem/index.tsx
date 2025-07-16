@@ -20,7 +20,7 @@ const DropdownItem = ({
 
   useEffect(() => {
     registerElement(a11yKey?.toString());
-  }, []);
+  }, [a11yKey, registerElement]);
 
   return (
     <li

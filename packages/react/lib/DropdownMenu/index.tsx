@@ -46,7 +46,6 @@ export const DropdownMenu = ({
     opened,
     visible,
     container,
-    close,
     getFloatingProps,
     onAnimationExit,
   } = useDropdown();
@@ -56,7 +55,7 @@ export const DropdownMenu = ({
     if (innerRef.current && a11yFocus) {
       innerRef.current.focus();
     }
-  }, [opened, innerRef.current]);
+  }, [opened, a11yFocus]);
 
   useImperativeHandle(ref, () => ({
     innerRef,

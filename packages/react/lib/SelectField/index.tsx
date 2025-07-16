@@ -27,7 +27,7 @@ import type {
   SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
-import { useAccessibility, useFieldControl } from '../hooks';
+import { useFieldControl } from '../hooks';
 import { Arrows, Remove } from '../icons';
 import Dropdown, { type DropdownRef } from '../Dropdown';
 import DropdownToggle from '../DropdownToggle';

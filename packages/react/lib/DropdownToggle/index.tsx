@@ -52,7 +52,7 @@ const DropdownToggle = ({
       });
     }
 
-    if (child.props && child.props.children) {
+    if (child?.props?.children) {
       return cloneElement(child, {
         children: Children.map(
           child.props.children, (c: ReactElement<ComponentPropsWithoutRef<any>>

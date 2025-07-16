@@ -77,7 +77,7 @@ export declare interface AccessibilityContextType {
   currentlyFocusedElement?: string,
   setCurrentlyFocusedElement?: (element: string | number) => void;
   registerElement?: (id: string | string[]) => void;
-  elements?: Array<string>;
+  elements?: string[];
   onKeyDown?: (event: React.KeyboardEvent) => void;
 }
 
