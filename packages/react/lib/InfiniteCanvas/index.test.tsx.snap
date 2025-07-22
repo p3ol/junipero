@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<InfiniteCanvas /> should render an infinite canvas 1`] = `
+<div>
+  <div
+    class="junipero infinite-canvas cursor-mode-default"
+  >
+    <div
+      class="infinite-canvas-content"
+      style="transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1); transform-origin: 0 0;"
+    >
+      <div
+        style="width: 1000px; height: 1000px;"
+      >
+        Content
+      </div>
+    </div>
+    <svg
+      class="infinite-canvas-background"
+    >
+      <pattern
+        height="20"
+        id="dots"
+        patternTransform="translate(1, 1)"
+        patternUnits="userSpaceOnUse"
+        width="20"
+        x="0"
+        y="0"
+      >
+        <circle
+          cx="1"
+          cy="1"
+          fill="var(--dots-color)"
+          r="1"
+        />
+      </pattern>
+      <rect
+        fill="url(#dots)"
+        height="100%"
+        width="100%"
+        x="0"
+        y="0"
+      />
+    </svg>
+  </div>
+</div>
+`;
