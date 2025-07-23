@@ -1,10 +1,12 @@
 import { useReducer } from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, renderHook } from '@testing-library/react';
 import { mockState } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
 import type { FieldContent } from './types';
 import TextField from './TextField';
+import { useAccessibility } from './hooks';
+import AccessibilityStore from './AccessibilityStore';
 
 interface State {
   value: {
@@ -120,5 +122,25 @@ describe('mockState: inside react', () => {
       .toMatchSnapshot('With updated content AND updated text field valud');
 
     unmount();
+  });
+});
+
+describe('useAccessibility()', () => {
+  it('should render hook', () => {
+    const { result } = renderHook(() =>
+      useAccessibility(),
+    { wrapper: AccessibilityStore });
+    expect(
+      Object.keys(result.current)
+    ).toEqual(expect.arrayContaining(
+      [
+        'currentlyFocusedElement',
+        'toggleId',
+        'setCurrentlyFocusedElement',
+        'elements',
+        'registerElement',
+        'onKeyDown',
+      ]
+    ));
   });
 });

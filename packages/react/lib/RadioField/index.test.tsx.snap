@@ -438,6 +438,158 @@ exports[`<RadioField /> should check if provided value is in options 1`] = `
 </div>
 `;
 
+exports[`<RadioField /> should navigate and toggle with keyboard: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field pristine valid"
+    role="radiogroup"
+  >
+    <label
+      class=""
+      role="radio"
+      tabindex="0"
+    >
+      <input
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="3"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          3
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should navigate and toggle with keyboard: option 2 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field dirty valid"
+    role="radiogroup"
+  >
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class="checked"
+      role="radio"
+      tabindex="0"
+    >
+      <input
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="3"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          3
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`<RadioField /> should not display description if parseDescription return empty string 1`] = `
 <div>
   <div
