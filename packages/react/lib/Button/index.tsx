@@ -47,7 +47,9 @@ const Button = ({
 
   return (
     <Tag
+      type="button"
       { ...rest }
+      aria-disabled={disabled}
       disabled={disabled}
       className={classNames('junipero', 'button', { disabled }, className)}
       ref={innerRef}

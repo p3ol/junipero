@@ -3,7 +3,11 @@
 exports[`<CheckboxField /> should add value if provided 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -38,7 +42,11 @@ exports[`<CheckboxField /> should allow to render a controller checkbox: checked
     Toggle
   </button>
   <label
+    aria-checked="true"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid checked"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -75,7 +83,11 @@ exports[`<CheckboxField /> should allow to render a controller checkbox: uncheck
     Toggle
   </button>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -109,7 +121,11 @@ exports[`<CheckboxField /> should allow to render a controller checkbox: uncheck
 exports[`<CheckboxField /> should not trigger event and change state if user click but checkbox is disabled 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="true"
+    aria-required="false"
     class="junipero checkbox-field pristine valid disabled"
+    role="checkbox"
     tabindex="-1"
   >
     <input
@@ -141,7 +157,11 @@ exports[`<CheckboxField /> should not trigger event and change state if user cli
 exports[`<CheckboxField /> should render 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -173,7 +193,11 @@ exports[`<CheckboxField /> should render 1`] = `
 exports[`<CheckboxField /> should set checked if provided 1`] = `
 <div>
   <label
+    aria-checked="true"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid checked"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -205,7 +229,11 @@ exports[`<CheckboxField /> should set checked if provided 1`] = `
 exports[`<CheckboxField /> should set focused state on focus: focused 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -237,7 +265,11 @@ exports[`<CheckboxField /> should set focused state on focus: focused 1`] = `
 exports[`<CheckboxField /> should set focused state on focus: not focused 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -269,7 +301,11 @@ exports[`<CheckboxField /> should set focused state on focus: not focused 1`] = 
 exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: invalid 1`] = `
 <div>
   <label
+    aria-checked="true"
+    aria-disabled="false"
+    aria-required="true"
     class="junipero checkbox-field dirty invalid checked"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -301,7 +337,11 @@ exports[`<CheckboxField /> should set invalid state following custom onValidate 
 exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: valid 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="true"
     class="junipero checkbox-field dirty valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -333,7 +373,11 @@ exports[`<CheckboxField /> should set invalid state following custom onValidate 
 exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: invalid 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="true"
     class="junipero checkbox-field dirty invalid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -365,7 +409,11 @@ exports[`<CheckboxField /> should set invalid state if checkbox is invalid and r
 exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: valid 1`] = `
 <div>
   <label
+    aria-checked="true"
+    aria-disabled="false"
+    aria-required="true"
     class="junipero checkbox-field dirty valid checked"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -397,7 +445,11 @@ exports[`<CheckboxField /> should set invalid state if checkbox is invalid and r
 exports[`<CheckboxField /> should toggle active state on click: active 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -429,7 +481,11 @@ exports[`<CheckboxField /> should toggle active state on click: active 1`] = `
 exports[`<CheckboxField /> should toggle active state on click: inactive 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field pristine valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -461,7 +517,11 @@ exports[`<CheckboxField /> should toggle active state on click: inactive 1`] = `
 exports[`<CheckboxField /> should toggle check if checkbox is clicked: checked 1`] = `
 <div>
   <label
+    aria-checked="true"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field dirty valid checked"
+    role="checkbox"
     tabindex="1"
   >
     <input
@@ -493,7 +553,11 @@ exports[`<CheckboxField /> should toggle check if checkbox is clicked: checked 1
 exports[`<CheckboxField /> should toggle check if checkbox is clicked: unchecked 1`] = `
 <div>
   <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
     class="junipero checkbox-field dirty valid"
+    role="checkbox"
     tabindex="1"
   >
     <input
