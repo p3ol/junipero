@@ -527,6 +527,7 @@ describe('<SelectField />', () => {
     await focus(input);
     await user.type(input, 'Item 4');
     await blur(input);
+    await sleep(1);
 
     expect(container).toMatchSnapshot();
     unmount();

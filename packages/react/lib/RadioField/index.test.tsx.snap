@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<RadioField /> should add box if boxed class has been passed to Radio 1`] = `
 <div>
@@ -8,7 +8,6 @@ exports[`<RadioField /> should add box if boxed class has been passed to Radio 1
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -32,7 +31,6 @@ exports[`<RadioField /> should add box if boxed class has been passed to Radio 1
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -65,7 +63,6 @@ exports[`<RadioField /> should change options if options props change accross th
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -88,7 +85,6 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -111,7 +107,6 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      id="2"
       role="radio"
       tabindex="-1"
     >
@@ -134,7 +129,6 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      id="3"
       role="radio"
       tabindex="-1"
     >
@@ -167,7 +161,6 @@ exports[`<RadioField /> should change options if options props change accross th
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -190,7 +183,6 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -213,7 +205,6 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      id="2"
       role="radio"
       tabindex="-1"
     >
@@ -246,7 +237,6 @@ exports[`<RadioField /> should change value if value prop change accross the tim
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="-1"
     >
@@ -270,7 +260,6 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class="checked"
-      id="1"
       role="radio"
       tabindex="0"
     >
@@ -293,7 +282,6 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class=""
-      id="2"
       role="radio"
       tabindex="-1"
     >
@@ -326,7 +314,6 @@ exports[`<RadioField /> should change value if value prop change accross the tim
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -350,7 +337,6 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -373,7 +359,6 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class=""
-      id="2"
       role="radio"
       tabindex="-1"
     >
@@ -406,7 +391,6 @@ exports[`<RadioField /> should check if provided value is in options 1`] = `
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -430,7 +414,6 @@ exports[`<RadioField /> should check if provided value is in options 1`] = `
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -463,7 +446,6 @@ exports[`<RadioField /> should not display description if parseDescription retur
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="-1"
     >
@@ -496,7 +478,6 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -520,7 +501,6 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
     </label>
     <label
       class="disabled"
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -553,7 +533,6 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -577,7 +556,6 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
     </label>
     <label
       class="disabled"
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -610,7 +588,6 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
   >
     <label
       class="checked disabled"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -634,7 +611,6 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
     </label>
     <label
       class="disabled"
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -667,7 +643,6 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
   >
     <label
       class="checked disabled"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -691,7 +666,6 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
     </label>
     <label
       class="disabled"
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -733,7 +707,6 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -756,7 +729,6 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -779,7 +751,6 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      id="2"
       role="radio"
       tabindex="-1"
     >
@@ -802,7 +773,6 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      id="3"
       role="radio"
       tabindex="-1"
     >
@@ -835,7 +805,6 @@ exports[`<RadioField /> should set error state if onValidate function fails: inv
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="-1"
     >
@@ -859,7 +828,6 @@ exports[`<RadioField /> should set error state if onValidate function fails: inv
     </label>
     <label
       class="checked"
-      id="1"
       role="radio"
       tabindex="0"
     >
@@ -892,7 +860,6 @@ exports[`<RadioField /> should set error state if onValidate function fails: opt
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -916,7 +883,6 @@ exports[`<RadioField /> should set error state if onValidate function fails: opt
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -949,7 +915,6 @@ exports[`<RadioField /> should set error state if onValidate function fails: val
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -973,7 +938,6 @@ exports[`<RadioField /> should set error state if onValidate function fails: val
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -1006,7 +970,6 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 1 chec
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -1030,7 +993,6 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 1 chec
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -1063,7 +1025,6 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 2 chec
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="-1"
     >
@@ -1087,7 +1048,6 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 2 chec
     </label>
     <label
       class="checked"
-      id="1"
       role="radio"
       tabindex="0"
     >
@@ -1120,7 +1080,6 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -1144,7 +1103,6 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -1177,7 +1135,6 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="-1"
     >
@@ -1201,7 +1158,6 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
     </label>
     <label
       class="checked"
-      id="1"
       role="radio"
       tabindex="0"
     >
@@ -1234,7 +1190,6 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >
@@ -1258,7 +1213,6 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
     </label>
     <label
       class=""
-      id="1"
       role="radio"
       tabindex="-1"
     >
@@ -1291,7 +1245,6 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
   >
     <label
       class=""
-      id="0"
       role="radio"
       tabindex="-1"
     >
@@ -1315,7 +1268,6 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
     </label>
     <label
       class="checked"
-      id="1"
       role="radio"
       tabindex="0"
     >
@@ -1348,7 +1300,6 @@ exports[`<RadioField /> should use given parse title, description and value if f
   >
     <label
       class="checked"
-      id="0"
       role="radio"
       tabindex="0"
     >

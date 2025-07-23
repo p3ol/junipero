@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
 <div>
@@ -6,7 +6,7 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
     id="menu-container"
   >
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r5»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -30,7 +30,7 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r5»"
     >
       Click me
     </span>
@@ -45,12 +45,12 @@ exports[`<Dropdown /> should allow to use groups 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r7»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -123,12 +123,12 @@ exports[`<Dropdown /> should auto close when disabled prop changes 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r3»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r3»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -157,7 +157,7 @@ exports[`<Dropdown /> should auto close when disabled prop changes 2`] = `
   >
     <span
       class="dropdown-toggle"
-      id="dropdown-toggle"
+      id="«r3»"
     >
       Click me
     </span>
@@ -172,7 +172,7 @@ exports[`<Dropdown /> should render 1`] = `
   >
     <span
       class="dropdown-toggle"
-      id="dropdown-toggle"
+      id="«r1»"
     >
       Click me
     </span>
@@ -187,12 +187,12 @@ exports[`<Dropdown /> should render 2`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r1»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r1»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -214,6 +214,48 @@ exports[`<Dropdown /> should render 2`] = `
 </div>
 `;
 
+exports[`<Dropdown /> should render without accessibility features 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened"
+  >
+    <span
+      class="dropdown-toggle opened"
+      id="«ra»"
+    >
+      Click me
+    </span>
+    <div
+      aria-labelledby="«ra»"
+      class="junipero dropdown-menu"
+      data-floating-ui-focusable=""
+      role="listbox"
+      style="position: fixed; top: 0px; left: 0px;"
+      tabindex="0"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <li
+          class="dropdown-item"
+          id="1"
+          role="option"
+        >
+          Item 1
+        </li>
+        <li
+          class="dropdown-item"
+          id="2"
+          role="option"
+        >
+          Item 2
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`useDropdwon() should allow to animate dropdown: Enter: In dom 1`] = `
 <div>
   <div
@@ -221,12 +263,12 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: In dom 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«rk»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«rk»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -255,7 +297,7 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: Not in dom 1`] =
   >
     <span
       class="dropdown-toggle"
-      id="dropdown-toggle"
+      id="«rk»"
     >
       Click me
     </span>
@@ -270,7 +312,7 @@ exports[`useDropdwon() should allow to animate dropdown: Exit: Not in dom 1`] = 
   >
     <span
       class="dropdown-toggle"
-      id="dropdown-toggle"
+      id="«rk»"
     >
       Click me
     </span>
@@ -285,12 +327,12 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle"
-      id="dropdown-toggle"
+      id="«rm»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«rm»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -308,12 +350,12 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«rm»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«rm»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -342,12 +384,12 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle"
-      id="dropdown-toggle"
+      id="«rm»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«rm»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
       role="listbox"

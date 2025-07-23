@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<FieldGroup /> should render a select field prefix 1`] = `
 <div>
@@ -15,7 +15,7 @@ exports[`<FieldGroup /> should render a select field prefix 1`] = `
     >
       <div
         class="field dropdown-toggle"
-        id="dropdown-toggle"
+        id="«r0»"
       >
         <input
           aria-expanded="false"
@@ -58,7 +58,7 @@ exports[`<FieldGroup /> should render a select field suffix 1`] = `
     >
       <div
         class="field dropdown-toggle"
-        id="dropdown-toggle"
+        id="«r2»"
       >
         <input
           aria-expanded="false"

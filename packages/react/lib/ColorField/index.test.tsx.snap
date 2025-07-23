@@ -7,7 +7,7 @@ exports[`<ColorField /> should render 1`] = `
   >
     <div
       class="inner dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r1»"
     >
       <div
         class="junipero text-field pristine valid empty"
@@ -23,7 +23,7 @@ exports[`<ColorField /> should render 1`] = `
       />
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r1»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -92,7 +92,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
   >
     <div
       class="inner dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r7»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -109,7 +109,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
       />
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -178,7 +178,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
   >
     <div
       class="inner dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r7»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -195,7 +195,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
       />
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -264,7 +264,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
   >
     <div
       class="inner dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r5»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -281,7 +281,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
       />
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r5»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -350,7 +350,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
   >
     <div
       class="inner dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r5»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -367,7 +367,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
       />
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r5»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -436,7 +436,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
   >
     <div
       class="inner dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r3»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -453,7 +453,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
       />
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r3»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -522,7 +522,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
   >
     <div
       class="inner dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r3»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -539,7 +539,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
       />
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r3»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
       role="listbox"

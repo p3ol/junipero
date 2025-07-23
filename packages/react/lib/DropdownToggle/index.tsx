@@ -83,7 +83,7 @@ const DropdownToggle = ({
       );
     },
     ...getReferenceProps({ onClick: child.props?.onClick }),
-    id: { toggleId },
+    id: toggleId,
   });
 };
 

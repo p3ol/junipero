@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<DateField /> should allow to navigate between months: next month 1`] = `
 <div>
@@ -7,7 +7,7 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
   >
     <div
       class="field dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r5»"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
       <input
@@ -38,7 +38,7 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
       </div>
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r5»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -417,7 +417,7 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
   >
     <div
       class="field dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r5»"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
       <input
@@ -448,7 +448,7 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
       </div>
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r5»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -827,7 +827,7 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
   >
     <div
       class="field dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r7»"
       title="Monday, December 16, 2019 12:00:00 AM"
     >
       <input
@@ -858,7 +858,7 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
       </div>
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -1237,7 +1237,7 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r9»"
       title="Tuesday, December 17, 2019 12:00:00 AM"
     >
       <input
@@ -1268,7 +1268,7 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r9»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
       role="listbox"
@@ -1647,7 +1647,7 @@ exports[`<DateField /> should not open calendar if disabled 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="dropdown-toggle"
+      id="«r3»"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
       <input
@@ -1687,7 +1687,7 @@ exports[`<DateField /> should render: default 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="dropdown-toggle"
+      id="«r1»"
       title="Friday, February 1, 2019 12:00:00 AM"
     >
       <input
@@ -1728,7 +1728,7 @@ exports[`<DateField /> should render: opened 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="dropdown-toggle"
+      id="«r1»"
       title="Friday, February 1, 2019 12:00:00 AM"
     >
       <input
@@ -1760,7 +1760,7 @@ exports[`<DateField /> should render: opened 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="dropdown-toggle"
+      aria-labelledby="«r1»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
       role="listbox"
