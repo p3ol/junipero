@@ -1,16 +1,17 @@
 import {
   type RefObject,
-  type ReactElement,
-  type ComponentPropsWithoutRef,
   cloneElement,
   useImperativeHandle,
   useRef,
+  use,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
   JuniperoInnerRef,
   JuniperoRef,
+  ReactElt,
+  ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
 import { useDropdown } from '../hooks';
@@ -34,14 +35,15 @@ const DropdownToggle = ({
     isJunipero: true,
   }));
 
-  const child: ReactElement<
-    ComponentPropsWithoutRef<any>
-  > = typeof children !== 'string' && Array.isArray(children)
+  const child: ReactElt | ReactLazy = typeof children !== 'string' && Array.isArray(children)
     ? children[0] : children;
 
-  return cloneElement(child, {
+  return cloneElement(
+    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+          ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+    {
     className: classNames(
-      child.props?.className, 'dropdown-toggle', { opened }
+      (child as ReactElt).props?.className, 'dropdown-toggle', { opened }
     ),
     ref: (r: JuniperoRef | JuniperoInnerRef) => {
       innerRef.current = (r as JuniperoRef)?.isJunipero
@@ -51,7 +53,7 @@ const DropdownToggle = ({
           ? (r as JuniperoRef).innerRef.current : r
       );
     },
-    ...getReferenceProps({ onClick: child.props?.onClick }),
+    ...getReferenceProps({ onClick: (child as ReactElt).props?.onClick }),
   });
 };
 

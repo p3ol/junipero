@@ -1,13 +1,15 @@
 import {
   type DragEvent,
   type ComponentPropsWithoutRef,
-  type ReactElement,
   type Ref,
   cloneElement,
   useState,
+  use,
 } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
+
+import { ReactElt, ReactLazy } from '../types';
 
 export declare type DraggableRef = any;
 
@@ -90,28 +92,30 @@ const Draggable = ({
     onDrag?.(e);
   };
 
-  const child: ReactElement<
-    ComponentPropsWithoutRef<any>
-  > = typeof children !== 'string' && Array.isArray(children)
+  const child: ReactElt | ReactLazy = typeof children !== 'string' && Array.isArray(children)
     ? children[0] : children;
 
-  return cloneElement(child, {
-    ...rest,
-    ref,
-    className: classNames(
-      className,
-      child.props?.className,
-      {
-        dragging: !disabled && dragAnimation,
-        dragged: !disabled && dragged,
-        draggable: !disabled,
-      }
-    ),
-    draggable: !disabled,
-    onDragStart: onDragStart_,
-    onDrag: onDrag_,
-    onDragEnd: onDragEnd_,
-  });
+  return cloneElement(
+    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+    {
+      ...rest,
+      ref,
+      className: classNames(
+        className,
+        (child as ReactElt).props?.className,
+        {
+          dragging: !disabled && dragAnimation,
+          dragged: !disabled && dragged,
+          draggable: !disabled,
+        }
+      ),
+      draggable: !disabled,
+      onDragStart: onDragStart_,
+      onDrag: onDrag_,
+      onDragEnd: onDragEnd_,
+    }
+  );
 };
 
 Draggable.displayName = 'Draggable';

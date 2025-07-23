@@ -2,10 +2,6 @@ import {
   type RefObject,
   type ReactNode,
   type ReactElement,
-  type ComponentPropsWithoutRef,
-  type LazyExoticComponent,
-  type FunctionComponent,
-  type Usable,
   cloneElement,
   useImperativeHandle,
   useReducer,
@@ -42,6 +38,8 @@ import {
 import type {
   JuniperoInnerRef,
   JuniperoRef,
+  ReactElt,
+  ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
@@ -249,14 +247,6 @@ const Tooltip = ({
       }
     </div>
   );
-
-  type ReactElt = ReactElement<
-    ComponentPropsWithoutRef<any>
-  >
-
-  type ReactLazy = LazyExoticComponent<FunctionComponent> & {
-    _payload: Usable<ReactElt>
-  };
 
   const child: ReactElt| ReactLazy = children && typeof children !== 'string'
     ? Array.isArray(children) ? children[0] : children

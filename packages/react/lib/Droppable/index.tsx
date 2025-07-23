@@ -2,12 +2,14 @@ import {
   type DragEvent,
   type ComponentPropsWithoutRef,
   type Ref,
-  type ReactElement,
   cloneElement,
   useState,
   useEffect,
+  use,
 } from 'react';
 import { classNames } from '@junipero/core';
+
+import type { ReactElt, ReactLazy } from '../types';
 
 export declare type DraggingPositionType = 'before' | 'after';
 
@@ -95,30 +97,32 @@ const Droppable = ({
     return false;
   };
 
-  const child: ReactElement<
-    ComponentPropsWithoutRef<any>
-  > = typeof children !== 'string' && Array.isArray(children)
+  const child: ReactElt | ReactLazy = typeof children !== 'string' && Array.isArray(children)
     ? children[0] : children;
 
-  return cloneElement(child, {
-    ...rest,
-    ref,
-    className: classNames(
-      className,
-      child.props?.className,
-      {
-        'drag-enter': !disabled && dragging,
-        'drag-top': !disabled && dragging && draggingPos &&
-          draggingPos === 'before',
-        'drag-bottom': !disabled && dragging && draggingPos &&
-          draggingPos === 'after',
-      },
-    ),
-    onDragEnter: onDragEnter_,
-    onDragLeave: onDragLeave_,
-    onDrop: onDrop_,
-    onDragOver: onDragOver_,
-  });
+  return cloneElement(
+    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+    {
+      ...rest,
+      ref,
+      className: classNames(
+        className,
+        (child as ReactElt).props?.className,
+        {
+          'drag-enter': !disabled && dragging,
+          'drag-top': !disabled && dragging && draggingPos &&
+            draggingPos === 'before',
+          'drag-bottom': !disabled && dragging && draggingPos &&
+            draggingPos === 'after',
+        },
+      ),
+      onDragEnter: onDragEnter_,
+      onDragLeave: onDragLeave_,
+      onDrop: onDrop_,
+      onDragOver: onDragOver_,
+    }
+  );
 };
 
 Droppable.displayName = 'Droppable';
