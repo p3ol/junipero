@@ -2,12 +2,12 @@ import {
   type RefObject,
   type ReactNode,
   type ReactElement,
-  type ComponentPropsWithoutRef,
   cloneElement,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
+  use,
 } from 'react';
 import { createPortal } from 'react-dom';
 import {
@@ -38,6 +38,8 @@ import {
 import type {
   JuniperoInnerRef,
   JuniperoRef,
+  ReactElt,
+  ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
@@ -246,9 +248,7 @@ const Tooltip = ({
     </div>
   );
 
-  const child: ReactElement<
-    ComponentPropsWithoutRef<any>
-  > = children && typeof children !== 'string'
+  const child: ReactElt| ReactLazy = children && typeof children !== 'string'
     ? Array.isArray(children) ? children[0] : children
     : null;
 
@@ -261,10 +261,14 @@ const Tooltip = ({
         >
           { children }
         </span>
-      ) : cloneElement(child, {
-        ...getReferenceProps(),
-        ref: setReference,
-      }) }
+      ) : cloneElement(
+        (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+          ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+        {
+          ...getReferenceProps(),
+          ref: setReference,
+        }
+      ) }
 
       { state.opened || (animate && state.visible) || apparition === 'css'
         ? container

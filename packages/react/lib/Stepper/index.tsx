@@ -1,16 +1,20 @@
 import {
   type RefObject,
-  type ComponentPropsWithoutRef,
   type ReactNode,
-  type ReactElement,
   Children,
   cloneElement,
   useMemo,
   useImperativeHandle,
   useRef,
+  use,
 } from 'react';
 
-import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
+import type {
+  JuniperoRef,
+  ReactElt,
+  ReactLazy,
+  SpecialComponentPropsWithRef,
+} from '../types';
 import Step, { type StepObject } from '../Step';
 
 export declare interface StepperRef extends JuniperoRef {
@@ -66,10 +70,13 @@ const Stepper = ({
         { t.content }
       </Step>
     )) : Children.toArray(children).map((
-      t: ReactElement<ComponentPropsWithoutRef<any>>,
+      t: ReactElt,
       i: number
     ) => (
-      cloneElement(t, { status: getStepStatus(i), key: i })
+      cloneElement(
+        (t as unknown as ReactLazy ).$$typeof === Symbol.for('react.lazy')
+          ? use<ReactElt>((t as unknown as ReactLazy)._payload) : t,
+        { status: getStepStatus(i), key: i })
     ))
   ), [steps, children]);
 
