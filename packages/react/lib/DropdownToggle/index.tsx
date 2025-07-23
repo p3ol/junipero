@@ -35,26 +35,27 @@ const DropdownToggle = ({
     isJunipero: true,
   }));
 
-  const child: ReactElt | ReactLazy = typeof children !== 'string' && Array.isArray(children)
-    ? children[0] : children;
+  const child: ReactElt | ReactLazy =
+    typeof children !== 'string' && Array.isArray(children)
+      ? children[0] : children;
 
   return cloneElement(
     (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-          ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
     {
-    className: classNames(
-      (child as ReactElt).props?.className, 'dropdown-toggle', { opened }
-    ),
-    ref: (r: JuniperoRef | JuniperoInnerRef) => {
-      innerRef.current = (r as JuniperoRef)?.isJunipero
-        ? (r as JuniperoRef).innerRef.current : r;
-      refs.setReference(
-        (r as JuniperoRef)?.isJunipero
-          ? (r as JuniperoRef).innerRef.current : r
-      );
-    },
-    ...getReferenceProps({ onClick: (child as ReactElt).props?.onClick }),
-  });
+      className: classNames(
+        (child as ReactElt).props?.className, 'dropdown-toggle', { opened }
+      ),
+      ref: (r: JuniperoRef | JuniperoInnerRef) => {
+        innerRef.current = (r as JuniperoRef)?.isJunipero
+          ? (r as JuniperoRef).innerRef.current : r;
+        refs.setReference(
+          (r as JuniperoRef)?.isJunipero
+            ? (r as JuniperoRef).innerRef.current : r
+        );
+      },
+      ...getReferenceProps({ onClick: (child as ReactElt).props?.onClick }),
+    });
 };
 
 DropdownToggle.displayName = 'DropdownToggle';

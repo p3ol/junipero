@@ -13,7 +13,7 @@ import type {
   JuniperoRef,
   ReactElt,
   ReactLazy,
-  SpecialComponentPropsWithRef
+  SpecialComponentPropsWithRef,
 } from '../types';
 import Step, { type StepObject } from '../Step';
 
@@ -75,9 +75,9 @@ const Stepper = ({
     ) => (
       cloneElement(
         (t as unknown as ReactLazy ).$$typeof === Symbol.for('react.lazy')
-          ? use<ReactElt>((t as unknown as ReactLazy)._payload) : t as ReactElt,
+          ? use<ReactElt>((t as unknown as ReactLazy)._payload) : t,
         { status: getStepStatus(i), key: i })
-     ))
+    ))
   ), [steps, children]);
 
   return (

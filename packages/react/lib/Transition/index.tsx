@@ -132,15 +132,15 @@ const Transition = ({
   return status !== TRANSITION_STATE_UNMOUNTED && (
     !unmountOnExit || mountOnEnter
   ) ? cloneElement(
-    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-    {
-      className: classNames(
-        (child as ReactElt).props?.className, getClassName()
-      ),
-      ...rest,
-    }
-  ) : null;
+      (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+        ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+      {
+        className: classNames(
+          (child as ReactElt).props?.className, getClassName()
+        ),
+        ...rest,
+      }
+    ) : null;
 };
 
 Transition.displayName = 'Transition';

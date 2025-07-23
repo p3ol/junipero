@@ -97,8 +97,9 @@ const Droppable = ({
     return false;
   };
 
-  const child: ReactElt | ReactLazy = typeof children !== 'string' && Array.isArray(children)
-    ? children[0] : children;
+  const child: ReactElt | ReactLazy =
+    typeof children !== 'string' && Array.isArray(children)
+      ? children[0] : children;
 
   return cloneElement(
     (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
