@@ -2,7 +2,10 @@ import { useState } from 'react';
 
 import Button from '../Button';
 import InfiniteCanvasZoom from '../InfiniteCanvasZoom';
-import InfiniteCanvas, { InfiniteCanvasCursorMode, type InfiniteCanvasBackgroundPattern } from '.';
+import InfiniteCanvas, {
+  type InfiniteCanvasCursorMode,
+  type InfiniteCanvasBackgroundPattern,
+} from '.';
 
 export default { title: 'react/InfiniteCanvas' };
 

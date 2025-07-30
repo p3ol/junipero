@@ -4,6 +4,10 @@ import type {
   RefObject,
   ElementType,
   Ref,
+  ReactElement,
+  LazyExoticComponent,
+  FunctionComponent,
+  Usable,
 } from 'react';
 
 export declare type JuniperoInnerRef = HTMLElement | SVGElement;
@@ -39,3 +43,11 @@ export declare type SpecialComponentPropsWithRef<
 */
 export declare type StateReducer<T extends StateContent> =
   (state: T, updates: Partial<T> | ((t: T) => T)) => T;
+
+export type ReactElt = ReactElement<
+  ComponentPropsWithoutRef<any>
+>
+
+export type ReactLazy = LazyExoticComponent<FunctionComponent> & {
+  _payload: Usable<ReactElt>
+};
