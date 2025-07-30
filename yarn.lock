@@ -776,48 +776,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/core@npm:^1.7.2":
-  version: 1.7.2
-  resolution: "@floating-ui/core@npm:1.7.2"
+"@floating-ui/core@npm:^1.7.3":
+  version: 1.7.3
+  resolution: "@floating-ui/core@npm:1.7.3"
   dependencies:
     "@floating-ui/utils": "npm:^0.2.10"
-  checksum: 10c0/ea5909ae1bfad6d8dd60ab893c7751fd974d96b25481d13805935a089b39881b4d69425a0a84cc74c82269d8b64ca0117c472fc83e425143bee1bb21b247de9c
+  checksum: 10c0/edfc23800122d81df0df0fb780b7328ae6c5f00efbb55bd48ea340f4af8c5b3b121ceb4bb81220966ab0f87b443204d37105abdd93d94846468be3243984144c
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.7.2":
-  version: 1.7.2
-  resolution: "@floating-ui/dom@npm:1.7.2"
+"@floating-ui/dom@npm:^1.7.3":
+  version: 1.7.3
+  resolution: "@floating-ui/dom@npm:1.7.3"
   dependencies:
-    "@floating-ui/core": "npm:^1.7.2"
+    "@floating-ui/core": "npm:^1.7.3"
     "@floating-ui/utils": "npm:^0.2.10"
-  checksum: 10c0/1b2ad76dc7fe245a1bb406cd5b64a1316f2ec642aebaa4d1928b56ced6fe71046f089e3fef9340bab234645b6333546211e363a630a9e7cfca6bf5031c39e0cb
+  checksum: 10c0/cba30e9af1a52fb7cb443ae516d7aec032b33da2fa50914dcb18fc834dc31c71922f5c7653431e70d493f347018b2ce6435c98b3f154d92082345689b4458e59
   languageName: node
   linkType: hard
 
-"@floating-ui/react-dom@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "@floating-ui/react-dom@npm:2.1.4"
+"@floating-ui/react-dom@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@floating-ui/react-dom@npm:2.1.5"
   dependencies:
-    "@floating-ui/dom": "npm:^1.7.2"
+    "@floating-ui/dom": "npm:^1.7.3"
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 10c0/2dade6b8e18de09c90b876249756155ab31f49b5a81d246a3dc568d0355bc9e4bc26485dfd27b9e3bf86585700f4d241e8f53e8321249ec9b012a266a86b9366
+  checksum: 10c0/2dc9571845138e5f39952900fa4d1ad077968c97c1fd1eae30e624db42a29f6fc897c11f926b5e63c468d541eff78b41c2aa1ec45eed2f3a1cc8aa95898f3260
   languageName: node
   linkType: hard
 
-"@floating-ui/react@npm:0.27.14":
-  version: 0.27.14
-  resolution: "@floating-ui/react@npm:0.27.14"
+"@floating-ui/react@npm:0.27.15":
+  version: 0.27.15
+  resolution: "@floating-ui/react@npm:0.27.15"
   dependencies:
-    "@floating-ui/react-dom": "npm:^2.1.4"
+    "@floating-ui/react-dom": "npm:^2.1.5"
     "@floating-ui/utils": "npm:^0.2.10"
     tabbable: "npm:^6.0.0"
   peerDependencies:
     react: ">=17.0.0"
     react-dom: ">=17.0.0"
-  checksum: 10c0/ca5a71546c7f26956a517579ecd88d6df71ef34c72d9d6a9826fce42e4e9572948147b1761a9faf4af30d881da0e33a888626e62fd872e93cecd432d55ec00c9
+  checksum: 10c0/682893e4305d7ee12e9d8e5844496242a068fb619a84c92d80c272175c66a5b77cc88a7fff639b505efa8a0491bf63c81e48b4427bb07e1a6ddb8a0a6618d5b1
   languageName: node
   linkType: hard
 
@@ -1329,7 +1329,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@junipero/react@workspace:packages/react"
   dependencies:
-    "@floating-ui/react": "npm:0.27.14"
+    "@floating-ui/react": "npm:0.27.15"
     "@junipero/core": "npm:^3.10.5"
     "@junipero/hooks": "npm:^3.10.5"
   peerDependencies:
@@ -1367,9 +1367,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lerna/create@npm:8.2.3":
-  version: 8.2.3
-  resolution: "@lerna/create@npm:8.2.3"
+"@lerna/create@npm:8.2.4":
+  version: 8.2.4
+  resolution: "@lerna/create@npm:8.2.4"
   dependencies:
     "@npmcli/arborist": "npm:7.5.4"
     "@npmcli/package-json": "npm:5.2.0"
@@ -1404,7 +1404,6 @@ __metadata:
     js-yaml: "npm:4.1.0"
     libnpmpublish: "npm:9.0.9"
     load-json-file: "npm:6.2.0"
-    lodash: "npm:^4.17.21"
     make-dir: "npm:4.0.0"
     minimatch: "npm:3.0.5"
     multimatch: "npm:5.0.0"
@@ -1441,7 +1440,7 @@ __metadata:
     write-pkg: "npm:4.0.0"
     yargs: "npm:17.7.2"
     yargs-parser: "npm:21.1.1"
-  checksum: 10c0/e484e41cff8233bdaca72872c96abe5b10423033b0c6464c55fc56a87c43f01ee236ef2cae616a5a93beb2c432e87866f8e15a16e46ea2b3949938d796ec6c78
+  checksum: 10c0/9a3aee341523f95cd3bf0c2742baedd7ba35a97c0245ee581d0670df9b14317b2ef7c1e6820812b16974449fee9a3156e5e9259add76f760618ee6686494680f
   languageName: node
   linkType: hard
 
@@ -9713,11 +9712,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lerna@npm:8.2.3":
-  version: 8.2.3
-  resolution: "lerna@npm:8.2.3"
+"lerna@npm:8.2.4":
+  version: 8.2.4
+  resolution: "lerna@npm:8.2.4"
   dependencies:
-    "@lerna/create": "npm:8.2.3"
+    "@lerna/create": "npm:8.2.4"
     "@npmcli/arborist": "npm:7.5.4"
     "@npmcli/package-json": "npm:5.2.0"
     "@npmcli/run-script": "npm:8.1.0"
@@ -9757,7 +9756,6 @@ __metadata:
     libnpmaccess: "npm:8.0.6"
     libnpmpublish: "npm:9.0.9"
     load-json-file: "npm:6.2.0"
-    lodash: "npm:^4.17.21"
     make-dir: "npm:4.0.0"
     minimatch: "npm:3.0.5"
     multimatch: "npm:5.0.0"
@@ -9799,7 +9797,7 @@ __metadata:
     yargs-parser: "npm:21.1.1"
   bin:
     lerna: dist/cli.js
-  checksum: 10c0/618d2adb5504227ca0b4dbeca920fbc188a907e71df39ace105af3696393c3aefb75cf7a98899ec728b15ea9e92aca29cdfc21d479d23163e2fd812281fd10a1
+  checksum: 10c0/6fba1b6a437d76978cf0aa67efb88b14643502839c7121b8ab8c6368fa1c1a4806600bf0f7a57ca1cfc52007ff1b45a03269205f9df93fc6fc4fb3179760b8c7
   languageName: node
   linkType: hard
 
@@ -12392,7 +12390,7 @@ __metadata:
     jest: "npm:30.0.5"
     jest-environment-jsdom: "npm:30.0.5"
     jsdom-testing-mocks: "npm:1.15.0"
-    lerna: "npm:8.2.3"
+    lerna: "npm:8.2.4"
     postcss: "npm:8.5.6"
     postcss-loader: "npm:8.1.1"
     react: "npm:19.1.1"
