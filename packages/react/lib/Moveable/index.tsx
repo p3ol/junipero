@@ -1,14 +1,16 @@
 import {
   type ComponentPropsWithoutRef,
-  type ReactElement,
   type MouseEvent as ReactMouseEvent,
   type Ref,
   cloneElement,
+  use,
   useCallback,
   useEffect,
   useReducer,
 } from 'react';
 import { mockState, classNames } from '@junipero/core';
+
+import type { ReactElt, ReactLazy } from '../types';
 
 export declare interface MoveableState {
   moving: boolean;
@@ -129,35 +131,37 @@ const Moveable = ({
     };
   }, [state.moving, onMouseMove, onMouseUp]);
 
-  const child: ReactElement<
-      ComponentPropsWithoutRef<any>
-    > = typeof children !== 'string' && Array.isArray(children)
+  const child: ReactElt | ReactLazy =
+    typeof children !== 'string' && Array.isArray(children)
       ? children[0] : children;
 
-  return cloneElement(child, {
-    ...rest,
-    ref,
-    className: classNames(
-      className,
-      child.props?.className,
-      'junipero moveable',
-      {
-        moving: state.moving,
-      }
-    ),
-    style: {
-      ...style,
-      ...strategy === 'position' ? {
-        position: 'relative',
-        left: `${state.deltaX}px`,
-        top: `${state.deltaY}px`,
-      } : {
-        transform: (style?.transform || '') +
-          ` translate3d(${state.deltaX}px, ${state.deltaY}px, 0)`,
+  return cloneElement(
+    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
+    {
+      ...rest,
+      ref,
+      className: classNames(
+        className,
+        (child as ReactElt).props?.className,
+        'junipero moveable',
+        {
+          moving: state.moving,
+        }
+      ),
+      style: {
+        ...style,
+        ...strategy === 'position' ? {
+          position: 'relative',
+          left: `${state.deltaX}px`,
+          top: `${state.deltaY}px`,
+        } : {
+          transform: (style?.transform || '') +
+            ` translate3d(${state.deltaX}px, ${state.deltaY}px, 0)`,
+        },
       },
-    },
-    onMouseDown: onMouseDown_,
-  } as ComponentPropsWithoutRef<any>);
+      onMouseDown: onMouseDown_,
+    } as ComponentPropsWithoutRef<any>);
 };
 
 Moveable.displayName = 'Moveable';
