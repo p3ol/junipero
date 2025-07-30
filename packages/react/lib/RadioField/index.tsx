@@ -140,7 +140,15 @@ const RadioField = ({
     option: RadioFieldValue | RadioFieldOptionObject,
     e: KeyboardEvent
   ) => {
-    if (
+    if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(e.key)) {
+      const i = options.indexOf(option);
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        optionRefs.current[(i + 1) % options.length]?.focus();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        optionRefs.current[(i - 1 + options.length) % options.length]?.focus();
+      }
+    } else if (
       state.value !== option &&
       state.value !== parseValue(option) &&
       (e.key === 'Enter' || e.key === ' ')
@@ -162,6 +170,7 @@ const RadioField = ({
   return (
     <div
       { ...rest }
+      role="radiogroup"
       className={classNames(
         'junipero',
         'radio-field',
@@ -175,13 +184,17 @@ const RadioField = ({
       { options.map((option, index) => (
         <label
           key={index}
+          role="radio"
           ref={el => { optionRefs.current[index] = el; }}
           className={classNames({
             checked: isChecked(option),
             disabled: disabled || (option as RadioFieldOptionObject).disabled,
           })}
           onKeyDown={onKeyDown.bind(null, option)}
-          tabIndex={disabled ? -1 : index + 1}
+          tabIndex={isChecked(option) || (index === 0 && !state.value)
+            ? 0
+            : -1
+          }
         >
           <input
             id={(option as RadioFieldOptionObject).id?.toString()}
@@ -191,7 +204,6 @@ const RadioField = ({
             value={parseValue(option) as string}
             checked={isChecked(option)}
             onChange={onChange_.bind(null, option)}
-            tabIndex={-1}
           />
           <div className="inner" />
           <div className="label">

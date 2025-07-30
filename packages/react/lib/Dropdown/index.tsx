@@ -30,6 +30,7 @@ import {
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { DropdownContext, type DropdownContextType } from '../contexts';
+import AccessibilityStore from '../AccessibilityStore';
 
 export declare interface DropdownRef extends JuniperoRef {
   opened: boolean;
@@ -54,12 +55,14 @@ export declare interface DropdownProps extends Omit<
   opened?: boolean;
   placement?: Placement;
   trigger?: 'click' | 'hover' | 'manual';
+  withAccessibility?: boolean;
   onToggle?(props: { opened: boolean }): void;
 }
 
 export declare interface DropdownState {
   opened: boolean;
   visible: boolean;
+  highlightedOptionId: string | null;
 }
 
 const Dropdown = ({
@@ -74,6 +77,7 @@ const Dropdown = ({
   opened = false,
   placement = 'bottom-start',
   trigger = 'click',
+  withAccessibility = true,
   onToggle,
   ...rest
 }: DropdownProps) => {
@@ -81,6 +85,7 @@ const Dropdown = ({
   const [state, dispatch] = useReducer(mockState<DropdownState>, {
     opened: opened ?? false,
     visible: opened ?? false,
+    highlightedOptionId: null,
   });
   const { x, y, refs, strategy, context } = useFloating({
     open: state.opened,
@@ -197,7 +202,7 @@ const Dropdown = ({
     getReferenceProps, getFloatingProps, onAnimationExit, container,
   ]);
 
-  return (
+  const Dropdown = (
     <DropdownContext.Provider value={getContext()}>
       <div
         { ...rest }
@@ -212,6 +217,18 @@ const Dropdown = ({
         ref={innerRef}
       />
     </DropdownContext.Provider>
+  );
+
+  return (
+    <>
+      { withAccessibility ? (
+        <AccessibilityStore>
+          { Dropdown }
+        </AccessibilityStore>
+      ) : (
+        Dropdown
+      )}
+    </>
   );
 };
 
