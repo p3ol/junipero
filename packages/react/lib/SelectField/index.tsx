@@ -575,7 +575,15 @@ const SelectField = forwardRef<SelectFieldRef, SelectFieldProps>(({
     ).map((o, i) => (
       o?.options ? renderGroup(o, i) : renderOption(o, i)
     ))
-  ), [state.searchResults, state.value, options, onChange]);
+  ), [
+    state.searchResults,
+    state.value,
+    options,
+    onChange,
+    parseTitle,
+    disabled,
+    multiple,
+  ]);
 
   const hasOptions = useMemo(() => (
     renderedOptions.length > 0 && renderedOptions.some(o => o !== null)
