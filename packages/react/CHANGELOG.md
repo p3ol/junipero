@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.7](https://github.com/p3ol/junipero/compare/v3.10.6...v3.10.7) (2025-07-30)
+
+
+### Bug Fixes
+
+* **react:** fix bad select field options memoization ([a50bf00](https://github.com/p3ol/junipero/commit/a50bf0034b601662fac20baa470ac1959b4a9f17))
+
+
+
+
+
+## [3.10.6](https://github.com/p3ol/junipero/compare/v3.10.5...v3.10.6) (2025-07-23)
+
+
+### Bug Fixes
+
+* **react:** add lazy support for every cloneElement ([ae3d802](https://github.com/p3ol/junipero/commit/ae3d802a3af5055d600ef1f23675db522c256c22))
+* **react:** add support for lazy components with cloneElement ([a659bda](https://github.com/p3ol/junipero/commit/a659bdac0a54c26e7fa79d1cc8dc18e0aecff70d))
+* **react:** delete trailing whitespces ([ea8c6d0](https://github.com/p3ol/junipero/commit/ea8c6d0dc4ce945f39a3fa32a912cf422be4fc7c))
+* **react:** lint ([07dbb06](https://github.com/p3ol/junipero/commit/07dbb068a9536e098db37a652a93239bdb6869eb))
+
+
+
+
+
 ## [3.10.5](https://github.com/p3ol/junipero/compare/v3.10.4...v3.10.5) (2025-02-18)
 
 
