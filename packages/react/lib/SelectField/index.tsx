@@ -595,6 +595,7 @@ const SelectField = ({
       (o as SelectFieldGroupObject)?.options
         ? renderGroup(o as SelectFieldGroupObject, i) : renderOption(o, i)
     ))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   ), [
     state.searchResults,
     state.value,
