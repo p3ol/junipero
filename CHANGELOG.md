@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/p3ol/junipero/compare/v3.10.7...v3.11.0) (2025-07-30)
+
+
+### Bug Fixes
+
+* default pattern value ([58a2bf8](https://github.com/p3ol/junipero/commit/58a2bf8c709287cdfd8babc844cae4bc15464bb0))
+* failing tests due to always random pattern id ([63e176c](https://github.com/p3ol/junipero/commit/63e176c316095ba6be974f1f1d8ea7985949c91c))
+* mergeDeep typings ([9d86475](https://github.com/p3ol/junipero/commit/9d864756d58286d964fa08ec068443ff23ed69db))
+* **react:** also lazy protect moveable ([560bc03](https://github.com/p3ol/junipero/commit/560bc030d3fea0ab3dac0106f4f66228a2d808b7))
+* **react:** various missing hooks dependencies ([5f4b8ab](https://github.com/p3ol/junipero/commit/5f4b8abf204c6b111e38f9bc9ee745efa5fecb44))
+* upgrade various deps ([be7d98d](https://github.com/p3ol/junipero/commit/be7d98d9cf5e804854b31234b85a6b24b347e68b))
+* upgrade various deps ([6610bd8](https://github.com/p3ol/junipero/commit/6610bd8c2f3ade22092d52d4f5a10ea05544a1aa))
+* upgrade various deps ([f6e5e99](https://github.com/p3ol/junipero/commit/f6e5e99c15925f17e85b80cb9e129f90903d55fb))
+* upgrade various deps ([06af89d](https://github.com/p3ol/junipero/commit/06af89dfbf94b6bd79993fd99b873d9e4fdea22e))
+
+
+### Features
+
+* **react:** add infinite canvas ([48fccca](https://github.com/p3ol/junipero/commit/48fccca81c040a92b15c5411287272908178395b))
+* **react:** add moveable component ([4ff6910](https://github.com/p3ol/junipero/commit/4ff6910eb0e20f0d023c2063516aac30f8e26c41))
+* require node 20 min ([6eaa695](https://github.com/p3ol/junipero/commit/6eaa6959c6b28dd27d24b00d79e0ff376e3005ef))
+
+
+
+
+
 ## [3.10.7](https://github.com/p3ol/junipero/compare/v3.10.6...v3.10.7) (2025-07-30)
 
 

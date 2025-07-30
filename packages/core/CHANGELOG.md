@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/p3ol/junipero/compare/v3.10.7...v3.11.0) (2025-07-30)
+
+
+### Bug Fixes
+
+* mergeDeep typings ([9d86475](https://github.com/p3ol/junipero/commit/9d864756d58286d964fa08ec068443ff23ed69db))
+
+
+### Features
+
+* require node 20 min ([6eaa695](https://github.com/p3ol/junipero/commit/6eaa6959c6b28dd27d24b00d79e0ff376e3005ef))
+
+
+
+
+
 ## [3.10.5](https://github.com/p3ol/junipero/compare/v3.10.4...v3.10.5) (2025-02-18)
 
 **Note:** Version bump only for package @junipero/core

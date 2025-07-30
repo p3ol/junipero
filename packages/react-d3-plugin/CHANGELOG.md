@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/p3ol/junipero/compare/v3.10.7...v3.11.0) (2025-07-30)
+
+
+### Bug Fixes
+
+* **react:** various missing hooks dependencies ([5f4b8ab](https://github.com/p3ol/junipero/commit/5f4b8abf204c6b111e38f9bc9ee745efa5fecb44))
+
+
+### Features
+
+* require node 20 min ([6eaa695](https://github.com/p3ol/junipero/commit/6eaa6959c6b28dd27d24b00d79e0ff376e3005ef))
+
+
+
+
+
 ## [3.10.7](https://github.com/p3ol/junipero/compare/v3.10.6...v3.10.7) (2025-07-30)
 
 **Note:** Version bump only for package @junipero/react-d3-plugin
