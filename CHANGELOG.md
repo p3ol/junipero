@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.7](https://github.com/p3ol/junipero/compare/v3.10.6...v3.10.7) (2025-07-30)
+
+
+### Bug Fixes
+
+* **react:** fix bad select field options memoization ([a50bf00](https://github.com/p3ol/junipero/commit/a50bf0034b601662fac20baa470ac1959b4a9f17))
+
+
+
+
+
 ## [3.10.6](https://github.com/p3ol/junipero/compare/v3.10.5...v3.10.6) (2025-07-23)
 
 
