@@ -1,10 +1,11 @@
 import {
   type ComponentPropsWithoutRef,
+  type KeyboardEvent,
   useCallback,
   useId,
   useReducer,
 } from 'react';
-import { mockState } from '@junipero/core';
+import { exists, mockState } from '@junipero/core';
 
 import {
   type AccessibilityContextType,
@@ -12,7 +13,7 @@ import {
 } from './contexts';
 
 export interface AccessibilityStoreProps extends ComponentPropsWithoutRef<any> {
-  handleAction?: any;
+  onA11ySubmit?: (elementId: string) => void;
 }
 
 declare interface AccessibilityState {
@@ -22,26 +23,30 @@ declare interface AccessibilityState {
 }
 
 const AccessibilityStore = ({
-  handleAction,
+  onA11ySubmit,
   children,
 }: AccessibilityStoreProps) => {
-
+  const toggleId = useId();
   const [state, dispatch] = useReducer(mockState<AccessibilityState>, {
     elements: [],
     currentlyFocusedElement: null,
-    toggleId: useId(),
+    toggleId,
   });
 
   const setCurrentlyFocusedElement = useCallback((elementId: string) => {
     dispatch({ currentlyFocusedElement: elementId });
   }, []);
 
-  const onKeyDown = useCallback((e: React.KeyboardEvent) => {
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
       let nextIndex;
       const { elements, currentlyFocusedElement } = state;
-      if (elements.length === 0) return;
+
+      if (elements.length === 0) {
+        return;
+      }
+
       const currentlyFocusedIndex = elements.indexOf(currentlyFocusedElement);
 
       if (currentlyFocusedIndex !== -1) {
@@ -64,14 +69,14 @@ const AccessibilityStore = ({
       const { currentlyFocusedElement } = state;
 
       if (
-        currentlyFocusedElement !== undefined &&
+        exists(state.currentlyFocusedElement) &&
         currentlyFocusedElement !== null &&
-        handleAction
+        onA11ySubmit
       ) {
-        handleAction(currentlyFocusedElement);
+        onA11ySubmit(currentlyFocusedElement);
       }
     }
-  }, [handleAction, state]);
+  }, [onA11ySubmit, state]);
 
   const registerElement = useCallback((id: string | string[]) => {
     if (Array.isArray(id)) {

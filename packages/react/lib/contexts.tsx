@@ -1,5 +1,10 @@
 import type { ExtendedRefs, Strategy } from '@floating-ui/react';
-import { type Dispatch, type ReactElement, createContext } from 'react';
+import {
+  type Dispatch,
+  type ReactElement,
+  type KeyboardEvent,
+  createContext,
+} from 'react';
 
 import type { AlertObject } from './Alert';
 import type { ToastObject } from './Toast';
@@ -79,7 +84,7 @@ export declare interface AccessibilityContextType {
   toggleId?: string;
   setCurrentlyFocusedElement?: (element: string | number) => void;
   registerElement?: (id: string | string[]) => void;
-  onKeyDown?: (event: React.KeyboardEvent) => void;
+  onKeyDown?: (event: KeyboardEvent) => void;
 }
 
 export const AccessibilityContext = createContext<AccessibilityContextType>({});

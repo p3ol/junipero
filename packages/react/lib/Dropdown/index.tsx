@@ -202,7 +202,7 @@ const Dropdown = ({
     getReferenceProps, getFloatingProps, onAnimationExit, container,
   ]);
 
-  const Dropdown = (
+  const dropdown = (
     <DropdownContext.Provider value={getContext()}>
       <div
         { ...rest }
@@ -219,17 +219,9 @@ const Dropdown = ({
     </DropdownContext.Provider>
   );
 
-  return (
-    <>
-      { withAccessibility ? (
-        <AccessibilityStore>
-          { Dropdown }
-        </AccessibilityStore>
-      ) : (
-        Dropdown
-      )}
-    </>
-  );
+  return withAccessibility ? (
+    <AccessibilityStore>{ dropdown }</AccessibilityStore>
+  ) : dropdown;
 };
 
 Dropdown.displayName = 'Dropdown';

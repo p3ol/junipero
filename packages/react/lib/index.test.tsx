@@ -4,8 +4,8 @@ import { mockState } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
 import type { FieldContent } from './types';
-import TextField from './TextField';
 import { useAccessibility } from './hooks';
+import TextField from './TextField';
 import AccessibilityStore from './AccessibilityStore';
 
 interface State {

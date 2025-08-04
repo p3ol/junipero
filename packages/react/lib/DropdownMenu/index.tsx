@@ -19,7 +19,7 @@ export declare interface DropdownMenuRef extends JuniperoRef {
 export declare interface DropdownMenuProps
   extends SpecialComponentPropsWithRef<'div', DropdownMenuRef> {
   apparition?: string;
-  a11yFocus?: boolean;
+  autoFocus?: boolean;
   animate?(
     menu: ReactNode,
     opts: {
@@ -30,10 +30,10 @@ export declare interface DropdownMenuProps
 
 export const DropdownMenu = ({
   ref,
-  a11yFocus = true,
   apparition,
   children,
   className,
+  autoFocus = true,
   animate,
   ...rest
 }: DropdownMenuProps) => {
@@ -52,10 +52,10 @@ export const DropdownMenu = ({
   const { onKeyDown, currentlyFocusedElement, toggleId } = useAccessibility();
 
   useEffect(() => {
-    if (innerRef.current && a11yFocus) {
+    if (innerRef.current && autoFocus) {
       innerRef.current.focus();
     }
-  }, [opened, a11yFocus]);
+  }, [opened, autoFocus]);
 
   useImperativeHandle(ref, () => ({
     innerRef,

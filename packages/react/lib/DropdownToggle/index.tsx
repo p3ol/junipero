@@ -41,7 +41,9 @@ const DropdownToggle = ({
   const injectAccessibilityProps = (
     child: ReactElement<ComponentPropsWithoutRef<any>>,
   ): ReactElement<ComponentPropsWithoutRef<any>> => {
-    if (!child) return child;
+    if (!child) {
+      return child;
+    }
 
     if (child.type === 'input') {
       return cloneElement(child, {

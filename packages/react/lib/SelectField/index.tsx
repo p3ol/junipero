@@ -331,12 +331,12 @@ const SelectField = ({
     onChange_({ close: false });
   };
 
-  const onAccessibilitySelectOption = (focusedId: number) => {
+  const onAccessibilitySelectOption = (focusedId: string) => {
     onSelectOption(
       filterUsedOptions(state.searchResults
         ? state.searchResults
         : options
-      )[focusedId]
+      )[parseInt(focusedId, 10)]
     );
   };
 
@@ -621,7 +621,7 @@ const SelectField = ({
   ), [renderedOptions]);
 
   return (
-    <AccessibilityStore handleAction={onAccessibilitySelectOption}>
+    <AccessibilityStore onA11ySubmit={onAccessibilitySelectOption}>
       <Dropdown
         { ...rest }
         opened={state.opened}
@@ -709,7 +709,7 @@ const SelectField = ({
         { (hasOptions || state.searchResults?.length > 0 || noOptionsEnabled) &&
           (
             <DropdownMenu
-              a11yFocus={false}
+              autoFocus={false}
               animate={animateMenu}
               className={classNames('select-menu', {
                 searching: state.searching,
