@@ -8,6 +8,7 @@ import {
   ToastsContext,
   ModalContext,
   AccessibilityContext,
+  InfiniteCanvasContext,
 } from './contexts';
 
 export const useAccessibility = () => useContext(AccessibilityContext);
@@ -17,3 +18,4 @@ export const useAlerts = () => useContext(AlertsContext);
 export const useList = () => useContext(ListContext);
 export const useToasts = () => useContext(ToastsContext);
 export const useModal = () => useContext(ModalContext);
+export const useInfiniteCanvas = () => useContext(InfiniteCanvasContext);

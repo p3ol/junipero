@@ -83,3 +83,24 @@ export declare interface AccessibilityContextType {
 }
 
 export const AccessibilityContext = createContext<AccessibilityContextType>({});
+
+export declare interface InfiniteCanvasContext {
+  zoom: number;
+  offsetX: number;
+  offsetY: number;
+  fitIntoView: (transitionDuration?: number) => void;
+  setZoom: (newZoom: number, transitionDuration?: number) => void;
+  zoomIn: (transitionDuration?: number) => void;
+  zoomOut: (transitionDuration?: number) => void;
+}
+
+export const InfiniteCanvasContext = createContext<InfiniteCanvasContext>({
+  zoom: 1,
+  offsetX: 0,
+  offsetY: 0,
+  fitIntoView: () => {},
+  setZoom: () => {},
+  zoomIn: () => {},
+  zoomOut: () => {},
+});
+

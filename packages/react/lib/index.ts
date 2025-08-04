@@ -185,6 +185,14 @@ export {
   type FieldGroupProps,
 } from './FieldGroup';
 export {
+  default as InfiniteCanvas,
+  type InfiniteCanvasRef,
+  type InfiniteCanvasProps,
+  type InfiniteCanvasState,
+  type InfiniteCanvasCursorMode,
+  type InfiniteCanvasBackgroundPattern,
+} from './InfiniteCanvas';
+export {
   default as Label,
   type LabelProps,
 } from './Label';
@@ -235,6 +243,13 @@ export {
   type ModalControlRef,
   type ModalControlProps,
 } from './ModalControl';
+export {
+  default as Moveable,
+  type MoveableRef,
+  type MoveableProps,
+  type MoveableState,
+  type MoveableStrategy,
+} from './Moveable';
 export {
   default as RadioField,
   type RadioFieldRef,

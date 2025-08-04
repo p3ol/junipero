@@ -606,7 +606,15 @@ const SelectField = ({
         ? renderGroup(o as SelectFieldGroupObject, i) : renderOption(o, i)
     ))
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  ), [state.searchResults, state.value, options, onChange]);
+  ), [
+    state.searchResults,
+    state.value,
+    options,
+    onChange,
+    parseTitle,
+    disabled,
+    multiple,
+  ]);
 
   const hasOptions = useMemo(() => (
     renderedOptions.length > 0 && renderedOptions.some(o => o !== null)

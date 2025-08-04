@@ -1,17 +1,19 @@
 import {
-  type RefObject,
-  type ReactElement,
   type ComponentPropsWithoutRef,
-  Children,
+  type ReactElement,
+  type RefObject,
   cloneElement,
   useImperativeHandle,
   useRef,
+  use,
 } from 'react';
 import { classNames } from '@junipero/core';
 
 import type {
   JuniperoInnerRef,
   JuniperoRef,
+  ReactElt,
+  ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
 import { useAccessibility, useDropdown } from '../hooks';
@@ -54,7 +56,7 @@ const DropdownToggle = ({
 
     if (child?.props?.children) {
       return cloneElement(child, {
-        children: Children.map(
+        children: children.map(
           child.props.children, (c: ReactElement<ComponentPropsWithoutRef<any>>
           ) =>
             injectAccessibilityProps(c)
@@ -65,26 +67,30 @@ const DropdownToggle = ({
     return child;
   };
 
-  const child: ReactElement<
-    ComponentPropsWithoutRef<any>
-  > = typeof children !== 'string' && Array.isArray(children)
-    ? children[0] : children;
+  const child: ReactElt | ReactLazy =
+    typeof children !== 'string' && Array.isArray(children)
+      ? children[0] : children;
 
-  return cloneElement(injectAccessibilityProps(child), {
-    className: classNames(
-      child.props?.className, 'dropdown-toggle', { opened }
-    ),
-    ref: (r: JuniperoRef | JuniperoInnerRef) => {
-      innerRef.current = (r as JuniperoRef)?.isJunipero
-        ? (r as JuniperoRef).innerRef.current : r;
-      refs.setReference(
-        (r as JuniperoRef)?.isJunipero
-          ? (r as JuniperoRef).innerRef.current : r
-      );
-    },
-    ...getReferenceProps({ onClick: child.props?.onClick }),
-    id: toggleId,
-  });
+  return cloneElement(
+    injectAccessibilityProps(
+      (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+        ? use<ReactElt>((child as ReactLazy)._payload)
+        : child as ReactElt
+    ), {
+      className: classNames(
+        (child as ReactElt).props?.className, 'dropdown-toggle', { opened }
+      ),
+      ref: (r: JuniperoRef | JuniperoInnerRef) => {
+        innerRef.current = (r as JuniperoRef)?.isJunipero
+          ? (r as JuniperoRef).innerRef.current : r;
+        refs.setReference(
+          (r as JuniperoRef)?.isJunipero
+            ? (r as JuniperoRef).innerRef.current : r
+        );
+      },
+      ...getReferenceProps({ onClick: (child as ReactElt).props?.onClick }),
+      id: toggleId,
+    });
 };
 
 DropdownToggle.displayName = 'DropdownToggle';
