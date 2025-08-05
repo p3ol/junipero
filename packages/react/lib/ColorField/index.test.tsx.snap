@@ -26,6 +26,7 @@ exports[`<ColorField /> should render 1`] = `
       aria-labelledby="«r1»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
+      id="«r2»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -92,7 +93,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
   >
     <div
       class="inner dropdown-toggle opened"
-      id="«r7»"
+      id="«ra»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -109,9 +110,10 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
       />
     </div>
     <div
-      aria-labelledby="«r7»"
+      aria-labelledby="«ra»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
+      id="«rb»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -178,7 +180,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
   >
     <div
       class="inner dropdown-toggle opened"
-      id="«r7»"
+      id="«ra»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -195,9 +197,10 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
       />
     </div>
     <div
-      aria-labelledby="«r7»"
+      aria-labelledby="«ra»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
+      id="«rb»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -264,7 +267,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
   >
     <div
       class="inner dropdown-toggle opened"
-      id="«r5»"
+      id="«r7»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -281,9 +284,10 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
       />
     </div>
     <div
-      aria-labelledby="«r5»"
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
+      id="«r8»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -350,7 +354,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
   >
     <div
       class="inner dropdown-toggle opened"
-      id="«r5»"
+      id="«r7»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -367,9 +371,10 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
       />
     </div>
     <div
-      aria-labelledby="«r5»"
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
+      id="«r8»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -436,7 +441,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
   >
     <div
       class="inner dropdown-toggle opened"
-      id="«r3»"
+      id="«r4»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -453,9 +458,10 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
       />
     </div>
     <div
-      aria-labelledby="«r3»"
+      aria-labelledby="«r4»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
+      id="«r5»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -522,7 +528,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
   >
     <div
       class="inner dropdown-toggle opened"
-      id="«r3»"
+      id="«r4»"
     >
       <div
         class="junipero text-field dirty valid"
@@ -539,9 +545,10 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
       />
     </div>
     <div
-      aria-labelledby="«r3»"
+      aria-labelledby="«r4»"
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
+      id="«r5»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"

@@ -1,6 +1,4 @@
 import {
-  type ComponentPropsWithoutRef,
-  type ReactElement,
   type RefObject,
   cloneElement,
   useImperativeHandle,
@@ -38,9 +36,7 @@ const DropdownToggle = ({
     isJunipero: true,
   }));
 
-  const injectAccessibilityProps = (
-    child: ReactElement<ComponentPropsWithoutRef<any>>,
-  ): ReactElement<ComponentPropsWithoutRef<any>> => {
+  const injectAccessibilityProps = (child: ReactElt): ReactElt => {
     if (!child) {
       return child;
     }
@@ -56,12 +52,16 @@ const DropdownToggle = ({
       });
     }
 
-    if (child?.props?.children) {
+    if (child?.props?.children && Array.isArray(child.props.children)) {
       return cloneElement(child, {
-        children: children.map(
-          child.props.children, (c: ReactElement<ComponentPropsWithoutRef<any>>
-          ) =>
-            injectAccessibilityProps(c)
+        children: child?.props?.children?.map((
+          c: ReactElt | ReactLazy
+        ) =>
+          injectAccessibilityProps(
+            (c as ReactLazy)?.$$typeof === Symbol.for('react.lazy')
+              ? use<ReactElt>((c as ReactLazy)._payload)
+              : c as ReactElt
+          )
         ),
       });
     }

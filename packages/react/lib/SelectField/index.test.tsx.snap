@@ -90,10 +90,10 @@ exports[`<SelectField /> should allow arbitrary values 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«rm»"
+      id="«r11»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r13»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -134,9 +134,10 @@ exports[`<SelectField /> should allow arbitrary values 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«rm»"
+      aria-labelledby="«r11»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r13»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -195,7 +196,7 @@ exports[`<SelectField /> should allow to be used with a FieldControl 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«re»"
+      id="«rl»"
     >
       <input
         aria-activedescendant="1"
@@ -253,7 +254,7 @@ exports[`<SelectField /> should allow to clear a single value 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r4»"
+      id="«r6»"
     >
       <input
         aria-expanded="false"
@@ -305,10 +306,10 @@ exports[`<SelectField /> should allow to clear a single value 2`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r4»"
+      id="«r6»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r8»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -336,9 +337,10 @@ exports[`<SelectField /> should allow to clear a single value 2`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«r4»"
+      aria-labelledby="«r6»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r8»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -390,7 +392,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r8»"
+      id="«rc»"
     >
       <span
         class="junipero tag info"
@@ -483,7 +485,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r8»"
+      id="«rc»"
     >
       <input
         aria-expanded="false"
@@ -523,7 +525,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ro»"
+      id="«r14»"
     >
       <span
         class="junipero tag info"
@@ -586,7 +588,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r16»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -627,9 +629,10 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
       </div>
     </div>
     <div
-      aria-labelledby="«ro»"
+      aria-labelledby="«r14»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r16»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -663,7 +666,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ro»"
+      id="«r14»"
     >
       <span
         class="junipero tag info"
@@ -706,7 +709,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r16»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -747,9 +750,10 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
       </div>
     </div>
     <div
-      aria-labelledby="«ro»"
+      aria-labelledby="«r14»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r16»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -783,7 +787,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 3`]
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ro»"
+      id="«r14»"
     >
       <span
         class="junipero tag info"
@@ -826,7 +830,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 3`]
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r16»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -867,9 +871,10 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 3`]
       </div>
     </div>
     <div
-      aria-labelledby="«ro»"
+      aria-labelledby="«r14»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r16»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -903,7 +908,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 4`]
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ro»"
+      id="«r14»"
     >
       <span
         class="junipero tag info selected"
@@ -946,7 +951,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 4`]
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r16»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -987,9 +992,10 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 4`]
       </div>
     </div>
     <div
-      aria-labelledby="«ro»"
+      aria-labelledby="«r14»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r16»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -1023,7 +1029,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ro»"
+      id="«r14»"
     >
       <span
         class="junipero tag info"
@@ -1066,7 +1072,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r16»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -1107,9 +1113,10 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
       </div>
     </div>
     <div
-      aria-labelledby="«ro»"
+      aria-labelledby="«r14»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r16»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -1143,7 +1150,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ro»"
+      id="«r14»"
     >
       <span
         class="junipero tag info"
@@ -1186,7 +1193,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r16»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -1227,9 +1234,10 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
       </div>
     </div>
     <div
-      aria-labelledby="«ro»"
+      aria-labelledby="«r14»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r16»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -1263,10 +1271,10 @@ exports[`<SelectField /> should allow to load more data on scroll: After scroll 
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r1e»"
+      id="«r22»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r24»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Type a name"
@@ -1294,9 +1302,10 @@ exports[`<SelectField /> should allow to load more data on scroll: After scroll 
       </div>
     </div>
     <div
-      aria-labelledby="«r1e»"
+      aria-labelledby="«r22»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r24»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -1511,10 +1520,10 @@ exports[`<SelectField /> should allow to load more data on scroll: Before scroll
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r1e»"
+      id="«r22»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r24»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Type a name"
@@ -1542,9 +1551,10 @@ exports[`<SelectField /> should allow to load more data on scroll: Before scroll
       </div>
     </div>
     <div
-      aria-labelledby="«r1e»"
+      aria-labelledby="«r22»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r24»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -1662,10 +1672,10 @@ exports[`<SelectField /> should allow to load more data on scroll: During scroll
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r1e»"
+      id="«r22»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r24»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Type a name"
@@ -1693,9 +1703,10 @@ exports[`<SelectField /> should allow to load more data on scroll: During scroll
       </div>
     </div>
     <div
-      aria-labelledby="«r1e»"
+      aria-labelledby="«r22»"
       class="junipero dropdown-menu select-menu loading"
       data-floating-ui-focusable=""
+      id="«r24»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -1823,7 +1834,7 @@ exports[`<SelectField /> should allow to render without a placeholder 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r2»"
+      id="«r3»"
     >
       <input
         aria-expanded="false"
@@ -1862,7 +1873,7 @@ exports[`<SelectField /> should allow to reset the field 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«rc»"
+      id="«ri»"
     >
       <input
         aria-activedescendant="1"
@@ -1915,7 +1926,7 @@ exports[`<SelectField /> should allow to reset the field 2`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«rc»"
+      id="«ri»"
     >
       <input
         aria-activedescendant="1"
@@ -1968,10 +1979,10 @@ exports[`<SelectField /> should allow to search for an existing value 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ri»"
+      id="«rr»"
     >
       <input
-        aria-controls=""
+        aria-controls="«rt»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -1999,9 +2010,10 @@ exports[`<SelectField /> should allow to search for an existing value 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«ri»"
+      aria-labelledby="«rr»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«rt»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2035,10 +2047,10 @@ exports[`<SelectField /> should allow to search for an existing value 2`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«ri»"
+      id="«rr»"
     >
       <input
-        aria-controls=""
+        aria-controls="«rt»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2066,9 +2078,10 @@ exports[`<SelectField /> should allow to search for an existing value 2`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«ri»"
+      aria-labelledby="«rr»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«rt»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2120,10 +2133,10 @@ exports[`<SelectField /> should allow to search for an external value 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«rk»"
+      id="«ru»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r10»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2151,9 +2164,10 @@ exports[`<SelectField /> should allow to search for an external value 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«rk»"
+      aria-labelledby="«ru»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r10»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2187,7 +2201,7 @@ exports[`<SelectField /> should allow to search for an external value 2`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«rk»"
+      id="«ru»"
     >
       <input
         aria-expanded="false"
@@ -2243,7 +2257,7 @@ exports[`<SelectField /> should allow to use object options and display custom t
   >
     <div
       class="field dropdown-toggle"
-      id="«rs»"
+      id="«r1a»"
     >
       <input
         aria-activedescendant="2"
@@ -2296,7 +2310,7 @@ exports[`<SelectField /> should be invalid if validation fails 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«ra»"
+      id="«rf»"
     >
       <input
         aria-expanded="false"
@@ -2365,7 +2379,7 @@ exports[`<SelectField /> should correctly update state values 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«ru»"
+      id="«r1d»"
     >
       <input
         aria-activedescendant="2"
@@ -2418,7 +2432,7 @@ exports[`<SelectField /> should not allow to change value when disabled 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«rg»"
+      id="«ro»"
     >
       <input
         aria-expanded="false"
@@ -2470,7 +2484,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
   >
     <div
       class="field dropdown-toggle opened"
-      id="«rq»"
+      id="«r17»"
     >
       <span
         class="junipero tag info"
@@ -2493,7 +2507,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r19»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2534,9 +2548,10 @@ exports[`<SelectField /> should not remove field previous values while hitting b
       </div>
     </div>
     <div
-      aria-labelledby="«rq»"
+      aria-labelledby="«r17»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r19»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2570,7 +2585,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
   >
     <div
       class="field dropdown-toggle opened"
-      id="«rq»"
+      id="«r17»"
     >
       <span
         class="junipero tag info selected"
@@ -2593,7 +2608,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="«r19»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2634,9 +2649,10 @@ exports[`<SelectField /> should not remove field previous values while hitting b
       </div>
     </div>
     <div
-      aria-labelledby="«rq»"
+      aria-labelledby="«r17»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r19»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2670,10 +2686,10 @@ exports[`<SelectField /> should not toggle on click if disabled: opened 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r16»"
+      id="«r1p»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1r»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2701,9 +2717,10 @@ exports[`<SelectField /> should not toggle on click if disabled: opened 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«r16»"
+      aria-labelledby="«r1p»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1r»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2755,10 +2772,10 @@ exports[`<SelectField /> should not toggle on click if disabled: still opened 1`
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r16»"
+      id="«r1p»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1r»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2786,9 +2803,10 @@ exports[`<SelectField /> should not toggle on click if disabled: still opened 1`
       </div>
     </div>
     <div
-      aria-labelledby="«r16»"
+      aria-labelledby="«r1p»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1r»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2840,10 +2858,10 @@ exports[`<SelectField /> should not toggle on click if searchable: opened 1`] = 
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r18»"
+      id="«r1s»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1u»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2871,9 +2889,10 @@ exports[`<SelectField /> should not toggle on click if searchable: opened 1`] = 
       </div>
     </div>
     <div
-      aria-labelledby="«r18»"
+      aria-labelledby="«r1s»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1u»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -2925,10 +2944,10 @@ exports[`<SelectField /> should not toggle on click if searchable: still opened 
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r18»"
+      id="«r1s»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1u»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -2956,9 +2975,10 @@ exports[`<SelectField /> should not toggle on click if searchable: still opened 
       </div>
     </div>
     <div
-      aria-labelledby="«r18»"
+      aria-labelledby="«r1s»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1u»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -3013,7 +3033,7 @@ exports[`<SelectField /> should render 1`] = `
       id="«r0»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r2»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -3044,6 +3064,7 @@ exports[`<SelectField /> should render 1`] = `
       aria-labelledby="«r0»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r2»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -3095,7 +3116,7 @@ exports[`<SelectField /> should render multiple values 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r6»"
+      id="«r9»"
     >
       <span
         class="junipero tag info"
@@ -3188,7 +3209,7 @@ exports[`<SelectField /> should render multiple values 2`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r6»"
+      id="«r9»"
     >
       <span
         class="junipero tag info"
@@ -3261,7 +3282,7 @@ exports[`<SelectField /> should render multiple values 3`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r6»"
+      id="«r9»"
     >
       <span
         class="junipero tag info"
@@ -3354,7 +3375,7 @@ exports[`<SelectField /> should select value with keyboard: closed 1`] = `
   >
     <div
       class="field dropdown-toggle"
-      id="«r14»"
+      id="«r1m»"
     >
       <input
         aria-activedescendant="1"
@@ -3407,10 +3428,10 @@ exports[`<SelectField /> should select value with keyboard: opened 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r14»"
+      id="«r1m»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1o»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -3438,9 +3459,10 @@ exports[`<SelectField /> should select value with keyboard: opened 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«r14»"
+      aria-labelledby="«r1m»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1o»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -3492,10 +3514,10 @@ exports[`<SelectField /> should toggle on click if enabled: closed 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r10»"
+      id="«r1g»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1i»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -3523,9 +3545,10 @@ exports[`<SelectField /> should toggle on click if enabled: closed 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«r10»"
+      aria-labelledby="«r1g»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1i»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -3577,10 +3600,10 @@ exports[`<SelectField /> should toggle on click if enabled: opened 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r10»"
+      id="«r1g»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1i»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -3608,9 +3631,10 @@ exports[`<SelectField /> should toggle on click if enabled: opened 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«r10»"
+      aria-labelledby="«r1g»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1i»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -3662,7 +3686,7 @@ exports[`<SelectField /> should toggle on click if not searchable: closed 1`] = 
   >
     <div
       class="field dropdown-toggle"
-      id="«r12»"
+      id="«r1j»"
     >
       <input
         aria-expanded="false"
@@ -3703,10 +3727,10 @@ exports[`<SelectField /> should toggle on click if not searchable: opened 1`] = 
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r12»"
+      id="«r1j»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r1l»"
         aria-expanded="true"
         aria-haspopup="listbox"
         disabled=""
@@ -3735,9 +3759,10 @@ exports[`<SelectField /> should toggle on click if not searchable: opened 1`] = 
       </div>
     </div>
     <div
-      aria-labelledby="«r12»"
+      aria-labelledby="«r1j»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r1l»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -3789,10 +3814,10 @@ exports[`<SelectField /> should toggle on keyboard if enabled: back opened 1`] =
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r1a»"
+      id="«r1v»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r21»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -3820,9 +3845,10 @@ exports[`<SelectField /> should toggle on keyboard if enabled: back opened 1`] =
       </div>
     </div>
     <div
-      aria-labelledby="«r1a»"
+      aria-labelledby="«r1v»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r21»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -3874,10 +3900,10 @@ exports[`<SelectField /> should toggle on keyboard if enabled: closed 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r1a»"
+      id="«r1v»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r21»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -3905,9 +3931,10 @@ exports[`<SelectField /> should toggle on keyboard if enabled: closed 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«r1a»"
+      aria-labelledby="«r1v»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r21»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -3959,10 +3986,10 @@ exports[`<SelectField /> should toggle on keyboard if enabled: opened 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r1a»"
+      id="«r1v»"
     >
       <input
-        aria-controls=""
+        aria-controls="«r21»"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Name"
@@ -3990,9 +4017,10 @@ exports[`<SelectField /> should toggle on keyboard if enabled: opened 1`] = `
       </div>
     </div>
     <div
-      aria-labelledby="«r1a»"
+      aria-labelledby="«r1v»"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="«r21»"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"

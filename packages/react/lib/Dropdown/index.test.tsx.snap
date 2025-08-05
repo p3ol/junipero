@@ -6,9 +6,10 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
     id="menu-container"
   >
     <div
-      aria-labelledby="«r5»"
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«r8»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -30,7 +31,7 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="«r5»"
+      id="«r7»"
     >
       Click me
     </span>
@@ -45,14 +46,15 @@ exports[`<Dropdown /> should allow to use groups 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="«r7»"
+      id="«ra»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="«r7»"
+      aria-labelledby="«ra»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«rb»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -123,14 +125,15 @@ exports[`<Dropdown /> should auto close when disabled prop changes 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="«r3»"
+      id="«r4»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="«r3»"
+      aria-labelledby="«r4»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«r5»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -157,7 +160,7 @@ exports[`<Dropdown /> should auto close when disabled prop changes 2`] = `
   >
     <span
       class="dropdown-toggle"
-      id="«r3»"
+      id="«r4»"
     >
       Click me
     </span>
@@ -195,6 +198,7 @@ exports[`<Dropdown /> should render 2`] = `
       aria-labelledby="«r1»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«r2»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -221,14 +225,15 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: In dom 1`] = `
   >
     <span
       class="dropdown-toggle opened"
-      id="«rh»"
+      id="«rl»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="«rh»"
+      aria-labelledby="«rl»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«rm»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -255,7 +260,7 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: Not in dom 1`] =
   >
     <span
       class="dropdown-toggle"
-      id="«rh»"
+      id="«rl»"
     >
       Click me
     </span>
@@ -270,7 +275,7 @@ exports[`useDropdwon() should allow to animate dropdown: Exit: Not in dom 1`] = 
   >
     <span
       class="dropdown-toggle"
-      id="«rh»"
+      id="«rl»"
     >
       Click me
     </span>
@@ -285,14 +290,15 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle"
-      id="«rj»"
+      id="«ro»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="«rj»"
+      aria-labelledby="«ro»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«rp»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -308,14 +314,15 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle opened"
-      id="«rj»"
+      id="«ro»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="«rj»"
+      aria-labelledby="«ro»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«rp»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -342,14 +349,15 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
   >
     <span
       class="dropdown-toggle"
-      id="«rj»"
+      id="«ro»"
     >
       Click me
     </span>
     <div
-      aria-labelledby="«rj»"
+      aria-labelledby="«ro»"
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
+      id="«rp»"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"

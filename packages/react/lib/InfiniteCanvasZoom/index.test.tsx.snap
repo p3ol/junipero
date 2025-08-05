@@ -21,21 +21,26 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
       >
         <button
           class="junipero button dropdown-toggle opened"
+          id="«r2»"
           type="button"
         >
           100%
         </button>
         <div
+          aria-labelledby="«r2»"
           class="junipero dropdown-menu"
           data-floating-ui-focusable=""
+          id="«r3»"
+          role="listbox"
           style="position: fixed; top: 0px; left: 0px;"
-          tabindex="-1"
+          tabindex="0"
         >
           <ul
             class="menu-inner"
           >
             <li
               class="dropdown-item"
+              role="option"
             >
               <a>
                 Fit into View
@@ -43,6 +48,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="dropdown-item"
+              role="option"
             >
               <a>
                 200%
@@ -50,6 +56,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="dropdown-item"
+              role="option"
             >
               <a>
                 100%
@@ -57,6 +64,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="dropdown-item"
+              role="option"
             >
               <a>
                 50%
@@ -64,6 +72,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="dropdown-item"
+              role="option"
             >
               <a>
                 Zoom In
@@ -71,6 +80,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="dropdown-item"
+              role="option"
             >
               <a>
                 Zoom Out

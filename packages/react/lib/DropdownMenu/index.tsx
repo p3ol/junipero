@@ -4,6 +4,7 @@ import {
   useRef,
   useImperativeHandle,
   useEffect,
+  useId,
 } from 'react';
 import { classNames, ensureNode } from '@junipero/core';
 import { createPortal } from 'react-dom';
@@ -51,6 +52,8 @@ export const DropdownMenu = ({
   } = useDropdown();
   const { onKeyDown, currentlyFocusedElement, toggleId } = useAccessibility();
 
+  const floatingId = useId();
+
   useEffect(() => {
     if (innerRef.current && autoFocus) {
       innerRef.current.focus();
@@ -89,6 +92,7 @@ export const DropdownMenu = ({
       { ...getFloatingProps() }
       tabIndex={0}
       onKeyDown={onKeyDown}
+      id={floatingId}
       role="listbox"
       aria-labelledby={toggleId}
       aria-activedescendant={currentlyFocusedElement}

@@ -58,7 +58,7 @@ exports[`<FieldGroup /> should render a select field suffix 1`] = `
     >
       <div
         class="field dropdown-toggle"
-        id="«r2»"
+        id="«r3»"
       >
         <input
           aria-expanded="false"
@@ -163,7 +163,6 @@ exports[`<FieldGroup /> should render a textfield with a prefix & a button suffi
     </div>
     <button
       class="junipero button"
-      type="button"
     >
       Update
     </button>
