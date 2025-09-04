@@ -3,6 +3,7 @@
     "p3ol/renovate-presets//presets/base#v1.1.0",
     "p3ol/renovate-presets//presets/master-develop#v1.1.0"
   ],
+  "baseBranchPattern": ["master", "legacy/v2"],
   "packageRules": [{
     "matchUpdateTypes": ["patch", "pin"],
     "matchDepTypes": ["devDependencies", "dependencies"],
