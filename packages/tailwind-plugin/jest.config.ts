@@ -1,7 +1,11 @@
-const path = require('path');
+import path from 'node:path';
 
-module.exports = {
-  displayName: '@junipero/core',
+import type { Config } from 'jest';
+
+process.env.TZ = 'UTC';
+
+const config: Config = {
+  displayName: '@junipero/tailwind-plugin',
   clearMocks: true,
   rootDir: path.resolve(),
   fakeTimers: {
@@ -11,6 +15,7 @@ module.exports = {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
       {
+        env: {},
         jsc: {
           transform: {
             react: {
@@ -21,10 +26,16 @@ module.exports = {
       },
     ],
   },
-  testMatch: ['<rootDir>/packages/core/lib/**/*.test.ts'],
+  moduleNameMapper: {
+    '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
+    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
+  },
+  testMatch: ['<rootDir>/packages/tailwind-plugin/lib/*.test.ts'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
   testEnvironment: 'jsdom',
   snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };
+
+export default config;
