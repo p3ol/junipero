@@ -7,9 +7,11 @@ import {
   ListContext,
   ToastsContext,
   ModalContext,
+  AccessibilityContext,
   InfiniteCanvasContext,
 } from './contexts';
 
+export const useAccessibility = () => useContext(AccessibilityContext);
 export const useFieldControl = () => useContext(FieldControlContext);
 export const useDropdown = () => useContext(DropdownContext);
 export const useAlerts = () => useContext(AlertsContext);

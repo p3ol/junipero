@@ -4,14 +4,15 @@ exports[`<RadioField /> should add box if boxed class has been passed to Radio 1
 <div>
   <div
     class="junipero radio-field pristine valid boxed"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -30,10 +31,10 @@ exports[`<RadioField /> should add box if boxed class has been passed to Radio 1
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -58,13 +59,14 @@ exports[`<RadioField /> should change options if options props change accross th
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="facebook"
       />
@@ -83,10 +85,10 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="microsoft"
       />
@@ -105,10 +107,10 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      tabindex="3"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="apple"
       />
@@ -127,10 +129,10 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      tabindex="4"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="google"
       />
@@ -155,13 +157,14 @@ exports[`<RadioField /> should change options if options props change accross th
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -180,10 +183,10 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="orange"
       />
@@ -202,10 +205,10 @@ exports[`<RadioField /> should change options if options props change accross th
     </label>
     <label
       class=""
-      tabindex="3"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="banana"
       />
@@ -230,14 +233,15 @@ exports[`<RadioField /> should change value if value prop change accross the tim
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="-1"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -256,10 +260,10 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class="checked"
-      tabindex="2"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="orange"
       />
@@ -278,10 +282,10 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class=""
-      tabindex="3"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="banana"
       />
@@ -306,14 +310,15 @@ exports[`<RadioField /> should change value if value prop change accross the tim
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -332,10 +337,10 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="orange"
       />
@@ -354,10 +359,10 @@ exports[`<RadioField /> should change value if value prop change accross the tim
     </label>
     <label
       class=""
-      tabindex="3"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="banana"
       />
@@ -382,14 +387,15 @@ exports[`<RadioField /> should check if provided value is in options 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -408,10 +414,10 @@ exports[`<RadioField /> should check if provided value is in options 1`] = `
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -432,17 +438,170 @@ exports[`<RadioField /> should check if provided value is in options 1`] = `
 </div>
 `;
 
+exports[`<RadioField /> should navigate and toggle with keyboard: option 1 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field pristine valid"
+    role="radiogroup"
+  >
+    <label
+      class=""
+      role="radio"
+      tabindex="0"
+    >
+      <input
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="3"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          3
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<RadioField /> should navigate and toggle with keyboard: option 2 checked 1`] = `
+<div>
+  <div
+    class="junipero radio-field dirty valid"
+    role="radiogroup"
+  >
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="1"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          1
+        </div>
+      </div>
+    </label>
+    <label
+      class="checked"
+      role="radio"
+      tabindex="0"
+    >
+      <input
+        type="radio"
+        value="2"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          2
+        </div>
+      </div>
+    </label>
+    <label
+      class=""
+      role="radio"
+      tabindex="-1"
+    >
+      <input
+        type="radio"
+        value="3"
+      />
+      <div
+        class="inner"
+      />
+      <div
+        class="label"
+      >
+        <div
+          class="title"
+        >
+          3
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`<RadioField /> should not display description if parseDescription return empty string 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="[object Object]"
       />
@@ -467,14 +626,15 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -493,10 +653,10 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
     </label>
     <label
       class="disabled"
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="Orange"
       />
@@ -521,14 +681,15 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -547,10 +708,10 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
     </label>
     <label
       class="disabled"
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="Orange"
       />
@@ -575,14 +736,15 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
 <div>
   <div
     class="junipero radio-field disabled pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked disabled"
-      tabindex="-1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -601,10 +763,10 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
     </label>
     <label
       class="disabled"
+      role="radio"
       tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -629,14 +791,15 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
 <div>
   <div
     class="junipero radio-field disabled pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked disabled"
-      tabindex="-1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -655,10 +818,10 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
     </label>
     <label
       class="disabled"
+      role="radio"
       tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -683,6 +846,7 @@ exports[`<RadioField /> should render 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   />
 </div>
 `;
@@ -691,13 +855,14 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -716,10 +881,10 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -738,10 +903,10 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      tabindex="3"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="3"
       />
@@ -760,10 +925,10 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      tabindex="4"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="5"
       />
@@ -788,14 +953,15 @@ exports[`<RadioField /> should set error state if onValidate function fails: inv
 <div>
   <div
     class="junipero radio-field dirty invalid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="-1"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -814,10 +980,10 @@ exports[`<RadioField /> should set error state if onValidate function fails: inv
     </label>
     <label
       class="checked"
-      tabindex="2"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="orange"
       />
@@ -842,14 +1008,15 @@ exports[`<RadioField /> should set error state if onValidate function fails: opt
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -868,10 +1035,10 @@ exports[`<RadioField /> should set error state if onValidate function fails: opt
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="orange"
       />
@@ -896,14 +1063,15 @@ exports[`<RadioField /> should set error state if onValidate function fails: val
 <div>
   <div
     class="junipero radio-field dirty valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />
@@ -922,10 +1090,10 @@ exports[`<RadioField /> should set error state if onValidate function fails: val
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="orange"
       />
@@ -950,14 +1118,15 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 1 chec
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -976,10 +1145,10 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 1 chec
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -1004,14 +1173,15 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 2 chec
 <div>
   <div
     class="junipero radio-field dirty valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="-1"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -1030,10 +1200,10 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 2 chec
     </label>
     <label
       class="checked"
-      tabindex="2"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -1058,14 +1228,15 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -1084,10 +1255,10 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -1112,14 +1283,15 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
 <div>
   <div
     class="junipero radio-field dirty valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="-1"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -1138,10 +1310,10 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
     </label>
     <label
       class="checked"
-      tabindex="2"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -1166,14 +1338,15 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -1192,10 +1365,10 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
     </label>
     <label
       class=""
-      tabindex="2"
+      role="radio"
+      tabindex="-1"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -1220,14 +1393,15 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
 <div>
   <div
     class="junipero radio-field dirty valid"
+    role="radiogroup"
   >
     <label
       class=""
-      tabindex="1"
+      role="radio"
+      tabindex="-1"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="1"
       />
@@ -1246,10 +1420,10 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
     </label>
     <label
       class="checked"
-      tabindex="2"
+      role="radio"
+      tabindex="0"
     >
       <input
-        tabindex="-1"
         type="radio"
         value="2"
       />
@@ -1274,14 +1448,15 @@ exports[`<RadioField /> should use given parse title, description and value if f
 <div>
   <div
     class="junipero radio-field pristine valid"
+    role="radiogroup"
   >
     <label
       class="checked"
-      tabindex="1"
+      role="radio"
+      tabindex="0"
     >
       <input
         checked=""
-        tabindex="-1"
         type="radio"
         value="peach"
       />

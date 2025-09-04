@@ -14,7 +14,7 @@ import type {
   ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
-import { useDropdown } from '../hooks';
+import { useAccessibility, useDropdown } from '../hooks';
 
 export declare interface DropdownToggleRef extends JuniperoRef {
   innerRef: RefObject<JuniperoRef | JuniperoInnerRef>;
@@ -29,20 +29,56 @@ const DropdownToggle = ({
 }: DropdownToggleProps) => {
   const innerRef = useRef<JuniperoRef | JuniperoInnerRef>(null);
   const { opened, refs, getReferenceProps } = useDropdown();
+  const { onKeyDown, currentlyFocusedElement, toggleId } = useAccessibility();
 
   useImperativeHandle(ref, () => ({
     innerRef,
     isJunipero: true,
   }));
 
+  const injectAccessibilityProps = (child: ReactElt): ReactElt => {
+    if (!child) {
+      return child;
+    }
+
+    if (child.type === 'input') {
+      return cloneElement(child, {
+        onKeyDown,
+        'aria-haspopup': 'listbox',
+        'aria-expanded': opened,
+        'aria-controls': refs.floating?.current?.id,
+        'aria-activedescendant': currentlyFocusedElement,
+        role: 'combobox',
+      });
+    }
+
+    if (child?.props?.children && Array.isArray(child.props.children)) {
+      return cloneElement(child, {
+        children: child?.props?.children?.map((
+          c: ReactElt | ReactLazy
+        ) =>
+          injectAccessibilityProps(
+            (c as ReactLazy)?.$$typeof === Symbol.for('react.lazy')
+              ? use<ReactElt>((c as ReactLazy)._payload)
+              : c as ReactElt
+          )
+        ),
+      });
+    }
+
+    return child;
+  };
+
   const child: ReactElt | ReactLazy =
     typeof children !== 'string' && Array.isArray(children)
       ? children[0] : children;
 
   return cloneElement(
-    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-    {
+    injectAccessibilityProps(
+      (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
+        ? use<ReactElt>((child as ReactLazy)._payload)
+        : child as ReactElt
+    ), {
       className: classNames(
         (child as ReactElt).props?.className, 'dropdown-toggle', { opened }
       ),
@@ -55,6 +91,7 @@ const DropdownToggle = ({
         );
       },
       ...getReferenceProps({ onClick: (child as ReactElt).props?.onClick }),
+      id: toggleId,
     });
 };
 

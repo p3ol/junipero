@@ -36,6 +36,7 @@ import DropdownGroup from '../DropdownGroup';
 import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
 import Spinner from '../Spinner';
+import AccessibilityControl from '../AccessibilityControl';
 
 export declare type SelectFieldValue =
   | string | number | boolean | object | null;
@@ -67,6 +68,8 @@ export declare interface SelectFieldProps extends Omit<
   SpecialComponentPropsWithRef<typeof Dropdown, SelectFieldRef>,
   'onChange'
 > {
+  a11yId?: string;
+  a11yMenuId?: string;
   allowArbitraryItems?: boolean;
   autoFocus?: boolean;
   className?: string;
@@ -142,6 +145,8 @@ export declare interface SelectFieldState {
 
 const SelectField = ({
   ref,
+  a11yId,
+  a11yMenuId,
   toggleClick,
   className,
   options,
@@ -330,6 +335,15 @@ const SelectField = ({
     onChange_({ close: false });
   };
 
+  const onAccessibilitySelectOption = (focusedId: string) => {
+    onSelectOption(
+      filterUsedOptions(state.searchResults
+        ? state.searchResults
+        : options
+      )[parseInt(focusedId, 10)]
+    );
+  };
+
   const onClear = (e: MouseEvent) => {
     e.stopPropagation();
 
@@ -389,7 +403,7 @@ const SelectField = ({
       onSelectOption(state.search, { resetSearch: true });
     }
 
-    dispatch({ focused: false });
+    dispatch({ focused: false, opened: false });
     onBlur?.(e);
   };
 
@@ -572,8 +586,8 @@ const SelectField = ({
     item: SelectFieldValue | SelectFieldOptionObject,
     i: number
   ) => (
-    <DropdownItem key={i}>
-      <a onClick={onSelectOption.bind(null, item)}>
+    <DropdownItem key={i} a11yKey={i}>
+      <a onClick={() => onSelectOption(item)}>
         { parseTitle(item, { isOption: true }) }
       </a>
     </DropdownItem>
@@ -611,116 +625,133 @@ const SelectField = ({
   ), [renderedOptions]);
 
   return (
-    <Dropdown
-      { ...rest }
-      opened={state.opened}
-      ref={dropdownRef}
-      disabled={disabled}
-      clickOptions={{
-        toggle: toggleClick ?? !searchable,
-        keyboardHandlers: keyboardHandler,
-      }}
-      className={classNames(
-        'select-field',
-        state.dirty ? 'dirty' : 'pristine',
-        !state.valid && state.dirty ? 'invalid' : 'valid',
-        {
-          searchable,
-          searching: state.searching,
-          empty: isEmpty(),
-          focused: state.focused,
-          multiple,
-        },
-        className
-      )}
-      onToggle={onToggle_}
+    <AccessibilityControl
+      id={a11yId}
+      onA11ySubmit={onAccessibilitySelectOption}
     >
-      <DropdownToggle>
-        <div className="field" onClick={onFocusField}>
-          { hasValue() && (
-            <input
-              type="text"
-              name={name}
-              readOnly={true}
-              value={parseTitle(state.value, { isValue: true }) ?? ''}
-              onChange={() => {}}
-            />
-          ) }
-          { hasTags() && Array.isArray(state.value)
-            ? state.value.map((o: any, i: number) => (
-              <Tag
-                key={i}
-                className={classNames(
-                  'info',
-                  { selected: i === state.selectedItem }
-                )}
-                onDelete={onRemoveOption.bind(null, o)}
-              >
-                { parseTitle(o, { isTag: true }) }
-              </Tag>
-            )) : null }
-          { (multiple || !state.value) && (
-            <input
-              type="text"
-              name={name}
-              value={state.search}
-              placeholder={placeholder}
-              onChange={onSearchInputChange}
-              ref={searchInputRef}
-              autoFocus={autoFocus}
-              disabled={disabled || !searchable}
-              onFocus={onFocus_}
-              onBlur={onBlur_}
-              onKeyPress={onKeyPress_}
-              onKeyUp={onKeyUp_}
-              size={state.placeholderSize}
-            />
-          ) }
-          <div className="icons">
-            { state.searching && <Spinner className="small" /> }
-            { !!state.value && clearable && (!isEmpty() || state.search) && (
-              <Remove onClick={onClear} />
-            ) }
-            { (!allowArbitraryItems || options?.length > 0) && (
-              <Arrows />
-            )}
-          </div>
-        </div>
-      </DropdownToggle>
-      { (hasOptions || state.searchResults?.length > 0 || noOptionsEnabled) && (
-        <DropdownMenu
-          animate={animateMenu}
-          className={classNames('select-menu', {
+      <Dropdown
+        { ...rest }
+        opened={state.opened}
+        ref={dropdownRef}
+        disabled={disabled}
+        clickOptions={{
+          toggle: toggleClick ?? !searchable,
+          keyboardHandlers: keyboardHandler,
+        }}
+        className={classNames(
+          'select-field',
+          state.dirty ? 'dirty' : 'pristine',
+          !state.valid && state.dirty ? 'invalid' : 'valid',
+          {
+            searchable,
             searching: state.searching,
-            loading: state.loading,
-          })}
-        >
-          <div className="content">
-            { hasOptions ? (
-              <>
-                { renderedOptions }
-                { onLoadMore && (
-                  <div ref={loadMoreRef} className="load-more">
-                    { state.loading ? (
-                      <DropdownItem className="loader">
-                        <Spinner className="primary small" />
-                        { loadingMoreLabel}
-                      </DropdownItem>
-                    ) : !hasMore && noMoreOptionsEnabled && (
-                      <DropdownItem className="no-more-options">
-                        { noMoreOptionsLabel }
-                      </DropdownItem>
-                    ) }
-                  </div>
-                ) }
-              </>
-            ) : (
-              <div className="no-options">{ noOptionsLabel }</div>
+            empty: isEmpty(),
+            focused: state.focused,
+            multiple,
+          },
+          className
+        )}
+        onToggle={onToggle_}
+        a11yId={a11yId}
+        a11yEnabled={false}
+      >
+        <DropdownToggle>
+          <div
+            className="field"
+            onClick={onFocusField}
+            onFocus={() => {
+              dropdownRef.current?.open?.();
+              dispatch({ opened: true, focused: false });
+            }}
+          >
+            { hasValue() && (
+              <input
+                type="text"
+                name={name}
+                readOnly={true}
+                value={parseTitle(state.value, { isValue: true }) ?? ''}
+                onChange={() => {}}
+              />
             ) }
+            { hasTags() && Array.isArray(state.value)
+              ? state.value.map((o: any, i: number) => (
+                <Tag
+                  key={i}
+                  className={classNames(
+                    'info',
+                    { selected: i === state.selectedItem }
+                  )}
+                  onDelete={onRemoveOption.bind(null, o)}
+                >
+                  { parseTitle(o, { isTag: true }) }
+                </Tag>
+              )) : null }
+            { (multiple || !state.value) && (
+              <input
+                type="text"
+                name={name}
+                value={state.search}
+                placeholder={placeholder}
+                onChange={onSearchInputChange}
+                ref={searchInputRef}
+                autoFocus={autoFocus}
+                disabled={disabled || !searchable}
+                onFocus={onFocus_}
+                onBlur={onBlur_}
+                onKeyPress={onKeyPress_}
+                onKeyUp={onKeyUp_}
+                size={state.placeholderSize}
+              />
+            ) }
+            <div className="icons">
+              { state.searching && <Spinner className="small" /> }
+              { !!state.value && clearable && (!isEmpty() || state.search) && (
+                <Remove onClick={onClear} />
+              ) }
+              { (!allowArbitraryItems || options?.length > 0) && (
+                <Arrows />
+              )}
+            </div>
           </div>
-        </DropdownMenu>
-      ) }
-    </Dropdown>
+        </DropdownToggle>
+        { (hasOptions || state.searchResults?.length > 0 || noOptionsEnabled) &&
+          (
+            <DropdownMenu
+              a11yId={a11yMenuId || (a11yId ? `${a11yId}-menu` : undefined)}
+              autoFocus={false}
+              animate={animateMenu}
+              className={classNames('select-menu', {
+                searching: state.searching,
+                loading: state.loading,
+              })}
+            >
+              <div className="content">
+                { hasOptions ? (
+                  <>
+                    { renderedOptions }
+                    { onLoadMore && (
+                      <div ref={loadMoreRef} className="load-more">
+                        { state.loading ? (
+                          <DropdownItem className="loader">
+                            <Spinner className="primary small" />
+                            { loadingMoreLabel}
+                          </DropdownItem>
+                        ) : !hasMore && noMoreOptionsEnabled && (
+                          <DropdownItem className="no-more-options">
+                            { noMoreOptionsLabel }
+                          </DropdownItem>
+                        ) }
+                      </div>
+                    ) }
+                  </>
+                ) : (
+                  <div className="no-options">{ noOptionsLabel }</div>
+                ) }
+              </div>
+            </DropdownMenu>
+          ) }
+      </Dropdown>
+    </AccessibilityControl>
   );
 };
 

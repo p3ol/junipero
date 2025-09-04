@@ -1,5 +1,10 @@
 import type { ExtendedRefs, Strategy } from '@floating-ui/react';
-import { type Dispatch, type ReactElement, createContext } from 'react';
+import {
+  type Dispatch,
+  type ReactElement,
+  type KeyboardEvent,
+  createContext,
+} from 'react';
 
 import type { AlertObject } from './Alert';
 import type { ToastObject } from './Toast';
@@ -17,6 +22,7 @@ export const AlertsContext = createContext<AlertsContextType>({});
 export interface DropdownContextType {
   opened?: boolean;
   visible?: boolean;
+  highlightedOptionId?: string | null;
   container?: string | ReactElement | DocumentFragment | HTMLElement;
   x?: number;
   y?: number;
@@ -32,6 +38,7 @@ export interface DropdownContextType {
     userProps?: React.HTMLProps<HTMLElement>
   ) => Record<string, unknown>;
   onAnimationExit?: () => void;
+  setHighlightedOptionId?: (id: string) => void;
 }
 
 export const DropdownContext = createContext<DropdownContextType>({});
@@ -70,6 +77,17 @@ export declare interface ModalContextType {
 }
 
 export const ModalContext = createContext<ModalContextType>({});
+
+export declare interface AccessibilityContextType {
+  currentlyFocusedElement?: string,
+  elements?: string[];
+  toggleId?: string;
+  setCurrentlyFocusedElement?: (element: string | number) => void;
+  registerElement?: (id: string | string[]) => void;
+  onKeyDown?: (event: KeyboardEvent) => void;
+}
+
+export const AccessibilityContext = createContext<AccessibilityContextType>({});
 
 export declare interface InfiniteCanvasContext {
   zoom: number;

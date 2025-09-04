@@ -30,6 +30,7 @@ import {
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { DropdownContext, type DropdownContextType } from '../contexts';
+import AccessibilityControl from '../AccessibilityControl';
 
 export declare interface DropdownRef extends JuniperoRef {
   opened: boolean;
@@ -43,6 +44,8 @@ export declare interface DropdownProps extends Omit<
   SpecialComponentPropsWithRef<'div', DropdownRef>,
   'onToggle'
 >{
+  a11yId?: string;
+  a11yEnabled?: boolean;
   clickOptions?: UseClickProps;
   container?: string | ReactElement | DocumentFragment | HTMLElement;
   disabled?: boolean;
@@ -60,10 +63,12 @@ export declare interface DropdownProps extends Omit<
 export declare interface DropdownState {
   opened: boolean;
   visible: boolean;
+  highlightedOptionId: string | null;
 }
 
 const Dropdown = ({
   ref,
+  a11yId,
   className,
   container,
   disabled,
@@ -71,6 +76,7 @@ const Dropdown = ({
   clickOptions,
   hoverOptions,
   dismissOptions,
+  a11yEnabled = true,
   opened = false,
   placement = 'bottom-start',
   trigger = 'click',
@@ -81,6 +87,7 @@ const Dropdown = ({
   const [state, dispatch] = useReducer(mockState<DropdownState>, {
     opened: opened ?? false,
     visible: opened ?? false,
+    highlightedOptionId: null,
   });
   const { x, y, refs, strategy, context } = useFloating({
     open: state.opened,
@@ -197,7 +204,7 @@ const Dropdown = ({
     getReferenceProps, getFloatingProps, onAnimationExit, container,
   ]);
 
-  return (
+  const dropdown = (
     <DropdownContext.Provider value={getContext()}>
       <div
         { ...rest }
@@ -213,6 +220,12 @@ const Dropdown = ({
       />
     </DropdownContext.Provider>
   );
+
+  return a11yEnabled ? (
+    <AccessibilityControl id={a11yId}>
+      { dropdown }
+    </AccessibilityControl>
+  ) : dropdown;
 };
 
 Dropdown.displayName = 'Dropdown';

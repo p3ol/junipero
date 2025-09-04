@@ -1,5 +1,5 @@
 import { createRef, useEffect, useReducer, useState } from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import { configMocks, mockIntersectionObserver } from 'jsdom-testing-mocks';
 import { mockState } from '@junipero/core';
 import userEvent from '@testing-library/user-event';
@@ -461,6 +461,30 @@ describe('<SelectField />', () => {
     unmount();
   });
 
+  it('should select value with keyboard', async () => {
+    const user = userEvent.setup();
+    const onChangeMock = jest.fn();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        onChange={onChangeMock}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.click(container.querySelector('.dropdown-toggle'));
+    expect(container).toMatchSnapshot('opened');
+    await user.keyboard('{ArrowDown}');
+    await user.keyboard('{ArrowDown}');
+    await user.keyboard('{Enter}');
+
+    await waitFor(() =>
+      expect(onChangeMock)
+        .toHaveBeenCalledWith({ valid: true, value: 'Item 2' })
+    );
+    expect(container).toMatchSnapshot('closed');
+    unmount();
+  });
+
   it('should not toggle on click if disabled', async () => {
     const user = userEvent.setup();
     const { unmount, container } = render(
@@ -519,6 +543,7 @@ describe('<SelectField />', () => {
     const user = userEvent.setup();
     const { unmount, container } = render(
       <SelectField
+        a11yId="name"
         placeholder="Type a name"
         allowArbitraryItems={true}
         multiple={true}
@@ -528,6 +553,7 @@ describe('<SelectField />', () => {
     await focus(input);
     await user.type(input, 'Item 4');
     await blur(input);
+    await sleep(1);
 
     expect(container).toMatchSnapshot();
     unmount();
@@ -552,6 +578,7 @@ describe('<SelectField />', () => {
 
       return (
         <SelectField
+          a11yId="name"
           placeholder="Type a name"
           options={options}
           onLoadMore={onLoadMore}

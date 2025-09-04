@@ -7,10 +7,15 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
   >
     <div
       class="field dropdown-toggle opened"
+      id="«r7»"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
       <input
+        aria-controls="«r8»"
+        aria-expanded="true"
+        aria-haspopup="listbox"
         readonly=""
+        role="combobox"
         type="text"
         value="Tuesday, January 1, 2019 12:00:00 AM"
       />
@@ -33,10 +38,13 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
       </div>
     </div>
     <div
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
+      id="«r8»"
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
@@ -410,10 +418,15 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
   >
     <div
       class="field dropdown-toggle opened"
+      id="«r7»"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
       <input
+        aria-controls="«r8»"
+        aria-expanded="true"
+        aria-haspopup="listbox"
         readonly=""
+        role="combobox"
         type="text"
         value="Tuesday, January 1, 2019 12:00:00 AM"
       />
@@ -436,10 +449,13 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
       </div>
     </div>
     <div
+      aria-labelledby="«r7»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
+      id="«r8»"
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
@@ -813,10 +829,15 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
   >
     <div
       class="field dropdown-toggle opened"
+      id="«ra»"
       title="Monday, December 16, 2019 12:00:00 AM"
     >
       <input
+        aria-controls="«rb»"
+        aria-expanded="true"
+        aria-haspopup="listbox"
         readonly=""
+        role="combobox"
         type="text"
         value="Monday, December 16, 2019 12:00:00 AM"
       />
@@ -839,10 +860,13 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
       </div>
     </div>
     <div
+      aria-labelledby="«ra»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
+      id="«rb»"
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
@@ -1216,10 +1240,15 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
+      id="«rd»"
       title="Tuesday, December 17, 2019 12:00:00 AM"
     >
       <input
+        aria-controls="«re»"
+        aria-expanded="true"
+        aria-haspopup="listbox"
         readonly=""
+        role="combobox"
         type="text"
         value="Tuesday, December 17, 2019 12:00:00 AM"
       />
@@ -1242,10 +1271,13 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
       </div>
     </div>
     <div
+      aria-labelledby="«rd»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
+      id="«re»"
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
@@ -1619,10 +1651,14 @@ exports[`<DateField /> should not open calendar if disabled 1`] = `
   >
     <div
       class="field dropdown-toggle"
+      id="«r4»"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
       <input
+        aria-expanded="false"
+        aria-haspopup="listbox"
         readonly=""
+        role="combobox"
         type="text"
         value="Tuesday, January 1, 2019 12:00:00 AM"
       />
@@ -1655,11 +1691,15 @@ exports[`<DateField /> should render: default 1`] = `
   >
     <div
       class="field dropdown-toggle"
+      id="«r1»"
       title="Friday, February 1, 2019 12:00:00 AM"
     >
       <input
+        aria-expanded="false"
+        aria-haspopup="listbox"
         placeholder="Date of birth"
         readonly=""
+        role="combobox"
         type="text"
         value="Friday, February 1, 2019 12:00:00 AM"
       />
@@ -1692,11 +1732,16 @@ exports[`<DateField /> should render: opened 1`] = `
   >
     <div
       class="field dropdown-toggle opened"
+      id="«r1»"
       title="Friday, February 1, 2019 12:00:00 AM"
     >
       <input
+        aria-controls="«r2»"
+        aria-expanded="true"
+        aria-haspopup="listbox"
         placeholder="Date of birth"
         readonly=""
+        role="combobox"
         type="text"
         value="Friday, February 1, 2019 12:00:00 AM"
       />
@@ -1719,10 +1764,13 @@ exports[`<DateField /> should render: opened 1`] = `
       </div>
     </div>
     <div
+      aria-labelledby="«r1»"
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
+      id="«r2»"
+      role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
-      tabindex="-1"
+      tabindex="0"
     >
       <ul
         class="menu-inner"
