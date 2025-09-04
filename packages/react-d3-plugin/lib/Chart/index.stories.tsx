@@ -36,9 +36,9 @@ const barData: [Date, { free: number, premium:number}][] = [
 ];
 
 const axis: [
-    AxisObject<Date[]>,
-    AxisObject<number[]>,
-    AxisObject<number[]>
+  AxisObject<Date[]>,
+  AxisObject<number[]>,
+  AxisObject<number[]>,
 ] = [{
   type: 'axisBottom',
   scale: 'scaleTime',
@@ -65,7 +65,7 @@ const axis: [
 
 const barAxis: [
   AxisObject<Date[]>,
-  AxisObject<{ premium: number, free: number }[]>
+  AxisObject<{ premium: number, free: number }[]>,
 ] = [{
   type: 'axisBottom',
   scale: 'scaleBand',

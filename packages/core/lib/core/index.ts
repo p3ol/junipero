@@ -119,7 +119,7 @@ export function omitBy<T extends Record<string, any>> (
 
 export function omit<
   T extends Record<string, any>,
-  U extends keyof T
+  U extends keyof T,
 > (
   obj: T = {} as T,
   keys: U[] = []
@@ -130,7 +130,7 @@ export function omit<
 
 export function pick<
   T extends Record<string, any>,
-  U extends keyof T
+  U extends keyof T,
 > (
   obj: T = {} as T,
   keys: U[] = []
