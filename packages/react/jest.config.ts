@@ -1,6 +1,8 @@
-const path = require('path');
+import path from 'node:path';
 
-module.exports = {
+import type { Config } from 'jest';
+
+const config: Config = {
   displayName: '@junipero/react',
   clearMocks: true,
   rootDir: path.resolve(),
@@ -11,6 +13,7 @@ module.exports = {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
       {
+        env: {},
         jsc: {
           transform: {
             react: {
@@ -37,3 +40,5 @@ module.exports = {
   ],
   snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };
+
+export default config;

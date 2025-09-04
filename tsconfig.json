@@ -9,7 +9,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "skipLibCheck": true,
-    "target": "esnext",
+    "target": "es6",
     "noEmit": true,
     "paths": {
       "@junipero/core": ["./packages/core/lib/index.ts"],

@@ -89,7 +89,7 @@ export interface rgb {
 }
 
 const COLOR_PARSERS = [{
-  // eslint-disable-next-line @stylistic/js/max-len
+  // eslint-disable-next-line @stylistic/max-len
   regex: /(?:rgb)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*%?,\s*(\d{1,3})\s*%?(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
   parse: (r: string, g: string, b: string, a: string) => ({
     r: parseInt(r, 10) / 255,
@@ -98,7 +98,7 @@ const COLOR_PARSERS = [{
     a: isNaN(parseFloat(a)) ? 1 : parseFloat(a),
   }),
 }, {
-  // eslint-disable-next-line @stylistic/js/max-len
+  // eslint-disable-next-line @stylistic/max-len
   regex: /(?:hsl)a?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
   parse: (h: string, s: string, l: string, a: string) => ({
     h: parseInt(h, 10) / 360,

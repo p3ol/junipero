@@ -29,10 +29,10 @@ export declare interface FieldContent<T = any> {
 
 export declare type SpecialComponentPropsWithRef<
   T extends ElementType = any,
-  R extends JuniperoRef = any
+  R extends JuniperoRef = any,
 > = ComponentPropsWithoutRef<T> & {
   ref?: Ref<R>;
-}
+};
 
 /**
 * Represents a state comming from useReducer.
@@ -46,7 +46,7 @@ export declare type StateReducer<T extends StateContent> =
 
 export type ReactElt = ReactElement<
   ComponentPropsWithoutRef<any>
->
+>;
 
 export type ReactLazy = LazyExoticComponent<FunctionComponent> & {
   _payload: Usable<ReactElt>

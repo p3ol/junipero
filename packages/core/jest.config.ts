@@ -1,7 +1,9 @@
-const path = require('path');
+import path from 'node:path';
 
-module.exports = {
-  displayName: '@junipero/transitions',
+import type { Config } from 'jest';
+
+const config: Config = {
+  displayName: '@junipero/core',
   clearMocks: true,
   rootDir: path.resolve(),
   fakeTimers: {
@@ -11,6 +13,7 @@ module.exports = {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
       {
+        env: {},
         jsc: {
           transform: {
             react: {
@@ -21,15 +24,12 @@ module.exports = {
       },
     ],
   },
-  moduleNameMapper: {
-    '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
-    '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.ts',
-    '^~tests?-utils$': '<rootDir>/packages/react/tests/utils.ts',
-  },
-  testMatch: ['<rootDir>/packages/transitions/lib/*.test.js'],
+  testMatch: ['<rootDir>/packages/core/lib/**/*.test.ts'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
   testEnvironment: 'jsdom',
   snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };
+
+export default config;

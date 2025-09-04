@@ -538,7 +538,7 @@ describe('<SelectField />', () => {
   });
 
   // Node 20.19.4 seems to have an issue with jsdom & blur
-  it.skip('should add a value when focus out if' +
+  it('should add a value when focus out if' +
     ' allowArbitraryItems is true', async () => {
     const user = userEvent.setup();
     const { unmount, container } = render(

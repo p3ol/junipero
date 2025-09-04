@@ -1,18 +1,22 @@
 /* eslint-disable no-console */
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const fse = require('fs-extra');
-const sass = require('sass');
-const postcss = require('postcss');
-const autoprefixer = require('autoprefixer');
+import fse from 'fs-extra';
+import sass from 'sass';
+import postcss from 'postcss';
+import autoprefixer from 'autoprefixer';
 
-const compile = async ({ input, output }) => {
+export interface CompileOptions {
+  input: string;
+  output: string;
+}
+
+const compile = async ({ input, output }: CompileOptions) => {
   console.log('Compiling',
     `${input.split('/').pop()} -> ${output.split('/').pop()}`);
 
   const { css, sourceMap } = await sass.compileAsync(input, {
-    syntax: 'indented',
     style: 'compressed',
     sourceMap: true,
     sourceMapIncludeSources: true,

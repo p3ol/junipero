@@ -1,8 +1,10 @@
-const path = require('path');
+import path from 'node:path';
+
+import type { Config } from 'jest';
 
 process.env.TZ = 'UTC';
 
-module.exports = {
+const config: Config = {
   displayName: '@junipero/react-d3-plugin',
   clearMocks: true,
   rootDir: path.resolve(),
@@ -10,9 +12,10 @@ module.exports = {
     enableGlobally: false,
   },
   transform: {
-    '^.+\\.(t|j)sx?$': [
+    '^.+\\.m?(t|j)sx?$': [
       '@swc/jest',
       {
+        env: {},
         jsc: {
           transform: {
             react: {
@@ -42,3 +45,5 @@ module.exports = {
   setupFilesAfterEnv: [],
   snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
 };
+
+export default config;
