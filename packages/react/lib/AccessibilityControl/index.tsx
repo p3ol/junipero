@@ -10,27 +10,30 @@ import { exists, mockState } from '@junipero/core';
 import {
   type AccessibilityContextType,
   AccessibilityContext,
-} from './contexts';
+} from '../contexts';
 
-export interface AccessibilityStoreProps extends ComponentPropsWithoutRef<any> {
+export interface AccessibilityControlProps
+  extends ComponentPropsWithoutRef<any> {
+  id?: string;
   onA11ySubmit?: (elementId: string) => void;
 }
 
-declare interface AccessibilityState {
+declare interface AccessibilityControlState {
   elements: string[];
   currentlyFocusedElement: string;
   toggleId: string;
 }
 
-const AccessibilityStore = ({
-  onA11ySubmit,
+const AccessibilityControl = ({
+  id,
   children,
-}: AccessibilityStoreProps) => {
-  const toggleId = useId();
-  const [state, dispatch] = useReducer(mockState<AccessibilityState>, {
+  onA11ySubmit,
+}: AccessibilityControlProps) => {
+  const toggleIdFallback = useId();
+  const [state, dispatch] = useReducer(mockState<AccessibilityControlState>, {
     elements: [],
     currentlyFocusedElement: null,
-    toggleId,
+    toggleId: id || toggleIdFallback,
   });
 
   const setCurrentlyFocusedElement = useCallback((elementId: string) => {
@@ -109,4 +112,4 @@ const AccessibilityStore = ({
   );
 };
 
-export default AccessibilityStore;
+export default AccessibilityControl;

@@ -8,7 +8,7 @@ import { useAccessibility } from '../hooks';
 export declare interface DropdownItemProps
   extends ComponentPropsWithoutRef<'li'> {
   a11yKey?: string | number;
-  }
+}
 
 const DropdownItem = ({
   a11yKey,

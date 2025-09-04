@@ -543,6 +543,7 @@ describe('<SelectField />', () => {
     const user = userEvent.setup();
     const { unmount, container } = render(
       <SelectField
+        a11yId="name"
         placeholder="Type a name"
         allowArbitraryItems={true}
         multiple={true}
@@ -577,6 +578,7 @@ describe('<SelectField />', () => {
 
       return (
         <SelectField
+          a11yId="name"
           placeholder="Type a name"
           options={options}
           onLoadMore={onLoadMore}

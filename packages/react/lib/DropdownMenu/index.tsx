@@ -21,6 +21,7 @@ export declare interface DropdownMenuProps
   extends SpecialComponentPropsWithRef<'div', DropdownMenuRef> {
   apparition?: string;
   autoFocus?: boolean;
+  a11yId?: string;
   animate?(
     menu: ReactNode,
     opts: {
@@ -34,6 +35,7 @@ export const DropdownMenu = ({
   apparition,
   children,
   className,
+  a11yId,
   autoFocus = true,
   animate,
   ...rest
@@ -52,7 +54,7 @@ export const DropdownMenu = ({
   } = useDropdown();
   const { onKeyDown, currentlyFocusedElement, toggleId } = useAccessibility();
 
-  const floatingId = useId();
+  const a11yIdFallback = useId();
 
   useEffect(() => {
     if (innerRef.current && autoFocus) {
@@ -92,7 +94,7 @@ export const DropdownMenu = ({
       { ...getFloatingProps() }
       tabIndex={0}
       onKeyDown={onKeyDown}
-      id={floatingId}
+      id={a11yId || a11yIdFallback}
       role="listbox"
       aria-labelledby={toggleId}
       aria-activedescendant={currentlyFocusedElement}

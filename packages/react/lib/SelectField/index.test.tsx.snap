@@ -7,7 +7,7 @@ exports[`<SelectField /> should add a value when focus out if allowArbitraryItem
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r1c»"
+      id="name"
     >
       <span
         class="junipero tag info"
@@ -30,7 +30,7 @@ exports[`<SelectField /> should add a value when focus out if allowArbitraryItem
         </svg>
       </span>
       <input
-        aria-controls=""
+        aria-controls="name-menu"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Type a name"
@@ -58,9 +58,10 @@ exports[`<SelectField /> should add a value when focus out if allowArbitraryItem
       </div>
     </div>
     <div
-      aria-labelledby="«r1c»"
+      aria-labelledby="name"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
+      id="name-menu"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -1271,10 +1272,10 @@ exports[`<SelectField /> should allow to load more data on scroll: After scroll 
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r22»"
+      id="name"
     >
       <input
-        aria-controls="«r24»"
+        aria-controls="name-menu"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Type a name"
@@ -1302,10 +1303,10 @@ exports[`<SelectField /> should allow to load more data on scroll: After scroll 
       </div>
     </div>
     <div
-      aria-labelledby="«r22»"
+      aria-labelledby="name"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="«r24»"
+      id="name-menu"
       role="listbox"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="0"
@@ -1520,10 +1521,10 @@ exports[`<SelectField /> should allow to load more data on scroll: Before scroll
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r22»"
+      id="name"
     >
       <input
-        aria-controls="«r24»"
+        aria-controls="name-menu"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Type a name"
@@ -1551,10 +1552,10 @@ exports[`<SelectField /> should allow to load more data on scroll: Before scroll
       </div>
     </div>
     <div
-      aria-labelledby="«r22»"
+      aria-labelledby="name"
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="«r24»"
+      id="name-menu"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"
@@ -1672,10 +1673,10 @@ exports[`<SelectField /> should allow to load more data on scroll: During scroll
   >
     <div
       class="field dropdown-toggle opened"
-      id="«r22»"
+      id="name"
     >
       <input
-        aria-controls="«r24»"
+        aria-controls="name-menu"
         aria-expanded="true"
         aria-haspopup="listbox"
         placeholder="Type a name"
@@ -1703,10 +1704,10 @@ exports[`<SelectField /> should allow to load more data on scroll: During scroll
       </div>
     </div>
     <div
-      aria-labelledby="«r22»"
+      aria-labelledby="name"
       class="junipero dropdown-menu select-menu loading"
       data-floating-ui-focusable=""
-      id="«r24»"
+      id="name-menu"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="0"

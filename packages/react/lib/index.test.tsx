@@ -6,7 +6,7 @@ import { useTimeout } from '@junipero/hooks';
 import type { FieldContent } from './types';
 import { useAccessibility } from './hooks';
 import TextField from './TextField';
-import AccessibilityStore from './AccessibilityStore';
+import AccessibilityControl from './AccessibilityControl';
 
 interface State {
   value: {
@@ -129,7 +129,7 @@ describe('useAccessibility()', () => {
   it('should render hook', () => {
     const { result } = renderHook(() =>
       useAccessibility(),
-    { wrapper: AccessibilityStore });
+    { wrapper: AccessibilityControl });
     expect(
       Object.keys(result.current)
     ).toEqual(expect.arrayContaining(

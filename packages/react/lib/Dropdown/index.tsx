@@ -30,7 +30,7 @@ import {
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
 import { DropdownContext, type DropdownContextType } from '../contexts';
-import AccessibilityStore from '../AccessibilityStore';
+import AccessibilityControl from '../AccessibilityControl';
 
 export declare interface DropdownRef extends JuniperoRef {
   opened: boolean;
@@ -44,6 +44,8 @@ export declare interface DropdownProps extends Omit<
   SpecialComponentPropsWithRef<'div', DropdownRef>,
   'onToggle'
 >{
+  a11yId?: string;
+  a11yEnabled?: boolean;
   clickOptions?: UseClickProps;
   container?: string | ReactElement | DocumentFragment | HTMLElement;
   disabled?: boolean;
@@ -55,7 +57,6 @@ export declare interface DropdownProps extends Omit<
   opened?: boolean;
   placement?: Placement;
   trigger?: 'click' | 'hover' | 'manual';
-  withAccessibility?: boolean;
   onToggle?(props: { opened: boolean }): void;
 }
 
@@ -67,6 +68,7 @@ export declare interface DropdownState {
 
 const Dropdown = ({
   ref,
+  a11yId,
   className,
   container,
   disabled,
@@ -74,10 +76,10 @@ const Dropdown = ({
   clickOptions,
   hoverOptions,
   dismissOptions,
+  a11yEnabled = true,
   opened = false,
   placement = 'bottom-start',
   trigger = 'click',
-  withAccessibility = true,
   onToggle,
   ...rest
 }: DropdownProps) => {
@@ -219,8 +221,10 @@ const Dropdown = ({
     </DropdownContext.Provider>
   );
 
-  return withAccessibility ? (
-    <AccessibilityStore>{ dropdown }</AccessibilityStore>
+  return a11yEnabled ? (
+    <AccessibilityControl id={a11yId}>
+      { dropdown }
+    </AccessibilityControl>
   ) : dropdown;
 };
 

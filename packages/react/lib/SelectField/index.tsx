@@ -36,7 +36,7 @@ import DropdownGroup from '../DropdownGroup';
 import DropdownItem from '../DropdownItem';
 import Tag from '../Tag';
 import Spinner from '../Spinner';
-import AccessibilityStore from '../AccessibilityStore';
+import AccessibilityControl from '../AccessibilityControl';
 
 export declare type SelectFieldValue =
   | string | number | boolean | object | null;
@@ -68,6 +68,8 @@ export declare interface SelectFieldProps extends Omit<
   SpecialComponentPropsWithRef<typeof Dropdown, SelectFieldRef>,
   'onChange'
 > {
+  a11yId?: string;
+  a11yMenuId?: string;
   allowArbitraryItems?: boolean;
   autoFocus?: boolean;
   className?: string;
@@ -143,6 +145,8 @@ export declare interface SelectFieldState {
 
 const SelectField = ({
   ref,
+  a11yId,
+  a11yMenuId,
   toggleClick,
   className,
   options,
@@ -621,7 +625,10 @@ const SelectField = ({
   ), [renderedOptions]);
 
   return (
-    <AccessibilityStore onA11ySubmit={onAccessibilitySelectOption}>
+    <AccessibilityControl
+      id={a11yId}
+      onA11ySubmit={onAccessibilitySelectOption}
+    >
       <Dropdown
         { ...rest }
         opened={state.opened}
@@ -645,7 +652,8 @@ const SelectField = ({
           className
         )}
         onToggle={onToggle_}
-        withAccessibility={false}
+        a11yId={a11yId}
+        a11yEnabled={false}
       >
         <DropdownToggle>
           <div
@@ -709,6 +717,7 @@ const SelectField = ({
         { (hasOptions || state.searchResults?.length > 0 || noOptionsEnabled) &&
           (
             <DropdownMenu
+              a11yId={a11yMenuId || (a11yId ? `${a11yId}-menu` : undefined)}
               autoFocus={false}
               animate={animateMenu}
               className={classNames('select-menu', {
@@ -742,7 +751,7 @@ const SelectField = ({
             </DropdownMenu>
           ) }
       </Dropdown>
-    </AccessibilityStore>
+    </AccessibilityControl>
   );
 };
 
