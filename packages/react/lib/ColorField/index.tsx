@@ -173,14 +173,14 @@ const ColorField = ({
 
   useEventListener('mousemove', e => {
     onMouseMove_(e);
-  }, {
+  }, [], {
     target: globalEventsTarget,
     enabled: state.handleMoving && state.handleType && !disabled,
   });
 
   useEventListener('mouseup', () => {
     onMouseUp_();
-  }, {
+  }, [], {
     target: globalEventsTarget,
     enabled: state.handleMoving && state.handleType && !disabled,
   });

@@ -1,4 +1,5 @@
 import { slideInDownMenu } from '@junipero/transitions';
+import { action } from 'storybook/actions';
 
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
@@ -11,9 +12,20 @@ export default { title: 'react/Dropdown' };
 
 export const Basic = () => (
   <Dropdown>
-    <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
+    <DropdownToggle><Tag tabIndex={0}>Open me</Tag></DropdownToggle>
     <DropdownMenu>
-      <DropdownItem><a>Item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item1')}>Item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item2')}>Item 2</a></DropdownItem>
+    </DropdownMenu>
+  </Dropdown>
+);
+
+export const WithAccessibleIds = () => (
+  <Dropdown id="my-dropdown">
+    <DropdownToggle><Tag>Open me</Tag></DropdownToggle>
+    <DropdownMenu id="my-dropdown-menu">
+      <DropdownItem><a onClick={action('item1')}>Item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item2')}>Item 2</a></DropdownItem>
     </DropdownMenu>
   </Dropdown>
 );

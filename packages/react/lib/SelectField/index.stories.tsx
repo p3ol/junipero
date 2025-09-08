@@ -56,6 +56,7 @@ export const Multiple = () => (
     multiple={true}
     value={['Item 1', 'Item 2', 'Item 4']}
     options={[{ title: 'Group 1', options: ['Item 1', 'Item 2'] }, 'Item 3']}
+    parseTitle={o => (o as SelectFieldOptionObject).title ?? o?.toString()}
   />
 );
 

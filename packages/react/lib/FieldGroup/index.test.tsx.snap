@@ -12,11 +12,20 @@ exports[`<FieldGroup /> should render a select field prefix 1`] = `
     </div>
     <div
       class="junipero dropdown select-field pristine valid searchable empty"
+      id="junipero-select-field-«r0»"
     >
       <div
         class="field dropdown-toggle"
+        id="junipero-select-field-«r0»-toggle"
       >
         <input
+          aria-autocomplete="list"
+          aria-controls="junipero-select-field-«r0»-items"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          dir="ltr"
+          id="junipero-select-field-«r0»-field"
+          role="combobox"
           size="10"
           type="text"
           value=""
@@ -51,11 +60,20 @@ exports[`<FieldGroup /> should render a select field suffix 1`] = `
   >
     <div
       class="junipero dropdown select-field pristine valid searchable empty"
+      id="junipero-select-field-«r5»"
     >
       <div
         class="field dropdown-toggle"
+        id="junipero-select-field-«r5»-toggle"
       >
         <input
+          aria-autocomplete="list"
+          aria-controls="junipero-select-field-«r5»-items"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          dir="ltr"
+          id="junipero-select-field-«r5»-field"
+          role="combobox"
           size="10"
           type="text"
           value=""
@@ -155,6 +173,7 @@ exports[`<FieldGroup /> should render a textfield with a prefix & a button suffi
     </div>
     <button
       class="junipero button"
+      role="button"
     >
       Update
     </button>

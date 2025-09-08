@@ -59,6 +59,7 @@ const CheckboxField = ({
   disabled = false,
   required = false,
   onChange,
+  onKeyDown,
   onValidate = (val, { required }) => val || !required,
   ...rest
 }: CheckboxFieldProps) => {
@@ -87,7 +88,7 @@ const CheckboxField = ({
     isJunipero: true,
   }));
 
-  const onKeyPress_ = (e: KeyboardEvent) => {
+  const onKeyDown_ = (e: KeyboardEvent<HTMLLabelElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault?.();
 
@@ -96,11 +97,9 @@ const CheckboxField = ({
       dispatch({ checked: state.checked, valid, dirty: true });
       onChange?.({ value, checked: state.checked });
       updateControl?.({ dirty: true, valid });
-
-      return false;
     }
 
-    return true;
+    onKeyDown?.(e);
   };
 
   const onChange_ = (e: ChangeEvent<HTMLInputElement>) => {
@@ -131,8 +130,13 @@ const CheckboxField = ({
         },
         className
       )}
-      onKeyPress={onKeyPress_}
+      onKeyDown={onKeyDown_}
       tabIndex={disabled ? -1 : 1}
+      // WCAG 2.0
+      role="checkbox"
+      aria-checked={state.checked}
+      aria-disabled={disabled}
+      aria-required={required}
     >
       <input
         id={id}

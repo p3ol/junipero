@@ -18,9 +18,17 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
     <div>
       <div
         class="junipero dropdown opened"
+        id="junipero-dropdown-«r2»"
       >
         <button
+          aria-autocomplete="none"
+          aria-controls="junipero-dropdown-«r2»-menu"
+          aria-expanded="true"
+          aria-haspopup="listbox"
           class="junipero button dropdown-toggle opened"
+          dir="ltr"
+          id="junipero-dropdown-toggle-«r3»"
+          role="button"
           type="button"
         >
           100%
@@ -28,6 +36,7 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
         <div
           class="junipero dropdown-menu"
           data-floating-ui-focusable=""
+          id="junipero-dropdown-«r2»-menu"
           style="position: fixed; top: 0px; left: 0px;"
           tabindex="-1"
         >
@@ -35,42 +44,54 @@ exports[`<InfiniteCanvasZoom /> should render an infinite canvas zoom 1`] = `
             class="menu-inner"
           >
             <li
-              class="dropdown-item"
+              class="junipero dropdown-item"
+              id="junipero-dropdown-item-«r5»"
+              tabindex="0"
             >
               <a>
                 Fit into View
               </a>
             </li>
             <li
-              class="dropdown-item"
+              class="junipero dropdown-item"
+              id="junipero-dropdown-item-«r6»"
+              tabindex="0"
             >
               <a>
                 200%
               </a>
             </li>
             <li
-              class="dropdown-item"
+              class="junipero dropdown-item"
+              id="junipero-dropdown-item-«r7»"
+              tabindex="0"
             >
               <a>
                 100%
               </a>
             </li>
             <li
-              class="dropdown-item"
+              class="junipero dropdown-item"
+              id="junipero-dropdown-item-«r8»"
+              tabindex="0"
             >
               <a>
                 50%
               </a>
             </li>
             <li
-              class="dropdown-item"
+              class="junipero dropdown-item"
+              id="junipero-dropdown-item-«r9»"
+              tabindex="0"
             >
               <a>
                 Zoom In
               </a>
             </li>
             <li
-              class="dropdown-item"
+              class="junipero dropdown-item"
+              id="junipero-dropdown-item-«ra»"
+              tabindex="0"
             >
               <a>
                 Zoom Out

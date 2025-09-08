@@ -140,7 +140,15 @@ const RadioField = ({
     option: RadioFieldValue | RadioFieldOptionObject,
     e: KeyboardEvent
   ) => {
-    if (
+    if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(e.key)) {
+      const i = options.indexOf(option);
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        optionRefs.current[(i + 1) % options.length]?.focus();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        optionRefs.current[(i - 1 + options.length) % options.length]?.focus();
+      }
+    } else if (
       state.value !== option &&
       state.value !== parseValue(option) &&
       (e.key === 'Enter' || e.key === ' ')
@@ -171,6 +179,10 @@ const RadioField = ({
         className,
       )}
       ref={innerRef}
+      // WCAG 2.0
+      role="radiogroup"
+      aria-disabled={disabled}
+      aria-required={required}
     >
       { options.map((option, index) => (
         <label
@@ -182,6 +194,8 @@ const RadioField = ({
           })}
           onKeyDown={onKeyDown.bind(null, option)}
           tabIndex={disabled ? -1 : index + 1}
+          // WCAG 2.0
+          role="radio"
         >
           <input
             id={(option as RadioFieldOptionObject).id?.toString()}
