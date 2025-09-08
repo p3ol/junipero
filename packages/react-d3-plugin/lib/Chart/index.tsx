@@ -149,7 +149,7 @@ const Chart = ({
   useEventListener('resize', () => {
     clearTimeout(resizeTimerRef.current);
     resizeTimerRef.current = setTimeout(() => onResize(), redrawThreshold);
-  });
+  }, []);
 
   const onResize = () => {
     const styles = globalThis.getComputedStyle(innerRef.current);
