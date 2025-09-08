@@ -5,8 +5,10 @@ import {
   useRef,
   useImperativeHandle,
   useEffect,
+  useId,
+  useMemo,
 } from 'react';
-import { classNames, mockState } from '@junipero/core';
+import { exists, classNames, mockState } from '@junipero/core';
 
 import type {
   FieldContent,
@@ -68,6 +70,7 @@ export declare interface RadioFieldState {
 
 const RadioField = ({
   ref,
+  id: idProp,
   className,
   name,
   value,
@@ -93,6 +96,11 @@ const RadioField = ({
     value,
     valid,
   });
+
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? `junipero-radio-field-${fallbackId}`
+  ), [idProp, fallbackId]);
 
   useEffect(() => {
     if (value !== state.value) {
@@ -170,6 +178,7 @@ const RadioField = ({
   return (
     <div
       { ...rest }
+      id={id}
       className={classNames(
         'junipero',
         'radio-field',
@@ -187,15 +196,19 @@ const RadioField = ({
       { options.map((option, index) => (
         <label
           key={index}
+          id={((option as RadioFieldOptionObject).id?.toString() || (id +
+            `-option-${index}`)) + '-label'}
           ref={el => { optionRefs.current[index] = el; }}
           className={classNames({
             checked: isChecked(option),
             disabled: disabled || (option as RadioFieldOptionObject).disabled,
           })}
           onKeyDown={onKeyDown.bind(null, option)}
-          tabIndex={disabled ? -1 : index + 1}
           // WCAG 2.0
-          role="radio"
+          tabIndex={isChecked(option) || (index === 0 && !exists(state.value))
+            ? 0
+            : -1
+          }
         >
           <input
             id={(option as RadioFieldOptionObject).id?.toString()}
@@ -205,7 +218,14 @@ const RadioField = ({
             value={parseValue(option) as string}
             checked={isChecked(option)}
             onChange={onChange_.bind(null, option)}
+            // WCAG 2.0
+            role="radio"
             tabIndex={-1}
+            aria-checked={isChecked(option)}
+            aria-labelledby={
+              ((option as RadioFieldOptionObject).id?.toString() || (id +
+                `-option-${index}`)) + '-label'
+            }
           />
           <div className="inner" />
           <div className="label">
