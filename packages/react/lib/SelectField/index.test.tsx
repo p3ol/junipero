@@ -1,5 +1,5 @@
 import { createRef, useEffect, useReducer, useState } from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import { configMocks, mockIntersectionObserver } from 'jsdom-testing-mocks';
 import { mockState } from '@junipero/core';
 import userEvent from '@testing-library/user-event';
@@ -12,7 +12,10 @@ import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import TextField from '../TextField';
-import SelectField, { SelectFieldOptionObject, type SelectFieldRef } from './index';
+import SelectField, {
+  type SelectFieldOptionObject,
+  type SelectFieldRef,
+} from './index';
 
 configMocks({ act });
 const io = mockIntersectionObserver();
@@ -579,5 +582,29 @@ describe('<SelectField />', () => {
 
     unmount();
     io.cleanup();
+  });
+
+  it('should select value with keyboard', async () => {
+    const user = userEvent.setup();
+    const onChangeMock = jest.fn();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        onChange={onChangeMock}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.click(container.querySelector('.dropdown-toggle'));
+    await user.keyboard('{ArrowDown}');
+    await user.keyboard('{ArrowDown}');
+    expect(container).toMatchSnapshot('opened');
+    await user.keyboard('{Enter}');
+
+    await waitFor(() =>
+      expect(onChangeMock)
+        .toHaveBeenCalledWith({ valid: true, value: 'Item 2' })
+    );
+    expect(container).toMatchSnapshot('closed');
+    unmount();
   });
 });

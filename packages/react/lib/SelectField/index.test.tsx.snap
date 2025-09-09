@@ -3342,6 +3342,146 @@ exports[`<SelectField /> should render multiple values 3`] = `
 </div>
 `;
 
+exports[`<SelectField /> should select value with keyboard: closed 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field dirty valid searchable"
+    id="junipero-select-field-«r5h»"
+  >
+    <div
+      class="field dropdown-toggle"
+      id="junipero-select-field-«r5h»-toggle"
+    >
+      <input
+        id="junipero-select-field-«r5h»-field"
+        readonly=""
+        type="text"
+        value="Item 2"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> should select value with keyboard: opened 1`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field pristine valid searchable empty"
+    id="junipero-select-field-«r5h»"
+  >
+    <div
+      class="field dropdown-toggle opened"
+      id="junipero-select-field-«r5h»-toggle"
+    >
+      <input
+        aria-activedescendant="junipero-select-field-«r5h»-items-«r5n»"
+        aria-autocomplete="list"
+        aria-controls="junipero-select-field-«r5h»-items"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        dir="ltr"
+        id="junipero-select-field-«r5h»-field"
+        placeholder="Name"
+        role="combobox"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
+      id="junipero-select-field-«r5h»-items"
+      style="position: fixed; top: 10px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="junipero dropdown-item"
+            id="junipero-select-field-«r5h»-items-«r5m»"
+            tabindex="0"
+          >
+            <a>
+              Item 1
+            </a>
+          </li>
+          <li
+            class="junipero dropdown-item active"
+            id="junipero-select-field-«r5h»-items-«r5n»"
+            tabindex="0"
+          >
+            <a>
+              Item 2
+            </a>
+          </li>
+          <li
+            class="junipero dropdown-item"
+            id="junipero-select-field-«r5h»-items-«r5o»"
+            tabindex="0"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<SelectField /> should toggle on click if enabled: closed 1`] = `
 <div>
   <div
