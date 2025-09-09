@@ -98,11 +98,11 @@ const ColorField = forwardRef(({
 
   useEventListener('mousemove', e => {
     onMouseMove_(e);
-  }, globalEventsTarget);
+  }, [], globalEventsTarget);
 
   useEventListener('mouseup', e => {
     onMouseUp_(e);
-  }, globalEventsTarget);
+  }, [], globalEventsTarget);
 
   const focus = () => {
     inputRef.current?.focus();

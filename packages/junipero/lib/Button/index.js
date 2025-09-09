@@ -29,6 +29,8 @@ const Button = forwardRef(({
       )}
       onClick={onClick_}
       disabled={disabled}
+      role="button"
+      aria-disabled={disabled}
     />
   );
 });
