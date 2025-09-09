@@ -4,6 +4,8 @@ import {
   useReducer,
   useRef,
   useEffect,
+  useId,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, exists, mockState } from '@poool/junipero-utils';
@@ -11,7 +13,7 @@ import { classNames, exists, mockState } from '@poool/junipero-utils';
 const RadioField = forwardRef(({
   className,
   disabled = false,
-  id,
+  id: idProp,
   name,
   options = [],
   value,
@@ -23,6 +25,12 @@ const RadioField = forwardRef(({
   onChange = () => {},
   ...rest
 }, ref) => {
+
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? `junipero-radio-field-${fallbackId}`
+  ), [idProp, fallbackId]);
+
   const wrapperRef = useRef();
   const innerRefs = useRef([]);
   const inputRefs = useRef([]);
@@ -57,6 +65,16 @@ const RadioField = forwardRef(({
   }));
 
   const onKeyDown_ = (option, e) => {
+    if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(e.key)) {
+      const i = options.indexOf(option);
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        innerRefs.current[(i + 1) % options.length]?.focus();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        innerRefs.current[(i - 1 + options.length) % options.length]?.focus();
+      }
+    }
+
     if (
       state.value !== option &&
       state.value !== parseValue(option) &&
