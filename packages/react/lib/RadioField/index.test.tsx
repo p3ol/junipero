@@ -357,4 +357,26 @@ describe('<RadioField />', () => {
 
     unmount();
   });
+
+  it('should navigate and toggle with keyboard', async () => {
+    const user = userEvent.setup();
+    const onChangeMock = jest.fn();
+    const { unmount, container } = render(
+      <RadioField options={[1, 2, 3]} onChange={onChangeMock} />
+    );
+    expect(container).toMatchSnapshot('option 1 checked');
+
+    await act(async () => {
+      return Promise.resolve(container.querySelectorAll('label')[0].focus());
+    });
+    await user.keyboard('{ArrowDown}');
+    await user.keyboard('{Enter}');
+
+    await waitFor(() =>
+      expect(onChangeMock).toHaveBeenCalledWith({ valid: true, value: 2 })
+    );
+
+    expect(container).toMatchSnapshot('option 2 checked');
+    unmount();
+  });
 });
