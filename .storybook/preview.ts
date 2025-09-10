@@ -1,10 +1,13 @@
-import { Preview } from '@storybook/react-webpack5';
+import type { Preview } from '@storybook/react-vite';
 import { withThemeByClassName } from '@storybook/addon-themes';
 
 import './index.sass';
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: ['React'],
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

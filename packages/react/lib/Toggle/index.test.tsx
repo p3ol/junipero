@@ -1,4 +1,5 @@
 import { render, waitFor, act } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import Toggle from '.';
@@ -38,7 +39,7 @@ describe('<Toggle />', () => {
 
   it('should handle change event', async () => {
     const user = userEvent.setup();
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const { container, unmount } = render(
       <Toggle
         onChange={onChangeMock}
@@ -61,7 +62,7 @@ describe('<Toggle />', () => {
   it('should handle change event with space and enter ' +
   'when focused', async () => {
     const user = userEvent.setup();
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const { container, unmount } = render(
       <Toggle
         onChange={onChangeMock}
@@ -92,7 +93,7 @@ describe('<Toggle />', () => {
 
   it('should not handle change if toggle is disabled', () => {
     const user = userEvent.setup();
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const { container, unmount } = render(
       <Toggle
         onChange={onChangeMock}

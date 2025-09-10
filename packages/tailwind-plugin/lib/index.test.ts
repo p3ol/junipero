@@ -1,3 +1,5 @@
+// @vitest-environment node
+
 import { generate } from '../tests/utils';
 import plugin from './index';
 

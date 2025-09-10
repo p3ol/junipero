@@ -177,7 +177,9 @@ export function mergeDeep<T = any, U = any, V = any, W = any, X = any> (
   source4?: X,
   ...sources: any[]
 ): T & U & V & W & X {
-  const allSources = [source, source2, source3, source4, ...sources];
+  const allSources = [
+    source, source2 ?? [], source3 ?? [], source4 ?? [], ...sources,
+  ];
 
   return isArray(target)
     ? (target as any).concat(...allSources)

@@ -1,4 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import Button from './';
 
@@ -10,7 +11,7 @@ describe('<Button />', () => {
   });
 
   it('should fire onClick event', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container, unmount } = render(
       <Button onClick={onClick}>Click me</Button>
     );
@@ -20,7 +21,7 @@ describe('<Button />', () => {
   });
 
   it('should not fire onClick event when button is disabled', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container, unmount } = render(
       <Button tag="a" disabled onClick={onClick}>Click me</Button>
     );

@@ -1,11 +1,11 @@
 global.ResizeObserver = class ResizeObserver {
-  observe () {
+  observe (): void {
     return void 0;
   }
-  unobserve () {
+  unobserve (): void {
     return void 0;
   }
-  disconnect () {
+  disconnect (): void {
     return void 0;
   }
 };

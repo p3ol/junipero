@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Alert /> should be auto dismissable 1`] = `
+exports[`<Alert /> > should be auto dismissable 1`] = `
 <div>
   <div
     class="junipero alerts"
@@ -44,7 +44,7 @@ exports[`<Alert /> should be auto dismissable 1`] = `
 </div>
 `;
 
-exports[`<Alert /> should be auto dismissable 2`] = `
+exports[`<Alert /> > should be auto dismissable 2`] = `
 <div>
   <div
     class="junipero alerts"

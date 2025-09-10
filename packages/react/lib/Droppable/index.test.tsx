@@ -1,11 +1,12 @@
 import { createEvent, fireEvent, render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import Droppable from '.';
 
 describe('<Droppable />', () => {
   it('should render', () => {
-    const onDragOver = jest.fn();
-    const onDragLeave = jest.fn();
+    const onDragOver = vi.fn();
+    const onDragLeave = vi.fn();
     const { container, unmount } = render(
       <Droppable onDragOver={onDragOver} onDragLeave={onDragLeave}>
         <p>hello</p>
@@ -35,7 +36,7 @@ describe('<Droppable />', () => {
   });
 
   it('should trigger onDrop event when drop', () => {
-    const onDrop = jest.fn();
+    const onDrop = vi.fn();
     const { container, unmount } = render(
       <Droppable onDrop={onDrop}><p>hello</p></Droppable>
     );
@@ -56,9 +57,9 @@ describe('<Droppable />', () => {
   });
 
   it('should not trigger anything when disabled', () => {
-    const onDrop = jest.fn();
-    const onDragOver = jest.fn();
-    const onDragLeave = jest.fn();
+    const onDrop = vi.fn();
+    const onDragOver = vi.fn();
+    const onDragLeave = vi.fn();
     const { container, unmount } = render(
       <Droppable
         onDrop={onDrop}

@@ -1,9 +1,9 @@
 import { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
-import { blur, reset } from '~tests-utils';
-
+import { blur, reset } from '../../tests/utils';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
@@ -33,7 +33,7 @@ describe('<TextField />', () => {
     unmount();
   });
   it('should return number if type is number', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <TextField
@@ -75,7 +75,7 @@ describe('<TextField />', () => {
   it('should allow to reset the field', async () => {
     const user = userEvent.setup();
     const ref = createRef<TextFieldRef>();
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { unmount, container } = render(
       <TextField ref={ref} value="John" onChange={onChange} />
     );
@@ -97,7 +97,7 @@ describe('<TextField />', () => {
 
   it('should not allow to change value when disabled', async () => {
     const user = userEvent.setup();
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { unmount, container } = render(
       <TextField onChange={onChange} disabled />
     );
@@ -133,7 +133,7 @@ describe('<TextField />', () => {
 
   it('should do the given action on scroll if onWheel is set', async () => {
     const user = userEvent.setup();
-    const customWheel = jest.fn();
+    const customWheel = vi.fn();
     const { unmount, container } = render(
       <TextField type="number" onWheel={customWheel} />
     );

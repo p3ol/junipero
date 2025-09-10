@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<ModalControl /> should should allow to control a modal from another component: Closed 1`] = `
+exports[`<ModalControl /> > should should allow to control a modal from another component > Closed 1`] = `
 <div>
   <div
     class="container"
@@ -12,7 +12,7 @@ exports[`<ModalControl /> should should allow to control a modal from another co
 </div>
 `;
 
-exports[`<ModalControl /> should should allow to control a modal from another component: Opened 1`] = `
+exports[`<ModalControl /> > should should allow to control a modal from another component > Opened 1`] = `
 <div>
   <div
     class="container"

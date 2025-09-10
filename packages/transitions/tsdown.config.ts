@@ -1,10 +1,12 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
+
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig([
   {
     entry: ['./lib/index.tsx'],
     outDir: 'dist',
-    banner: {},
+    target: pkg.targets,
     format: ['cjs', 'esm'],
     external: [
       'react',
@@ -12,5 +14,6 @@ export default defineConfig([
       '@junipero/react',
     ],
     sourcemap: true,
+    dts: false,
   },
 ]);

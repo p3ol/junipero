@@ -1,4 +1,5 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import Calendar from '.';
@@ -37,7 +38,7 @@ describe('<Calendar />', () => {
   it('should not let you pick a disabled date', () => {
     const day = new Date(2019, 11, 16);
     const nextDay = new Date(2019, 11, 17);
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const { container, getByText, unmount } = render(
       <Calendar min={day} active={nextDay} onSelect={onSelect} />
     );

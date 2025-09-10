@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Stepper /> should display a different icon per step 1`] = `
+exports[`<Stepper /> > should display a different icon per step 1`] = `
 <div>
   <div>
     <div
@@ -80,7 +80,7 @@ exports[`<Stepper /> should display a different icon per step 1`] = `
 </div>
 `;
 
-exports[`<Stepper /> should render step children with each status 1`] = `
+exports[`<Stepper /> > should render step children with each status 1`] = `
 <div>
   <div>
     <div
@@ -171,7 +171,7 @@ exports[`<Stepper /> should render step children with each status 1`] = `
 </div>
 `;
 
-exports[`<Stepper /> should render steps prop with each status 1`] = `
+exports[`<Stepper /> > should render steps prop with each status 1`] = `
 <div>
   <div>
     <div

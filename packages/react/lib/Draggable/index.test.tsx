@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
+import { vi } from 'vitest';
 
-import { sleep } from '~tests-utils';
-
+import { sleep } from '../../tests/utils';
 import Draggable from './index';
 
 describe('<Draggable />', () => {
@@ -18,9 +18,9 @@ describe('<Draggable />', () => {
   });
 
   it('should trigger onDragStart props when drag start', () => {
-    const onDragStart = jest.fn();
-    const onDrag = jest.fn();
-    const onDragEnd = jest.fn();
+    const onDragStart = vi.fn();
+    const onDrag = vi.fn();
+    const onDragEnd = vi.fn();
     const { container, unmount } = render(
       <Draggable
         onDrag={onDrag}
@@ -41,9 +41,9 @@ describe('<Draggable />', () => {
   });
 
   it('should not trigger anything when disabled', () => {
-    const onDragStart = jest.fn();
-    const onDrag = jest.fn();
-    const onDragEnd = jest.fn();
+    const onDragStart = vi.fn();
+    const onDrag = vi.fn();
+    const onDragEnd = vi.fn();
     const { container, unmount } = render(
       <Draggable
         disabled={true}

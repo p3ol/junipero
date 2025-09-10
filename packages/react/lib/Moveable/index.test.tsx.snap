@@ -1,17 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Moveable /> should render a moveable 1`] = `
-<div>
-  <div
-    class="junipero moveable"
-    style="transform: translate3d(0px, 0px, 0);"
-  >
-    Content
-  </div>
-</div>
-`;
-
-exports[`<Moveable /> should render a moveable: moveable moved 1`] = `
+exports[`<Moveable /> > should render a moveable > moveable moved 1`] = `
 <div>
   <div
     class="junipero moveable"
@@ -22,10 +11,21 @@ exports[`<Moveable /> should render a moveable: moveable moved 1`] = `
 </div>
 `;
 
-exports[`<Moveable /> should render a moveable: moving 1`] = `
+exports[`<Moveable /> > should render a moveable > moving 1`] = `
 <div>
   <div
     class="junipero moveable moving"
+    style="transform: translate3d(0px, 0px, 0);"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`<Moveable /> > should render a moveable 1`] = `
+<div>
+  <div
+    class="junipero moveable"
     style="transform: translate3d(0px, 0px, 0);"
   >
     Content

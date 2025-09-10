@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<ColorField /> should render 1`] = `
+exports[`<ColorField /> > should render 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field pristine valid"
@@ -91,7 +91,7 @@ exports[`<ColorField /> should render 1`] = `
 </div>
 `;
 
-exports[`<ColorField /> should update values when mouse is down and alpha handle is selected: alpha handle moving 1`] = `
+exports[`<ColorField /> > should update values when mouse is down and alpha handle is selected > alpha handle moving 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
@@ -183,7 +183,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
 </div>
 `;
 
-exports[`<ColorField /> should update values when mouse is down and alpha handle is selected: color selected 1`] = `
+exports[`<ColorField /> > should update values when mouse is down and alpha handle is selected > color selected 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
@@ -275,7 +275,7 @@ exports[`<ColorField /> should update values when mouse is down and alpha handle
 </div>
 `;
 
-exports[`<ColorField /> should update values when mouse is down and hue handle is selected: color selected 1`] = `
+exports[`<ColorField /> > should update values when mouse is down and hue handle is selected > color selected 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
@@ -367,7 +367,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
 </div>
 `;
 
-exports[`<ColorField /> should update values when mouse is down and hue handle is selected: hue handle moving 1`] = `
+exports[`<ColorField /> > should update values when mouse is down and hue handle is selected > hue handle moving 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
@@ -459,7 +459,7 @@ exports[`<ColorField /> should update values when mouse is down and hue handle i
 </div>
 `;
 
-exports[`<ColorField /> should update values when mouse is down and lightness handle is selected: color selected 1`] = `
+exports[`<ColorField /> > should update values when mouse is down and lightness handle is selected > color selected 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
@@ -551,7 +551,7 @@ exports[`<ColorField /> should update values when mouse is down and lightness ha
 </div>
 `;
 
-exports[`<ColorField /> should update values when mouse is down and lightness handle is selected: lightness handle moving 1`] = `
+exports[`<ColorField /> > should update values when mouse is down and lightness handle is selected > lightness handle moving 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"

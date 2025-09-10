@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import { vi } from 'vitest';
 import { classNames } from '@junipero/core';
 
 import {
@@ -54,27 +55,27 @@ describe('useEventListener(name, listener, target)', () => {
 
 describe('useInterval(cb, time, changes)', () => {
   it('should execute task each given amount of ms', () => {
-    jest.useFakeTimers();
-    const onInterval = jest.fn();
+    vi.useFakeTimers();
+    const onInterval = vi.fn();
     const { unmount } = render(<TestComponent onInterval={onInterval} />);
-    jest.advanceTimersByTime(2000);
+    vi.advanceTimersByTime(2000);
     expect(onInterval).toHaveBeenCalledTimes(4);
     unmount();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 });
 
 describe('useTimeout(listener, time, changes)', () => {
   it('should allow to execute a task after a given amount of ms', () => {
-    jest.useFakeTimers();
-    const onTimeout = jest.fn();
+    vi.useFakeTimers();
+    const onTimeout = vi.fn();
     const { unmount } = render(<TestComponent onTimeout={onTimeout} />);
-    jest.runAllTimers();
+    vi.runAllTimers();
     expect(onTimeout).toHaveBeenCalled();
     unmount();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 });
 
@@ -101,7 +102,7 @@ const EffectsTestComponent = (
 
 describe('useEffectAfterMount(cb, changes)', () => {
   it('should execute task after mount', () => {
-    const onEffect = jest.fn();
+    const onEffect = vi.fn();
     const { unmount, rerender } = render(
       <EffectsTestComponent enabled={false} onEffect={onEffect} />
     );
@@ -113,7 +114,7 @@ describe('useEffectAfterMount(cb, changes)', () => {
 
 describe('useLayoutEffectAfterMount(cb, changes)', () => {
   it('should execute task after mount', () => {
-    const onLayoutEffect = jest.fn();
+    const onLayoutEffect = vi.fn();
     const { unmount, rerender } = render(
       <EffectsTestComponent enabled={false} onLayoutEffect={onLayoutEffect} />
     );

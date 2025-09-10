@@ -1,6 +1,7 @@
+import type { ReactNode } from 'react';
 import { act, fireEvent, render, renderHook } from '@testing-library/react';
+import { vi } from 'vitest';
 import { slideInDownMenu } from '@junipero/transitions';
-import { ReactNode } from 'react';
 
 import { useDropdown } from '../hooks';
 import DropdownToggle from '../DropdownToggle';
@@ -137,7 +138,7 @@ describe('useDropdwon()', () => {
   });
 
   it('should open and close dropdown', () => {
-    const toggleMock = jest.fn();
+    const toggleMock = vi.fn();
 
     const wrapper = (
       { children }: { children: ReactNode }
@@ -173,7 +174,7 @@ describe('useDropdwon()', () => {
   });
 
   it('should not open and close dropdown if disabled', () => {
-    const toggleMock = jest.fn();
+    const toggleMock = vi.fn();
 
     const wrapper = (
       { children }: { children: ReactNode }
@@ -198,7 +199,7 @@ describe('useDropdwon()', () => {
   });
 
   it('should allow to animate dropdown', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { getByText, container, unmount } = render(
       <Dropdown>
         <DropdownToggle><span>Click me</span></DropdownToggle>
@@ -211,20 +212,20 @@ describe('useDropdwon()', () => {
 
     // Enter
     fireEvent.click(getByText('Click me'));
-    act(() => { jest.advanceTimersByTime(100); });
+    act(() => { vi.advanceTimersByTime(100); });
     expect(container).toMatchSnapshot('Enter: In dom');
 
     // Exit
     fireEvent.click(getByText('Click me'));
-    act(() => { jest.advanceTimersByTime(100); });
+    act(() => { vi.advanceTimersByTime(100); });
     expect(container).toMatchSnapshot('Exit: Not in dom');
 
-    jest.useRealTimers();
+    vi.useRealTimers();
     unmount();
   });
 
   it('should keep the menu in dom when animated and apparition is css', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { getByText, container, unmount } = render(
       <Dropdown>
         <DropdownToggle><span>Click me</span></DropdownToggle>
@@ -237,15 +238,15 @@ describe('useDropdwon()', () => {
 
     // Enter
     fireEvent.click(getByText('Click me'));
-    act(() => { jest.advanceTimersByTime(100); });
+    act(() => { vi.advanceTimersByTime(100); });
     expect(container).toMatchSnapshot('Enter: Still in dom');
 
     // Exit
     fireEvent.click(getByText('Click me'));
-    act(() => { jest.advanceTimersByTime(100); });
+    act(() => { vi.advanceTimersByTime(100); });
     expect(container).toMatchSnapshot('Exit: Still in dom');
 
-    jest.useRealTimers();
+    vi.useRealTimers();
     unmount();
   });
 });

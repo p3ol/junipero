@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Toggle /> should handle change event with space and enter when focused: checked 1`] = `
+exports[`<Toggle /> > should handle change event > checked 1`] = `
 <div>
   <label
     class="junipero toggle-field checked"
@@ -27,7 +27,7 @@ exports[`<Toggle /> should handle change event with space and enter when focused
 </div>
 `;
 
-exports[`<Toggle /> should handle change event with space and enter when focused: unChecked 1`] = `
+exports[`<Toggle /> > should handle change event > unChecked 1`] = `
 <div>
   <label
     class="junipero toggle-field"
@@ -54,34 +54,7 @@ exports[`<Toggle /> should handle change event with space and enter when focused
 </div>
 `;
 
-exports[`<Toggle /> should handle change event with space and enter when focused: unchecked 1`] = `
-<div>
-  <label
-    class="junipero toggle-field"
-    tabindex="1"
-  >
-    <input
-      tabindex="-1"
-      type="checkbox"
-      value="my_value"
-    />
-    <div
-      class="inner"
-    >
-      <div
-        class="handle"
-      />
-    </div>
-    <div
-      class="label"
-    >
-      label
-    </div>
-  </label>
-</div>
-`;
-
-exports[`<Toggle /> should handle change event: checked 1`] = `
+exports[`<Toggle /> > should handle change event with space and enter when focused > checked 1`] = `
 <div>
   <label
     class="junipero toggle-field checked"
@@ -108,7 +81,7 @@ exports[`<Toggle /> should handle change event: checked 1`] = `
 </div>
 `;
 
-exports[`<Toggle /> should handle change event: unChecked 1`] = `
+exports[`<Toggle /> > should handle change event with space and enter when focused > unChecked 1`] = `
 <div>
   <label
     class="junipero toggle-field"
@@ -135,7 +108,34 @@ exports[`<Toggle /> should handle change event: unChecked 1`] = `
 </div>
 `;
 
-exports[`<Toggle /> should not handle change if toggle is disabled: unChecked 1`] = `
+exports[`<Toggle /> > should handle change event with space and enter when focused > unchecked 1`] = `
+<div>
+  <label
+    class="junipero toggle-field"
+    tabindex="1"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value="my_value"
+    />
+    <div
+      class="inner"
+    >
+      <div
+        class="handle"
+      />
+    </div>
+    <div
+      class="label"
+    >
+      label
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<Toggle /> > should not handle change if toggle is disabled > unChecked 1`] = `
 <div>
   <label
     class="junipero toggle-field disabled"
@@ -163,7 +163,7 @@ exports[`<Toggle /> should not handle change if toggle is disabled: unChecked 1`
 </div>
 `;
 
-exports[`<Toggle /> should not handle change if toggle is disabled: unchecked 1`] = `
+exports[`<Toggle /> > should not handle change if toggle is disabled > unchecked 1`] = `
 <div>
   <label
     class="junipero toggle-field disabled"
@@ -191,7 +191,7 @@ exports[`<Toggle /> should not handle change if toggle is disabled: unchecked 1`
 </div>
 `;
 
-exports[`<Toggle /> should render 1`] = `
+exports[`<Toggle /> > should render 1`] = `
 <div>
   <label
     class="junipero toggle-field"
@@ -212,7 +212,7 @@ exports[`<Toggle /> should render 1`] = `
 </div>
 `;
 
-exports[`<Toggle /> should render with children 1`] = `
+exports[`<Toggle /> > should render with children 1`] = `
 <div>
   <label
     class="junipero toggle-field"
@@ -238,7 +238,7 @@ exports[`<Toggle /> should render with children 1`] = `
 </div>
 `;
 
-exports[`<Toggle /> should set disabled class if toggle is disabled 1`] = `
+exports[`<Toggle /> > should set disabled class if toggle is disabled 1`] = `
 <div>
   <label
     class="junipero toggle-field disabled"

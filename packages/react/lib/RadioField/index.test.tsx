@@ -1,4 +1,5 @@
 import { act, render, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import RadioField from '.';
@@ -35,7 +36,7 @@ describe('<RadioField />', () => {
   });
 
   it('should toggle check if a radio is clicked', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <RadioField
@@ -59,7 +60,7 @@ describe('<RadioField />', () => {
 
   it('should trigger onChange when user hit enter ' +
   'and radio is focused', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <RadioField
@@ -85,7 +86,7 @@ describe('<RadioField />', () => {
 
   it('should trigger onChange when user hit space ' +
   'and radio is focused', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <RadioField
@@ -111,7 +112,7 @@ describe('<RadioField />', () => {
 
   it('should not trigger onChange if ' +
   'a radio is clicked but its disabled', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <RadioField
@@ -136,7 +137,7 @@ describe('<RadioField />', () => {
 
   it('should not trigger onChange if ' +
   'a radio if just this option is disabled', () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <RadioField
@@ -170,9 +171,9 @@ describe('<RadioField />', () => {
   });
 
   it('should set error state if onValidate function fails', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
-    const onValidateMock = jest.fn().mockImplementation(
+    const onValidateMock = vi.fn().mockImplementation(
       (val, { dirty }) => val !== 'orange' || !dirty
     );
     const { unmount, container } = render(
@@ -199,7 +200,7 @@ describe('<RadioField />', () => {
   });
 
   it('should use custom onValidate function if provided', async () => {
-    const mockOnValidate = jest.fn().mockImplementation(() => true);
+    const mockOnValidate = vi.fn().mockImplementation(() => true);
     const user = userEvent.setup();
 
     const options = [{
@@ -232,13 +233,13 @@ describe('<RadioField />', () => {
       customTitle: 'Delicious peach',
       customDescription: 'this is a delicious peach',
     }];
-    const mockParseTitle = jest.fn().mockImplementation(
+    const mockParseTitle = vi.fn().mockImplementation(
       option => option.customTitle
     );
-    const mockParseValue = jest.fn().mockImplementation(
+    const mockParseValue = vi.fn().mockImplementation(
       option => option.cutomValue ?? option
     );
-    const mockParseDescription = jest.fn().mockImplementation(
+    const mockParseDescription = vi.fn().mockImplementation(
       option => option.customDescription
     );
     const { unmount, container } = render(
@@ -266,7 +267,7 @@ describe('<RadioField />', () => {
       customTitle: 'Delicious peach',
       customDescription: 'this is a delicious peach',
     }];
-    const mockParseDescription = jest.fn().mockImplementation(
+    const mockParseDescription = vi.fn().mockImplementation(
       () => ''
     );
 

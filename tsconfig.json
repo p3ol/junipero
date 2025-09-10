@@ -23,10 +23,12 @@
   "include": [
     "packages/**/*",
     "*.ts",
-    ".storybook/**/*",
+    ".ci/**/*.ts",
+    ".storybook/*.ts",
   ],
   "exclude": [
     "**/dist/*",
+    ".turbo",
     "node_modules/**/*",
   ]
 }
