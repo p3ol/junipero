@@ -305,8 +305,9 @@ const SelectField = forwardRef(({
         ref={dropdownRef}
         onKeyDown={onKeyDown}
       >
-        <DropdownToggle trigger="manual" href={null} tag="div">
+        <DropdownToggle id={toggleId} trigger="manual" href={null} tag="div">
           <BaseField
+            id={fieldId}
             ref={fieldRef}
             disabled={disabled}
             placeholder={placeholder}
