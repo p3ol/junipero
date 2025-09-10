@@ -7,6 +7,9 @@ export default defineConfig({
     include: ['**/*.test.ts?(x)'],
     environment: 'jsdom',
     globals: true,
+    env: {
+      TZ: 'UTC',
+    },
     resolveSnapshotPath: (testPath: string, snapExtension: string) =>
       testPath + snapExtension,
     coverage: {
