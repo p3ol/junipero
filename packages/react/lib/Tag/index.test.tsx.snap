@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Tag /> should be deletable 1`] = `
+exports[`<Tag /> > should be deletable 1`] = `
 <div>
   <span
     class="junipero tag"
@@ -65,7 +65,7 @@ exports[`<Tag /> should be deletable 1`] = `
 </div>
 `;
 
-exports[`<Tag /> should be deletable 2`] = `
+exports[`<Tag /> > should be deletable 2`] = `
 <div>
   <span
     class="junipero tag"
@@ -130,7 +130,7 @@ exports[`<Tag /> should be deletable 2`] = `
 </div>
 `;
 
-exports[`<Tag /> should render 1`] = `
+exports[`<Tag /> > should render 1`] = `
 <div>
   <span
     class="junipero tag"

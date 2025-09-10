@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<RadioField /> should add box if boxed class has been passed to Radio 1`] = `
+exports[`<RadioField /> > should add box if boxed class has been passed to Radio 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid boxed"
@@ -54,7 +54,7 @@ exports[`<RadioField /> should add box if boxed class has been passed to Radio 1
 </div>
 `;
 
-exports[`<RadioField /> should change options if options props change accross the time: firm options 1`] = `
+exports[`<RadioField /> > should change options if options props change accross the time > firm options 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -151,7 +151,7 @@ exports[`<RadioField /> should change options if options props change accross th
 </div>
 `;
 
-exports[`<RadioField /> should change options if options props change accross the time: fruits options 1`] = `
+exports[`<RadioField /> > should change options if options props change accross the time > fruits options 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -226,7 +226,7 @@ exports[`<RadioField /> should change options if options props change accross th
 </div>
 `;
 
-exports[`<RadioField /> should change value if value prop change accross the time: orange checked 1`] = `
+exports[`<RadioField /> > should change value if value prop change accross the time > orange checked 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -302,7 +302,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
 </div>
 `;
 
-exports[`<RadioField /> should change value if value prop change accross the time: peach checked 1`] = `
+exports[`<RadioField /> > should change value if value prop change accross the time > peach checked 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -378,7 +378,7 @@ exports[`<RadioField /> should change value if value prop change accross the tim
 </div>
 `;
 
-exports[`<RadioField /> should check if provided value is in options 1`] = `
+exports[`<RadioField /> > should check if provided value is in options 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -432,7 +432,7 @@ exports[`<RadioField /> should check if provided value is in options 1`] = `
 </div>
 `;
 
-exports[`<RadioField /> should not display description if parseDescription return empty string 1`] = `
+exports[`<RadioField /> > should not display description if parseDescription return empty string 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -463,7 +463,7 @@ exports[`<RadioField /> should not display description if parseDescription retur
 </div>
 `;
 
-exports[`<RadioField /> should not trigger onChange if a radio if just this option is disabled: option 1 checked 1`] = `
+exports[`<RadioField /> > should not trigger onChange if a radio if just this option is disabled > option 1 checked 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -517,7 +517,7 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
 </div>
 `;
 
-exports[`<RadioField /> should not trigger onChange if a radio if just this option is disabled: option 1 checked again 1`] = `
+exports[`<RadioField /> > should not trigger onChange if a radio if just this option is disabled > option 1 checked again 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -571,7 +571,7 @@ exports[`<RadioField /> should not trigger onChange if a radio if just this opti
 </div>
 `;
 
-exports[`<RadioField /> should not trigger onChange if a radio is clicked but its disabled: option 1 checked 1`] = `
+exports[`<RadioField /> > should not trigger onChange if a radio is clicked but its disabled > option 1 checked 1`] = `
 <div>
   <div
     class="junipero radio-field disabled pristine valid"
@@ -625,7 +625,7 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
 </div>
 `;
 
-exports[`<RadioField /> should not trigger onChange if a radio is clicked but its disabled: option 1 checked again 1`] = `
+exports[`<RadioField /> > should not trigger onChange if a radio is clicked but its disabled > option 1 checked again 1`] = `
 <div>
   <div
     class="junipero radio-field disabled pristine valid"
@@ -679,7 +679,7 @@ exports[`<RadioField /> should not trigger onChange if a radio is clicked but it
 </div>
 `;
 
-exports[`<RadioField /> should render 1`] = `
+exports[`<RadioField /> > should render 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -687,7 +687,7 @@ exports[`<RadioField /> should render 1`] = `
 </div>
 `;
 
-exports[`<RadioField /> should render as many options as provided 1`] = `
+exports[`<RadioField /> > should render as many options as provided 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -784,7 +784,7 @@ exports[`<RadioField /> should render as many options as provided 1`] = `
 </div>
 `;
 
-exports[`<RadioField /> should set error state if onValidate function fails: invalid 1`] = `
+exports[`<RadioField /> > should set error state if onValidate function fails > invalid 1`] = `
 <div>
   <div
     class="junipero radio-field dirty invalid"
@@ -838,7 +838,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: inv
 </div>
 `;
 
-exports[`<RadioField /> should set error state if onValidate function fails: option 1 checked 1`] = `
+exports[`<RadioField /> > should set error state if onValidate function fails > option 1 checked 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -892,7 +892,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: opt
 </div>
 `;
 
-exports[`<RadioField /> should set error state if onValidate function fails: valid 1`] = `
+exports[`<RadioField /> > should set error state if onValidate function fails > valid 1`] = `
 <div>
   <div
     class="junipero radio-field dirty valid"
@@ -946,7 +946,7 @@ exports[`<RadioField /> should set error state if onValidate function fails: val
 </div>
 `;
 
-exports[`<RadioField /> should toggle check if a radio is clicked: option 1 checked 1`] = `
+exports[`<RadioField /> > should toggle check if a radio is clicked > option 1 checked 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -1000,7 +1000,7 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 1 chec
 </div>
 `;
 
-exports[`<RadioField /> should toggle check if a radio is clicked: option 2 checked 1`] = `
+exports[`<RadioField /> > should toggle check if a radio is clicked > option 2 checked 1`] = `
 <div>
   <div
     class="junipero radio-field dirty valid"
@@ -1054,7 +1054,7 @@ exports[`<RadioField /> should toggle check if a radio is clicked: option 2 chec
 </div>
 `;
 
-exports[`<RadioField /> should trigger onChange when user hit enter and radio is focused: option 1 checked 1`] = `
+exports[`<RadioField /> > should trigger onChange when user hit enter and radio is focused > option 1 checked 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -1108,7 +1108,7 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
 </div>
 `;
 
-exports[`<RadioField /> should trigger onChange when user hit enter and radio is focused: option 2 checked 1`] = `
+exports[`<RadioField /> > should trigger onChange when user hit enter and radio is focused > option 2 checked 1`] = `
 <div>
   <div
     class="junipero radio-field dirty valid"
@@ -1162,7 +1162,7 @@ exports[`<RadioField /> should trigger onChange when user hit enter and radio is
 </div>
 `;
 
-exports[`<RadioField /> should trigger onChange when user hit space and radio is focused: option 1 checked 1`] = `
+exports[`<RadioField /> > should trigger onChange when user hit space and radio is focused > option 1 checked 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"
@@ -1216,7 +1216,7 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
 </div>
 `;
 
-exports[`<RadioField /> should trigger onChange when user hit space and radio is focused: option 2 checked 1`] = `
+exports[`<RadioField /> > should trigger onChange when user hit space and radio is focused > option 2 checked 1`] = `
 <div>
   <div
     class="junipero radio-field dirty valid"
@@ -1270,7 +1270,7 @@ exports[`<RadioField /> should trigger onChange when user hit space and radio is
 </div>
 `;
 
-exports[`<RadioField /> should use given parse title, description and value if function are provided 1`] = `
+exports[`<RadioField /> > should use given parse title, description and value if function are provided 1`] = `
 <div>
   <div
     class="junipero radio-field pristine valid"

@@ -1,11 +1,12 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import DateField from '.';
 
 describe('<DateField />', () => {
   it('should render', () => {
-    const onToggle = jest.fn();
+    const onToggle = vi.fn();
     const { container, unmount } = render(
       <DateField
         value={new Date(2019, 1, 1)}

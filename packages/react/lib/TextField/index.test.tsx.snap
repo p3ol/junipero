@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<TextField /> should allow to be used with a FieldControl 1`] = `
+exports[`<TextField /> > should allow to be used with a FieldControl 1`] = `
 <div>
   <label
     class="junipero label invalid"
@@ -27,7 +27,7 @@ exports[`<TextField /> should allow to be used with a FieldControl 1`] = `
 </div>
 `;
 
-exports[`<TextField /> should allow to reset the field 1`] = `
+exports[`<TextField /> > should allow to reset the field 1`] = `
 <div>
   <div
     class="junipero text-field dirty valid"
@@ -41,7 +41,7 @@ exports[`<TextField /> should allow to reset the field 1`] = `
 </div>
 `;
 
-exports[`<TextField /> should allow to reset the field 2`] = `
+exports[`<TextField /> > should allow to reset the field 2`] = `
 <div>
   <div
     class="junipero text-field pristine valid"
@@ -55,7 +55,7 @@ exports[`<TextField /> should allow to reset the field 2`] = `
 </div>
 `;
 
-exports[`<TextField /> should be invalid if validation fails 1`] = `
+exports[`<TextField /> > should be invalid if validation fails 1`] = `
 <div>
   <div
     class="junipero text-field dirty invalid"
@@ -70,7 +70,7 @@ exports[`<TextField /> should be invalid if validation fails 1`] = `
 </div>
 `;
 
-exports[`<TextField /> should blur on scroll: focused 1`] = `
+exports[`<TextField /> > should blur on scroll > focused 1`] = `
 <div>
   <div
     class="junipero text-field pristine valid empty focused"
@@ -84,7 +84,7 @@ exports[`<TextField /> should blur on scroll: focused 1`] = `
 </div>
 `;
 
-exports[`<TextField /> should blur on scroll: unfocused 1`] = `
+exports[`<TextField /> > should blur on scroll > unfocused 1`] = `
 <div>
   <div
     class="junipero text-field pristine valid empty"
@@ -98,7 +98,7 @@ exports[`<TextField /> should blur on scroll: unfocused 1`] = `
 </div>
 `;
 
-exports[`<TextField /> should do the given action on scroll if onWheel is set: always focused 1`] = `
+exports[`<TextField /> > should do the given action on scroll if onWheel is set > always focused 1`] = `
 <div>
   <div
     class="junipero text-field pristine valid empty focused"
@@ -112,7 +112,7 @@ exports[`<TextField /> should do the given action on scroll if onWheel is set: a
 </div>
 `;
 
-exports[`<TextField /> should do the given action on scroll if onWheel is set: focused 1`] = `
+exports[`<TextField /> > should do the given action on scroll if onWheel is set > focused 1`] = `
 <div>
   <div
     class="junipero text-field pristine valid empty focused"
@@ -126,7 +126,7 @@ exports[`<TextField /> should do the given action on scroll if onWheel is set: f
 </div>
 `;
 
-exports[`<TextField /> should not allow to change value when disabled 1`] = `
+exports[`<TextField /> > should not allow to change value when disabled 1`] = `
 <div>
   <div
     class="junipero text-field pristine valid empty disabled"
@@ -141,7 +141,7 @@ exports[`<TextField /> should not allow to change value when disabled 1`] = `
 </div>
 `;
 
-exports[`<TextField /> should render 1`] = `
+exports[`<TextField /> > should render 1`] = `
 <div>
   <div
     class="junipero text-field pristine valid empty"
@@ -156,7 +156,7 @@ exports[`<TextField /> should render 1`] = `
 </div>
 `;
 
-exports[`<TextField /> should render a textarea if rows is set to > 1 1`] = `
+exports[`<TextField /> > should render a textarea if rows is set to > 1 1`] = `
 <div>
   <div
     class="junipero text-field pristine valid empty"

@@ -1,4 +1,5 @@
 import { render, act, fireEvent } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import ToastsControl from '../ToastsControl';
 import Toasts from '../Toasts';
@@ -12,7 +13,7 @@ describe('<Toast />', () => {
   });
 
   it('should be auto dismissable', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const toast: ToastObject = { index: 1, content: 'Content', lifespan: 100 };
     const { container, unmount } = render(
       <ToastsControl toasts={[toast]}>
@@ -21,8 +22,8 @@ describe('<Toast />', () => {
     );
     expect(container).toMatchSnapshot();
 
-    await act(async () => Promise.resolve(jest.advanceTimersByTime(100)));
-    await act(async () => Promise.resolve(jest.advanceTimersByTime(1)));
+    await act(async () => Promise.resolve(vi.advanceTimersByTime(100)));
+    await act(async () => Promise.resolve(vi.advanceTimersByTime(1)));
     expect(container).toMatchSnapshot();
 
     unmount();

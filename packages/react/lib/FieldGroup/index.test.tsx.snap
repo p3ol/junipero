@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<FieldGroup /> should render a select field prefix 1`] = `
+exports[`<FieldGroup /> > should render a select field prefix 1`] = `
 <div>
   <div
     class="junipero field-group"
@@ -44,7 +44,7 @@ exports[`<FieldGroup /> should render a select field prefix 1`] = `
 </div>
 `;
 
-exports[`<FieldGroup /> should render a select field suffix 1`] = `
+exports[`<FieldGroup /> > should render a select field suffix 1`] = `
 <div>
   <div
     class="junipero field-group"
@@ -88,7 +88,7 @@ exports[`<FieldGroup /> should render a select field suffix 1`] = `
 </div>
 `;
 
-exports[`<FieldGroup /> should render a textfield prefix 1`] = `
+exports[`<FieldGroup /> > should render a textfield prefix 1`] = `
 <div>
   <div
     class="junipero field-group"
@@ -111,7 +111,7 @@ exports[`<FieldGroup /> should render a textfield prefix 1`] = `
 </div>
 `;
 
-exports[`<FieldGroup /> should render a textfield suffix 1`] = `
+exports[`<FieldGroup /> > should render a textfield suffix 1`] = `
 <div>
   <div
     class="junipero field-group"
@@ -134,7 +134,7 @@ exports[`<FieldGroup /> should render a textfield suffix 1`] = `
 </div>
 `;
 
-exports[`<FieldGroup /> should render a textfield with a prefix & a button suffix 1`] = `
+exports[`<FieldGroup /> > should render a textfield with a prefix & a button suffix 1`] = `
 <div>
   <div
     class="junipero field-group"
@@ -162,7 +162,7 @@ exports[`<FieldGroup /> should render a textfield with a prefix & a button suffi
 </div>
 `;
 
-exports[`<FieldGroup /> should render textfields with a center addon 1`] = `
+exports[`<FieldGroup /> > should render textfields with a center addon 1`] = `
 <div>
   <div
     class="junipero field-group"

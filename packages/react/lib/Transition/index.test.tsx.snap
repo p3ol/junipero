@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Transition /> should render correctly: Active 1`] = `
+exports[`<Transition /> > should render correctly > Active 1`] = `
 <div>
   <button>
     Toggle
@@ -13,7 +13,7 @@ exports[`<Transition /> should render correctly: Active 1`] = `
 </div>
 `;
 
-exports[`<Transition /> should render correctly: Active 2`] = `
+exports[`<Transition /> > should render correctly > Active 2`] = `
 <div>
   <button>
     Toggle
@@ -26,7 +26,7 @@ exports[`<Transition /> should render correctly: Active 2`] = `
 </div>
 `;
 
-exports[`<Transition /> should render correctly: Done 1`] = `
+exports[`<Transition /> > should render correctly > Done 1`] = `
 <div>
   <button>
     Toggle
@@ -39,7 +39,7 @@ exports[`<Transition /> should render correctly: Done 1`] = `
 </div>
 `;
 
-exports[`<Transition /> should render correctly: Done 2`] = `
+exports[`<Transition /> > should render correctly > Done 2`] = `
 <div>
   <button>
     Toggle
@@ -52,7 +52,7 @@ exports[`<Transition /> should render correctly: Done 2`] = `
 </div>
 `;
 
-exports[`<Transition /> should render correctly: Idle 1`] = `
+exports[`<Transition /> > should render correctly > Idle 1`] = `
 <div>
   <button>
     Toggle

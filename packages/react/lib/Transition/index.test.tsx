@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { fireEvent, render, act } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import Transition from '.';
 
 describe('<Transition />', () => {
   it('should render correctly', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const events = {
-      onEnter: jest.fn(),
-      onEntering: jest.fn(),
-      onEntered: jest.fn(),
-      onExit: jest.fn(),
-      onExiting: jest.fn(),
-      onExited: jest.fn(),
+      onEnter: vi.fn(),
+      onEntering: vi.fn(),
+      onEntered: vi.fn(),
+      onExit: vi.fn(),
+      onExiting: vi.fn(),
+      onExited: vi.fn(),
     };
 
     const Comp = () => {
@@ -39,20 +40,20 @@ describe('<Transition />', () => {
     // Enter
     fireEvent.click(container.querySelector('button'));
     expect(events.onEnter).toHaveBeenCalledTimes(1);
-    act(() => { jest.advanceTimersByTime(50); });
+    act(() => { vi.advanceTimersByTime(50); });
     expect(events.onEntering).toHaveBeenCalledTimes(1);
     expect(container).toMatchSnapshot('Active');
-    act(() => { jest.advanceTimersByTime(100); });
+    act(() => { vi.advanceTimersByTime(100); });
     expect(events.onEntered).toHaveBeenCalledTimes(1);
     expect(container).toMatchSnapshot('Done');
 
     // Exit
     fireEvent.click(container.querySelector('button'));
     expect(events.onExit).toHaveBeenCalledTimes(1);
-    act(() => { jest.advanceTimersByTime(50); });
+    act(() => { vi.advanceTimersByTime(50); });
     expect(events.onExiting).toHaveBeenCalledTimes(1);
     expect(container).toMatchSnapshot('Active');
-    act(() => { jest.advanceTimersByTime(100); });
+    act(() => { vi.advanceTimersByTime(100); });
     expect(events.onExited).toHaveBeenCalledTimes(1);
     expect(container).toMatchSnapshot('Done');
     unmount();

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Draggable /> should not trigger anything when disabled: dragging 1`] = `
+exports[`<Draggable /> > should not trigger anything when disabled > dragging 1`] = `
 <div>
   <p
     class=""
@@ -11,7 +11,7 @@ exports[`<Draggable /> should not trigger anything when disabled: dragging 1`] =
 </div>
 `;
 
-exports[`<Draggable /> should render: default 1`] = `
+exports[`<Draggable /> > should render > default 1`] = `
 <div>
   <p
     class="draggable"
@@ -22,7 +22,7 @@ exports[`<Draggable /> should render: default 1`] = `
 </div>
 `;
 
-exports[`<Draggable /> should render: default again 1`] = `
+exports[`<Draggable /> > should render > default again 1`] = `
 <div>
   <p
     class="draggable"
@@ -33,7 +33,7 @@ exports[`<Draggable /> should render: default again 1`] = `
 </div>
 `;
 
-exports[`<Draggable /> should render: dragged 1`] = `
+exports[`<Draggable /> > should render > dragged 1`] = `
 <div>
   <p
     class="dragged draggable"
@@ -44,7 +44,7 @@ exports[`<Draggable /> should render: dragged 1`] = `
 </div>
 `;
 
-exports[`<Draggable /> should render: dragging 1`] = `
+exports[`<Draggable /> > should render > dragging 1`] = `
 <div>
   <p
     class="dragging draggable"

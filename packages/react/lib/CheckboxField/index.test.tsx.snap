@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<CheckboxField /> should add value if provided 1`] = `
+exports[`<CheckboxField /> > should add value if provided 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid"
@@ -32,7 +32,7 @@ exports[`<CheckboxField /> should add value if provided 1`] = `
 </div>
 `;
 
-exports[`<CheckboxField /> should allow to render a controller checkbox: checked 1`] = `
+exports[`<CheckboxField /> > should allow to render a controller checkbox > checked 1`] = `
 <div>
   <button>
     Toggle
@@ -69,7 +69,7 @@ exports[`<CheckboxField /> should allow to render a controller checkbox: checked
 </div>
 `;
 
-exports[`<CheckboxField /> should allow to render a controller checkbox: unchecked 1`] = `
+exports[`<CheckboxField /> > should allow to render a controller checkbox > unchecked 1`] = `
 <div>
   <button>
     Toggle
@@ -106,7 +106,7 @@ exports[`<CheckboxField /> should allow to render a controller checkbox: uncheck
 </div>
 `;
 
-exports[`<CheckboxField /> should not trigger event and change state if user click but checkbox is disabled 1`] = `
+exports[`<CheckboxField /> > should not trigger event and change state if user click but checkbox is disabled 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid disabled"
@@ -138,7 +138,7 @@ exports[`<CheckboxField /> should not trigger event and change state if user cli
 </div>
 `;
 
-exports[`<CheckboxField /> should render 1`] = `
+exports[`<CheckboxField /> > should render 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid"
@@ -170,7 +170,7 @@ exports[`<CheckboxField /> should render 1`] = `
 </div>
 `;
 
-exports[`<CheckboxField /> should set checked if provided 1`] = `
+exports[`<CheckboxField /> > should set checked if provided 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid checked"
@@ -202,7 +202,7 @@ exports[`<CheckboxField /> should set checked if provided 1`] = `
 </div>
 `;
 
-exports[`<CheckboxField /> should set focused state on focus: focused 1`] = `
+exports[`<CheckboxField /> > should set focused state on focus > focused 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid"
@@ -234,7 +234,7 @@ exports[`<CheckboxField /> should set focused state on focus: focused 1`] = `
 </div>
 `;
 
-exports[`<CheckboxField /> should set focused state on focus: not focused 1`] = `
+exports[`<CheckboxField /> > should set focused state on focus > not focused 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid"
@@ -266,7 +266,7 @@ exports[`<CheckboxField /> should set focused state on focus: not focused 1`] = 
 </div>
 `;
 
-exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: invalid 1`] = `
+exports[`<CheckboxField /> > should set invalid state following custom onValidate function if provided > invalid 1`] = `
 <div>
   <label
     class="junipero checkbox-field dirty invalid checked"
@@ -298,7 +298,7 @@ exports[`<CheckboxField /> should set invalid state following custom onValidate 
 </div>
 `;
 
-exports[`<CheckboxField /> should set invalid state following custom onValidate function if provided: valid 1`] = `
+exports[`<CheckboxField /> > should set invalid state following custom onValidate function if provided > valid 1`] = `
 <div>
   <label
     class="junipero checkbox-field dirty valid"
@@ -330,7 +330,7 @@ exports[`<CheckboxField /> should set invalid state following custom onValidate 
 </div>
 `;
 
-exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: invalid 1`] = `
+exports[`<CheckboxField /> > should set invalid state if checkbox is invalid and required > invalid 1`] = `
 <div>
   <label
     class="junipero checkbox-field dirty invalid"
@@ -362,7 +362,7 @@ exports[`<CheckboxField /> should set invalid state if checkbox is invalid and r
 </div>
 `;
 
-exports[`<CheckboxField /> should set invalid state if checkbox is invalid and required: valid 1`] = `
+exports[`<CheckboxField /> > should set invalid state if checkbox is invalid and required > valid 1`] = `
 <div>
   <label
     class="junipero checkbox-field dirty valid checked"
@@ -394,7 +394,7 @@ exports[`<CheckboxField /> should set invalid state if checkbox is invalid and r
 </div>
 `;
 
-exports[`<CheckboxField /> should toggle active state on click: active 1`] = `
+exports[`<CheckboxField /> > should toggle active state on click > active 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid"
@@ -426,7 +426,7 @@ exports[`<CheckboxField /> should toggle active state on click: active 1`] = `
 </div>
 `;
 
-exports[`<CheckboxField /> should toggle active state on click: inactive 1`] = `
+exports[`<CheckboxField /> > should toggle active state on click > inactive 1`] = `
 <div>
   <label
     class="junipero checkbox-field pristine valid"
@@ -458,7 +458,7 @@ exports[`<CheckboxField /> should toggle active state on click: inactive 1`] = `
 </div>
 `;
 
-exports[`<CheckboxField /> should toggle check if checkbox is clicked: checked 1`] = `
+exports[`<CheckboxField /> > should toggle check if checkbox is clicked > checked 1`] = `
 <div>
   <label
     class="junipero checkbox-field dirty valid checked"
@@ -490,7 +490,7 @@ exports[`<CheckboxField /> should toggle check if checkbox is clicked: checked 1
 </div>
 `;
 
-exports[`<CheckboxField /> should toggle check if checkbox is clicked: unchecked 1`] = `
+exports[`<CheckboxField /> > should toggle check if checkbox is clicked > unchecked 1`] = `
 <div>
   <label
     class="junipero checkbox-field dirty valid"

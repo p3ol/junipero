@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<SelectField /> should add a value when focus out if allowArbitraryItems is true 1`] = `
+exports[`<SelectField /> > should add a value when focus out if allowArbitraryItems is true 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable multiple"
@@ -56,7 +56,7 @@ exports[`<SelectField /> should add a value when focus out if allowArbitraryItem
 </div>
 `;
 
-exports[`<SelectField /> should allow arbitrary values 1`] = `
+exports[`<SelectField /> > should allow arbitrary values 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused multiple"
@@ -125,7 +125,7 @@ exports[`<SelectField /> should allow arbitrary values 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to be used with a FieldControl 1`] = `
+exports[`<SelectField /> > should allow to be used with a FieldControl 1`] = `
 <div>
   <label
     class="junipero label invalid"
@@ -185,7 +185,7 @@ exports[`<SelectField /> should allow to be used with a FieldControl 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to clear a single value 1`] = `
+exports[`<SelectField /> > should allow to clear a single value 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable"
@@ -233,7 +233,7 @@ exports[`<SelectField /> should allow to clear a single value 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to clear a single value 2`] = `
+exports[`<SelectField /> > should allow to clear a single value 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable empty focused"
@@ -269,7 +269,7 @@ exports[`<SelectField /> should allow to clear a single value 2`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
+exports[`<SelectField /> > should allow to clear multiple values at once 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable focused multiple"
@@ -358,7 +358,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
+exports[`<SelectField /> > should allow to clear multiple values at once 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable empty focused multiple"
@@ -394,7 +394,7 @@ exports[`<SelectField /> should allow to clear multiple values at once 2`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to delete items when hitting backspace 1`] = `
+exports[`<SelectField /> > should allow to delete items when hitting backspace 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable focused multiple"
@@ -525,7 +525,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 1`]
 </div>
 `;
 
-exports[`<SelectField /> should allow to delete items when hitting backspace 2`] = `
+exports[`<SelectField /> > should allow to delete items when hitting backspace 2`] = `
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
@@ -636,229 +636,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 2`]
 </div>
 `;
 
-exports[`<SelectField /> should allow to delete items when hitting backspace 3`] = `
-<div>
-  <div
-    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
-  >
-    <div
-      class="field dropdown-toggle opened"
-    >
-      <span
-        class="junipero tag info"
-      >
-        <span>
-          Item 1
-        </span>
-        <svg
-          class="junipero icon remove"
-          height="10"
-          viewBox="0 0 9 10"
-          width="10"
-        >
-          <path
-            d="M8 1.5L1 8.5"
-          />
-          <path
-            d="M1 1.5L8 8.5"
-          />
-        </svg>
-      </span>
-      <span
-        class="junipero tag info selected"
-      >
-        <span>
-          Item 2
-        </span>
-        <svg
-          class="junipero icon remove"
-          height="10"
-          viewBox="0 0 9 10"
-          width="10"
-        >
-          <path
-            d="M8 1.5L1 8.5"
-          />
-          <path
-            d="M1 1.5L8 8.5"
-          />
-        </svg>
-      </span>
-      <input
-        placeholder="Name"
-        size="10"
-        type="text"
-        value=""
-      />
-      <div
-        class="icons"
-      >
-        <svg
-          class="junipero icon remove"
-          height="10"
-          viewBox="0 0 9 10"
-          width="10"
-        >
-          <path
-            d="M8 1.5L1 8.5"
-          />
-          <path
-            d="M1 1.5L8 8.5"
-          />
-        </svg>
-        <svg
-          class="junipero icon arrows"
-          height="13"
-          viewBox="0 0 8 13"
-          width="8"
-        >
-          <path
-            d="M1 4.5L4 1.5L7 4.5"
-          />
-          <path
-            d="M1 8.5L4 11.5L7 8.5"
-          />
-        </svg>
-      </div>
-    </div>
-    <div
-      class="junipero dropdown-menu select-menu"
-      data-floating-ui-focusable=""
-      style="position: fixed; top: 10px; left: 0px;"
-      tabindex="-1"
-    >
-      <ul
-        class="menu-inner"
-      >
-        <div
-          class="content"
-        >
-          <li
-            class="dropdown-item"
-          >
-            <a>
-              Item 3
-            </a>
-          </li>
-        </div>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<SelectField /> should allow to delete items when hitting backspace 4`] = `
-<div>
-  <div
-    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
-  >
-    <div
-      class="field dropdown-toggle opened"
-    >
-      <span
-        class="junipero tag info selected"
-      >
-        <span>
-          Item 1
-        </span>
-        <svg
-          class="junipero icon remove"
-          height="10"
-          viewBox="0 0 9 10"
-          width="10"
-        >
-          <path
-            d="M8 1.5L1 8.5"
-          />
-          <path
-            d="M1 1.5L8 8.5"
-          />
-        </svg>
-      </span>
-      <span
-        class="junipero tag info"
-      >
-        <span>
-          Item 2
-        </span>
-        <svg
-          class="junipero icon remove"
-          height="10"
-          viewBox="0 0 9 10"
-          width="10"
-        >
-          <path
-            d="M8 1.5L1 8.5"
-          />
-          <path
-            d="M1 1.5L8 8.5"
-          />
-        </svg>
-      </span>
-      <input
-        placeholder="Name"
-        size="10"
-        type="text"
-        value=""
-      />
-      <div
-        class="icons"
-      >
-        <svg
-          class="junipero icon remove"
-          height="10"
-          viewBox="0 0 9 10"
-          width="10"
-        >
-          <path
-            d="M8 1.5L1 8.5"
-          />
-          <path
-            d="M1 1.5L8 8.5"
-          />
-        </svg>
-        <svg
-          class="junipero icon arrows"
-          height="13"
-          viewBox="0 0 8 13"
-          width="8"
-        >
-          <path
-            d="M1 4.5L4 1.5L7 4.5"
-          />
-          <path
-            d="M1 8.5L4 11.5L7 8.5"
-          />
-        </svg>
-      </div>
-    </div>
-    <div
-      class="junipero dropdown-menu select-menu"
-      data-floating-ui-focusable=""
-      style="position: fixed; top: 10px; left: 0px;"
-      tabindex="-1"
-    >
-      <ul
-        class="menu-inner"
-      >
-        <div
-          class="content"
-        >
-          <li
-            class="dropdown-item"
-          >
-            <a>
-              Item 3
-            </a>
-          </li>
-        </div>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<SelectField /> should allow to delete items when hitting backspace 5`] = `
+exports[`<SelectField /> > should allow to delete items when hitting backspace 3`] = `
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
@@ -969,7 +747,229 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 5`]
 </div>
 `;
 
-exports[`<SelectField /> should allow to delete items when hitting backspace 6`] = `
+exports[`<SelectField /> > should allow to delete items when hitting backspace 4`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <span
+        class="junipero tag info selected"
+      >
+        <span>
+          Item 1
+        </span>
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </span>
+      <span
+        class="junipero tag info"
+      >
+        <span>
+          Item 2
+        </span>
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </span>
+      <input
+        placeholder="Name"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
+      style="position: fixed; top: 10px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> > should allow to delete items when hitting backspace 5`] = `
+<div>
+  <div
+    class="junipero dropdown opened select-field dirty valid searchable focused multiple"
+  >
+    <div
+      class="field dropdown-toggle opened"
+    >
+      <span
+        class="junipero tag info"
+      >
+        <span>
+          Item 1
+        </span>
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </span>
+      <span
+        class="junipero tag info selected"
+      >
+        <span>
+          Item 2
+        </span>
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </span>
+      <input
+        placeholder="Name"
+        size="10"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="junipero dropdown-menu select-menu"
+      data-floating-ui-focusable=""
+      style="position: fixed; top: 10px; left: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="menu-inner"
+      >
+        <div
+          class="content"
+        >
+          <li
+            class="dropdown-item"
+          >
+            <a>
+              Item 3
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SelectField /> > should allow to delete items when hitting backspace 6`] = `
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
@@ -1080,7 +1080,7 @@ exports[`<SelectField /> should allow to delete items when hitting backspace 6`]
 </div>
 `;
 
-exports[`<SelectField /> should allow to load more data on scroll: After scroll 1`] = `
+exports[`<SelectField /> > should allow to load more data on scroll > After scroll 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -1280,7 +1280,7 @@ exports[`<SelectField /> should allow to load more data on scroll: After scroll 
 </div>
 `;
 
-exports[`<SelectField /> should allow to load more data on scroll: Before scroll 1`] = `
+exports[`<SelectField /> > should allow to load more data on scroll > Before scroll 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -1404,7 +1404,7 @@ exports[`<SelectField /> should allow to load more data on scroll: Before scroll
 </div>
 `;
 
-exports[`<SelectField /> should allow to load more data on scroll: During scroll 1`] = `
+exports[`<SelectField /> > should allow to load more data on scroll > During scroll 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -1537,7 +1537,7 @@ exports[`<SelectField /> should allow to load more data on scroll: During scroll
 </div>
 `;
 
-exports[`<SelectField /> should allow to render without a placeholder 1`] = `
+exports[`<SelectField /> > should allow to render without a placeholder 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable empty"
@@ -1572,7 +1572,7 @@ exports[`<SelectField /> should allow to render without a placeholder 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to reset the field 1`] = `
+exports[`<SelectField /> > should allow to reset the field 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable"
@@ -1620,7 +1620,7 @@ exports[`<SelectField /> should allow to reset the field 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to reset the field 2`] = `
+exports[`<SelectField /> > should allow to reset the field 2`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable"
@@ -1668,7 +1668,7 @@ exports[`<SelectField /> should allow to reset the field 2`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to search for an existing value 1`] = `
+exports[`<SelectField /> > should allow to search for an existing value 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -1726,7 +1726,7 @@ exports[`<SelectField /> should allow to search for an existing value 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to search for an existing value 2`] = `
+exports[`<SelectField /> > should allow to search for an existing value 2`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -1798,7 +1798,7 @@ exports[`<SelectField /> should allow to search for an existing value 2`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to search for an external value 1`] = `
+exports[`<SelectField /> > should allow to search for an external value 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -1856,7 +1856,7 @@ exports[`<SelectField /> should allow to search for an external value 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to search for an external value 2`] = `
+exports[`<SelectField /> > should allow to search for an external value 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused"
@@ -1904,7 +1904,7 @@ exports[`<SelectField /> should allow to search for an external value 2`] = `
 </div>
 `;
 
-exports[`<SelectField /> should allow to use object options and display custom titles on a controlled field 1`] = `
+exports[`<SelectField /> > should allow to use object options and display custom titles on a controlled field 1`] = `
 <div>
   <p>
     Value: 
@@ -1956,7 +1956,7 @@ exports[`<SelectField /> should allow to use object options and display custom t
 </div>
 `;
 
-exports[`<SelectField /> should be invalid if validation fails 1`] = `
+exports[`<SelectField /> > should be invalid if validation fails 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty invalid searchable"
@@ -2004,7 +2004,7 @@ exports[`<SelectField /> should be invalid if validation fails 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should correctly update state values 1`] = `
+exports[`<SelectField /> > should correctly update state values 1`] = `
 <div>
   <label
     class="junipero label info"
@@ -2069,7 +2069,7 @@ exports[`<SelectField /> should correctly update state values 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should not allow to change value when disabled 1`] = `
+exports[`<SelectField /> > should not allow to change value when disabled 1`] = `
 <div>
   <div
     class="junipero dropdown disabled select-field pristine valid searchable"
@@ -2117,7 +2117,7 @@ exports[`<SelectField /> should not allow to change value when disabled 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should not remove field previous values while hitting backspace, if search isnt empty 1`] = `
+exports[`<SelectField /> > should not remove field previous values while hitting backspace, if search isnt empty 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable focused multiple"
@@ -2208,7 +2208,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
 </div>
 `;
 
-exports[`<SelectField /> should not remove field previous values while hitting backspace, if search isnt empty 2`] = `
+exports[`<SelectField /> > should not remove field previous values while hitting backspace, if search isnt empty 2`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable focused multiple"
@@ -2299,7 +2299,7 @@ exports[`<SelectField /> should not remove field previous values while hitting b
 </div>
 `;
 
-exports[`<SelectField /> should not toggle on click if disabled: opened 1`] = `
+exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -2371,7 +2371,7 @@ exports[`<SelectField /> should not toggle on click if disabled: opened 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should not toggle on click if disabled: still opened 1`] = `
+exports[`<SelectField /> > should not toggle on click if disabled > still opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -2443,7 +2443,7 @@ exports[`<SelectField /> should not toggle on click if disabled: still opened 1`
 </div>
 `;
 
-exports[`<SelectField /> should not toggle on click if searchable: opened 1`] = `
+exports[`<SelectField /> > should not toggle on click if searchable > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -2515,7 +2515,7 @@ exports[`<SelectField /> should not toggle on click if searchable: opened 1`] = 
 </div>
 `;
 
-exports[`<SelectField /> should not toggle on click if searchable: still opened 1`] = `
+exports[`<SelectField /> > should not toggle on click if searchable > still opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -2587,7 +2587,7 @@ exports[`<SelectField /> should not toggle on click if searchable: still opened 
 </div>
 `;
 
-exports[`<SelectField /> should render 1`] = `
+exports[`<SelectField /> > should render 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -2659,7 +2659,7 @@ exports[`<SelectField /> should render 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should render multiple values 1`] = `
+exports[`<SelectField /> > should render multiple values 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable focused multiple"
@@ -2748,7 +2748,7 @@ exports[`<SelectField /> should render multiple values 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should render multiple values 2`] = `
+exports[`<SelectField /> > should render multiple values 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused multiple"
@@ -2817,7 +2817,7 @@ exports[`<SelectField /> should render multiple values 2`] = `
 </div>
 `;
 
-exports[`<SelectField /> should render multiple values 3`] = `
+exports[`<SelectField /> > should render multiple values 3`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused multiple"
@@ -2906,7 +2906,7 @@ exports[`<SelectField /> should render multiple values 3`] = `
 </div>
 `;
 
-exports[`<SelectField /> should toggle on click if enabled: closed 1`] = `
+exports[`<SelectField /> > should toggle on click if enabled > closed 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable empty focused"
@@ -2942,7 +2942,7 @@ exports[`<SelectField /> should toggle on click if enabled: closed 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should toggle on click if enabled: opened 1`] = `
+exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -3014,7 +3014,7 @@ exports[`<SelectField /> should toggle on click if enabled: opened 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should toggle on click if not searchable: closed 1`] = `
+exports[`<SelectField /> > should toggle on click if not searchable > closed 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid empty"
@@ -3051,7 +3051,7 @@ exports[`<SelectField /> should toggle on click if not searchable: closed 1`] = 
 </div>
 `;
 
-exports[`<SelectField /> should toggle on click if not searchable: opened 1`] = `
+exports[`<SelectField /> > should toggle on click if not searchable > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid empty"
@@ -3124,7 +3124,7 @@ exports[`<SelectField /> should toggle on click if not searchable: opened 1`] = 
 </div>
 `;
 
-exports[`<SelectField /> should toggle on keyboard if enabled: back opened 1`] = `
+exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
@@ -3196,7 +3196,7 @@ exports[`<SelectField /> should toggle on keyboard if enabled: back opened 1`] =
 </div>
 `;
 
-exports[`<SelectField /> should toggle on keyboard if enabled: closed 1`] = `
+exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable empty focused"
@@ -3232,7 +3232,7 @@ exports[`<SelectField /> should toggle on keyboard if enabled: closed 1`] = `
 </div>
 `;
 
-exports[`<SelectField /> should toggle on keyboard if enabled: opened 1`] = `
+exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"

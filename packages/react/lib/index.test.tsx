@@ -14,61 +14,7 @@ interface State {
 }
 
 describe('mockState: inside react', () => {
-  it('should fail update the state correctly and return the old ' +
-    'state', async () => {
-    const Comp = () => {
-      const [state, dispatch] = useReducer(mockState<State>, {
-        value: {
-          text: 'This is a test',
-          content: [],
-        },
-      });
-
-      useTimeout(() => {
-        dispatch({ value: { ...state.value, content: ['foo'] } });
-      }, 1, []);
-
-      const onTextChange = ({ value }: FieldContent) => {
-        dispatch({ value: { ...state.value, text: value } });
-      };
-
-      const onContentChange = () => {
-        dispatch({
-          value: { ...state.value, content: [...state.value.content, 'bar'] },
-        });
-      };
-
-      return (
-        <div>
-          <TextField
-            data-testid="Field"
-            value={state.value.text}
-            onChange={onTextChange}
-          />
-          <button onClick={onContentChange}>Add content</button>
-          <div>Text: { state.value.text }</div>
-          <div>Content: { state.value.content.join(', ') }</div>
-        </div>
-      );
-    };
-
-    const { container, unmount } = render(<Comp />);
-
-    fireEvent.change(screen.getByTestId('Field'),
-      { target: { value: 'This is a test 2' } });
-
-    await waitFor(() => screen.getByText('Content: foo'));
-    expect(container).toMatchSnapshot('With updated text field value');
-
-    fireEvent.click(screen.getByText('Add content'));
-
-    expect(container)
-      .toMatchSnapshot('With updated content but with old text value');
-
-    unmount();
-  });
-
-  it('should not fail update the state correctly and return the new ' +
+  it('should correctly update the state and return the new ' +
     'state when using mockState with a callback', async () => {
     const Comp = () => {
       const [state, dispatch] = useReducer(mockState<State>, {

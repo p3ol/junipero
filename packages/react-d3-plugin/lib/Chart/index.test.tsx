@@ -1,4 +1,5 @@
 import { cleanup, render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import Curve from '../Curve';
 import Marker from '../Marker';
@@ -6,7 +7,7 @@ import Chart from '.';
 
 describe('<Chart />', () => {
   it('should render', () => {
-    const computedStylesMock = jest.spyOn(globalThis, 'getComputedStyle')
+    const computedStylesMock = vi.spyOn(globalThis, 'getComputedStyle')
       .mockReturnValueOnce({
         width: '1000',
         height: '500',

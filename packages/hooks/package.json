@@ -31,7 +31,7 @@
     "build": "yarn clean && yarn build:code && yarn build:dts",
     "build:code": "yarn run -T tsdown",
     "build:dts": "yarn run -T tsc --project ./tsconfig.build.json",
-    "test": "jest"
+    "test": "yarn run -T vitest run --coverage"
   },
   "publishConfig": {
     "access": "public"

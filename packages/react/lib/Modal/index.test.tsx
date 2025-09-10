@@ -1,8 +1,9 @@
 import { createRef } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
+import { vi } from 'vitest';
 import { appearBounceModal } from '@junipero/transitions';
 
-import Modal, { ModalRef } from '.';
+import Modal, { type ModalRef } from '.';
 
 describe('<Modal />', () => {
   it('should render', () => {
@@ -79,7 +80,7 @@ describe('<Modal />', () => {
   });
 
   it('should allow to animate modal', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const ref = createRef<ModalRef>();
     const { container, unmount } = render(
       <div className="container">
@@ -88,16 +89,16 @@ describe('<Modal />', () => {
     );
     act(() => {
       ref.current.open();
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     expect(container).toMatchSnapshot('opened');
     act(() => {
       ref.current.close();
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     expect(container).toMatchSnapshot('closed');
 
-    jest.useRealTimers();
+    vi.useRealTimers();
     unmount();
   });
 });

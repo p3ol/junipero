@@ -1,7 +1,8 @@
 import { createRef } from 'react';
 import { render, fireEvent, act, createEvent } from '@testing-library/react';
+import { vi } from 'vitest';
 
-import Slider, { SliderRef } from './';
+import Slider, { type SliderRef } from './';
 
 describe('<Slider />', () => {
   it('should render', () => {
@@ -99,7 +100,7 @@ describe('<Slider />', () => {
 
   it('should trigger onMove event on mouse move', async () => {
     const ref = createRef<SliderRef>();
-    const onMove = jest.fn();
+    const onMove = vi.fn();
     const { container, unmount } = render(
       <Slider ref={ref} onMove={onMove} min={0} max={100} step={1} />
     );
@@ -128,7 +129,7 @@ describe('<Slider />', () => {
   it('shouldn\'t trigger onMove event on mouse move when slider is ' +
     'disabled', () => {
     const ref = createRef<SliderRef>();
-    const onMove = jest.fn();
+    const onMove = vi.fn();
     const { container, unmount } = render(
       <Slider
         ref={ref}

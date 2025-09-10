@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Droppable /> should not trigger anything when disabled: drag over 1`] = `
+exports[`<Droppable /> > should not trigger anything when disabled > drag over 1`] = `
 <div>
   <p
     class=""
@@ -10,17 +10,7 @@ exports[`<Droppable /> should not trigger anything when disabled: drag over 1`] 
 </div>
 `;
 
-exports[`<Droppable /> should render 1`] = `
-<div>
-  <p
-    class=""
-  >
-    hello
-  </p>
-</div>
-`;
-
-exports[`<Droppable /> should render: drag above 1`] = `
+exports[`<Droppable /> > should render > drag above 1`] = `
 <div>
   <p
     class="drag-enter drag-top"
@@ -30,7 +20,7 @@ exports[`<Droppable /> should render: drag above 1`] = `
 </div>
 `;
 
-exports[`<Droppable /> should render: drag below 1`] = `
+exports[`<Droppable /> > should render > drag below 1`] = `
 <div>
   <p
     class="drag-enter drag-bottom"
@@ -40,7 +30,7 @@ exports[`<Droppable /> should render: drag below 1`] = `
 </div>
 `;
 
-exports[`<Droppable /> should render: drag entered 1`] = `
+exports[`<Droppable /> > should render > drag entered 1`] = `
 <div>
   <p
     class="drag-enter"
@@ -50,7 +40,7 @@ exports[`<Droppable /> should render: drag entered 1`] = `
 </div>
 `;
 
-exports[`<Droppable /> should render: drag leave 1`] = `
+exports[`<Droppable /> > should render > drag leave 1`] = `
 <div>
   <p
     class=""
@@ -60,7 +50,17 @@ exports[`<Droppable /> should render: drag leave 1`] = `
 </div>
 `;
 
-exports[`<Droppable /> should trigger onDrop event when drop: drag over 1`] = `
+exports[`<Droppable /> > should render 1`] = `
+<div>
+  <p
+    class=""
+  >
+    hello
+  </p>
+</div>
+`;
+
+exports[`<Droppable /> > should trigger onDrop event when drop > drag over 1`] = `
 <div>
   <p
     class="drag-enter drag-bottom"

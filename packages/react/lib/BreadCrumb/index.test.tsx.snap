@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<BreadCrumb /> should allow to conditionnaly add items inside fragments 1`] = `
+exports[`<BreadCrumb /> > should allow to conditionnaly add items inside fragments 1`] = `
 <div>
   <div
     class="junipero breadcrumb collapsed"
@@ -29,7 +29,7 @@ exports[`<BreadCrumb /> should allow to conditionnaly add items inside fragments
 </div>
 `;
 
-exports[`<BreadCrumb /> should allow to conditionnaly add items inside fragments 2`] = `
+exports[`<BreadCrumb /> > should allow to conditionnaly add items inside fragments 2`] = `
 <div>
   <div
     class="junipero breadcrumb opened"
@@ -58,7 +58,7 @@ exports[`<BreadCrumb /> should allow to conditionnaly add items inside fragments
 </div>
 `;
 
-exports[`<BreadCrumb /> should allow to render from items prop 1`] = `
+exports[`<BreadCrumb /> > should allow to render from items prop 1`] = `
 <div>
   <div
     class="junipero breadcrumb"
@@ -82,7 +82,7 @@ exports[`<BreadCrumb /> should allow to render from items prop 1`] = `
 </div>
 `;
 
-exports[`<BreadCrumb /> should allow to render from items prop with maxItems: Collapsed 1`] = `
+exports[`<BreadCrumb /> > should allow to render from items prop with maxItems > Collapsed 1`] = `
 <div>
   <div
     class="junipero breadcrumb collapsed"
@@ -111,7 +111,7 @@ exports[`<BreadCrumb /> should allow to render from items prop with maxItems: Co
 </div>
 `;
 
-exports[`<BreadCrumb /> should allow to render from items prop with maxItems: Opened 1`] = `
+exports[`<BreadCrumb /> > should allow to render from items prop with maxItems > Opened 1`] = `
 <div>
   <div
     class="junipero breadcrumb opened"
@@ -140,7 +140,7 @@ exports[`<BreadCrumb /> should allow to render from items prop with maxItems: Op
 </div>
 `;
 
-exports[`<BreadCrumb /> should render 1`] = `
+exports[`<BreadCrumb /> > should render 1`] = `
 <div>
   <div
     class="junipero breadcrumb"
@@ -148,7 +148,7 @@ exports[`<BreadCrumb /> should render 1`] = `
 </div>
 `;
 
-exports[`<BreadCrumb /> should render a collapsed BreadCrumb 1`] = `
+exports[`<BreadCrumb /> > should render a collapsed BreadCrumb 1`] = `
 <div>
   <div
     class="junipero breadcrumb collapsed"
@@ -177,7 +177,7 @@ exports[`<BreadCrumb /> should render a collapsed BreadCrumb 1`] = `
 </div>
 `;
 
-exports[`<BreadCrumb /> should render a collapsed BreadCrumb 2`] = `
+exports[`<BreadCrumb /> > should render a collapsed BreadCrumb 2`] = `
 <div>
   <div
     class="junipero breadcrumb opened"
@@ -206,7 +206,7 @@ exports[`<BreadCrumb /> should render a collapsed BreadCrumb 2`] = `
 </div>
 `;
 
-exports[`<BreadCrumb /> should render a list of BreadCrumb items 1`] = `
+exports[`<BreadCrumb /> > should render a list of BreadCrumb items 1`] = `
 <div>
   <div
     class="junipero breadcrumb"

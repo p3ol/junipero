@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import CheckboxField from '.';
@@ -39,7 +40,7 @@ describe('<CheckboxField />', () => {
   });
 
   it('should trigger onChange event when user click on checkbox', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <CheckboxField onChange={onChangeMock} />
@@ -53,7 +54,7 @@ describe('<CheckboxField />', () => {
 
   it('should not trigger event and change state if user click but ' +
   'checkbox is disabled', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <CheckboxField onChange={onChangeMock} disabled={true} />
@@ -68,7 +69,7 @@ describe('<CheckboxField />', () => {
 
   it('should trigger onChange when user hit enter ' +
   'and checkbox is focused', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <CheckboxField onChange={onChangeMock} />
@@ -88,7 +89,7 @@ describe('<CheckboxField />', () => {
 
   it('should trigger onChange when user hit space ' +
   'and checkbox is focused', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const user = userEvent.setup();
     const { unmount, container } = render(
       <CheckboxField onChange={onChangeMock} />
@@ -150,7 +151,7 @@ describe('<CheckboxField />', () => {
   'custom onValidate function if provided', async () => {
     const user = userEvent.setup();
 
-    const customValidateMock = jest.fn().mockImplementation(
+    const customValidateMock = vi.fn().mockImplementation(
       (val, { dirty }) => !val && dirty
     );
     const { unmount, container } = render(
@@ -171,7 +172,7 @@ describe('<CheckboxField />', () => {
 
   it('should allow to render a controller checkbox', async () => {
     const user = userEvent.setup();
-    const handler = jest.fn();
+    const handler = vi.fn();
 
     const ControlledField = () => {
       const [checked, setChecked] = useState(false);

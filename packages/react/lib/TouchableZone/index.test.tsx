@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import TouchableZone from '.';
@@ -13,7 +14,7 @@ describe('<TouchableZone />', () => {
 
   it('should trigger onClick event on click', async () => {
     const user = userEvent.setup();
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     const { container, unmount } = render(
       <TouchableZone onClick={onClickMock} />
     );

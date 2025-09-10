@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Calendar /> should allow to navigate between months: next month 1`] = `
+exports[`<Calendar /> > should allow to navigate between months > next month 1`] = `
 <div>
   <div
     class="junipero calendar"
@@ -336,7 +336,7 @@ exports[`<Calendar /> should allow to navigate between months: next month 1`] = 
 </div>
 `;
 
-exports[`<Calendar /> should allow to navigate between months: previous month 1`] = `
+exports[`<Calendar /> > should allow to navigate between months > previous month 1`] = `
 <div>
   <div
     class="junipero calendar"
@@ -672,7 +672,7 @@ exports[`<Calendar /> should allow to navigate between months: previous month 1`
 </div>
 `;
 
-exports[`<Calendar /> should have a 3 days limited datepicker when min/max is set 1`] = `
+exports[`<Calendar /> > should have a 3 days limited datepicker when min/max is set 1`] = `
 <div>
   <div
     class="junipero calendar"
@@ -1008,7 +1008,7 @@ exports[`<Calendar /> should have a 3 days limited datepicker when min/max is se
 </div>
 `;
 
-exports[`<Calendar /> should not let you pick a disabled date 1`] = `
+exports[`<Calendar /> > should not let you pick a disabled date 1`] = `
 <div>
   <div
     class="junipero calendar"
@@ -1344,7 +1344,7 @@ exports[`<Calendar /> should not let you pick a disabled date 1`] = `
 </div>
 `;
 
-exports[`<Calendar /> should render: default 1`] = `
+exports[`<Calendar /> > should render > default 1`] = `
 <div>
   <div
     class="junipero calendar"
@@ -1680,7 +1680,7 @@ exports[`<Calendar /> should render: default 1`] = `
 </div>
 `;
 
-exports[`<Calendar /> should switch to next month when right arrow is clicked even if the 31st day is selected 1`] = `
+exports[`<Calendar /> > should switch to next month when right arrow is clicked even if the 31st day is selected 1`] = `
 <div>
   <div
     class="junipero calendar"
@@ -2016,7 +2016,7 @@ exports[`<Calendar /> should switch to next month when right arrow is clicked ev
 </div>
 `;
 
-exports[`<Calendar /> should switch to previous month when left arrow is clicked even if the 31th day is selected 1`] = `
+exports[`<Calendar /> > should switch to previous month when left arrow is clicked even if the 31th day is selected 1`] = `
 <div>
   <div
     class="junipero calendar"

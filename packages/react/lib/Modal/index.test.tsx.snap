@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Modal /> should allow to animate modal: closed 1`] = `
+exports[`<Modal /> > should allow to animate modal > closed 1`] = `
 <div>
   <div
     class="container"
@@ -40,7 +40,7 @@ exports[`<Modal /> should allow to animate modal: closed 1`] = `
 </div>
 `;
 
-exports[`<Modal /> should allow to animate modal: opened 1`] = `
+exports[`<Modal /> > should allow to animate modal > opened 1`] = `
 <div>
   <div
     class="container"
@@ -80,7 +80,7 @@ exports[`<Modal /> should allow to animate modal: opened 1`] = `
 </div>
 `;
 
-exports[`<Modal /> should close modal when clicking on backdrop: closed 1`] = `
+exports[`<Modal /> > should close modal when clicking on backdrop > closed 1`] = `
 <div>
   <div
     class="container"
@@ -88,7 +88,7 @@ exports[`<Modal /> should close modal when clicking on backdrop: closed 1`] = `
 </div>
 `;
 
-exports[`<Modal /> should close modal when clicking on backdrop: opened 1`] = `
+exports[`<Modal /> > should close modal when clicking on backdrop > opened 1`] = `
 <div>
   <div
     class="container"
@@ -128,7 +128,7 @@ exports[`<Modal /> should close modal when clicking on backdrop: opened 1`] = `
 </div>
 `;
 
-exports[`<Modal /> should not close modal closable = false 1`] = `
+exports[`<Modal /> > should not close modal closable = false 1`] = `
 <div>
   <div
     class="container"
@@ -149,7 +149,7 @@ exports[`<Modal /> should not close modal closable = false 1`] = `
 </div>
 `;
 
-exports[`<Modal /> should not close modal closable = false 2`] = `
+exports[`<Modal /> > should not close modal closable = false 2`] = `
 <div>
   <div
     class="container"
@@ -170,7 +170,7 @@ exports[`<Modal /> should not close modal closable = false 2`] = `
 </div>
 `;
 
-exports[`<Modal /> should not close modal if clicked inside 1`] = `
+exports[`<Modal /> > should not close modal if clicked inside 1`] = `
 <div>
   <div
     class="container"
@@ -210,7 +210,7 @@ exports[`<Modal /> should not close modal if clicked inside 1`] = `
 </div>
 `;
 
-exports[`<Modal /> should not close modal if clicked inside 2`] = `
+exports[`<Modal /> > should not close modal if clicked inside 2`] = `
 <div>
   <div
     class="container"
@@ -250,11 +250,11 @@ exports[`<Modal /> should not close modal if clicked inside 2`] = `
 </div>
 `;
 
-exports[`<Modal /> should not toggle modal if it is disabled 1`] = `<div />`;
+exports[`<Modal /> > should not toggle modal if it is disabled 1`] = `<div />`;
 
-exports[`<Modal /> should remove modal from DOM when using close method: closed 1`] = `<div />`;
+exports[`<Modal /> > should remove modal from DOM when using close method > closed 1`] = `<div />`;
 
-exports[`<Modal /> should remove modal from DOM when using close method: opened 1`] = `
+exports[`<Modal /> > should remove modal from DOM when using close method > opened 1`] = `
 <div>
   <div
     class="junipero modal opened"
@@ -290,7 +290,7 @@ exports[`<Modal /> should remove modal from DOM when using close method: opened 
 </div>
 `;
 
-exports[`<Modal /> should render 1`] = `
+exports[`<Modal /> > should render 1`] = `
 <div>
   <div
     class="container"

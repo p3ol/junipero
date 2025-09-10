@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
+exports[`<Dropdown /> > should allow to render menu inside another element 1`] = `
 <div>
   <div
     id="menu-container"
@@ -34,7 +34,7 @@ exports[`<Dropdown /> should allow to render menu inside another element 1`] = `
 </div>
 `;
 
-exports[`<Dropdown /> should allow to use groups 1`] = `
+exports[`<Dropdown /> > should allow to use groups 1`] = `
 <div>
   <div
     class="junipero dropdown opened"
@@ -105,7 +105,7 @@ exports[`<Dropdown /> should allow to use groups 1`] = `
 </div>
 `;
 
-exports[`<Dropdown /> should auto close when disabled prop changes 1`] = `
+exports[`<Dropdown /> > should auto close when disabled prop changes 1`] = `
 <div>
   <div
     class="junipero dropdown opened"
@@ -135,7 +135,7 @@ exports[`<Dropdown /> should auto close when disabled prop changes 1`] = `
 </div>
 `;
 
-exports[`<Dropdown /> should auto close when disabled prop changes 2`] = `
+exports[`<Dropdown /> > should auto close when disabled prop changes 2`] = `
 <div>
   <div
     class="junipero dropdown disabled"
@@ -149,7 +149,7 @@ exports[`<Dropdown /> should auto close when disabled prop changes 2`] = `
 </div>
 `;
 
-exports[`<Dropdown /> should render 1`] = `
+exports[`<Dropdown /> > should render 1`] = `
 <div>
   <div
     class="junipero dropdown"
@@ -163,7 +163,7 @@ exports[`<Dropdown /> should render 1`] = `
 </div>
 `;
 
-exports[`<Dropdown /> should render 2`] = `
+exports[`<Dropdown /> > should render 2`] = `
 <div>
   <div
     class="junipero dropdown opened"
@@ -193,7 +193,7 @@ exports[`<Dropdown /> should render 2`] = `
 </div>
 `;
 
-exports[`useDropdwon() should allow to animate dropdown: Enter: In dom 1`] = `
+exports[`useDropdwon() > should allow to animate dropdown > Enter: In dom 1`] = `
 <div>
   <div
     class="junipero dropdown opened"
@@ -223,7 +223,7 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: In dom 1`] = `
 </div>
 `;
 
-exports[`useDropdwon() should allow to animate dropdown: Enter: Not in dom 1`] = `
+exports[`useDropdwon() > should allow to animate dropdown > Enter: Not in dom 1`] = `
 <div>
   <div
     class="junipero dropdown"
@@ -237,7 +237,7 @@ exports[`useDropdwon() should allow to animate dropdown: Enter: Not in dom 1`] =
 </div>
 `;
 
-exports[`useDropdwon() should allow to animate dropdown: Exit: Not in dom 1`] = `
+exports[`useDropdwon() > should allow to animate dropdown > Exit: Not in dom 1`] = `
 <div>
   <div
     class="junipero dropdown"
@@ -251,7 +251,7 @@ exports[`useDropdwon() should allow to animate dropdown: Exit: Not in dom 1`] = 
 </div>
 `;
 
-exports[`useDropdwon() should keep the menu in dom when animated and apparition is css: Enter: Already in dom 1`] = `
+exports[`useDropdwon() > should keep the menu in dom when animated and apparition is css > Enter: Already in dom 1`] = `
 <div>
   <div
     class="junipero dropdown"
@@ -271,7 +271,7 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
 </div>
 `;
 
-exports[`useDropdwon() should keep the menu in dom when animated and apparition is css: Enter: Still in dom 1`] = `
+exports[`useDropdwon() > should keep the menu in dom when animated and apparition is css > Enter: Still in dom 1`] = `
 <div>
   <div
     class="junipero dropdown opened"
@@ -301,7 +301,7 @@ exports[`useDropdwon() should keep the menu in dom when animated and apparition 
 </div>
 `;
 
-exports[`useDropdwon() should keep the menu in dom when animated and apparition is css: Exit: Still in dom 1`] = `
+exports[`useDropdwon() > should keep the menu in dom when animated and apparition is css > Exit: Still in dom 1`] = `
 <div>
   <div
     class="junipero dropdown"

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<DateField /> should allow to navigate between months: next month 1`] = `
+exports[`<DateField /> > should allow to navigate between months > next month 1`] = `
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
@@ -403,7 +403,7 @@ exports[`<DateField /> should allow to navigate between months: next month 1`] =
 </div>
 `;
 
-exports[`<DateField /> should allow to navigate between months: previous month 1`] = `
+exports[`<DateField /> > should allow to navigate between months > previous month 1`] = `
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
@@ -806,7 +806,7 @@ exports[`<DateField /> should allow to navigate between months: previous month 1
 </div>
 `;
 
-exports[`<DateField /> should have a 3 days limited datepicker when min/max is set 1`] = `
+exports[`<DateField /> > should have a 3 days limited datepicker when min/max is set 1`] = `
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
@@ -1209,7 +1209,7 @@ exports[`<DateField /> should have a 3 days limited datepicker when min/max is s
 </div>
 `;
 
-exports[`<DateField /> should not let you pick a disabled date 1`] = `
+exports[`<DateField /> > should not let you pick a disabled date 1`] = `
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
@@ -1612,7 +1612,7 @@ exports[`<DateField /> should not let you pick a disabled date 1`] = `
 </div>
 `;
 
-exports[`<DateField /> should not open calendar if disabled 1`] = `
+exports[`<DateField /> > should not open calendar if disabled 1`] = `
 <div>
   <div
     class="junipero dropdown disabled date-field pristine valid empty"
@@ -1648,7 +1648,7 @@ exports[`<DateField /> should not open calendar if disabled 1`] = `
 </div>
 `;
 
-exports[`<DateField /> should render: default 1`] = `
+exports[`<DateField /> > should render > default 1`] = `
 <div>
   <div
     class="junipero dropdown date-field pristine valid empty"
@@ -1685,7 +1685,7 @@ exports[`<DateField /> should render: default 1`] = `
 </div>
 `;
 
-exports[`<DateField /> should render: opened 1`] = `
+exports[`<DateField /> > should render > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"

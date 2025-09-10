@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`@junipero/tailwind-plugin should generate the correct CSS 1`] = `
+exports[`@junipero/tailwind-plugin > should generate the correct CSS 1`] = `
 ".bg-velvet {
     --tw-bg-opacity: 1;
     background-color: rgb(92 86 223 / var(--tw-bg-opacity, 1))

@@ -1,62 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`mockState: inside react should fail update the state correctly and return the old state: With updated content but with old text value 1`] = `
-<div>
-  <div>
-    <div
-      class="junipero text-field dirty valid"
-    >
-      <input
-        class="field"
-        data-testid="Field"
-        type="text"
-        value="This is a test"
-      />
-    </div>
-    <button>
-      Add content
-    </button>
-    <div>
-      Text: 
-      This is a test
-    </div>
-    <div>
-      Content: 
-      foo, bar
-    </div>
-  </div>
-</div>
-`;
-
-exports[`mockState: inside react should fail update the state correctly and return the old state: With updated text field value 1`] = `
-<div>
-  <div>
-    <div
-      class="junipero text-field dirty valid"
-    >
-      <input
-        class="field"
-        data-testid="Field"
-        type="text"
-        value="This is a test 2"
-      />
-    </div>
-    <button>
-      Add content
-    </button>
-    <div>
-      Text: 
-      This is a test
-    </div>
-    <div>
-      Content: 
-      foo
-    </div>
-  </div>
-</div>
-`;
-
-exports[`mockState: inside react should not fail update the state correctly and return the new state when using mockState with a callback: With updated content AND updated text field valud 1`] = `
+exports[`mockState: inside react > should correctly update the state and return the new state when using mockState with a callback > With updated content AND updated text field valud 1`] = `
 <div>
   <div>
     <div
@@ -84,7 +28,7 @@ exports[`mockState: inside react should not fail update the state correctly and 
 </div>
 `;
 
-exports[`mockState: inside react should not fail update the state correctly and return the new state when using mockState with a callback: With updated text field value 1`] = `
+exports[`mockState: inside react > should correctly update the state and return the new state when using mockState with a callback > With updated text field value 1`] = `
 <div>
   <div>
     <div

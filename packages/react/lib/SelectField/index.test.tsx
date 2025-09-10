@@ -1,18 +1,20 @@
 import { createRef, useEffect, useReducer, useState } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
+import { vi } from 'vitest';
 import { configMocks, mockIntersectionObserver } from 'jsdom-testing-mocks';
-import { mockState } from '@junipero/core';
+import { mockState, cloneDeep, set } from '@junipero/core';
 import userEvent from '@testing-library/user-event';
 
-import { blur, focus, reset, sleep } from '~tests-utils';
-
 import type { FieldContent } from '../types';
-import { cloneDeep, set } from '../../../core/lib/core';
+import { blur, focus, reset, sleep } from '../../tests/utils';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
 import TextField from '../TextField';
-import SelectField, { SelectFieldOptionObject, type SelectFieldRef } from './index';
+import SelectField, {
+  type SelectFieldOptionObject,
+  type SelectFieldRef,
+} from './index';
 
 configMocks({ act });
 const io = mockIntersectionObserver();
@@ -121,7 +123,7 @@ describe('<SelectField />', () => {
   it('should allow to reset the field', async () => {
     const user = userEvent.setup();
     const ref = createRef<SelectFieldRef>();
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { unmount, container, getByText } = render(
       <SelectField
         ref={ref}
@@ -172,7 +174,7 @@ describe('<SelectField />', () => {
 
   it('should not allow to change value when disabled', async () => {
     const user = userEvent.setup();
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { unmount, container, queryByText } = render(
       <SelectField
         value="Marc"

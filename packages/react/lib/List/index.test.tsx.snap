@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<List /> should allow to disable order on column 1`] = `
+exports[`<List /> > should allow to disable order on column 1`] = `
 <div>
   <table
     class="junipero list"
@@ -57,7 +57,7 @@ exports[`<List /> should allow to disable order on column 1`] = `
 </div>
 `;
 
-exports[`<List /> should allow to handle order state from outside 1`] = `
+exports[`<List /> > should allow to handle order state from outside 1`] = `
 <div>
   <table
     class="junipero list"
@@ -128,7 +128,7 @@ exports[`<List /> should allow to handle order state from outside 1`] = `
 </div>
 `;
 
-exports[`<List /> should allow to reorder content 1`] = `
+exports[`<List /> > should allow to reorder content 1`] = `
 <div>
   <table
     class="junipero list"
@@ -189,7 +189,7 @@ exports[`<List /> should allow to reorder content 1`] = `
 </div>
 `;
 
-exports[`<List /> should allow to reorder content 2`] = `
+exports[`<List /> > should allow to reorder content 2`] = `
 <div>
   <table
     class="junipero list"
@@ -260,7 +260,7 @@ exports[`<List /> should allow to reorder content 2`] = `
 </div>
 `;
 
-exports[`<List /> should allow to reorder content 3`] = `
+exports[`<List /> > should allow to reorder content 3`] = `
 <div>
   <table
     class="junipero list"
@@ -331,7 +331,7 @@ exports[`<List /> should allow to reorder content 3`] = `
 </div>
 `;
 
-exports[`<List /> should render using children 1`] = `
+exports[`<List /> > should render using children 1`] = `
 <div>
   <table
     class="junipero list"
@@ -376,7 +376,7 @@ exports[`<List /> should render using children 1`] = `
 </div>
 `;
 
-exports[`<List /> should render using props 1`] = `
+exports[`<List /> > should render using props 1`] = `
 <div>
   <table
     class="junipero list"

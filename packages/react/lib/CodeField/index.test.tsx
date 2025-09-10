@@ -1,7 +1,8 @@
 import { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import { vi } from 'vitest';
 
-import CodeField, { CodeFieldRef } from './index';
+import CodeField, { type CodeFieldRef } from './index';
 
 describe('<CodeField />', () => {
   it('should render', () => {
@@ -11,7 +12,7 @@ describe('<CodeField />', () => {
   });
 
   it('should correctly fire onChange event', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container, unmount } = render(<CodeField onChange={onChange} />);
 
     fireEvent.change(container.querySelectorAll('input')[0],
@@ -24,7 +25,7 @@ describe('<CodeField />', () => {
   });
 
   it('should not fire onChange event if field is disabled', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container, unmount } = render(
       <CodeField disabled onChange={onChange} />
     );

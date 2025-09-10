@@ -1,4 +1,5 @@
 import { render, act } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import AlertsControl from '../AlertsControl';
 import Alerts from '../Alerts';
@@ -12,7 +13,7 @@ describe('<Alert />', () => {
   });
 
   it('should be auto dismissable', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const alert = { id: 1, title: 'Title', content: 'Content', lifespan: 100 };
     const { container, unmount } = render(
       <AlertsControl alerts={[alert]}>
@@ -21,8 +22,8 @@ describe('<Alert />', () => {
     );
     expect(container).toMatchSnapshot();
 
-    await act(async () => Promise.resolve(jest.advanceTimersByTime(100)));
-    await act(async () => Promise.resolve(jest.advanceTimersByTime(1)));
+    await act(async () => Promise.resolve(vi.advanceTimersByTime(100)));
+    await act(async () => Promise.resolve(vi.advanceTimersByTime(1)));
     expect(container).toMatchSnapshot();
 
     unmount();
