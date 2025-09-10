@@ -9,6 +9,26 @@ export default defineConfig({
     globals: true,
     resolveSnapshotPath: (testPath: string, snapExtension: string) =>
       testPath + snapExtension,
+    coverage: {
+      provider: 'v8',
+      exclude: [
+        'storybook-static',
+        '.turbo',
+        '.storybook',
+        '.yarn',
+        '*.d.ts',
+        '*.config.ts',
+        '*.config.js',
+        '**/dist',
+        '**/test?(s)',
+        '**/script?(s)',
+        '**/.turbo',
+        '**/*.d.ts',
+        '**/*.stories.tsx',
+        '**/*.config.ts',
+        '**/*.config.js',
+      ],
+    },
     alias: {
       '@junipero/core': path.resolve('./packages/core/lib'),
       '@junipero/react': path.resolve('./packages/react/lib'),
