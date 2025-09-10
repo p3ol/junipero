@@ -50,7 +50,7 @@ describe('<Toggle />', () => {
     );
     expect(container).toMatchSnapshot('unChecked');
     const input = container.querySelector('input');
-    user.click(input);
+    await user.click(input);
     await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith(
       { value: 'my_value', checked: true }
     ));
@@ -75,13 +75,13 @@ describe('<Toggle />', () => {
     await act(async () => {
       return Promise.resolve(container.querySelector('label').focus());
     });
-    user.keyboard('{ }');
+    await user.keyboard('{ }');
     await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith(
       { value: 'my_value', checked: true }
     ));
 
     expect(container).toMatchSnapshot('checked');
-    user.keyboard('{Enter}');
+    await user.keyboard('{Enter}');
     await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith(
       { value: 'my_value', checked: false }
     ));
@@ -91,7 +91,7 @@ describe('<Toggle />', () => {
     unmount();
   });
 
-  it('should not handle change if toggle is disabled', () => {
+  it('should not handle change if toggle is disabled', async () => {
     const user = userEvent.setup();
     const onChangeMock = vi.fn();
     const { container, unmount } = render(
@@ -105,7 +105,7 @@ describe('<Toggle />', () => {
     );
     expect(container).toMatchSnapshot('unChecked');
     const input = container.querySelector('input');
-    user.click(input);
+    await user.click(input);
     expect(onChangeMock).not.toHaveBeenCalled();
     expect(container).toMatchSnapshot('unchecked');
     unmount();

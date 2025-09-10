@@ -7,6 +7,9 @@ export default defineConfig({
     include: ['**/*.test.ts?(x)'],
     environment: 'jsdom',
     globals: true,
+    env: {
+      TZ: 'UTC',
+    },
     resolveSnapshotPath: (testPath: string, snapExtension: string) =>
       testPath + snapExtension,
     coverage: {
@@ -33,6 +36,7 @@ export default defineConfig({
       '@junipero/core': path.resolve('./packages/core/lib'),
       '@junipero/react': path.resolve('./packages/react/lib'),
       '@junipero/transitions': path.resolve('./packages/transitions/lib'),
+      '@junipero/hooks': path.resolve('./packages/hooks/lib'),
     },
   },
 });
