@@ -11,6 +11,6 @@
   "exclude": [
     "tests",
     "**/*.test.ts",
-    "rollup.config.ts",
+    "tsdown.config.ts",
   ]
 }

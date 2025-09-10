@@ -12,19 +12,15 @@ const config: Config = {
     enableGlobally: false,
   },
   transform: {
-    '^.+\\.m?(t|j)sx?$': [
-      '@swc/jest',
-      {
-        env: {},
-        jsc: {
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
+    '^.+\\.m?(t|j)sx?$': ['@swc/jest', {
+      jsc: {
+        transform: {
+          react: {
+            runtime: 'automatic',
           },
         },
       },
-    ],
+    }],
   },
   moduleNameMapper: {
     '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
@@ -43,7 +39,7 @@ const config: Config = {
   ],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [],
-  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
+  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.ts',
 };
 
 export default config;

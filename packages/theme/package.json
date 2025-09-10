@@ -2,6 +2,7 @@
   "name": "@junipero/theme",
   "version": "3.11.0",
   "description": "🏔 Junipero Design System Common Theme",
+  "type": "module",
   "main": "dist/junipero.min.css",
   "cdn": "dist/junipero.min.css",
   "repository": {

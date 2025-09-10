@@ -1,12 +1,16 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
+
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig([
   {
     entry: ['./lib/index.ts'],
+    platform: 'neutral',
     outDir: 'dist',
-    banner: {},
     format: ['cjs', 'esm'],
+    target: pkg.targets,
     external: [],
     sourcemap: true,
+    dts: false,
   },
 ]);

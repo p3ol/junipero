@@ -12,6 +12,6 @@
     "tests",
     "**/*.test.ts",
     "**/*.test.tsx",
-    "rollup.config.ts",
+    "tsdown.config.ts",
   ]
 }

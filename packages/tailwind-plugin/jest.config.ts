@@ -6,25 +6,22 @@ process.env.TZ = 'UTC';
 
 const config: Config = {
   displayName: '@junipero/tailwind-plugin',
+  testEnvironment: 'node',
   clearMocks: true,
   rootDir: path.resolve(),
   fakeTimers: {
     enableGlobally: false,
   },
   transform: {
-    '^.+\\.(t|j)sx?$': [
-      '@swc/jest',
-      {
-        env: {},
-        jsc: {
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
+    '^.+\\.(t|j)sx?$': ['@swc/jest', {
+      jsc: {
+        transform: {
+          react: {
+            runtime: 'automatic',
           },
         },
       },
-    ],
+    }],
   },
   moduleNameMapper: {
     '^@junipero/transitions': '<rootDir>/packages/transitions/lib/index.tsx',
@@ -34,8 +31,7 @@ const config: Config = {
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
-  testEnvironment: 'jsdom',
-  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
+  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.ts',
 };
 
 export default config;

@@ -2,13 +2,20 @@
   "name": "@junipero/tailwind-plugin",
   "version": "3.11.0",
   "description": "🏔 Junipero Design System Tailwind Plugin",
+  "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/p3ol/junipero.git",
     "directory": "packages/tailwind-plugin"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
   "author": "Ugo Stephant <ugo@poool.fr>",
   "license": "MIT",
@@ -26,11 +33,14 @@
   "scripts": {
     "clean": "rm -rf ./dist || true",
     "build": "yarn clean && yarn build:code && yarn build:dts",
-    "build:code": "yarn run -T tsup",
+    "build:code": "yarn run -T tsdown",
     "build:dts": "yarn run -T tsc --project ./tsconfig.build.json",
     "test": "jest"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "targets": [
+    "node20"
+  ]
 }

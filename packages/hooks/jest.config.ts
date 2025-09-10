@@ -10,19 +10,15 @@ const config: Config = {
     enableGlobally: false,
   },
   transform: {
-    '^.+\\.(t|j)sx?$': [
-      '@swc/jest',
-      {
-        env: {},
-        jsc: {
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
+    '^.+\\.m?(t|j)sx?$': ['@swc/jest', {
+      jsc: {
+        transform: {
+          react: {
+            runtime: 'automatic',
           },
         },
       },
-    ],
+    }],
   },
   moduleNameMapper: {
     '^@junipero/(.+)$': '<rootDir>/packages/$1/lib/index.js',
@@ -33,7 +29,7 @@ const config: Config = {
     '/node_modules/',
   ],
   testEnvironment: 'jsdom',
-  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
+  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.ts',
 };
 
 export default config;

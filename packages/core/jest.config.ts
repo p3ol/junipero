@@ -10,26 +10,22 @@ const config: Config = {
     enableGlobally: false,
   },
   transform: {
-    '^.+\\.(t|j)sx?$': [
-      '@swc/jest',
-      {
-        env: {},
-        jsc: {
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
+    '^.+\\.(t|j)sx?$': ['@swc/jest', {
+      jsc: {
+        transform: {
+          react: {
+            runtime: 'automatic',
           },
         },
       },
-    ],
+    }],
   },
   testMatch: ['<rootDir>/packages/core/lib/**/*.test.ts'],
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
   testEnvironment: 'jsdom',
-  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.js',
+  snapshotResolver: '<rootDir>/.ci/config/snapshot-resolver.ts',
 };
 
 export default config;
