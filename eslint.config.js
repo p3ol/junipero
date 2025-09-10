@@ -1,8 +1,8 @@
-import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 import pooolint from '@poool/eslint-config-react';
 import storybook from 'eslint-plugin-storybook';
 
-export default tseslint.config(
+export default defineConfig(
   { ignores: [
     'dist',
     '**/dist',
@@ -19,6 +19,6 @@ export default tseslint.config(
       },
     },
   },
-  ...pooolint.configs.recommended,
+  pooolint.configs.recommended,
   storybook.configs['flat/recommended'],
 );
