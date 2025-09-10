@@ -17,14 +17,19 @@ export const AlertsContext = createContext<AlertsContextType>({});
 export interface DropdownContextType {
   opened?: boolean;
   visible?: boolean;
+  activeItem?: string;
   container?: string | ReactElement | DocumentFragment | HTMLElement;
   x?: number;
   y?: number;
   refs?: ExtendedRefs<any>;
   strategy?: Strategy;
+  fallbackMenuId?: string;
+  menuId?: string;
   toggle?: () => void;
   open?: () => void;
   close?: () => void;
+  setActiveItem?: (id?: string) => void;
+  registerMenu?: (id: string) => void;
   getReferenceProps?: (
     userProps?: React.HTMLProps<Element>
   ) => Record<string, unknown>;

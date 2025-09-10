@@ -3,6 +3,8 @@ import {
   cloneElement,
   useImperativeHandle,
   useRef,
+  useMemo,
+  useId,
   use,
 } from 'react';
 import { classNames } from '@junipero/core';
@@ -21,14 +23,29 @@ export declare interface DropdownToggleRef extends JuniperoRef {
 }
 
 export declare interface DropdownToggleProps
-  extends SpecialComponentPropsWithRef<any, DropdownToggleRef> {}
+  extends SpecialComponentPropsWithRef<any, DropdownToggleRef> {
+  a11yEnabled?: boolean;
+}
 
 const DropdownToggle = ({
   ref,
+  id: idProp,
   children,
+  a11yEnabled = true,
 }: DropdownToggleProps) => {
   const innerRef = useRef<JuniperoRef | JuniperoInnerRef>(null);
-  const { opened, refs, getReferenceProps } = useDropdown();
+  const {
+    opened,
+    refs,
+    menuId,
+    fallbackMenuId,
+    activeItem,
+    getReferenceProps,
+  } = useDropdown();
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? `junipero-dropdown-toggle-${fallbackId}`
+  ), [idProp, fallbackId]);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -55,6 +72,16 @@ const DropdownToggle = ({
         );
       },
       ...getReferenceProps({ onClick: (child as ReactElt).props?.onClick }),
+      id: (child as ReactElt).props?.id ?? id,
+      ...a11yEnabled && {
+        dir: 'ltr',
+        role: 'combobox',
+        'aria-controls': menuId ?? fallbackMenuId,
+        'aria-expanded': opened,
+        'aria-activedescendant': activeItem,
+        'aria-haspopup': 'listbox',
+        'aria-autocomplete': 'none',
+      },
     });
 };
 

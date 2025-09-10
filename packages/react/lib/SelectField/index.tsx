@@ -11,6 +11,7 @@ import {
   useLayoutEffect,
   useImperativeHandle,
   useMemo,
+  useId,
 } from 'react';
 import {
   classNames,
@@ -72,6 +73,7 @@ export declare interface SelectFieldProps extends Omit<
   className?: string;
   clearable?: boolean;
   disabled?: boolean;
+  fieldId?: string;
   keyboardHandler?: boolean;
   multiple?: boolean;
   noOptionsEnabled?: boolean;
@@ -100,7 +102,7 @@ export declare interface SelectFieldProps extends Omit<
   onChange?(field: FieldContent<SelectFieldValue>): void;
   onBlur?(event: FocusEvent<HTMLInputElement>): void;
   onFocus?(event: FocusEvent<HTMLInputElement>): void;
-  onKeyPress?(event: KeyboardEvent): void;
+  onKeyDown?(event: KeyboardEvent): void;
   onKeyUp?(event: KeyboardEvent): void;
   onValidate?(
     value: SelectFieldValue,
@@ -138,10 +140,13 @@ export declare interface SelectFieldState {
   page: number;
   loading: boolean;
   refocus?: boolean;
+  activeMenuItem?: string;
 }
 
 const SelectField = ({
   ref,
+  id: idProp,
+  fieldId: fieldIdProp,
   toggleClick,
   className,
   options,
@@ -169,7 +174,7 @@ const SelectField = ({
   onChange,
   onBlur,
   onFocus,
-  onKeyPress,
+  onKeyDown,
   onKeyUp,
   onSearch,
   onLoadMore,
@@ -199,7 +204,19 @@ const SelectField = ({
     placeholderSize: Math.max(10, placeholder?.length ?? 0),
     page: 1,
     loading: false,
+    activeMenuItem: undefined,
   });
+
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? `junipero-select-field-${fallbackId}`
+  ), [idProp, fallbackId]);
+  const toggleId = useMemo(() => (
+    `${id}-toggle`
+  ), [id]);
+  const fieldId = useMemo(() => (
+    fieldIdProp ?? `${id}-field`
+  ), [id, fieldIdProp]);
 
   useImperativeHandle(ref, () => ({
     innerRef: dropdownRef,
@@ -315,6 +332,7 @@ const SelectField = ({
     }
 
     state.valid = onValidate(parseValue(state.value), { required, multiple });
+    dropdownRef.current?.setActiveItem?.(undefined);
     onChange_({ resetSearch: !multiple, ...changeOpts });
   };
 
@@ -404,7 +422,11 @@ const SelectField = ({
     updateControl?.({ focused: opened });
   };
 
-  const onKeyPress_ = (e: KeyboardEvent) => {
+  const onActiveItemChange = (id: string) => {
+    dispatch({ activeMenuItem: id });
+  };
+
+  const onKeyDown_ = (e: KeyboardEvent) => {
     if (disabled) {
       return;
     }
@@ -413,14 +435,25 @@ const SelectField = ({
       case 'Enter':
         e.preventDefault();
 
-        if (allowArbitraryItems) {
-          onSelectOption(state.search, { resetSearch: true });
+        if (state.opened) {
+          if (allowArbitraryItems) {
+            onSelectOption(state.search, { resetSearch: true, refocus: true });
+          }
+        } else {
+          dropdownRef.current?.open();
+        }
+
+        break;
+      case 'ArrowDown':
+        if (!state.opened) {
+          e.preventDefault();
+          dropdownRef.current?.open();
         }
 
         break;
     }
 
-    onKeyPress?.(e);
+    onKeyDown?.(e);
   };
 
   const onKeyUp_ = (e: KeyboardEvent) => {
@@ -573,7 +606,7 @@ const SelectField = ({
     i: number
   ) => (
     <DropdownItem key={i}>
-      <a onClick={onSelectOption.bind(null, item)}>
+      <a onClick={onSelectOption.bind(null, item, { refocus: true })}>
         { parseTitle(item, { isOption: true }) }
       </a>
     </DropdownItem>
@@ -613,6 +646,7 @@ const SelectField = ({
   return (
     <Dropdown
       { ...rest }
+      id={id}
       opened={state.opened}
       ref={dropdownRef}
       disabled={disabled}
@@ -634,16 +668,22 @@ const SelectField = ({
         className
       )}
       onToggle={onToggle_}
+      onActiveItemChange={onActiveItemChange}
     >
-      <DropdownToggle>
-        <div className="field" onClick={onFocusField}>
+      <DropdownToggle id={toggleId} a11yEnabled={false}>
+        <div
+          className="field"
+          onClick={onFocusField}
+        >
           { hasValue() && (
             <input
+              id={fieldId}
               type="text"
               name={name}
               readOnly={true}
               value={parseTitle(state.value, { isValue: true }) ?? ''}
               onChange={() => {}}
+              onKeyDown={onKeyDown_}
             />
           ) }
           { hasTags() && Array.isArray(state.value)
@@ -661,6 +701,7 @@ const SelectField = ({
             )) : null }
           { (multiple || !state.value) && (
             <input
+              id={fieldId}
               type="text"
               name={name}
               value={state.search}
@@ -671,9 +712,17 @@ const SelectField = ({
               disabled={disabled || !searchable}
               onFocus={onFocus_}
               onBlur={onBlur_}
-              onKeyPress={onKeyPress_}
+              onKeyDown={onKeyDown_}
               onKeyUp={onKeyUp_}
               size={state.placeholderSize}
+              // WCAG 2.0
+              dir="ltr"
+              role="combobox"
+              aria-activedescendant={state.activeMenuItem}
+              aria-autocomplete="list"
+              aria-controls={`${id}-items`}
+              aria-expanded={state.opened}
+              aria-haspopup="listbox"
             />
           ) }
           <div className="icons">
@@ -690,6 +739,7 @@ const SelectField = ({
       { (hasOptions || state.searchResults?.length > 0 || noOptionsEnabled) && (
         <DropdownMenu
           animate={animateMenu}
+          id={`${id}-items`}
           className={classNames('select-menu', {
             searching: state.searching,
             loading: state.loading,

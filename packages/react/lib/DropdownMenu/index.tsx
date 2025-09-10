@@ -1,10 +1,15 @@
 import {
   type RefObject,
   type ReactNode,
+  type KeyboardEvent,
   useRef,
   useImperativeHandle,
+  useId,
+  useMemo,
+  useLayoutEffect,
 } from 'react';
 import { classNames, ensureNode } from '@junipero/core';
+import { useEventListener } from '@junipero/hooks';
 import { createPortal } from 'react-dom';
 
 import type { TransitionProps } from '../Transition';
@@ -28,6 +33,7 @@ export declare interface DropdownMenuProps
 
 export const DropdownMenu = ({
   ref,
+  id: idProp,
   apparition,
   children,
   className,
@@ -43,14 +49,65 @@ export const DropdownMenu = ({
     opened,
     visible,
     container,
+    fallbackMenuId,
+    activeItem,
     getFloatingProps,
     onAnimationExit,
+    registerMenu,
   } = useDropdown();
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? fallbackMenuId ?? `junipero-dropdown-menu-${fallbackId}`
+  ), [idProp, fallbackMenuId, fallbackId]);
 
   useImperativeHandle(ref, () => ({
     innerRef,
     isJunipero: true,
   }));
+
+  useLayoutEffect(() => {
+    if (idProp) {
+      registerMenu?.(idProp);
+    }
+  }, [idProp, registerMenu]);
+
+  useEventListener('keydown', (e: KeyboardEvent) => {
+    if (!opened || !['ArrowDown', 'ArrowUp'].includes(e.key)) {
+      return;
+    }
+
+    const items = innerRef.current?.querySelectorAll<HTMLElement>(
+      '.junipero.dropdown-item:not(.disabled):not([tabindex="-1"])'
+    );
+
+    if (e.key === 'ArrowDown') {
+      e.stopPropagation();
+      e.preventDefault();
+
+      if (!activeItem) {
+        items?.[0]?.focus();
+      } else {
+        const current = Array.from(items).findIndex(i => i.id === activeItem);
+
+        if (current >= 0 && current < (items.length - 1)) {
+          items[current + 1]?.focus();
+        }
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.stopPropagation();
+      e.preventDefault();
+
+      if (!activeItem) {
+        items?.[items.length - 1]?.focus();
+      } else {
+        const current = Array.from(items).findIndex(i => i.id === activeItem);
+
+        if (current > 0) {
+          items[current - 1]?.focus();
+        }
+      }
+    }
+  }, [opened, activeItem]);
 
   if (!opened && !animate) {
     return null;
@@ -65,6 +122,7 @@ export const DropdownMenu = ({
   const content = (
     <div
       { ...rest }
+      id={id}
       ref={r => {
         refs.setFloating?.(r);
         innerRef.current = r;

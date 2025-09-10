@@ -115,11 +115,11 @@ const Slider = ({
 
   useEventListener('mousemove', e => {
     onMouseMove_(e);
-  }, { target: globalEventsTarget, enabled: state.moving && !disabled });
+  }, [], { target: globalEventsTarget, enabled: state.moving && !disabled });
 
   useEventListener('mouseup', () => {
     onMouseUp_();
-  }, { target: globalEventsTarget, enabled: state.moving && !disabled });
+  }, [], { target: globalEventsTarget, enabled: state.moving && !disabled });
 
   const onMouseDown_ = (e: MouseEvent<HTMLDivElement>) => {
     if (e.button !== 0 || disabled) {

@@ -19,7 +19,7 @@ const TestComponent = (
 
   useEventListener('click', () => {
     setClicked(true);
-  }, { target });
+  }, [], { target });
 
   if (onInterval) {
     // eslint-disable-next-line react-hooks/rules-of-hooks

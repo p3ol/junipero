@@ -1,5 +1,5 @@
 import { createRef, useEffect, useReducer, useState } from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { configMocks, mockIntersectionObserver } from 'jsdom-testing-mocks';
 import { mockState, cloneDeep, set } from '@junipero/core';
@@ -515,7 +515,7 @@ describe('<SelectField />', () => {
     unmount();
   });
 
-  // Node 20.19.4 seems to have an issue with jsdom & blur
+  // Node 20.19.x seems to have an issue with jsdom & blur
   it.skip('should add a value when focus out if' +
     ' allowArbitraryItems is true', async () => {
     const user = userEvent.setup();
@@ -581,5 +581,29 @@ describe('<SelectField />', () => {
 
     unmount();
     io.cleanup();
+  });
+
+  it('should select value with keyboard', async () => {
+    const user = userEvent.setup();
+    const onChangeMock = vi.fn();
+    const { unmount, container } = render(
+      <SelectField
+        placeholder="Name"
+        onChange={onChangeMock}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.click(container.querySelector('.dropdown-toggle'));
+    await user.keyboard('{ArrowDown}');
+    await user.keyboard('{ArrowDown}');
+    expect(container).toMatchSnapshot('opened');
+    await user.keyboard('{Enter}');
+
+    await waitFor(() =>
+      expect(onChangeMock)
+        .toHaveBeenCalledWith({ valid: true, value: 'Item 2' })
+    );
+    expect(container).toMatchSnapshot('closed');
+    unmount();
   });
 });

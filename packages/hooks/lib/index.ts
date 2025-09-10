@@ -1,41 +1,45 @@
 import {
   type EffectCallback,
   type DependencyList,
+  type RefObject,
   useRef,
   useEffect,
   useLayoutEffect,
 } from 'react';
 
 export declare interface UseEventListenerOptions {
-  target?: EventTarget;
+  target?: EventTarget | null;
+  ref?: RefObject<EventTarget | null>;
   enabled?: boolean;
 }
 
 export const useEventListener = (
   name: string,
   handler: (e: any) => any,
-  { target = globalThis, enabled }: UseEventListenerOptions = {}
+  deps: DependencyList = [],
+  opts?: UseEventListenerOptions,
 ) => {
-  const savedHandler = useRef<typeof handler>(null);
+  const savedHandler = useRef<typeof handler | null>(null);
 
   useEffect(() => {
     savedHandler.current = handler;
   }, [handler]);
 
   useEffect(() => {
-    const isSupported = !!target?.addEventListener;
+    const t = opts?.ref?.current || opts?.target || globalThis;
+    const isSupported = !!t.addEventListener;
 
-    if (!isSupported || enabled === false) {
+    if (!isSupported || opts?.enabled === false) {
       return () => {};
     }
 
-    const eventListener = (event: Event) => savedHandler.current(event);
-    target.addEventListener(name, eventListener, false);
+    const eventListener = (event: Event) => savedHandler.current?.(event);
+    t.addEventListener(name, eventListener, false);
 
     return () => {
-      target.removeEventListener(name, eventListener);
+      t.removeEventListener(name, eventListener);
     };
-  }, [name, target, enabled]);
+  }, [name, opts?.target, opts?.ref, opts?.enabled, ...deps]);
 };
 
 export declare interface UseIntervalOptions {
