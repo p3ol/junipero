@@ -50,7 +50,6 @@ const DropdownMenu = forwardRef(({
     const items = ref.current?.querySelectorAll(
       '.junipero.dropdown-item:not(.disabled):not([tabindex="-1"])'
     );
-    console.log(activeItem);
 
     if (e.key === 'ArrowDown') {
       e.stopPropagation();
