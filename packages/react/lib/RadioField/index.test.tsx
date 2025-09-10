@@ -361,7 +361,7 @@ describe('<RadioField />', () => {
 
   it('should navigate and toggle with keyboard', async () => {
     const user = userEvent.setup();
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const { unmount, container } = render(
       <RadioField options={[1, 2, 3]} onChange={onChangeMock} />
     );
