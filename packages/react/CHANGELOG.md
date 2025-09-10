@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.12.0](https://github.com/p3ol/junipero/compare/v3.11.0...v3.12.0) (2025-09-10)
+
+
+### Bug Fixes
+
+* **react:** radio field navigation ([6657641](https://github.com/p3ol/junipero/commit/66576412453ff234bbb04ef02320361fa29ad303))
+* upgrade various deps ([326eb89](https://github.com/p3ol/junipero/commit/326eb899e5aa4c327932e796c0a773cad6410d81))
+
+
+### Features
+
+* **hooks:** add deps to useEventListener ([57df67a](https://github.com/p3ol/junipero/commit/57df67a31df4931ed628998fc29eac5cfc284543))
+* **react:** wcag 2.0 compliance ([40fd6d1](https://github.com/p3ol/junipero/commit/40fd6d1b6870417e0f790853c0784983a6bb71b3))
+
+
+
+
+
 # [3.11.0](https://github.com/p3ol/junipero/compare/v3.10.7...v3.11.0) (2025-07-30)
 
 
