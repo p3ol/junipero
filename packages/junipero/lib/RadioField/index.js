@@ -25,7 +25,6 @@ const RadioField = forwardRef(({
   onChange = () => {},
   ...rest
 }, ref) => {
-
   const fallbackId = useId();
   const id = useMemo(() => (
     idProp ?? `junipero-radio-field-${fallbackId}`

@@ -5,10 +5,11 @@ import {
   useRef,
   useReducer,
   useId,
-  useMemo } from 'react';
+  useMemo,
+} from 'react';
 import PropTypes from 'prop-types';
 import { classNames, exists, mockState } from '@poool/junipero-utils';
-import { useTimeout, useEventListener } from '@poool/junipero-hooks';
+import { useTimeout } from '@poool/junipero-hooks';
 
 import BaseField from '../BaseField';
 import TextField from '../TextField';
@@ -52,7 +53,6 @@ const SelectField = forwardRef(({
   validate = val => !required || typeof val !== 'undefined',
   ...rest
 }, ref) => {
-
   const fallbackId = useId();
   const id = useMemo(() => (
     idProp ?? `junipero-select-field-${fallbackId}`

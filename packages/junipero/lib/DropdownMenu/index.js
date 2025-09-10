@@ -3,7 +3,8 @@ import {
   useContext,
   useId,
   useLayoutEffect,
-  useMemo } from 'react';
+  useMemo,
+} from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { classNames, ensureNode } from '@poool/junipero-utils';
@@ -20,7 +21,6 @@ const DropdownMenu = forwardRef(({
   tag: Tag = 'ul',
   ...rest
 }, ref) => {
-
   const {
     opened,
     container,
