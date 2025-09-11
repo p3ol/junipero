@@ -7,7 +7,6 @@ import {
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, mockState } from '@poool/junipero-utils';
-import { useEventListener } from '@poool/junipero-hooks';
 
 const CheckboxField = forwardRef(({
   checked,
@@ -15,7 +14,8 @@ const CheckboxField = forwardRef(({
   className,
   id,
   value,
-  globalEventsTarget = global,
+  disabled = false,
+  required = false,
   onChange = () => {},
   onFocus = () => {},
   onBlur = () => {},
@@ -32,14 +32,6 @@ const CheckboxField = forwardRef(({
   useEffect(() => {
     dispatch({ checked: checked ?? false });
   }, [checked]);
-
-  useEventListener('mouseup', () => {
-    dispatch({ active: false });
-  }, globalEventsTarget);
-
-  useEventListener('keypress', e => {
-    onKeyPress_(e);
-  }, globalEventsTarget);
 
   useImperativeHandle(ref, () => ({
     innerRef,
@@ -87,6 +79,10 @@ const CheckboxField = forwardRef(({
 
   return (
     <label
+      role="checkbox"
+      aria-checked={state.checked}
+      aria-disabled={disabled}
+      aria-required={required}
       htmlFor={id}
       ref={innerRef}
       className={classNames(
@@ -103,11 +99,14 @@ const CheckboxField = forwardRef(({
       onMouseDown={onMouseDown_}
       onFocus={onFocus_}
       onBlur={onBlur_}
+      onKeyDown={onKeyPress_}
       tabIndex={1}
     >
       <div className="check">
         <input
           { ...rest }
+          disabled={disabled}
+          required={required}
           id={id}
           ref={inputRef}
           type="checkbox"
@@ -125,6 +124,8 @@ const CheckboxField = forwardRef(({
 
 CheckboxField.propTypes = {
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
   globalEventsTarget: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.object,

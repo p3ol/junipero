@@ -4,10 +4,12 @@ import {
   useImperativeHandle,
   useRef,
   useReducer,
+  useId,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, exists, mockState } from '@poool/junipero-utils';
-import { useTimeout, useEventListener } from '@poool/junipero-hooks';
+import { useTimeout } from '@poool/junipero-hooks';
 
 import BaseField from '../BaseField';
 import TextField from '../TextField';
@@ -17,6 +19,8 @@ import DropdownMenu from '../DropdownMenu';
 import DropdownItem from '../DropdownItem';
 
 const SelectField = forwardRef(({
+  id: idProp,
+  fieldId: fieldIdProp,
   animateMenu,
   className,
   container,
@@ -49,6 +53,17 @@ const SelectField = forwardRef(({
   validate = val => !required || typeof val !== 'undefined',
   ...rest
 }, ref) => {
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? `junipero-select-field-${fallbackId}`
+  ), [idProp, fallbackId]);
+  const toggleId = useMemo(() => (
+    `${id}-toggle`
+  ), [id]);
+  const fieldId = useMemo(() => (
+    fieldIdProp ?? `${id}-field`
+  ), [id, fieldIdProp]);
+
   const innerRef = useRef();
   const dropdownRef = useRef();
   const fieldRef = useRef();
@@ -83,12 +98,6 @@ const SelectField = forwardRef(({
     reset,
     isJunipero: true,
   }));
-
-  useEventListener('keydown', e => {
-    if (state.opened) {
-      onSelectionChange_(e);
-    }
-  }, globalEventsTarget);
 
   useEffect(() => {
     if (disabled) {
@@ -149,6 +158,29 @@ const SelectField = forwardRef(({
     }
   };
 
+  const onKeyDown = e => {
+    if (disabled) {
+      return;
+    }
+
+    switch (e.key) {
+      case 'ArrowDown':
+        if (!state.opened) {
+          e.preventDefault();
+          dropdownRef.current?.open();
+        }
+
+        break;
+
+      case 'Escape':
+        if (state.opened) {
+          dropdownRef.current?.close();
+        }
+
+        break;
+    }
+  };
+
   const onBlur_ = e => {
     dispatch({ focused: false });
     onBlur(e);
@@ -159,25 +191,7 @@ const SelectField = forwardRef(({
     if (e.key === 'Enter') {
       onChange_(option, e);
     }
-  };
 
-  const onSelectionChange_ = e => {
-    /* istanbul ignore else: useless else */
-    if (e.key === 'ArrowUp') {
-      dispatch({
-        selectedIndex: (state.selectedIndex
-          ? state.selectedIndex
-          : options?.length || 0
-        ) - 1,
-      });
-    } else if (e.key === 'ArrowDown') {
-      dispatch({
-        selectedIndex: parseInt(state.selectedIndex, 10) <
-          (options?.length || 0) - 1
-          ? state.selectedIndex + 1
-          : 0,
-      });
-    }
   };
 
   const onChange_ = (option, e) => {
@@ -289,9 +303,11 @@ const SelectField = forwardRef(({
         trigger={trigger}
         onToggle={onToggle_}
         ref={dropdownRef}
+        onKeyDown={onKeyDown}
       >
-        <DropdownToggle trigger="manual" href={null} tag="div">
+        <DropdownToggle id={toggleId} trigger="manual" href={null} tag="div">
           <BaseField
+            id={fieldId}
             ref={fieldRef}
             disabled={disabled}
             placeholder={placeholder}
@@ -418,6 +434,8 @@ SelectField.propTypes = {
   trigger: PropTypes.string,
   validate: PropTypes.func,
   value: PropTypes.any,
+  id: PropTypes.string,
+  fieldId: PropTypes.string,
 };
 
 export default SelectField;
