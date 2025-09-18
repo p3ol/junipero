@@ -137,7 +137,11 @@ const RadioField = forwardRef(({
           onKeyDown={onKeyDown_.bind(null, option)}
           onFocus={onFocus_.bind(null, option, index)}
           onBlur={onBlur_.bind(null, option, index)}
-          tabIndex={!option.disabled ? index + 1 : null}
+          tabIndex={!option.disabled
+            ? isChecked(option)
+              ? 0
+              : -1
+            : null}
         >
           <input
             id={option.id || option.value}
