@@ -2664,12 +2664,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:24.3.1":
+"@types/node@npm:*":
   version: 24.3.1
   resolution: "@types/node@npm:24.3.1"
   dependencies:
     undici-types: "npm:~7.10.0"
   checksum: 10c0/99b86fc32294fcd61136ca1f771026443a1e370e9f284f75e243b29299dd878e18c193deba1ce29a374932db4e30eb80826e1049b9aad02d36f5c30b94b6f928
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:24.5.2":
+  version: 24.5.2
+  resolution: "@types/node@npm:24.5.2"
+  dependencies:
+    undici-types: "npm:~7.12.0"
+  checksum: 10c0/96baaca6564d39c6f7f6eddd73ce41e2a7594ef37225cd52df3be36fad31712af8ae178387a72d0b80f2e2799e7fd30c014bc0ae9eb9f962d9079b691be00c48
   languageName: node
   linkType: hard
 
@@ -10231,7 +10240,7 @@ __metadata:
     "@types/d3": "npm:7.4.3"
     "@types/fs-extra": "npm:11.0.4"
     "@types/jest": "npm:30.0.0"
-    "@types/node": "npm:24.3.1"
+    "@types/node": "npm:24.5.2"
     "@types/react": "npm:19.1.12"
     "@types/react-dom": "npm:19.1.9"
     "@typescript-eslint/parser": "npm:8.43.0"
@@ -11745,6 +11754,13 @@ __metadata:
   version: 7.10.0
   resolution: "undici-types@npm:7.10.0"
   checksum: 10c0/8b00ce50e235fe3cc601307f148b5e8fb427092ee3b23e8118ec0a5d7f68eca8cee468c8fc9f15cbb2cf2a3797945ebceb1cbd9732306a1d00e0a9b6afa0f635
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~7.12.0":
+  version: 7.12.0
+  resolution: "undici-types@npm:7.12.0"
+  checksum: 10c0/326e455bbc0026db1d6b81c76a1cf10c63f7e2f9821db2e24fdc258f482814e5bfa8481f8910d07c68e305937c5c049610fdc441c5e8b7bb0daca7154fb8a306
   languageName: node
   linkType: hard
 
