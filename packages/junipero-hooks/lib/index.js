@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 
-export const useEventListener = (name, handler, target = global) => {
+export const useEventListener = (name, handler, deps, target = global) => {
   const savedHandler = useRef();
 
   useEffect(() => {
@@ -20,7 +20,8 @@ export const useEventListener = (name, handler, target = global) => {
     return () => {
       target.removeEventListener(name, eventListener);
     };
-  }, [name, target]);
+
+  }, [name, target, ...deps]);
 };
 
 export const useInterval = (cb, time, changes = []) => {

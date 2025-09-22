@@ -13,9 +13,9 @@ export const basic = () => (
   <Dropdown onToggle={action('toggle')}>
     <DropdownToggle>Click me</DropdownToggle>
     <DropdownMenu>
-      <DropdownItem><a>Menu item 1</a></DropdownItem>
-      <DropdownItem><a>Menu item 2</a></DropdownItem>
-      <DropdownItem><a>Menu item 3</a></DropdownItem>
+      <DropdownItem><a onClick={action('item1')}>Menu item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item2')}>Menu item 2</a></DropdownItem>
+      <DropdownItem><a onClick={action('item3')}>Menu item 3</a></DropdownItem>
     </DropdownMenu>
   </Dropdown>
 );
@@ -24,9 +24,9 @@ export const opened = () => (
   <Dropdown opened={true} onToggle={action('toggle')}>
     <DropdownToggle>Click me</DropdownToggle>
     <DropdownMenu>
-      <DropdownItem><a>Menu item 1</a></DropdownItem>
-      <DropdownItem><a>Menu item 2</a></DropdownItem>
-      <DropdownItem><a>Menu item 3</a></DropdownItem>
+      <DropdownItem><a onClick={action('item1')}>Menu item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item2')}>Menu item 2</a></DropdownItem>
+      <DropdownItem><a onClick={action('item3')}>Menu item 3</a></DropdownItem>
     </DropdownMenu>
   </Dropdown>
 );
@@ -37,9 +37,9 @@ export const withButton = () => (
       <Button className="primary">Click me</Button>
     </DropdownToggle>
     <DropdownMenu>
-      <DropdownItem><a>Menu item 1</a></DropdownItem>
-      <DropdownItem><a>Menu item 2</a></DropdownItem>
-      <DropdownItem><a>Menu item 3</a></DropdownItem>
+      <DropdownItem><a onClick={action('item1')}>Menu item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item2')}>Menu item 2</a></DropdownItem>
+      <DropdownItem><a onClick={action('item3')}>Menu item 3</a></DropdownItem>
     </DropdownMenu>
   </Dropdown>
 );
@@ -48,9 +48,9 @@ export const withCssApparition = () => (
   <Dropdown onToggle={action('toggle')}>
     <DropdownToggle>Click me</DropdownToggle>
     <DropdownMenu apparition="css">
-      <DropdownItem><a>Menu item 1</a></DropdownItem>
-      <DropdownItem><a>Menu item 2</a></DropdownItem>
-      <DropdownItem><a>Menu item 3</a></DropdownItem>
+      <DropdownItem><a onClick={action('item1')}>Menu item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item2')}>Menu item 2</a></DropdownItem>
+      <DropdownItem><a onClick={action('item3')}>Menu item 3</a></DropdownItem>
     </DropdownMenu>
   </Dropdown>
 );
@@ -72,9 +72,9 @@ export const animated = () => (
         />
       )}
     >
-      <DropdownItem><a>Menu item 1</a></DropdownItem>
-      <DropdownItem><a>Menu item 2</a></DropdownItem>
-      <DropdownItem><a>Menu item 3</a></DropdownItem>
+      <DropdownItem><a onClick={action('item1')}>Menu item 1</a></DropdownItem>
+      <DropdownItem><a onClick={action('item2')}>Menu item 2</a></DropdownItem>
+      <DropdownItem><a onClick={action('item3')}>Menu item 3</a></DropdownItem>
     </DropdownMenu>
   </Dropdown>
 );

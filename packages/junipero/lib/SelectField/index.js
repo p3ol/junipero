@@ -4,10 +4,12 @@ import {
   useImperativeHandle,
   useRef,
   useReducer,
+  useId,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, exists, mockState } from '@poool/junipero-utils';
-import { useTimeout, useEventListener } from '@poool/junipero-hooks';
+import { useTimeout } from '@poool/junipero-hooks';
 
 import BaseField from '../BaseField';
 import TextField from '../TextField';
@@ -17,6 +19,8 @@ import DropdownMenu from '../DropdownMenu';
 import DropdownItem from '../DropdownItem';
 
 const SelectField = forwardRef(({
+  id: idProp,
+  fieldId: fieldIdProp,
   animateMenu,
   className,
   container,
@@ -49,6 +53,17 @@ const SelectField = forwardRef(({
   validate = val => !required || typeof val !== 'undefined',
   ...rest
 }, ref) => {
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? `junipero-select-field-${fallbackId}`
+  ), [idProp, fallbackId]);
+  const toggleId = useMemo(() => (
+    `${id}-toggle`
+  ), [id]);
+  const fieldId = useMemo(() => (
+    fieldIdProp ?? `${id}-field`
+  ), [id, fieldIdProp]);
+
   const innerRef = useRef();
   const dropdownRef = useRef();
   const fieldRef = useRef();
@@ -63,6 +78,7 @@ const SelectField = forwardRef(({
     dirty: false,
     selectedIndex: null,
     focused: autoFocus,
+    activeMenuItem: null,
   });
 
   useImperativeHandle(ref, () => ({
@@ -83,12 +99,6 @@ const SelectField = forwardRef(({
     reset,
     isJunipero: true,
   }));
-
-  useEventListener('keydown', e => {
-    if (state.opened) {
-      onSelectionChange_(e);
-    }
-  }, globalEventsTarget);
 
   useEffect(() => {
     if (disabled) {
@@ -132,9 +142,13 @@ const SelectField = forwardRef(({
   };
 
   const onFocus_ = e => {
-    dropdownRef.current?.open();
-    dispatch({ focused: true });
-    onFocus(e);
+    if (state.opened) {
+      dispatch({ focused: true, opened: false });
+    } else {
+      dropdownRef.current?.open();
+      dispatch({ focused: true, activeItem: null, opened: true });
+      onFocus(e);
+    }
   };
 
   const onMouseDown_ = () => {
@@ -149,6 +163,55 @@ const SelectField = forwardRef(({
     }
   };
 
+  const onKeyDown = e => {
+    if (disabled) {
+      return;
+    }
+
+    const items = innerRef.current?.querySelectorAll(
+      '.junipero.dropdown-item:not(.disabled)'
+    );
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+
+        if (!state.opened) {
+          dropdownRef.current?.open();
+        } else if (!state.activeItem) {
+          dispatch({ activeItem: items?.[0] });
+          items?.[0]?.focus();
+        } else {
+          const currentIndex = Array.from(items).indexOf(state.activeItem);
+          const nextIndex = (currentIndex + 1) % items.length;
+
+          dispatch({ activeItem: items?.[nextIndex] });
+          items?.[nextIndex]?.focus();
+        }
+
+        break;
+
+      case 'ArrowUp':
+        e.preventDefault();
+
+        if (state.opened) {
+          const currentIndex = Array.from(items).indexOf(state.activeItem);
+          const nextIndex = (currentIndex - 1 + items.length) % items.length;
+
+          dispatch({ activeItem: items?.[nextIndex] });
+          items?.[nextIndex]?.focus();
+        }
+
+        break;
+      case 'Escape':
+        if (state.opened) {
+          dropdownRef.current?.close();
+        }
+
+        break;
+    }
+  };
+
   const onBlur_ = e => {
     dispatch({ focused: false });
     onBlur(e);
@@ -159,25 +222,7 @@ const SelectField = forwardRef(({
     if (e.key === 'Enter') {
       onChange_(option, e);
     }
-  };
 
-  const onSelectionChange_ = e => {
-    /* istanbul ignore else: useless else */
-    if (e.key === 'ArrowUp') {
-      dispatch({
-        selectedIndex: (state.selectedIndex
-          ? state.selectedIndex
-          : options?.length || 0
-        ) - 1,
-      });
-    } else if (e.key === 'ArrowDown') {
-      dispatch({
-        selectedIndex: parseInt(state.selectedIndex, 10) <
-          (options?.length || 0) - 1
-          ? state.selectedIndex + 1
-          : 0,
-      });
-    }
   };
 
   const onChange_ = (option, e) => {
@@ -191,7 +236,12 @@ const SelectField = forwardRef(({
     state.value = option;
     state.valid = validate(parseValue(option));
 
-    dispatch({ value: state.value, dirty: true, valid: state.valid });
+    dispatch({
+      value: state.value,
+      dirty: true,
+      valid: state.valid,
+      opened: false,
+    });
     onChange({ value: parseValue(state.value), valid: state.valid });
 
     if (trigger !== 'manual') {
@@ -244,6 +294,10 @@ const SelectField = forwardRef(({
     searchFieldRef.current?.reset();
   };
 
+  const onActiveItemChange = id => {
+    dispatch({ activeMenuItem: id });
+  };
+
   const renderOption = (o, index) => o.options ? (
     <div key={index} className="items-group">
       <div className="group-label">{ parseTitle(o, false) }</div>
@@ -254,7 +308,8 @@ const SelectField = forwardRef(({
   ) : (
     <DropdownItem
       key={index}
-      tabIndex={0}
+      tabIndex={-1}
+      role="option"
       onKeyPress={onSelect_.bind(null, o)}
     >
       <a href="#" onClick={onChange_.bind(null, o)} tabIndex={-1}>
@@ -267,6 +322,7 @@ const SelectField = forwardRef(({
     <div
       { ...rest }
       ref={innerRef}
+      tabIndex={-1}
       className={classNames(
         'junipero',
         'field',
@@ -289,9 +345,19 @@ const SelectField = forwardRef(({
         trigger={trigger}
         onToggle={onToggle_}
         ref={dropdownRef}
+        onKeyDown={onKeyDown}
+        onActiveItemChange={onActiveItemChange}
+        id={id}
       >
-        <DropdownToggle trigger="manual" href={null} tag="div">
+        <DropdownToggle
+          id={toggleId}
+          trigger="manual"
+          href={null}
+          tag="div"
+          a11yEnabled={false}
+        >
           <BaseField
+            id={fieldId}
             ref={fieldRef}
             disabled={disabled}
             placeholder={placeholder}
@@ -305,12 +371,17 @@ const SelectField = forwardRef(({
             onBlur={onBlur_}
             dirty={state.dirty}
             autoFocus={autoFocus}
+            dir="ltr"
+            aria-controls={`${id}-menu`}
+            aria-expanded={state.opened}
+            aria-haspopup="listbox"
           />
           <div className="arrow" />
         </DropdownToggle>
         <DropdownMenu
           animate={animateMenu}
           container={container}
+          role="listbox"
           { ...dropdownMenuProps }
         >
           { search && (
@@ -418,6 +489,8 @@ SelectField.propTypes = {
   trigger: PropTypes.string,
   validate: PropTypes.func,
   value: PropTypes.any,
+  id: PropTypes.string,
+  fieldId: PropTypes.string,
 };
 
 export default SelectField;

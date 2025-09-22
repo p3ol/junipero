@@ -37,7 +37,7 @@ const ToggleField = forwardRef(({
 
   useEventListener('keypress', e => {
     onKeyPress_(e);
-  }, globalEventsTarget);
+  }, [], globalEventsTarget);
 
   useImperativeHandle(ref, () => ({
     innerRef,
