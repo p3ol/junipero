@@ -100,7 +100,7 @@ const CheckboxField = forwardRef(({
       onFocus={onFocus_}
       onBlur={onBlur_}
       onKeyDown={onKeyPress_}
-      tabIndex={1}
+      tabIndex={0}
     >
       <div className="check">
         <input
