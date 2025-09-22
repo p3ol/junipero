@@ -363,6 +363,7 @@ export {
   useDropdown,
   useFieldControl,
   useModal,
+  useInfiniteCanvas,
 } from './hooks';
 
 export {
