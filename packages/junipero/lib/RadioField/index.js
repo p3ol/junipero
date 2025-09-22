@@ -122,6 +122,10 @@ const RadioField = forwardRef(({
         className,
       )}
       ref={wrapperRef}
+      role="radiogroup"
+      aria-disabled={disabled}
+      aria-required={true}
+      aria-labelledby={id}
     >
       { options.map((option, index) => (
         <label
@@ -151,7 +155,13 @@ const RadioField = forwardRef(({
             value={parseValue(option)}
             checked={isChecked(option)}
             onChange={onChange_.bind(null, option)}
+            role="radio"
             tabIndex={-1}
+            aria-checked={isChecked(option)}
+            aria-labelledby={
+              (option.id?.toString() || (id +
+                `-option-${index}`)) + '-label'
+            }
           />
           <div className="inner" />
           <div className="label">
