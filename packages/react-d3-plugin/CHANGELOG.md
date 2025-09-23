@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.1](https://github.com/p3ol/junipero/compare/v3.12.0...v3.12.1) (2025-09-22)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
+# [3.12.0](https://github.com/p3ol/junipero/compare/v3.11.0...v3.12.0) (2025-09-10)
+
+
+### Features
+
+* **hooks:** add deps to useEventListener ([57df67a](https://github.com/p3ol/junipero/commit/57df67a31df4931ed628998fc29eac5cfc284543))
+
+
+
+
+
 # [3.11.0](https://github.com/p3ol/junipero/compare/v3.10.7...v3.11.0) (2025-07-30)
 
 

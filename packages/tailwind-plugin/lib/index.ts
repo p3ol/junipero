@@ -34,6 +34,8 @@ export default plugin(({
   );
 }, {
   theme: {
-    colors: COLORS,
+    extend: {
+      colors: COLORS,
+    },
   },
 });
