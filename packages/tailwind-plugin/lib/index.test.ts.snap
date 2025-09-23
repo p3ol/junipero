@@ -4,5 +4,8 @@ exports[`@junipero/tailwind-plugin > should generate the correct CSS 1`] = `
 ".bg-velvet {
     --tw-bg-opacity: 1;
     background-color: rgb(92 86 223 / var(--tw-bg-opacity, 1))
+}
+.outline-red-500 {
+    outline-color: #ef4444
 }"
 `;

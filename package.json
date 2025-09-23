@@ -17,7 +17,8 @@
     "p:hooks": "yarn workspace @junipero/hooks",
     "p:react": "yarn workspace @junipero/react",
     "p:theme": "yarn workspace @junipero/theme",
-    "p:transitions": "yarn workspace @junipero/transitions"
+    "p:transitions": "yarn workspace @junipero/transitions",
+    "p:tailwind": "yarn workspace @junipero/tailwind-plugin"
   },
   "devDependencies": {
     "@poool/eslint-config": "5.0.6",
