@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
+
+
+### Bug Fixes
+
+* **wcag:** fix checkbox tabIndex to place it in the natural tab focus order ([33faf94](https://github.com/p3ol/junipero/commit/33faf9446a46c8373464aba1cae3ed5ee37c7dca))
+
+
+
+
+
 ## [3.12.2](https://github.com/p3ol/junipero/compare/v3.12.1...v3.12.2) (2025-09-23)
 
 
