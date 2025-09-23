@@ -131,7 +131,7 @@ const CheckboxField = ({
         className
       )}
       onKeyDown={onKeyDown_}
-      tabIndex={disabled ? -1 : 1}
+      tabIndex={disabled ? -1 : 0}
       // WCAG 2.0
       role="checkbox"
       aria-checked={state.checked}
