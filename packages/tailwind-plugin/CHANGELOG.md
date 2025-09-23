@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.2](https://github.com/p3ol/junipero/compare/v3.12.1...v3.12.2) (2025-09-23)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** junipero overrides tailwind v4 theme ([549a095](https://github.com/p3ol/junipero/commit/549a09576958460dfc4328cb5fb0b169fb183fb1))
+
+
+
+
+
 # [3.12.0](https://github.com/p3ol/junipero/compare/v3.11.0...v3.12.0) (2025-09-10)
 
 **Note:** Version bump only for package @junipero/tailwind-plugin
