@@ -6,7 +6,7 @@ import plugin from './index';
 describe('@junipero/tailwind-plugin', () => {
   it('should generate the correct CSS', async () => {
     const css = await generate(plugin, `
-      <div class="bg-velvet"></div>
+      <div class="bg-velvet outline-red-500"></div>
     `);
 
     expect(css).toMatchSnapshot();
