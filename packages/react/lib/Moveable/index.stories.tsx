@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useInfiniteCanvas } from '../hooks';
 import Button from '../Button';
 import InfiniteCanvas from '../InfiniteCanvas';
@@ -34,3 +36,24 @@ export const InsideInfiniteCanvas = () => (
     </ZoomedMoveable>
   </InfiniteCanvas>
 );
+
+export const Controlled = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  return (
+    <div>
+      <Button
+        onClick={() => setPosition({ x: position.x + 10, y: position.y + 10 })}
+      >
+        Move elsewhere
+      </Button>
+      <Moveable
+        x={position.x}
+        y={position.y}
+        onMoveEnd={state => setPosition({ x: state.deltaX, y: state.deltaY })}
+      >
+        <Button>Click me!</Button>
+      </Moveable>
+    </div>
+  );
+};

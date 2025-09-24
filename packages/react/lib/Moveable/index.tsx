@@ -73,6 +73,13 @@ const Moveable = ({
     startY: 0,
   });
 
+  useEffect(() => {
+    dispatch({
+      deltaX: (x || 0),
+      deltaY: (y || 0),
+    });
+  }, [x, y]);
+
   const onMouseDown_ = useCallback((e: ReactMouseEvent<HTMLDivElement>) => {
     dispatch({
       moving: true,
