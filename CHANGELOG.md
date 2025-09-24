@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.4](https://github.com/p3ol/junipero/compare/v3.12.3...v3.12.4) (2025-09-24)
+
+
+### Bug Fixes
+
+* **reacrt:** allow moveable to be controlled ([743297d](https://github.com/p3ol/junipero/commit/743297d6df1562aff4bf541b47635e7ce114ebd4))
+
+
+
+
+
 ## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
 
 
