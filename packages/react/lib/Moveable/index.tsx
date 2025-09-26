@@ -33,6 +33,7 @@ export declare interface MoveableProps extends ComponentPropsWithoutRef<any> {
   transformScale?: number;
   strategy?: MoveableStrategy;
   disabled?: boolean;
+  step?: number;
   onMouseDown?: (
     e: ReactMouseEvent<HTMLDivElement>
   ) => void;
@@ -56,6 +57,7 @@ const Moveable = ({
   style,
   className,
   children,
+  step = 1,
   transformScale = 1,
   strategy = 'transform',
   disabled = false,
@@ -69,18 +71,18 @@ const Moveable = ({
     moving: false,
     mouseX: 0,
     mouseY: 0,
-    deltaX: (x || 0),
-    deltaY: (y || 0),
+    deltaX: Math.round((x || 0) / step) * step,
+    deltaY: Math.round((y || 0) / step) * step,
     startX: 0,
     startY: 0,
   });
 
   useEffect(() => {
     dispatch({
-      deltaX: (x || 0),
-      deltaY: (y || 0),
+      deltaX: Math.round((x || 0) / step) * step,
+      deltaY: Math.round((y || 0) / step) * step,
     });
-  }, [x, y]);
+  }, [x, y, step]);
 
   const onMouseDown_ = useCallback((e: ReactMouseEvent<HTMLDivElement>) => {
     if (disabled) {
@@ -106,14 +108,17 @@ const Moveable = ({
       return;
     }
 
-    state.deltaX = (e.clientX - state.mouseX +
+    const rawDeltaX = (e.clientX - state.mouseX +
       (state.startX * transformScale)) / transformScale;
-    state.deltaY = (e.clientY - state.mouseY +
+    const rawDeltaY = (e.clientY - state.mouseY +
       (state.startY * transformScale)) / transformScale;
+
+    state.deltaX = Math.round(rawDeltaX / step) * step;
+    state.deltaY = Math.round(rawDeltaY / step) * step;
 
     dispatch({ deltaX: state.deltaX, deltaY: state.deltaY });
     onMove?.(state, e);
-  }, [disabled, state, onMove, transformScale]);
+  }, [disabled, state, onMove, transformScale, step]);
 
   const onMouseUp = useCallback((e: MouseEvent) => {
     if (!state.moving || disabled) {
@@ -172,8 +177,11 @@ const Moveable = ({
       ),
       style: {
         ...style,
+        ...(child as ReactElt).props?.style,
         ...strategy === 'position' ? {
-          position: 'relative',
+          position: style?.position ||
+            (child as ReactElt).props?.style?.position ||
+            'relative',
           left: `${state.deltaX}px`,
           top: `${state.deltaY}px`,
         } : {

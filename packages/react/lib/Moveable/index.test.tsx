@@ -50,4 +50,28 @@ describe('<Moveable />', () => {
     expect(container).toMatchSnapshot('still not moving');
     unmount();
   });
+
+  it('should move on a grid', () => {
+    const { container, unmount } = render(
+      <Moveable step={50}>
+        <div style={{ width: '1000px', height: '1000px' }}>Content</div>
+      </Moveable>
+    );
+
+    expect(container).toMatchSnapshot();
+    fireEvent.mouseDown(container.querySelector('.moveable'), { button: 0 });
+
+    expect(container).toMatchSnapshot('moving');
+
+    fireEvent.mouseMove(container.querySelector('.moveable'), {
+      clientX: 80,
+      clientY: 80,
+    });
+    fireEvent.mouseUp(container.querySelector('.moveable'), {
+      clientX: 80,
+      clientY: 80,
+    });
+    expect(container).toMatchSnapshot('moveable moved to 100,100');
+    unmount();
+  });
 });

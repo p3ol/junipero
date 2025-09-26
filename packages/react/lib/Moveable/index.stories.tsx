@@ -65,3 +65,9 @@ export const Controlled = () => {
     </div>
   );
 };
+
+export const OnGrid = () => (
+  <Moveable step={50}>
+    <Button>Click me!</Button>
+  </Moveable>
+);
