@@ -32,6 +32,7 @@ export declare interface MoveableProps extends ComponentPropsWithoutRef<any> {
   y?: number;
   transformScale?: number;
   strategy?: MoveableStrategy;
+  disabled?: boolean;
   onMouseDown?: (
     e: ReactMouseEvent<HTMLDivElement>
   ) => void;
@@ -57,6 +58,7 @@ const Moveable = ({
   children,
   transformScale = 1,
   strategy = 'transform',
+  disabled = false,
   onMouseDown,
   onMoveStart,
   onMove,
@@ -81,6 +83,12 @@ const Moveable = ({
   }, [x, y]);
 
   const onMouseDown_ = useCallback((e: ReactMouseEvent<HTMLDivElement>) => {
+    if (disabled) {
+      onMouseDown?.(e);
+
+      return;
+    }
+
     dispatch({
       moving: true,
       mouseX: e.clientX,
@@ -91,10 +99,12 @@ const Moveable = ({
 
     onMoveStart?.(e);
     onMouseDown?.(e);
-  }, [state.deltaX, state.deltaY, onMoveStart, onMouseDown]);
+  }, [disabled, state.deltaX, state.deltaY, onMoveStart, onMouseDown]);
 
   const onMouseMove = useCallback((e: MouseEvent) => {
-    if (!state.moving) return;
+    if (!state.moving || disabled) {
+      return;
+    }
 
     state.deltaX = (e.clientX - state.mouseX +
       (state.startX * transformScale)) / transformScale;
@@ -103,9 +113,13 @@ const Moveable = ({
 
     dispatch({ deltaX: state.deltaX, deltaY: state.deltaY });
     onMove?.(state, e);
-  }, [state, onMove, transformScale]);
+  }, [disabled, state, onMove, transformScale]);
 
   const onMouseUp = useCallback((e: MouseEvent) => {
+    if (!state.moving || disabled) {
+      return;
+    }
+
     state.moving = false;
     state.mouseX = 0;
     state.mouseY = 0;
@@ -121,7 +135,7 @@ const Moveable = ({
     });
 
     onMoveEnd?.(state, e);
-  }, [state, onMoveEnd]);
+  }, [disabled, state, onMoveEnd]);
 
   useEffect(() => {
     if (state.moving) {

@@ -1,5 +1,38 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`<Moveable /> > should not move when disabled > not moving 1`] = `
+<div>
+  <div
+    class="junipero moveable"
+    style="transform: translate3d(0px, 0px, 0);"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`<Moveable /> > should not move when disabled > still not moving 1`] = `
+<div>
+  <div
+    class="junipero moveable"
+    style="transform: translate3d(0px, 0px, 0);"
+  >
+    Content
+  </div>
+</div>
+`;
+
+exports[`<Moveable /> > should not move when disabled 1`] = `
+<div>
+  <div
+    class="junipero moveable"
+    style="transform: translate3d(0px, 0px, 0);"
+  >
+    Content
+  </div>
+</div>
+`;
+
 exports[`<Moveable /> > should render a moveable > moveable moved 1`] = `
 <div>
   <div

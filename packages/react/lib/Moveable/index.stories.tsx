@@ -39,6 +39,7 @@ export const InsideInfiniteCanvas = () => (
 
 export const Controlled = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [disabled, setDisabled] = useState(false);
 
   return (
     <div>
@@ -47,9 +48,16 @@ export const Controlled = () => {
       >
         Move elsewhere
       </Button>
+      <Button
+        onClick={() => setDisabled(!disabled)}
+        className="ml-2"
+      >
+        {disabled ? 'Enable' : 'Disable'}
+      </Button>
       <Moveable
         x={position.x}
         y={position.y}
+        disabled={disabled}
         onMoveEnd={state => setPosition({ x: state.deltaX, y: state.deltaY })}
       >
         <Button>Click me!</Button>
