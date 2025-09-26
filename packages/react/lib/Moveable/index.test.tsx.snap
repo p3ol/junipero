@@ -4,7 +4,7 @@ exports[`<Moveable /> > should move on a grid > moveable moved to 100,100 1`] = 
 <div>
   <div
     class="junipero moveable"
-    style="transform: translate3d(100px, 100px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(100px, 100px, 0);"
   >
     Content
   </div>
@@ -15,7 +15,7 @@ exports[`<Moveable /> > should move on a grid > moving 1`] = `
 <div>
   <div
     class="junipero moveable moving"
-    style="transform: translate3d(0px, 0px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(0px, 0px, 0);"
   >
     Content
   </div>
@@ -26,7 +26,7 @@ exports[`<Moveable /> > should move on a grid 1`] = `
 <div>
   <div
     class="junipero moveable"
-    style="transform: translate3d(0px, 0px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(0px, 0px, 0);"
   >
     Content
   </div>
@@ -37,7 +37,7 @@ exports[`<Moveable /> > should not move when disabled > not moving 1`] = `
 <div>
   <div
     class="junipero moveable"
-    style="transform: translate3d(0px, 0px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(0px, 0px, 0);"
   >
     Content
   </div>
@@ -48,7 +48,7 @@ exports[`<Moveable /> > should not move when disabled > still not moving 1`] = `
 <div>
   <div
     class="junipero moveable"
-    style="transform: translate3d(0px, 0px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(0px, 0px, 0);"
   >
     Content
   </div>
@@ -59,7 +59,7 @@ exports[`<Moveable /> > should not move when disabled 1`] = `
 <div>
   <div
     class="junipero moveable"
-    style="transform: translate3d(0px, 0px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(0px, 0px, 0);"
   >
     Content
   </div>
@@ -70,7 +70,7 @@ exports[`<Moveable /> > should render a moveable > moveable moved 1`] = `
 <div>
   <div
     class="junipero moveable"
-    style="transform: translate3d(100px, 100px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(100px, 100px, 0);"
   >
     Content
   </div>
@@ -81,7 +81,7 @@ exports[`<Moveable /> > should render a moveable > moving 1`] = `
 <div>
   <div
     class="junipero moveable moving"
-    style="transform: translate3d(0px, 0px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(0px, 0px, 0);"
   >
     Content
   </div>
@@ -92,7 +92,7 @@ exports[`<Moveable /> > should render a moveable 1`] = `
 <div>
   <div
     class="junipero moveable"
-    style="transform: translate3d(0px, 0px, 0);"
+    style="width: 1000px; height: 1000px; transform: translate3d(0px, 0px, 0);"
   >
     Content
   </div>
