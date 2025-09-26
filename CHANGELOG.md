@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.6](https://github.com/p3ol/junipero/compare/v3.12.5...v3.12.6) (2025-09-26)
+
+
+### Bug Fixes
+
+* **react:** moveable bad style position ([078538c](https://github.com/p3ol/junipero/commit/078538cea105e4c484ee72adb96939970094fc58))
+
+
+
+
+
 ## [3.12.5](https://github.com/p3ol/junipero/compare/v3.12.4...v3.12.5) (2025-09-26)
 
 

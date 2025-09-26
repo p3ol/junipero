@@ -1,6 +1,6 @@
 {
   "name": "@junipero/react-d3-plugin",
-  "version": "3.12.5",
+  "version": "3.12.6",
   "description": "🏔 Junipero Design System D3 Components for React",
   "type": "module",
   "main": "dist/index.js",
