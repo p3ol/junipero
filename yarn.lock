@@ -2674,12 +2674,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.1.13":
-  version: 19.1.13
-  resolution: "@types/react@npm:19.1.13"
+"@types/react@npm:19.1.16":
+  version: 19.1.16
+  resolution: "@types/react@npm:19.1.16"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10c0/75e35b54883f5ed07d3b5cb16a4711b6dbb7ec6b74301bcb9bfa697c9d9fff022ec508e1719e7b2c69e2e8b042faac1125be7717b5e5e084f816a2c88e136920
+  checksum: 10c0/3d781f715f15f308b601d74142fae77c65679c318a3bb0a319df898f39095e738ba7ed7061cec971b19b6d33969ef9cd50fec92b034024ef3fcc25bb9a2eb3d0
   languageName: node
   linkType: hard
 
@@ -9991,7 +9991,7 @@ __metadata:
     "@types/fs-extra": "npm:11.0.4"
     "@types/jest": "npm:30.0.0"
     "@types/node": "npm:24.5.2"
-    "@types/react": "npm:19.1.13"
+    "@types/react": "npm:19.1.16"
     "@types/react-dom": "npm:19.1.9"
     "@typescript-eslint/parser": "npm:8.44.0"
     "@vitest/coverage-v8": "npm:3.2.4"
