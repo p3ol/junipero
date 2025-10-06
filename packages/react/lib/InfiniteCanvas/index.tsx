@@ -16,6 +16,7 @@ import { InfiniteCanvasContext } from '../contexts';
 
 export declare type InfiniteCanvasCursorMode =
   | 'default'
+  | 'add'
   | 'pan';
 
 export declare type InfiniteCanvasBackgroundPattern =
@@ -30,6 +31,7 @@ export declare interface InfiniteCanvasRef extends JuniperoRef {
   setZoom: (newZoom: number, transitionDuration?: number) => void;
   zoomIn: (transitionDuration?: number) => void;
   zoomOut: (transitionDuration?: number) => void;
+  getCursorPosition: () => { x: number; y: number };
   innerRef: RefObject<HTMLDivElement | null>;
   contentRef: RefObject<HTMLDivElement | null>;
   backgroundRef: RefObject<SVGSVGElement | null>;
@@ -56,6 +58,8 @@ export declare interface InfiniteCanvasProps extends
 
 export declare interface InfiniteCanvasState {
   zoom: number;
+  mouseX: number;
+  mouseY: number;
   offsetX: number;
   offsetY: number;
   animate: number;
@@ -91,6 +95,8 @@ const InfiniteCanvas = ({
   } = background || {};
   const [state, dispatch] = useReducer(mockState<InfiniteCanvasState>, {
     zoom: initialZoom || 1,
+    mouseX: 0,
+    mouseY: 0,
     offsetX: 0,
     offsetY: 0,
     animate: 0,
@@ -111,6 +117,7 @@ const InfiniteCanvas = ({
     setZoom,
     zoomIn,
     zoomOut,
+    getCursorPosition,
     innerRef,
     contentRef,
     backgroundRef,
@@ -239,6 +246,17 @@ const InfiniteCanvas = ({
     setZoom(newZoom, transitionDuration);
   }, [state.zoom, setZoom]);
 
+  const getCursorPosition = useCallback(() => {
+    if (!innerRef.current) {
+      return { x: 0, y: 0 };
+    }
+
+    return {
+      x: Math.round((state.mouseX - state.offsetX) / state.zoom),
+      y: Math.round((state.mouseY - state.offsetY) / state.zoom),
+    };
+  }, [state.mouseX, state.mouseY, state.zoom, state.offsetX, state.offsetY]);
+
   const getContext = useCallback(() => ({
     zoom: state.zoom,
     offsetX: state.offsetX,
@@ -269,6 +287,8 @@ const InfiniteCanvas = ({
 
   const onMouseMove = useCallback((e: MouseEvent) => {
     if (!state.panning || cursorMode !== 'pan') {
+      dispatch({ mouseX: e.clientX, mouseY: e.clientY });
+
       return;
     }
 
@@ -276,6 +296,8 @@ const InfiniteCanvas = ({
     const deltaY = e.clientY - state.panStartY;
 
     dispatch({
+      mouseX: e.clientX,
+      mouseY: e.clientY,
       offsetX: state.offsetX + deltaX,
       offsetY: state.offsetY + deltaY,
       panStartX: e.clientX,
@@ -283,7 +305,8 @@ const InfiniteCanvas = ({
     });
   }, [
     state.panStartX, state.panStartY, state.offsetX, state.offsetY,
-    state.panning, cursorMode,
+    state.panning,
+    cursorMode,
   ]);
 
   const onMouseUp = useCallback(() => {
@@ -299,7 +322,7 @@ const InfiniteCanvas = ({
   }, [state.panning, cursorMode]);
 
   useEffect(() => {
-    if (state.panning && cursorMode === 'pan') {
+    if (['pan', 'add'].includes(cursorMode)) {
       globalEventsTarget.addEventListener('mousemove', onMouseMove);
       globalEventsTarget.addEventListener('mouseup', onMouseUp);
     }
@@ -309,9 +332,8 @@ const InfiniteCanvas = ({
       globalEventsTarget.removeEventListener('mouseup', onMouseUp);
     };
   }, [
-    state.panning,
-    cursorMode, globalEventsTarget,
     onMouseMove, onMouseUp,
+    globalEventsTarget, cursorMode,
   ]);
 
   const scaledPatternGap = gap * state.zoom;
