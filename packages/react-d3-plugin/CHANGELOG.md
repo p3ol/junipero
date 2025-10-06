@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.7](https://github.com/p3ol/junipero/compare/v3.12.6...v3.12.7) (2025-10-06)
+
+**Note:** Version bump only for package @junipero/react-d3-plugin
+
+
+
+
+
 ## [3.12.6](https://github.com/p3ol/junipero/compare/v3.12.5...v3.12.6) (2025-09-26)
 
 **Note:** Version bump only for package @junipero/react-d3-plugin
