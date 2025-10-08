@@ -193,6 +193,11 @@ export {
   type InfiniteCanvasBackgroundPattern,
 } from './InfiniteCanvas';
 export {
+  default as InfiniteCanvasZoom,
+  type InfiniteCanvasZoomRef,
+  type InfiniteCanvasZoomProps,
+} from './InfiniteCanvasZoom';
+export {
   default as Label,
   type LabelProps,
 } from './Label';
