@@ -45,7 +45,7 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-storybook": "9.1.7",
     "fs-extra": "11.3.2",
-    "jsdom": "26.1.0",
+    "jsdom": "27.0.1",
     "jsdom-testing-mocks": "1.16.0",
     "lerna": "8.2.4",
     "postcss": "8.5.6",
