@@ -53,7 +53,7 @@ const Button = ({
       ref={innerRef}
       onClick={onClick_}
       // WCAG 2.0
-      role="button"
+      role={rest.role ? rest.role : 'button'}
       aria-disabled={disabled}
     />
   );

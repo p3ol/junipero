@@ -10,3 +10,14 @@ exports[`<Button /> > should render 1`] = `
   </button>
 </div>
 `;
+
+exports[`<Button /> > should render with custom role 1`] = `
+<div>
+  <button
+    class="junipero button"
+    role="link"
+  >
+    Click me
+  </button>
+</div>
+`;
