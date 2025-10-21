@@ -29,4 +29,12 @@ describe('<Button />', () => {
     expect(onClick).not.toHaveBeenCalled();
     unmount();
   });
+
+  it('should render with custom role', () => {
+    const { container, unmount } = render(
+      <Button role="link">Click me</Button>
+    );
+    expect(container).toMatchSnapshot();
+    unmount();
+  });
 });
