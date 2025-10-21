@@ -55,7 +55,6 @@ const Button = ({
       className={classNames('junipero', 'button', { disabled }, className)}
       ref={innerRef}
       onClick={onClick_}
-
     />
   );
 };
