@@ -47,14 +47,15 @@ const Button = ({
 
   return (
     <Tag
+      // WCAG 2.0
+      role="button"
+      aria-disabled={disabled}
       { ...rest }
       disabled={disabled}
       className={classNames('junipero', 'button', { disabled }, className)}
       ref={innerRef}
       onClick={onClick_}
-      // WCAG 2.0
-      role={rest.role ? rest.role : 'button'}
-      aria-disabled={disabled}
+
     />
   );
 };
