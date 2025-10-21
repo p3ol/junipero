@@ -19,6 +19,8 @@ const Button = forwardRef(({
 
   return (
     <Tag
+      role="button"
+      aria-disabled={disabled}
       { ...rest }
       ref={ref}
       className={classNames(
@@ -29,8 +31,6 @@ const Button = forwardRef(({
       )}
       onClick={onClick_}
       disabled={disabled}
-      role={rest.role ? rest.role : 'button'}
-      aria-disabled={disabled}
     />
   );
 });
