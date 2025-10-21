@@ -29,7 +29,7 @@ const Button = forwardRef(({
       )}
       onClick={onClick_}
       disabled={disabled}
-      role="button"
+      role={rest.role ? rest.role : 'button'}
       aria-disabled={disabled}
     />
   );
