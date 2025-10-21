@@ -257,7 +257,7 @@ Dropdown.propTypes = {
   clickOutsideTarget: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.object,
-  ]), 
+  ]),
   disabled: PropTypes.bool,
   globalEventsTarget: PropTypes.oneOfType([
     PropTypes.node,
