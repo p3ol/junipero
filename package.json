@@ -4,17 +4,16 @@
     "packages/*"
   ],
   "scripts": {
-    "lerna": "./node_modules/.bin/lerna",
     "prepack": "yarn lint && yarn build && yarn test",
-    "unlink-all": "./node_modules/.bin/lerna exec --parallel -- yarn unlink",
-    "link-all": "./node_modules/.bin/lerna exec --parallel -- yarn link",
-    "test": "BABEL_ENV=tests ./node_modules/.bin/jest",
-    "lint": "./node_modules/.bin/eslint .",
-    "clean": "./node_modules/.bin/lerna exec --parallel -- yarn clean",
-    "build": "./node_modules/.bin/lerna exec -- yarn build",
-    "serve": "./node_modules/.bin/start-storybook",
-    "presnapshot": "./node_modules/.bin/build-storybook -c .storybook",
-    "snapshot": "./node_modules/.bin/percy storybook --config=./percy.config.js ./storybook-static"
+    "unlink-all": "lerna exec --parallel -- yarn unlink",
+    "link-all": "lerna exec --parallel -- yarn link",
+    "test": "BABEL_ENV=tests jest",
+    "lint": "eslint .",
+    "clean": "lerna exec --parallel -- yarn clean",
+    "build": "lerna exec -- yarn build",
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider start-storybook",
+    "presnapshot": "NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook",
+    "snapshot": "percy storybook --config=./percy.config.js ./storybook-static"
   },
   "devDependencies": {
     "@babel/cli": "7.19.3",
@@ -88,5 +87,6 @@
     "webpack-cli": "4.10.0",
     "webpack-dev-server": "4.11.1",
     "webpack-merge": "5.8.0"
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }
