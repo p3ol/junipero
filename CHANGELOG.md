@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.9](https://github.com/p3ol/junipero/compare/v3.12.8...v3.12.9) (2025-10-22)
+
+
+### Bug Fixes
+
+* add custom role on button from props ([74a1fbd](https://github.com/p3ol/junipero/commit/74a1fbda3de3150e8f320328b3dfe3319315941f))
+* put role and aria before rest ([270fd26](https://github.com/p3ol/junipero/commit/270fd26179957f7778f99c1cf8d7e815f7136e90))
+* **react:** don't use impure date.now ([9d29895](https://github.com/p3ol/junipero/commit/9d29895a489a31ffacf3f106920554b4c6ad8360))
+* remove useless whitespace ([bc13547](https://github.com/p3ol/junipero/commit/bc135477452b7715be017ac383587126fd998632))
+* **transitions:** use named components ([232d32f](https://github.com/p3ol/junipero/commit/232d32f4f9e1788410e00dce5918a519d4d63011))
+* upgrade various deps ([a2e8279](https://github.com/p3ol/junipero/commit/a2e8279085e51893acc367da532ff035eb14a90c))
+
+
+
+
+
 ## [3.12.8](https://github.com/p3ol/junipero/compare/v3.12.7...v3.12.8) (2025-10-08)
 
 
