@@ -103,7 +103,7 @@ const DropdownMenu = forwardRef(({
       )}
       style={styles?.popper || {}}
       { ...attributes?.popper || {} }
-      ref={r => { ref.current = r; }}
+      ref={ref}
     >
       { animate ? animate(menu, { opened }) : menu }
     </div>
