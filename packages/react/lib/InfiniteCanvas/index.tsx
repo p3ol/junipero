@@ -32,6 +32,7 @@ export declare interface InfiniteCanvasRef extends JuniperoRef {
   zoomIn: (transitionDuration?: number) => void;
   zoomOut: (transitionDuration?: number) => void;
   getCursorPosition: () => { x: number; y: number };
+  panTo: (x: number, y: number, transitionDuration?: number) => void;
   innerRef: RefObject<HTMLDivElement | null>;
   contentRef: RefObject<HTMLDivElement | null>;
   backgroundRef: RefObject<SVGSVGElement | null>;
@@ -118,6 +119,7 @@ const InfiniteCanvas = ({
     zoomIn,
     zoomOut,
     getCursorPosition,
+    panTo,
     innerRef,
     contentRef,
     backgroundRef,
@@ -257,17 +259,41 @@ const InfiniteCanvas = ({
     };
   }, [state.mouseX, state.mouseY, state.zoom, state.offsetX, state.offsetY]);
 
+  const panTo = useCallback((
+    x: number,
+    y: number,
+    transitionDuration?: number
+  ) => {
+    if (!innerRef.current || !contentRef.current) {
+      return;
+    }
+
+    const rect = innerRef.current.getBoundingClientRect();
+    const canvasWidth = rect.width;
+    const canvasHeight = rect.height;
+
+    const newOffsetX = canvasWidth / 2 - x * state.zoom;
+    const newOffsetY = canvasHeight / 2 - y * state.zoom;
+
+    dispatch({
+      offsetX: newOffsetX,
+      offsetY: newOffsetY,
+      animate: transitionDuration ?? 100,
+    });
+  }, [state.zoom]);
+
   const getContext = useCallback(() => ({
     zoom: state.zoom,
     offsetX: state.offsetX,
     offsetY: state.offsetY,
     fitIntoView,
+    panTo,
     setZoom,
     zoomIn,
     zoomOut,
   }), [
     state.zoom, state.offsetX, state.offsetY,
-    fitIntoView, setZoom, zoomIn, zoomOut,
+    fitIntoView, setZoom, zoomIn, zoomOut, panTo,
   ]);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
