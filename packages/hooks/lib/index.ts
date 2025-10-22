@@ -39,7 +39,11 @@ export const useEventListener = (
     return () => {
       t.removeEventListener(name, eventListener);
     };
-  }, [name, opts?.target, opts?.ref, opts?.enabled, ...deps]);
+  }, [
+    name, opts?.target, opts?.ref, opts?.enabled,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    ...deps,
+  ]);
 };
 
 export declare interface UseIntervalOptions {
