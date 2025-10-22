@@ -64,11 +64,11 @@ const SliderField = forwardRef(({
 
   useEventListener('mousemove', e => {
     onMouseMove_(e);
-  }, globalEventsTarget);
+  }, [], globalEventsTarget);
 
   useEventListener('mouseup', e => {
     onMouseUp_(e);
-  }, globalEventsTarget);
+  }, [], globalEventsTarget);
 
   const onMouseDown_ = e => {
     if (e.button !== 0) {

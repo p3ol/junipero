@@ -65,7 +65,7 @@ const Tooltip = forwardRef(({
 
   useEventListener('click', e => {
     onClickOutside_(e);
-  }, globalEventsTarget);
+  }, [], globalEventsTarget);
 
   useImperativeHandle(ref, () => ({
     innerRef: { current: innerRef },

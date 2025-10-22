@@ -7,6 +7,8 @@ import {
   useReducer,
   useRef,
   useCallback,
+  useId,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import { usePopper } from 'react-popper';
@@ -18,6 +20,7 @@ import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 
 const Dropdown = forwardRef(({
+  id: idProp,
   children,
   className,
   clickOutsideTarget,
@@ -30,14 +33,26 @@ const Dropdown = forwardRef(({
   filterToggle = child => child.type === DropdownToggle,
   filterMenu = child => child.type === DropdownMenu,
   onToggle = () => {},
+  onActiveItemChange,
   ...rest
 }, ref) => {
+  const fallbackId = useId();
+  const id = useMemo(() => (
+    idProp ?? `junipero-dropdown-${fallbackId}`
+  ), [idProp, fallbackId]);
+  const fallbackMenuId = useMemo(() => (
+    `${id}-menu`
+  ), [id]);
+
   const innerRef = useRef();
   const toggleRef = useRef();
   const menuRef = useRef();
   const [state, dispatch] = useReducer(mockState, {
     opened,
+    activeItem: null,
+    menuId: fallbackMenuId,
   });
+
   const { styles, attributes, update, forceUpdate } = usePopper(
     toggleRef.current || innerRef.current,
     menuRef.current || innerRef.current,
@@ -52,18 +67,26 @@ const Dropdown = forwardRef(({
   );
 
   useEffect(() => {
+    if (disabled && state.opened) {
+      close();
+    }
+  }, [disabled]);
+
+  useEffect(() => {
     dispatch({ opened: disabled ? false : opened });
   }, [opened, disabled]);
 
   useEventListener('click', e => {
     onClickOutside_(e);
-  }, globalEventsTarget);
+  }, [], globalEventsTarget);
 
   useImperativeHandle(ref, () => ({
     opened: state.opened,
     innerRef,
     toggleRef,
     menuRef,
+    activeItem: state.activeItem,
+    setActiveItem,
     toggle,
     open,
     close,
@@ -83,11 +106,21 @@ const Dropdown = forwardRef(({
 
   const close = () => {
     state.opened = false;
+    dispatch({ activeItem: undefined });
     onToggle_();
   };
 
   const toggle = () => {
-    state.opened = !state.opened;
+    if (disabled) {
+      return;
+    }
+
+    if (state.opened) {
+      close();
+    } else {
+      open();
+    }
+
     onToggle_();
   };
 
@@ -101,10 +134,28 @@ const Dropdown = forwardRef(({
     forceUpdate?.();
   };
 
+  const setActiveItem = useCallback(id => {
+    dispatch({ activeItem: id });
+    onActiveItemChange?.(id);
+  }, [onActiveItemChange, state.activeItem]);
+
+  const registerMenu = useCallback(id => {
+    dispatch({ menuId: id });
+  }, []);
+
   const onToggle_ = () => {
     update?.();
     dispatch({ opened: state.opened });
     onToggle({ opened: state.opened });
+    dispatch(s => ({
+      ...s,
+      opened: state.opened,
+      activeItem: state.opened ? s.activeItem : undefined,
+    }));
+
+    if (!state.opened) {
+      onActiveItemChange?.(undefined);
+    }
   };
 
   const onClickOutside_ = e => {
@@ -140,11 +191,17 @@ const Dropdown = forwardRef(({
     disabled,
     styles,
     attributes,
+    activeItem: state.activeItem,
+    menuId: state.menuId,
+    fallbackMenuId,
     toggle,
     update: update_,
+    setActiveItem,
+    registerMenu,
     forceUpdate: forceUpdate_,
   }), [
     state.opened,
+    state.activeItem,
     disabled,
     styles,
     attributes,
@@ -153,6 +210,7 @@ const Dropdown = forwardRef(({
   return (
     <div
       { ...rest }
+      id={id}
       className={classNames(
         'junipero',
         'dropdown',
@@ -205,12 +263,14 @@ Dropdown.propTypes = {
     PropTypes.node,
     PropTypes.object,
   ]),
+  id: PropTypes.string,
   onToggle: PropTypes.func,
   opened: PropTypes.bool,
   placement: PropTypes.string,
   popperOptions: PropTypes.object,
   trigger: PropTypes.string,
   filterMenu: PropTypes.func,
+  onActiveItemChange: PropTypes.func,
   filterToggle: PropTypes.func,
 };
 
