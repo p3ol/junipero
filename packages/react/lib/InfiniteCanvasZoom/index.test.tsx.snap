@@ -28,7 +28,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
           class="junipero button dropdown-toggle opened"
           dir="ltr"
           id="junipero-dropdown-toggle-«r3»"
-          role="button"
+          role="combobox"
           type="button"
         >
           100%
