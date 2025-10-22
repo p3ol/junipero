@@ -21,4 +21,11 @@ export default defineConfig(
   },
   pooolint.configs.recommended,
   storybook.configs['flat/recommended'],
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
 );
