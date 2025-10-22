@@ -9,26 +9,28 @@ export declare interface AnimateMenuOptions extends Partial<TransitionProps> {
 export const animateMenu = (
   name: string,
   { time = 100, key, ...opts }: AnimateMenuOptions = {}
-) => (
+) => function animateMenuCallback (
   menu: ReactNode,
   { opened, key: k, ...props }: {
     opened?: boolean;
     key?: Key;
   } & Partial<TransitionProps> = {}
-) => (
-  <Transition
-    in={opened}
-    mountOnEnter={true}
-    unmountOnExit={true}
-    timeout={time}
-    name={name}
-    { ...opts }
-    { ...props }
-    key={k ?? key}
-  >
-    { menu }
-  </Transition>
-);
+) {
+  return (
+    <Transition
+      in={opened}
+      mountOnEnter={true}
+      unmountOnExit={true}
+      timeout={time}
+      name={name}
+      { ...opts }
+      { ...props }
+      key={k ?? key}
+    >
+      { menu }
+    </Transition>
+  );
+};
 
 export declare interface AnimateOptions extends Partial<TransitionProps> {
   time?: number;
@@ -38,26 +40,28 @@ export declare interface AnimateOptions extends Partial<TransitionProps> {
 export const animate = (
   name: string,
   { time = 100, key, ...opts }: AnimateOptions = {}
-) => (
+) => function animateCallback (
   menu: ReactNode,
   { opened, key: k, ...props }: {
     opened?: boolean;
     key?: Key;
   } & Partial<TransitionProps> = {}
-) => (
-  <Transition
-    in={opened}
-    mountOnEnter={true}
-    unmountOnExit={true}
-    timeout={time}
-    name={name}
-    { ...opts }
-    { ...props }
-    key={k ?? key}
-  >
-    { menu }
-  </Transition>
-);
+) {
+  return (
+    <Transition
+      in={opened}
+      mountOnEnter={true}
+      unmountOnExit={true}
+      timeout={time}
+      name={name}
+      { ...opts }
+      { ...props }
+      key={k ?? key}
+    >
+      { menu }
+    </Transition>
+  );
+};
 
 export const slideInUpMenu = animate('jp-slide-in-up-menu');
 export const slideInDownMenu = animate('jp-slide-in-down-menu');
