@@ -10,7 +10,7 @@ const TestComponent = ({ target, onTimeout, onInterval }) => {
 
   useEventListener('click', () => {
     setClicked(true);
-  }, target);
+  }, [], target);
 
   onInterval && useInterval(() => onInterval(), 500, []);
 

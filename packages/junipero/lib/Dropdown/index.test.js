@@ -219,10 +219,10 @@ describe('<Dropdown />', () => {
     const menuRef = createRef();
     const { container, unmount } = render(
       <Dropdown opened={true} ref={ref}>
-        <DropdownToggle ref={ref => { toggleRef.current = ref; }}>
+        <DropdownToggle ref={toggleRef}>
           Open me
         </DropdownToggle>
-        <DropdownMenu ref={ref => { menuRef.current = ref; }}>
+        <DropdownMenu ref={menuRef}>
           <DropdownItem>Menu item</DropdownItem>
         </DropdownMenu>
       </Dropdown>
