@@ -5,6 +5,7 @@ import {
   useState,
   useImperativeHandle,
   useRef,
+  useEffect,
 } from 'react';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
@@ -72,7 +73,7 @@ const Toast = ({
 }: ToastProps) => {
   const timeout = animate ? animationTimeout : 0;
   const innerRef = useRef<HTMLElement>(null);
-  const startTimeRef = useRef(Date.now() + timeout);
+  const startTimeRef = useRef<number | null>(null);
   const [remaining, setRemaining] = useState(lifespan);
   const [enabled, setEnabled] = useState(true);
   const [paused, setPaused] = useState(false);
@@ -84,6 +85,10 @@ const Toast = ({
     innerRef,
     isJunipero: true,
   }));
+
+  useEffect(() => {
+    startTimeRef.current = Date.now() + timeout;
+  }, [timeout]);
 
   useTimeout(() => {
     setEnabled(false);
