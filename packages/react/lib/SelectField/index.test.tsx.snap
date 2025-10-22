@@ -4,11 +4,11 @@ exports[`<SelectField /> > should allow arbitrary values 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«r2b»"
+    id="junipero-select-field-_r_2b_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r2b»-toggle"
+      id="junipero-select-field-_r_2b_-toggle"
     >
       <span
         class="junipero tag info"
@@ -32,11 +32,11 @@ exports[`<SelectField /> > should allow arbitrary values 1`] = `
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2b»-items"
+        aria-controls="junipero-select-field-_r_2b_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2b»-field"
+        id="junipero-select-field-_r_2b_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -144,14 +144,14 @@ exports[`<SelectField /> > should allow to clear a single value 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable"
-    id="junipero-select-field-«rd»"
+    id="junipero-select-field-_r_d_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«rd»-toggle"
+      id="junipero-select-field-_r_d_-toggle"
     >
       <input
-        id="junipero-select-field-«rd»-field"
+        id="junipero-select-field-_r_d_-field"
         readonly=""
         type="text"
         value="Item 1"
@@ -195,19 +195,19 @@ exports[`<SelectField /> > should allow to clear a single value 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable empty focused"
-    id="junipero-select-field-«rd»"
+    id="junipero-select-field-_r_d_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«rd»-toggle"
+      id="junipero-select-field-_r_d_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«rd»-items"
+        aria-controls="junipero-select-field-_r_d_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«rd»-field"
+        id="junipero-select-field-_r_d_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -240,11 +240,11 @@ exports[`<SelectField /> > should allow to clear multiple values at once 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable focused multiple"
-    id="junipero-select-field-«rp»"
+    id="junipero-select-field-_r_p_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«rp»-toggle"
+      id="junipero-select-field-_r_p_-toggle"
     >
       <span
         class="junipero tag info"
@@ -288,11 +288,11 @@ exports[`<SelectField /> > should allow to clear multiple values at once 1`] = `
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«rp»-items"
+        aria-controls="junipero-select-field-_r_p_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«rp»-field"
+        id="junipero-select-field-_r_p_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -338,19 +338,19 @@ exports[`<SelectField /> > should allow to clear multiple values at once 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable empty focused multiple"
-    id="junipero-select-field-«rp»"
+    id="junipero-select-field-_r_p_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«rp»-toggle"
+      id="junipero-select-field-_r_p_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«rp»-items"
+        aria-controls="junipero-select-field-_r_p_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«rp»-field"
+        id="junipero-select-field-_r_p_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -383,11 +383,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 1
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable focused multiple"
-    id="junipero-select-field-«r2j»"
+    id="junipero-select-field-_r_2j_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2j»-toggle"
+      id="junipero-select-field-_r_2j_-toggle"
     >
       <span
         class="junipero tag info"
@@ -451,11 +451,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 1
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2j»-items"
+        aria-controls="junipero-select-field-_r_2j_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2j»-field"
+        id="junipero-select-field-_r_2j_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -496,7 +496,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 1
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2j»-items"
+      id="junipero-select-field-_r_2j_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -508,7 +508,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 1
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2j»-items-«r2o»"
+            id="junipero-select-field-_r_2j_-items-_r_2o_"
             tabindex="0"
           >
             <a>
@@ -526,11 +526,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 2
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«r2j»"
+    id="junipero-select-field-_r_2j_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2j»-toggle"
+      id="junipero-select-field-_r_2j_-toggle"
     >
       <span
         class="junipero tag info"
@@ -574,11 +574,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 2
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2j»-items"
+        aria-controls="junipero-select-field-_r_2j_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2j»-field"
+        id="junipero-select-field-_r_2j_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -619,7 +619,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 2
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2j»-items"
+      id="junipero-select-field-_r_2j_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -631,7 +631,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 2
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2j»-items-«r2o»"
+            id="junipero-select-field-_r_2j_-items-_r_2o_"
             tabindex="0"
           >
             <a>
@@ -649,11 +649,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 3
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«r2j»"
+    id="junipero-select-field-_r_2j_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2j»-toggle"
+      id="junipero-select-field-_r_2j_-toggle"
     >
       <span
         class="junipero tag info"
@@ -697,11 +697,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 3
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2j»-items"
+        aria-controls="junipero-select-field-_r_2j_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2j»-field"
+        id="junipero-select-field-_r_2j_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -742,7 +742,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 3
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2j»-items"
+      id="junipero-select-field-_r_2j_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -754,7 +754,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 3
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2j»-items-«r2o»"
+            id="junipero-select-field-_r_2j_-items-_r_2o_"
             tabindex="0"
           >
             <a>
@@ -772,11 +772,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 4
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«r2j»"
+    id="junipero-select-field-_r_2j_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2j»-toggle"
+      id="junipero-select-field-_r_2j_-toggle"
     >
       <span
         class="junipero tag info selected"
@@ -820,11 +820,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 4
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2j»-items"
+        aria-controls="junipero-select-field-_r_2j_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2j»-field"
+        id="junipero-select-field-_r_2j_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -865,7 +865,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 4
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2j»-items"
+      id="junipero-select-field-_r_2j_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -877,7 +877,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 4
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2j»-items-«r2o»"
+            id="junipero-select-field-_r_2j_-items-_r_2o_"
             tabindex="0"
           >
             <a>
@@ -895,11 +895,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 5
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«r2j»"
+    id="junipero-select-field-_r_2j_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2j»-toggle"
+      id="junipero-select-field-_r_2j_-toggle"
     >
       <span
         class="junipero tag info"
@@ -943,11 +943,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 5
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2j»-items"
+        aria-controls="junipero-select-field-_r_2j_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2j»-field"
+        id="junipero-select-field-_r_2j_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -988,7 +988,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 5
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2j»-items"
+      id="junipero-select-field-_r_2j_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1000,7 +1000,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 5
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2j»-items-«r2o»"
+            id="junipero-select-field-_r_2j_-items-_r_2o_"
             tabindex="0"
           >
             <a>
@@ -1018,11 +1018,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 6
 <div>
   <div
     class="junipero dropdown opened select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«r2j»"
+    id="junipero-select-field-_r_2j_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2j»-toggle"
+      id="junipero-select-field-_r_2j_-toggle"
     >
       <span
         class="junipero tag info"
@@ -1066,11 +1066,11 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 6
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2j»-items"
+        aria-controls="junipero-select-field-_r_2j_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2j»-field"
+        id="junipero-select-field-_r_2j_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -1111,7 +1111,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 6
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2j»-items"
+      id="junipero-select-field-_r_2j_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1123,7 +1123,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 6
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2j»-items-«r2o»"
+            id="junipero-select-field-_r_2j_-items-_r_2o_"
             tabindex="0"
           >
             <a>
@@ -1141,19 +1141,19 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r4n»"
+    id="junipero-select-field-_r_4n_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r4n»-toggle"
+      id="junipero-select-field-_r_4n_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r4n»-items"
+        aria-controls="junipero-select-field-_r_4n_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r4n»-field"
+        id="junipero-select-field-_r_4n_-field"
         placeholder="Type a name"
         role="combobox"
         size="11"
@@ -1181,7 +1181,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r4n»-items"
+      id="junipero-select-field-_r_4n_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1193,7 +1193,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4s»"
+            id="junipero-select-field-_r_4n_-items-_r_4s_"
             tabindex="0"
           >
             <a>
@@ -1202,7 +1202,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4t»"
+            id="junipero-select-field-_r_4n_-items-_r_4t_"
             tabindex="0"
           >
             <a>
@@ -1211,7 +1211,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4u»"
+            id="junipero-select-field-_r_4n_-items-_r_4u_"
             tabindex="0"
           >
             <a>
@@ -1220,7 +1220,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4v»"
+            id="junipero-select-field-_r_4n_-items-_r_4v_"
             tabindex="0"
           >
             <a>
@@ -1229,7 +1229,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r50»"
+            id="junipero-select-field-_r_4n_-items-_r_50_"
             tabindex="0"
           >
             <a>
@@ -1238,7 +1238,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r51»"
+            id="junipero-select-field-_r_4n_-items-_r_51_"
             tabindex="0"
           >
             <a>
@@ -1247,7 +1247,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r52»"
+            id="junipero-select-field-_r_4n_-items-_r_52_"
             tabindex="0"
           >
             <a>
@@ -1256,7 +1256,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r53»"
+            id="junipero-select-field-_r_4n_-items-_r_53_"
             tabindex="0"
           >
             <a>
@@ -1265,7 +1265,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r54»"
+            id="junipero-select-field-_r_4n_-items-_r_54_"
             tabindex="0"
           >
             <a>
@@ -1274,7 +1274,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r55»"
+            id="junipero-select-field-_r_4n_-items-_r_55_"
             tabindex="0"
           >
             <a>
@@ -1283,7 +1283,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r57»"
+            id="junipero-select-field-_r_4n_-items-_r_57_"
             tabindex="0"
           >
             <a>
@@ -1292,7 +1292,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r58»"
+            id="junipero-select-field-_r_4n_-items-_r_58_"
             tabindex="0"
           >
             <a>
@@ -1301,7 +1301,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r59»"
+            id="junipero-select-field-_r_4n_-items-_r_59_"
             tabindex="0"
           >
             <a>
@@ -1310,7 +1310,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r5a»"
+            id="junipero-select-field-_r_4n_-items-_r_5a_"
             tabindex="0"
           >
             <a>
@@ -1319,7 +1319,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r5b»"
+            id="junipero-select-field-_r_4n_-items-_r_5b_"
             tabindex="0"
           >
             <a>
@@ -1328,7 +1328,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r5c»"
+            id="junipero-select-field-_r_4n_-items-_r_5c_"
             tabindex="0"
           >
             <a>
@@ -1337,7 +1337,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r5d»"
+            id="junipero-select-field-_r_4n_-items-_r_5d_"
             tabindex="0"
           >
             <a>
@@ -1346,7 +1346,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r5e»"
+            id="junipero-select-field-_r_4n_-items-_r_5e_"
             tabindex="0"
           >
             <a>
@@ -1355,7 +1355,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r5f»"
+            id="junipero-select-field-_r_4n_-items-_r_5f_"
             tabindex="0"
           >
             <a>
@@ -1364,7 +1364,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r5g»"
+            id="junipero-select-field-_r_4n_-items-_r_5g_"
             tabindex="0"
           >
             <a>
@@ -1376,7 +1376,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           >
             <li
               class="junipero dropdown-item no-more-options"
-              id="junipero-select-field-«r4n»-items-«r56»"
+              id="junipero-select-field-_r_4n_-items-_r_56_"
               tabindex="0"
             >
               🎉 No more options
@@ -1393,19 +1393,19 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r4n»"
+    id="junipero-select-field-_r_4n_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r4n»-toggle"
+      id="junipero-select-field-_r_4n_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r4n»-items"
+        aria-controls="junipero-select-field-_r_4n_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r4n»-field"
+        id="junipero-select-field-_r_4n_-field"
         placeholder="Type a name"
         role="combobox"
         size="11"
@@ -1433,7 +1433,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r4n»-items"
+      id="junipero-select-field-_r_4n_-items"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1445,7 +1445,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4s»"
+            id="junipero-select-field-_r_4n_-items-_r_4s_"
             tabindex="0"
           >
             <a>
@@ -1454,7 +1454,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4t»"
+            id="junipero-select-field-_r_4n_-items-_r_4t_"
             tabindex="0"
           >
             <a>
@@ -1463,7 +1463,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4u»"
+            id="junipero-select-field-_r_4n_-items-_r_4u_"
             tabindex="0"
           >
             <a>
@@ -1472,7 +1472,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4v»"
+            id="junipero-select-field-_r_4n_-items-_r_4v_"
             tabindex="0"
           >
             <a>
@@ -1481,7 +1481,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r50»"
+            id="junipero-select-field-_r_4n_-items-_r_50_"
             tabindex="0"
           >
             <a>
@@ -1490,7 +1490,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r51»"
+            id="junipero-select-field-_r_4n_-items-_r_51_"
             tabindex="0"
           >
             <a>
@@ -1499,7 +1499,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r52»"
+            id="junipero-select-field-_r_4n_-items-_r_52_"
             tabindex="0"
           >
             <a>
@@ -1508,7 +1508,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r53»"
+            id="junipero-select-field-_r_4n_-items-_r_53_"
             tabindex="0"
           >
             <a>
@@ -1517,7 +1517,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r54»"
+            id="junipero-select-field-_r_4n_-items-_r_54_"
             tabindex="0"
           >
             <a>
@@ -1526,7 +1526,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r55»"
+            id="junipero-select-field-_r_4n_-items-_r_55_"
             tabindex="0"
           >
             <a>
@@ -1547,19 +1547,19 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r4n»"
+    id="junipero-select-field-_r_4n_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r4n»-toggle"
+      id="junipero-select-field-_r_4n_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r4n»-items"
+        aria-controls="junipero-select-field-_r_4n_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r4n»-field"
+        id="junipero-select-field-_r_4n_-field"
         placeholder="Type a name"
         role="combobox"
         size="11"
@@ -1587,7 +1587,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
     <div
       class="junipero dropdown-menu select-menu loading"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r4n»-items"
+      id="junipero-select-field-_r_4n_-items"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1599,7 +1599,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4s»"
+            id="junipero-select-field-_r_4n_-items-_r_4s_"
             tabindex="0"
           >
             <a>
@@ -1608,7 +1608,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4t»"
+            id="junipero-select-field-_r_4n_-items-_r_4t_"
             tabindex="0"
           >
             <a>
@@ -1617,7 +1617,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4u»"
+            id="junipero-select-field-_r_4n_-items-_r_4u_"
             tabindex="0"
           >
             <a>
@@ -1626,7 +1626,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r4v»"
+            id="junipero-select-field-_r_4n_-items-_r_4v_"
             tabindex="0"
           >
             <a>
@@ -1635,7 +1635,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r50»"
+            id="junipero-select-field-_r_4n_-items-_r_50_"
             tabindex="0"
           >
             <a>
@@ -1644,7 +1644,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r51»"
+            id="junipero-select-field-_r_4n_-items-_r_51_"
             tabindex="0"
           >
             <a>
@@ -1653,7 +1653,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r52»"
+            id="junipero-select-field-_r_4n_-items-_r_52_"
             tabindex="0"
           >
             <a>
@@ -1662,7 +1662,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r53»"
+            id="junipero-select-field-_r_4n_-items-_r_53_"
             tabindex="0"
           >
             <a>
@@ -1671,7 +1671,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r54»"
+            id="junipero-select-field-_r_4n_-items-_r_54_"
             tabindex="0"
           >
             <a>
@@ -1680,7 +1680,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4n»-items-«r55»"
+            id="junipero-select-field-_r_4n_-items-_r_55_"
             tabindex="0"
           >
             <a>
@@ -1692,7 +1692,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           >
             <li
               class="junipero dropdown-item loader"
-              id="junipero-select-field-«r4n»-items-«r56»"
+              id="junipero-select-field-_r_4n_-items-_r_56_"
               tabindex="0"
             >
               <div
@@ -1712,19 +1712,19 @@ exports[`<SelectField /> > should allow to render without a placeholder 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable empty"
-    id="junipero-select-field-«r8»"
+    id="junipero-select-field-_r_8_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r8»-toggle"
+      id="junipero-select-field-_r_8_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r8»-items"
+        aria-controls="junipero-select-field-_r_8_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r8»-field"
+        id="junipero-select-field-_r_8_-field"
         role="combobox"
         size="10"
         type="text"
@@ -1756,14 +1756,14 @@ exports[`<SelectField /> > should allow to reset the field 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable"
-    id="junipero-select-field-«r16»"
+    id="junipero-select-field-_r_16_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r16»-toggle"
+      id="junipero-select-field-_r_16_-toggle"
     >
       <input
-        id="junipero-select-field-«r16»-field"
+        id="junipero-select-field-_r_16_-field"
         readonly=""
         type="text"
         value="David"
@@ -1807,14 +1807,14 @@ exports[`<SelectField /> > should allow to reset the field 2`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable"
-    id="junipero-select-field-«r16»"
+    id="junipero-select-field-_r_16_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r16»-toggle"
+      id="junipero-select-field-_r_16_-toggle"
     >
       <input
-        id="junipero-select-field-«r16»-field"
+        id="junipero-select-field-_r_16_-field"
         readonly=""
         type="text"
         value="John"
@@ -1858,19 +1858,19 @@ exports[`<SelectField /> > should allow to search for an existing value 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r1p»"
+    id="junipero-select-field-_r_1p_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r1p»-toggle"
+      id="junipero-select-field-_r_1p_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r1p»-items"
+        aria-controls="junipero-select-field-_r_1p_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r1p»-field"
+        id="junipero-select-field-_r_1p_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -1898,7 +1898,7 @@ exports[`<SelectField /> > should allow to search for an existing value 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r1p»-items"
+      id="junipero-select-field-_r_1p_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1910,7 +1910,7 @@ exports[`<SelectField /> > should allow to search for an existing value 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r1p»-items-«r1u»"
+            id="junipero-select-field-_r_1p_-items-_r_1u_"
             tabindex="0"
           >
             <a>
@@ -1928,19 +1928,19 @@ exports[`<SelectField /> > should allow to search for an existing value 2`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r1p»"
+    id="junipero-select-field-_r_1p_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r1p»-toggle"
+      id="junipero-select-field-_r_1p_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r1p»-items"
+        aria-controls="junipero-select-field-_r_1p_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r1p»-field"
+        id="junipero-select-field-_r_1p_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -1968,7 +1968,7 @@ exports[`<SelectField /> > should allow to search for an existing value 2`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r1p»-items"
+      id="junipero-select-field-_r_1p_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1980,7 +1980,7 @@ exports[`<SelectField /> > should allow to search for an existing value 2`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r1p»-items-«r1u»"
+            id="junipero-select-field-_r_1p_-items-_r_1u_"
             tabindex="0"
           >
             <a>
@@ -1989,7 +1989,7 @@ exports[`<SelectField /> > should allow to search for an existing value 2`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r1p»-items-«r21»"
+            id="junipero-select-field-_r_1p_-items-_r_21_"
             tabindex="0"
           >
             <a>
@@ -1998,7 +1998,7 @@ exports[`<SelectField /> > should allow to search for an existing value 2`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r1p»-items-«r22»"
+            id="junipero-select-field-_r_1p_-items-_r_22_"
             tabindex="0"
           >
             <a>
@@ -2016,19 +2016,19 @@ exports[`<SelectField /> > should allow to search for an external value 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r23»"
+    id="junipero-select-field-_r_23_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r23»-toggle"
+      id="junipero-select-field-_r_23_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r23»-items"
+        aria-controls="junipero-select-field-_r_23_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r23»-field"
+        id="junipero-select-field-_r_23_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2056,7 +2056,7 @@ exports[`<SelectField /> > should allow to search for an external value 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r23»-items"
+      id="junipero-select-field-_r_23_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2068,7 +2068,7 @@ exports[`<SelectField /> > should allow to search for an external value 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r23»-items-«r28»"
+            id="junipero-select-field-_r_23_-items-_r_28_"
             tabindex="0"
           >
             <a>
@@ -2086,14 +2086,14 @@ exports[`<SelectField /> > should allow to search for an external value 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused"
-    id="junipero-select-field-«r23»"
+    id="junipero-select-field-_r_23_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r23»-toggle"
+      id="junipero-select-field-_r_23_-toggle"
     >
       <input
-        id="junipero-select-field-«r23»-field"
+        id="junipero-select-field-_r_23_-field"
         readonly=""
         type="text"
         value="Item 4"
@@ -2141,14 +2141,14 @@ exports[`<SelectField /> > should allow to use object options and display custom
   </p>
   <div
     class="junipero dropdown select-field dirty valid searchable"
-    id="junipero-select-field-«r2v»"
+    id="junipero-select-field-_r_2v_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r2v»-toggle"
+      id="junipero-select-field-_r_2v_-toggle"
     >
       <input
-        id="junipero-select-field-«r2v»-field"
+        id="junipero-select-field-_r_2v_-field"
         readonly=""
         type="text"
         value="Item 3"
@@ -2192,14 +2192,14 @@ exports[`<SelectField /> > should be invalid if validation fails 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty invalid searchable"
-    id="junipero-select-field-«ru»"
+    id="junipero-select-field-_r_u_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«ru»-toggle"
+      id="junipero-select-field-_r_u_-toggle"
     >
       <input
-        id="junipero-select-field-«ru»-field"
+        id="junipero-select-field-_r_u_-field"
         readonly=""
         type="text"
         value="Item 1"
@@ -2310,14 +2310,14 @@ exports[`<SelectField /> > should not allow to change value when disabled 1`] = 
 <div>
   <div
     class="junipero dropdown disabled select-field pristine valid searchable"
-    id="junipero-select-field-«r1k»"
+    id="junipero-select-field-_r_1k_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r1k»-toggle"
+      id="junipero-select-field-_r_1k_-toggle"
     >
       <input
-        id="junipero-select-field-«r1k»-field"
+        id="junipero-select-field-_r_1k_-field"
         readonly=""
         type="text"
         value="Marc"
@@ -2361,11 +2361,11 @@ exports[`<SelectField /> > should not remove field previous values while hitting
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable focused multiple"
-    id="junipero-select-field-«r2p»"
+    id="junipero-select-field-_r_2p_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2p»-toggle"
+      id="junipero-select-field-_r_2p_-toggle"
     >
       <span
         class="junipero tag info"
@@ -2389,11 +2389,11 @@ exports[`<SelectField /> > should not remove field previous values while hitting
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2p»-items"
+        aria-controls="junipero-select-field-_r_2p_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2p»-field"
+        id="junipero-select-field-_r_2p_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2434,7 +2434,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2p»-items"
+      id="junipero-select-field-_r_2p_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2446,7 +2446,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2p»-items-«r2u»"
+            id="junipero-select-field-_r_2p_-items-_r_2u_"
             tabindex="0"
           >
             <a>
@@ -2464,11 +2464,11 @@ exports[`<SelectField /> > should not remove field previous values while hitting
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable focused multiple"
-    id="junipero-select-field-«r2p»"
+    id="junipero-select-field-_r_2p_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r2p»-toggle"
+      id="junipero-select-field-_r_2p_-toggle"
     >
       <span
         class="junipero tag info selected"
@@ -2492,11 +2492,11 @@ exports[`<SelectField /> > should not remove field previous values while hitting
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r2p»-items"
+        aria-controls="junipero-select-field-_r_2p_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r2p»-field"
+        id="junipero-select-field-_r_2p_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2537,7 +2537,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r2p»-items"
+      id="junipero-select-field-_r_2p_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2549,7 +2549,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r2p»-items-«r2u»"
+            id="junipero-select-field-_r_2p_-items-_r_2u_"
             tabindex="0"
           >
             <a>
@@ -2567,19 +2567,19 @@ exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] =
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r3v»"
+    id="junipero-select-field-_r_3v_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r3v»-toggle"
+      id="junipero-select-field-_r_3v_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r3v»-items"
+        aria-controls="junipero-select-field-_r_3v_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r3v»-field"
+        id="junipero-select-field-_r_3v_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2607,7 +2607,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] =
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r3v»-items"
+      id="junipero-select-field-_r_3v_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2619,7 +2619,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] =
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3v»-items-«r44»"
+            id="junipero-select-field-_r_3v_-items-_r_44_"
             tabindex="0"
           >
             <a>
@@ -2628,7 +2628,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] =
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3v»-items-«r45»"
+            id="junipero-select-field-_r_3v_-items-_r_45_"
             tabindex="0"
           >
             <a>
@@ -2637,7 +2637,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] =
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3v»-items-«r46»"
+            id="junipero-select-field-_r_3v_-items-_r_46_"
             tabindex="0"
           >
             <a>
@@ -2655,19 +2655,19 @@ exports[`<SelectField /> > should not toggle on click if disabled > still opened
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r3v»"
+    id="junipero-select-field-_r_3v_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r3v»-toggle"
+      id="junipero-select-field-_r_3v_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r3v»-items"
+        aria-controls="junipero-select-field-_r_3v_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r3v»-field"
+        id="junipero-select-field-_r_3v_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2695,7 +2695,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > still opened
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r3v»-items"
+      id="junipero-select-field-_r_3v_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2707,7 +2707,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > still opened
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3v»-items-«r44»"
+            id="junipero-select-field-_r_3v_-items-_r_44_"
             tabindex="0"
           >
             <a>
@@ -2716,7 +2716,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > still opened
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3v»-items-«r45»"
+            id="junipero-select-field-_r_3v_-items-_r_45_"
             tabindex="0"
           >
             <a>
@@ -2725,7 +2725,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > still opened
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3v»-items-«r46»"
+            id="junipero-select-field-_r_3v_-items-_r_46_"
             tabindex="0"
           >
             <a>
@@ -2743,19 +2743,19 @@ exports[`<SelectField /> > should not toggle on click if searchable > opened 1`]
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r47»"
+    id="junipero-select-field-_r_47_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r47»-toggle"
+      id="junipero-select-field-_r_47_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r47»-items"
+        aria-controls="junipero-select-field-_r_47_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r47»-field"
+        id="junipero-select-field-_r_47_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2783,7 +2783,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > opened 1`]
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r47»-items"
+      id="junipero-select-field-_r_47_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2795,7 +2795,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > opened 1`]
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r47»-items-«r4c»"
+            id="junipero-select-field-_r_47_-items-_r_4c_"
             tabindex="0"
           >
             <a>
@@ -2804,7 +2804,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > opened 1`]
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r47»-items-«r4d»"
+            id="junipero-select-field-_r_47_-items-_r_4d_"
             tabindex="0"
           >
             <a>
@@ -2813,7 +2813,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > opened 1`]
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r47»-items-«r4e»"
+            id="junipero-select-field-_r_47_-items-_r_4e_"
             tabindex="0"
           >
             <a>
@@ -2831,19 +2831,19 @@ exports[`<SelectField /> > should not toggle on click if searchable > still open
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r47»"
+    id="junipero-select-field-_r_47_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r47»-toggle"
+      id="junipero-select-field-_r_47_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r47»-items"
+        aria-controls="junipero-select-field-_r_47_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r47»-field"
+        id="junipero-select-field-_r_47_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2871,7 +2871,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > still open
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r47»-items"
+      id="junipero-select-field-_r_47_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -2883,7 +2883,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > still open
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r47»-items-«r4c»"
+            id="junipero-select-field-_r_47_-items-_r_4c_"
             tabindex="0"
           >
             <a>
@@ -2892,7 +2892,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > still open
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r47»-items-«r4d»"
+            id="junipero-select-field-_r_47_-items-_r_4d_"
             tabindex="0"
           >
             <a>
@@ -2901,7 +2901,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > still open
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r47»-items-«r4e»"
+            id="junipero-select-field-_r_47_-items-_r_4e_"
             tabindex="0"
           >
             <a>
@@ -2919,19 +2919,19 @@ exports[`<SelectField /> > should render 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r0»"
+    id="junipero-select-field-_r_0_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r0»-toggle"
+      id="junipero-select-field-_r_0_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r0»-items"
+        aria-controls="junipero-select-field-_r_0_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r0»-field"
+        id="junipero-select-field-_r_0_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -2959,7 +2959,7 @@ exports[`<SelectField /> > should render 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r0»-items"
+      id="junipero-select-field-_r_0_-items"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -2971,7 +2971,7 @@ exports[`<SelectField /> > should render 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r0»-items-«r5»"
+            id="junipero-select-field-_r_0_-items-_r_5_"
             tabindex="0"
           >
             <a>
@@ -2980,7 +2980,7 @@ exports[`<SelectField /> > should render 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r0»-items-«r6»"
+            id="junipero-select-field-_r_0_-items-_r_6_"
             tabindex="0"
           >
             <a>
@@ -2989,7 +2989,7 @@ exports[`<SelectField /> > should render 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r0»-items-«r7»"
+            id="junipero-select-field-_r_0_-items-_r_7_"
             tabindex="0"
           >
             <a>
@@ -3007,11 +3007,11 @@ exports[`<SelectField /> > should render multiple values 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable focused multiple"
-    id="junipero-select-field-«ri»"
+    id="junipero-select-field-_r_i_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«ri»-toggle"
+      id="junipero-select-field-_r_i_-toggle"
     >
       <span
         class="junipero tag info"
@@ -3055,11 +3055,11 @@ exports[`<SelectField /> > should render multiple values 1`] = `
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«ri»-items"
+        aria-controls="junipero-select-field-_r_i_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«ri»-field"
+        id="junipero-select-field-_r_i_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3105,11 +3105,11 @@ exports[`<SelectField /> > should render multiple values 2`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«ri»"
+    id="junipero-select-field-_r_i_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«ri»-toggle"
+      id="junipero-select-field-_r_i_-toggle"
     >
       <span
         class="junipero tag info"
@@ -3133,11 +3133,11 @@ exports[`<SelectField /> > should render multiple values 2`] = `
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«ri»-items"
+        aria-controls="junipero-select-field-_r_i_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«ri»-field"
+        id="junipero-select-field-_r_i_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3183,11 +3183,11 @@ exports[`<SelectField /> > should render multiple values 3`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable focused multiple"
-    id="junipero-select-field-«ri»"
+    id="junipero-select-field-_r_i_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«ri»-toggle"
+      id="junipero-select-field-_r_i_-toggle"
     >
       <span
         class="junipero tag info"
@@ -3231,11 +3231,11 @@ exports[`<SelectField /> > should render multiple values 3`] = `
       </span>
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«ri»-items"
+        aria-controls="junipero-select-field-_r_i_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«ri»-field"
+        id="junipero-select-field-_r_i_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3281,14 +3281,14 @@ exports[`<SelectField /> > should select value with keyboard > closed 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable"
-    id="junipero-select-field-«r5h»"
+    id="junipero-select-field-_r_5h_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r5h»-toggle"
+      id="junipero-select-field-_r_5h_-toggle"
     >
       <input
-        id="junipero-select-field-«r5h»-field"
+        id="junipero-select-field-_r_5h_-field"
         readonly=""
         type="text"
         value="Item 2"
@@ -3332,20 +3332,20 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty"
-    id="junipero-select-field-«r5h»"
+    id="junipero-select-field-_r_5h_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r5h»-toggle"
+      id="junipero-select-field-_r_5h_-toggle"
     >
       <input
-        aria-activedescendant="junipero-select-field-«r5h»-items-«r5n»"
+        aria-activedescendant="junipero-select-field-_r_5h_-items-_r_5n_"
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r5h»-items"
+        aria-controls="junipero-select-field-_r_5h_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r5h»-field"
+        id="junipero-select-field-_r_5h_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3373,7 +3373,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r5h»-items"
+      id="junipero-select-field-_r_5h_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -3385,7 +3385,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r5h»-items-«r5m»"
+            id="junipero-select-field-_r_5h_-items-_r_5m_"
             tabindex="0"
           >
             <a>
@@ -3394,7 +3394,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item active"
-            id="junipero-select-field-«r5h»-items-«r5n»"
+            id="junipero-select-field-_r_5h_-items-_r_5n_"
             tabindex="0"
           >
             <a>
@@ -3403,7 +3403,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r5h»-items-«r5o»"
+            id="junipero-select-field-_r_5h_-items-_r_5o_"
             tabindex="0"
           >
             <a>
@@ -3421,19 +3421,19 @@ exports[`<SelectField /> > should toggle on click if enabled > closed 1`] = `
 <div>
   <div
     class="junipero dropdown select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r3f»"
+    id="junipero-select-field-_r_3f_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r3f»-toggle"
+      id="junipero-select-field-_r_3f_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r3f»-items"
+        aria-controls="junipero-select-field-_r_3f_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r3f»-field"
+        id="junipero-select-field-_r_3f_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3466,19 +3466,19 @@ exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r3f»"
+    id="junipero-select-field-_r_3f_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r3f»-toggle"
+      id="junipero-select-field-_r_3f_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r3f»-items"
+        aria-controls="junipero-select-field-_r_3f_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r3f»-field"
+        id="junipero-select-field-_r_3f_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3506,7 +3506,7 @@ exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r3f»-items"
+      id="junipero-select-field-_r_3f_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -3518,7 +3518,7 @@ exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3f»-items-«r3k»"
+            id="junipero-select-field-_r_3f_-items-_r_3k_"
             tabindex="0"
           >
             <a>
@@ -3527,7 +3527,7 @@ exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3f»-items-«r3l»"
+            id="junipero-select-field-_r_3f_-items-_r_3l_"
             tabindex="0"
           >
             <a>
@@ -3536,7 +3536,7 @@ exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3f»-items-«r3m»"
+            id="junipero-select-field-_r_3f_-items-_r_3m_"
             tabindex="0"
           >
             <a>
@@ -3554,20 +3554,20 @@ exports[`<SelectField /> > should toggle on click if not searchable > closed 1`]
 <div>
   <div
     class="junipero dropdown select-field pristine valid empty"
-    id="junipero-select-field-«r3n»"
+    id="junipero-select-field-_r_3n_"
   >
     <div
       class="field dropdown-toggle"
-      id="junipero-select-field-«r3n»-toggle"
+      id="junipero-select-field-_r_3n_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r3n»-items"
+        aria-controls="junipero-select-field-_r_3n_-items"
         aria-expanded="false"
         aria-haspopup="listbox"
         dir="ltr"
         disabled=""
-        id="junipero-select-field-«r3n»-field"
+        id="junipero-select-field-_r_3n_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3600,20 +3600,20 @@ exports[`<SelectField /> > should toggle on click if not searchable > opened 1`]
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid empty"
-    id="junipero-select-field-«r3n»"
+    id="junipero-select-field-_r_3n_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r3n»-toggle"
+      id="junipero-select-field-_r_3n_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r3n»-items"
+        aria-controls="junipero-select-field-_r_3n_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
         disabled=""
-        id="junipero-select-field-«r3n»-field"
+        id="junipero-select-field-_r_3n_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3641,7 +3641,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > opened 1`]
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r3n»-items"
+      id="junipero-select-field-_r_3n_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -3653,7 +3653,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > opened 1`]
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3n»-items-«r3s»"
+            id="junipero-select-field-_r_3n_-items-_r_3s_"
             tabindex="0"
           >
             <a>
@@ -3662,7 +3662,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > opened 1`]
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3n»-items-«r3t»"
+            id="junipero-select-field-_r_3n_-items-_r_3t_"
             tabindex="0"
           >
             <a>
@@ -3671,7 +3671,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > opened 1`]
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r3n»-items-«r3u»"
+            id="junipero-select-field-_r_3n_-items-_r_3u_"
             tabindex="0"
           >
             <a>
@@ -3689,19 +3689,19 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r4f»"
+    id="junipero-select-field-_r_4f_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r4f»-toggle"
+      id="junipero-select-field-_r_4f_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r4f»-items"
+        aria-controls="junipero-select-field-_r_4f_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r4f»-field"
+        id="junipero-select-field-_r_4f_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3729,7 +3729,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r4f»-items"
+      id="junipero-select-field-_r_4f_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -3741,7 +3741,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4k»"
+            id="junipero-select-field-_r_4f_-items-_r_4k_"
             tabindex="0"
           >
             <a>
@@ -3750,7 +3750,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4l»"
+            id="junipero-select-field-_r_4f_-items-_r_4l_"
             tabindex="0"
           >
             <a>
@@ -3759,7 +3759,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4m»"
+            id="junipero-select-field-_r_4f_-items-_r_4m_"
             tabindex="0"
           >
             <a>
@@ -3777,19 +3777,19 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r4f»"
+    id="junipero-select-field-_r_4f_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r4f»-toggle"
+      id="junipero-select-field-_r_4f_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r4f»-items"
+        aria-controls="junipero-select-field-_r_4f_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r4f»-field"
+        id="junipero-select-field-_r_4f_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3817,7 +3817,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r4f»-items"
+      id="junipero-select-field-_r_4f_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -3829,7 +3829,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4k»"
+            id="junipero-select-field-_r_4f_-items-_r_4k_"
             tabindex="0"
           >
             <a>
@@ -3838,7 +3838,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4l»"
+            id="junipero-select-field-_r_4f_-items-_r_4l_"
             tabindex="0"
           >
             <a>
@@ -3847,7 +3847,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4m»"
+            id="junipero-select-field-_r_4f_-items-_r_4m_"
             tabindex="0"
           >
             <a>
@@ -3865,19 +3865,19 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-«r4f»"
+    id="junipero-select-field-_r_4f_"
   >
     <div
       class="field dropdown-toggle opened"
-      id="junipero-select-field-«r4f»-toggle"
+      id="junipero-select-field-_r_4f_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-«r4f»-items"
+        aria-controls="junipero-select-field-_r_4f_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-«r4f»-field"
+        id="junipero-select-field-_r_4f_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3905,7 +3905,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-«r4f»-items"
+      id="junipero-select-field-_r_4f_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -3917,7 +3917,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4k»"
+            id="junipero-select-field-_r_4f_-items-_r_4k_"
             tabindex="0"
           >
             <a>
@@ -3926,7 +3926,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4l»"
+            id="junipero-select-field-_r_4f_-items-_r_4l_"
             tabindex="0"
           >
             <a>
@@ -3935,7 +3935,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-«r4f»-items-«r4m»"
+            id="junipero-select-field-_r_4f_-items-_r_4m_"
             tabindex="0"
           >
             <a>

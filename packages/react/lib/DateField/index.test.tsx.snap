@@ -4,16 +4,16 @@ exports[`<DateField /> > should allow to navigate between months > next month 1`
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
-    id="junipero-dropdown-«r9»"
+    id="junipero-dropdown-_r_9_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r9»-menu"
+      aria-controls="junipero-dropdown-_r_9_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="field dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«ra»"
+      id="junipero-dropdown-toggle-_r_a_"
       role="combobox"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
@@ -43,7 +43,7 @@ exports[`<DateField /> > should allow to navigate between months > next month 1`
     <div
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r9»-menu"
+      id="junipero-dropdown-_r_9_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -416,16 +416,16 @@ exports[`<DateField /> > should allow to navigate between months > previous mont
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
-    id="junipero-dropdown-«r9»"
+    id="junipero-dropdown-_r_9_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r9»-menu"
+      aria-controls="junipero-dropdown-_r_9_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="field dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«ra»"
+      id="junipero-dropdown-toggle-_r_a_"
       role="combobox"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
@@ -455,7 +455,7 @@ exports[`<DateField /> > should allow to navigate between months > previous mont
     <div
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r9»-menu"
+      id="junipero-dropdown-_r_9_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -828,16 +828,16 @@ exports[`<DateField /> > should have a 3 days limited datepicker when min/max is
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
-    id="junipero-dropdown-«rd»"
+    id="junipero-dropdown-_r_d_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«rd»-menu"
+      aria-controls="junipero-dropdown-_r_d_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="field dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«re»"
+      id="junipero-dropdown-toggle-_r_e_"
       role="combobox"
       title="Monday, December 16, 2019 12:00:00 AM"
     >
@@ -867,7 +867,7 @@ exports[`<DateField /> > should have a 3 days limited datepicker when min/max is
     <div
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«rd»-menu"
+      id="junipero-dropdown-_r_d_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1240,16 +1240,16 @@ exports[`<DateField /> > should not let you pick a disabled date 1`] = `
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
-    id="junipero-dropdown-«rh»"
+    id="junipero-dropdown-_r_h_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«rh»-menu"
+      aria-controls="junipero-dropdown-_r_h_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="field dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«ri»"
+      id="junipero-dropdown-toggle-_r_i_"
       role="combobox"
       title="Tuesday, December 17, 2019 12:00:00 AM"
     >
@@ -1279,7 +1279,7 @@ exports[`<DateField /> > should not let you pick a disabled date 1`] = `
     <div
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«rh»-menu"
+      id="junipero-dropdown-_r_h_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1652,16 +1652,16 @@ exports[`<DateField /> > should not open calendar if disabled 1`] = `
 <div>
   <div
     class="junipero dropdown disabled date-field pristine valid empty"
-    id="junipero-dropdown-«r5»"
+    id="junipero-dropdown-_r_5_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r5»-menu"
+      aria-controls="junipero-dropdown-_r_5_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="field dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r6»"
+      id="junipero-dropdown-toggle-_r_6_"
       role="combobox"
       title="Tuesday, January 1, 2019 12:00:00 AM"
     >
@@ -1696,16 +1696,16 @@ exports[`<DateField /> > should render > default 1`] = `
 <div>
   <div
     class="junipero dropdown date-field pristine valid empty"
-    id="junipero-dropdown-«r1»"
+    id="junipero-dropdown-_r_1_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r1»-menu"
+      aria-controls="junipero-dropdown-_r_1_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="field dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r2»"
+      id="junipero-dropdown-toggle-_r_2_"
       role="combobox"
       title="Friday, February 1, 2019 12:00:00 AM"
     >
@@ -1741,16 +1741,16 @@ exports[`<DateField /> > should render > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened date-field pristine valid empty focused"
-    id="junipero-dropdown-«r1»"
+    id="junipero-dropdown-_r_1_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r1»-menu"
+      aria-controls="junipero-dropdown-_r_1_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="field dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r2»"
+      id="junipero-dropdown-toggle-_r_2_"
       role="combobox"
       title="Friday, February 1, 2019 12:00:00 AM"
     >
@@ -1781,7 +1781,7 @@ exports[`<DateField /> > should render > opened 1`] = `
     <div
       class="junipero dropdown-menu calendar-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r1»-menu"
+      id="junipero-dropdown-_r_1_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >

@@ -8,7 +8,7 @@ exports[`<Dropdown /> > should allow to render menu inside another element 1`] =
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«rb»-menu"
+      id="junipero-dropdown-_r_b_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -17,7 +17,7 @@ exports[`<Dropdown /> > should allow to render menu inside another element 1`] =
       >
         <li
           class="junipero dropdown-item"
-          id="junipero-dropdown-item-«rf»"
+          id="junipero-dropdown-item-_r_f_"
           tabindex="0"
         >
           Item 1
@@ -27,16 +27,16 @@ exports[`<Dropdown /> > should allow to render menu inside another element 1`] =
   </div>
   <div
     class="junipero dropdown opened"
-    id="junipero-dropdown-«rb»"
+    id="junipero-dropdown-_r_b_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«rb»-menu"
+      aria-controls="junipero-dropdown-_r_b_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«rc»"
+      id="junipero-dropdown-toggle-_r_c_"
       role="combobox"
     >
       Click me
@@ -49,16 +49,16 @@ exports[`<Dropdown /> > should allow to use groups 1`] = `
 <div>
   <div
     class="junipero dropdown opened"
-    id="junipero-dropdown-«rh»"
+    id="junipero-dropdown-_r_h_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«rh»-menu"
+      aria-controls="junipero-dropdown-_r_h_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«ri»"
+      id="junipero-dropdown-toggle-_r_i_"
       role="combobox"
     >
       Click me
@@ -66,7 +66,7 @@ exports[`<Dropdown /> > should allow to use groups 1`] = `
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«rh»-menu"
+      id="junipero-dropdown-_r_h_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -86,14 +86,14 @@ exports[`<Dropdown /> > should allow to use groups 1`] = `
           >
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«rk»"
+              id="junipero-dropdown-item-_r_k_"
               tabindex="0"
             >
               Item 1
             </li>
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«rl»"
+              id="junipero-dropdown-item-_r_l_"
               tabindex="0"
             >
               Item 2
@@ -113,14 +113,14 @@ exports[`<Dropdown /> > should allow to use groups 1`] = `
           >
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«rm»"
+              id="junipero-dropdown-item-_r_m_"
               tabindex="0"
             >
               Item 3
             </li>
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«rn»"
+              id="junipero-dropdown-item-_r_n_"
               tabindex="0"
             >
               Item 4
@@ -137,16 +137,16 @@ exports[`<Dropdown /> > should auto close when disabled prop changes 1`] = `
 <div>
   <div
     class="junipero dropdown opened"
-    id="junipero-dropdown-«r6»"
+    id="junipero-dropdown-_r_6_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r6»-menu"
+      aria-controls="junipero-dropdown-_r_6_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r7»"
+      id="junipero-dropdown-toggle-_r_7_"
       role="combobox"
     >
       Click me
@@ -154,7 +154,7 @@ exports[`<Dropdown /> > should auto close when disabled prop changes 1`] = `
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r6»-menu"
+      id="junipero-dropdown-_r_6_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -163,7 +163,7 @@ exports[`<Dropdown /> > should auto close when disabled prop changes 1`] = `
       >
         <li
           class="junipero dropdown-item"
-          id="junipero-dropdown-item-«r9»"
+          id="junipero-dropdown-item-_r_9_"
           tabindex="0"
         >
           Item 1
@@ -178,16 +178,16 @@ exports[`<Dropdown /> > should auto close when disabled prop changes 2`] = `
 <div>
   <div
     class="junipero dropdown disabled"
-    id="junipero-dropdown-«r6»"
+    id="junipero-dropdown-_r_6_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r6»-menu"
+      aria-controls="junipero-dropdown-_r_6_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r7»"
+      id="junipero-dropdown-toggle-_r_7_"
       role="combobox"
     >
       Click me
@@ -200,16 +200,16 @@ exports[`<Dropdown /> > should render 1`] = `
 <div>
   <div
     class="junipero dropdown"
-    id="junipero-dropdown-«r1»"
+    id="junipero-dropdown-_r_1_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r1»-menu"
+      aria-controls="junipero-dropdown-_r_1_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r2»"
+      id="junipero-dropdown-toggle-_r_2_"
       role="combobox"
     >
       Click me
@@ -222,16 +222,16 @@ exports[`<Dropdown /> > should render 2`] = `
 <div>
   <div
     class="junipero dropdown opened"
-    id="junipero-dropdown-«r1»"
+    id="junipero-dropdown-_r_1_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r1»-menu"
+      aria-controls="junipero-dropdown-_r_1_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r2»"
+      id="junipero-dropdown-toggle-_r_2_"
       role="combobox"
     >
       Click me
@@ -239,7 +239,7 @@ exports[`<Dropdown /> > should render 2`] = `
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r1»-menu"
+      id="junipero-dropdown-_r_1_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -248,7 +248,7 @@ exports[`<Dropdown /> > should render 2`] = `
       >
         <li
           class="junipero dropdown-item"
-          id="junipero-dropdown-item-«r4»"
+          id="junipero-dropdown-item-_r_4_"
           tabindex="0"
         >
           Item 1
@@ -263,16 +263,16 @@ exports[`useDropdwon() > should allow to animate dropdown > Enter: In dom 1`] = 
 <div>
   <div
     class="junipero dropdown opened"
-    id="junipero-dropdown-«r11»"
+    id="junipero-dropdown-_r_11_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r11»-menu"
+      aria-controls="junipero-dropdown-_r_11_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r12»"
+      id="junipero-dropdown-toggle-_r_12_"
       role="combobox"
     >
       Click me
@@ -280,7 +280,7 @@ exports[`useDropdwon() > should allow to animate dropdown > Enter: In dom 1`] = 
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r11»-menu"
+      id="junipero-dropdown-_r_11_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -289,7 +289,7 @@ exports[`useDropdwon() > should allow to animate dropdown > Enter: In dom 1`] = 
       >
         <li
           class="junipero dropdown-item"
-          id="junipero-dropdown-item-«r14»"
+          id="junipero-dropdown-item-_r_14_"
           tabindex="0"
         >
           Item 1
@@ -304,16 +304,16 @@ exports[`useDropdwon() > should allow to animate dropdown > Enter: Not in dom 1`
 <div>
   <div
     class="junipero dropdown"
-    id="junipero-dropdown-«r11»"
+    id="junipero-dropdown-_r_11_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r11»-menu"
+      aria-controls="junipero-dropdown-_r_11_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r12»"
+      id="junipero-dropdown-toggle-_r_12_"
       role="combobox"
     >
       Click me
@@ -326,16 +326,16 @@ exports[`useDropdwon() > should allow to animate dropdown > Exit: Not in dom 1`]
 <div>
   <div
     class="junipero dropdown"
-    id="junipero-dropdown-«r11»"
+    id="junipero-dropdown-_r_11_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r11»-menu"
+      aria-controls="junipero-dropdown-_r_11_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r12»"
+      id="junipero-dropdown-toggle-_r_12_"
       role="combobox"
     >
       Click me
@@ -348,16 +348,16 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
 <div>
   <div
     class="junipero dropdown"
-    id="junipero-dropdown-«r16»"
+    id="junipero-dropdown-_r_16_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r16»-menu"
+      aria-controls="junipero-dropdown-_r_16_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r17»"
+      id="junipero-dropdown-toggle-_r_17_"
       role="combobox"
     >
       Click me
@@ -365,7 +365,7 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r16»-menu"
+      id="junipero-dropdown-_r_16_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     />
@@ -377,16 +377,16 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
 <div>
   <div
     class="junipero dropdown opened"
-    id="junipero-dropdown-«r16»"
+    id="junipero-dropdown-_r_16_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r16»-menu"
+      aria-controls="junipero-dropdown-_r_16_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r17»"
+      id="junipero-dropdown-toggle-_r_17_"
       role="combobox"
     >
       Click me
@@ -394,7 +394,7 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r16»-menu"
+      id="junipero-dropdown-_r_16_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -403,7 +403,7 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
       >
         <li
           class="junipero dropdown-item"
-          id="junipero-dropdown-item-«r19»"
+          id="junipero-dropdown-item-_r_19_"
           tabindex="0"
         >
           Item 1
@@ -418,16 +418,16 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
 <div>
   <div
     class="junipero dropdown"
-    id="junipero-dropdown-«r16»"
+    id="junipero-dropdown-_r_16_"
   >
     <span
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r16»-menu"
+      aria-controls="junipero-dropdown-_r_16_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="dropdown-toggle"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r17»"
+      id="junipero-dropdown-toggle-_r_17_"
       role="combobox"
     >
       Click me
@@ -435,7 +435,7 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
     <div
       class="junipero dropdown-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r16»-menu"
+      id="junipero-dropdown-_r_16_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     />

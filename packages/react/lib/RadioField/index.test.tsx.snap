@@ -6,17 +6,17 @@ exports[`<RadioField /> > should add box if boxed class has been passed to Radio
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid boxed"
-    id="junipero-radio-field-«r8»"
+    id="junipero-radio-field-_r_8_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r8»-option-0-label"
+      id="junipero-radio-field-_r_8_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r8»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_8_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -38,12 +38,12 @@ exports[`<RadioField /> > should add box if boxed class has been passed to Radio
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r8»-option-1-label"
+      id="junipero-radio-field-_r_8_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r8»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_8_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -72,17 +72,17 @@ exports[`<RadioField /> > should change options if options props change accross 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«re»"
+    id="junipero-radio-field-_r_e_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«re»-option-0-label"
+      id="junipero-radio-field-_r_e_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«re»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_e_-option-0-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -103,12 +103,12 @@ exports[`<RadioField /> > should change options if options props change accross 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«re»-option-1-label"
+      id="junipero-radio-field-_r_e_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«re»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_e_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -129,12 +129,12 @@ exports[`<RadioField /> > should change options if options props change accross 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«re»-option-2-label"
+      id="junipero-radio-field-_r_e_-option-2-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«re»-option-2-label"
+        aria-labelledby="junipero-radio-field-_r_e_-option-2-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -155,12 +155,12 @@ exports[`<RadioField /> > should change options if options props change accross 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«re»-option-3-label"
+      id="junipero-radio-field-_r_e_-option-3-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«re»-option-3-label"
+        aria-labelledby="junipero-radio-field-_r_e_-option-3-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -189,17 +189,17 @@ exports[`<RadioField /> > should change options if options props change accross 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«re»"
+    id="junipero-radio-field-_r_e_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«re»-option-0-label"
+      id="junipero-radio-field-_r_e_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«re»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_e_-option-0-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -220,12 +220,12 @@ exports[`<RadioField /> > should change options if options props change accross 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«re»-option-1-label"
+      id="junipero-radio-field-_r_e_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«re»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_e_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -246,12 +246,12 @@ exports[`<RadioField /> > should change options if options props change accross 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«re»-option-2-label"
+      id="junipero-radio-field-_r_e_-option-2-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«re»-option-2-label"
+        aria-labelledby="junipero-radio-field-_r_e_-option-2-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -280,17 +280,17 @@ exports[`<RadioField /> > should change value if value prop change accross the t
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«rd»"
+    id="junipero-radio-field-_r_d_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«rd»-option-0-label"
+      id="junipero-radio-field-_r_d_-option-0-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rd»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_d_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -312,12 +312,12 @@ exports[`<RadioField /> > should change value if value prop change accross the t
     </label>
     <label
       class="checked"
-      id="junipero-radio-field-«rd»-option-1-label"
+      id="junipero-radio-field-_r_d_-option-1-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«rd»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_d_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -338,12 +338,12 @@ exports[`<RadioField /> > should change value if value prop change accross the t
     </label>
     <label
       class=""
-      id="junipero-radio-field-«rd»-option-2-label"
+      id="junipero-radio-field-_r_d_-option-2-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rd»-option-2-label"
+        aria-labelledby="junipero-radio-field-_r_d_-option-2-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -372,17 +372,17 @@ exports[`<RadioField /> > should change value if value prop change accross the t
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«rd»"
+    id="junipero-radio-field-_r_d_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«rd»-option-0-label"
+      id="junipero-radio-field-_r_d_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«rd»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_d_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -404,12 +404,12 @@ exports[`<RadioField /> > should change value if value prop change accross the t
     </label>
     <label
       class=""
-      id="junipero-radio-field-«rd»-option-1-label"
+      id="junipero-radio-field-_r_d_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rd»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_d_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -430,12 +430,12 @@ exports[`<RadioField /> > should change value if value prop change accross the t
     </label>
     <label
       class=""
-      id="junipero-radio-field-«rd»-option-2-label"
+      id="junipero-radio-field-_r_d_-option-2-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rd»-option-2-label"
+        aria-labelledby="junipero-radio-field-_r_d_-option-2-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -464,17 +464,17 @@ exports[`<RadioField /> > should check if provided value is in options 1`] = `
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r2»"
+    id="junipero-radio-field-_r_2_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r2»-option-0-label"
+      id="junipero-radio-field-_r_2_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r2»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_2_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -496,12 +496,12 @@ exports[`<RadioField /> > should check if provided value is in options 1`] = `
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r2»-option-1-label"
+      id="junipero-radio-field-_r_2_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r2»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_2_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -530,17 +530,17 @@ exports[`<RadioField /> > should navigate and toggle with keyboard > option 1 ch
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«rf»"
+    id="junipero-radio-field-_r_f_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«rf»-option-0-label"
+      id="junipero-radio-field-_r_f_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rf»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_f_-option-0-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -561,12 +561,12 @@ exports[`<RadioField /> > should navigate and toggle with keyboard > option 1 ch
     </label>
     <label
       class=""
-      id="junipero-radio-field-«rf»-option-1-label"
+      id="junipero-radio-field-_r_f_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rf»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_f_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -587,12 +587,12 @@ exports[`<RadioField /> > should navigate and toggle with keyboard > option 1 ch
     </label>
     <label
       class=""
-      id="junipero-radio-field-«rf»-option-2-label"
+      id="junipero-radio-field-_r_f_-option-2-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rf»-option-2-label"
+        aria-labelledby="junipero-radio-field-_r_f_-option-2-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -621,17 +621,17 @@ exports[`<RadioField /> > should navigate and toggle with keyboard > option 2 ch
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field dirty valid"
-    id="junipero-radio-field-«rf»"
+    id="junipero-radio-field-_r_f_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«rf»-option-0-label"
+      id="junipero-radio-field-_r_f_-option-0-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rf»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_f_-option-0-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -652,12 +652,12 @@ exports[`<RadioField /> > should navigate and toggle with keyboard > option 2 ch
     </label>
     <label
       class="checked"
-      id="junipero-radio-field-«rf»-option-1-label"
+      id="junipero-radio-field-_r_f_-option-1-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«rf»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_f_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -678,12 +678,12 @@ exports[`<RadioField /> > should navigate and toggle with keyboard > option 2 ch
     </label>
     <label
       class=""
-      id="junipero-radio-field-«rf»-option-2-label"
+      id="junipero-radio-field-_r_f_-option-2-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rf»-option-2-label"
+        aria-labelledby="junipero-radio-field-_r_f_-option-2-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -712,17 +712,17 @@ exports[`<RadioField /> > should not display description if parseDescription ret
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«rc»"
+    id="junipero-radio-field-_r_c_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«rc»-option-0-label"
+      id="junipero-radio-field-_r_c_-option-0-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«rc»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_c_-option-0-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -751,17 +751,17 @@ exports[`<RadioField /> > should not trigger onChange if a radio if just this op
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r7»"
+    id="junipero-radio-field-_r_7_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r7»-option-0-label"
+      id="junipero-radio-field-_r_7_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r7»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_7_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -783,12 +783,12 @@ exports[`<RadioField /> > should not trigger onChange if a radio if just this op
     </label>
     <label
       class="disabled"
-      id="junipero-radio-field-«r7»-option-1-label"
+      id="junipero-radio-field-_r_7_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r7»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_7_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -817,17 +817,17 @@ exports[`<RadioField /> > should not trigger onChange if a radio if just this op
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r7»"
+    id="junipero-radio-field-_r_7_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r7»-option-0-label"
+      id="junipero-radio-field-_r_7_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r7»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_7_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -849,12 +849,12 @@ exports[`<RadioField /> > should not trigger onChange if a radio if just this op
     </label>
     <label
       class="disabled"
-      id="junipero-radio-field-«r7»-option-1-label"
+      id="junipero-radio-field-_r_7_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r7»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_7_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -883,17 +883,17 @@ exports[`<RadioField /> > should not trigger onChange if a radio is clicked but 
     aria-disabled="true"
     aria-required="false"
     class="junipero radio-field disabled pristine valid"
-    id="junipero-radio-field-«r6»"
+    id="junipero-radio-field-_r_6_"
     role="radiogroup"
   >
     <label
       class="checked disabled"
-      id="junipero-radio-field-«r6»-option-0-label"
+      id="junipero-radio-field-_r_6_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r6»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_6_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -915,12 +915,12 @@ exports[`<RadioField /> > should not trigger onChange if a radio is clicked but 
     </label>
     <label
       class="disabled"
-      id="junipero-radio-field-«r6»-option-1-label"
+      id="junipero-radio-field-_r_6_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r6»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_6_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -949,17 +949,17 @@ exports[`<RadioField /> > should not trigger onChange if a radio is clicked but 
     aria-disabled="true"
     aria-required="false"
     class="junipero radio-field disabled pristine valid"
-    id="junipero-radio-field-«r6»"
+    id="junipero-radio-field-_r_6_"
     role="radiogroup"
   >
     <label
       class="checked disabled"
-      id="junipero-radio-field-«r6»-option-0-label"
+      id="junipero-radio-field-_r_6_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r6»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_6_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -981,12 +981,12 @@ exports[`<RadioField /> > should not trigger onChange if a radio is clicked but 
     </label>
     <label
       class="disabled"
-      id="junipero-radio-field-«r6»-option-1-label"
+      id="junipero-radio-field-_r_6_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r6»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_6_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1015,7 +1015,7 @@ exports[`<RadioField /> > should render 1`] = `
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r0»"
+    id="junipero-radio-field-_r_0_"
     role="radiogroup"
   />
 </div>
@@ -1027,17 +1027,17 @@ exports[`<RadioField /> > should render as many options as provided 1`] = `
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r1»"
+    id="junipero-radio-field-_r_1_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«r1»-option-0-label"
+      id="junipero-radio-field-_r_1_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r1»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_1_-option-0-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1058,12 +1058,12 @@ exports[`<RadioField /> > should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r1»-option-1-label"
+      id="junipero-radio-field-_r_1_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r1»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_1_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1084,12 +1084,12 @@ exports[`<RadioField /> > should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r1»-option-2-label"
+      id="junipero-radio-field-_r_1_-option-2-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r1»-option-2-label"
+        aria-labelledby="junipero-radio-field-_r_1_-option-2-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1110,12 +1110,12 @@ exports[`<RadioField /> > should render as many options as provided 1`] = `
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r1»-option-3-label"
+      id="junipero-radio-field-_r_1_-option-3-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r1»-option-3-label"
+        aria-labelledby="junipero-radio-field-_r_1_-option-3-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1144,17 +1144,17 @@ exports[`<RadioField /> > should set error state if onValidate function fails > 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field dirty invalid"
-    id="junipero-radio-field-«r9»"
+    id="junipero-radio-field-_r_9_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«r9»-option-0-label"
+      id="junipero-radio-field-_r_9_-option-0-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r9»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_9_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1176,12 +1176,12 @@ exports[`<RadioField /> > should set error state if onValidate function fails > 
     </label>
     <label
       class="checked"
-      id="junipero-radio-field-«r9»-option-1-label"
+      id="junipero-radio-field-_r_9_-option-1-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r9»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_9_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1210,17 +1210,17 @@ exports[`<RadioField /> > should set error state if onValidate function fails > 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r9»"
+    id="junipero-radio-field-_r_9_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r9»-option-0-label"
+      id="junipero-radio-field-_r_9_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r9»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_9_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1242,12 +1242,12 @@ exports[`<RadioField /> > should set error state if onValidate function fails > 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r9»-option-1-label"
+      id="junipero-radio-field-_r_9_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r9»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_9_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1276,17 +1276,17 @@ exports[`<RadioField /> > should set error state if onValidate function fails > 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field dirty valid"
-    id="junipero-radio-field-«r9»"
+    id="junipero-radio-field-_r_9_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r9»-option-0-label"
+      id="junipero-radio-field-_r_9_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r9»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_9_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1308,12 +1308,12 @@ exports[`<RadioField /> > should set error state if onValidate function fails > 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r9»-option-1-label"
+      id="junipero-radio-field-_r_9_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r9»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_9_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1342,17 +1342,17 @@ exports[`<RadioField /> > should toggle check if a radio is clicked > option 1 c
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r3»"
+    id="junipero-radio-field-_r_3_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r3»-option-0-label"
+      id="junipero-radio-field-_r_3_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r3»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_3_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1374,12 +1374,12 @@ exports[`<RadioField /> > should toggle check if a radio is clicked > option 1 c
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r3»-option-1-label"
+      id="junipero-radio-field-_r_3_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r3»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_3_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1408,17 +1408,17 @@ exports[`<RadioField /> > should toggle check if a radio is clicked > option 2 c
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field dirty valid"
-    id="junipero-radio-field-«r3»"
+    id="junipero-radio-field-_r_3_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«r3»-option-0-label"
+      id="junipero-radio-field-_r_3_-option-0-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r3»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_3_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1440,12 +1440,12 @@ exports[`<RadioField /> > should toggle check if a radio is clicked > option 2 c
     </label>
     <label
       class="checked"
-      id="junipero-radio-field-«r3»-option-1-label"
+      id="junipero-radio-field-_r_3_-option-1-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r3»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_3_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1474,17 +1474,17 @@ exports[`<RadioField /> > should trigger onChange when user hit enter and radio 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r4»"
+    id="junipero-radio-field-_r_4_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r4»-option-0-label"
+      id="junipero-radio-field-_r_4_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r4»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_4_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1506,12 +1506,12 @@ exports[`<RadioField /> > should trigger onChange when user hit enter and radio 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r4»-option-1-label"
+      id="junipero-radio-field-_r_4_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r4»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_4_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1540,17 +1540,17 @@ exports[`<RadioField /> > should trigger onChange when user hit enter and radio 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field dirty valid"
-    id="junipero-radio-field-«r4»"
+    id="junipero-radio-field-_r_4_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«r4»-option-0-label"
+      id="junipero-radio-field-_r_4_-option-0-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r4»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_4_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1572,12 +1572,12 @@ exports[`<RadioField /> > should trigger onChange when user hit enter and radio 
     </label>
     <label
       class="checked"
-      id="junipero-radio-field-«r4»-option-1-label"
+      id="junipero-radio-field-_r_4_-option-1-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r4»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_4_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1606,17 +1606,17 @@ exports[`<RadioField /> > should trigger onChange when user hit space and radio 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«r5»"
+    id="junipero-radio-field-_r_5_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«r5»-option-0-label"
+      id="junipero-radio-field-_r_5_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r5»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_5_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1638,12 +1638,12 @@ exports[`<RadioField /> > should trigger onChange when user hit space and radio 
     </label>
     <label
       class=""
-      id="junipero-radio-field-«r5»-option-1-label"
+      id="junipero-radio-field-_r_5_-option-1-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r5»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_5_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1672,17 +1672,17 @@ exports[`<RadioField /> > should trigger onChange when user hit space and radio 
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field dirty valid"
-    id="junipero-radio-field-«r5»"
+    id="junipero-radio-field-_r_5_"
     role="radiogroup"
   >
     <label
       class=""
-      id="junipero-radio-field-«r5»-option-0-label"
+      id="junipero-radio-field-_r_5_-option-0-label"
       tabindex="-1"
     >
       <input
         aria-checked="false"
-        aria-labelledby="junipero-radio-field-«r5»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_5_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"
@@ -1704,12 +1704,12 @@ exports[`<RadioField /> > should trigger onChange when user hit space and radio 
     </label>
     <label
       class="checked"
-      id="junipero-radio-field-«r5»-option-1-label"
+      id="junipero-radio-field-_r_5_-option-1-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«r5»-option-1-label"
+        aria-labelledby="junipero-radio-field-_r_5_-option-1-label"
         role="radio"
         tabindex="-1"
         type="radio"
@@ -1738,17 +1738,17 @@ exports[`<RadioField /> > should use given parse title, description and value if
     aria-disabled="false"
     aria-required="false"
     class="junipero radio-field pristine valid"
-    id="junipero-radio-field-«rb»"
+    id="junipero-radio-field-_r_b_"
     role="radiogroup"
   >
     <label
       class="checked"
-      id="junipero-radio-field-«rb»-option-0-label"
+      id="junipero-radio-field-_r_b_-option-0-label"
       tabindex="0"
     >
       <input
         aria-checked="true"
-        aria-labelledby="junipero-radio-field-«rb»-option-0-label"
+        aria-labelledby="junipero-radio-field-_r_b_-option-0-label"
         checked=""
         role="radio"
         tabindex="-1"

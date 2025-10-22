@@ -12,19 +12,19 @@ exports[`<FieldGroup /> > should render a select field prefix 1`] = `
     </div>
     <div
       class="junipero dropdown select-field pristine valid searchable empty"
-      id="junipero-select-field-«r0»"
+      id="junipero-select-field-_r_0_"
     >
       <div
         class="field dropdown-toggle"
-        id="junipero-select-field-«r0»-toggle"
+        id="junipero-select-field-_r_0_-toggle"
       >
         <input
           aria-autocomplete="list"
-          aria-controls="junipero-select-field-«r0»-items"
+          aria-controls="junipero-select-field-_r_0_-items"
           aria-expanded="false"
           aria-haspopup="listbox"
           dir="ltr"
-          id="junipero-select-field-«r0»-field"
+          id="junipero-select-field-_r_0_-field"
           role="combobox"
           size="10"
           type="text"
@@ -60,19 +60,19 @@ exports[`<FieldGroup /> > should render a select field suffix 1`] = `
   >
     <div
       class="junipero dropdown select-field pristine valid searchable empty"
-      id="junipero-select-field-«r5»"
+      id="junipero-select-field-_r_5_"
     >
       <div
         class="field dropdown-toggle"
-        id="junipero-select-field-«r5»-toggle"
+        id="junipero-select-field-_r_5_-toggle"
       >
         <input
           aria-autocomplete="list"
-          aria-controls="junipero-select-field-«r5»-items"
+          aria-controls="junipero-select-field-_r_5_-items"
           aria-expanded="false"
           aria-haspopup="listbox"
           dir="ltr"
-          id="junipero-select-field-«r5»-field"
+          id="junipero-select-field-_r_5_-field"
           role="combobox"
           size="10"
           type="text"

@@ -4,16 +4,16 @@ exports[`<ColorField /> > should render 1`] = `
 <div>
   <div
     class="junipero dropdown opened color-field pristine valid"
-    id="junipero-dropdown-«r1»"
+    id="junipero-dropdown-_r_1_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r1»-menu"
+      aria-controls="junipero-dropdown-_r_1_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="inner dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r2»"
+      id="junipero-dropdown-toggle-_r_2_"
       role="combobox"
     >
       <div
@@ -32,7 +32,7 @@ exports[`<ColorField /> > should render 1`] = `
     <div
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r1»-menu"
+      id="junipero-dropdown-_r_1_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -95,16 +95,16 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
-    id="junipero-dropdown-«rd»"
+    id="junipero-dropdown-_r_d_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«rd»-menu"
+      aria-controls="junipero-dropdown-_r_d_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="inner dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«re»"
+      id="junipero-dropdown-toggle-_r_e_"
       role="combobox"
     >
       <div
@@ -124,7 +124,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
     <div
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«rd»-menu"
+      id="junipero-dropdown-_r_d_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -187,16 +187,16 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
-    id="junipero-dropdown-«rd»"
+    id="junipero-dropdown-_r_d_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«rd»-menu"
+      aria-controls="junipero-dropdown-_r_d_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="inner dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«re»"
+      id="junipero-dropdown-toggle-_r_e_"
       role="combobox"
     >
       <div
@@ -216,7 +216,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
     <div
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«rd»-menu"
+      id="junipero-dropdown-_r_d_-menu"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -279,16 +279,16 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
-    id="junipero-dropdown-«r9»"
+    id="junipero-dropdown-_r_9_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r9»-menu"
+      aria-controls="junipero-dropdown-_r_9_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="inner dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«ra»"
+      id="junipero-dropdown-toggle-_r_a_"
       role="combobox"
     >
       <div
@@ -308,7 +308,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
     <div
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r9»-menu"
+      id="junipero-dropdown-_r_9_-menu"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -371,16 +371,16 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
-    id="junipero-dropdown-«r9»"
+    id="junipero-dropdown-_r_9_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r9»-menu"
+      aria-controls="junipero-dropdown-_r_9_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="inner dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«ra»"
+      id="junipero-dropdown-toggle-_r_a_"
       role="combobox"
     >
       <div
@@ -400,7 +400,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
     <div
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r9»-menu"
+      id="junipero-dropdown-_r_9_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -463,16 +463,16 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
-    id="junipero-dropdown-«r5»"
+    id="junipero-dropdown-_r_5_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r5»-menu"
+      aria-controls="junipero-dropdown-_r_5_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="inner dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r6»"
+      id="junipero-dropdown-toggle-_r_6_"
       role="combobox"
     >
       <div
@@ -492,7 +492,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
     <div
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r5»-menu"
+      id="junipero-dropdown-_r_5_-menu"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -555,16 +555,16 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
 <div>
   <div
     class="junipero dropdown opened color-field dirty valid empty moving"
-    id="junipero-dropdown-«r5»"
+    id="junipero-dropdown-_r_5_"
   >
     <div
       aria-autocomplete="none"
-      aria-controls="junipero-dropdown-«r5»-menu"
+      aria-controls="junipero-dropdown-_r_5_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       class="inner dropdown-toggle opened"
       dir="ltr"
-      id="junipero-dropdown-toggle-«r6»"
+      id="junipero-dropdown-toggle-_r_6_"
       role="combobox"
     >
       <div
@@ -584,7 +584,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
     <div
       class="junipero dropdown-menu color-menu"
       data-floating-ui-focusable=""
-      id="junipero-dropdown-«r5»-menu"
+      id="junipero-dropdown-_r_5_-menu"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -600,7 +600,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
           >
             <a
               class="handle"
-              style="transform: translate3d(NaNpx, NaNpx, 0);"
+              style="transform: translate3d(0px, 0px, 0);"
             />
           </div>
           <div

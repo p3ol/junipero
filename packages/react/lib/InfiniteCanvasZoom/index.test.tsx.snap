@@ -18,16 +18,16 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
     <div>
       <div
         class="junipero dropdown opened"
-        id="junipero-dropdown-«r2»"
+        id="junipero-dropdown-_r_2_"
       >
         <button
           aria-autocomplete="none"
-          aria-controls="junipero-dropdown-«r2»-menu"
+          aria-controls="junipero-dropdown-_r_2_-menu"
           aria-expanded="true"
           aria-haspopup="listbox"
           class="junipero button dropdown-toggle opened"
           dir="ltr"
-          id="junipero-dropdown-toggle-«r3»"
+          id="junipero-dropdown-toggle-_r_3_"
           role="combobox"
           type="button"
         >
@@ -36,7 +36,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
         <div
           class="junipero dropdown-menu"
           data-floating-ui-focusable=""
-          id="junipero-dropdown-«r2»-menu"
+          id="junipero-dropdown-_r_2_-menu"
           style="position: fixed; top: 0px; left: 0px;"
           tabindex="-1"
         >
@@ -45,7 +45,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
           >
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«r5»"
+              id="junipero-dropdown-item-_r_5_"
               tabindex="0"
             >
               <a>
@@ -54,7 +54,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«r6»"
+              id="junipero-dropdown-item-_r_6_"
               tabindex="0"
             >
               <a>
@@ -63,7 +63,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«r7»"
+              id="junipero-dropdown-item-_r_7_"
               tabindex="0"
             >
               <a>
@@ -72,7 +72,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«r8»"
+              id="junipero-dropdown-item-_r_8_"
               tabindex="0"
             >
               <a>
@@ -81,7 +81,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«r9»"
+              id="junipero-dropdown-item-_r_9_"
               tabindex="0"
             >
               <a>
@@ -90,7 +90,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
             </li>
             <li
               class="junipero dropdown-item"
-              id="junipero-dropdown-item-«ra»"
+              id="junipero-dropdown-item-_r_a_"
               tabindex="0"
             >
               <a>
@@ -106,7 +106,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
     >
       <pattern
         height="20"
-        id="«r0»"
+        id="_r_0_"
         patternTransform="translate(1, 1)"
         patternUnits="userSpaceOnUse"
         width="20"
@@ -121,7 +121,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
         />
       </pattern>
       <rect
-        fill="url(#«r0»)"
+        fill="url(#_r_0_)"
         height="100%"
         width="100%"
         x="0"
