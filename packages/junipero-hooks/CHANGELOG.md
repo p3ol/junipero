@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/p3ol/junipero/compare/v2.0.0...v2.1.0) (2025-10-22)
+
+
+### Features
+
+* add deps on every useEventListener ([c0458bc](https://github.com/p3ol/junipero/commit/c0458bcff398ce452047795e8421980c4e9b235b))
+
+
+
+
+
 # [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
 
 **Note:** Version bump only for package @poool/junipero-hooks

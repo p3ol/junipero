@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/p3ol/junipero/compare/v2.0.0...v2.1.0) (2025-10-22)
+
+
+### Bug Fixes
+
+* add custom role on button from props ([ea29fd4](https://github.com/p3ol/junipero/commit/ea29fd4803920fdf05b4813e3025ed3333ae22cf))
+* lint ([eb0fa38](https://github.com/p3ol/junipero/commit/eb0fa38969eba01e9258fe0b9435a4ce4a66cb83))
+* lint ([d86f6ca](https://github.com/p3ol/junipero/commit/d86f6cae68174e5ff9b75c5085de97e9192eefec))
+* remove whitespace ([6681014](https://github.com/p3ol/junipero/commit/6681014ae5784d14eda4e18d515c6d5b97734431))
+* revert ref change ([82854ba](https://github.com/p3ol/junipero/commit/82854bab4831274289db52d43afb1dba560dbc58))
+* set role and aria disabled before rest spreading ([5ac6d68](https://github.com/p3ol/junipero/commit/5ac6d68ff99311e89dc688946f7831f6e301868d))
+* **wcag:** make checkboxes tab focusable alongside other inputs ([7dfbcec](https://github.com/p3ol/junipero/commit/7dfbceccd21cb53eb75ce94237f7ef84261181f2))
+* **wcag:** right focus order for radio group ([8ac439e](https://github.com/p3ol/junipero/commit/8ac439e779760d9642c006333b33f9afc81a7e56))
+
+
+### Features
+
+* add deps on every useEventListener ([c0458bc](https://github.com/p3ol/junipero/commit/c0458bcff398ce452047795e8421980c4e9b235b))
+* add dropown wcag support ([7e61b45](https://github.com/p3ol/junipero/commit/7e61b4559c65a8dc5acb5780365f90f138134246))
+* add field and toggle Ids ([d106c62](https://github.com/p3ol/junipero/commit/d106c62fe3fa30e01a25fb6cdcd5122c525a007a))
+* add wcag support for button component ([6e9e36f](https://github.com/p3ol/junipero/commit/6e9e36f36a198d51c826efbc2aea6aa4cbfcd49a))
+* radio field wcag compliance ([7815eab](https://github.com/p3ol/junipero/commit/7815eabe4b866553177f1b091db40fdf81cca95f))
+* **radio-wcag:** add aria to radio ([244f480](https://github.com/p3ol/junipero/commit/244f480d427731135550128389b79d897e0a5d0e))
+* selectfield wcag 2.0 compliance ([bac66bc](https://github.com/p3ol/junipero/commit/bac66bc0895558efa404574fe07f4cc8e0d2d131))
+* **wcag:** keyboard navigation on selectField ([9cde6de](https://github.com/p3ol/junipero/commit/9cde6de9544598640d970b31231526337ed77753))
+* wip add wcag support or dropdown ([2ce0988](https://github.com/p3ol/junipero/commit/2ce0988fcc95efabf744ac9a5a9af966fdb03f74))
+
+
+
+
+
 # [2.0.0](https://github.com/p3ol/junipero/compare/v2.0.0-rc.23...v2.0.0) (2023-04-21)
 
 **Note:** Version bump only for package @poool/junipero
