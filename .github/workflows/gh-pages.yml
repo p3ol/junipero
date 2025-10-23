@@ -25,7 +25,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: yarn
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -35,7 +35,7 @@ jobs:
           yarn build
           yarn storybook-build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './storybook-static'
       - name: Deploy to GitHub Pages
