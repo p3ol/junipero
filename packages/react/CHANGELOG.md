@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.10](https://github.com/p3ol/junipero/compare/v3.12.9...v3.12.10) (2025-10-23)
+
+
+### Bug Fixes
+
+* **react:** add missing useful pan-to method to infinite canvas ([6c17e75](https://github.com/p3ol/junipero/commit/6c17e75763f2bc37c35c11cb7edd8509af36f741))
+
+
+
+
+
 ## [3.12.9](https://github.com/p3ol/junipero/compare/v3.12.8...v3.12.9) (2025-10-22)
 
 

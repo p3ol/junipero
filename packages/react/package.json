@@ -1,6 +1,6 @@
 {
   "name": "@junipero/react",
-  "version": "3.12.9",
+  "version": "3.12.10",
   "description": "🏔 Junipero Design System React components",
   "type": "module",
   "main": "dist/index.js",
