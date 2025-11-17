@@ -43,7 +43,7 @@
     "eslint": "9.38.0",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.0.0",
-    "eslint-plugin-storybook": "9.1.13",
+    "eslint-plugin-storybook": "10.0.8",
     "fs-extra": "11.3.2",
     "jsdom": "27.0.1",
     "jsdom-testing-mocks": "1.16.0",
