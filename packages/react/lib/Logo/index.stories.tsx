@@ -10,6 +10,7 @@ import {
   FlowLogo,
   PooolIconLogo,
   PooolCutoutIconLogo,
+  SplitLogo,
 } from './index';
 
 export default { title: 'react/Logo' };
@@ -56,4 +57,8 @@ export const Engage = () => (
 
 export const Flow = () => (
   <FlowLogo />
+);
+
+export const Split = () => (
+  <SplitLogo />
 );
