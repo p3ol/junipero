@@ -1,6 +1,6 @@
 {
   "name": "@junipero/transitions",
-  "version": "3.12.12",
+  "version": "3.12.13",
   "description": "🏔 Junipero Design System React Transitions",
   "type": "module",
   "main": "dist/index.js",

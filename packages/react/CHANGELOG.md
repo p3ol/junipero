@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.13](https://github.com/p3ol/junipero/compare/v3.12.12...v3.12.13) (2025-11-19)
+
+
+### Bug Fixes
+
+* add g element around split logo text ([c641fca](https://github.com/p3ol/junipero/commit/c641fca715c7a2120a678d67a1ae23ee4412a7ee))
+
+
+
+
+
 ## [3.12.12](https://github.com/p3ol/junipero/compare/v3.12.11...v3.12.12) (2025-11-19)
 
 
