@@ -235,6 +235,7 @@ export {
   ConnectLogo,
   EngageLogo,
   FlowLogo,
+  SplitLogo,
   JuniperoLogo,
 } from './Logo';
 export {
