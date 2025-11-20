@@ -36,7 +36,7 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "@typescript-eslint/parser": "8.46.2",
-    "@vitest/coverage-v8": "4.0.1",
+    "@vitest/coverage-v8": "4.0.12",
     "autoprefixer": "10.4.21",
     "css-loader": "7.1.2",
     "d3": "7.9.0",
@@ -63,7 +63,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.2",
     "vite": "7.1.12",
-    "vitest": "4.0.1"
+    "vitest": "4.0.12"
   },
   "packageManager": "yarn@4.10.3"
 }
