@@ -2,20 +2,11 @@ name: release-pr
 
 on:
   push:
-    branches:
-      - master
-
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+    branches: [master]
 
 jobs:
   release-pr:
     name: Maintain Release PR
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: googleapis/release-please-action@v4
-        with:
-          config-file: .github/release-please.config.json
-          manifest-file: .github/release-please.manifest.json
+    uses: p3ol/actions/.github/workflows/release-pr.yml@v1.0.0
+    secrets:
+      github-token: ${{ secrets.GH_RELEASE_PLEASE_TOKEN_PUBLIC }}
