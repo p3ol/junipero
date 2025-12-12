@@ -26,6 +26,19 @@ exports[`<DateField /> > should allow to navigate between months > next month 1`
         class="icons"
       >
         <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
           class="junipero icon arrows"
           height="13"
           viewBox="0 0 8 13"
@@ -437,6 +450,19 @@ exports[`<DateField /> > should allow to navigate between months > previous mont
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"
@@ -850,6 +876,19 @@ exports[`<DateField /> > should have a 3 days limited datepicker when min/max is
         class="icons"
       >
         <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
           class="junipero icon arrows"
           height="13"
           viewBox="0 0 8 13"
@@ -1261,6 +1300,19 @@ exports[`<DateField /> > should not let you pick a disabled date 1`] = `
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"
@@ -1719,6 +1771,19 @@ exports[`<DateField /> > should render > default 1`] = `
         class="icons"
       >
         <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
           class="junipero icon arrows"
           height="13"
           viewBox="0 0 8 13"
@@ -1763,6 +1828,19 @@ exports[`<DateField /> > should render > opened 1`] = `
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"

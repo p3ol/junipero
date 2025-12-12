@@ -421,7 +421,7 @@ const DateField = ({
             onBlur={onBlur_}
           />
           <div className="icons">
-            { !!state.value && clearable && state.dirty && (
+            { !!state.value && clearable && !disabled && (
               <Remove onClick={onClear} />
             ) }
             <Arrows />
