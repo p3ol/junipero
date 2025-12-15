@@ -6,6 +6,7 @@ export default defineConfig([
   {
     entry: ['./lib/index.tsx'],
     outDir: 'dist',
+    platform: 'browser',
     target: pkg.targets,
     format: ['cjs', 'esm'],
     external: [
