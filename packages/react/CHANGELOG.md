@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.14](https://github.com/p3ol/junipero/compare/v3.12.13...v3.12.14) (2025-12-15)
+
+
+### Bug Fixes
+
+* **date-field:** allow to clear default value ([fb5fe1a](https://github.com/p3ol/junipero/commit/fb5fe1a907b14cf9e313dc64972b632579154266))
+
+
+
+
+
 ## [3.12.13](https://github.com/p3ol/junipero/compare/v3.12.12...v3.12.13) (2025-11-19)
 
 
