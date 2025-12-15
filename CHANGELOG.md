@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.15](https://github.com/p3ol/junipero/compare/v3.12.14...v3.12.15) (2025-12-15)
+
+
+### Bug Fixes
+
+* **transitions:** bad platform ([b4cb40e](https://github.com/p3ol/junipero/commit/b4cb40e563aa6d79abb6bd31b44ec26034867fdd))
+
+
+
+
+
 ## [3.12.14](https://github.com/p3ol/junipero/compare/v3.12.13...v3.12.14) (2025-12-15)
 
 
