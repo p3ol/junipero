@@ -190,6 +190,7 @@ const SelectField = ({
   const dropdownRef = useRef<DropdownRef>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
+  const isClickingOptionRef = useRef(false);
   const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer(mockState<SelectFieldState>, {
     value: value ?? (multiple ? [] : null),
@@ -403,10 +404,11 @@ const SelectField = ({
   };
 
   const onBlur_ = (e: FocusEvent<HTMLInputElement>) => {
-    if (allowArbitraryItems && state.search) {
+    if (allowArbitraryItems && state.search && !isClickingOptionRef.current) {
       onSelectOption(state.search, { resetSearch: true });
     }
 
+    isClickingOptionRef.current = false;
     dispatch({ focused: false });
     onBlur?.(e);
   };
@@ -606,7 +608,15 @@ const SelectField = ({
     i: number
   ) => (
     <DropdownItem key={i}>
-      <a onClick={onSelectOption.bind(null, item, { refocus: true })}>
+      <a
+        onMouseDown={() => {
+          isClickingOptionRef.current = true;
+        }}
+        onClick={() => {
+          isClickingOptionRef.current = false;
+          onSelectOption(item, { refocus: true, resetSearch: true});
+        }}
+      >
         { parseTitle(item, { isOption: true }) }
       </a>
     </DropdownItem>
