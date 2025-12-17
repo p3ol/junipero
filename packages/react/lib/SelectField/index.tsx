@@ -499,6 +499,15 @@ const SelectField = ({
     onKeyUp?.(e);
   };
 
+  const onOptionMouseDown = () => {
+    isClickingOptionRef.current = true;
+  };
+
+  const onOptionClick = (item: SelectFieldValue | SelectFieldOptionObject) => {
+    isClickingOptionRef.current = false;
+    onSelectOption(item, { refocus: true, resetSearch: true});
+  };
+
   const focus = () => {
     if (multiple) {
       searchInputRef.current?.focus();
@@ -609,13 +618,8 @@ const SelectField = ({
   ) => (
     <DropdownItem key={i}>
       <a
-        onMouseDown={() => {
-          isClickingOptionRef.current = true;
-        }}
-        onClick={() => {
-          isClickingOptionRef.current = false;
-          onSelectOption(item, { refocus: true, resetSearch: true});
-        }}
+        onMouseDown={onOptionMouseDown}
+        onClick={onOptionClick.bind(null, item)}
       >
         { parseTitle(item, { isOption: true }) }
       </a>
