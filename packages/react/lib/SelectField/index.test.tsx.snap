@@ -78,6 +78,57 @@ exports[`<SelectField /> > should allow arbitrary values 1`] = `
 </div>
 `;
 
+exports[`<SelectField /> > should allow arbitrary values with searchable option 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field dirty valid searchable"
+    id="junipero-select-field-_r_5p_"
+  >
+    <div
+      class="field dropdown-toggle"
+      id="junipero-select-field-_r_5p_-toggle"
+    >
+      <input
+        id="junipero-select-field-_r_5p_-field"
+        readonly=""
+        type="text"
+        value="Item 3"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<SelectField /> > should allow to be used with a FieldControl 1`] = `
 <div>
   <label

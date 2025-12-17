@@ -606,4 +606,25 @@ describe('<SelectField />', () => {
     expect(container).toMatchSnapshot('closed');
     unmount();
   });
+
+  it('should allow arbitrary values with searchable option', async () => {
+    const user = userEvent.setup();
+    const onChangeMock = vi.fn();
+    const { unmount, container, getByText } = render(
+      <SelectField
+        placeholder="Name"
+        onChange={onChangeMock}
+        allowArbitraryItems={true}
+        searchable={true}
+        onSearch={() => Promise.resolve(['Item 3'])}
+        options={['Item 1', 'Item 2', 'Item 3']}
+      />
+    );
+    await user.type(container.querySelector('input'), 'item 3');
+    await user.click(container.querySelector('.dropdown-toggle'));
+    fireEvent.click(getByText('Item 3'));
+
+    expect(container).toMatchSnapshot();
+    unmount();
+  });
 });

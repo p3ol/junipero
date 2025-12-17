@@ -144,6 +144,22 @@ export const WithArbitraryValues = () => (
   />
 );
 
+export const WithArbitraryValuesAndSearch = () => (
+  <SelectField
+    placeholder="Type a name"
+    options={['Item 1', 'Item 2', 'Item 3']}
+    allowArbitraryItems={true}
+    multiple={false}
+    searchable={true}
+    noOptionsEnabled={false}
+    onSearch={async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      return ['Item 4', 'Item 5', 'Item 6'];
+    }}
+  />
+);
+
 export const WithOnlyArbitraryValues = () => (
   <SelectField
     placeholder="Type a name"
