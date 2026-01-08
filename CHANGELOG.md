@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.16](https://github.com/p3ol/junipero/compare/v3.12.15...v3.12.16) (2026-01-08)
+
+
+### Bug Fixes
+
+* **react:** clean code ([13f10c5](https://github.com/p3ol/junipero/commit/13f10c583f32db81aa2400772fd5d4dc339fd1fb))
+* **react:** fix option selection with arbitrary values and search ([73d2c8e](https://github.com/p3ol/junipero/commit/73d2c8e192255be43ca266c7ccd1c473fed3e9d0))
+
+
+
+
+
 ## [3.12.15](https://github.com/p3ol/junipero/compare/v3.12.14...v3.12.15) (2025-12-15)
 
 
