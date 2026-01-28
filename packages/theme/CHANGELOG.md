@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.17](https://github.com/p3ol/junipero/compare/v3.12.16...v3.12.17) (2026-01-28)
+
+
+### Bug Fixes
+
+* **theme:** correctly set z-index property on opened only fields inside field group ([4790658](https://github.com/p3ol/junipero/commit/4790658199bcaa858f90afdb26b529d798701b4b))
+
+
+
+
+
 ## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
 
 **Note:** Version bump only for package @junipero/theme
