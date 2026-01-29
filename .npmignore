@@ -5,3 +5,8 @@ coverage
 .storybook
 tsconfig.json
 tsconfig.build.json
+.env
+*.log
+.eslintcache
+storybook-static
+.turbo
