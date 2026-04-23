@@ -41,3 +41,7 @@ export const AlwaysOpened = () => (
 export const Animated = () => (
   <ColorField animateMenu={slideInDownMenu} />
 );
+
+export const Disabled = () => (
+  <ColorField animateMenu={slideInDownMenu} disabled={true} />
+);
