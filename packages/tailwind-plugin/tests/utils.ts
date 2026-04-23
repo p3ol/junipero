@@ -6,6 +6,7 @@ export const generate = async (
   plugin: { handler: PluginCreator; config?: Partial<Config>; },
   content: string
 ) => (
+  // @ts-expect-error postcss shenanigans
   postcss([
     tailwind({
       content: [{ raw: content }],
