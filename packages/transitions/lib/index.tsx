@@ -1,3 +1,5 @@
+'use client';
+
 import type { Key, ReactNode } from 'react';
 import { type TransitionProps, Transition } from '@junipero/react';
 
