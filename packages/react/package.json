@@ -30,7 +30,8 @@
   "dependencies": {
     "@floating-ui/react": "0.27.19",
     "@junipero/core": "^3.12.3",
-    "@junipero/hooks": "^3.12.9"
+    "@junipero/hooks": "^3.12.9",
+    "@radix-ui/react-slot": "1.2.4"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

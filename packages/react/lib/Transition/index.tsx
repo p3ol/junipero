@@ -1,16 +1,12 @@
 import {
   type ComponentPropsWithoutRef,
-  type ReactElement,
-  cloneElement,
   useState,
   useRef,
   useCallback,
-  use,
 } from 'react';
 import { useTimeout, useLayoutEffectAfterMount } from '@junipero/hooks';
 import { classNames } from '@junipero/core';
-
-import type { ReactElt, ReactLazy } from '../types';
+import { Slot } from '@radix-ui/react-slot';
 
 export const TRANSITION_STATE_UNMOUNTED = 'unmounted';
 export const TRANSITION_STATE_ENTER = 'enter';
@@ -41,12 +37,12 @@ export declare interface TransitionProps
 }
 
 const Transition = ({
-  children,
   in: inProp,
   name = 'transition',
   timeout = 100,
   mountOnEnter = true,
   unmountOnExit = false,
+  className,
   onEnter,
   onEntering,
   onEntered,
@@ -124,23 +120,15 @@ const Transition = ({
     )
   ), [status, step, name]);
 
-  const child: ReactElement<
-    ComponentPropsWithoutRef<any>
-  > | ReactLazy = typeof children !== 'string' && Array.isArray(children)
-    ? children[0] : children;
-
-  return status !== TRANSITION_STATE_UNMOUNTED && (
-    !unmountOnExit || mountOnEnter
-  ) ? cloneElement(
-      (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-        ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-      {
-        className: classNames(
-          (child as ReactElt).props?.className, getClassName()
-        ),
-        ...rest,
-      }
-    ) : null;
+  return status !== TRANSITION_STATE_UNMOUNTED &&
+  (!unmountOnExit || mountOnEnter)
+    ? (
+      <Slot
+        { ...rest }
+        className={classNames(className, getClassName())}
+      />
+    )
+    : null;
 };
 
 Transition.displayName = 'Transition';
