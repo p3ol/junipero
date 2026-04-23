@@ -13,7 +13,7 @@ exports[`<Tooltip /> > should allow to animate tooltip > Enter: Tooltip in dom 1
     tabindex="-1"
   >
     <div
-      class="tooltip-inner jp-slide-in-down-menu-enter-done"
+      class="jp-slide-in-down-menu-enter-done tooltip-inner"
     >
       Bar
     </div>
@@ -42,7 +42,7 @@ exports[`<Tooltip /> > should allow to animate tooltip > Exit: Tooltip in dom 1`
     tabindex="-1"
   >
     <div
-      class="tooltip-inner jp-slide-in-down-menu-exit"
+      class="jp-slide-in-down-menu-exit tooltip-inner"
     >
       Bar
     </div>
@@ -174,7 +174,7 @@ exports[`<Tooltip /> > should keep animated tooltip in dom if apparition is css 
     tabindex="-1"
   >
     <div
-      class="tooltip-inner jp-slide-in-down-menu-enter-done"
+      class="jp-slide-in-down-menu-enter-done tooltip-inner"
     >
       Bar
     </div>

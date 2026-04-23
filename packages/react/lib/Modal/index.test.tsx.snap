@@ -6,7 +6,7 @@ exports[`<Modal /> > should allow to animate modal > closed 1`] = `
     class="container"
   >
     <div
-      class="junipero modal jp-appear-bounce-modal-exit"
+      class="jp-appear-bounce-modal-exit junipero modal"
     >
       <div
         class="wrapper"
@@ -46,7 +46,7 @@ exports[`<Modal /> > should allow to animate modal > opened 1`] = `
     class="container"
   >
     <div
-      class="junipero modal opened jp-appear-bounce-modal-enter"
+      class="jp-appear-bounce-modal-enter junipero modal opened"
     >
       <div
         class="wrapper"

@@ -15,7 +15,7 @@ exports[`<FieldGroup /> > should render a select field prefix 1`] = `
       id="junipero-select-field-_r_0_"
     >
       <div
-        class="field dropdown-toggle"
+        class="dropdown-toggle field"
         id="junipero-select-field-_r_0_-toggle"
       >
         <input
@@ -63,7 +63,7 @@ exports[`<FieldGroup /> > should render a select field suffix 1`] = `
       id="junipero-select-field-_r_5_"
     >
       <div
-        class="field dropdown-toggle"
+        class="dropdown-toggle field"
         id="junipero-select-field-_r_5_-toggle"
       >
         <input
