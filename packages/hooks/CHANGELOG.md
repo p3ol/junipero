@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.18](https://github.com/p3ol/junipero/compare/v3.12.17...v3.12.18) (2026-04-27)
+
+
+### Bug Fixes
+
+* finally mark junipero as client library ([99d63e5](https://github.com/p3ol/junipero/commit/99d63e5a988eed977908a51e1d2b4a59138a99c1))
+
+
+
+
+
 ## [3.12.9](https://github.com/p3ol/junipero/compare/v3.12.8...v3.12.9) (2025-10-22)
 
 **Note:** Version bump only for package @junipero/hooks

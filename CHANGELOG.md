@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.18](https://github.com/p3ol/junipero/compare/v3.12.17...v3.12.18) (2026-04-27)
+
+
+### Bug Fixes
+
+* finally mark junipero as client library ([99d63e5](https://github.com/p3ol/junipero/commit/99d63e5a988eed977908a51e1d2b4a59138a99c1))
+* missing disabled state on colorfield's field ([702c3b3](https://github.com/p3ol/junipero/commit/702c3b380866bf175c33011c6bf0e08b5eaceac3))
+* upgrade various deps ([d4def2d](https://github.com/p3ol/junipero/commit/d4def2d1155d4488f4fa670d120e389cfb1ec76a))
+* use radix's slot instead of cloneElement ([1055eb2](https://github.com/p3ol/junipero/commit/1055eb2a27462d3924a57da7e643a05b4106a9b6))
+
+
+
+
+
 ## [3.12.17](https://github.com/p3ol/junipero/compare/v3.12.16...v3.12.17) (2026-01-28)
 
 

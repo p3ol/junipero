@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.18](https://github.com/p3ol/junipero/compare/v3.12.17...v3.12.18) (2026-04-27)
+
+
+### Bug Fixes
+
+* upgrade various deps ([d4def2d](https://github.com/p3ol/junipero/commit/d4def2d1155d4488f4fa670d120e389cfb1ec76a))
+
+
+
+
+
 ## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
 
 **Note:** Version bump only for package @junipero/tailwind-plugin
