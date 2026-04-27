@@ -7,7 +7,7 @@ exports[`<SelectField /> > should allow arbitrary values 1`] = `
     id="junipero-select-field-_r_2b_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_2b_-toggle"
     >
       <span
@@ -85,7 +85,7 @@ exports[`<SelectField /> > should allow arbitrary values with searchable option 
     id="junipero-select-field-_r_5p_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_5p_-toggle"
     >
       <input
@@ -142,7 +142,7 @@ exports[`<SelectField /> > should allow to be used with a FieldControl 1`] = `
     id="name"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="name-toggle"
     >
       <input
@@ -198,7 +198,7 @@ exports[`<SelectField /> > should allow to clear a single value 1`] = `
     id="junipero-select-field-_r_d_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_d_-toggle"
     >
       <input
@@ -249,7 +249,7 @@ exports[`<SelectField /> > should allow to clear a single value 2`] = `
     id="junipero-select-field-_r_d_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_d_-toggle"
     >
       <input
@@ -294,7 +294,7 @@ exports[`<SelectField /> > should allow to clear multiple values at once 1`] = `
     id="junipero-select-field-_r_p_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_p_-toggle"
     >
       <span
@@ -392,7 +392,7 @@ exports[`<SelectField /> > should allow to clear multiple values at once 2`] = `
     id="junipero-select-field-_r_p_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_p_-toggle"
     >
       <input
@@ -437,7 +437,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 1
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -580,7 +580,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 2
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -703,7 +703,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 3
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -826,7 +826,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 4
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -949,7 +949,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 5
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -1072,7 +1072,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 6
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -1195,7 +1195,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
     id="junipero-select-field-_r_4n_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4n_-toggle"
     >
       <input
@@ -1447,7 +1447,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
     id="junipero-select-field-_r_4n_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4n_-toggle"
     >
       <input
@@ -1601,7 +1601,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
     id="junipero-select-field-_r_4n_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4n_-toggle"
     >
       <input
@@ -1766,7 +1766,7 @@ exports[`<SelectField /> > should allow to render without a placeholder 1`] = `
     id="junipero-select-field-_r_8_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_8_-toggle"
     >
       <input
@@ -1810,7 +1810,7 @@ exports[`<SelectField /> > should allow to reset the field 1`] = `
     id="junipero-select-field-_r_16_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_16_-toggle"
     >
       <input
@@ -1861,7 +1861,7 @@ exports[`<SelectField /> > should allow to reset the field 2`] = `
     id="junipero-select-field-_r_16_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_16_-toggle"
     >
       <input
@@ -1912,7 +1912,7 @@ exports[`<SelectField /> > should allow to search for an existing value 1`] = `
     id="junipero-select-field-_r_1p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_1p_-toggle"
     >
       <input
@@ -1982,7 +1982,7 @@ exports[`<SelectField /> > should allow to search for an existing value 2`] = `
     id="junipero-select-field-_r_1p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_1p_-toggle"
     >
       <input
@@ -2070,7 +2070,7 @@ exports[`<SelectField /> > should allow to search for an external value 1`] = `
     id="junipero-select-field-_r_23_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_23_-toggle"
     >
       <input
@@ -2140,7 +2140,7 @@ exports[`<SelectField /> > should allow to search for an external value 2`] = `
     id="junipero-select-field-_r_23_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_23_-toggle"
     >
       <input
@@ -2195,7 +2195,7 @@ exports[`<SelectField /> > should allow to use object options and display custom
     id="junipero-select-field-_r_2v_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_2v_-toggle"
     >
       <input
@@ -2246,7 +2246,7 @@ exports[`<SelectField /> > should be invalid if validation fails 1`] = `
     id="junipero-select-field-_r_u_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_u_-toggle"
     >
       <input
@@ -2313,7 +2313,7 @@ exports[`<SelectField /> > should correctly update state values 1`] = `
     id="selectfield"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="selectfield-toggle"
     >
       <input
@@ -2364,7 +2364,7 @@ exports[`<SelectField /> > should not allow to change value when disabled 1`] = 
     id="junipero-select-field-_r_1k_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_1k_-toggle"
     >
       <input
@@ -2415,7 +2415,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
     id="junipero-select-field-_r_2p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2p_-toggle"
     >
       <span
@@ -2518,7 +2518,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
     id="junipero-select-field-_r_2p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2p_-toggle"
     >
       <span
@@ -2621,7 +2621,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] =
     id="junipero-select-field-_r_3v_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3v_-toggle"
     >
       <input
@@ -2709,7 +2709,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > still opened
     id="junipero-select-field-_r_3v_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3v_-toggle"
     >
       <input
@@ -2797,7 +2797,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > opened 1`]
     id="junipero-select-field-_r_47_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_47_-toggle"
     >
       <input
@@ -2885,7 +2885,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > still open
     id="junipero-select-field-_r_47_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_47_-toggle"
     >
       <input
@@ -2973,7 +2973,7 @@ exports[`<SelectField /> > should render 1`] = `
     id="junipero-select-field-_r_0_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_0_-toggle"
     >
       <input
@@ -3061,7 +3061,7 @@ exports[`<SelectField /> > should render multiple values 1`] = `
     id="junipero-select-field-_r_i_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_i_-toggle"
     >
       <span
@@ -3159,7 +3159,7 @@ exports[`<SelectField /> > should render multiple values 2`] = `
     id="junipero-select-field-_r_i_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_i_-toggle"
     >
       <span
@@ -3237,7 +3237,7 @@ exports[`<SelectField /> > should render multiple values 3`] = `
     id="junipero-select-field-_r_i_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_i_-toggle"
     >
       <span
@@ -3335,7 +3335,7 @@ exports[`<SelectField /> > should select value with keyboard > closed 1`] = `
     id="junipero-select-field-_r_5h_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_5h_-toggle"
     >
       <input
@@ -3386,7 +3386,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
     id="junipero-select-field-_r_5h_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_5h_-toggle"
     >
       <input
@@ -3475,7 +3475,7 @@ exports[`<SelectField /> > should toggle on click if enabled > closed 1`] = `
     id="junipero-select-field-_r_3f_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_3f_-toggle"
     >
       <input
@@ -3520,7 +3520,7 @@ exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
     id="junipero-select-field-_r_3f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3f_-toggle"
     >
       <input
@@ -3608,7 +3608,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > closed 1`]
     id="junipero-select-field-_r_3n_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_3n_-toggle"
     >
       <input
@@ -3654,7 +3654,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > opened 1`]
     id="junipero-select-field-_r_3n_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3n_-toggle"
     >
       <input
@@ -3743,7 +3743,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`
     id="junipero-select-field-_r_4f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4f_-toggle"
     >
       <input
@@ -3831,7 +3831,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
     id="junipero-select-field-_r_4f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4f_-toggle"
     >
       <input
@@ -3919,7 +3919,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
     id="junipero-select-field-_r_4f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4f_-toggle"
     >
       <input

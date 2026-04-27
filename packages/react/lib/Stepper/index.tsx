@@ -2,18 +2,15 @@ import {
   type RefObject,
   type ReactNode,
   Children,
-  cloneElement,
   useMemo,
   useImperativeHandle,
   useRef,
   useCallback,
-  use,
 } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 
 import type {
   JuniperoRef,
-  ReactElt,
-  ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
 import Step, { type StepObject } from '../Step';
@@ -70,14 +67,14 @@ const Stepper = ({
       >
         { t.content }
       </Step>
-    )) : Children.toArray(children).map((
-      t: ReactElt,
-      i: number
-    ) => (
-      cloneElement(
-        (t as unknown as ReactLazy ).$$typeof === Symbol.for('react.lazy')
-          ? use<ReactElt>((t as unknown as ReactLazy)._payload) : t,
-        { status: getStepStatus(i), key: i })
+    )) : Children.toArray(children).map((t, i) => (
+      <Slot
+        // @ts-expect-error cannot change SlotProps type
+        status={getStepStatus(i)}
+        key={i}
+      >
+        { t }
+      </Slot>
     ))
   ), [steps, children, icon, getStepStatus]);
 

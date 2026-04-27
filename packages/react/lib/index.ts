@@ -1,3 +1,5 @@
+'use client';
+
 export {
   type Grow,
   type GrowToSize,
