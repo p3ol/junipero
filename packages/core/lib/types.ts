@@ -17,3 +17,5 @@ export type FixedArray<T, N extends number> = GrowToSize<T, [], N>;
 * Volontarily abstracted to allow any kind of state.
 */
 export type StateContent<T = any> = Record<string, T>;
+
+export type Maybe<T> = T | null | undefined;

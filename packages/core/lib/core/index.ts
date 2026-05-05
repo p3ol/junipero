@@ -1,4 +1,4 @@
-import type { GenericObject } from '../types';
+import type { GenericObject, Maybe } from '../types';
 
 export const classNames = (...args: any[]): string => {
   const classes: string[] = [];
@@ -69,7 +69,7 @@ type DeepIndex<T, K extends string> = T extends object ? (
 ) : never;
 
 export function get <T extends Record<string, any>, D = any> (
-  obj: T = {} as T,
+  obj: Maybe<T> = {} as T,
   path: string = '',
   defaultValue?: D
 ): DeepIndex<T, typeof path> | D {
@@ -79,7 +79,7 @@ export function get <T extends Record<string, any>, D = any> (
 }
 
 export function set <T extends Record<string, any>, U = any> (
-  obj: T = {} as T,
+  obj: Maybe<T> = {} as T,
   path: string = '',
   value?: any,
   customizer: <V = any>(val: V, subobj: any) => V = (val, _subobj) => val
@@ -106,7 +106,7 @@ export function set <T extends Record<string, any>, U = any> (
 }
 
 export function omitBy<T extends Record<string, any>> (
-  obj: T = {} as T,
+  obj: Maybe<T> = {} as T,
   cb?: (value: T[keyof T], key: keyof T) => any
 ): Partial<T> {
   return Object
@@ -121,7 +121,7 @@ export function omit<
   T extends Record<string, any>,
   U extends keyof T,
 > (
-  obj: T = {} as T,
+  obj: Maybe<T> = {} as T,
   keys: U[] = []
 ): Omit<T, U> {
   return omitBy(obj || {}, (_value, key) =>
@@ -132,11 +132,11 @@ export function pick<
   T extends Record<string, any>,
   U extends keyof T,
 > (
-  obj: T = {} as T,
+  obj: Maybe<T> = {} as T,
   keys: U[] = []
 ): Pick<T, U> {
   return keys.reduce((res: T, k: keyof T) => {
-    if (!isUndefined(obj[k])) {
+    if (!isUndefined(obj?.[k])) {
       res[k] = obj[k];
     }
 
@@ -202,7 +202,7 @@ export function mergeDeep<T = any, U = any, V = any, W = any, X = any> (
 }
 
 export function filterDeep <T extends any[]> (
-  arr: T = [] as T,
+  arr: Maybe<T> = [] as T,
   cb: (v?: T[keyof T]) => boolean = () => true
 ): T {
   const res = [] as T;
@@ -229,7 +229,7 @@ export function filterDeep <T extends any[]> (
 }
 
 export function findDeep <T extends any[]> (
-  arr: T = [] as T,
+  arr: Maybe<T> = [] as T,
   cb: (v?: any) => boolean = () => true,
   depth: (v: any) => any = v => v,
   multiple: boolean = false,
