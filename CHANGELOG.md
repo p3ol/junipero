@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.21](https://github.com/p3ol/junipero/compare/v3.12.20...v3.12.21) (2026-05-05)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** bad tailwind util import ([9ae7467](https://github.com/p3ol/junipero/commit/9ae74673e988ae4c3798d837c4620198c42bf57e))
+
+
+
+
+
 ## [3.12.20](https://github.com/p3ol/junipero/compare/v3.12.19...v3.12.20) (2026-05-05)
 
 

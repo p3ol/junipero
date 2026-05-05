@@ -1,6 +1,6 @@
 {
   "name": "@junipero/tailwind-plugin",
-  "version": "3.12.20",
+  "version": "3.12.21",
   "description": "🏔 Junipero Design System Tailwind Plugin",
   "type": "module",
   "main": "dist/index.js",
