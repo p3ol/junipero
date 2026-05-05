@@ -1,6 +1,6 @@
 {
   "name": "@junipero/hooks",
-  "version": "3.12.18",
+  "version": "3.12.20",
   "description": "🏔 Junipero Design System React hooks",
   "type": "module",
   "main": "dist/index.js",

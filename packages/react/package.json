@@ -1,6 +1,6 @@
 {
   "name": "@junipero/react",
-  "version": "3.12.19",
+  "version": "3.12.20",
   "description": "🏔 Junipero Design System React components",
   "type": "module",
   "main": "dist/index.js",
@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@floating-ui/react": "0.27.19",
-    "@junipero/core": "^3.12.19",
-    "@junipero/hooks": "^3.12.18",
+    "@junipero/core": "^3.12.20",
+    "@junipero/hooks": "^3.12.20",
     "@radix-ui/react-slot": "1.2.4"
   },
   "scripts": {

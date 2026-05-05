@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.20](https://github.com/p3ol/junipero/compare/v3.12.19...v3.12.20) (2026-05-05)
+
+
+### Bug Fixes
+
+* **core:** missing type export ([d90cfec](https://github.com/p3ol/junipero/commit/d90cfec0b626fa16b1a441494aea01fca0750a31))
+* upgrade various deps ([40d652c](https://github.com/p3ol/junipero/commit/40d652cc492b11d905a53258fe056848b4425410))
+
+
+
+
+
 ## [3.12.19](https://github.com/p3ol/junipero/compare/v3.12.18...v3.12.19) (2026-05-05)
 
 
