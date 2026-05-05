@@ -9,10 +9,12 @@ export default defineConfig([
     platform: 'node',
     target: pkg.targets,
     format: ['cjs', 'esm'],
-    external: [
-      'tailwindcss',
-      '@junipero/core',
-    ],
+    deps: {
+      neverBundle: [
+        'tailwindcss',
+        '@junipero/core',
+      ],
+    },
     sourcemap: true,
     dts: false,
   },
