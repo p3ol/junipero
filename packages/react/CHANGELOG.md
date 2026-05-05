@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.19](https://github.com/p3ol/junipero/compare/v3.12.18...v3.12.19) (2026-05-05)
+
+**Note:** Version bump only for package @junipero/react
+
+
+
+
+
 ## [3.12.18](https://github.com/p3ol/junipero/compare/v3.12.17...v3.12.18) (2026-04-27)
 
 

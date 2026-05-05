@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.19](https://github.com/p3ol/junipero/compare/v3.12.18...v3.12.19) (2026-05-05)
+
+
+### Bug Fixes
+
+* **core:** helpers types should allow null ([3f89018](https://github.com/p3ol/junipero/commit/3f890180cfc349dfe4c0457fea9e48704815a09e))
+
+
+
+
+
 ## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
 
 **Note:** Version bump only for package @junipero/core
