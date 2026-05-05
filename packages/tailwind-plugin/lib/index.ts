@@ -1,6 +1,20 @@
 import plugin from 'tailwindcss/plugin';
-import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 import { COLORS, fromPairs } from '@junipero/core';
+
+// Tailwind's flattenColorPalette esm build does not work well with tsdown
+const flattenColorPalette = (
+  colors: Record<string, any>
+): Record<string, string> =>
+  Object.assign(
+    {},
+    ...Object.entries(colors ?? {}).flatMap(([color, values]) =>
+      typeof values == 'object'
+        ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
+          [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex,
+        }))
+        : [{ [`${color}`]: values }]
+    )
+  );
 
 export default plugin(({
   matchUtilities,
