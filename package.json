@@ -49,6 +49,7 @@
     "jsdom-testing-mocks": "1.16.0",
     "lerna": "9.0.7",
     "postcss": "8.5.14",
+    "postcss-load-config": "6.0.1",
     "postcss-loader": "8.2.1",
     "react": "19.2.5",
     "react-dom": "19.2.5",

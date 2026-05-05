@@ -10116,7 +10116,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-load-config@npm:^4.0.2 || ^5.0 || ^6.0":
+"postcss-load-config@npm:6.0.1, postcss-load-config@npm:^4.0.2 || ^5.0 || ^6.0":
   version: 6.0.1
   resolution: "postcss-load-config@npm:6.0.1"
   dependencies:
@@ -10936,6 +10936,7 @@ __metadata:
     jsdom-testing-mocks: "npm:1.16.0"
     lerna: "npm:9.0.7"
     postcss: "npm:8.5.14"
+    postcss-load-config: "npm:6.0.1"
     postcss-loader: "npm:8.2.1"
     react: "npm:19.2.5"
     react-dom: "npm:19.2.5"
