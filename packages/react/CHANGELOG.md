@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.12.22](https://github.com/p3ol/junipero/compare/v3.12.21...v3.12.22) (2026-05-08)
+
+
+### Bug Fixes
+
+* **react:** reexport type from core ([efb1ca4](https://github.com/p3ol/junipero/commit/efb1ca4e565f4756e6d32c3f7efe084374f41d7a))
+* ts6 compat ([f0ffb3f](https://github.com/p3ol/junipero/commit/f0ffb3f8f12ee4b0a76dd325f90e28d4e6b5a12c))
+
+
+
+
+
 ## [3.12.20](https://github.com/p3ol/junipero/compare/v3.12.19...v3.12.20) (2026-05-05)
 
 **Note:** Version bump only for package @junipero/react
