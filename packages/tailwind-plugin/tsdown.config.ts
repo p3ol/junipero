@@ -10,10 +10,7 @@ export default defineConfig([
     target: pkg.targets,
     format: ['cjs', 'esm'],
     deps: {
-      neverBundle: [
-        'tailwindcss',
-        '@junipero/core',
-      ],
+      skipNodeModulesBundle: true,
     },
     sourcemap: true,
     dts: false,

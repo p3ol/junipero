@@ -16,7 +16,7 @@ const flattenColorPalette = (
     )
   );
 
-export default plugin(({
+const junipero: ReturnType<typeof plugin> = plugin(({
   matchUtilities,
   addVariant,
   theme,
@@ -53,3 +53,5 @@ export default plugin(({
     },
   },
 });
+
+export default junipero;

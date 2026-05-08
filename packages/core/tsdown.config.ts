@@ -9,7 +9,6 @@ export default defineConfig([
     outDir: 'dist',
     format: ['cjs', 'esm'],
     target: pkg.targets,
-    external: [],
     sourcemap: true,
     dts: false,
   },
