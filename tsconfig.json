@@ -1,34 +1,29 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "types": ["jest", "node"],
+    "types": ["vitest/globals", "node"],
     "lib": ["DOM", "ES2022"],
+    "strict": false,
+    "resolveJsonModule": true,
     "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "skipLibCheck": true,
     "target": "es6",
     "noEmit": true,
     "paths": {
-      "@junipero/core": ["./packages/core/lib/index.ts"],
-      "@junipero/hooks": ["./packages/hooks/lib/index.ts"],
-      "@junipero/transitions": ["./packages/transitions/lib/index.tsx"],
-      "@junipero/react": ["./packages/react/lib/index.ts"],
-      "@junipero/react-d3-plugin": ["./packages/react-d3-plugin/lib/index.ts"],
       "~tests-utils": ["./packages/react/tests/utils.ts"],
     }
   },
   "include": [
-    "packages/**/*",
-    "*.ts",
-    ".ci/**/*.ts",
-    ".storybook/*.ts",
+    "**/*.ts",
+    "./global.d.ts",
   ],
   "exclude": [
-    "**/dist/*",
+    "dist",
     ".turbo",
-    "node_modules/**/*",
+    "node_modules"
   ]
 }

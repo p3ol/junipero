@@ -6,7 +6,13 @@
     "noEmit": false,
     "emitDeclarationOnly": true,
     "outDir": "dist/types",
-    "baseUrl": "."
+    "rootDir": "./lib"
   },
-  "exclude": ["tests", "**/*.test.ts", "tsdown.config.ts"]
+  "exclude": [
+    "tests",
+    "**/*.test.ts",
+    "tsdown.config.ts",
+    "../../.storybook",
+    "../../global.d.ts"
+  ]
 }
