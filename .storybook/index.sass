@@ -1,8 +1,8 @@
 @use "../packages/theme/lib/index"
 
-@use "../node_modules/tailwindcss/base"
-@use "../node_modules/tailwindcss/components"
-@use "../node_modules/tailwindcss/utilities"
+@use "tailwindcss"
+
+@plugin "../packages/tailwind-plugin"
 
 html.dark
   background: #181818
