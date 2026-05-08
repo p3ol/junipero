@@ -5,6 +5,7 @@ export {
   type GrowToSize,
   type FixedArray,
   type StateContent,
+  type Maybe,
   COLORS,
   ensureNode,
   classNames,
