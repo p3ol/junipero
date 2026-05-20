@@ -44,6 +44,9 @@ jobs:
           cache: yarn
       - name: Install deps
         run: yarn install
+        # Unfortunately needed by @junipero/tailwind-plugin tests :(
+      - name: Build
+        run: yarn build
       - name: Test
         run: yarn test
       - name: Codecov upload
