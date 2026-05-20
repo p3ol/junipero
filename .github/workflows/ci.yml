@@ -46,6 +46,8 @@ jobs:
           cache: yarn
       - name: Install deps
         run: yarn install
+      - name: Build needed packages
+        run: yarn p:core build && yarn p:tailwind build
       - name: Test
         run: yarn test
       - name: Codecov upload
