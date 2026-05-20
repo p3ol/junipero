@@ -1,6 +1,6 @@
-import { slideInDownMenu } from '@junipero/transitions';
 import { action } from 'storybook/actions';
 
+import { slideInDownMenu } from '../../../transitions/lib';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import DropdownGroup from '../DropdownGroup';

@@ -1,8 +1,8 @@
 import { createRef } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import { vi } from 'vitest';
-import { appearBounceModal } from '@junipero/transitions';
 
+import { appearBounceModal } from '../../../transitions/lib';
 import Modal, { type ModalRef } from '.';
 
 describe('<Modal />', () => {

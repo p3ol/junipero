@@ -19,6 +19,8 @@
   },
   "include": [
     "**/*.ts",
+    "**/*.tsx",
+    ".storybook/*.ts",
     "./global.d.ts",
   ],
   "exclude": [

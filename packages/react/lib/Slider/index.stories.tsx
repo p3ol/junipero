@@ -1,6 +1,6 @@
 import { action } from 'storybook/actions';
-import { slideInDownMenu } from '@junipero/transitions';
 
+import { slideInDownMenu } from '../../../transitions/lib';
 import Slider from '.';
 
 export default { title: 'react/Slider' };

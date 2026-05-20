@@ -1,5 +1,4 @@
-import { slideInDownMenu } from '@junipero/transitions';
-
+import { slideInDownMenu } from '../../../transitions/lib';
 import { useToasts } from '../hooks';
 import Toasts from '../Toasts';
 import Button from '../Button';

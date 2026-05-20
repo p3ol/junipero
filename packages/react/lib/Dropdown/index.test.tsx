@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { act, fireEvent, render, renderHook } from '@testing-library/react';
 import { vi } from 'vitest';
-import { slideInDownMenu } from '@junipero/transitions';
 
+import { slideInDownMenu } from '../../../transitions/lib';
 import { useDropdown } from '../hooks';
 import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';

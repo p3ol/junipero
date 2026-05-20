@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { action } from 'storybook/actions';
-import { appearBounceModal, slideInLeftModal } from '@junipero/transitions';
 
+import { appearBounceModal, slideInLeftModal } from '../../../transitions/lib';
 import Button from '../Button';
-import Modal, { ModalRef } from './index';
+import Modal, { type ModalRef } from './index';
 
 export default { title: 'react/Modal' };
 
