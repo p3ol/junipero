@@ -17,18 +17,7 @@ exports[`<CheckboxField /> > should add value if provided 1`] = `
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -97,6 +86,33 @@ exports[`<CheckboxField /> > should allow to render a controller checkbox > unch
     />
     <div
       class="inner"
+    />
+    <div
+      class="content"
+    >
+      Check this
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> > should allow to use indeterminate state > checked 1`] = `
+<div>
+  <label
+    aria-checked="true"
+    aria-disabled="false"
+    aria-required="false"
+    class="junipero checkbox-field dirty valid checked"
+    role="checkbox"
+    tabindex="0"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
     >
       <svg
         class="junipero icon check"
@@ -111,9 +127,43 @@ exports[`<CheckboxField /> > should allow to render a controller checkbox > unch
     </div>
     <div
       class="content"
+    />
+  </label>
+</div>
+`;
+
+exports[`<CheckboxField /> > should allow to use indeterminate state > indeterminate 1`] = `
+<div>
+  <label
+    aria-checked="false"
+    aria-disabled="false"
+    aria-required="false"
+    class="junipero checkbox-field pristine valid indeterminate"
+    role="checkbox"
+    tabindex="0"
+  >
+    <input
+      tabindex="-1"
+      type="checkbox"
+      value=""
+    />
+    <div
+      class="inner"
     >
-      Check this
+      <svg
+        class="junipero icon minus"
+        height="10"
+        viewBox="0 0 9 10"
+        width="10"
+      >
+        <path
+          d="M1 5L8 5"
+        />
+      </svg>
     </div>
+    <div
+      class="content"
+    />
   </label>
 </div>
 `;
@@ -135,18 +185,7 @@ exports[`<CheckboxField /> > should not trigger event and change state if user c
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -171,18 +210,7 @@ exports[`<CheckboxField /> > should render 1`] = `
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -243,18 +271,7 @@ exports[`<CheckboxField /> > should set focused state on focus > focused 1`] = `
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -279,18 +296,7 @@ exports[`<CheckboxField /> > should set focused state on focus > not focused 1`]
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -351,18 +357,7 @@ exports[`<CheckboxField /> > should set invalid state following custom onValidat
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -387,18 +382,7 @@ exports[`<CheckboxField /> > should set invalid state if checkbox is invalid and
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -459,18 +443,7 @@ exports[`<CheckboxField /> > should toggle active state on click > active 1`] = 
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -495,18 +468,7 @@ exports[`<CheckboxField /> > should toggle active state on click > inactive 1`] 
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
@@ -567,18 +529,7 @@ exports[`<CheckboxField /> > should toggle check if checkbox is clicked > unchec
     />
     <div
       class="inner"
-    >
-      <svg
-        class="junipero icon check"
-        height="7"
-        viewBox="0 0 10 7"
-        width="10"
-      >
-        <path
-          d="M1.75259 3.49582L4.25675 6L8.24741 1"
-        />
-      </svg>
-    </div>
+    />
     <div
       class="content"
     />
