@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`@junipero/tailwind-plugin > should generate the correct CSS 1`] = `
-"/*! tailwindcss v4.2.4 | MIT License | https://tailwindcss.com */
+"/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
 @layer theme, utilities;
 @layer theme {
   :root, :host {
