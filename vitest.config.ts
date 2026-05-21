@@ -37,6 +37,8 @@ export default defineConfig({
       '@junipero/react': path.resolve('./packages/react/lib'),
       '@junipero/transitions': path.resolve('./packages/transitions/lib'),
       '@junipero/hooks': path.resolve('./packages/hooks/lib'),
+      '@junipero/tailwind-plugin': path
+        .resolve('./packages/tailwind-plugin/lib'),
     },
   },
 });

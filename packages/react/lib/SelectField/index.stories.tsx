@@ -8,7 +8,7 @@ import Label from '../Label';
 import Abstract from '../Abstract';
 import SelectField, {
   type SelectFieldOptionObject,
-  type SelectFieldProps
+  type SelectFieldProps,
 } from './index';
 
 export default { title: 'react/SelectField' };

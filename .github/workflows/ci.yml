@@ -30,6 +30,8 @@ jobs:
     name: Unit tests
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    env:
+      YARN_ENABLE_HARDENED_MODE: 0
     strategy:
       matrix:
         node-version: [20, 22, 24]
@@ -44,6 +46,8 @@ jobs:
           cache: yarn
       - name: Install deps
         run: yarn install
+      - name: Build needed packages
+        run: yarn p:core build && yarn p:tailwind build
       - name: Test
         run: yarn test
       - name: Codecov upload

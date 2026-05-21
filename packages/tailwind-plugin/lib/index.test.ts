@@ -19,7 +19,7 @@ describe('@junipero/tailwind-plugin', () => {
       @import "tailwindcss/theme.css" layer(theme);
       @import "tailwindcss/utilities.css" layer(utilities);
 
-      @plugin './lib/index.ts';
+      @plugin '@junipero/tailwind-plugin';
     `, {
       from: path.resolve(currentPath, './lib'),
     }).then(result => result.css);

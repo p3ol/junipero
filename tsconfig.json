@@ -15,6 +15,10 @@
     "noEmit": true,
     "paths": {
       "~tests-utils": ["./packages/react/tests/utils.ts"],
+      "@junipero/core": ["./packages/core/lib"],
+      "@junipero/react": ["./packages/react/lib"],
+      "@junipero/hooks": ["./packages/hooks/lib"],
+      "@junipero/tailwind-plugin": ["./packages/tailwind-plugin/lib"],
     }
   },
   "include": [
