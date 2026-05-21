@@ -1,6 +1,6 @@
 {
   "name": "@junipero/core",
-  "version": "3.12.22",
+  "version": "3.13.0",
   "description": "🏔 Junipero Design System Core Utils",
   "type": "module",
   "main": "dist/index.js",

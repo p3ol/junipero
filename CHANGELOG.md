@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
+
+
+### Bug Fixes
+
+* dedupe ([9996ad1](https://github.com/p3ol/junipero/commit/9996ad1097b761a9de811035957c4098fc58dff8))
+* **theme:** dark checkbox colors ([b5abf0d](https://github.com/p3ol/junipero/commit/b5abf0d507a14cd892af77c2332cf61876a30108))
+* update various deps ([8e22d26](https://github.com/p3ol/junipero/commit/8e22d264c63f1ba770028420e086b46ce56a76b4))
+
+
+### Features
+
+* **react:** add checkbox indeterminate state ([c91ff92](https://github.com/p3ol/junipero/commit/c91ff9233437e52410a17a2a20160f19b60a8952))
+
+
+
+
+
 ## [3.12.22](https://github.com/p3ol/junipero/compare/v3.12.21...v3.12.22) (2026-05-08)
 
 

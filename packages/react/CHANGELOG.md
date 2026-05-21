@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
+
+
+### Features
+
+* **react:** add checkbox indeterminate state ([c91ff92](https://github.com/p3ol/junipero/commit/c91ff9233437e52410a17a2a20160f19b60a8952))
+
+
+
+
+
 ## [3.12.22](https://github.com/p3ol/junipero/compare/v3.12.21...v3.12.22) (2026-05-08)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@junipero/theme",
-  "version": "3.12.17",
+  "version": "3.13.0",
   "description": "🏔 Junipero Design System Common Theme",
   "type": "module",
   "main": "dist/junipero.min.css",
