@@ -1,6 +1,6 @@
 import { action } from 'storybook/actions';
-import { slideInDownMenu } from '@junipero/transitions';
 
+import { slideInDownMenu } from '../../../transitions/lib';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
@@ -40,4 +40,8 @@ export const AlwaysOpened = () => (
 
 export const Animated = () => (
   <ColorField animateMenu={slideInDownMenu} />
+);
+
+export const Disabled = () => (
+  <ColorField animateMenu={slideInDownMenu} disabled={true} />
 );

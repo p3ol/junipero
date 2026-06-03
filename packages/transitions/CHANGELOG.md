@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.22](https://github.com/p3ol/junipero/compare/v3.12.21...v3.12.22) (2026-05-08)
+
+
+### Bug Fixes
+
+* ts6 compat ([f0ffb3f](https://github.com/p3ol/junipero/commit/f0ffb3f8f12ee4b0a76dd325f90e28d4e6b5a12c))
+
+
+
+
+
+## [3.12.20](https://github.com/p3ol/junipero/compare/v3.12.19...v3.12.20) (2026-05-05)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.19](https://github.com/p3ol/junipero/compare/v3.12.18...v3.12.19) (2026-05-05)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.18](https://github.com/p3ol/junipero/compare/v3.12.17...v3.12.18) (2026-04-27)
+
+
+### Bug Fixes
+
+* finally mark junipero as client library ([99d63e5](https://github.com/p3ol/junipero/commit/99d63e5a988eed977908a51e1d2b4a59138a99c1))
+
+
+
+
+
+## [3.12.17](https://github.com/p3ol/junipero/compare/v3.12.16...v3.12.17) (2026-01-28)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.16](https://github.com/p3ol/junipero/compare/v3.12.15...v3.12.16) (2026-01-08)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.15](https://github.com/p3ol/junipero/compare/v3.12.14...v3.12.15) (2025-12-15)
+
+
+### Bug Fixes
+
+* **transitions:** bad platform ([b4cb40e](https://github.com/p3ol/junipero/commit/b4cb40e563aa6d79abb6bd31b44ec26034867fdd))
+
+
+
+
+
+## [3.12.14](https://github.com/p3ol/junipero/compare/v3.12.13...v3.12.14) (2025-12-15)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.13](https://github.com/p3ol/junipero/compare/v3.12.12...v3.12.13) (2025-11-19)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.12](https://github.com/p3ol/junipero/compare/v3.12.11...v3.12.12) (2025-11-19)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
+## [3.12.11](https://github.com/p3ol/junipero/compare/v3.12.10...v3.12.11) (2025-10-30)
+
+**Note:** Version bump only for package @junipero/transitions
+
+
+
+
+
 ## [3.12.10](https://github.com/p3ol/junipero/compare/v3.12.9...v3.12.10) (2025-10-23)
 
 **Note:** Version bump only for package @junipero/transitions

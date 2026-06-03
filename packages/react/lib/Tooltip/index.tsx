@@ -2,12 +2,10 @@ import {
   type RefObject,
   type ReactNode,
   type ReactElement,
-  cloneElement,
   useImperativeHandle,
   useReducer,
   useRef,
   useEffect,
-  use,
 } from 'react';
 import { createPortal } from 'react-dom';
 import {
@@ -34,12 +32,11 @@ import {
   useHover,
   useDismiss,
 } from '@floating-ui/react';
+import { Slot } from '@radix-ui/react-slot';
 
 import type {
   JuniperoInnerRef,
   JuniperoRef,
-  ReactElt,
-  ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
 import type { TransitionProps } from '../Transition';
@@ -248,10 +245,6 @@ const Tooltip = ({
     </div>
   );
 
-  const child: ReactElt| ReactLazy = children && typeof children !== 'string'
-    ? Array.isArray(children) ? children[0] : children
-    : null;
-
   return (
     <>
       { !children || typeof children === 'string' ? (
@@ -261,13 +254,13 @@ const Tooltip = ({
         >
           { children }
         </span>
-      ) : cloneElement(
-        (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-          ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-        {
-          ...getReferenceProps(),
-          ref: setReference,
-        }
+      ) : (
+        <Slot
+          { ...getReferenceProps() }
+          ref={setReference}
+        >
+          { children }
+        </Slot>
       ) }
 
       { state.opened || (animate && state.visible) || apparition === 'css'

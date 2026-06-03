@@ -15,10 +15,10 @@ import type {
   SpecialComponentPropsWithRef,
 } from '../types';
 import { useFieldControl } from '../hooks';
-import { Check } from '../icons';
+import { Check, Minus } from '../icons';
 
 export declare interface CheckboxFieldRef extends JuniperoRef {
-  checked: boolean;
+  checked: boolean | 'indeterminate';
   innerRef: RefObject<HTMLLabelElement>;
   inputRef: RefObject<HTMLInputElement>;
 }
@@ -27,7 +27,7 @@ export declare interface CheckboxFieldProps extends Omit<
   SpecialComponentPropsWithRef<'label', CheckboxFieldRef>,
   'onChange'
 > {
-  checked?: boolean;
+  checked?: boolean | 'indeterminate';
   disabled?: boolean;
   id?: string;
   name?: string;
@@ -42,7 +42,7 @@ export declare interface CheckboxFieldProps extends Omit<
 }
 
 export declare interface CheckboxFieldState {
-  checked: boolean;
+  checked: boolean | 'indeterminate';
   valid: boolean;
   dirty: boolean;
 }
@@ -126,7 +126,8 @@ const CheckboxField = ({
         !state.valid && state.dirty ? 'invalid' : 'valid',
         {
           disabled,
-          checked: state.checked,
+          checked: state.checked === true,
+          indeterminate: state.checked === 'indeterminate',
         },
         className
       )}
@@ -134,7 +135,7 @@ const CheckboxField = ({
       tabIndex={disabled ? -1 : 0}
       // WCAG 2.0
       role="checkbox"
-      aria-checked={state.checked}
+      aria-checked={state.checked === true}
       aria-disabled={disabled}
       aria-required={required}
     >
@@ -143,15 +144,19 @@ const CheckboxField = ({
         name={name}
         type="checkbox"
         ref={inputRef}
-        value={checked ? value : ''}
-        checked={state.checked}
+        value={state.checked === true ? value : ''}
+        checked={state.checked === true}
         onChange={onChange_}
         tabIndex={-1}
       />
       <div className="inner">
-        <Check />
+        { state.checked === true ? (
+          <Check />
+        ) : state.checked === 'indeterminate' && (
+          <Minus />
+        ) }
       </div>
-      <div className="content">{children}</div>
+      <div className="content">{ children }</div>
     </label>
   );
 };

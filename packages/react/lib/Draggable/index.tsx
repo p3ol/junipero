@@ -2,14 +2,11 @@ import {
   type DragEvent,
   type ComponentPropsWithoutRef,
   type Ref,
-  cloneElement,
   useState,
-  use,
 } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { classNames } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
-
-import { ReactElt, ReactLazy } from '../types';
 
 export declare type DraggableRef = any;
 
@@ -29,7 +26,6 @@ export declare interface DraggableProps
 const Draggable = ({
   ref,
   className,
-  children,
   dragImage,
   disabled = false,
   data = {},
@@ -92,30 +88,23 @@ const Draggable = ({
     onDrag?.(e);
   };
 
-  const child: ReactElt | ReactLazy =
-    typeof children !== 'string' && Array.isArray(children)
-      ? children[0] : children;
-
-  return cloneElement(
-    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-    {
-      ...rest,
-      ref,
-      className: classNames(
+  return (
+    <Slot
+      { ...rest }
+      ref={ref}
+      className={classNames(
         className,
-        (child as ReactElt).props?.className,
         {
           dragging: !disabled && dragAnimation,
           dragged: !disabled && dragged,
           draggable: !disabled,
         }
-      ),
-      draggable: !disabled,
-      onDragStart: onDragStart_,
-      onDrag: onDrag_,
-      onDragEnd: onDragEnd_,
-    }
+      )}
+      draggable={!disabled}
+      onDragStart={onDragStart_}
+      onDrag={onDrag_}
+      onDragEnd={onDragEnd_}
+    />
   );
 };
 

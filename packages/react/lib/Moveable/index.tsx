@@ -2,15 +2,12 @@ import {
   type ComponentPropsWithoutRef,
   type MouseEvent as ReactMouseEvent,
   type Ref,
-  cloneElement,
-  use,
   useCallback,
   useEffect,
   useReducer,
 } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { mockState, classNames } from '@junipero/core';
-
-import type { ReactElt, ReactLazy } from '../types';
 
 export declare interface MoveableState {
   moving: boolean;
@@ -56,7 +53,6 @@ const Moveable = ({
   y,
   style,
   className,
-  children,
   step = 1,
   transformScale = 1,
   strategy = 'transform',
@@ -157,40 +153,29 @@ const Moveable = ({
     };
   }, [state.moving, onMouseMove, onMouseUp]);
 
-  const child: ReactElt | ReactLazy =
-    typeof children !== 'string' && Array.isArray(children)
-      ? children[0] : children;
-
-  return cloneElement(
-    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-    {
-      ...rest,
-      ref,
-      className: classNames(
+  return (
+    <Slot
+      { ...rest }
+      ref={ref}
+      className={classNames(
         className,
-        (child as ReactElt).props?.className,
         'junipero moveable',
-        {
-          moving: state.moving,
-        }
-      ),
-      style: {
+        { moving: state.moving }
+      )}
+      style={{
         ...style,
-        ...(child as ReactElt).props?.style,
         ...strategy === 'position' ? {
-          position: style?.position ||
-            (child as ReactElt).props?.style?.position ||
-            'relative',
+          position: style?.position || 'relative',
           left: `${state.deltaX}px`,
           top: `${state.deltaY}px`,
         } : {
           transform: (style?.transform || '') +
             ` translate3d(${state.deltaX}px, ${state.deltaY}px, 0)`,
         },
-      },
-      onMouseDown: onMouseDown_,
-    } as ComponentPropsWithoutRef<any>);
+      }}
+      onMouseDown={onMouseDown_}
+    />
+  );
 };
 
 Moveable.displayName = 'Moveable';

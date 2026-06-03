@@ -1,8 +1,11 @@
+'use client';
+
 export {
   type Grow,
   type GrowToSize,
   type FixedArray,
   type StateContent,
+  type Maybe,
   COLORS,
   ensureNode,
   classNames,
@@ -235,6 +238,7 @@ export {
   ConnectLogo,
   EngageLogo,
   FlowLogo,
+  SplitLogo,
   JuniperoLogo,
 } from './Logo';
 export {

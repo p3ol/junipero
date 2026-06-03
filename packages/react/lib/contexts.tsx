@@ -76,22 +76,28 @@ export declare interface ModalContextType {
 
 export const ModalContext = createContext<ModalContextType>({});
 
-export declare interface InfiniteCanvasContext {
+export declare interface InfiniteCanvasContextType {
   zoom: number;
   offsetX: number;
   offsetY: number;
+  mouseX: number;
+  mouseY: number;
   fitIntoView: (transitionDuration?: number) => void;
   setZoom: (newZoom: number, transitionDuration?: number) => void;
+  panTo: (x: number, y: number, transitionDuration?: number) => void;
   zoomIn: (transitionDuration?: number) => void;
   zoomOut: (transitionDuration?: number) => void;
 }
 
-export const InfiniteCanvasContext = createContext<InfiniteCanvasContext>({
+export const InfiniteCanvasContext = createContext<InfiniteCanvasContextType>({
   zoom: 1,
   offsetX: 0,
   offsetY: 0,
+  mouseX: 0,
+  mouseY: 0,
   fitIntoView: () => {},
   setZoom: () => {},
+  panTo: () => {},
   zoomIn: () => {},
   zoomOut: () => {},
 });

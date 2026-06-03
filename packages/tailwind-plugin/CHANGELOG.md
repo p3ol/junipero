@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
+
+**Note:** Version bump only for package @junipero/tailwind-plugin
+
+
+
+
+
+## [3.12.22](https://github.com/p3ol/junipero/compare/v3.12.21...v3.12.22) (2026-05-08)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** bad export ([1a8ed6c](https://github.com/p3ol/junipero/commit/1a8ed6cf6cce2b3e2c47179af465f4385a746cf0))
+* **tainwind-plugin:** tainwind 4 compat ([66644ce](https://github.com/p3ol/junipero/commit/66644ce673e1e255561e0e2d87d6825296d4dc32))
+* ts6 compat ([f0ffb3f](https://github.com/p3ol/junipero/commit/f0ffb3f8f12ee4b0a76dd325f90e28d4e6b5a12c))
+* various type issues ([226034e](https://github.com/p3ol/junipero/commit/226034e5e723aaab8993be9d2ef03e69ee9abbbc))
+
+
+
+
+
+## [3.12.21](https://github.com/p3ol/junipero/compare/v3.12.20...v3.12.21) (2026-05-05)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** bad tailwind util import ([9ae7467](https://github.com/p3ol/junipero/commit/9ae74673e988ae4c3798d837c4620198c42bf57e))
+
+
+
+
+
+## [3.12.20](https://github.com/p3ol/junipero/compare/v3.12.19...v3.12.20) (2026-05-05)
+
+**Note:** Version bump only for package @junipero/tailwind-plugin
+
+
+
+
+
+## [3.12.19](https://github.com/p3ol/junipero/compare/v3.12.18...v3.12.19) (2026-05-05)
+
+**Note:** Version bump only for package @junipero/tailwind-plugin
+
+
+
+
+
+## [3.12.18](https://github.com/p3ol/junipero/compare/v3.12.17...v3.12.18) (2026-04-27)
+
+
+### Bug Fixes
+
+* upgrade various deps ([d4def2d](https://github.com/p3ol/junipero/commit/d4def2d1155d4488f4fa670d120e389cfb1ec76a))
+
+
+
+
+
 ## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
 
 **Note:** Version bump only for package @junipero/tailwind-plugin

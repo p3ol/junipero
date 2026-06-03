@@ -5,6 +5,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
 
 const require = createRequire(import.meta.url);
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 function getAbsolutePath (value: string): any {
   return path.dirname(require.resolve(path.join(value, 'package.json')));

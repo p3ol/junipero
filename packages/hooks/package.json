@@ -1,6 +1,6 @@
 {
   "name": "@junipero/hooks",
-  "version": "3.12.9",
+  "version": "3.13.0",
   "description": "🏔 Junipero Design System React hooks",
   "type": "module",
   "main": "dist/index.js",
@@ -21,10 +21,13 @@
   "license": "MIT",
   "sideEffects": false,
   "engines": {
-    "node": ">= 20"
+    "node": ">= 22"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@junipero/core": "workspace:*"
   },
   "scripts": {
     "clean": "rm -rf ./dist || true",

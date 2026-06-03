@@ -2,14 +2,11 @@ import {
   type DragEvent,
   type ComponentPropsWithoutRef,
   type Ref,
-  cloneElement,
   useState,
   useEffect,
-  use,
 } from 'react';
 import { classNames } from '@junipero/core';
-
-import type { ReactElt, ReactLazy } from '../types';
+import { Slot } from '@radix-ui/react-slot';
 
 export declare type DraggingPositionType = 'before' | 'after';
 
@@ -27,7 +24,6 @@ export declare interface DroppableProps
 const Droppable = ({
   ref,
   className,
-  children,
   disabled = false,
   onDrop,
   onDragOver,
@@ -97,19 +93,12 @@ const Droppable = ({
     return false;
   };
 
-  const child: ReactElt | ReactLazy =
-    typeof children !== 'string' && Array.isArray(children)
-      ? children[0] : children;
-
-  return cloneElement(
-    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-    {
-      ...rest,
-      ref,
-      className: classNames(
+  return (
+    <Slot
+      { ...rest }
+      ref={ref}
+      className={classNames(
         className,
-        (child as ReactElt).props?.className,
         {
           'drag-enter': !disabled && dragging,
           'drag-top': !disabled && dragging && draggingPos &&
@@ -117,12 +106,12 @@ const Droppable = ({
           'drag-bottom': !disabled && dragging && draggingPos &&
             draggingPos === 'after',
         },
-      ),
-      onDragEnter: onDragEnter_,
-      onDragLeave: onDragLeave_,
-      onDrop: onDrop_,
-      onDragOver: onDragOver_,
-    }
+      )}
+      onDragEnter={onDragEnter_}
+      onDragLeave={onDragLeave_}
+      onDrop={onDrop_}
+      onDragOver={onDragOver_}
+    />
   );
 };
 

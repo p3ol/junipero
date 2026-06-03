@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
+
+**Note:** Version bump only for package @junipero/core
+
+
+
+
+
+## [3.12.22](https://github.com/p3ol/junipero/compare/v3.12.21...v3.12.22) (2026-05-08)
+
+
+### Bug Fixes
+
+* ts6 compat ([f0ffb3f](https://github.com/p3ol/junipero/commit/f0ffb3f8f12ee4b0a76dd325f90e28d4e6b5a12c))
+* various type issues ([226034e](https://github.com/p3ol/junipero/commit/226034e5e723aaab8993be9d2ef03e69ee9abbbc))
+
+
+
+
+
+## [3.12.20](https://github.com/p3ol/junipero/compare/v3.12.19...v3.12.20) (2026-05-05)
+
+
+### Bug Fixes
+
+* **core:** missing type export ([d90cfec](https://github.com/p3ol/junipero/commit/d90cfec0b626fa16b1a441494aea01fca0750a31))
+
+
+
+
+
+## [3.12.19](https://github.com/p3ol/junipero/compare/v3.12.18...v3.12.19) (2026-05-05)
+
+
+### Bug Fixes
+
+* **core:** helpers types should allow null ([3f89018](https://github.com/p3ol/junipero/commit/3f890180cfc349dfe4c0457fea9e48704815a09e))
+
+
+
+
+
 ## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
 
 **Note:** Version bump only for package @junipero/core

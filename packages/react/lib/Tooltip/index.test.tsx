@@ -1,7 +1,7 @@
 import { render, fireEvent, act } from '@testing-library/react';
 import { vi } from 'vitest';
-import { slideInDownMenu } from '@junipero/transitions';
 
+import { slideInDownMenu } from '../../../transitions/lib';
 import Tooltip from '.';
 
 describe('<Tooltip />', () => {

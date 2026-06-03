@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
+
+
+### Bug Fixes
+
+* **theme:** dark checkbox colors ([b5abf0d](https://github.com/p3ol/junipero/commit/b5abf0d507a14cd892af77c2332cf61876a30108))
+
+
+### Features
+
+* **react:** add checkbox indeterminate state ([c91ff92](https://github.com/p3ol/junipero/commit/c91ff9233437e52410a17a2a20160f19b60a8952))
+
+
+
+
+
+## [3.12.17](https://github.com/p3ol/junipero/compare/v3.12.16...v3.12.17) (2026-01-28)
+
+
+### Bug Fixes
+
+* **theme:** correctly set z-index property on opened only fields inside field group ([4790658](https://github.com/p3ol/junipero/commit/4790658199bcaa858f90afdb26b529d798701b4b))
+
+
+
+
+
 ## [3.12.3](https://github.com/p3ol/junipero/compare/v3.12.2...v3.12.3) (2025-09-23)
 
 **Note:** Version bump only for package @junipero/theme

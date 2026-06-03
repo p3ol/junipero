@@ -3,6 +3,168 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
+
+
+### Bug Fixes
+
+* dedupe ([9996ad1](https://github.com/p3ol/junipero/commit/9996ad1097b761a9de811035957c4098fc58dff8))
+* **theme:** dark checkbox colors ([b5abf0d](https://github.com/p3ol/junipero/commit/b5abf0d507a14cd892af77c2332cf61876a30108))
+* update various deps ([8e22d26](https://github.com/p3ol/junipero/commit/8e22d264c63f1ba770028420e086b46ce56a76b4))
+
+
+### Features
+
+* **react:** add checkbox indeterminate state ([c91ff92](https://github.com/p3ol/junipero/commit/c91ff9233437e52410a17a2a20160f19b60a8952))
+
+
+
+
+
+## [3.12.22](https://github.com/p3ol/junipero/compare/v3.12.21...v3.12.22) (2026-05-08)
+
+
+### Bug Fixes
+
+* **react:** reexport type from core ([efb1ca4](https://github.com/p3ol/junipero/commit/efb1ca4e565f4756e6d32c3f7efe084374f41d7a))
+* **tailwind-plugin:** bad export ([1a8ed6c](https://github.com/p3ol/junipero/commit/1a8ed6cf6cce2b3e2c47179af465f4385a746cf0))
+* **tainwind-plugin:** tainwind 4 compat ([66644ce](https://github.com/p3ol/junipero/commit/66644ce673e1e255561e0e2d87d6825296d4dc32))
+* ts6 compat ([f0ffb3f](https://github.com/p3ol/junipero/commit/f0ffb3f8f12ee4b0a76dd325f90e28d4e6b5a12c))
+* upgrade various deps ([051df9f](https://github.com/p3ol/junipero/commit/051df9ffab54b18096349bb705ae5654af27cb38))
+* various type issues ([226034e](https://github.com/p3ol/junipero/commit/226034e5e723aaab8993be9d2ef03e69ee9abbbc))
+
+
+
+
+
+## [3.12.21](https://github.com/p3ol/junipero/compare/v3.12.20...v3.12.21) (2026-05-05)
+
+
+### Bug Fixes
+
+* **tailwind-plugin:** bad tailwind util import ([9ae7467](https://github.com/p3ol/junipero/commit/9ae74673e988ae4c3798d837c4620198c42bf57e))
+
+
+
+
+
+## [3.12.20](https://github.com/p3ol/junipero/compare/v3.12.19...v3.12.20) (2026-05-05)
+
+
+### Bug Fixes
+
+* **core:** missing type export ([d90cfec](https://github.com/p3ol/junipero/commit/d90cfec0b626fa16b1a441494aea01fca0750a31))
+* upgrade various deps ([40d652c](https://github.com/p3ol/junipero/commit/40d652cc492b11d905a53258fe056848b4425410))
+
+
+
+
+
+## [3.12.19](https://github.com/p3ol/junipero/compare/v3.12.18...v3.12.19) (2026-05-05)
+
+
+### Bug Fixes
+
+* **core:** helpers types should allow null ([3f89018](https://github.com/p3ol/junipero/commit/3f890180cfc349dfe4c0457fea9e48704815a09e))
+
+
+
+
+
+## [3.12.18](https://github.com/p3ol/junipero/compare/v3.12.17...v3.12.18) (2026-04-27)
+
+
+### Bug Fixes
+
+* finally mark junipero as client library ([99d63e5](https://github.com/p3ol/junipero/commit/99d63e5a988eed977908a51e1d2b4a59138a99c1))
+* missing disabled state on colorfield's field ([702c3b3](https://github.com/p3ol/junipero/commit/702c3b380866bf175c33011c6bf0e08b5eaceac3))
+* upgrade various deps ([d4def2d](https://github.com/p3ol/junipero/commit/d4def2d1155d4488f4fa670d120e389cfb1ec76a))
+* use radix's slot instead of cloneElement ([1055eb2](https://github.com/p3ol/junipero/commit/1055eb2a27462d3924a57da7e643a05b4106a9b6))
+
+
+
+
+
+## [3.12.17](https://github.com/p3ol/junipero/compare/v3.12.16...v3.12.17) (2026-01-28)
+
+
+### Bug Fixes
+
+* **theme:** correctly set z-index property on opened only fields inside field group ([4790658](https://github.com/p3ol/junipero/commit/4790658199bcaa858f90afdb26b529d798701b4b))
+* upgrade various dependencies ([bcdd07e](https://github.com/p3ol/junipero/commit/bcdd07e9909e3c68b904e4cab2d70b110ac925f2))
+
+
+
+
+
+## [3.12.16](https://github.com/p3ol/junipero/compare/v3.12.15...v3.12.16) (2026-01-08)
+
+
+### Bug Fixes
+
+* **react:** clean code ([13f10c5](https://github.com/p3ol/junipero/commit/13f10c583f32db81aa2400772fd5d4dc339fd1fb))
+* **react:** fix option selection with arbitrary values and search ([73d2c8e](https://github.com/p3ol/junipero/commit/73d2c8e192255be43ca266c7ccd1c473fed3e9d0))
+
+
+
+
+
+## [3.12.15](https://github.com/p3ol/junipero/compare/v3.12.14...v3.12.15) (2025-12-15)
+
+
+### Bug Fixes
+
+* **transitions:** bad platform ([b4cb40e](https://github.com/p3ol/junipero/commit/b4cb40e563aa6d79abb6bd31b44ec26034867fdd))
+
+
+
+
+
+## [3.12.14](https://github.com/p3ol/junipero/compare/v3.12.13...v3.12.14) (2025-12-15)
+
+
+### Bug Fixes
+
+* **date-field:** allow to clear default value ([fb5fe1a](https://github.com/p3ol/junipero/commit/fb5fe1a907b14cf9e313dc64972b632579154266))
+* upgrade various dependencies ([72f739e](https://github.com/p3ol/junipero/commit/72f739ea0905472d2064d37a3fa82a0f00e4da16))
+
+
+
+
+
+## [3.12.13](https://github.com/p3ol/junipero/compare/v3.12.12...v3.12.13) (2025-11-19)
+
+
+### Bug Fixes
+
+* add g element around split logo text ([c641fca](https://github.com/p3ol/junipero/commit/c641fca715c7a2120a678d67a1ae23ee4412a7ee))
+
+
+
+
+
+## [3.12.12](https://github.com/p3ol/junipero/compare/v3.12.11...v3.12.12) (2025-11-19)
+
+
+### Bug Fixes
+
+* **react:** missing split logo ([2ed452c](https://github.com/p3ol/junipero/commit/2ed452c3f4e0b0e24c09c1339317310de036feb4))
+
+
+
+
+
+## [3.12.11](https://github.com/p3ol/junipero/compare/v3.12.10...v3.12.11) (2025-10-30)
+
+
+### Bug Fixes
+
+* **react:** missing mouse position from infinite canvas state ([6fc30fc](https://github.com/p3ol/junipero/commit/6fc30fc755347f7fee86242fe55eb6e25cf709ad))
+
+
+
+
+
 ## [3.12.10](https://github.com/p3ol/junipero/compare/v3.12.9...v3.12.10) (2025-10-23)
 
 

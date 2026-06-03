@@ -5,6 +5,7 @@
   --background-color: var(--junipero-alabaster)
   --hover-color: var(--junipero-concrete)
   --active-color: var(--junipero-velvet-background)
+  --active-checked-color: var(--junipero-velvet-active)
   --invalid-color: var(--junipero-grapefruit)
 
   display: flex
@@ -13,14 +14,6 @@
 
   input
     display: none
-
-    &:checked
-      & + .inner
-        background: var(--main-color)
-        box-shadow: 0 0 0 2px var(--main-color)
-
-        .icon.check
-          opacity: 1
 
   .inner
     width: 12px
@@ -32,11 +25,12 @@
     justify-content: center
     background: var(--background-color)
 
-    .icon.check
-      opacity: 0
+  &.checked, &.indeterminate
+    --background-color: var(--main-color)
+    --border-color: var(--main-color)
 
   &:hover
-    &:not(.disabled)
+    &:not(.disabled):not(.checked):not(.indeterminate)
       --background-color: var(--hover-color)
 
   &:focus,
@@ -47,6 +41,9 @@
   &:active
     &:not(.disabled)
       --background-color: var(--active-color)
+
+      &.checked, &.indeterminate
+        --background-color: var(--active-checked-color)
 
   &.invalid.dirty
     &:not(.disabled):not(:focus):not(:focus-within)

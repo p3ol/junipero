@@ -9,12 +9,14 @@ export default defineConfig([
     target: pkg.targets,
     platform: 'browser',
     format: ['cjs', 'esm'],
-    external: [
-      'react',
-      'react-dom',
-      '@junipero/react',
-      'd3',
-    ],
+    deps: {
+      neverBundle: [
+        'react',
+        'react-dom',
+        '@junipero/react',
+        'd3',
+      ],
+    },
     sourcemap: true,
     dts: false,
   },

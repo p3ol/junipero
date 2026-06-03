@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [master,develop,refactor/v3]
+    branches: [master,develop]
   pull_request:
     branches: [master,develop]
 
@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           check-latest: true
           cache: yarn
       - name: Install deps
@@ -32,10 +32,10 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        node-version: [20, 22, 24]
+        node-version: [22, 24, 26]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup node
         uses: actions/setup-node@v6
         with:
@@ -44,10 +44,12 @@ jobs:
           cache: yarn
       - name: Install deps
         run: yarn install
+      - name: Build needed packages
+        run: yarn p:core build && yarn p:tailwind build
       - name: Test
         run: yarn test
       - name: Codecov upload
-        uses: codecov/codecov-action@v5.5.1
+        uses: codecov/codecov-action@v5.5.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -56,11 +58,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           check-latest: true
           cache: yarn
       - name: Install deps

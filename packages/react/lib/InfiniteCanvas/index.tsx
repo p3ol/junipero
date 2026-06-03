@@ -12,7 +12,10 @@ import { classNames, mockState } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
 import type { JuniperoRef, SpecialComponentPropsWithRef } from '../types';
-import { InfiniteCanvasContext } from '../contexts';
+import {
+  type InfiniteCanvasContextType,
+  InfiniteCanvasContext,
+} from '../contexts';
 
 export declare type InfiniteCanvasCursorMode =
   | 'default'
@@ -114,6 +117,8 @@ const InfiniteCanvas = ({
     zoom: state.zoom,
     offsetX: state.offsetX,
     offsetY: state.offsetY,
+    mouseX: state.mouseX,
+    mouseY: state.mouseY,
     fitIntoView,
     setZoom,
     zoomIn,
@@ -282,17 +287,19 @@ const InfiniteCanvas = ({
     });
   }, [state.zoom]);
 
-  const getContext = useCallback(() => ({
+  const getContext = useCallback((): InfiniteCanvasContextType => ({
     zoom: state.zoom,
     offsetX: state.offsetX,
     offsetY: state.offsetY,
+    mouseX: state.mouseX,
+    mouseY: state.mouseY,
     fitIntoView,
     panTo,
     setZoom,
     zoomIn,
     zoomOut,
   }), [
-    state.zoom, state.offsetX, state.offsetY,
+    state.zoom, state.offsetX, state.offsetY, state.mouseX, state.mouseY,
     fitIntoView, setZoom, zoomIn, zoomOut, panTo,
   ]);
 

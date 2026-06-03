@@ -11,7 +11,7 @@ exports[`<DateField /> > should allow to navigate between months > next month 1`
       aria-controls="junipero-dropdown-_r_9_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       dir="ltr"
       id="junipero-dropdown-toggle-_r_a_"
       role="combobox"
@@ -25,6 +25,19 @@ exports[`<DateField /> > should allow to navigate between months > next month 1`
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"
@@ -423,7 +436,7 @@ exports[`<DateField /> > should allow to navigate between months > previous mont
       aria-controls="junipero-dropdown-_r_9_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       dir="ltr"
       id="junipero-dropdown-toggle-_r_a_"
       role="combobox"
@@ -437,6 +450,19 @@ exports[`<DateField /> > should allow to navigate between months > previous mont
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"
@@ -835,7 +861,7 @@ exports[`<DateField /> > should have a 3 days limited datepicker when min/max is
       aria-controls="junipero-dropdown-_r_d_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       dir="ltr"
       id="junipero-dropdown-toggle-_r_e_"
       role="combobox"
@@ -849,6 +875,19 @@ exports[`<DateField /> > should have a 3 days limited datepicker when min/max is
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"
@@ -1247,7 +1286,7 @@ exports[`<DateField /> > should not let you pick a disabled date 1`] = `
       aria-controls="junipero-dropdown-_r_h_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       dir="ltr"
       id="junipero-dropdown-toggle-_r_i_"
       role="combobox"
@@ -1261,6 +1300,19 @@ exports[`<DateField /> > should not let you pick a disabled date 1`] = `
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"
@@ -1659,7 +1711,7 @@ exports[`<DateField /> > should not open calendar if disabled 1`] = `
       aria-controls="junipero-dropdown-_r_5_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       dir="ltr"
       id="junipero-dropdown-toggle-_r_6_"
       role="combobox"
@@ -1703,7 +1755,7 @@ exports[`<DateField /> > should render > default 1`] = `
       aria-controls="junipero-dropdown-_r_1_-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       dir="ltr"
       id="junipero-dropdown-toggle-_r_2_"
       role="combobox"
@@ -1718,6 +1770,19 @@ exports[`<DateField /> > should render > default 1`] = `
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"
@@ -1748,7 +1813,7 @@ exports[`<DateField /> > should render > opened 1`] = `
       aria-controls="junipero-dropdown-_r_1_-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       dir="ltr"
       id="junipero-dropdown-toggle-_r_2_"
       role="combobox"
@@ -1763,6 +1828,19 @@ exports[`<DateField /> > should render > opened 1`] = `
       <div
         class="icons"
       >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
         <svg
           class="junipero icon arrows"
           height="13"

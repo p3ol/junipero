@@ -6,13 +6,16 @@ export default defineConfig([
   {
     entry: ['./lib/index.tsx'],
     outDir: 'dist',
+    platform: 'browser',
     target: pkg.targets,
     format: ['cjs', 'esm'],
-    external: [
-      'react',
-      'react-dom',
-      '@junipero/react',
-    ],
+    deps: {
+      neverBundle: [
+        'react',
+        'react-dom',
+        '@junipero/react',
+      ],
+    },
     sourcemap: true,
     dts: false,
   },

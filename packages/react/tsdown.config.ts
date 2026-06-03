@@ -9,10 +9,12 @@ export default defineConfig([
     outDir: 'dist',
     format: ['cjs', 'esm'],
     target: pkg.targets,
-    external: [
-      'react',
-      'react-dom',
-    ],
+    deps: {
+      neverBundle: [
+        'react',
+        'react-dom',
+      ],
+    },
     sourcemap: true,
     dts: false,
   },

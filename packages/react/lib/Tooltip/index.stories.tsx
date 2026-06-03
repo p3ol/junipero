@@ -1,8 +1,8 @@
-import { MouseEvent, useRef, useState } from 'react';
+import { type MouseEvent, useRef, useState } from 'react';
 import { action } from 'storybook/actions';
-import { slideInDownMenu } from '@junipero/transitions';
 
-import Tooltip, { TooltipRef } from './index';
+import { slideInDownMenu } from '../../../transitions/lib';
+import Tooltip, { type TooltipRef } from './index';
 
 export default { title: 'react/Tooltip' };
 

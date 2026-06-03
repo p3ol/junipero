@@ -1,19 +1,16 @@
 import {
   type RefObject,
-  cloneElement,
   useImperativeHandle,
   useRef,
   useMemo,
   useId,
-  use,
 } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { classNames } from '@junipero/core';
 
 import type {
   JuniperoInnerRef,
   JuniperoRef,
-  ReactElt,
-  ReactLazy,
   SpecialComponentPropsWithRef,
 } from '../types';
 import { useDropdown } from '../hooks';
@@ -30,8 +27,9 @@ export declare interface DropdownToggleProps
 const DropdownToggle = ({
   ref,
   id: idProp,
-  children,
+  className,
   a11yEnabled = true,
+  ...rest
 }: DropdownToggleProps) => {
   const innerRef = useRef<JuniperoRef | JuniperoInnerRef>(null);
   const {
@@ -52,28 +50,27 @@ const DropdownToggle = ({
     isJunipero: true,
   }));
 
-  const child: ReactElt | ReactLazy =
-    typeof children !== 'string' && Array.isArray(children)
-      ? children[0] : children;
+  return (
+    <Slot
+      { ...rest }
+      className={classNames(
+        'dropdown-toggle',
+        className,
+        { opened }
+      )}
+      ref={r => {
+        const jref = r as unknown as JuniperoRef | JuniperoInnerRef;
 
-  return cloneElement(
-    (child as ReactLazy).$$typeof === Symbol.for('react.lazy')
-      ? use<ReactElt>((child as ReactLazy)._payload) : child as ReactElt,
-    {
-      className: classNames(
-        (child as ReactElt).props?.className, 'dropdown-toggle', { opened }
-      ),
-      ref: (r: JuniperoRef | JuniperoInnerRef) => {
-        innerRef.current = (r as JuniperoRef)?.isJunipero
-          ? (r as JuniperoRef).innerRef.current : r;
-        refs.setReference(
-          (r as JuniperoRef)?.isJunipero
-            ? (r as JuniperoRef).innerRef.current : r
+        innerRef.current = (jref as JuniperoRef)?.isJunipero
+          ? (jref as JuniperoRef).innerRef?.current : r;
+        refs?.setReference(
+          (jref as JuniperoRef)?.isJunipero
+            ? (jref as JuniperoRef).innerRef?.current : r
         );
-      },
-      ...getReferenceProps({ onClick: (child as ReactElt).props?.onClick }),
-      id: (child as ReactElt).props?.id ?? id,
-      ...a11yEnabled && {
+      }}
+      { ...getReferenceProps?.() }
+      id={id}
+      {...a11yEnabled && {
         dir: 'ltr',
         role: 'combobox',
         'aria-controls': menuId ?? fallbackMenuId,
@@ -81,8 +78,9 @@ const DropdownToggle = ({
         'aria-activedescendant': activeItem,
         'aria-haspopup': 'listbox',
         'aria-autocomplete': 'none',
-      },
-    });
+      }}
+    />
+  );
 };
 
 DropdownToggle.displayName = 'DropdownToggle';

@@ -433,6 +433,7 @@ const ColorField = ({
               onFocus={onFocus_}
               onBlur={onBlur_}
               onChange={onChange_}
+              disabled={disabled}
               tabIndex={tabIndex}
               valid={state.valid || !state.dirty || state.opened}
             />

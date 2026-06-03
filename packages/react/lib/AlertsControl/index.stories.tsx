@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import { slideInDownMenu } from '@junipero/transitions';
 
+import { slideInDownMenu } from '../../../transitions/lib';
 import { useAlerts } from '../hooks';
 import Alerts, { type AlertsRef } from '../Alerts';
 import AlertsControl from '.';

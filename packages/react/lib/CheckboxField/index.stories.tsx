@@ -6,7 +6,7 @@ import Abstract from '../Abstract';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 
-export default { title: 'react/Checkbox' };
+export default { title: 'react/CheckboxField' };
 
 export const Basic = () => (
   <CheckboxField onChange={action('change')}>
@@ -98,3 +98,12 @@ export const Controlled = () => {
     </>
   );
 };
+
+export const Indeterminate = () => (
+  <CheckboxField
+    checked="indeterminate"
+    onChange={action('change')}
+  >
+    Check this
+  </CheckboxField>
+);

@@ -103,3 +103,15 @@ export const Check = ({ className, ...rest }: IconProps) => (
     />
   </svg>
 );
+
+export const Minus = ({ className, ...rest }: IconProps) => (
+  <svg
+    className={classNames('junipero icon minus', className)}
+    width="10"
+    height="10"
+    viewBox="0 0 9 10"
+    { ...rest }
+  >
+    <path d="M1 5L8 5" />
+  </svg>
+);

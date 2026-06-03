@@ -203,4 +203,18 @@ describe('<CheckboxField />', () => {
 
     unmount();
   });
+
+  it('should allow to use indeterminate state', async () => {
+    const user = userEvent.setup();
+    const { unmount, container } = render(
+      <CheckboxField checked="indeterminate" />
+    );
+
+    expect(container).toMatchSnapshot('indeterminate');
+
+    await user.click(container.querySelector('label'));
+    expect(container).toMatchSnapshot('checked');
+
+    unmount();
+  });
 });

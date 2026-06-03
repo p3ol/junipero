@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { slideInDownMenu } from '@junipero/transitions';
 import { action } from 'storybook/actions';
 
 import type { FieldContent } from '../types';
+import { slideInDownMenu } from '../../../transitions/lib';
 import FieldControl from '../FieldControl';
 import Label from '../Label';
 import Abstract from '../Abstract';
-import SelectField, { SelectFieldOptionObject, type SelectFieldProps } from './index';
+import SelectField, {
+  type SelectFieldOptionObject,
+  type SelectFieldProps,
+} from './index';
 
 export default { title: 'react/SelectField' };
 
@@ -141,6 +144,22 @@ export const WithArbitraryValues = () => (
     options={['Item 1', 'Item 2', 'Item 3']}
     allowArbitraryItems={true}
     multiple={true}
+  />
+);
+
+export const WithArbitraryValuesAndSearch = () => (
+  <SelectField
+    placeholder="Type a name"
+    options={['Item 1', 'Item 2', 'Item 3']}
+    allowArbitraryItems={true}
+    multiple={false}
+    searchable={true}
+    noOptionsEnabled={false}
+    onSearch={async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      return ['Item 4', 'Item 5', 'Item 6'];
+    }}
   />
 );
 

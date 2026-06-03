@@ -1,5 +1,70 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`<SelectField /> > should add a value when focus out if allowArbitraryItems is true 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field dirty valid searchable multiple"
+    id="junipero-select-field-_r_4n_"
+  >
+    <div
+      class="dropdown-toggle field"
+      id="junipero-select-field-_r_4n_-toggle"
+    >
+      <span
+        class="junipero tag info"
+      >
+        <span>
+          Item 4
+        </span>
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </span>
+      <input
+        aria-autocomplete="list"
+        aria-controls="junipero-select-field-_r_4n_-items"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        dir="ltr"
+        id="junipero-select-field-_r_4n_-field"
+        placeholder="Type a name"
+        role="combobox"
+        size="11"
+        type="text"
+        value=""
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<SelectField /> > should allow arbitrary values 1`] = `
 <div>
   <div
@@ -7,7 +72,7 @@ exports[`<SelectField /> > should allow arbitrary values 1`] = `
     id="junipero-select-field-_r_2b_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_2b_-toggle"
     >
       <span
@@ -78,6 +143,57 @@ exports[`<SelectField /> > should allow arbitrary values 1`] = `
 </div>
 `;
 
+exports[`<SelectField /> > should allow arbitrary values with searchable option 1`] = `
+<div>
+  <div
+    class="junipero dropdown select-field dirty valid searchable"
+    id="junipero-select-field-_r_5u_"
+  >
+    <div
+      class="dropdown-toggle field"
+      id="junipero-select-field-_r_5u_-toggle"
+    >
+      <input
+        id="junipero-select-field-_r_5u_-field"
+        readonly=""
+        type="text"
+        value="Item 3"
+      />
+      <div
+        class="icons"
+      >
+        <svg
+          class="junipero icon remove"
+          height="10"
+          viewBox="0 0 9 10"
+          width="10"
+        >
+          <path
+            d="M8 1.5L1 8.5"
+          />
+          <path
+            d="M1 1.5L8 8.5"
+          />
+        </svg>
+        <svg
+          class="junipero icon arrows"
+          height="13"
+          viewBox="0 0 8 13"
+          width="8"
+        >
+          <path
+            d="M1 4.5L4 1.5L7 4.5"
+          />
+          <path
+            d="M1 8.5L4 11.5L7 8.5"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<SelectField /> > should allow to be used with a FieldControl 1`] = `
 <div>
   <label
@@ -91,7 +207,7 @@ exports[`<SelectField /> > should allow to be used with a FieldControl 1`] = `
     id="name"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="name-toggle"
     >
       <input
@@ -147,7 +263,7 @@ exports[`<SelectField /> > should allow to clear a single value 1`] = `
     id="junipero-select-field-_r_d_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_d_-toggle"
     >
       <input
@@ -198,7 +314,7 @@ exports[`<SelectField /> > should allow to clear a single value 2`] = `
     id="junipero-select-field-_r_d_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_d_-toggle"
     >
       <input
@@ -243,7 +359,7 @@ exports[`<SelectField /> > should allow to clear multiple values at once 1`] = `
     id="junipero-select-field-_r_p_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_p_-toggle"
     >
       <span
@@ -341,7 +457,7 @@ exports[`<SelectField /> > should allow to clear multiple values at once 2`] = `
     id="junipero-select-field-_r_p_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_p_-toggle"
     >
       <input
@@ -386,7 +502,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 1
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -529,7 +645,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 2
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -652,7 +768,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 3
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -775,7 +891,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 4
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -898,7 +1014,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 5
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -1021,7 +1137,7 @@ exports[`<SelectField /> > should allow to delete items when hitting backspace 6
     id="junipero-select-field-_r_2j_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2j_-toggle"
     >
       <span
@@ -1141,19 +1257,19 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-_r_4n_"
+    id="junipero-select-field-_r_4s_"
   >
     <div
-      class="field dropdown-toggle opened"
-      id="junipero-select-field-_r_4n_-toggle"
+      class="dropdown-toggle opened field"
+      id="junipero-select-field-_r_4s_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-_r_4n_-items"
+        aria-controls="junipero-select-field-_r_4s_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-_r_4n_-field"
+        id="junipero-select-field-_r_4s_-field"
         placeholder="Type a name"
         role="combobox"
         size="11"
@@ -1181,7 +1297,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-_r_4n_-items"
+      id="junipero-select-field-_r_4s_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -1193,7 +1309,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4s_"
+            id="junipero-select-field-_r_4s_-items-_r_51_"
             tabindex="0"
           >
             <a>
@@ -1202,7 +1318,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4t_"
+            id="junipero-select-field-_r_4s_-items-_r_52_"
             tabindex="0"
           >
             <a>
@@ -1211,7 +1327,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4u_"
+            id="junipero-select-field-_r_4s_-items-_r_53_"
             tabindex="0"
           >
             <a>
@@ -1220,7 +1336,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4v_"
+            id="junipero-select-field-_r_4s_-items-_r_54_"
             tabindex="0"
           >
             <a>
@@ -1229,7 +1345,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_50_"
+            id="junipero-select-field-_r_4s_-items-_r_55_"
             tabindex="0"
           >
             <a>
@@ -1238,7 +1354,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_51_"
+            id="junipero-select-field-_r_4s_-items-_r_56_"
             tabindex="0"
           >
             <a>
@@ -1247,7 +1363,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_52_"
+            id="junipero-select-field-_r_4s_-items-_r_57_"
             tabindex="0"
           >
             <a>
@@ -1256,7 +1372,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_53_"
+            id="junipero-select-field-_r_4s_-items-_r_58_"
             tabindex="0"
           >
             <a>
@@ -1265,7 +1381,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_54_"
+            id="junipero-select-field-_r_4s_-items-_r_59_"
             tabindex="0"
           >
             <a>
@@ -1274,7 +1390,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_55_"
+            id="junipero-select-field-_r_4s_-items-_r_5a_"
             tabindex="0"
           >
             <a>
@@ -1283,7 +1399,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_57_"
+            id="junipero-select-field-_r_4s_-items-_r_5c_"
             tabindex="0"
           >
             <a>
@@ -1292,7 +1408,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_58_"
+            id="junipero-select-field-_r_4s_-items-_r_5d_"
             tabindex="0"
           >
             <a>
@@ -1301,7 +1417,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_59_"
+            id="junipero-select-field-_r_4s_-items-_r_5e_"
             tabindex="0"
           >
             <a>
@@ -1310,7 +1426,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_5a_"
+            id="junipero-select-field-_r_4s_-items-_r_5f_"
             tabindex="0"
           >
             <a>
@@ -1319,7 +1435,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_5b_"
+            id="junipero-select-field-_r_4s_-items-_r_5g_"
             tabindex="0"
           >
             <a>
@@ -1328,7 +1444,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_5c_"
+            id="junipero-select-field-_r_4s_-items-_r_5h_"
             tabindex="0"
           >
             <a>
@@ -1337,7 +1453,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_5d_"
+            id="junipero-select-field-_r_4s_-items-_r_5i_"
             tabindex="0"
           >
             <a>
@@ -1346,7 +1462,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_5e_"
+            id="junipero-select-field-_r_4s_-items-_r_5j_"
             tabindex="0"
           >
             <a>
@@ -1355,7 +1471,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_5f_"
+            id="junipero-select-field-_r_4s_-items-_r_5k_"
             tabindex="0"
           >
             <a>
@@ -1364,7 +1480,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_5g_"
+            id="junipero-select-field-_r_4s_-items-_r_5l_"
             tabindex="0"
           >
             <a>
@@ -1376,7 +1492,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > After scro
           >
             <li
               class="junipero dropdown-item no-more-options"
-              id="junipero-select-field-_r_4n_-items-_r_56_"
+              id="junipero-select-field-_r_4s_-items-_r_5b_"
               tabindex="0"
             >
               🎉 No more options
@@ -1393,19 +1509,19 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-_r_4n_"
+    id="junipero-select-field-_r_4s_"
   >
     <div
-      class="field dropdown-toggle opened"
-      id="junipero-select-field-_r_4n_-toggle"
+      class="dropdown-toggle opened field"
+      id="junipero-select-field-_r_4s_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-_r_4n_-items"
+        aria-controls="junipero-select-field-_r_4s_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-_r_4n_-field"
+        id="junipero-select-field-_r_4s_-field"
         placeholder="Type a name"
         role="combobox"
         size="11"
@@ -1433,7 +1549,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-_r_4n_-items"
+      id="junipero-select-field-_r_4s_-items"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1445,7 +1561,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4s_"
+            id="junipero-select-field-_r_4s_-items-_r_51_"
             tabindex="0"
           >
             <a>
@@ -1454,7 +1570,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4t_"
+            id="junipero-select-field-_r_4s_-items-_r_52_"
             tabindex="0"
           >
             <a>
@@ -1463,7 +1579,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4u_"
+            id="junipero-select-field-_r_4s_-items-_r_53_"
             tabindex="0"
           >
             <a>
@@ -1472,7 +1588,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4v_"
+            id="junipero-select-field-_r_4s_-items-_r_54_"
             tabindex="0"
           >
             <a>
@@ -1481,7 +1597,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_50_"
+            id="junipero-select-field-_r_4s_-items-_r_55_"
             tabindex="0"
           >
             <a>
@@ -1490,7 +1606,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_51_"
+            id="junipero-select-field-_r_4s_-items-_r_56_"
             tabindex="0"
           >
             <a>
@@ -1499,7 +1615,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_52_"
+            id="junipero-select-field-_r_4s_-items-_r_57_"
             tabindex="0"
           >
             <a>
@@ -1508,7 +1624,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_53_"
+            id="junipero-select-field-_r_4s_-items-_r_58_"
             tabindex="0"
           >
             <a>
@@ -1517,7 +1633,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_54_"
+            id="junipero-select-field-_r_4s_-items-_r_59_"
             tabindex="0"
           >
             <a>
@@ -1526,7 +1642,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > Before scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_55_"
+            id="junipero-select-field-_r_4s_-items-_r_5a_"
             tabindex="0"
           >
             <a>
@@ -1547,19 +1663,19 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty focused"
-    id="junipero-select-field-_r_4n_"
+    id="junipero-select-field-_r_4s_"
   >
     <div
-      class="field dropdown-toggle opened"
-      id="junipero-select-field-_r_4n_-toggle"
+      class="dropdown-toggle opened field"
+      id="junipero-select-field-_r_4s_-toggle"
     >
       <input
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-_r_4n_-items"
+        aria-controls="junipero-select-field-_r_4s_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-_r_4n_-field"
+        id="junipero-select-field-_r_4s_-field"
         placeholder="Type a name"
         role="combobox"
         size="11"
@@ -1587,7 +1703,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
     <div
       class="junipero dropdown-menu select-menu loading"
       data-floating-ui-focusable=""
-      id="junipero-select-field-_r_4n_-items"
+      id="junipero-select-field-_r_4s_-items"
       style="position: fixed; top: 0px; left: 0px;"
       tabindex="-1"
     >
@@ -1599,7 +1715,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4s_"
+            id="junipero-select-field-_r_4s_-items-_r_51_"
             tabindex="0"
           >
             <a>
@@ -1608,7 +1724,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4t_"
+            id="junipero-select-field-_r_4s_-items-_r_52_"
             tabindex="0"
           >
             <a>
@@ -1617,7 +1733,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4u_"
+            id="junipero-select-field-_r_4s_-items-_r_53_"
             tabindex="0"
           >
             <a>
@@ -1626,7 +1742,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_4v_"
+            id="junipero-select-field-_r_4s_-items-_r_54_"
             tabindex="0"
           >
             <a>
@@ -1635,7 +1751,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_50_"
+            id="junipero-select-field-_r_4s_-items-_r_55_"
             tabindex="0"
           >
             <a>
@@ -1644,7 +1760,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_51_"
+            id="junipero-select-field-_r_4s_-items-_r_56_"
             tabindex="0"
           >
             <a>
@@ -1653,7 +1769,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_52_"
+            id="junipero-select-field-_r_4s_-items-_r_57_"
             tabindex="0"
           >
             <a>
@@ -1662,7 +1778,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_53_"
+            id="junipero-select-field-_r_4s_-items-_r_58_"
             tabindex="0"
           >
             <a>
@@ -1671,7 +1787,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_54_"
+            id="junipero-select-field-_r_4s_-items-_r_59_"
             tabindex="0"
           >
             <a>
@@ -1680,7 +1796,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_4n_-items-_r_55_"
+            id="junipero-select-field-_r_4s_-items-_r_5a_"
             tabindex="0"
           >
             <a>
@@ -1692,7 +1808,7 @@ exports[`<SelectField /> > should allow to load more data on scroll > During scr
           >
             <li
               class="junipero dropdown-item loader"
-              id="junipero-select-field-_r_4n_-items-_r_56_"
+              id="junipero-select-field-_r_4s_-items-_r_5b_"
               tabindex="0"
             >
               <div
@@ -1715,7 +1831,7 @@ exports[`<SelectField /> > should allow to render without a placeholder 1`] = `
     id="junipero-select-field-_r_8_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_8_-toggle"
     >
       <input
@@ -1759,7 +1875,7 @@ exports[`<SelectField /> > should allow to reset the field 1`] = `
     id="junipero-select-field-_r_16_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_16_-toggle"
     >
       <input
@@ -1810,7 +1926,7 @@ exports[`<SelectField /> > should allow to reset the field 2`] = `
     id="junipero-select-field-_r_16_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_16_-toggle"
     >
       <input
@@ -1861,7 +1977,7 @@ exports[`<SelectField /> > should allow to search for an existing value 1`] = `
     id="junipero-select-field-_r_1p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_1p_-toggle"
     >
       <input
@@ -1931,7 +2047,7 @@ exports[`<SelectField /> > should allow to search for an existing value 2`] = `
     id="junipero-select-field-_r_1p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_1p_-toggle"
     >
       <input
@@ -2019,7 +2135,7 @@ exports[`<SelectField /> > should allow to search for an external value 1`] = `
     id="junipero-select-field-_r_23_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_23_-toggle"
     >
       <input
@@ -2089,7 +2205,7 @@ exports[`<SelectField /> > should allow to search for an external value 2`] = `
     id="junipero-select-field-_r_23_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_23_-toggle"
     >
       <input
@@ -2144,7 +2260,7 @@ exports[`<SelectField /> > should allow to use object options and display custom
     id="junipero-select-field-_r_2v_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_2v_-toggle"
     >
       <input
@@ -2195,7 +2311,7 @@ exports[`<SelectField /> > should be invalid if validation fails 1`] = `
     id="junipero-select-field-_r_u_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_u_-toggle"
     >
       <input
@@ -2262,7 +2378,7 @@ exports[`<SelectField /> > should correctly update state values 1`] = `
     id="selectfield"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="selectfield-toggle"
     >
       <input
@@ -2313,7 +2429,7 @@ exports[`<SelectField /> > should not allow to change value when disabled 1`] = 
     id="junipero-select-field-_r_1k_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_1k_-toggle"
     >
       <input
@@ -2364,7 +2480,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
     id="junipero-select-field-_r_2p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2p_-toggle"
     >
       <span
@@ -2467,7 +2583,7 @@ exports[`<SelectField /> > should not remove field previous values while hitting
     id="junipero-select-field-_r_2p_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_2p_-toggle"
     >
       <span
@@ -2570,7 +2686,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > opened 1`] =
     id="junipero-select-field-_r_3v_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3v_-toggle"
     >
       <input
@@ -2658,7 +2774,7 @@ exports[`<SelectField /> > should not toggle on click if disabled > still opened
     id="junipero-select-field-_r_3v_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3v_-toggle"
     >
       <input
@@ -2746,7 +2862,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > opened 1`]
     id="junipero-select-field-_r_47_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_47_-toggle"
     >
       <input
@@ -2834,7 +2950,7 @@ exports[`<SelectField /> > should not toggle on click if searchable > still open
     id="junipero-select-field-_r_47_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_47_-toggle"
     >
       <input
@@ -2922,7 +3038,7 @@ exports[`<SelectField /> > should render 1`] = `
     id="junipero-select-field-_r_0_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_0_-toggle"
     >
       <input
@@ -3010,7 +3126,7 @@ exports[`<SelectField /> > should render multiple values 1`] = `
     id="junipero-select-field-_r_i_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_i_-toggle"
     >
       <span
@@ -3108,7 +3224,7 @@ exports[`<SelectField /> > should render multiple values 2`] = `
     id="junipero-select-field-_r_i_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_i_-toggle"
     >
       <span
@@ -3186,7 +3302,7 @@ exports[`<SelectField /> > should render multiple values 3`] = `
     id="junipero-select-field-_r_i_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_i_-toggle"
     >
       <span
@@ -3281,14 +3397,14 @@ exports[`<SelectField /> > should select value with keyboard > closed 1`] = `
 <div>
   <div
     class="junipero dropdown select-field dirty valid searchable"
-    id="junipero-select-field-_r_5h_"
+    id="junipero-select-field-_r_5m_"
   >
     <div
-      class="field dropdown-toggle"
-      id="junipero-select-field-_r_5h_-toggle"
+      class="dropdown-toggle field"
+      id="junipero-select-field-_r_5m_-toggle"
     >
       <input
-        id="junipero-select-field-_r_5h_-field"
+        id="junipero-select-field-_r_5m_-field"
         readonly=""
         type="text"
         value="Item 2"
@@ -3332,20 +3448,20 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
 <div>
   <div
     class="junipero dropdown opened select-field pristine valid searchable empty"
-    id="junipero-select-field-_r_5h_"
+    id="junipero-select-field-_r_5m_"
   >
     <div
-      class="field dropdown-toggle opened"
-      id="junipero-select-field-_r_5h_-toggle"
+      class="dropdown-toggle opened field"
+      id="junipero-select-field-_r_5m_-toggle"
     >
       <input
-        aria-activedescendant="junipero-select-field-_r_5h_-items-_r_5n_"
+        aria-activedescendant="junipero-select-field-_r_5m_-items-_r_5s_"
         aria-autocomplete="list"
-        aria-controls="junipero-select-field-_r_5h_-items"
+        aria-controls="junipero-select-field-_r_5m_-items"
         aria-expanded="true"
         aria-haspopup="listbox"
         dir="ltr"
-        id="junipero-select-field-_r_5h_-field"
+        id="junipero-select-field-_r_5m_-field"
         placeholder="Name"
         role="combobox"
         size="10"
@@ -3373,7 +3489,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
     <div
       class="junipero dropdown-menu select-menu"
       data-floating-ui-focusable=""
-      id="junipero-select-field-_r_5h_-items"
+      id="junipero-select-field-_r_5m_-items"
       style="position: fixed; top: 10px; left: 0px;"
       tabindex="-1"
     >
@@ -3385,7 +3501,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
         >
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_5h_-items-_r_5m_"
+            id="junipero-select-field-_r_5m_-items-_r_5r_"
             tabindex="0"
           >
             <a>
@@ -3394,7 +3510,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item active"
-            id="junipero-select-field-_r_5h_-items-_r_5n_"
+            id="junipero-select-field-_r_5m_-items-_r_5s_"
             tabindex="0"
           >
             <a>
@@ -3403,7 +3519,7 @@ exports[`<SelectField /> > should select value with keyboard > opened 1`] = `
           </li>
           <li
             class="junipero dropdown-item"
-            id="junipero-select-field-_r_5h_-items-_r_5o_"
+            id="junipero-select-field-_r_5m_-items-_r_5t_"
             tabindex="0"
           >
             <a>
@@ -3424,7 +3540,7 @@ exports[`<SelectField /> > should toggle on click if enabled > closed 1`] = `
     id="junipero-select-field-_r_3f_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_3f_-toggle"
     >
       <input
@@ -3469,7 +3585,7 @@ exports[`<SelectField /> > should toggle on click if enabled > opened 1`] = `
     id="junipero-select-field-_r_3f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3f_-toggle"
     >
       <input
@@ -3557,7 +3673,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > closed 1`]
     id="junipero-select-field-_r_3n_"
   >
     <div
-      class="field dropdown-toggle"
+      class="dropdown-toggle field"
       id="junipero-select-field-_r_3n_-toggle"
     >
       <input
@@ -3603,7 +3719,7 @@ exports[`<SelectField /> > should toggle on click if not searchable > opened 1`]
     id="junipero-select-field-_r_3n_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_3n_-toggle"
     >
       <input
@@ -3692,7 +3808,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > back opened 1`
     id="junipero-select-field-_r_4f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4f_-toggle"
     >
       <input
@@ -3780,7 +3896,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > closed 1`] = `
     id="junipero-select-field-_r_4f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4f_-toggle"
     >
       <input
@@ -3868,7 +3984,7 @@ exports[`<SelectField /> > should toggle on keyboard if enabled > opened 1`] = `
     id="junipero-select-field-_r_4f_"
   >
     <div
-      class="field dropdown-toggle opened"
+      class="dropdown-toggle opened field"
       id="junipero-select-field-_r_4f_-toggle"
     >
       <input

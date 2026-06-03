@@ -285,7 +285,7 @@ exports[`useDropdwon() > should allow to animate dropdown > Enter: In dom 1`] = 
       tabindex="-1"
     >
       <ul
-        class="menu-inner jp-slide-in-down-menu-enter-done"
+        class="jp-slide-in-down-menu-enter-done menu-inner"
       >
         <li
           class="junipero dropdown-item"
@@ -399,7 +399,7 @@ exports[`useDropdwon() > should keep the menu in dom when animated and apparitio
       tabindex="-1"
     >
       <ul
-        class="menu-inner jp-slide-in-down-menu-enter-done"
+        class="jp-slide-in-down-menu-enter-done menu-inner"
       >
         <li
           class="junipero dropdown-item"

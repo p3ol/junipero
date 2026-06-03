@@ -61,10 +61,4 @@ export {
   mockState,
 } from './state';
 
-export type {
-  GenericObject,
-  Grow,
-  GrowToSize,
-  FixedArray,
-  StateContent,
-} from './types';
+export type * from './types';

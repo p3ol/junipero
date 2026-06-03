@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.json",
   "include": [
     "./lib/**/*",
-    "./global.d.ts",
     "./tests/**/*"
   ]
 }

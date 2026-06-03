@@ -9,10 +9,12 @@ export default defineConfig([
     target: pkg.targets,
     platform: 'browser',
     format: ['cjs', 'esm'],
-    external: [
-      'react',
-      'react-dom',
-    ],
+    deps: {
+      neverBundle: [
+        'react',
+        'react-dom',
+      ],
+    },
     sourcemap: true,
     dts: false,
   },

@@ -12,6 +12,7 @@ import {
   PooolCutoutLogo,
   PooolIconLogo,
   PooolLogo,
+  SplitLogo,
   SubscribeLogo,
 } from './index';
 
@@ -30,6 +31,7 @@ describe('Logos', () => {
         <ConnectLogo />
         <EngageLogo />
         <FlowLogo />
+        <SplitLogo />
         <JuniperoLogo />
       </>
     );

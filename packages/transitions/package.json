@@ -1,6 +1,6 @@
 {
   "name": "@junipero/transitions",
-  "version": "3.12.10",
+  "version": "3.13.0",
   "description": "🏔 Junipero Design System React Transitions",
   "type": "module",
   "main": "dist/index.js",
@@ -21,7 +21,7 @@
   "license": "MIT",
   "sideEffects": false,
   "engines": {
-    "node": ">= 20"
+    "node": ">= 22"
   },
   "peerDependencies": {
     "@junipero/react": "^3.0.0",
