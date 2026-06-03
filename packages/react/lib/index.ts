@@ -256,6 +256,12 @@ export {
   type MoveableStrategy,
 } from './Moveable';
 export {
+  default as MultiThumbSlider,
+  type MultiThumbSliderRef,
+  type MultiThumbSliderProps,
+  type MultiThumbSliderState,
+} from './MultiThumbSlider';
+export {
   default as RadioField,
   type RadioFieldRef,
   type RadioFieldProps,
