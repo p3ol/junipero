@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { classNames } from '@junipero/core';
 
 import Button from '../Button';
 import InfiniteCanvasZoom from '../InfiniteCanvasZoom';
@@ -20,6 +21,10 @@ export const Basic = () => {
   >('default');
 
   const [buttons, setButtons] = useState([]);
+
+  useEffect(() => {
+    canvasRef.current?.fitIntoView(0);
+  }, []);
 
   return (
     <InfiniteCanvas
@@ -72,7 +77,9 @@ export const Basic = () => {
       )}
     >
       <div
-        className="w-full h-screen flex items-center justify-center"
+        className={classNames(
+          'flex items-center justify-center w-[fit-content] h-[fit-content]',
+        )}
       >
         <Button>Click me!</Button>
         { buttons.map((b, i) => (

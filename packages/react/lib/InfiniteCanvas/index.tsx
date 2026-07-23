@@ -81,7 +81,7 @@ const InfiniteCanvas = ({
   initialZoom = 1,
   minZoom = 0.1,
   maxZoom = 10,
-  centerMargin = 1000,
+  centerMargin = 300,
   cursorMode = 'default',
   globalEventsTarget = globalThis,
   ...rest
@@ -182,23 +182,23 @@ const InfiniteCanvas = ({
       return;
     }
 
-    const contentWidth = contentRef.current.scrollWidth + centerMargin * 2;
-    const contentHeight = contentRef.current.scrollHeight + centerMargin * 2;
+    const contentWidth = contentRef.current.scrollWidth;
+    const contentHeight = contentRef.current.scrollHeight;
 
     const rect = innerRef.current.getBoundingClientRect();
     const canvasWidth = rect.width;
     const canvasHeight = rect.height;
 
-    const zoomX = canvasWidth / contentWidth;
-    const zoomY = canvasHeight / contentHeight;
+    // Use a padded box (content + margin) only to determine the zoom level,
+    // so the content doesn't end up flush against the canvas edges
+    const zoomX = canvasWidth / (contentWidth + centerMargin * 2);
+    const zoomY = canvasHeight / (contentHeight + centerMargin * 2);
 
     const newZoom = Math.max(Math.min(zoomX, zoomY, maxZoom), minZoom);
 
-    // TODO: this is quite off due to margins but can't do better for now
-    const newOffsetX = (canvasWidth - contentWidth * newZoom) / 2 +
-      centerMargin / 2;
-    const newOffsetY = (canvasHeight - contentHeight * newZoom) / 2 +
-      centerMargin / 2;
+    // Center the actual (unpadded) content at the new zoom level
+    const newOffsetX = (canvasWidth - contentWidth * newZoom) / 2;
+    const newOffsetY = (canvasHeight - contentHeight * newZoom) / 2;
 
     dispatch({
       zoom: newZoom,
@@ -225,15 +225,12 @@ const InfiniteCanvas = ({
     const canvasWidth = rect.width;
     const canvasHeight = rect.height;
 
-    const contentWidth = contentRef.current.scrollWidth + centerMargin * 2;
-    const contentHeight = contentRef.current.scrollHeight + centerMargin * 2;
+    const contentWidth = contentRef.current.scrollWidth;
+    const contentHeight = contentRef.current.scrollHeight;
 
-    const newZoomClamped = Math.max(Math
-      .min(newZoom, maxZoom), minZoom);
-    const newOffsetX = (canvasWidth - contentWidth * newZoomClamped) / 2 +
-      centerMargin / 2;
-    const newOffsetY = (canvasHeight - contentHeight * newZoomClamped) / 2 +
-      centerMargin / 2;
+    const newZoomClamped = Math.max(Math.min(newZoom, maxZoom), minZoom);
+    const newOffsetX = (canvasWidth - contentWidth * newZoomClamped) / 2;
+    const newOffsetY = (canvasHeight - contentHeight * newZoomClamped) / 2;
 
     dispatch({
       zoom: newZoomClamped,
@@ -241,7 +238,7 @@ const InfiniteCanvas = ({
       offsetY: newOffsetY,
       animate: transitionDuration ?? 100,
     });
-  }, [minZoom, maxZoom, centerMargin]);
+  }, [minZoom, maxZoom]);
 
   const zoomIn = useCallback((transitionDuration?: number) => {
     const newZoom = (state.zoom || 1) * 1.2;
