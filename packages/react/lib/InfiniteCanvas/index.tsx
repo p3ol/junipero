@@ -5,9 +5,11 @@ import {
   useEffect,
   useId,
   useImperativeHandle,
+  useLayoutEffect,
   useReducer,
   useRef,
 } from 'react';
+import { flushSync } from 'react-dom';
 import { classNames, mockState } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
@@ -30,12 +32,18 @@ export declare interface InfiniteCanvasRef extends JuniperoRef {
   zoom: number;
   offsetX: number;
   offsetY: number;
-  fitIntoView: (transitionDuration?: number) => void;
-  setZoom: (newZoom: number, transitionDuration?: number) => void;
-  zoomIn: (transitionDuration?: number) => void;
-  zoomOut: (transitionDuration?: number) => void;
+  fitIntoView: (transitionDuration?: number) => Promise<void>;
+  setZoom: (newZoom: number, transitionDuration?: number) => Promise<void>;
+  zoomIn: (transitionDuration?: number) => Promise<void>;
+  zoomOut: (transitionDuration?: number) => Promise<void>;
   getCursorPosition: () => { x: number; y: number };
-  panTo: (x: number, y: number, transitionDuration?: number) => void;
+  panTo: (x: number, y: number, transitionDuration?: number) => Promise<void>;
+  panAndZoomTo: (
+    x: number,
+    y: number,
+    zoom: number,
+    transitionDuration?: number
+  ) => Promise<void>;
   innerRef: RefObject<HTMLDivElement | null>;
   contentRef: RefObject<HTMLDivElement | null>;
   backgroundRef: RefObject<SVGSVGElement | null>;
@@ -145,6 +153,7 @@ const InfiniteCanvas = ({
     zoomOut,
     getCursorPosition,
     panTo,
+    panAndZoomTo,
     innerRef,
     contentRef,
     backgroundRef,
@@ -197,12 +206,6 @@ const InfiniteCanvas = ({
     };
   }, [onWheel]);
 
-  // Computes the content bounding box in un-transformed content-space units,
-  // so it's unaffected by the current zoom/pan applied to contentRef.
-  // Absolutely positioned children don't contribute to scrollWidth/
-  // scrollHeight or getBoundingClientRect() of a `fit-content` /
-  // `overflow: visible` container (they're out of flow), so their bounds
-  // have to be computed from the union of their own offset rects instead.
   const getContentBounds = useCallback(() => {
     if (!contentRef.current) {
       return null;
@@ -237,7 +240,9 @@ const InfiniteCanvas = ({
     });
   }, [fitAbsolute]);
 
-  const fitIntoView = useCallback((transitionDuration?: number) => {
+  const fitIntoView = useCallback(async (
+    transitionDuration?: number,
+  ): Promise<void> => {
     const bounds = getContentBounds();
 
     if (!innerRef.current || !bounds) {
@@ -263,25 +268,36 @@ const InfiniteCanvas = ({
     // Center the actual (unpadded) content's bounding box at the new zoom
     const newOffsetX = canvasWidth / 2 - contentCenterX * newZoom;
     const newOffsetY = canvasHeight / 2 - contentCenterY * newZoom;
+    const animate = transitionDuration ?? 100;
 
     dispatch({
       zoom: newZoom,
       offsetX: newOffsetX,
       offsetY: newOffsetY,
-      animate: transitionDuration ?? 100,
+      animate,
     });
+
+    if (animate > 0) {
+      return new Promise(resolve => {
+        setTimeout(resolve, animate);
+      });
+    }
   }, [minZoom, maxZoom, centerMargin, getContentBounds]);
 
-  useEffect(() => {
-    if (center) {
-      fitIntoView(0);
+  useLayoutEffect(() => {
+    if (!center) {
+      return;
     }
+
+    flushSync(() => {
+      fitIntoView(0);
+    });
   }, [center, fitIntoView]);
 
-  const setZoom = useCallback((
+  const setZoom = useCallback(async (
     newZoom: number,
     transitionDuration?: number
-  ) => {
+  ): Promise<void> => {
     const bounds = getContentBounds();
 
     if (
@@ -303,23 +319,32 @@ const InfiniteCanvas = ({
     const newZoomClamped = Math.max(Math.min(newZoom, maxZoom), minZoom);
     const newOffsetX = canvasWidth / 2 - contentCenterX * newZoomClamped;
     const newOffsetY = canvasHeight / 2 - contentCenterY * newZoomClamped;
+    const animate = transitionDuration ?? 100;
 
     dispatch({
       zoom: newZoomClamped,
       offsetX: newOffsetX,
       offsetY: newOffsetY,
-      animate: transitionDuration ?? 100,
+      animate,
     });
+
+    if (animate > 0) {
+      return new Promise(resolve => {
+        setTimeout(resolve, animate);
+      });
+    }
   }, [minZoom, maxZoom, getContentBounds]);
 
   const zoomIn = useCallback((transitionDuration?: number) => {
     const newZoom = (state.zoom || 1) * 1.2;
-    setZoom(newZoom, transitionDuration);
+
+    return setZoom(newZoom, transitionDuration);
   }, [state.zoom, setZoom]);
 
   const zoomOut = useCallback((transitionDuration?: number) => {
     const newZoom = (state.zoom || 1) / 1.2;
-    setZoom(newZoom, transitionDuration);
+
+    return setZoom(newZoom, transitionDuration);
   }, [state.zoom, setZoom]);
 
   const getCursorPosition = useCallback(() => {
@@ -333,11 +358,11 @@ const InfiniteCanvas = ({
     };
   }, [state.mouseX, state.mouseY, state.zoom, state.offsetX, state.offsetY]);
 
-  const panTo = useCallback((
+  const panTo = useCallback(async (
     x: number,
     y: number,
     transitionDuration?: number
-  ) => {
+  ): Promise<void> => {
     if (!innerRef.current || !contentRef.current) {
       return;
     }
@@ -348,13 +373,52 @@ const InfiniteCanvas = ({
 
     const newOffsetX = canvasWidth / 2 - x * state.zoom;
     const newOffsetY = canvasHeight / 2 - y * state.zoom;
+    const animate = transitionDuration ?? 100;
 
     dispatch({
       offsetX: newOffsetX,
       offsetY: newOffsetY,
-      animate: transitionDuration ?? 100,
+      animate,
     });
+
+    if (animate > 0) {
+      return new Promise(resolve => {
+        setTimeout(resolve, animate);
+      });
+    }
   }, [state.zoom]);
+
+  const panAndZoomTo = useCallback(async (
+    x: number,
+    y: number,
+    newZoom: number,
+    transitionDuration?: number
+  ): Promise<void> => {
+    if (!innerRef.current || !contentRef.current) {
+      return;
+    }
+
+    const rect = innerRef.current.getBoundingClientRect();
+    const canvasWidth = rect.width;
+    const canvasHeight = rect.height;
+
+    const newOffsetX = canvasWidth / 2 - x * newZoom;
+    const newOffsetY = canvasHeight / 2 - y * newZoom;
+    const animate = transitionDuration ?? 100;
+
+    dispatch({
+      zoom: newZoom,
+      offsetX: newOffsetX,
+      offsetY: newOffsetY,
+      animate,
+    });
+
+    if (animate > 0) {
+      return new Promise(resolve => {
+        setTimeout(resolve, animate);
+      });
+    }
+  }, []);
 
   const getContext = useCallback((): InfiniteCanvasContextType => ({
     zoom: state.zoom,
@@ -364,12 +428,13 @@ const InfiniteCanvas = ({
     mouseY: state.mouseY,
     fitIntoView,
     panTo,
+    panAndZoomTo,
     setZoom,
     zoomIn,
     zoomOut,
   }), [
     state.zoom, state.offsetX, state.offsetY, state.mouseX, state.mouseY,
-    fitIntoView, setZoom, zoomIn, zoomOut, panTo,
+    fitIntoView, setZoom, zoomIn, zoomOut, panTo, panAndZoomTo,
   ]);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
