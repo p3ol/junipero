@@ -44,8 +44,11 @@ export declare interface InfiniteCanvasRef extends JuniperoRef {
 export declare interface InfiniteCanvasProps extends
   SpecialComponentPropsWithRef<'div', InfiniteCanvasRef> {
   initialZoom?: number;
+  initialOffsetX?: number;
+  initialOffsetY?: number;
   minZoom?: number;
   maxZoom?: number;
+  center?: boolean;
   centerMargin?: number;
   cursorMode?: InfiniteCanvasCursorMode;
   background?: {
@@ -81,8 +84,11 @@ const InfiniteCanvas = ({
   className,
   background,
   initialZoom = 1,
+  initialOffsetX = 0,
+  initialOffsetY = 0,
   minZoom = 0.1,
   maxZoom = 10,
+  center = true,
   centerMargin = 300,
   cursorMode = 'default',
   globalEventsTarget = globalThis,
@@ -105,8 +111,8 @@ const InfiniteCanvas = ({
     zoom: initialZoom || 1,
     mouseX: 0,
     mouseY: 0,
-    offsetX: 0,
-    offsetY: 0,
+    offsetX: initialOffsetX,
+    offsetY: initialOffsetY,
     animate: 0,
     panning: false,
     panStartX: 0,
@@ -219,6 +225,12 @@ const InfiniteCanvas = ({
       animate: transitionDuration ?? 100,
     });
   }, [minZoom, maxZoom, centerMargin]);
+
+  useEffect(() => {
+    if (center) {
+      fitIntoView(0);
+    }
+  }, [center, fitIntoView]);
 
   const setZoom = useCallback((
     newZoom: number,

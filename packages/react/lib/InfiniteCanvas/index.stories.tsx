@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { classNames } from '@junipero/core';
 
 import Button from '../Button';
@@ -21,10 +21,6 @@ export const Basic = () => {
   >('default');
 
   const [buttons, setButtons] = useState([]);
-
-  useEffect(() => {
-    canvasRef.current?.fitIntoView(0);
-  }, []);
 
   return (
     <InfiniteCanvas
