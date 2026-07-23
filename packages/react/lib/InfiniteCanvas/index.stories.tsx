@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { classNames } from '@junipero/core';
 
 import Button from '../Button';
 import InfiniteCanvasZoom from '../InfiniteCanvasZoom';
@@ -72,18 +71,12 @@ export const Basic = () => {
         </>
       )}
     >
-      <div
-        className={classNames(
-          'flex items-center justify-center w-[fit-content] h-[fit-content]',
-        )}
-      >
-        <Button>Click me!</Button>
-        { buttons.map((b, i) => (
-          <Button key={i} style={{ position: 'absolute', left: b.x, top: b.y }}>
-            Clicked!
-          </Button>
-        )) }
-      </div>
+      <Button>Click me!</Button>
+      { buttons.map((b, i) => (
+        <Button key={i} style={{ position: 'absolute', left: b.x, top: b.y }}>
+          Clicked!
+        </Button>
+      )) }
     </InfiniteCanvas>
   );
 };

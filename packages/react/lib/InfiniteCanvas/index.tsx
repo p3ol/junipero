@@ -51,6 +51,7 @@ export declare interface InfiniteCanvasProps extends
   center?: boolean;
   centerMargin?: number;
   cursorMode?: InfiniteCanvasCursorMode;
+  fitAbsolute?: boolean;
   background?: {
     pattern?: InfiniteCanvasBackgroundPattern;
     patternId?: string;
@@ -91,6 +92,7 @@ const InfiniteCanvas = ({
   center = true,
   centerMargin = 300,
   cursorMode = 'default',
+  fitAbsolute = true,
   globalEventsTarget = globalThis,
   onZoom,
   onPan,
@@ -195,13 +197,57 @@ const InfiniteCanvas = ({
     };
   }, [onWheel]);
 
+  // Computes the content bounding box in un-transformed content-space units,
+  // so it's unaffected by the current zoom/pan applied to contentRef.
+  // Absolutely positioned children don't contribute to scrollWidth/
+  // scrollHeight or getBoundingClientRect() of a `fit-content` /
+  // `overflow: visible` container (they're out of flow), so their bounds
+  // have to be computed from the union of their own offset rects instead.
+  const getContentBounds = useCallback(() => {
+    if (!contentRef.current) {
+      return null;
+    }
+
+    if (!fitAbsolute) {
+      return {
+        minX: 0,
+        minY: 0,
+        maxX: contentRef.current.scrollWidth,
+        maxY: contentRef.current.scrollHeight,
+      };
+    }
+
+    const children = Array.from(contentRef.current.children) as
+      HTMLElement[];
+
+    if (!children.length) {
+      return { minX: 0, minY: 0, maxX: 0, maxY: 0 };
+    }
+
+    return children.reduce((bounds, el) => ({
+      minX: Math.min(bounds.minX, el.offsetLeft),
+      minY: Math.min(bounds.minY, el.offsetTop),
+      maxX: Math.max(bounds.maxX, el.offsetLeft + el.offsetWidth),
+      maxY: Math.max(bounds.maxY, el.offsetTop + el.offsetHeight),
+    }), {
+      minX: Infinity,
+      minY: Infinity,
+      maxX: -Infinity,
+      maxY: -Infinity,
+    });
+  }, [fitAbsolute]);
+
   const fitIntoView = useCallback((transitionDuration?: number) => {
-    if (!innerRef.current || !contentRef.current) {
+    const bounds = getContentBounds();
+
+    if (!innerRef.current || !bounds) {
       return;
     }
 
-    const contentWidth = contentRef.current.scrollWidth;
-    const contentHeight = contentRef.current.scrollHeight;
+    const contentWidth = bounds.maxX - bounds.minX;
+    const contentHeight = bounds.maxY - bounds.minY;
+    const contentCenterX = (bounds.minX + bounds.maxX) / 2;
+    const contentCenterY = (bounds.minY + bounds.maxY) / 2;
 
     const rect = innerRef.current.getBoundingClientRect();
     const canvasWidth = rect.width;
@@ -214,9 +260,9 @@ const InfiniteCanvas = ({
 
     const newZoom = Math.max(Math.min(zoomX, zoomY, maxZoom), minZoom);
 
-    // Center the actual (unpadded) content at the new zoom level
-    const newOffsetX = (canvasWidth - contentWidth * newZoom) / 2;
-    const newOffsetY = (canvasHeight - contentHeight * newZoom) / 2;
+    // Center the actual (unpadded) content's bounding box at the new zoom
+    const newOffsetX = canvasWidth / 2 - contentCenterX * newZoom;
+    const newOffsetY = canvasHeight / 2 - contentCenterY * newZoom;
 
     dispatch({
       zoom: newZoom,
@@ -224,7 +270,7 @@ const InfiniteCanvas = ({
       offsetY: newOffsetY,
       animate: transitionDuration ?? 100,
     });
-  }, [minZoom, maxZoom, centerMargin]);
+  }, [minZoom, maxZoom, centerMargin, getContentBounds]);
 
   useEffect(() => {
     if (center) {
@@ -236,11 +282,13 @@ const InfiniteCanvas = ({
     newZoom: number,
     transitionDuration?: number
   ) => {
+    const bounds = getContentBounds();
+
     if (
       newZoom < minZoom ||
       newZoom > maxZoom ||
       !innerRef.current ||
-      !contentRef.current
+      !bounds
     ) {
       return;
     }
@@ -249,12 +297,12 @@ const InfiniteCanvas = ({
     const canvasWidth = rect.width;
     const canvasHeight = rect.height;
 
-    const contentWidth = contentRef.current.scrollWidth;
-    const contentHeight = contentRef.current.scrollHeight;
+    const contentCenterX = (bounds.minX + bounds.maxX) / 2;
+    const contentCenterY = (bounds.minY + bounds.maxY) / 2;
 
     const newZoomClamped = Math.max(Math.min(newZoom, maxZoom), minZoom);
-    const newOffsetX = (canvasWidth - contentWidth * newZoomClamped) / 2;
-    const newOffsetY = (canvasHeight - contentHeight * newZoomClamped) / 2;
+    const newOffsetX = canvasWidth / 2 - contentCenterX * newZoomClamped;
+    const newOffsetY = canvasHeight / 2 - contentCenterY * newZoomClamped;
 
     dispatch({
       zoom: newZoomClamped,
@@ -262,7 +310,7 @@ const InfiniteCanvas = ({
       offsetY: newOffsetY,
       animate: transitionDuration ?? 100,
     });
-  }, [minZoom, maxZoom]);
+  }, [minZoom, maxZoom, getContentBounds]);
 
   const zoomIn = useCallback((transitionDuration?: number) => {
     const newZoom = (state.zoom || 1) * 1.2;
