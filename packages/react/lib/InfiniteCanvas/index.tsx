@@ -58,6 +58,8 @@ export declare interface InfiniteCanvasProps extends
   };
   overlay?: ReactNode;
   globalEventsTarget?: EventTarget;
+  onZoom?: (zoom: number) => void;
+  onPan?: (offsetX: number, offsetY: number) => void;
 }
 
 export declare interface InfiniteCanvasState {
@@ -84,6 +86,8 @@ const InfiniteCanvas = ({
   centerMargin = 300,
   cursorMode = 'default',
   globalEventsTarget = globalThis,
+  onZoom,
+  onPan,
   ...rest
 }: InfiniteCanvasProps) => {
   const innerRef = useRef<HTMLDivElement>(null);
@@ -112,6 +116,14 @@ const InfiniteCanvas = ({
   useTimeout(() => {
     dispatch({ animate: 0 });
   }, state.animate, [state.animate], { enabled: state.animate > 0 });
+
+  useEffect(() => {
+    onZoom?.(state.zoom);
+  }, [state.zoom, onZoom]);
+
+  useEffect(() => {
+    onPan?.(state.offsetX, state.offsetY);
+  }, [state.offsetX, state.offsetY, onPan]);
 
   useImperativeHandle(ref, () => ({
     zoom: state.zoom,
