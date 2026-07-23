@@ -1,5 +1,54 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`<InfiniteCanvas /> > should center on a given element 1`] = `
+<div>
+  <div
+    class="junipero infinite-canvas cursor-mode-default"
+  >
+    <div
+      class="infinite-canvas-content"
+      style="transform: translate3d(-792.3076923076924px, -246.1538461538462px, 0) scale3d(1.2307692307692308, 1.2307692307692308, 1); transform-origin: 0 0;"
+    >
+      <div
+        style="width: 2000px; height: 2000px;"
+      >
+        Content
+      </div>
+      <div>
+        Target
+      </div>
+    </div>
+    <svg
+      class="infinite-canvas-background"
+    >
+      <pattern
+        height="24.615384615384617"
+        id="_r_1_"
+        patternTransform="translate(1.2307692307692308, 1.2307692307692308)"
+        patternUnits="userSpaceOnUse"
+        width="24.615384615384617"
+        x="-4.615384615384642"
+        y="-2.1316282072803006e-14"
+      >
+        <circle
+          cx="1.2307692307692308"
+          cy="1.2307692307692308"
+          fill="var(--dots-color)"
+          r="1.2307692307692308"
+        />
+      </pattern>
+      <rect
+        fill="url(#_r_1_)"
+        height="100%"
+        width="100%"
+        x="0"
+        y="0"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
 exports[`<InfiniteCanvas /> > should render an infinite canvas 1`] = `
 <div>
   <div
@@ -7,7 +56,7 @@ exports[`<InfiniteCanvas /> > should render an infinite canvas 1`] = `
   >
     <div
       class="infinite-canvas-content"
-      style="transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1); transform-origin: 0 0;"
+      style="transform: translate3d(0px, 0px, 0) scale3d(0.1, 0.1, 1); transform-origin: 0 0;"
     >
       <div
         style="width: 1000px; height: 1000px;"
@@ -19,19 +68,19 @@ exports[`<InfiniteCanvas /> > should render an infinite canvas 1`] = `
       class="infinite-canvas-background"
     >
       <pattern
-        height="20"
+        height="2"
         id="dots"
-        patternTransform="translate(1, 1)"
+        patternTransform="translate(0.1, 0.1)"
         patternUnits="userSpaceOnUse"
-        width="20"
+        width="2"
         x="0"
         y="0"
       >
         <circle
-          cx="1"
-          cy="1"
+          cx="0.1"
+          cy="0.1"
           fill="var(--dots-color)"
-          r="1"
+          r="0.1"
         />
       </pattern>
       <rect

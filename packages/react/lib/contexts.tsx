@@ -93,6 +93,10 @@ export declare interface InfiniteCanvasContextType {
     zoom: number,
     transitionDuration?: number
   ) => Promise<void>;
+  centerOn: (
+    elmt: HTMLElement,
+    transitionDuration?: number
+  ) => Promise<void>;
 }
 
 export const InfiniteCanvasContext = createContext<InfiniteCanvasContextType>({
@@ -107,5 +111,6 @@ export const InfiniteCanvasContext = createContext<InfiniteCanvasContextType>({
   zoomIn: async () => {},
   zoomOut: async () => {},
   panAndZoomTo: async () => {},
+  centerOn: async () => {},
 });
 

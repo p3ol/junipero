@@ -9,7 +9,6 @@ import {
   useReducer,
   useRef,
 } from 'react';
-import { flushSync } from 'react-dom';
 import { classNames, mockState } from '@junipero/core';
 import { useTimeout } from '@junipero/hooks';
 
@@ -42,6 +41,10 @@ export declare interface InfiniteCanvasRef extends JuniperoRef {
     x: number,
     y: number,
     zoom: number,
+    transitionDuration?: number
+  ) => Promise<void>;
+  centerOn: (
+    elmt: HTMLElement,
     transitionDuration?: number
   ) => Promise<void>;
   innerRef: RefObject<HTMLDivElement | null>;
@@ -154,6 +157,7 @@ const InfiniteCanvas = ({
     getCursorPosition,
     panTo,
     panAndZoomTo,
+    centerOn,
     innerRef,
     contentRef,
     backgroundRef,
@@ -289,9 +293,7 @@ const InfiniteCanvas = ({
       return;
     }
 
-    flushSync(() => {
-      fitIntoView(0);
-    });
+    fitIntoView(0);
   }, [center, fitIntoView]);
 
   const setZoom = useCallback(async (
@@ -420,6 +422,71 @@ const InfiniteCanvas = ({
     }
   }, []);
 
+  const getElementBounds = useCallback((elmt: HTMLElement) => {
+    if (!contentRef.current || !elmt) {
+      return null;
+    }
+
+    let x = 0;
+    let y = 0;
+    let node: HTMLElement | null = elmt;
+
+    while (node && node !== contentRef.current) {
+      x += node.offsetLeft;
+      y += node.offsetTop;
+      node = node.offsetParent as HTMLElement | null;
+    }
+
+    return {
+      minX: x,
+      minY: y,
+      maxX: x + elmt.offsetWidth,
+      maxY: y + elmt.offsetHeight,
+    };
+  }, []);
+
+  const centerOn = useCallback(async (
+    elmt: HTMLElement,
+    transitionDuration?: number,
+  ): Promise<void> => {
+    const bounds = elmt && getElementBounds(elmt);
+
+    if (!innerRef.current || !bounds) {
+      return;
+    }
+
+    const elWidth = bounds.maxX - bounds.minX;
+    const elHeight = bounds.maxY - bounds.minY;
+    const elCenterX = (bounds.minX + bounds.maxX) / 2;
+    const elCenterY = (bounds.minY + bounds.maxY) / 2;
+
+    const rect = innerRef.current.getBoundingClientRect();
+    const canvasWidth = rect.width;
+    const canvasHeight = rect.height;
+
+    const zoomX = canvasWidth / (elWidth + centerMargin * 2);
+    const zoomY = canvasHeight / (elHeight + centerMargin * 2);
+
+    const newZoom = Math.max(Math.min(zoomX, zoomY, maxZoom), minZoom);
+
+    const newOffsetX = canvasWidth / 2 - elCenterX * newZoom;
+    const newOffsetY = canvasHeight / 2 - elCenterY * newZoom;
+    const animate = transitionDuration ?? 100;
+
+    dispatch({
+      zoom: newZoom,
+      offsetX: newOffsetX,
+      offsetY: newOffsetY,
+      animate,
+    });
+
+    if (animate > 0) {
+      return new Promise(resolve => {
+        setTimeout(resolve, animate);
+      });
+    }
+  }, [minZoom, maxZoom, centerMargin, getElementBounds]);
+
   const getContext = useCallback((): InfiniteCanvasContextType => ({
     zoom: state.zoom,
     offsetX: state.offsetX,
@@ -429,12 +496,13 @@ const InfiniteCanvas = ({
     fitIntoView,
     panTo,
     panAndZoomTo,
+    centerOn,
     setZoom,
     zoomIn,
     zoomOut,
   }), [
     state.zoom, state.offsetX, state.offsetY, state.mouseX, state.mouseY,
-    fitIntoView, setZoom, zoomIn, zoomOut, panTo, panAndZoomTo,
+    fitIntoView, setZoom, zoomIn, zoomOut, panTo, panAndZoomTo, centerOn,
   ]);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {

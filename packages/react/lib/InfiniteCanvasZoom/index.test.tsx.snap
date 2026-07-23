@@ -7,7 +7,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
   >
     <div
       class="infinite-canvas-content"
-      style="transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1); transform-origin: 0 0;"
+      style="transform: translate3d(0px, 0px, 0) scale3d(0.1, 0.1, 1); transform-origin: 0 0;"
     >
       <div
         style="width: 1000px; height: 1000px;"
@@ -31,7 +31,7 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
           role="combobox"
           type="button"
         >
-          100%
+          10%
         </button>
         <div
           class="junipero dropdown-menu"
@@ -105,19 +105,19 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
       class="infinite-canvas-background"
     >
       <pattern
-        height="20"
+        height="2"
         id="_r_0_"
-        patternTransform="translate(1, 1)"
+        patternTransform="translate(0.1, 0.1)"
         patternUnits="userSpaceOnUse"
-        width="20"
+        width="2"
         x="0"
         y="0"
       >
         <circle
-          cx="1"
-          cy="1"
+          cx="0.1"
+          cy="0.1"
           fill="var(--dots-color)"
-          r="1"
+          r="0.1"
         />
       </pattern>
       <rect

@@ -71,9 +71,23 @@ export const Basic = () => {
         </>
       )}
     >
-      <Button>Click me!</Button>
+      <Button
+        onClick={e => {
+          e.stopPropagation();
+          canvasRef.current?.centerOn(e.currentTarget, 500);
+        }}
+      >
+        Click me!
+      </Button>
       { buttons.map((b, i) => (
-        <Button key={i} style={{ position: 'absolute', left: b.x, top: b.y }}>
+        <Button
+          key={i}
+          style={{ position: 'absolute', left: b.x, top: b.y }}
+          onClick={e => {
+            e.stopPropagation();
+            canvasRef.current?.centerOn(e.currentTarget, 500);
+          }}
+        >
           Clicked!
         </Button>
       )) }
