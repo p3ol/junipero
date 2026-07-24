@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.13.1](https://github.com/p3ol/junipero/compare/v3.13.0...v3.13.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **react:** finally fix canvas fitIntoView ([f363d6e](https://github.com/p3ol/junipero/commit/f363d6e331f6e89c7f1925e3b86f93220f3959e8))
+
+
+
+
+
 # [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
 
 

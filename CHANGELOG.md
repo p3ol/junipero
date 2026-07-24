@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.13.1](https://github.com/p3ol/junipero/compare/v3.13.0...v3.13.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **react:** add missing canvas onZoom & onPan events ([e2a359e](https://github.com/p3ol/junipero/commit/e2a359e69da11f2ca2e7dde1d94cc773938e84c3))
+* **react:** allow to pan and zoom into canvas ([94b2f51](https://github.com/p3ol/junipero/commit/94b2f514428da9a1cb8c6ed28a6b16e2cbc9a68c))
+* **react:** also allow to center on an child ([8fdcaf8](https://github.com/p3ol/junipero/commit/8fdcaf8a7d394f9e6df36c29946afb49c24d14f1))
+* **react:** also take absolute children into fitIntoView account ([4976093](https://github.com/p3ol/junipero/commit/497609315f5a7e8b45eb7ee7cddc8b1ead322d87))
+* **react:** center canvas on startup ([43485b6](https://github.com/p3ol/junipero/commit/43485b6221ad1500290fd73b1ef7819339e01ad9))
+* **react:** finally fix canvas fitIntoView ([f363d6e](https://github.com/p3ol/junipero/commit/f363d6e331f6e89c7f1925e3b86f93220f3959e8))
+
+
+
+
+
 # [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
 
 
