@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.14.0](https://github.com/p3ol/junipero/compare/v3.13.1...v3.14.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* upgrade various deps ([14bc0ae](https://github.com/p3ol/junipero/commit/14bc0aed3dd7e6a3c724b5aa4e95767c2c07e19b))
+
+
+### Features
+
+* **react:** allow to customize selectfield inner input ([0c1f86d](https://github.com/p3ol/junipero/commit/0c1f86d8a8e4af76187388c17b1d20410470d97e))
+
+
+
+
+
 ## [3.13.1](https://github.com/p3ol/junipero/compare/v3.13.0...v3.13.1) (2026-07-24)
 
 

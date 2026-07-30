@@ -1518,7 +1518,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@junipero/hooks@npm:^3.13.0, @junipero/hooks@workspace:packages/hooks":
+"@junipero/hooks@npm:^3.14.0, @junipero/hooks@workspace:packages/hooks":
   version: 0.0.0-use.local
   resolution: "@junipero/hooks@workspace:packages/hooks"
   dependencies:
@@ -1550,7 +1550,7 @@ __metadata:
   dependencies:
     "@floating-ui/react": "npm:0.27.20"
     "@junipero/core": "npm:^3.13.0"
-    "@junipero/hooks": "npm:^3.13.0"
+    "@junipero/hooks": "npm:^3.14.0"
     "@radix-ui/react-slot": "npm:1.3.3"
   peerDependencies:
     react: ^18.0.0 || ^19.0.0
