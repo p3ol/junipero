@@ -1,16 +1,16 @@
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import pooolint from '@poool/eslint-config-react';
 import storybook from 'eslint-plugin-storybook';
 
 export default defineConfig(
-  { ignores: [
+  globalIgnores([
     'dist',
     '**/dist',
     'coverage',
     '.yarn',
     'node_modules',
     'storybook-static',
-  ] },
+  ]),
   {
     languageOptions: {
       parserOptions: {
@@ -18,14 +18,12 @@ export default defineConfig(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-  },
-  pooolint.configs.recommended,
-  storybook.configs['flat/recommended'],
-  {
     settings: {
       react: {
         version: 'detect',
       },
     },
   },
+  pooolint.configs.recommended,
+  storybook.configs['flat/recommended'],
 );
