@@ -6,6 +6,7 @@ import {
   useMemo,
   useReducer,
   useRef,
+  useState,
 } from 'react';
 import {
   type FixedArray,
@@ -56,8 +57,9 @@ const Calendar = ({
   ...rest
 }: CalendarProps) => {
   const innerRef = useRef<HTMLDivElement>(null);
+  const [defaultDate] = useState(() => new Date());
   const [state, dispatch] = useReducer(mockState<CalendarState>, {
-    value: active ?? new Date(),
+    value: active ?? defaultDate,
   });
 
   useImperativeHandle(ref, () => ({

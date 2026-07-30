@@ -8,6 +8,7 @@ import {
   useReducer,
   useRef,
   useEffect,
+  useState,
 } from 'react';
 import { type FixedArray, classNames, exists, mockState } from '@junipero/core';
 
@@ -136,10 +137,11 @@ const DateField = ({
   const timeInputRef = useRef<HTMLInputElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { update: updateControl } = useFieldControl();
+  const [defaultDate] = useState(() => new Date());
   const [state, dispatch] = useReducer(mockState<DateFieldState>, {
     value: value ?? null,
-    selected: value ?? new Date(),
-    displayed: value ?? new Date(),
+    selected: value ?? defaultDate,
+    displayed: value ?? defaultDate,
     valid: valid ?? false,
     dirty: false,
     opened: (autoFocus || opened) ?? false,
@@ -175,7 +177,7 @@ const DateField = ({
         valid: onValidate(parseValue(value), { required, dirty: true }),
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, [value]);
 
   const onSelectDate = (date: Date) => {

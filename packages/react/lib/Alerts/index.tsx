@@ -66,11 +66,11 @@ const Alerts = ({
     >
       { alerts?.map((alert, index) => (
         <Alert
+          key={alert.id ?? index}
           { ...omit(alert, [
             'id', 'type', 'content', 'duration', 'lifespan', 'icon', 'animate',
             'animationTimeout', 'onDismiss',
           ]) }
-          key={alert.id ?? index}
           index={alert.id ?? index}
           animate={alert.animate ?? animateAlert}
           animationTimeout={alert.animationTimeout ?? animationTimeout}

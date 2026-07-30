@@ -60,7 +60,7 @@ describe('<Calendar />', () => {
     getByText('January');
     const nextMonthButton = container.querySelector('.arrow-right');
     user.click(nextMonthButton);
-    await waitFor(() => expect(getByText('February')));
+    await waitFor(() => expect(getByText('February')).toBeTruthy());
     expect(container).toMatchSnapshot();
 
     unmount();
@@ -76,7 +76,7 @@ describe('<Calendar />', () => {
     getByText('December');
     const nextMonthButton = container.querySelector('.arrow-left');
     user.click(nextMonthButton);
-    await waitFor(() => expect(getByText('November')));
+    await waitFor(() => expect(getByText('November')).toBeTruthy());
     expect(container).toMatchSnapshot();
 
     unmount();
@@ -84,18 +84,10 @@ describe('<Calendar />', () => {
 
   it('should correctly display current month dates', async () => {
     const currentDay = new Date(2019, 0, 15);
-    const { getAllByText, unmount } = render(
+    const { container, getAllByText, unmount } = render(
       <Calendar active={currentDay} />
     );
     await waitFor(() => expect(getAllByText('31').length).toEqual(2));
-    unmount();
-  });
-
-  it('should correctly display current month dates', () => {
-    const currentDay = new Date(2019, 0, 15);
-    const { unmount, container } = render(
-      <Calendar active={currentDay} />
-    );
     expect(
       container.querySelectorAll('.day:not(.inactive)').length
     ).toEqual(31);

@@ -117,7 +117,10 @@ const List = ({
       : column;
 
     return (
-      <th {...props} key={id ?? index}>
+      <th
+        key={id ?? index}
+        {...props}
+      >
         { orderable && columnOrderable !== false ? (
           <a href="#" onClick={onOrder_.bind(null, id)}>
             <span className="junipero secondary">{ title }</span>
@@ -135,7 +138,7 @@ const List = ({
   };
 
   return (
-    <ListContext.Provider value={getContext()}>
+    <ListContext value={getContext()}>
       <table
         {...rest}
         className={classNames('junipero', 'list', className)}
@@ -148,7 +151,7 @@ const List = ({
           { children }
         </tbody>
       </table>
-    </ListContext.Provider>
+    </ListContext>
   );
 };
 

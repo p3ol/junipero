@@ -108,13 +108,13 @@ const CodeField = ({
       dispatch({ values: state.values, valid: state.valid });
       updateControl?.({ valid: state.valid, dirty: state.dirty });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, [value]);
 
   useEffect(() => {
     dispatch({ valid: valid ?? false });
     updateControl?.({ valid: state.valid });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, [valid]);
 
   const focus = (index: number = 0) => {

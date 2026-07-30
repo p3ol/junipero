@@ -25,9 +25,9 @@ export const animateMenu = (
       unmountOnExit={true}
       timeout={time}
       name={name}
+      key={k ?? key}
       { ...opts }
       { ...props }
-      key={k ?? key}
     >
       { menu }
     </Transition>
@@ -56,9 +56,9 @@ export const animate = (
       unmountOnExit={true}
       timeout={time}
       name={name}
+      key={k ?? key}
       { ...opts }
       { ...props }
-      key={k ?? key}
     >
       { menu }
     </Transition>

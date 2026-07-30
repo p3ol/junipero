@@ -139,7 +139,7 @@ const Dropdown = ({
     if (disabled && state.opened) {
       close();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, [disabled]);
 
   useImperativeHandle(ref, () => ({
@@ -243,7 +243,7 @@ const Dropdown = ({
   ]);
 
   return (
-    <DropdownContext.Provider value={getContext()}>
+    <DropdownContext value={getContext()}>
       <div
         { ...rest }
         id={id}
@@ -257,7 +257,7 @@ const Dropdown = ({
         )}
         ref={innerRef}
       />
-    </DropdownContext.Provider>
+    </DropdownContext>
   );
 };
 

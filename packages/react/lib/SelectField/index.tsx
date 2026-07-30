@@ -249,7 +249,7 @@ const SelectField = ({
       value: state.value,
       valid: onValidate(parseValue(state.value), { required, multiple }),
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, [value, options]);
 
   useEffect(() => {
@@ -269,7 +269,7 @@ const SelectField = ({
     return () => {
       observer?.disconnect();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, [onLoadMore, state.opened]);
 
   useLayoutEffect(() => {
@@ -647,7 +647,7 @@ const SelectField = ({
       (o as SelectFieldGroupObject)?.options
         ? renderGroup(o as SelectFieldGroupObject, i) : renderOption(o, i)
     ))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   ), [
     state.searchResults,
     state.value,

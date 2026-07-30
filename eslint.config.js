@@ -26,4 +26,11 @@ export default defineConfig(
   },
   pooolint.configs.recommended,
   storybook.configs['flat/recommended'],
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      '@eslint-react/static-components': 'off',
+      '@eslint-react/no-nested-component-definitions': 'off',
+    },
+  }
 );

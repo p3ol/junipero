@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { use } from 'react';
 
 import {
   AlertsContext,
@@ -10,10 +10,10 @@ import {
   InfiniteCanvasContext,
 } from './contexts';
 
-export const useFieldControl = () => useContext(FieldControlContext);
-export const useDropdown = () => useContext(DropdownContext);
-export const useAlerts = () => useContext(AlertsContext);
-export const useList = () => useContext(ListContext);
-export const useToasts = () => useContext(ToastsContext);
-export const useModal = () => useContext(ModalContext);
-export const useInfiniteCanvas = () => useContext(InfiniteCanvasContext);
+export const useFieldControl = () => use(FieldControlContext);
+export const useDropdown = () => use(DropdownContext);
+export const useAlerts = () => use(AlertsContext);
+export const useList = () => use(ListContext);
+export const useToasts = () => use(ToastsContext);
+export const useModal = () => use(ModalContext);
+export const useInfiniteCanvas = () => use(InfiniteCanvasContext);

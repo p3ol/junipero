@@ -575,7 +575,7 @@ const InfiniteCanvas = ({
   const scaledPatternSize = size * state.zoom;
 
   return (
-    <InfiniteCanvasContext.Provider value={getContext()}>
+    <InfiniteCanvasContext value={getContext()}>
       <div
         { ...rest }
         ref={innerRef}
@@ -659,7 +659,7 @@ const InfiniteCanvas = ({
           />
         </svg>
       </div>
-    </InfiniteCanvasContext.Provider>
+    </InfiniteCanvasContext>
   );
 };
 

@@ -58,7 +58,7 @@ const AlertsControl = ({
   }), [alerts, add, dismiss]);
 
   return (
-    <AlertsContext.Provider { ...rest } value={getContext()} />
+    <AlertsContext { ...rest } value={getContext()} />
   );
 };
 

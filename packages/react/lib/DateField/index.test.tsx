@@ -75,7 +75,7 @@ describe('<DateField />', () => {
     getByText('January');
     const nextMonthButton = container.querySelector('.arrow-right');
     user.click(nextMonthButton);
-    await waitFor(() => expect(getByText('February')));
+    await waitFor(() => expect(getByText('February')).toBeTruthy());
 
     unmount();
   });
@@ -89,7 +89,7 @@ describe('<DateField />', () => {
     getByText('December');
     const nextMonthButton = container.querySelector('.arrow-left');
     user.click(nextMonthButton);
-    await waitFor(() => expect(getByText('November')));
+    await waitFor(() => expect(getByText('November')).toBeTruthy());
 
     unmount();
   });
@@ -104,13 +104,13 @@ describe('<DateField />', () => {
     getByText('January');
     const nextMonthButton = container.querySelector('.arrow-right');
     user.click(nextMonthButton);
-    await waitFor(() => expect(getByText('February')));
+    await waitFor(() => expect(getByText('February')).toBeTruthy());
 
     unmount();
   });
 
   it('should switch to previous month when left arrow is clicked ' +
-  'even if the 31th day is selected', async () => {
+    'even if the 31th day is selected', async () => {
     const user = userEvent.setup();
     const currentDay = new Date(2019, 11, 31);
     const { container, getByText, unmount } = render(
@@ -119,25 +119,17 @@ describe('<DateField />', () => {
     getByText('December');
     const nextMonthButton = container.querySelector('.arrow-left');
     user.click(nextMonthButton);
-    await waitFor(() => expect(getByText('November')));
+    await waitFor(() => expect(getByText('November')).toBeTruthy());
 
     unmount();
   });
 
   it('should correctly display current month dates', async () => {
     const currentDay = new Date(2019, 0, 15);
-    const { getAllByText, unmount } = render(
+    const { container, getAllByText, unmount } = render(
       <DateField autoFocus={true} value={currentDay} />
     );
     await waitFor(() => expect(getAllByText('31').length).toEqual(2));
-    unmount();
-  });
-
-  it('should correctly display current month dates', () => {
-    const currentDay = new Date(2019, 0, 15);
-    const { unmount, container } = render(
-      <DateField autoFocus={true} value={currentDay} />
-    );
     expect(
       container.querySelectorAll('.day:not(.inactive)').length
     ).toEqual(31);

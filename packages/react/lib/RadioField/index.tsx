@@ -87,8 +87,8 @@ const RadioField = ({
   parseDescription = val => (val as RadioFieldOptionObject)?.description || '',
   ...rest
 }: RadioFieldProps) => {
-  const inputRefs = useRef<HTMLInputElement[]>([]);
-  const optionRefs = useRef<HTMLLabelElement[]>([]);
+  const inputsRef = useRef<HTMLInputElement[]>([]);
+  const optionsRef = useRef<HTMLLabelElement[]>([]);
   const innerRef = useRef<HTMLDivElement>(null);
   const { update: updateControl } = useFieldControl();
   const [state, dispatch] = useReducer(mockState<RadioFieldState>, {
@@ -114,12 +114,12 @@ const RadioField = ({
         valid,
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, [value, options]);
 
   useImperativeHandle(ref, () => ({
-    optionRefs,
-    inputRefs,
+    optionRefs: optionsRef,
+    inputRefs: inputsRef,
     innerRef,
     dirty: state.dirty,
     value: state.value,
@@ -152,9 +152,9 @@ const RadioField = ({
       const i = options.indexOf(option);
 
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        optionRefs.current[(i + 1) % options.length]?.focus();
+        optionsRef.current[(i + 1) % options.length]?.focus();
       } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        optionRefs.current[(i - 1 + options.length) % options.length]?.focus();
+        optionsRef.current[(i - 1 + options.length) % options.length]?.focus();
       }
     } else if (
       state.value !== option &&
@@ -198,7 +198,7 @@ const RadioField = ({
           key={index}
           id={((option as RadioFieldOptionObject).id?.toString() || (id +
             `-option-${index}`)) + '-label'}
-          ref={el => { optionRefs.current[index] = el; }}
+          ref={el => { optionsRef.current[index] = el; }}
           className={classNames({
             checked: isChecked(option),
             disabled: disabled || (option as RadioFieldOptionObject).disabled,
@@ -213,7 +213,7 @@ const RadioField = ({
           <input
             id={(option as RadioFieldOptionObject).id?.toString()}
             name={name}
-            ref={el => { inputRefs.current[index] = el; }}
+            ref={el => { inputsRef.current[index] = el; }}
             type="radio"
             value={parseValue(option) as string}
             checked={isChecked(option)}

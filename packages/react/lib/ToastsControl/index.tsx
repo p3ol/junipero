@@ -57,7 +57,7 @@ const ToastsControl = ({
   }), [toasts, add, dismiss]);
 
   return (
-    <ToastsContext.Provider { ...rest } value={getContext()} />
+    <ToastsContext { ...rest } value={getContext()} />
   );
 };
 

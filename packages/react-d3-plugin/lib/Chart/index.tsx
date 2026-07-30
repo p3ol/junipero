@@ -220,7 +220,7 @@ const Chart = ({
   ]);
 
   return (
-    <ChartContext.Provider value={getContext()}>
+    <ChartContext value={getContext()}>
       <svg
         { ...rest }
         className={classNames('junipero chart', className)}
@@ -231,7 +231,7 @@ const Chart = ({
         )) }
         { children }
       </svg>
-    </ChartContext.Provider>
+    </ChartContext>
   );
 };
 

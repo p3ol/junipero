@@ -47,7 +47,7 @@ const ListColumn = ({
     }
 
     registerColumn({ id, title: children, orderable, ...rest });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
   }, []);
 
   return null;

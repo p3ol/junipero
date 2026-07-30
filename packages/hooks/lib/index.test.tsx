@@ -22,12 +22,12 @@ const TestComponent = (
   }, [], { target });
 
   if (onInterval) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // eslint-disable-next-line react-hooks/rules-of-hooks,@eslint-react/rules-of-hooks
     useInterval(() => onInterval(), 500, []);
   }
 
   if (onTimeout) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // eslint-disable-next-line react-hooks/rules-of-hooks,@eslint-react/rules-of-hooks
     useTimeout(() => {
       onTimeout();
     }, 500);
@@ -84,14 +84,14 @@ const EffectsTestComponent = (
   { enabled?: boolean, onEffect?: ()=> void, onLayoutEffect?: ()=> void}
 ): null => {
   if (onEffect) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // eslint-disable-next-line @eslint-react/rules-of-hooks,react-hooks/rules-of-hooks
     useEffectAfterMount(() => {
       onEffect();
     }, [enabled]);
   }
 
   if (onLayoutEffect) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // eslint-disable-next-line @eslint-react/rules-of-hooks,react-hooks/rules-of-hooks
     useLayoutEffectAfterMount(() => {
       onLayoutEffect();
     }, [enabled]);

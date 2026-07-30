@@ -51,7 +51,7 @@ const Transition = ({
   onExited,
   ...rest
 }: TransitionProps) => {
-  const previousIn = useRef(inProp);
+  const previousInRef = useRef(inProp);
   const [status, setStatus] = useState(
     inProp ? TRANSITION_STATE_ENTER : TRANSITION_STATE_UNMOUNTED
   );
@@ -60,11 +60,11 @@ const Transition = ({
   );
 
   useLayoutEffectAfterMount(() => {
-    if (inProp === previousIn.current) {
+    if (inProp === previousInRef.current) {
       return;
     }
 
-    previousIn.current = inProp;
+    previousInRef.current = inProp;
     setStatus(inProp ? TRANSITION_STATE_ENTER : TRANSITION_STATE_EXIT);
 
     if (inProp) {

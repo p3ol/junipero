@@ -21,10 +21,10 @@ export const useEventListener = (
   deps: DependencyList = [],
   opts?: UseEventListenerOptions,
 ) => {
-  const savedHandler = useRef<typeof handler | null>(null);
+  const savedHandlerRef = useRef<typeof handler | null>(null);
 
   useEffect(() => {
-    savedHandler.current = handler;
+    savedHandlerRef.current = handler;
   }, [handler]);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const useEventListener = (
       return () => {};
     }
 
-    const eventListener = (event: Event) => savedHandler.current?.(event);
+    const eventListener = (event: Event) => savedHandlerRef.current?.(event);
     t.addEventListener(name, eventListener, false);
 
     return () => {
@@ -43,7 +43,7 @@ export const useEventListener = (
     };
   }, [
     name, opts?.target, opts?.ref, opts?.enabled,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps,@eslint-react/exhaustive-deps
     ...deps,
   ]);
 };
@@ -127,11 +127,11 @@ const useAfterMount = (
     layoutEffect = false,
   }: UseAfterMountOptions = {}
 ) => {
-  const mounted = useRef(false);
+  const mountedRef = useRef(false);
 
   (layoutEffect ? useLayoutEffect : useEffect)(() => {
-    if (!mounted.current) {
-      mounted.current = true;
+    if (!mountedRef.current) {
+      mountedRef.current = true;
 
       return;
     }

@@ -51,7 +51,7 @@ export const WithAllEvents = () => (
 export const WithChildrenInProps = () => (
   <CheckboxField
     value="agreement"
-    // eslint-disable-next-line react/no-children-prop
+    // eslint-disable-next-line @eslint-react/jsx-no-children-prop
     children={<p>this is given child</p>}
   />
 );

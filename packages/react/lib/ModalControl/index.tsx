@@ -62,7 +62,7 @@ const ModalControl = ({
   }), [open, close, toggle, setRef]);
 
   return (
-    <ModalContext.Provider { ...rest } value={getContext()} />
+    <ModalContext { ...rest } value={getContext()} />
   );
 };
 

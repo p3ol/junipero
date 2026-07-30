@@ -57,11 +57,11 @@ const Toasts = ({
     >
       { toasts?.map((toast, index) => (
         <Toast
+          key={toast.index ?? index}
           { ...omit(toast, [
             'content', 'lifespan', 'animate', 'animationTimeout',
             'onDismiss',
           ]) }
-          key={toast.index ?? index}
           index={toast.index ?? index}
           animate={toast.animate ?? animateToast}
           animationTimeout={toast.animationTimeout ?? animationTimeout}

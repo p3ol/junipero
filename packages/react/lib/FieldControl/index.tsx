@@ -28,7 +28,7 @@ const FieldControl = (props: FieldControlProps) => {
   }), [state.valid, state.dirty, state.focused]);
 
   return (
-    <FieldControlContext.Provider { ...props } value={getContext()} />
+    <FieldControlContext { ...props } value={getContext()} />
   );
 };
 

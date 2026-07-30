@@ -28,6 +28,7 @@ export const WithValue = () => (
 );
 
 export const Disabled = () => (
+  // eslint-disable-next-line @eslint-react/purity
   <DateField disabled value={new Date()} />
 );
 
