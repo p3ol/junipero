@@ -244,3 +244,14 @@ export const WithPagination = () => {
     />
   );
 };
+
+export const WithCustomFieldRenderer = () => (
+  <SelectField
+    placeholder="Type a name"
+    searchable={false}
+    options={['Item 1', 'Item 2', 'Item 3']}
+    renderField={({ value, placeholder }) => (
+      <div>{ value || placeholder }</div>
+    )}
+  />
+);

@@ -5,6 +5,7 @@ import {
   type KeyboardEvent,
   type MouseEvent,
   type ChangeEvent,
+  type ComponentPropsWithoutRef,
   useReducer,
   useEffect,
   useRef,
@@ -123,6 +124,9 @@ export declare interface SelectFieldProps extends Omit<
   parseValue?(
     option: SelectFieldValue | SelectFieldOptionObject | SelectFieldGroupObject,
   ): SelectFieldValue | SelectFieldOptionObject;
+  renderField?(props: ComponentPropsWithoutRef<'input'> & {
+    field: SelectFieldValue | SelectFieldOptionObject;
+  }): ReactNode;
 }
 
 export declare interface SelectFieldState {
@@ -170,6 +174,7 @@ const SelectField = ({
   loadingMoreLabel = 'Loading more options...',
   noMoreOptionsEnabled = true,
   noMoreOptionsLabel = '🎉 No more options',
+  renderField,
   animateMenu,
   onChange,
   onBlur,
@@ -689,7 +694,16 @@ const SelectField = ({
           className="field"
           onClick={onFocusField}
         >
-          { hasValue() && (
+          { hasValue() && (renderField ? renderField({
+            id: fieldId,
+            type: 'text',
+            name,
+            readOnly: true,
+            value: parseTitle(state.value, { isValue: true }) ?? '',
+            onChange: () => {},
+            onKeyDown: onKeyDown_,
+            field: state.value,
+          }) : (
             <input
               id={fieldId}
               type="text"
@@ -699,7 +713,7 @@ const SelectField = ({
               onChange={() => {}}
               onKeyDown={onKeyDown_}
             />
-          ) }
+          )) }
           { hasTags() && Array.isArray(state.value)
             ? state.value.map((o: any, i: number) => (
               <Tag
@@ -713,7 +727,30 @@ const SelectField = ({
                 { parseTitle(o, { isTag: true }) }
               </Tag>
             )) : null }
-          { (multiple || !state.value) && (
+          { (multiple || !state.value) && (renderField ? renderField({
+            id: fieldId,
+            type: 'text',
+            name,
+            value: state.search,
+            placeholder,
+            onChange: onSearchInputChange,
+            autoFocus,
+            disabled: disabled || !searchable,
+            onFocus: onFocus_,
+            onBlur: onBlur_,
+            onKeyDown: onKeyDown_,
+            onKeyUp: onKeyUp_,
+            size: state.placeholderSize,
+            // WCAG 2.0
+            dir: 'ltr',
+            role: 'combobox',
+            'aria-activedescendant': state.activeMenuItem,
+            'aria-autocomplete': 'list',
+            'aria-controls': `${id}-items`,
+            'aria-expanded': state.opened,
+            'aria-haspopup': 'listbox',
+            field: state.value,
+          }) : (
             <input
               id={fieldId}
               type="text"
@@ -738,7 +775,7 @@ const SelectField = ({
               aria-expanded={state.opened}
               aria-haspopup="listbox"
             />
-          ) }
+          )) }
           <div className="icons">
             { state.searching && <Spinner className="small" /> }
             { !!state.value && clearable && (!isEmpty() || state.search) && (
