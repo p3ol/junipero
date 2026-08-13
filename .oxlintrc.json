@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "node_modules/@poool/oxlint-config/lib/recommended.json",
+    "node_modules/@poool/oxlint-config/lib/react/recommended.json"
+  ],
+  "jsPlugins": [
+    "eslint-plugin-storybook"
+  ]
+}
