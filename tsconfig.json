@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "types": ["vitest/globals", "node"],
+    "types": ["vitest/globals", "node", "react", "react-dom"],
     "lib": ["DOM", "ES2022"],
     "strict": false,
     "resolveJsonModule": true,
