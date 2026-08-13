@@ -13,10 +13,9 @@ pre-commit:
 pre-push:
   parallel: true
   commands:
+    tsc:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: yarn tsc {staged_files}
     lint:
-      tsc:
-        glob: "*.{js,ts,jsx,tsx}"
-        run: yarn tsc {staged_files}
-      lint:
-        glob: "*.{js,ts,jsx,tsx}"
-        run: yarn lint {staged_files}
+      glob: "*.{js,ts,jsx,tsx}"
+      run: yarn lint {staged_files}
