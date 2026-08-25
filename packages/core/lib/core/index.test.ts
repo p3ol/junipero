@@ -263,6 +263,13 @@ describe('core', () => {
       set(foo, 'bar.0.stuff', 'thing') as newType;
       expect((foo as unknown as newType).bar[0].stuff).toBe('thing');
     });
+
+    it('should now allow to set forbidden props', () => {
+      const foo = { bar: 'test' };
+      expect(set(foo, '__proto__.stuff', 'thing')).toBe(foo);
+      expect(set(foo, 'constructor.stuff', 'thing')).toBe(foo);
+      expect(set(foo, 'prototype.stuff', 'thing')).toBe(foo);
+    });
   });
 
   describe('omit()', () => {
@@ -404,6 +411,14 @@ describe('core', () => {
         .toMatchObject([0, 1, { foo: 'bar' }]);
       expect(mergeDeep({ foo: [0, 1] }, { foo: [2, 3, { bar: 'stuff' }] }))
         .toMatchObject({ foo: [0, 1, 2, 3, { bar: 'stuff' }] });
+    });
+
+    it('should now allow to merge forbidden props', () => {
+      expect(mergeDeep({}, { __proto__: { stuff: 'thing' } })).toMatchObject({});
+      expect(mergeDeep({}, { constructor: { stuff: 'thing' } }))
+        .toMatchObject({});
+      expect(mergeDeep({}, { prototype: { stuff: 'thing' } }))
+        .toMatchObject({});
     });
   });
 

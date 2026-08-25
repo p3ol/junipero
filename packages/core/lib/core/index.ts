@@ -88,8 +88,12 @@ export function set <T extends Record<string, any>, U = any> (
   const subObj = pathArr
     .slice(0, -1)
     .reduce((a, c, i) => {
-      if (a[c] && typeof a[c] === 'object') {
+      if (Object.hasOwn(a, c) && typeof a[c] === 'object') {
         return a[c];
+      }
+
+      if (['__proto__', 'constructor', 'prototype'].includes(c)) {
+        return a;
       }
 
       Object.assign(a, { [c]: Math.abs(
@@ -187,6 +191,10 @@ export function mergeDeep<T = any, U = any, V = any, W = any, X = any> (
       ? allSources.reduce((s, source) => (
         isObject(source)
           ? Object.entries(source).reduce((t: Record<string, any>, [k, v]) => {
+            if (['__proto__', 'constructor', 'prototype'].includes(k)) {
+              return t;
+            }
+
             /* istanbul ignore else: no else needed */
             if (isArray(t[k]) || isObject(t[k])) {
               t[k] = mergeDeep((target as GenericObject)[k], v);
