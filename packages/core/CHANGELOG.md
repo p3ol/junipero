@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.14.1](https://github.com/p3ol/junipero/compare/v3.14.0...v3.14.1) (2026-08-25)
+
+### Bug Fixes
+
+* **core:** prevent prototype pollution ([3ad52e9](https://github.com/p3ol/junipero/commit/3ad52e9a3821ab38426d2bccceb8ae738cf2c71d))
+
+
 # [3.13.0](https://github.com/p3ol/junipero/compare/v3.12.22...v3.13.0) (2026-05-21)
 
 **Note:** Version bump only for package @junipero/core
