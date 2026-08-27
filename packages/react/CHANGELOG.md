@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.14.2](https://github.com/p3ol/junipero/compare/v3.14.1...v3.14.2) (2026-08-27)
+
+### Bug Fixes
+
+* **react:** prevent crash when canvas inner element has no size ([0535a8f](https://github.com/p3ol/junipero/commit/0535a8f393de08dd9ab536e7020a24e7aeb123b0))
+
+
 ## [3.14.1](https://github.com/p3ol/junipero/compare/v3.14.0...v3.14.1) (2026-08-25)
 
 **Note:** Version bump only for package @junipero/react
