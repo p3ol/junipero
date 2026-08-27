@@ -51,7 +51,21 @@ describe('<InfiniteCanvas />', () => {
 
     await act(async () => ref.current?.centerOn(null, 0));
 
-    expect(ref.current?.zoom).toBe(0.1);
+    expect(ref.current?.zoom).toBe(1);
+    unmount();
+  });
+
+  it('should not crash when content width/height is zero', async () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const { unmount } = render(
+      <InfiniteCanvas ref={ref}>
+        <div style={{ width: '0px', height: '0px' }}>Content</div>
+      </InfiniteCanvas>
+    );
+
+    await act(async () => ref.current?.fitIntoView(0));
+
+    expect(ref.current?.zoom).toBe(1);
     unmount();
   });
 });

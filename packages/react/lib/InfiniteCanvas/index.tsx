@@ -264,8 +264,10 @@ const InfiniteCanvas = ({
 
     // Use a padded box (content + margin) only to determine the zoom level,
     // so the content doesn't end up flush against the canvas edges
-    const zoomX = canvasWidth / (contentWidth + centerMargin * 2);
-    const zoomY = canvasHeight / (contentHeight + centerMargin * 2);
+    const zoomX = canvasWidth === 0 || contentWidth === 0
+      ? 1 : canvasWidth / (contentWidth + centerMargin * 2);
+    const zoomY = canvasHeight === 0 || contentHeight === 0
+      ? 1 : canvasHeight / (contentHeight + centerMargin * 2);
 
     const newZoom = Math.max(Math.min(zoomX, zoomY, maxZoom), minZoom);
 
