@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.15.0](https://github.com/p3ol/junipero/compare/v3.14.2...v3.15.0) (2026-08-28)
+
+### Bug Fixes
+
+* **react:** only center canvas if initial values are not set ([483b4b8](https://github.com/p3ol/junipero/commit/483b4b87355b5fde4f69ae2dff19d99190528fd4))
+
+### Features
+
+* **react:** add infinite canvas viewport padding ([23b65b0](https://github.com/p3ol/junipero/commit/23b65b085b6543fee47a5c13c6959c402674e3df))
+
+
 ## [3.14.2](https://github.com/p3ol/junipero/compare/v3.14.1...v3.14.2) (2026-08-27)
 
 ### Bug Fixes
