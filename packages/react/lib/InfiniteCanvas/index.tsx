@@ -27,6 +27,13 @@ export declare type InfiniteCanvasBackgroundPattern =
   | 'dot'
   | 'cross';
 
+export declare interface InfiniteCanvasPadding {
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
+}
+
 export declare interface InfiniteCanvasRef extends JuniperoRef {
   zoom: number;
   offsetX: number;
@@ -61,6 +68,7 @@ export declare interface InfiniteCanvasProps extends
   maxZoom?: number;
   center?: boolean;
   centerMargin?: number;
+  padding?: number | InfiniteCanvasPadding;
   cursorMode?: InfiniteCanvasCursorMode;
   fitAbsolute?: boolean;
   background?: {
@@ -102,6 +110,7 @@ const InfiniteCanvas = ({
   maxZoom = 10,
   center = true,
   centerMargin = 300,
+  padding,
   cursorMode = 'default',
   fitAbsolute = true,
   globalEventsTarget = globalThis,
@@ -120,6 +129,14 @@ const InfiniteCanvas = ({
     pattern = 'dot',
     patternId: customPatternId = patternId,
   } = background || {};
+  const {
+    top: paddingTop = 0,
+    right: paddingRight = 0,
+    bottom: paddingBottom = 0,
+    left: paddingLeft = 0,
+  } = typeof padding === 'number'
+    ? { top: padding, right: padding, bottom: padding, left: padding }
+    : padding || {};
   const [state, dispatch] = useReducer(mockState<InfiniteCanvasState>, {
     zoom: initialZoom || 1,
     mouseX: 0,
@@ -244,12 +261,32 @@ const InfiniteCanvas = ({
     });
   }, [fitAbsolute]);
 
+  // Portion of the canvas not reserved by padding (e.g. sidebars/overlays),
+  // used as the target area/center for fitting and centering operations
+  const getVisibleRect = useCallback(() => {
+    if (!innerRef.current) {
+      return null;
+    }
+
+    const rect = innerRef.current.getBoundingClientRect();
+    const width = Math.max(rect.width - paddingLeft - paddingRight, 0);
+    const height = Math.max(rect.height - paddingTop - paddingBottom, 0);
+
+    return {
+      width,
+      height,
+      centerX: paddingLeft + width / 2,
+      centerY: paddingTop + height / 2,
+    };
+  }, [paddingTop, paddingRight, paddingBottom, paddingLeft]);
+
   const fitIntoView = useCallback(async (
     transitionDuration?: number,
   ): Promise<void> => {
     const bounds = getContentBounds();
+    const visible = getVisibleRect();
 
-    if (!innerRef.current || !bounds) {
+    if (!visible || !bounds) {
       return;
     }
 
@@ -258,22 +295,19 @@ const InfiniteCanvas = ({
     const contentCenterX = (bounds.minX + bounds.maxX) / 2;
     const contentCenterY = (bounds.minY + bounds.maxY) / 2;
 
-    const rect = innerRef.current.getBoundingClientRect();
-    const canvasWidth = rect.width;
-    const canvasHeight = rect.height;
-
     // Use a padded box (content + margin) only to determine the zoom level,
-    // so the content doesn't end up flush against the canvas edges
-    const zoomX = canvasWidth === 0 || contentWidth === 0
-      ? 1 : canvasWidth / (contentWidth + centerMargin * 2);
-    const zoomY = canvasHeight === 0 || contentHeight === 0
-      ? 1 : canvasHeight / (contentHeight + centerMargin * 2);
+    // so the content doesn't end up flush against the visible area's edges
+    const zoomX = visible.width === 0 || contentWidth === 0
+      ? 1 : visible.width / (contentWidth + centerMargin * 2);
+    const zoomY = visible.height === 0 || contentHeight === 0
+      ? 1 : visible.height / (contentHeight + centerMargin * 2);
 
     const newZoom = Math.max(Math.min(zoomX, zoomY, maxZoom), minZoom);
 
-    // Center the actual (unpadded) content's bounding box at the new zoom
-    const newOffsetX = canvasWidth / 2 - contentCenterX * newZoom;
-    const newOffsetY = canvasHeight / 2 - contentCenterY * newZoom;
+    // Center the actual (unpadded) content's bounding box within the
+    // visible area, i.e. excluding any space reserved by padding
+    const newOffsetX = visible.centerX - contentCenterX * newZoom;
+    const newOffsetY = visible.centerY - contentCenterY * newZoom;
     const animate = transitionDuration ?? 100;
 
     dispatch({
@@ -288,7 +322,7 @@ const InfiniteCanvas = ({
         setTimeout(resolve, animate);
       });
     }
-  }, [minZoom, maxZoom, centerMargin, getContentBounds]);
+  }, [minZoom, maxZoom, centerMargin, getContentBounds, getVisibleRect]);
 
   useLayoutEffect(() => {
     if (!center) {
@@ -302,27 +336,21 @@ const InfiniteCanvas = ({
     newZoom: number,
     transitionDuration?: number
   ): Promise<void> => {
-    const bounds = getContentBounds();
+    const visible = getVisibleRect();
 
-    if (
-      newZoom < minZoom ||
-      newZoom > maxZoom ||
-      !innerRef.current ||
-      !bounds
-    ) {
+    if (!visible) {
       return;
     }
 
-    const rect = innerRef.current.getBoundingClientRect();
-    const canvasWidth = rect.width;
-    const canvasHeight = rect.height;
-
-    const contentCenterX = (bounds.minX + bounds.maxX) / 2;
-    const contentCenterY = (bounds.minY + bounds.maxY) / 2;
-
     const newZoomClamped = Math.max(Math.min(newZoom, maxZoom), minZoom);
-    const newOffsetX = canvasWidth / 2 - contentCenterX * newZoomClamped;
-    const newOffsetY = canvasHeight / 2 - contentCenterY * newZoomClamped;
+
+    // Keep whatever content point is currently at the visible area's
+    // center fixed, instead of jumping back to the content's bounds center
+    const centerContentX = (visible.centerX - state.offsetX) / state.zoom;
+    const centerContentY = (visible.centerY - state.offsetY) / state.zoom;
+
+    const newOffsetX = visible.centerX - centerContentX * newZoomClamped;
+    const newOffsetY = visible.centerY - centerContentY * newZoomClamped;
     const animate = transitionDuration ?? 100;
 
     dispatch({
@@ -337,7 +365,10 @@ const InfiniteCanvas = ({
         setTimeout(resolve, animate);
       });
     }
-  }, [minZoom, maxZoom, getContentBounds]);
+  }, [
+    minZoom, maxZoom, state.zoom, state.offsetX, state.offsetY,
+    getVisibleRect,
+  ]);
 
   const zoomIn = useCallback((transitionDuration?: number) => {
     const newZoom = (state.zoom || 1) * 1.2;
@@ -367,16 +398,14 @@ const InfiniteCanvas = ({
     y: number,
     transitionDuration?: number
   ): Promise<void> => {
-    if (!innerRef.current || !contentRef.current) {
+    const visible = getVisibleRect();
+
+    if (!visible || !contentRef.current) {
       return;
     }
 
-    const rect = innerRef.current.getBoundingClientRect();
-    const canvasWidth = rect.width;
-    const canvasHeight = rect.height;
-
-    const newOffsetX = canvasWidth / 2 - x * state.zoom;
-    const newOffsetY = canvasHeight / 2 - y * state.zoom;
+    const newOffsetX = visible.centerX - x * state.zoom;
+    const newOffsetY = visible.centerY - y * state.zoom;
     const animate = transitionDuration ?? 100;
 
     dispatch({
@@ -390,7 +419,7 @@ const InfiniteCanvas = ({
         setTimeout(resolve, animate);
       });
     }
-  }, [state.zoom]);
+  }, [state.zoom, getVisibleRect]);
 
   const panAndZoomTo = useCallback(async (
     x: number,
@@ -398,20 +427,19 @@ const InfiniteCanvas = ({
     newZoom: number,
     transitionDuration?: number
   ): Promise<void> => {
-    if (!innerRef.current || !contentRef.current) {
+    const visible = getVisibleRect();
+
+    if (!visible || !contentRef.current) {
       return;
     }
 
-    const rect = innerRef.current.getBoundingClientRect();
-    const canvasWidth = rect.width;
-    const canvasHeight = rect.height;
-
-    const newOffsetX = canvasWidth / 2 - x * newZoom;
-    const newOffsetY = canvasHeight / 2 - y * newZoom;
+    const newZoomClamped = Math.max(Math.min(newZoom, maxZoom), minZoom);
+    const newOffsetX = visible.centerX - x * newZoomClamped;
+    const newOffsetY = visible.centerY - y * newZoomClamped;
     const animate = transitionDuration ?? 100;
 
     dispatch({
-      zoom: newZoom,
+      zoom: newZoomClamped,
       offsetX: newOffsetX,
       offsetY: newOffsetY,
       animate,
@@ -422,7 +450,7 @@ const InfiniteCanvas = ({
         setTimeout(resolve, animate);
       });
     }
-  }, []);
+  }, [minZoom, maxZoom, getVisibleRect]);
 
   const getElementBounds = useCallback((elmt: HTMLElement) => {
     if (!contentRef.current || !elmt) {
@@ -452,8 +480,9 @@ const InfiniteCanvas = ({
     transitionDuration?: number,
   ): Promise<void> => {
     const bounds = elmt && getElementBounds(elmt);
+    const visible = getVisibleRect();
 
-    if (!innerRef.current || !bounds) {
+    if (!visible || !bounds) {
       return;
     }
 
@@ -462,17 +491,15 @@ const InfiniteCanvas = ({
     const elCenterX = (bounds.minX + bounds.maxX) / 2;
     const elCenterY = (bounds.minY + bounds.maxY) / 2;
 
-    const rect = innerRef.current.getBoundingClientRect();
-    const canvasWidth = rect.width;
-    const canvasHeight = rect.height;
-
-    const zoomX = canvasWidth / (elWidth + centerMargin * 2);
-    const zoomY = canvasHeight / (elHeight + centerMargin * 2);
+    const zoomX = visible.width === 0 || elWidth === 0
+      ? 1 : visible.width / (elWidth + centerMargin * 2);
+    const zoomY = visible.height === 0 || elHeight === 0
+      ? 1 : visible.height / (elHeight + centerMargin * 2);
 
     const newZoom = Math.max(Math.min(zoomX, zoomY, maxZoom), minZoom);
 
-    const newOffsetX = canvasWidth / 2 - elCenterX * newZoom;
-    const newOffsetY = canvasHeight / 2 - elCenterY * newZoom;
+    const newOffsetX = visible.centerX - elCenterX * newZoom;
+    const newOffsetY = visible.centerY - elCenterY * newZoom;
     const animate = transitionDuration ?? 100;
 
     dispatch({
@@ -487,7 +514,7 @@ const InfiniteCanvas = ({
         setTimeout(resolve, animate);
       });
     }
-  }, [minZoom, maxZoom, centerMargin, getElementBounds]);
+  }, [minZoom, maxZoom, centerMargin, getElementBounds, getVisibleRect]);
 
   const getContext = useCallback((): InfiniteCanvasContextType => ({
     zoom: state.zoom,
@@ -523,8 +550,15 @@ const InfiniteCanvas = ({
   }, [cursorMode]);
 
   const onMouseMove = useCallback((e: MouseEvent) => {
+    // Track cursor position relative to the canvas, not the viewport, so it
+    // stays consistent with offsetX/offsetY regardless of where the canvas
+    // is positioned on the page
+    const rect = innerRef.current?.getBoundingClientRect();
+    const mouseX = e.clientX - (rect?.left ?? 0);
+    const mouseY = e.clientY - (rect?.top ?? 0);
+
     if (!state.panning || cursorMode !== 'pan') {
-      dispatch({ mouseX: e.clientX, mouseY: e.clientY });
+      dispatch({ mouseX, mouseY });
 
       return;
     }
@@ -533,8 +567,8 @@ const InfiniteCanvas = ({
     const deltaY = e.clientY - state.panStartY;
 
     dispatch({
-      mouseX: e.clientX,
-      mouseY: e.clientY,
+      mouseX,
+      mouseY,
       offsetX: state.offsetX + deltaX,
       offsetY: state.offsetY + deltaY,
       panStartX: e.clientX,

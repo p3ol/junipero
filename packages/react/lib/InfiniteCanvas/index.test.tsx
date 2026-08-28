@@ -68,4 +68,174 @@ describe('<InfiniteCanvas />', () => {
     expect(ref.current?.zoom).toBe(1);
     unmount();
   });
+
+  it('should take absolutely positioned children into account when ' +
+    'fitting into view', async () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const normalRef = createRef<HTMLDivElement>();
+    const absoluteRef = createRef<HTMLDivElement>();
+    const { unmount } = render(
+      <InfiniteCanvas ref={ref} center={false}>
+        <div ref={normalRef}>Normal</div>
+        <div ref={absoluteRef} style={{ position: 'absolute' }}>
+          Absolute
+        </div>
+      </InfiniteCanvas>
+    );
+
+    Object
+      .defineProperty(ref.current.innerRef.current, 'getBoundingClientRect', {
+        value: () => ({ width: 1000, height: 800 }),
+      });
+    Object.defineProperty(normalRef.current, 'offsetLeft', { value: 0 });
+    Object.defineProperty(normalRef.current, 'offsetTop', { value: 0 });
+    Object.defineProperty(normalRef.current, 'offsetWidth', { value: 100 });
+    Object.defineProperty(normalRef.current, 'offsetHeight', { value: 50 });
+    Object.defineProperty(absoluteRef.current, 'offsetLeft', { value: 2000 });
+    Object.defineProperty(absoluteRef.current, 'offsetTop', { value: 1000 });
+    Object
+      .defineProperty(absoluteRef.current, 'offsetWidth', { value: 100 });
+    Object
+      .defineProperty(absoluteRef.current, 'offsetHeight', { value: 50 });
+
+    await act(async () => ref.current?.fitIntoView(0));
+
+    // Bounds span from (0, 0) to (2100, 1050) so the canvas zooms out far
+    // more than it would if only the normal-flow child was considered
+    expect(ref.current?.zoom).toBeCloseTo(0.37, 2);
+    unmount();
+  });
+
+  it('should account for padding (e.g. reserved sidebar space) when ' +
+    'fitting into view', async () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const childRef = createRef<HTMLDivElement>();
+    const { unmount } = render(
+      <InfiniteCanvas
+        ref={ref}
+        center={false}
+        centerMargin={0}
+        padding={{ left: 200, right: 100, bottom: 200 }}
+      >
+        <div ref={childRef}>Content</div>
+      </InfiniteCanvas>
+    );
+
+    Object
+      .defineProperty(ref.current.innerRef.current, 'getBoundingClientRect', {
+        value: () => ({ width: 1000, height: 800 }),
+      });
+    Object.defineProperty(childRef.current, 'offsetLeft', { value: 0 });
+    Object.defineProperty(childRef.current, 'offsetTop', { value: 0 });
+    Object.defineProperty(childRef.current, 'offsetWidth', { value: 100 });
+    Object.defineProperty(childRef.current, 'offsetHeight', { value: 50 });
+
+    await act(async () => ref.current?.fitIntoView(0));
+
+    // Visible area is 700x600 (canvas minus padding), centered at (550, 300)
+    // instead of the full canvas center (500, 400)
+    expect(ref.current?.zoom).toBe(7);
+    expect(ref.current?.offsetX).toBe(200);
+    expect(ref.current?.offsetY).toBe(125);
+    unmount();
+  });
+
+  it('should account for padding when centering on an element', async () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const targetRef = createRef<HTMLDivElement>();
+    const { unmount } = render(
+      <InfiniteCanvas
+        ref={ref}
+        center={false}
+        centerMargin={0}
+        padding={{ left: 200, right: 100, bottom: 200 }}
+      >
+        <div ref={targetRef}>Target</div>
+      </InfiniteCanvas>
+    );
+
+    Object
+      .defineProperty(ref.current.innerRef.current, 'getBoundingClientRect', {
+        value: () => ({ width: 1000, height: 800 }),
+      });
+    Object.defineProperty(targetRef.current, 'offsetLeft', { value: 0 });
+    Object.defineProperty(targetRef.current, 'offsetTop', { value: 0 });
+    Object.defineProperty(targetRef.current, 'offsetWidth', { value: 100 });
+    Object.defineProperty(targetRef.current, 'offsetHeight', { value: 50 });
+
+    await act(async () => ref.current?.centerOn(targetRef.current, 0));
+
+    expect(ref.current?.zoom).toBe(7);
+    expect(ref.current?.offsetX).toBe(200);
+    expect(ref.current?.offsetY).toBe(125);
+    unmount();
+  });
+
+  it('should ignore children bounds when fitAbsolute is disabled', async () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const absoluteRef = createRef<HTMLDivElement>();
+    const { unmount } = render(
+      <InfiniteCanvas ref={ref} center={false} fitAbsolute={false}>
+        <div ref={absoluteRef} style={{ position: 'absolute' }}>
+          Absolute
+        </div>
+      </InfiniteCanvas>
+    );
+
+    Object
+      .defineProperty(ref.current.innerRef.current, 'getBoundingClientRect', {
+        value: () => ({ width: 1000, height: 800 }),
+      });
+    Object.defineProperty(absoluteRef.current, 'offsetLeft', { value: 2000 });
+    Object.defineProperty(absoluteRef.current, 'offsetTop', { value: 1000 });
+    Object
+      .defineProperty(ref.current.contentRef.current, 'scrollWidth', {
+        value: 100,
+      });
+    Object
+      .defineProperty(ref.current.contentRef.current, 'scrollHeight', {
+        value: 50,
+      });
+
+    await act(async () => ref.current?.fitIntoView(0));
+
+    // Falls back to the content container's own scrollWidth/scrollHeight,
+    // so the far away absolute child is not taken into account
+    expect(ref.current?.zoom).toBeCloseTo(1.23, 2);
+    unmount();
+  });
+
+  it('should not account for absolutely positioned grandchildren nested ' +
+    'inside a non-absolute wrapper', async () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const wrapperRef = createRef<HTMLDivElement>();
+    const nestedRef = createRef<HTMLDivElement>();
+    const { unmount } = render(
+      <InfiniteCanvas ref={ref} center={false}>
+        <div ref={wrapperRef}>
+          <div ref={nestedRef} style={{ position: 'absolute' }}>
+            Nested
+          </div>
+        </div>
+      </InfiniteCanvas>
+    );
+
+    Object
+      .defineProperty(ref.current.innerRef.current, 'getBoundingClientRect', {
+        value: () => ({ width: 1000, height: 800 }),
+      });
+    Object.defineProperty(wrapperRef.current, 'offsetLeft', { value: 0 });
+    Object.defineProperty(wrapperRef.current, 'offsetTop', { value: 0 });
+    Object.defineProperty(wrapperRef.current, 'offsetWidth', { value: 100 });
+    Object.defineProperty(wrapperRef.current, 'offsetHeight', { value: 50 });
+    Object.defineProperty(nestedRef.current, 'offsetLeft', { value: 2000 });
+    Object.defineProperty(nestedRef.current, 'offsetTop', { value: 1000 });
+
+    await act(async () => ref.current?.fitIntoView(0));
+
+    // Only the wrapper's own bounds are measured, the nested absolute
+    // element's far away position is not reflected
+    expect(ref.current?.zoom).toBeCloseTo(1.23, 2);
+    unmount();
+  });
 });

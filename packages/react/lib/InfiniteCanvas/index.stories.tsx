@@ -94,3 +94,55 @@ export const Basic = () => {
     </InfiniteCanvas>
   );
 };
+
+export const WithSidebars = () => {
+  const canvasRef = useRef<InfiniteCanvasRef>(null);
+  const sidebarWidth = 240;
+  const bottomBarHeight = 80;
+
+  return (
+    <div className="fixed top-0 left-0 w-screen h-screen">
+      <InfiniteCanvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full"
+        padding={{
+          left: sidebarWidth,
+          right: sidebarWidth,
+          bottom: bottomBarHeight,
+        }}
+      >
+        <Button
+          onClick={e => {
+            e.stopPropagation();
+            canvasRef.current?.centerOn(e.currentTarget, 500);
+          }}
+        >
+          Click me!
+        </Button>
+      </InfiniteCanvas>
+      <div
+        className="absolute top-0 left-0 h-full bg-black/80 z-50"
+        style={{ width: sidebarWidth }}
+      >
+        Left sidebar
+      </div>
+      <div
+        className="absolute top-0 right-0 h-full bg-black/80 z-50"
+        style={{ width: sidebarWidth }}
+      >
+        Right sidebar
+      </div>
+      <div
+        className={
+          'absolute bottom-0 left-0 w-full bg-black/80 z-50 ' +
+          'flex items-center gap-2 px-4'
+        }
+        style={{ height: bottomBarHeight }}
+      >
+        <Button onClick={() => canvasRef.current?.fitIntoView(500)}>
+          Fit into View
+        </Button>
+      </div>
+    </div>
+  );
+};
