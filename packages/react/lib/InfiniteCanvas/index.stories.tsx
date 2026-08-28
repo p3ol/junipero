@@ -146,3 +146,38 @@ export const WithSidebars = () => {
     </div>
   );
 };
+
+export const WithInitialZoomAndOffset = () => {
+  const canvasRef = useRef<InfiniteCanvasRef>(null);
+  const [zoom, setZoom] = useState(2);
+  const [offset, setOffset] = useState({ x: 150, y: 100 });
+
+  return (
+    <InfiniteCanvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-screen h-screen"
+      initialZoom={2}
+      initialOffsetX={150}
+      initialOffsetY={100}
+      onZoom={setZoom}
+      onPan={(offsetX, offsetY) => setOffset({ x: offsetX, y: offsetY })}
+      overlay={(
+        <div className="absolute top-2 left-4 z-50">
+          zoom: {zoom}, offsetX: {offset.x}, offsetY: {offset.y}
+          <br />
+          Should start at zoom=2, offsetX=150, offsetY=100 without
+          auto-fitting into view (as no `center` prop is passed).
+        </div>
+      )}
+    >
+      <Button
+        onClick={e => {
+          e.stopPropagation();
+          canvasRef.current?.centerOn(e.currentTarget, 500);
+        }}
+      >
+        Click me!
+      </Button>
+    </InfiniteCanvas>
+  );
+};

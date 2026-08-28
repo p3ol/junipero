@@ -1,4 +1,4 @@
-import { createRef } from 'react';
+import { createRef, useState } from 'react';
 import { act, render } from '@testing-library/react';
 
 import InfiniteCanvas, { type InfiniteCanvasRef } from '.';
@@ -12,6 +12,65 @@ describe('<InfiniteCanvas />', () => {
     );
 
     expect(container).toMatchSnapshot();
+    unmount();
+  });
+
+  it('should not loop infinitely when onZoom/onPan are not memoized ' +
+    'by the consumer', () => {
+    const Wrapper = () => {
+      const [, setZoom] = useState(1);
+      const [, setOffset] = useState({ x: 0, y: 0 });
+
+      return (
+        <InfiniteCanvas
+          onZoom={zoom => setZoom(zoom)}
+          onPan={(offsetX, offsetY) => setOffset({ x: offsetX, y: offsetY })}
+        >
+          <div style={{ width: '100px', height: '100px' }}>Content</div>
+        </InfiniteCanvas>
+      );
+    };
+
+    expect(() => render(<Wrapper />)).not.toThrow();
+  });
+
+  it('should honor initial zoom/offset instead of auto-fitting into ' +
+    'view', () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const { unmount } = render(
+      <InfiniteCanvas
+        ref={ref}
+        initialZoom={2}
+        initialOffsetX={50}
+        initialOffsetY={30}
+      >
+        <div style={{ width: '100px', height: '100px' }}>Content</div>
+      </InfiniteCanvas>
+    );
+
+    expect(ref.current?.zoom).toBe(2);
+    expect(ref.current?.offsetX).toBe(50);
+    expect(ref.current?.offsetY).toBe(30);
+    unmount();
+  });
+
+  it('should still auto-fit into view when center is explicitly ' +
+    'enabled, even with initial zoom/offset provided', () => {
+    const ref = createRef<InfiniteCanvasRef>();
+    const { unmount } = render(
+      <InfiniteCanvas
+        ref={ref}
+        center
+        initialZoom={2}
+        initialOffsetX={50}
+        initialOffsetY={30}
+      >
+        <div style={{ width: '100px', height: '100px' }}>Content</div>
+      </InfiniteCanvas>
+    );
+
+    expect(ref.current?.offsetX).not.toBe(50);
+    expect(ref.current?.offsetY).not.toBe(30);
     unmount();
   });
 

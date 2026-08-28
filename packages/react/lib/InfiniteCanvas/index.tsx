@@ -103,12 +103,16 @@ const InfiniteCanvas = ({
   overlay,
   className,
   background,
-  initialZoom = 1,
-  initialOffsetX = 0,
-  initialOffsetY = 0,
+  initialZoom,
+  initialOffsetX,
+  initialOffsetY,
   minZoom = 0.1,
   maxZoom = 10,
-  center = true,
+  // Only auto-fit on mount if the caller didn't ask for a specific
+  // initial zoom/offset, otherwise it would silently override them
+  center = initialZoom === undefined &&
+    initialOffsetX === undefined &&
+    initialOffsetY === undefined,
   centerMargin = 300,
   padding,
   cursorMode = 'default',
@@ -141,8 +145,8 @@ const InfiniteCanvas = ({
     zoom: initialZoom || 1,
     mouseX: 0,
     mouseY: 0,
-    offsetX: initialOffsetX,
-    offsetY: initialOffsetY,
+    offsetX: initialOffsetX ?? 0,
+    offsetY: initialOffsetY ?? 0,
     animate: 0,
     panning: false,
     panStartX: 0,
@@ -153,13 +157,20 @@ const InfiniteCanvas = ({
     dispatch({ animate: 0 });
   }, state.animate, [state.animate], { enabled: state.animate > 0 });
 
-  useEffect(() => {
-    onZoom?.(state.zoom);
-  }, [state.zoom, onZoom]);
+  // Read through a ref so a non-memoized onZoom/onPan (recreated on every
+  // parent render) can't re-trigger these effects and cause an infinite loop
+  const onZoomRef = useRef(onZoom);
+  onZoomRef.current = onZoom;
+  const onPanRef = useRef(onPan);
+  onPanRef.current = onPan;
 
   useEffect(() => {
-    onPan?.(state.offsetX, state.offsetY);
-  }, [state.offsetX, state.offsetY, onPan]);
+    onZoomRef.current?.(state.zoom);
+  }, [state.zoom]);
+
+  useEffect(() => {
+    onPanRef.current?.(state.offsetX, state.offsetY);
+  }, [state.offsetX, state.offsetY]);
 
   useImperativeHandle(ref, () => ({
     zoom: state.zoom,

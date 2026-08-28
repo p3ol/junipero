@@ -23,7 +23,7 @@ exports[`<InfiniteCanvas /> > should center on a given element 1`] = `
     >
       <pattern
         height="24.615384615384617"
-        id="_r_1_"
+        id="_r_4_"
         patternTransform="translate(1.2307692307692308, 1.2307692307692308)"
         patternUnits="userSpaceOnUse"
         width="24.615384615384617"
@@ -38,7 +38,7 @@ exports[`<InfiniteCanvas /> > should center on a given element 1`] = `
         />
       </pattern>
       <rect
-        fill="url(#_r_1_)"
+        fill="url(#_r_4_)"
         height="100%"
         width="100%"
         x="0"
