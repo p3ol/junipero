@@ -47,13 +47,23 @@ const Draggable = ({
   }, 0, [dragAnimation]);
 
   const onDragStart_ = (e: DragEvent<HTMLElement>) => {
-    if (disabled) {
+    if (disabled || e.defaultPrevented) {
       return;
     }
 
     onBeforeDragStart?.(e);
 
+    if (e.defaultPrevented) {
+      return;
+    }
+
     const targetRect = e.currentTarget.getBoundingClientRect();
+
+    onDragStart?.(e, targetRect);
+
+    if (e.defaultPrevented) {
+      return;
+    }
 
     try {
       e.dataTransfer.setData?.('text', JSON.stringify(data));
@@ -68,20 +78,24 @@ const Draggable = ({
     } catch {}
 
     setDragAnimation(true);
-    onDragStart?.(e, targetRect);
   };
 
   const onDragEnd_ = (e: DragEvent<HTMLElement>) => {
-    if (disabled) {
+    if (disabled || e.defaultPrevented) {
+      return;
+    }
+
+    onDragEnd?.(e);
+
+    if (e.defaultPrevented) {
       return;
     }
 
     setDragged(false);
-    onDragEnd?.(e);
   };
 
   const onDrag_ = (e: DragEvent<HTMLElement>) => {
-    if (disabled) {
+    if (disabled || e.defaultPrevented) {
       return;
     }
 

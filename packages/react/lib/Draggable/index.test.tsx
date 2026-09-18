@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { createEvent, fireEvent, render } from '@testing-library/react';
 import { vi } from 'vitest';
 
 import { sleep } from '../../tests/utils';
@@ -62,6 +62,57 @@ describe('<Draggable />', () => {
     expect(onDrag).not.toHaveBeenCalled();
     fireEvent.dragEnd(container.querySelector('p'));
     expect(onDragEnd).not.toHaveBeenCalled();
+    unmount();
+  });
+
+  it('should not add dragging & dragged classes if event is prevented', async () => {
+    const { container, rerender, unmount } = render(<Draggable><p>hello</p></Draggable>);
+    let p = container.querySelector('p');
+
+    // Natively prevented
+    fireEvent(p, createEvent('dragStart', p, { defaultPrevented: true }));
+    expect(container.querySelector('p')?.classList.contains('dragging')).toBe(false);
+    await sleep(1);
+    expect(container.querySelector('p')?.classList.contains('dragged')).toBe(false);
+    fireEvent.dragEnd(p);
+    expect(container.querySelector('p')?.classList.contains('dragging')).toBe(false);
+    await sleep(1);
+    expect(container.querySelector('p')?.classList.contains('dragged')).toBe(false);
+
+    fireEvent.dragStart(p);
+    expect(container.querySelector('p')?.classList.contains('dragging')).toBe(true);
+    await sleep(1);
+    expect(container.querySelector('p')?.classList.contains('dragged')).toBe(true);
+    fireEvent.dragEnd(p);
+    expect(container.querySelector('p')?.classList.contains('dragging')).toBe(false);
+    await sleep(1);
+    expect(container.querySelector('p')?.classList.contains('dragged')).toBe(false);
+
+    fireEvent.dragStart(p);
+    expect(container.querySelector('p')?.classList.contains('dragging')).toBe(true);
+    await sleep(1);
+    expect(container.querySelector('p')?.classList.contains('dragged')).toBe(true);
+    fireEvent(p, createEvent('dragEnd', p, { defaultPrevented: true }));
+    expect(container.querySelector('p')?.classList.contains('dragging')).toBe(false);
+    await sleep(1);
+    expect(container.querySelector('p')?.classList.contains('dragged')).toBe(true);
+    fireEvent.dragEnd(p);
+
+    // Prevented on props level
+    rerender(
+      <Draggable
+        onDragStart={e => e.preventDefault()}
+      >
+        <p>hello</p>
+      </Draggable>
+    );
+
+    p = container.querySelector('p');
+    fireEvent.dragStart(p);
+    expect(container.querySelector('p')?.classList.contains('dragging')).toBe(false);
+    await sleep(1);
+    expect(container.querySelector('p')?.classList.contains('dragged')).toBe(false);
+
     unmount();
   });
 });

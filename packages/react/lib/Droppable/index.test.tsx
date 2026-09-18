@@ -87,4 +87,32 @@ describe('<Droppable />', () => {
 
     unmount();
   });
+
+  it('should not trigger parent onDrop when nested is prevented', () => {
+    const onDropParent = vi.fn();
+    const onDropChild = vi.fn();
+    const { container, unmount } = render(
+      <Droppable onDrop={onDropParent}>
+        <div>
+          <Droppable onDrop={onDropChild}>
+            <p>hello</p>
+          </Droppable>
+        </div>
+      </Droppable>
+    );
+
+    fireEvent.dragEnter(container.querySelector('p'));
+    const dragOverEvent = createEvent.dragOver(container.querySelector('p'));
+    Object.defineProperty(dragOverEvent, 'clientY', { value: 1 });
+    fireEvent(container.querySelector('p'), dragOverEvent);
+
+    fireEvent.drop(container.querySelector('p'), {
+      dataTransfer: { getData: () => '{}' },
+    });
+
+    expect(onDropChild).toHaveBeenCalled();
+    expect(onDropParent).not.toHaveBeenCalled();
+
+    unmount();
+  });
 });

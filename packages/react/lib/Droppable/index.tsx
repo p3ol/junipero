@@ -17,6 +17,7 @@ export declare interface DroppableProps
   ref?: Ref<DroppableRef>;
   disabled?: boolean;
   onDrop?(data: any, direction: DraggingPositionType, e: DragEvent): void;
+  onDragEnter?(e: DragEvent): void;
   onDragOver?(e: DragEvent, direction: DraggingPositionType): void;
   onDragLeave?(e: DragEvent): void;
 }
@@ -26,6 +27,7 @@ const Droppable = ({
   className,
   disabled = false,
   onDrop,
+  onDragEnter,
   onDragOver,
   onDragLeave,
   ...rest
@@ -40,8 +42,14 @@ const Droppable = ({
     }
   }, [stack]);
 
-  const onDragEnter_ = () => {
-    if (disabled) {
+  const onDragEnter_ = (e: DragEvent) => {
+    if (disabled || e.defaultPrevented) {
+      return;
+    }
+
+    onDragEnter?.(e);
+
+    if (e.defaultPrevented) {
       return;
     }
 
@@ -49,30 +57,40 @@ const Droppable = ({
     setDragging(true);
   };
 
-  const onDragLeave_ = (e: any) => {
-    if (disabled) {
+  const onDragLeave_ = (e: DragEvent) => {
+    if (disabled || e.defaultPrevented) {
+      return;
+    }
+
+    onDragLeave?.(e);
+
+    if (e.defaultPrevented) {
       return;
     }
 
     setStack(s => s - 1);
     setDraggingPos(null);
-    onDragLeave?.(e);
   };
 
   const onDrop_ = (e: DragEvent) => {
-    if (disabled) {
+    if (disabled || e.defaultPrevented) {
+      return;
+    }
+
+    onDrop?.(JSON.parse(e.dataTransfer.getData('text')), draggingPos, e);
+
+    if (e.defaultPrevented) {
       return;
     }
 
     setStack(0);
     setDragging(false);
-    onDrop?.(JSON.parse(e.dataTransfer.getData('text')), draggingPos, e);
-    e.preventDefault();
     setDraggingPos(null);
+    e.preventDefault();
   };
 
   const onDragOver_ = (e: DragEvent) => {
-    if (disabled) {
+    if (disabled || e.defaultPrevented) {
       return;
     }
 
@@ -86,11 +104,14 @@ const Droppable = ({
       draggingPosition = 'before';
     }
 
-    setDraggingPos(draggingPosition);
-    e.preventDefault();
     onDragOver?.(e, draggingPosition as DraggingPositionType);
 
-    return false;
+    if (e.defaultPrevented) {
+      return;
+    }
+
+    setDraggingPos(draggingPosition);
+    e.preventDefault();
   };
 
   return (
