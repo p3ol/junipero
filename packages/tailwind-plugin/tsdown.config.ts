@@ -10,7 +10,7 @@ export default defineConfig([
     target: pkg.targets,
     format: ['cjs', 'esm'],
     deps: {
-      skipNodeModulesBundle: true,
+      neverBundle: true,
     },
     sourcemap: true,
     dts: false,

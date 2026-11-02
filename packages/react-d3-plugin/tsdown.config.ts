@@ -17,7 +17,11 @@ export default defineConfig([
         'd3',
       ],
     },
+    banner: "'use client';",
     sourcemap: true,
     dts: false,
+    inputOptions: {
+      platform: 'browser',
+    },
   },
 ]);

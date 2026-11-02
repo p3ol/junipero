@@ -4,7 +4,6 @@ import Stepper from '.';
 import Step from '../Step';
 
 describe('<Stepper />', () => {
-
   const steps = [
     { title: 'Step 1', content: 'Description 1' },
     { title: 'Step 2', content: 'Description 2' },

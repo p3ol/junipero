@@ -16,7 +16,11 @@ export default defineConfig([
         '@junipero/react',
       ],
     },
+    banner: "'use client';",
     sourcemap: true,
     dts: false,
+    inputOptions: {
+      platform: 'browser',
+    },
   },
 ]);

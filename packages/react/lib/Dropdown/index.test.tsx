@@ -121,7 +121,6 @@ describe('useDropdwon()', () => {
     const wrapper = (
       { children }: { children: ReactNode }
     ) => {
-
       return (
         <Dropdown
           container={container}
@@ -143,7 +142,6 @@ describe('useDropdwon()', () => {
     const wrapper = (
       { children }: { children: ReactNode }
     ) => {
-
       return (
         <Dropdown
           onToggle={toggleMock}
@@ -179,7 +177,6 @@ describe('useDropdwon()', () => {
     const wrapper = (
       { children }: { children: ReactNode }
     ) => {
-
       return (
         <Dropdown
           onToggle={toggleMock}

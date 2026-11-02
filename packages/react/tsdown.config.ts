@@ -15,7 +15,11 @@ export default defineConfig([
         'react-dom',
       ],
     },
+    banner: "'use client';",
     sourcemap: true,
     dts: false,
+    inputOptions: {
+      platform: 'browser',
+    },
   },
 ]);
