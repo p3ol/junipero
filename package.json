@@ -6,6 +6,9 @@
   ],
   "scripts": {
     "prepack": "yarn build && yarn lint && yarn tsc && yarn test",
+    "preversion": "yarn prepack",
+    "release": "lerna version",
+    "release:publish": "lerna publish from-package --yes",
     "test": "yarn vitest run",
     "lint": "oxlint",
     "clean": "yarn turbo clean",

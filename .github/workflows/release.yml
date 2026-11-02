@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  # npm trusted publishing (OIDC)
+  id-token: write
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - name: Setup node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          check-latest: true
+          cache: yarn
+      - name: Install deps
+        run: yarn install
+      - name: Publish packages
+        run: yarn release:publish
