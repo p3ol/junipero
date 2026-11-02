@@ -371,6 +371,7 @@ export {
   useFieldControl,
   useModal,
   useInfiniteCanvas,
+  useInfiniteCanvasCursor,
 } from './hooks';
 
 export {

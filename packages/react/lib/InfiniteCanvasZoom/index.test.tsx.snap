@@ -107,11 +107,9 @@ exports[`<InfiniteCanvasZoom /> > should render an infinite canvas zoom 1`] = `
       <pattern
         height="20"
         id="_r_0_"
-        patternTransform="translate(1, 1)"
+        patternTransform="translate(0 0) scale(1) translate(1 1)"
         patternUnits="userSpaceOnUse"
         width="20"
-        x="0"
-        y="0"
       >
         <circle
           cx="1"

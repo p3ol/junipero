@@ -80,8 +80,8 @@ export declare interface InfiniteCanvasContextType {
   zoom: number;
   offsetX: number;
   offsetY: number;
-  mouseX: number;
-  mouseY: number;
+  subscribeCursor: (listener: () => void) => () => void;
+  getCursor: () => { x: number; y: number };
   fitIntoView: (transitionDuration?: number) => Promise<void>;
   setZoom: (newZoom: number, transitionDuration?: number) => Promise<void>;
   panTo: (x: number, y: number, transitionDuration?: number) => Promise<void>;
@@ -103,8 +103,8 @@ export const InfiniteCanvasContext = createContext<InfiniteCanvasContextType>({
   zoom: 1,
   offsetX: 0,
   offsetY: 0,
-  mouseX: 0,
-  mouseY: 0,
+  subscribeCursor: () => () => {},
+  getCursor: () => ({ x: 0, y: 0 }),
   fitIntoView: async () => {},
   setZoom: async () => {},
   panTo: async () => {},

@@ -22,19 +22,17 @@ exports[`<InfiniteCanvas /> > should center on a given element 1`] = `
       class="infinite-canvas-background"
     >
       <pattern
-        height="24.615384615384617"
+        height="20"
         id="_r_4_"
-        patternTransform="translate(1.2307692307692308, 1.2307692307692308)"
+        patternTransform="translate(-792.3076923076924 -246.1538461538462) scale(1.2307692307692308) translate(1 1)"
         patternUnits="userSpaceOnUse"
-        width="24.615384615384617"
-        x="-4.615384615384642"
-        y="-2.1316282072803006e-14"
+        width="20"
       >
         <circle
-          cx="1.2307692307692308"
-          cy="1.2307692307692308"
+          cx="1"
+          cy="1"
           fill="var(--dots-color)"
-          r="1.2307692307692308"
+          r="1"
         />
       </pattern>
       <rect
@@ -70,11 +68,9 @@ exports[`<InfiniteCanvas /> > should render an infinite canvas 1`] = `
       <pattern
         height="20"
         id="dots"
-        patternTransform="translate(1, 1)"
+        patternTransform="translate(0 0) scale(1) translate(1 1)"
         patternUnits="userSpaceOnUse"
         width="20"
-        x="0"
-        y="0"
       >
         <circle
           cx="1"

@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, useSyncExternalStore } from 'react';
 
 import {
   AlertsContext,
@@ -17,3 +17,9 @@ export const useList = () => use(ListContext);
 export const useToasts = () => use(ToastsContext);
 export const useModal = () => use(ModalContext);
 export const useInfiniteCanvas = () => use(InfiniteCanvasContext);
+
+export const useInfiniteCanvasCursor = () => {
+  const { subscribeCursor, getCursor } = use(InfiniteCanvasContext);
+
+  return useSyncExternalStore(subscribeCursor, getCursor, getCursor);
+};
