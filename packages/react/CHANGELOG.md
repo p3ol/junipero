@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.15.2](https://github.com/p3ol/junipero/compare/v3.15.1...v3.15.2) (2026-11-02)
+
+### Bug Fixes
+
+* **react:** infinite canvas lag ([d6bcf9b](https://github.com/p3ol/junipero/commit/d6bcf9bc052477e3ae4f85af89484264fc847e99))
+* upgrade various deps ([dae6467](https://github.com/p3ol/junipero/commit/dae6467f7a44afb1eb4902fb440fc3b71dac5867))
+
+
 ## [3.15.1](https://github.com/p3ol/junipero/compare/v3.15.0...v3.15.1) (2026-09-18)
 
 ### Bug Fixes
