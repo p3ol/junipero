@@ -9,7 +9,6 @@ const currentPath = path.resolve('./packages/tailwind-plugin');
 
 describe('@junipero/tailwind-plugin', () => {
   it('should generate the correct CSS', async () => {
-    // @ts-expect-error postcss is weird
     const css = await postcss([
       tailwindcss({
         base: path.resolve(currentPath, './tests'),

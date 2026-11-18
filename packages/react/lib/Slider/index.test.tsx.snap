@@ -15,7 +15,7 @@ exports[`<Slider /> > should render 1`] = `
     </div>
     <div
       class="handle"
-      style="transform: translate3d(0px, 0, 0);"
+      style="transform: translate3d(0px, 0px, 0px);"
       tabindex="0"
     />
   </div>

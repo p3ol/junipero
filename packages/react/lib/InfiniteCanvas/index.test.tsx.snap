@@ -7,7 +7,7 @@ exports[`<InfiniteCanvas /> > should center on a given element 1`] = `
   >
     <div
       class="infinite-canvas-content"
-      style="transform: translate3d(-792.3076923076924px, -246.1538461538462px, 0) scale3d(1.2307692307692308, 1.2307692307692308, 1); transform-origin: 0 0;"
+      style="transform: translate3d(-792.308px, -246.154px, 0px) scale3d(1.23077, 1.23077, 1); transform-origin: 0px 0px;"
     >
       <div
         style="width: 2000px; height: 2000px;"
@@ -54,7 +54,7 @@ exports[`<InfiniteCanvas /> > should render an infinite canvas 1`] = `
   >
     <div
       class="infinite-canvas-content"
-      style="transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1); transform-origin: 0 0;"
+      style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); transform-origin: 0px 0px;"
     >
       <div
         style="width: 1000px; height: 1000px;"

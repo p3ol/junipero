@@ -48,7 +48,7 @@ exports[`<ColorField /> > should render 1`] = `
           >
             <a
               class="handle"
-              style="transform: translate3d(0px, 0px, 0);"
+              style="transform: translate3d(0px, 0px, 0px);"
             />
           </div>
           <div
@@ -62,7 +62,7 @@ exports[`<ColorField /> > should render 1`] = `
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
               <div
@@ -71,7 +71,7 @@ exports[`<ColorField /> > should render 1`] = `
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
             </div>
@@ -140,7 +140,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
           >
             <a
               class="handle"
-              style="transform: translate3d(0px, 0px, 0);"
+              style="transform: translate3d(0px, 0px, 0px);"
             />
           </div>
           <div
@@ -154,7 +154,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
               <div
@@ -163,7 +163,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
             </div>
@@ -232,7 +232,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
           >
             <a
               class="handle"
-              style="transform: translate3d(0px, 0px, 0);"
+              style="transform: translate3d(0px, 0px, 0px);"
             />
           </div>
           <div
@@ -246,7 +246,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
               <div
@@ -255,7 +255,7 @@ exports[`<ColorField /> > should update values when mouse is down and alpha hand
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(50px, 0, 0);"
+                  style="transform: translate3d(50px, 0px, 0px);"
                 />
               </div>
             </div>
@@ -324,7 +324,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
           >
             <a
               class="handle"
-              style="transform: translate3d(0px, 0px, 0);"
+              style="transform: translate3d(0px, 0px, 0px);"
             />
           </div>
           <div
@@ -338,7 +338,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(50px, 0, 0);"
+                  style="transform: translate3d(50px, 0px, 0px);"
                 />
               </div>
               <div
@@ -347,7 +347,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
             </div>
@@ -416,7 +416,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
           >
             <a
               class="handle"
-              style="transform: translate3d(0px, 0px, 0);"
+              style="transform: translate3d(0px, 0px, 0px);"
             />
           </div>
           <div
@@ -430,7 +430,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
               <div
@@ -439,7 +439,7 @@ exports[`<ColorField /> > should update values when mouse is down and hue handle
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
             </div>
@@ -508,7 +508,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
           >
             <a
               class="handle"
-              style="transform: translate3d(50px, 50px, 0);"
+              style="transform: translate3d(50px, 50px, 0px);"
             />
           </div>
           <div
@@ -522,7 +522,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
               <div
@@ -531,7 +531,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
             </div>
@@ -600,7 +600,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
           >
             <a
               class="handle"
-              style="transform: translate3d(0px, 0px, 0);"
+              style="transform: translate3d(0px, 0px, 0px);"
             />
           </div>
           <div
@@ -614,7 +614,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
               <div
@@ -623,7 +623,7 @@ exports[`<ColorField /> > should update values when mouse is down and lightness 
               >
                 <a
                   class="handle"
-                  style="transform: translate3d(0px, 0, 0);"
+                  style="transform: translate3d(0px, 0px, 0px);"
                 />
               </div>
             </div>
