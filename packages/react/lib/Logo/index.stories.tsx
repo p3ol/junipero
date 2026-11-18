@@ -11,6 +11,7 @@ import {
   PooolIconLogo,
   PooolCutoutIconLogo,
   SplitLogo,
+  PagesLogo,
 } from './index';
 
 export default { title: 'react/Logo' };
@@ -61,4 +62,8 @@ export const Flow = () => (
 
 export const Split = () => (
   <SplitLogo />
+);
+
+export const Pages = () => (
+  <PagesLogo className="dark:[.text>path]:fill-white!" />
 );
