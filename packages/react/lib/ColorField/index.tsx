@@ -31,6 +31,7 @@ import DropdownToggle from '../DropdownToggle';
 import DropdownMenu from '../DropdownMenu';
 import TextField, { type TextFieldRef } from '../TextField';
 import FieldControl from '../FieldControl';
+import Tooltip from '../Tooltip';
 
 export declare interface ColorFieldRef extends JuniperoRef {
   dirty: boolean;
@@ -47,6 +48,23 @@ export declare interface ColorFieldRef extends JuniperoRef {
   colorLightnessRef: RefObject<HTMLDivElement>;
   innerRef: RefObject<DropdownRef>;
   textFieldRef: RefObject<TextFieldRef>;
+}
+
+export declare interface ColorFieldPreset {
+  /** Value given to the field when picked (e.g. `#6C5CE7`, `var(--brand)`) */
+  value: string;
+  /** Displayed in a tooltip */
+  title?: ReactNode;
+  /** Displayed color, if `value` can't be displayed as is */
+  color?: string;
+}
+
+export declare interface ColorFieldMenuContentHelpers {
+  /** Current value of the field */
+  value: string;
+  /** Changes the value of the field (like typing it), e.g. to pick a preset */
+  setValue(value: string): void;
+  close(): void;
 }
 
 export declare interface ColorFieldProps extends Omit<
@@ -79,6 +97,18 @@ export declare interface ColorFieldProps extends Omit<
     value: string,
     { dirty, required }: { dirty?: boolean; required?: boolean }
   ): boolean;
+  /**
+   * Colors that can be picked in one click, displayed in the color menu
+   * below the color wheel
+   */
+  presets?: ColorFieldPreset[];
+  /** Displayed above the presets */
+  presetsLabel?: ReactNode;
+  /**
+   * Extra content displayed inside the color menu, below the color wheel
+   * & presets
+   */
+  renderMenuContent?(helpers: ColorFieldMenuContentHelpers): ReactNode;
 }
 
 export declare interface ColorFieldState {
@@ -119,6 +149,9 @@ const ColorField = ({
   onFocus,
   onToggle,
   onValidate = (val, { required }) => !!val || !required,
+  presets,
+  presetsLabel = 'Presets',
+  renderMenuContent,
   ...rest
 }: ColorFieldProps) => {
   const innerRef = useRef<DropdownRef>(null);
@@ -215,6 +248,11 @@ const ColorField = ({
     if (!valuePropChange) {
       onChange?.({ value: state.value, valid: state.valid });
     }
+  };
+
+  const onPresetClick = (preset: ColorFieldPreset) => {
+    onColorChange_(preset.value);
+    close();
   };
 
   const onChange_ = (field: FieldContent<string>) => {
@@ -525,6 +563,44 @@ const ColorField = ({
             </div>
           </div>
         </div>
+        { presets?.length > 0 && (
+          <div className="presets">
+            { presetsLabel && (
+              <div className="presets-label">{ presetsLabel }</div>
+            ) }
+            <div className="presets-list">
+              { presets.map((preset, i) => (
+                <Tooltip
+                  key={i}
+                  text={preset.title}
+                  disabled={!preset.title}
+                  placement="top"
+                >
+                  <button
+                    type="button"
+                    className={classNames('preset', {
+                      active: state.value === preset.value,
+                    })}
+                    aria-label={typeof preset.title === 'string'
+                      ? preset.title : preset.value}
+                    aria-pressed={state.value === preset.value}
+                    style={{ backgroundColor: preset.color ?? preset.value }}
+                    onClick={onPresetClick.bind(null, preset)}
+                  />
+                </Tooltip>
+              )) }
+            </div>
+          </div>
+        ) }
+        { renderMenuContent && (
+          <div className="menu-content">
+            { renderMenuContent({
+              value: state.value,
+              setValue: val => onColorChange_(val),
+              close,
+            }) }
+          </div>
+        ) }
       </DropdownMenu>
       { children }
     </Dropdown>

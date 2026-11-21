@@ -128,6 +128,8 @@ export {
   type ColorFieldRef,
   type ColorFieldProps,
   type ColorFieldState,
+  type ColorFieldMenuContentHelpers,
+  type ColorFieldPreset,
 } from './ColorField';
 export {
   default as DateField,
