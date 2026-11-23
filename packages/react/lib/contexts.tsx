@@ -1,10 +1,16 @@
 import type { ExtendedRefs, Strategy } from '@floating-ui/react';
-import { type Dispatch, type ReactElement, createContext } from 'react';
+import {
+  type Dispatch,
+  type ReactElement,
+  type RefObject,
+  createContext,
+} from 'react';
 
 import type { AlertObject } from './Alert';
 import type { ToastObject } from './Toast';
 import type { ListColumnObject } from './ListColumn';
 import type { ModalRef } from './Modal';
+import type { GraphStore } from './Graph/store';
 
 export interface AlertsContextType {
   alerts?: AlertObject[];
@@ -114,3 +120,12 @@ export const InfiniteCanvasContext = createContext<InfiniteCanvasContextType>({
   centerOn: async () => {},
 });
 
+export const GraphContext = createContext<GraphStore | null>(null);
+
+export declare interface GraphNodeContextType {
+  id: string;
+  innerRef: RefObject<HTMLDivElement | null>;
+}
+
+export const GraphNodeContext =
+  createContext<GraphNodeContextType | null>(null);

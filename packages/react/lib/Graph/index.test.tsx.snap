@@ -1,0 +1,91 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Graph /> > should render a graph with nodes, handles & edges 1`] = `
+<div>
+  <div
+    class="junipero graph auto-size"
+    style="position: relative; left: 0px; top: 0px; width: 200px; height: 100px;"
+  >
+    <div
+      class="graph-content"
+      style="position: absolute; left: 0px; top: 0px;"
+    >
+      <div
+        aria-hidden="true"
+        class="graph-probe"
+        style="position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; visibility: hidden; pointer-events: none;"
+      />
+      <div
+        class="junipero graph-node draggable"
+        data-node-id="a"
+        style="position: absolute; left: 0px; top: 0px;"
+      >
+        A
+        <div
+          class="junipero graph-handle source right connectable"
+          data-handle-id="source"
+          data-handle-type="source"
+          data-node-id="a"
+        />
+      </div>
+      <div
+        class="junipero graph-node draggable"
+        data-node-id="b"
+        style="position: absolute; left: 200px; top: 100px;"
+      >
+        B
+        <div
+          class="junipero graph-handle target left connectable"
+          data-handle-id="target"
+          data-handle-type="target"
+          data-node-id="b"
+        />
+      </div>
+      <svg
+        class="junipero graph-edge bezier solid"
+        data-source="a"
+        data-target="b"
+        style="position: absolute; left: 0px; top: 0px; width: 200px; height: 100px; overflow: visible;"
+        viewBox="0 0 200 100"
+      >
+        <defs>
+          <marker
+            class="graph-edge-arrow"
+            id="_r_0_"
+            markerHeight="10"
+            markerUnits="userSpaceOnUse"
+            markerWidth="10"
+            orient="auto-start-reverse"
+            refX="10"
+            refY="5"
+            viewBox="0 0 10 10"
+          >
+            <path
+              d="M0,0 L10,5 L0,10 z"
+            />
+          </marker>
+        </defs>
+        <path
+          class="graph-edge-path"
+          d="M0,0 C100,0 100,100 200,100"
+          fill="none"
+          marker-end="url(#_r_0_)"
+        />
+        <path
+          class="graph-edge-interaction"
+          d="M0,0 C100,0 100,100 200,100"
+          fill="none"
+          stroke="transparent"
+          stroke-width="20"
+        />
+      </svg>
+      <div
+        class="junipero graph-edge-label"
+        style="position: absolute; left: 100px; top: 50px; transform: translate(-50%, -50%);"
+      >
+        a to b
+      </div>
+    </div>
+  </div>
+</div>
+`;
