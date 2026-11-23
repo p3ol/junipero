@@ -1,0 +1,175 @@
+@use "./utils/vars" as vars
+
+.junipero.graph
+  --connection-line-color: var(--junipero-velvet)
+
+  position: relative
+  isolation: isolate
+
+  .graph-content
+    position: absolute
+
+  .graph-connection-line
+    z-index: 3
+
+    .graph-connection-line-path
+      stroke: var(--connection-line-color)
+      stroke-width: 1.5
+      stroke-dasharray: 5
+
+.junipero.graph-node
+  --background-color: var(--junipero-seashell)
+  --border-color: var(--junipero-mischka)
+  --selected-color: var(--junipero-velvet)
+  --shadow-color: var(--junipero-shadow)
+
+  position: absolute
+  z-index: 1
+  min-width: 150px
+  padding: 10px 15px
+  border: 1px solid var(--border-color)
+  border-radius: 10px
+  background: var(--background-color)
+  box-shadow: #{vars.$cardShadow}
+  user-select: none
+  transition: border-color .2s, box-shadow .2s
+
+  &.draggable
+    cursor: grab
+
+  &.moving
+    z-index: 2
+    cursor: grabbing
+
+  &.selected
+    border-color: var(--selected-color)
+    box-shadow: 0 0 0 1px var(--selected-color), #{vars.$cardShadow}
+
+  .nodrag
+    cursor: auto
+    user-select: text
+
+// Handles are positioned with offsets only (no transforms) because their
+// center is measured from their layout box to anchor edges
+.junipero.graph-handle
+  --size: 10px
+  --background-color: var(--junipero-seashell)
+  --border-color: var(--junipero-slate)
+  --active-color: var(--junipero-velvet)
+  --valid-color: var(--junipero-lime)
+  --invalid-color: var(--junipero-grapefruit)
+
+  position: absolute
+  z-index: 1
+  box-sizing: border-box
+  width: var(--size)
+  height: var(--size)
+  border: 2px solid var(--border-color)
+  border-radius: 50%
+  background: var(--background-color)
+  touch-action: none
+  transition: background .2s, border-color .2s
+
+  &.left
+    top: calc(50% - var(--size) / 2)
+    left: calc(var(--size) / -2)
+
+  &.right
+    top: calc(50% - var(--size) / 2)
+    right: calc(var(--size) / -2)
+
+  &.top
+    top: calc(var(--size) / -2)
+    left: calc(50% - var(--size) / 2)
+
+  &.bottom
+    bottom: calc(var(--size) / -2)
+    left: calc(50% - var(--size) / 2)
+
+  &.connectable
+    cursor: crosshair
+
+    &:hover
+      border-color: var(--active-color)
+
+  &.connecting
+    border-color: var(--active-color)
+    background: var(--active-color)
+
+  &.valid
+    border-color: var(--valid-color)
+    background: var(--valid-color)
+
+  &.invalid
+    border-color: var(--invalid-color)
+
+.junipero.graph-edge
+  --stroke-color: var(--junipero-slate)
+  --selected-color: var(--junipero-velvet)
+  --stroke-width: 1.5
+  --stroke-dasharray: none
+  --stroke-linecap: butt
+
+  z-index: 0
+  pointer-events: none
+
+  .graph-edge-path
+    stroke: var(--stroke-color)
+    stroke-width: var(--stroke-width)
+    stroke-dasharray: var(--stroke-dasharray)
+    stroke-linecap: var(--stroke-linecap)
+    transition: stroke .2s
+
+  // Dash patterns' lengths are divisors of 10 so the `animated` dash offset
+  // animation loops seamlessly
+  &.dashed
+    --stroke-dasharray: 6 4
+
+  &.dotted
+    --stroke-dasharray: 0 5
+    --stroke-linecap: round
+    --stroke-width: 2
+
+  .graph-edge-arrow path
+    fill: var(--stroke-color)
+    transition: fill .2s
+
+  .graph-edge-interaction
+    pointer-events: stroke
+    cursor: pointer
+
+  &:hover,
+  &.selected
+    --stroke-color: var(--selected-color)
+
+  &.animated
+    // A solid line would show no movement, so use dashes instead
+    &.solid
+      --stroke-dasharray: 5
+
+    .graph-edge-path
+      animation: junipero-graph-edge-dash .5s linear infinite
+
+.junipero.graph-edge-label
+  --background-color: var(--junipero-seashell)
+  --border-color: var(--junipero-mischka)
+  --text-color: var(--junipero-tundora)
+
+  z-index: 1
+  padding: 2px 8px
+  border: 1px solid var(--border-color)
+  border-radius: 6px
+  background: var(--background-color)
+  color: var(--text-color)
+  font-size: 12px
+  white-space: nowrap
+
+  &.selected
+    border-color: var(--junipero-velvet)
+
+@keyframes junipero-graph-edge-dash
+  from
+    stroke-dashoffset: 10
+
+  to
+    stroke-dashoffset: 0

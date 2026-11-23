@@ -186,6 +186,61 @@ export {
   type FieldGroupProps,
 } from './FieldGroup';
 export {
+  default as Graph,
+  type GraphRef,
+  type GraphProps,
+} from './Graph';
+export {
+  default as GraphConnectionLine,
+  type GraphConnectionLineProps,
+} from './Graph/ConnectionLine';
+export {
+  NODES_KEY,
+  CONNECTION_KEY,
+  CONNECTION_CURSOR_KEY,
+  nodeKey,
+  type GraphStore,
+  type GraphStoreOptions,
+  type GraphNodeEntry,
+  type GraphHandleEntry,
+  type GraphPendingConnection,
+  type GraphHandleType,
+  type GraphHandlePosition,
+  type GraphPoint,
+  type GraphAnchor,
+  type GraphConnection,
+  type GraphHandleInfo,
+  type GraphConnectEndParams,
+} from './Graph/store';
+export {
+  default as GraphEdge,
+  ARROW_VIEWBOX,
+  type GraphEdgeRef,
+  type GraphEdgeProps,
+  type GraphEdgeLineStyle,
+} from './GraphEdge';
+export {
+  getEdgePath,
+  getBezierPath,
+  getStraightPath,
+  getStepPath,
+  type GraphEdgeType,
+  type GraphEdgePath,
+  type GraphEdgePathOptions,
+} from './GraphEdge/paths';
+export {
+  default as GraphHandle,
+  type GraphHandleRef,
+  type GraphHandleProps,
+} from './GraphHandle';
+export {
+  default as GraphNode,
+  NO_DRAG_SELECTOR,
+  type GraphNodeRef,
+  type GraphNodeProps,
+  type DragState,
+} from './GraphNode';
+export {
   default as InfiniteCanvas,
   type InfiniteCanvasRef,
   type InfiniteCanvasProps,
@@ -373,6 +428,10 @@ export {
   useModal,
   useInfiniteCanvas,
   useInfiniteCanvasCursor,
+  useGraph,
+  useGraphNode,
+  useGraphSubscription,
+  useGraphEdgeAnchors,
 } from './hooks';
 
 export {
@@ -394,6 +453,9 @@ export {
   DropdownContext,
   FieldControlContext,
   ModalContext,
+  GraphContext,
+  GraphNodeContext,
+  type GraphNodeContextType,
   type AlertsContextType,
   type DropdownContextType,
   type ListContextType,
