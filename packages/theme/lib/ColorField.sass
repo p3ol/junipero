@@ -113,3 +113,43 @@
           position: relative
           left: -4px
           box-shadow: 0 2px 7px 1px rgb(0 0 0 / 15%)
+
+  .presets
+    padding: 10px
+    border-top: 1px solid var(--border-color)
+    display: flex
+    flex-direction: column
+    gap: 8px
+    box-sizing: border-box
+    width: 0
+    min-width: 100%
+
+    .presets-label
+      color: var(--junipero-slate)
+      font-size: 12px
+
+    .presets-list
+      display: flex
+      flex-wrap: wrap
+      gap: 8px
+
+    .preset
+      width: 24px
+      height: 24px
+      padding: 0
+      border-radius: 4px
+      border: 1px solid rgb(0 0 0 / 10%)
+      cursor: pointer
+      transition: box-shadow .2s ease-in-out
+
+      &:hover,
+      &:focus-visible
+        box-shadow: 0 0 0 2px var(--background-color, var(--junipero-seashell)), 0 0 0 4px var(--border-color)
+        outline: none
+
+      &.active
+        box-shadow: 0 0 0 2px var(--background-color, var(--junipero-seashell)), 0 0 0 4px var(--junipero-velvet)
+
+  .menu-content
+    padding: 10px
+    border-top: 1px solid var(--border-color)

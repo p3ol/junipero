@@ -45,3 +45,61 @@ export const Animated = () => (
 export const Disabled = () => (
   <ColorField animateMenu={slideInDownMenu} disabled={true} />
 );
+
+const PRESETS = [
+  { value: '#6C5CE7', title: 'Purple' },
+  { value: '#00B894', title: 'Green' },
+  { value: '#FDCB6E', title: 'Yellow' },
+  { value: 'var(--brand-color)', color: '#E17055', title: 'Brand color' },
+];
+
+export const WithPresets = () => (
+  <ColorField presets={PRESETS} onChange={action('change')} />
+);
+
+export const WithCustomPresetsLabel = () => (
+  <ColorField
+    presets={PRESETS}
+    presetsLabel="Palette"
+    onChange={action('change')}
+  />
+);
+
+export const WithCustomMenuContent = () => (
+  <ColorField
+    onChange={action('change')}
+    renderMenuContent={({ value, setValue, close }) => (
+      <button
+        type="button"
+        disabled={!value}
+        onClick={() => {
+          setValue('');
+          close();
+        }}
+      >
+        Clear
+      </button>
+    )}
+  />
+);
+
+const presetsGroups = [
+  {
+    label: 'Basic colors',
+    presets: [
+      { value: '#6C5CE7', title: 'Purple' },
+      { value: '#00B894', title: 'Green' },
+      { value: '#FDCB6E', title: 'Yellow' },
+    ],
+  },
+  {
+    label: 'Brand',
+    presets: [
+      { value: 'var(--brand-color)', color: '#E17055', title: 'Brand color' },
+    ],
+  },
+];
+
+export const withPresetsGroups = () => (
+  <ColorField presets={presetsGroups} onChange={action('change')} />
+);
