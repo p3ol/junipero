@@ -82,3 +82,24 @@ export const WithCustomMenuContent = () => (
     )}
   />
 );
+
+const presetsGroups = [
+  {
+    label: 'Basic colors',
+    presets: [
+      { value: '#6C5CE7', title: 'Purple' },
+      { value: '#00B894', title: 'Green' },
+      { value: '#FDCB6E', title: 'Yellow' },
+    ],
+  },
+  {
+    label: 'Brand',
+    presets: [
+      { value: 'var(--brand-color)', color: '#E17055', title: 'Brand color' },
+    ],
+  },
+];
+
+export const withPresetsGroups = () => (
+  <ColorField presets={presetsGroups} onChange={action('change')} />
+);
