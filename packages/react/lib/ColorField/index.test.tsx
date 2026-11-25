@@ -199,9 +199,80 @@ describe('<ColorField />', () => {
       value: 'var(--brand)',
       valid: true,
     });
+    // The selected preset is displayed with its title & color
     expect(container.querySelector<HTMLInputElement>('input').value)
-      .toBe('var(--brand)');
+      .toBe('Brand color');
+    expect(container.querySelector<HTMLElement>('.pigment').style
+      .backgroundColor).toBe('rgb(225, 112, 85)');
     expect(container.querySelector('.color-menu')).toBeFalsy();
+
+    unmount();
+  });
+
+  it('should allow to group presets', () => {
+    const { container, getByText, getByLabelText, unmount } = render(
+      <ColorField
+        autoFocus={true}
+        value="var(--palette--red)"
+        presetsLabel="Others"
+        presets={[
+          { label: 'Styles', presets: [
+            { value: 'var(--skin--text)', color: '#000', title: 'Text' },
+          ] },
+          { label: 'Palette', presets: [
+            { value: 'var(--palette--red)', color: '#F00', title: 'Red' },
+            { value: 'var(--palette--blue)', color: '#00F', title: 'Blue' },
+          ] },
+          { value: '#FFFFFF', title: 'White' },
+          // Empty groups are not displayed
+          { label: 'Empty', presets: [] },
+        ]}
+      />
+    );
+
+    const groups = container.querySelectorAll('.color-menu .presets');
+    expect(groups).toHaveLength(3);
+    expect([...groups].map(g => g.querySelector('.presets-label').textContent))
+      .toEqual(['Styles', 'Palette', 'Others']);
+    expect(groups[1].querySelectorAll('.preset')).toHaveLength(2);
+    expect(getByText('Palette')).toBeTruthy();
+    // Selected preset, whatever its group
+    expect(getByLabelText('Red').getAttribute('aria-pressed')).toBe('true');
+
+    const input = container.querySelector<HTMLInputElement>('input');
+    fireEvent.blur(input);
+    expect(input.value).toBe('Red');
+
+    unmount();
+  });
+
+  it('should display the raw value of a preset while editing it', () => {
+    const onChange = vi.fn();
+    const { container, unmount } = render(
+      <ColorField
+        value="var(--brand)"
+        onChange={onChange}
+        presets={[
+          { value: 'var(--brand)', color: '#E17055', title: 'Brand color' },
+        ]}
+      />
+    );
+
+    const input = container.querySelector<HTMLInputElement>('input');
+    expect(input.value).toBe('Brand color');
+
+    fireEvent.focus(input);
+    expect(input.value).toBe('var(--brand)');
+
+    fireEvent.change(input, { target: { value: '#000000' } });
+    expect(onChange).toHaveBeenLastCalledWith({
+      value: '#000000',
+      valid: true,
+    });
+
+    fireEvent.blur(input);
+    // Not a preset anymore
+    expect(input.value).toBe('#000000');
 
     unmount();
   });

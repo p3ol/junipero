@@ -9,6 +9,8 @@ import {
   useRef,
   useEffect,
   useLayoutEffect,
+  useMemo,
+  useState,
 } from 'react';
 import {
   classNames,
@@ -53,10 +55,19 @@ export declare interface ColorFieldRef extends JuniperoRef {
 export declare interface ColorFieldPreset {
   /** Value given to the field when picked (e.g. `#6C5CE7`, `var(--brand)`) */
   value: string;
-  /** Displayed in a tooltip */
+  /**
+   * Displayed in a tooltip, and in the field instead of the value when the
+   * preset is selected (if it's a string)
+   */
   title?: ReactNode;
   /** Displayed color, if `value` can't be displayed as is */
   color?: string;
+}
+
+export declare interface ColorFieldPresetGroup {
+  /** Displayed above the presets of the group */
+  label?: ReactNode;
+  presets: ColorFieldPreset[];
 }
 
 export declare interface ColorFieldMenuContentHelpers {
@@ -99,10 +110,11 @@ export declare interface ColorFieldProps extends Omit<
   ): boolean;
   /**
    * Colors that can be picked in one click, displayed in the color menu
-   * below the color wheel
+   * below the color wheel. They can be split into groups, each with its own
+   * label (e.g. `[{ label: 'Brand', presets: [...] }, ...]`)
    */
-  presets?: ColorFieldPreset[];
-  /** Displayed above the presets */
+  presets?: (ColorFieldPreset | ColorFieldPresetGroup)[];
+  /** Displayed above the presets that are not in a group */
   presetsLabel?: ReactNode;
   /**
    * Extra content displayed inside the color menu, below the color wheel
@@ -160,6 +172,10 @@ const ColorField = ({
   const colorHueRef = useRef<HTMLDivElement>(null);
   const colorAlphaRef = useRef<HTMLDivElement>(null);
   const { update: updateControl } = useFieldControl();
+  // Whether the raw value is being edited (displayed instead of the selected
+  // preset's title)
+  const [editing, setEditing] = useState(false);
+  const fromPigment = useRef(false);
   const [state, dispatch] = useReducer(mockState<ColorFieldState>, {
     value: value ?? '',
     a: 100,
@@ -252,14 +268,50 @@ const ColorField = ({
 
   const onPresetClick = (preset: ColorFieldPreset) => {
     onColorChange_(preset.value);
+    setEditing(false);
     close();
   };
+
+  // Presets that are not in a group are gathered in a group of their own,
+  // labelled with `presetsLabel`
+  const presetGroups = useMemo(() => {
+    const groups: ColorFieldPresetGroup[] = [];
+    let ungrouped: ColorFieldPresetGroup | undefined;
+
+    for (const item of presets || []) {
+      if ('presets' in item) {
+        groups.push(item);
+      } else {
+        if (!ungrouped) {
+          ungrouped = { label: presetsLabel, presets: [] };
+          groups.push(ungrouped);
+        }
+
+        ungrouped.presets.push(item);
+      }
+    }
+
+    return groups.filter(g => g.presets?.length > 0);
+  }, [presets, presetsLabel]);
+
+  const selectedPreset = useMemo(() => (
+    presetGroups
+      .flatMap(g => g.presets)
+      .find(p => p.value === state.value)
+  ), [presetGroups, state.value]);
 
   const onChange_ = (field: FieldContent<string>) => {
     onColorChange_(field.value, { valuePropChange: false });
   };
 
   const onFocus_ = (e: FocusEvent<HTMLInputElement>) => {
+    // Focused to edit the value (not by opening the menu from the pigment)
+    if (!fromPigment.current) {
+      setEditing(true);
+    }
+
+    fromPigment.current = false;
+
     if (trigger === 'focus') {
       innerRef.current?.open();
     }
@@ -272,6 +324,8 @@ const ColorField = ({
   };
 
   const onBlur_ = (e: FocusEvent<HTMLInputElement>) => {
+    setEditing(false);
+
     if (trigger === 'focus') {
       innerRef.current?.close();
     }
@@ -293,7 +347,9 @@ const ColorField = ({
     e.preventDefault();
 
     if (!state.opened) {
+      fromPigment.current = true;
       textFieldRef.current?.focus();
+      fromPigment.current = false;
     }
 
     innerRef.current?.toggle();
@@ -466,7 +522,10 @@ const ColorField = ({
               name={name}
               autoFocus={autoFocus}
               ref={textFieldRef}
-              value={state.value}
+              value={selectedPreset && !editing &&
+                typeof selectedPreset.title === 'string'
+                ? selectedPreset.title
+                : state.value}
               placeholder={placeholder}
               onFocus={onFocus_}
               onBlur={onBlur_}
@@ -480,7 +539,7 @@ const ColorField = ({
           <a
             className="pigment"
             onClick={onTogglePreview}
-            style={{ backgroundColor: state.value }}
+            style={{ backgroundColor: selectedPreset?.color ?? state.value }}
           />
         </div>
       </DropdownToggle>
@@ -563,13 +622,13 @@ const ColorField = ({
             </div>
           </div>
         </div>
-        { presets?.length > 0 && (
-          <div className="presets">
-            { presetsLabel && (
-              <div className="presets-label">{ presetsLabel }</div>
+        { presetGroups.map((group, g) => (
+          <div key={g} className="presets">
+            { group.label && (
+              <div className="presets-label">{ group.label }</div>
             ) }
             <div className="presets-list">
-              { presets.map((preset, i) => (
+              { group.presets.map((preset, i) => (
                 <Tooltip
                   key={i}
                   text={preset.title}
@@ -591,7 +650,7 @@ const ColorField = ({
               )) }
             </div>
           </div>
-        ) }
+        )) }
         { renderMenuContent && (
           <div className="menu-content">
             { renderMenuContent({
